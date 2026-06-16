@@ -6,7 +6,7 @@ export default function ProductsPage() {
   return (
     <>
       <div className="page-hero">
-        <div className="page-hero-bg" style={{background:"url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1800&q=80') center/cover"}}></div>
+        <div className="page-hero-bg" style={{background:"url('/images/Switchgear.jpg.jpeg') center/cover"}}></div>
         <div className="container page-hero-content">
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>Products</span></div>
           <div className="label label-white">Our Product Range</div>
@@ -29,7 +29,7 @@ export default function ProductsPage() {
             <div className="split split-2-3" style={{gap:'5rem',alignItems:'start'}}>
               <div className="rv-l">
                 <div className="prod-detail-img">
-                  <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80" alt="Electrical Switchgear"/>
+                  <img src="/images/Switchgear.jpg.jpeg" alt="Electrical Switchgear"/>
                 </div>
                 <div style={{marginTop:'1.5rem',padding:'1.75rem',background:'var(--off)',borderRadius:'12px'}}>
                   <div style={{fontFamily:'var(--fm)',fontSize:'.6rem',color:'var(--blue)',letterSpacing:'.22em',textTransform:'uppercase',marginBottom:'.85rem'}}>Quick Specs</div>
@@ -114,7 +114,7 @@ export default function ProductsPage() {
               </div>
               <div className="rv-r">
                 <div className="prod-detail-img">
-                  <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Switchboards and Panelboards"/>
+                  <img src="/images/Switchboards%20%26%20Panelboards.jpg.jpeg" alt="Switchboards and Panelboards"/>
                 </div>
                 <div style={{marginTop:'1.5rem',padding:'1.75rem',background:'var(--off)',borderRadius:'12px'}}>
                   <div style={{fontFamily:'var(--fm)',fontSize:'.6rem',color:'var(--blue)',letterSpacing:'.22em',textTransform:'uppercase',marginBottom:'.85rem'}}>Quick Specs</div>
@@ -139,7 +139,7 @@ export default function ProductsPage() {
             <div className="split split-2-3" style={{gap:'5rem',alignItems:'start'}}>
               <div className="rv-l">
                 <div className="prod-detail-img">
-                  <img src="https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?w=800&q=80" alt="Control Panels"/>
+                  <img src="/images/Control%20Panels.jpg.jpeg" alt="Control Panels"/>
                 </div>
                 <div style={{marginTop:'1.5rem',padding:'1.75rem',background:'var(--off)',borderRadius:'12px'}}>
                   <div style={{fontFamily:'var(--fm)',fontSize:'.6rem',color:'var(--blue)',letterSpacing:'.22em',textTransform:'uppercase',marginBottom:'.85rem'}}>Quick Specs</div>

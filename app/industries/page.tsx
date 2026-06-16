@@ -19,7 +19,7 @@ export default function IndustriesPage() {
         <div className="container">
           <div className="ind-detail rv">
             <div className="ind-img-wrap">
-              <img src="https://images.unsplash.com/photo-1578301978162-6f748de87d60?w=900&q=80" alt="Mining Operations"/>
+              <img src="/images/Mining.jpg.jpeg" alt="Mining Operations"/>
             </div>
             <div>
               <div className="label">Industry 01</div>
@@ -45,7 +45,7 @@ export default function IndustriesPage() {
         <div className="container">
           <div className="ind-detail flip rv">
             <div className="ind-img-wrap">
-              <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=900&q=80" alt="Oil and Gas Facility"/>
+              <img src="/images/Oil%20%26%20Gas.jpg.jpeg" alt="Oil and Gas Facility"/>
             </div>
             <div>
               <div className="label">Industry 02</div>
@@ -71,7 +71,7 @@ export default function IndustriesPage() {
         <div className="container">
           <div className="ind-detail rv">
             <div className="ind-img-wrap">
-              <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=900&q=80" alt="Wind Farm Power Plant"/>
+              <img src="/images/Renewable%20Energy.jpg.jpeg" alt="Wind Farm Power Plant"/>
             </div>
             <div>
               <div className="label">Industry 03</div>
@@ -97,7 +97,7 @@ export default function IndustriesPage() {
         <div className="container">
           <div className="ind-detail flip rv">
             <div className="ind-img-wrap">
-              <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=80" alt="AI Data Center"/>
+              <img src="/images/Data%20Centers.jpg.jpeg" alt="AI Data Center"/>
             </div>
             <div>
               <div className="label">Industry 04</div>
@@ -123,7 +123,7 @@ export default function IndustriesPage() {
         <div className="container">
           <div className="ind-detail rv">
             <div className="ind-img-wrap">
-              <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=900&q=80" alt="Hospital Healthcare Facility"/>
+              <img src="/images/Healthcare.jpg.jpeg" alt="Hospital Healthcare Facility"/>
             </div>
             <div>
               <div className="label">Industry 05</div>

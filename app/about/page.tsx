@@ -6,7 +6,7 @@ export default function AboutPage() {
   return (
     <>
       <div className="page-hero">
-        <div className="page-hero-bg" style={{background:"url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1800&q=80') center 30%/cover"}}></div>
+        <div className="page-hero-bg" style={{background:"url('/images/Switchgear.jpg.jpeg') center 30%/cover"}}></div>
         <div className="container page-hero-content">
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>About</span></div>
           <div className="label label-white">Our Story</div>
@@ -77,7 +77,7 @@ export default function AboutPage() {
             </div>
             <div className="rv-r" style={{position:'sticky',top:'100px'}}>
               <div style={{borderRadius:'14px',overflow:'hidden',height:'500px',position:'relative'}}>
-                <img src="https://images.unsplash.com/photo-1581093196867-ca0a5a0cf98f?w=800&q=80" alt="Candron Engineering Team" style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+                <img src="/images/Utilities.jpg.jpeg" alt="Candron Engineering Team" style={{width:'100%',height:'100%',objectFit:'cover'}}/>
                 <div style={{position:'absolute',inset:0,background:'linear-gradient(to top,rgba(5,9,31,.5),transparent 50%)'}}></div>
                 <div style={{position:'absolute',bottom:'2rem',left:'2rem',right:'2rem'}}>
                   <div style={{fontFamily:'var(--fd)',fontSize:'1rem',fontWeight:700,color:'#fff',marginBottom:'.3rem'}}>Licensed Engineers</div>
@@ -147,10 +147,10 @@ export default function AboutPage() {
             </div>
             <div className="rv-r" style={{display:'flex',flexDirection:'column',gap:'1.5rem',marginTop:'5rem'}}>
               <div style={{borderRadius:'12px',overflow:'hidden',height:'280px'}}>
-                <img src="https://images.unsplash.com/photo-1565008576549-57d5f0af0d37?w=700&q=80" alt="Candron Facility" style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+                <img src="/images/Switchgear.jpg.jpeg" alt="Candron Facility" style={{width:'100%',height:'100%',objectFit:'cover'}}/>
               </div>
               <div style={{borderRadius:'12px',overflow:'hidden',height:'280px'}}>
-                <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=700&q=80" alt="Engineering Work" style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+                <img src="/images/Control%20Panels.jpg.jpeg" alt="Engineering Work" style={{width:'100%',height:'100%',objectFit:'cover'}}/>
               </div>
             </div>
           </div>
@@ -166,9 +166,9 @@ export default function AboutPage() {
             <p className="lead" style={{margin:'1rem auto 0'}}>Our 4801 Keele St facility houses our full inventory, in-house repair workshop, testing lab, and engineering offices — all under one roof.</p>
           </div>
           <div className="facility-grid">
-            <div className="facility-img rv"><img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=700&q=80" alt="Transformer Storage"/></div>
-            <div className="facility-img rv d2"><img src="https://images.unsplash.com/photo-1581093196867-ca0a5a0cf98f?w=700&q=80" alt="Testing Laboratory"/></div>
-            <div className="facility-img rv d3"><img src="https://images.unsplash.com/photo-1565008576549-57d5f0af0d37?w=700&q=80" alt="Engineering Office"/></div>
+            <div className="facility-img rv"><img src="/images/Switchboards%20%26%20Panelboards.jpg.jpeg" alt="Transformer Storage"/></div>
+            <div className="facility-img rv d2"><img src="/images/Utilities.jpg.jpeg" alt="Testing Laboratory"/></div>
+            <div className="facility-img rv d3"><img src="/images/Control%20Panels.jpg.jpeg" alt="Engineering Office"/></div>
           </div>
           <div style={{marginTop:'3rem',display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'1.5rem'}} className="rv">
             <div style={{textAlign:'center',padding:'1.5rem',background:'var(--white)',border:'1px solid #E8ECF5',borderRadius:'10px'}}>

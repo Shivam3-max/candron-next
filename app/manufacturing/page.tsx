@@ -6,7 +6,7 @@ export default function ManufacturingPage() {
   return (
     <>
       <div className="page-hero">
-        <div className="page-hero-bg" style={{background:"url('https://images.unsplash.com/photo-1565008576549-57d5f0af0d37?w=1800&q=80') center/cover"}}></div>
+        <div className="page-hero-bg" style={{background:"url('/images/Utilities.jpg.jpeg') center/cover"}}></div>
         <div className="container page-hero-content">
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>Manufacturing</span></div>
           <div className="label label-white">Our Facility</div>
@@ -114,7 +114,7 @@ export default function ManufacturingPage() {
             </div>
             <div className="rv-r">
               <div style={{borderRadius:'14px',overflow:'hidden',height:'420px',marginBottom:'1.5rem'}}>
-                <img src="https://images.unsplash.com/photo-1581093196867-ca0a5a0cf98f?w=800&q=80" alt="Manufacturing Facility" style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+                <img src="/images/Switchgear.jpg.jpeg" alt="Manufacturing Facility" style={{width:'100%',height:'100%',objectFit:'cover'}}/>
               </div>
               <div className="metric-showcase" style={{gridTemplateColumns:'1fr 1fr',marginTop:0}}>
                 <div className="metric-card">
@@ -148,9 +148,9 @@ export default function ManufacturingPage() {
             <p className="lead" style={{margin:'1rem auto 0'}}>Proudly engineered and manufactured in Canada. Candron's North York, Ontario facility serves utilities, contractors, industrial facilities, and infrastructure projects across North America.</p>
           </div>
           <div className="facility-grid">
-            <div className="facility-img rv"><img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=700&q=80" alt="Production Floor"/></div>
-            <div className="facility-img rv d2"><img src="https://images.unsplash.com/photo-1565008576549-57d5f0af0d37?w=700&q=80" alt="Assembly Area"/></div>
-            <div className="facility-img rv d3"><img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=700&q=80" alt="Engineering Office"/></div>
+            <div className="facility-img rv"><img src="/images/Utilities.jpg.jpeg" alt="Production Floor"/></div>
+            <div className="facility-img rv d2"><img src="/images/Switchgear.jpg.jpeg" alt="Assembly Area"/></div>
+            <div className="facility-img rv d3"><img src="/images/Control%20Panels.jpg.jpeg" alt="Engineering Office"/></div>
           </div>
         </div>
       </div>

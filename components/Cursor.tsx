@@ -7,7 +7,7 @@ export default function Cursor() {
     const curR = document.querySelector('.cur-r') as HTMLElement
     if (!cur || !curR) return
 
-    let mx=0,my=0,rx=0,ry=0
+    let mx=0,my=0,rx=0,ry=0,rafId=0
     const move = (e: MouseEvent) => {
       mx = e.clientX; my = e.clientY
       cur.style.left = mx+'px'; cur.style.top = my+'px'
@@ -17,9 +17,9 @@ export default function Cursor() {
     const tick = () => {
       rx += (mx-rx)*.12; ry += (my-ry)*.12
       curR.style.left = rx+'px'; curR.style.top = ry+'px'
-      requestAnimationFrame(tick)
+      rafId = requestAnimationFrame(tick)
     }
-    tick()
+    rafId = requestAnimationFrame(tick)
 
     const hoverEls = document.querySelectorAll('a,button,input,select,textarea,.prod-card,.ind-card,.svc-item,.card,.why-card')
     hoverEls.forEach(el => {
@@ -32,7 +32,10 @@ export default function Cursor() {
         curR.style.width='36px'; curR.style.height='36px'; curR.style.borderColor='rgba(0,71,255,.4)'
       })
     })
-    return () => document.removeEventListener('mousemove', move)
+    return () => {
+      document.removeEventListener('mousemove', move)
+      cancelAnimationFrame(rafId)
+    }
   }, [])
 
   return (

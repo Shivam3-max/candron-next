@@ -19,7 +19,12 @@ header.at-top{background:transparent;border-bottom-color:transparent}
 header.dark-nav{background:var(--navy);border-bottom-color:var(--border)}
 header.at-top.dark-nav{background:transparent;border-bottom-color:transparent}
 header.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.12);background:var(--white) !important}
-header.scrolled.dark-nav{background:rgba(5,9,31,.95) !important;backdrop-filter:blur(20px)}
+header.scrolled.dark-nav{background:rgba(5,9,31,.92) !important;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,71,255,.3) !important;box-shadow:0 4px 40px rgba(0,0,0,.5),0 1px 0 rgba(0,71,255,.25)}
+header.scrolled.dark-nav .logo-text{color:var(--white) !important}
+header.scrolled.dark-nav .logo-text span{color:rgba(255,255,255,.45) !important}
+header.scrolled.dark-nav nav a{color:rgba(255,255,255,.75) !important}
+header.scrolled.dark-nav nav a:hover,header.scrolled.dark-nav nav a.active{color:var(--white) !important}
+header.scrolled.dark-nav .ham span{background:var(--white) !important}
 .nav-inner{max-width:1380px;margin:0 auto;padding:0 3rem;height:72px;display:flex;align-items:center;justify-content:space-between}
 .logo{display:flex;align-items:center;gap:.75rem;text-decoration:none}
 .logo-icon rect{transition:stroke .3s}
@@ -190,8 +195,8 @@ canvas#hero-canvas{position:absolute;inset:0;z-index:1;pointer-events:none}
 .ind-card{position:relative;border-radius:12px;overflow:hidden;height:280px;cursor:none}
 .ind-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
 .ind-card:hover img{transform:scale(1.07)}
-.ind-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,9,31,.88) 30%,rgba(5,9,31,.3) 100%);transition:background .4s}
-.ind-card:hover .ind-overlay{background:linear-gradient(to top,rgba(0,71,255,.85) 0%,rgba(5,9,31,.55) 100%)}
+.ind-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,9,31,.82) 0%,rgba(5,9,31,.35) 50%,rgba(5,9,31,.05) 100%);transition:background .4s}
+.ind-card:hover .ind-overlay{background:linear-gradient(to top,rgba(0,71,255,.8) 0%,rgba(5,9,31,.4) 60%,rgba(5,9,31,.1) 100%)}
 .ind-content{position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem}
 .ind-icon{width:36px;height:36px;color:var(--white);margin-bottom:.5rem;opacity:.75}
 .ind-name{font-family:var(--ft);font-size:1rem;font-weight:700;color:var(--white);margin-bottom:.3rem}
@@ -538,12 +543,12 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.06);padding
 
 /* Capability grid — for manufacturing */
 .capability-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.capability-card{background:var(--navy);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:2.25rem;position:relative;overflow:hidden;transition:border-color .3s}
-.capability-card:hover{border-color:rgba(0,71,255,.4)}
-.capability-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),transparent)}
-.capability-num{font-family:var(--fd);font-size:3rem;font-weight:900;color:rgba(255,255,255,.04);line-height:1;margin-bottom:1rem}
+.capability-card{background:rgba(0,47,180,.18);border:1px solid rgba(0,71,255,.3);border-radius:14px;padding:2.25rem;position:relative;overflow:hidden;transition:border-color .3s,background .3s,box-shadow .3s;box-shadow:0 4px 32px rgba(0,0,0,.45)}
+.capability-card:hover{border-color:rgba(0,71,255,.6);background:rgba(0,47,180,.28);box-shadow:0 8px 48px rgba(0,71,255,.2)}
+.capability-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),rgba(0,71,255,.2))}
+.capability-num{font-family:var(--fd);font-size:3rem;font-weight:900;color:rgba(255,255,255,.22);line-height:1;margin-bottom:1rem}
 .capability-title{font-family:var(--ft);font-size:1rem;font-weight:700;color:var(--white);margin-bottom:.5rem}
-.capability-text{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.75}
+.capability-text{font-size:.82rem;color:rgba(255,255,255,.68);line-height:1.75}
 
 /* Testing standard badges */
 .standard-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1.25rem}

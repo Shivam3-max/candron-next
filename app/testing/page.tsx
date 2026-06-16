@@ -6,7 +6,7 @@ export default function TestingPage() {
   return (
     <>
       <div className="page-hero">
-        <div className="page-hero-bg" style={{background:"url('https://images.unsplash.com/photo-1581093196867-ca0a5a0cf98f?w=1800&q=80') center/cover"}}></div>
+        <div className="page-hero-bg" style={{background:"url('/images/Switchgear.jpg.jpeg') center/cover"}}></div>
         <div className="container page-hero-content">
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>Testing</span></div>
           <div className="label label-white">Quality Assurance</div>
@@ -67,7 +67,7 @@ export default function TestingPage() {
                 <Link href="/contact" className="btn btn-primary mag" style={{width:'100%',justifyContent:'center'}}>Contact Our Team</Link>
               </div>
               <div style={{marginTop:'1.5rem',borderRadius:'14px',overflow:'hidden',height:'280px'}}>
-                <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=700&q=80" alt="Factory Testing" style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+                <img src="/images/Utilities.jpg.jpeg" alt="Factory Testing" style={{width:'100%',height:'100%',objectFit:'cover'}}/>
               </div>
             </div>
           </div>

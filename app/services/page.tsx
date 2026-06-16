@@ -35,7 +35,7 @@ export default function ServicesPage() {
 
           <div className="svc-big-card rv">
             <div className="svc-big-img">
-              <img src="https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?w=800&q=80" alt="Engineering Design"/>
+              <img src="/images/Control%20Panels.jpg.jpeg" alt="Engineering Design"/>
             </div>
             <div className="svc-big-body">
               <div className="svc-num">01</div>
@@ -55,7 +55,7 @@ export default function ServicesPage() {
 
           <div className="svc-big-card flip rv">
             <div className="svc-big-img">
-              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80" alt="SCADA Controls"/>
+              <img src="/images/Switchgear.jpg.jpeg" alt="SCADA Controls"/>
             </div>
             <div className="svc-big-body dark">
               <div className="svc-num">02</div>
@@ -75,7 +75,7 @@ export default function ServicesPage() {
 
           <div className="svc-big-card rv">
             <div className="svc-big-img">
-              <img src="https://images.unsplash.com/photo-1581093196867-ca0a5a0cf98f?w=800&q=80" alt="Electrical Testing"/>
+              <img src="/images/Utilities.jpg.jpeg" alt="Electrical Testing"/>
             </div>
             <div className="svc-big-body">
               <div className="svc-num">03</div>
@@ -95,7 +95,7 @@ export default function ServicesPage() {
 
           <div className="svc-big-card flip rv">
             <div className="svc-big-img">
-              <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?w=800&q=80" alt="High Voltage Installation"/>
+              <img src="/images/Oil%20%26%20Gas.jpg.jpeg" alt="High Voltage Installation"/>
             </div>
             <div className="svc-big-body dark">
               <div className="svc-num">04</div>
@@ -115,7 +115,7 @@ export default function ServicesPage() {
 
           <div className="svc-big-card rv">
             <div className="svc-big-img">
-              <img src="https://images.unsplash.com/photo-1565008576549-57d5f0af0d37?w=800&q=80" alt="Equipment Rental"/>
+              <img src="/images/Switchboards%20%26%20Panelboards.jpg.jpeg" alt="Equipment Rental"/>
             </div>
             <div className="svc-big-body">
               <div className="svc-num">05</div>
@@ -135,7 +135,7 @@ export default function ServicesPage() {
 
           <div className="svc-big-card flip rv">
             <div className="svc-big-img">
-              <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&q=80" alt="Repair and Maintenance"/>
+              <img src="/images/Control%20Panels.jpg.jpeg" alt="Repair and Maintenance"/>
             </div>
             <div className="svc-big-body dark">
               <div className="svc-num">06</div>

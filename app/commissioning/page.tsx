@@ -6,7 +6,7 @@ export default function CommissioningPage() {
   return (
     <>
       <div className="page-hero">
-        <div className="page-hero-bg" style={{background:"url('https://images.unsplash.com/photo-1577495508048-b635879837f1?w=1800&q=80') center/cover"}}></div>
+        <div className="page-hero-bg" style={{background:"url('/images/Oil%20%26%20Gas.jpg.jpeg') center/cover"}}></div>
         <div className="container page-hero-content">
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>Commissioning</span></div>
           <div className="label label-white">Field Support</div>
@@ -74,7 +74,7 @@ export default function CommissioningPage() {
           <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'5rem',alignItems:'center'}}>
             <div className="rv-l">
               <div style={{borderRadius:'14px',overflow:'hidden',height:'480px'}}>
-                <img src="https://images.unsplash.com/photo-1581093196867-ca0a5a0cf98f?w=800&q=80" alt="Commissioning Support" style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+                <img src="/images/Utilities.jpg.jpeg" alt="Commissioning Support" style={{width:'100%',height:'100%',objectFit:'cover'}}/>
               </div>
             </div>
             <div className="rv-r">
