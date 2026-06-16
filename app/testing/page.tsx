@@ -1,6 +1,7 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
-export const metadata = { title: 'Testing | Candron Energy Inc.' }
+export const metadata = { title: 'Testing', description: 'Every Candron system undergoes comprehensive factory acceptance testing — functional, protection, control logic, and equipment validation — to ANSI, IEEE, NETA, CSA, and UL standards before shipment.' }
 
 export default function TestingPage() {
   return (
@@ -66,8 +67,8 @@ export default function TestingPage() {
                 <p>Candron accommodates witnessed factory acceptance tests for project owners, engineers of record, and third-party inspectors. Schedule your FAT visit during the project kickoff to ensure alignment with your project timeline.</p>
                 <Link href="/contact" className="btn btn-primary mag" style={{width:'100%',justifyContent:'center'}}>Contact Our Team</Link>
               </div>
-              <div style={{marginTop:'1.5rem',borderRadius:'14px',overflow:'hidden',height:'280px'}}>
-                <img src="/images/Utilities.jpg.jpeg" alt="Factory Testing" style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+              <div style={{marginTop:'1.5rem',borderRadius:'14px',overflow:'hidden',height:'280px',position:'relative'}}>
+                <Image src="/images/Utilities.jpg.jpeg" alt="Factory Testing" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 40vw"/>
               </div>
             </div>
           </div>

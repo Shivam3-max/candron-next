@@ -5,14 +5,31 @@ import { useState } from 'react'
 export default function ContactPage() {
   const [form, setForm] = useState({name:'',company:'',email:'',phone:'',project:'',message:''})
   const [sent, setSent] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   const handle = (e: React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>) => {
     setForm(p => ({...p, [e.target.name]: e.target.value}))
   }
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSent(true)
+    setLoading(true)
+    setError('')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error || 'Failed to send.')
+      setSent(true)
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again or call us directly.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -84,8 +101,11 @@ export default function ContactPage() {
                     <label htmlFor="message">Project Details *</label>
                     <textarea id="message" name="message" required rows={5} placeholder="Describe your project requirements, specifications, timeline, or any questions you have for our engineering team..." value={form.message} onChange={handle}></textarea>
                   </div>
-                  <button type="submit" className="btn btn-primary btn-lg mag" style={{width:'100%',justifyContent:'center',marginTop:'.5rem'}}>
-                    Submit Request
+                  {error && (
+                    <div style={{padding:'.9rem 1.1rem',background:'rgba(220,38,38,.07)',border:'1px solid rgba(220,38,38,.25)',borderRadius:'8px',fontSize:'.84rem',color:'#dc2626',lineHeight:'1.5'}}>{error}</div>
+                  )}
+                  <button type="submit" disabled={loading} className="btn btn-primary btn-lg mag" style={{width:'100%',justifyContent:'center',marginTop:'.5rem',opacity:loading?.6:1}}>
+                    {loading ? 'Sending…' : 'Submit Request'}
                   </button>
                   <p style={{fontSize:'.75rem',color:'var(--gray)',textAlign:'center',marginTop:'.75rem',lineHeight:'1.6'}}>We respond to all inquiries within one business day. For urgent needs, call us directly.</p>
                 </form>

@@ -1,6 +1,7 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
-export const metadata = { title: 'Industries | Candron Energy Inc.' }
+export const metadata = { title: 'Industries', description: 'Candron powers mining, oil & gas, data centers, healthcare, utilities, renewables, and transportation — delivering electrical infrastructure built for the most demanding environments in North America.' }
 
 export default function IndustriesPage() {
   return (
@@ -19,7 +20,7 @@ export default function IndustriesPage() {
         <div className="container">
           <div className="ind-detail rv">
             <div className="ind-img-wrap">
-              <img src="/images/Mining.jpg.jpeg" alt="Mining Operations"/>
+              <Image src="/images/Mining.jpg.jpeg" alt="Mining Operations" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 50vw" priority/>
             </div>
             <div>
               <div className="label">Industry 01</div>
@@ -45,7 +46,7 @@ export default function IndustriesPage() {
         <div className="container">
           <div className="ind-detail flip rv">
             <div className="ind-img-wrap">
-              <img src="/images/Oil%20%26%20Gas.jpg.jpeg" alt="Oil and Gas Facility"/>
+              <Image src="/images/Oil%20%26%20Gas.jpg.jpeg" alt="Oil and Gas Facility" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 50vw"/>
             </div>
             <div>
               <div className="label">Industry 02</div>
@@ -71,7 +72,7 @@ export default function IndustriesPage() {
         <div className="container">
           <div className="ind-detail rv">
             <div className="ind-img-wrap">
-              <img src="/images/Renewable%20Energy.jpg.jpeg" alt="Wind Farm Power Plant"/>
+              <Image src="/images/Renewable%20Energy.jpg.jpeg" alt="Wind Farm Power Plant" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 50vw"/>
             </div>
             <div>
               <div className="label">Industry 03</div>
@@ -97,7 +98,7 @@ export default function IndustriesPage() {
         <div className="container">
           <div className="ind-detail flip rv">
             <div className="ind-img-wrap">
-              <img src="/images/Data%20Centers.jpg.jpeg" alt="AI Data Center"/>
+              <Image src="/images/Data%20Centers.jpg.jpeg" alt="AI Data Center" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 50vw"/>
             </div>
             <div>
               <div className="label">Industry 04</div>
@@ -123,7 +124,7 @@ export default function IndustriesPage() {
         <div className="container">
           <div className="ind-detail rv">
             <div className="ind-img-wrap">
-              <img src="/images/Healthcare.jpg.jpeg" alt="Hospital Healthcare Facility"/>
+              <Image src="/images/Healthcare.jpg.jpeg" alt="Hospital Healthcare Facility" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 50vw"/>
             </div>
             <div>
               <div className="label">Industry 05</div>
@@ -149,7 +150,7 @@ export default function IndustriesPage() {
         <div className="container">
           <div className="ind-detail flip rv">
             <div className="ind-img-wrap">
-              <img src="https://images.unsplash.com/photo-1567789884554-0b844b597180?w=900&q=80" alt="Transportation Rail"/>
+              <Image src="/images/Mining.jpg.jpeg" alt="Transportation Infrastructure" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 50vw"/>
             </div>
             <div>
               <div className="label">Industry 06</div>
@@ -179,17 +180,17 @@ export default function IndustriesPage() {
           </div>
           <div className="ind-all-grid">
             <div className="ind-card rv">
-              <img src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?w=700&q=80" alt="Pulp and Paper"/>
+              <Image src="/images/Utilities.jpg.jpeg" alt="Pulp and Paper Mill" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/>
               <div className="ind-overlay"></div>
               <div className="ind-content"><div className="ind-name">Pulp &amp; Paper</div><div className="ind-desc">Continuous process power for mills — no downtime, ever</div></div>
             </div>
             <div className="ind-card rv d2">
-              <img src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=700&q=80" alt="Entertainment"/>
+              <Image src="/images/Data%20Centers.jpg.jpeg" alt="Entertainment and Studios" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/>
               <div className="ind-overlay"></div>
               <div className="ind-content"><div className="ind-name">Entertainment</div><div className="ind-desc">Temporary and permanent power for studios and live events</div></div>
             </div>
             <div className="ind-card rv d3">
-              <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=700&q=80" alt="Construction"/>
+              <Image src="/images/Switchgear.jpg.jpeg" alt="Construction Projects" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/>
               <div className="ind-overlay"></div>
               <div className="ind-content"><div className="ind-name">Construction</div><div className="ind-desc">Temporary power for large-scale commercial and industrial builds</div></div>
             </div>

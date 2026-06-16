@@ -1,6 +1,7 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
-export const metadata = { title: 'Manufacturing | Candron Energy Inc.' }
+export const metadata = { title: 'Manufacturing', description: 'Candron\'s Canadian manufacturing facility handles every stage in-house — electrical design, fabrication, assembly, wiring, and factory acceptance testing. No outsourcing, one point of accountability.' }
 
 export default function ManufacturingPage() {
   return (
@@ -113,8 +114,8 @@ export default function ManufacturingPage() {
               </div>
             </div>
             <div className="rv-r">
-              <div style={{borderRadius:'14px',overflow:'hidden',height:'420px',marginBottom:'1.5rem'}}>
-                <img src="/images/Switchgear.jpg.jpeg" alt="Manufacturing Facility" style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+              <div style={{borderRadius:'14px',overflow:'hidden',height:'420px',marginBottom:'1.5rem',position:'relative'}}>
+                <Image src="/images/Switchgear.jpg.jpeg" alt="Manufacturing Facility" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 50vw"/>
               </div>
               <div className="metric-showcase" style={{gridTemplateColumns:'1fr 1fr',marginTop:0}}>
                 <div className="metric-card">
@@ -148,9 +149,9 @@ export default function ManufacturingPage() {
             <p className="lead" style={{margin:'1rem auto 0'}}>Proudly engineered and manufactured in Canada. Candron's North York, Ontario facility serves utilities, contractors, industrial facilities, and infrastructure projects across North America.</p>
           </div>
           <div className="facility-grid">
-            <div className="facility-img rv"><img src="/images/Utilities.jpg.jpeg" alt="Production Floor"/></div>
-            <div className="facility-img rv d2"><img src="/images/Switchgear.jpg.jpeg" alt="Assembly Area"/></div>
-            <div className="facility-img rv d3"><img src="/images/Control%20Panels.jpg.jpeg" alt="Engineering Office"/></div>
+            <div className="facility-img rv"><Image src="/images/Utilities.jpg.jpeg" alt="Production Floor" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
+            <div className="facility-img rv d2"><Image src="/images/Switchgear.jpg.jpeg" alt="Assembly Area" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
+            <div className="facility-img rv d3"><Image src="/images/Control%20Panels.jpg.jpeg" alt="Engineering Office" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
           </div>
         </div>
       </div>

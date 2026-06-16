@@ -1,6 +1,7 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
-export const metadata = { title: 'Products | Candron Energy Inc.' }
+export const metadata = { title: 'Products', description: 'Factory-direct switchgear, switchboards & panelboards, and control panels — engineered, assembled, and tested in-house at our North York, Ontario facility.' }
 
 export default function ProductsPage() {
   return (
@@ -29,7 +30,7 @@ export default function ProductsPage() {
             <div className="split split-2-3" style={{gap:'5rem',alignItems:'start'}}>
               <div className="rv-l">
                 <div className="prod-detail-img">
-                  <img src="/images/Switchgear.jpg.jpeg" alt="Electrical Switchgear"/>
+                  <Image src="/images/Switchgear.jpg.jpeg" alt="Electrical Switchgear" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 40vw" priority/>
                 </div>
                 <div style={{marginTop:'1.5rem',padding:'1.75rem',background:'var(--off)',borderRadius:'12px'}}>
                   <div style={{fontFamily:'var(--fm)',fontSize:'.6rem',color:'var(--blue)',letterSpacing:'.22em',textTransform:'uppercase',marginBottom:'.85rem'}}>Quick Specs</div>
@@ -114,7 +115,7 @@ export default function ProductsPage() {
               </div>
               <div className="rv-r">
                 <div className="prod-detail-img">
-                  <img src="/images/Switchboards%20%26%20Panelboards.jpg.jpeg" alt="Switchboards and Panelboards"/>
+                  <Image src="/images/Switchboards%20%26%20Panelboards.jpg.jpeg" alt="Switchboards and Panelboards" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 40vw"/>
                 </div>
                 <div style={{marginTop:'1.5rem',padding:'1.75rem',background:'var(--off)',borderRadius:'12px'}}>
                   <div style={{fontFamily:'var(--fm)',fontSize:'.6rem',color:'var(--blue)',letterSpacing:'.22em',textTransform:'uppercase',marginBottom:'.85rem'}}>Quick Specs</div>
@@ -139,7 +140,7 @@ export default function ProductsPage() {
             <div className="split split-2-3" style={{gap:'5rem',alignItems:'start'}}>
               <div className="rv-l">
                 <div className="prod-detail-img">
-                  <img src="/images/Control%20Panels.jpg.jpeg" alt="Control Panels"/>
+                  <Image src="/images/Control%20Panels.jpg.jpeg" alt="Control Panels" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 40vw"/>
                 </div>
                 <div style={{marginTop:'1.5rem',padding:'1.75rem',background:'var(--off)',borderRadius:'12px'}}>
                   <div style={{fontFamily:'var(--fm)',fontSize:'.6rem',color:'var(--blue)',letterSpacing:'.22em',textTransform:'uppercase',marginBottom:'.85rem'}}>Quick Specs</div>

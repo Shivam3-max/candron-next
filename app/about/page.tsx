@@ -1,6 +1,7 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
-export const metadata = { title: 'About | Candron Energy Inc.' }
+export const metadata = { title: 'About', description: '15+ years powering North America\'s most critical facilities. Candron Energy Inc. is a Canadian electrical infrastructure partner offering 24/7 emergency response and 650+ machines in stock.' }
 
 export default function AboutPage() {
   return (
@@ -77,7 +78,7 @@ export default function AboutPage() {
             </div>
             <div className="rv-r" style={{position:'sticky',top:'100px'}}>
               <div style={{borderRadius:'14px',overflow:'hidden',height:'500px',position:'relative'}}>
-                <img src="/images/Utilities.jpg.jpeg" alt="Candron Engineering Team" style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+                <Image src="/images/Utilities.jpg.jpeg" alt="Candron Engineering Team" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 40vw"/>
                 <div style={{position:'absolute',inset:0,background:'linear-gradient(to top,rgba(5,9,31,.5),transparent 50%)'}}></div>
                 <div style={{position:'absolute',bottom:'2rem',left:'2rem',right:'2rem'}}>
                   <div style={{fontFamily:'var(--fd)',fontSize:'1rem',fontWeight:700,color:'#fff',marginBottom:'.3rem'}}>Licensed Engineers</div>
@@ -146,11 +147,11 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="rv-r" style={{display:'flex',flexDirection:'column',gap:'1.5rem',marginTop:'5rem'}}>
-              <div style={{borderRadius:'12px',overflow:'hidden',height:'280px'}}>
-                <img src="/images/Switchgear.jpg.jpeg" alt="Candron Facility" style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+              <div style={{borderRadius:'12px',overflow:'hidden',height:'280px',position:'relative'}}>
+                <Image src="/images/Switchgear.jpg.jpeg" alt="Candron Facility" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 40vw"/>
               </div>
-              <div style={{borderRadius:'12px',overflow:'hidden',height:'280px'}}>
-                <img src="/images/Control%20Panels.jpg.jpeg" alt="Engineering Work" style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+              <div style={{borderRadius:'12px',overflow:'hidden',height:'280px',position:'relative'}}>
+                <Image src="/images/Control%20Panels.jpg.jpeg" alt="Engineering Work" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 40vw"/>
               </div>
             </div>
           </div>
@@ -166,9 +167,9 @@ export default function AboutPage() {
             <p className="lead" style={{margin:'1rem auto 0'}}>Our 4801 Keele St facility houses our full inventory, in-house repair workshop, testing lab, and engineering offices — all under one roof.</p>
           </div>
           <div className="facility-grid">
-            <div className="facility-img rv"><img src="/images/Switchboards%20%26%20Panelboards.jpg.jpeg" alt="Transformer Storage"/></div>
-            <div className="facility-img rv d2"><img src="/images/Utilities.jpg.jpeg" alt="Testing Laboratory"/></div>
-            <div className="facility-img rv d3"><img src="/images/Control%20Panels.jpg.jpeg" alt="Engineering Office"/></div>
+            <div className="facility-img rv"><Image src="/images/Switchboards%20%26%20Panelboards.jpg.jpeg" alt="Transformer Storage" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
+            <div className="facility-img rv d2"><Image src="/images/Utilities.jpg.jpeg" alt="Testing Laboratory" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
+            <div className="facility-img rv d3"><Image src="/images/Control%20Panels.jpg.jpeg" alt="Engineering Office" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
           </div>
           <div style={{marginTop:'3rem',display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'1.5rem'}} className="rv">
             <div style={{textAlign:'center',padding:'1.5rem',background:'var(--white)',border:'1px solid #E8ECF5',borderRadius:'10px'}}>

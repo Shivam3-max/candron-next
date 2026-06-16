@@ -1,6 +1,7 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
-export const metadata = { title: 'Commissioning | Candron Energy Inc.' }
+export const metadata = { title: 'Commissioning', description: 'Candron provides on-site commissioning support — startup assistance, site testing, equipment verification, and performance validation — by the same engineers who designed and built your equipment.' }
 
 export default function CommissioningPage() {
   return (
@@ -73,8 +74,8 @@ export default function CommissioningPage() {
         <div className="container">
           <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'5rem',alignItems:'center'}}>
             <div className="rv-l">
-              <div style={{borderRadius:'14px',overflow:'hidden',height:'480px'}}>
-                <img src="/images/Utilities.jpg.jpeg" alt="Commissioning Support" style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+              <div style={{borderRadius:'14px',overflow:'hidden',height:'480px',position:'relative'}}>
+                <Image src="/images/Utilities.jpg.jpeg" alt="Commissioning Support" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 50vw"/>
               </div>
             </div>
             <div className="rv-r">

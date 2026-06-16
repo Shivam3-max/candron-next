@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import HeroCanvas from "@/components/HeroCanvas";
 
 export default function HomePage() {
@@ -51,9 +52,13 @@ export default function HomePage() {
                 <span>In-House Built</span>
               </div>
               <div className="hero-visual-img">
-                <img
+                <Image
                   src="/images/hero.jpg.jpeg"
                   alt="Candron In-House Manufacturing"
+                  fill
+                  style={{objectFit:'cover',opacity:.85}}
+                  sizes="50vw"
+                  priority
                 />
               </div>
               <div className="hero-stat-float bot">
@@ -339,10 +344,7 @@ export default function HomePage() {
           <div className="prod-highlights-3">
             <div className="prod-card rv">
               <div className="prod-card-img">
-                <img
-                  src="/images/Switchgear.jpg.jpeg"
-                  alt="Electrical Switchgear"
-                />
+                <Image src="/images/Switchgear.jpg.jpeg" alt="Electrical Switchgear" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/>
                 <div className="prod-card-overlay"></div>
                 <div className="prod-card-cat">Switchgear</div>
               </div>
@@ -363,10 +365,7 @@ export default function HomePage() {
             </div>
             <div className="prod-card rv d2">
               <div className="prod-card-img">
-                <img
-                  src="/images/Switchboards%20%26%20Panelboards.jpg.jpeg"
-                  alt="Switchboards and Panelboards"
-                />
+                <Image src="/images/Switchboards%20%26%20Panelboards.jpg.jpeg" alt="Switchboards and Panelboards" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/>
                 <div className="prod-card-overlay"></div>
                 <div className="prod-card-cat">Switchboards</div>
               </div>
@@ -385,10 +384,7 @@ export default function HomePage() {
             </div>
             <div className="prod-card rv d3">
               <div className="prod-card-img">
-                <img
-                  src="/images/Control%20Panels.jpg.jpeg"
-                  alt="Control Panels"
-                />
+                <Image src="/images/Control%20Panels.jpg.jpeg" alt="Control Panels" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/>
                 <div className="prod-card-overlay"></div>
                 <div className="prod-card-cat">Control Panels</div>
               </div>
@@ -474,7 +470,7 @@ export default function HomePage() {
               },
             ].map((ind) => (
               <div key={ind.name} className={`ind-card ${ind.cls}`}>
-                <img src={ind.img} alt={ind.name} />
+                <Image src={ind.img} alt={ind.name} fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/>
                 <div className="ind-overlay"></div>
                 <div className="ind-content">
                   <div className="ind-name">{ind.name}</div>

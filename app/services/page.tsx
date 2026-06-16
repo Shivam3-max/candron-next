@@ -1,6 +1,7 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
-export const metadata = { title: 'Services | Candron Energy Inc.' }
+export const metadata = { title: 'Services', description: 'Full-spectrum electrical services from Candron\'s licensed engineers: design & engineering, SCADA/controls, testing, high-voltage installation, equipment rental, and repair & maintenance.' }
 
 export default function ServicesPage() {
   return (
@@ -35,7 +36,7 @@ export default function ServicesPage() {
 
           <div className="svc-big-card rv">
             <div className="svc-big-img">
-              <img src="/images/Control%20Panels.jpg.jpeg" alt="Engineering Design"/>
+              <Image src="/images/Control%20Panels.jpg.jpeg" alt="Engineering Design" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 50vw"/>
             </div>
             <div className="svc-big-body">
               <div className="svc-num">01</div>
@@ -55,7 +56,7 @@ export default function ServicesPage() {
 
           <div className="svc-big-card flip rv">
             <div className="svc-big-img">
-              <img src="/images/Switchgear.jpg.jpeg" alt="SCADA Controls"/>
+              <Image src="/images/Switchgear.jpg.jpeg" alt="SCADA Controls" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 50vw"/>
             </div>
             <div className="svc-big-body dark">
               <div className="svc-num">02</div>
@@ -75,7 +76,7 @@ export default function ServicesPage() {
 
           <div className="svc-big-card rv">
             <div className="svc-big-img">
-              <img src="/images/Utilities.jpg.jpeg" alt="Electrical Testing"/>
+              <Image src="/images/Utilities.jpg.jpeg" alt="Electrical Testing" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 50vw"/>
             </div>
             <div className="svc-big-body">
               <div className="svc-num">03</div>
@@ -95,7 +96,7 @@ export default function ServicesPage() {
 
           <div className="svc-big-card flip rv">
             <div className="svc-big-img">
-              <img src="/images/Oil%20%26%20Gas.jpg.jpeg" alt="High Voltage Installation"/>
+              <Image src="/images/Oil%20%26%20Gas.jpg.jpeg" alt="High Voltage Installation" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 50vw"/>
             </div>
             <div className="svc-big-body dark">
               <div className="svc-num">04</div>
@@ -115,7 +116,7 @@ export default function ServicesPage() {
 
           <div className="svc-big-card rv">
             <div className="svc-big-img">
-              <img src="/images/Switchboards%20%26%20Panelboards.jpg.jpeg" alt="Equipment Rental"/>
+              <Image src="/images/Switchboards%20%26%20Panelboards.jpg.jpeg" alt="Equipment Rental" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 50vw"/>
             </div>
             <div className="svc-big-body">
               <div className="svc-num">05</div>
@@ -135,7 +136,7 @@ export default function ServicesPage() {
 
           <div className="svc-big-card flip rv">
             <div className="svc-big-img">
-              <img src="/images/Control%20Panels.jpg.jpeg" alt="Repair and Maintenance"/>
+              <Image src="/images/Control%20Panels.jpg.jpeg" alt="Repair and Maintenance" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 50vw"/>
             </div>
             <div className="svc-big-body dark">
               <div className="svc-num">06</div>
