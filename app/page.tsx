@@ -1,6 +1,8 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import Image from "next/image";
 import HeroCanvas from "@/components/HeroCanvas";
+import ProcessScroll from "@/components/ProcessScroll";
+import StatBar from "@/components/StatBar";
 
 export default function HomePage() {
   return (
@@ -53,10 +55,10 @@ export default function HomePage() {
               </div>
               <div className="hero-visual-img">
                 <Image
-                  src="/images/hero.jpg.jpeg"
+                  src="/images/hero.png"
                   alt="Candron In-House Manufacturing"
                   fill
-                  style={{objectFit:'cover',opacity:.85}}
+                  style={{ objectFit: "cover", opacity: 0.85 }}
                   sizes="50vw"
                   priority
                 />
@@ -73,24 +75,14 @@ export default function HomePage() {
       {/* STAT BAR */}
       <div className="stat-bar">
         <div className="container">
-          <div className="stat-grid">
-            <div className="stat-item">
-              <div className="stat-num">100%</div>
-              <div className="stat-lbl">In-House Engineering</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-num">Factory Direct</div>
-              <div className="stat-lbl">Pricing — No Markup</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-num">Canadian</div>
-              <div className="stat-lbl">Manufacturing</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-num">NETA &amp; ANSI</div>
-              <div className="stat-lbl">Factory Testing</div>
-            </div>
-          </div>
+          <StatBar
+            stats={[
+              { num: "100%", lbl: "In-House Engineering" },
+              { num: "Factory Direct", lbl: "Pricing — No Markup" },
+              { num: "Canadian", lbl: "Manufacturing" },
+              { num: "NETA & ANSI", lbl: "Factory Testing" },
+            ]}
+          />
         </div>
       </div>
 
@@ -268,53 +260,7 @@ export default function HomePage() {
               </Link>
             </div>
             <div className="rv-r">
-              <div className="process-v">
-                {[
-                  {
-                    n: "01",
-                    t: "Design & Engineering",
-                    d: "Our engineering team develops customized power distribution solutions tailored to project requirements, utility standards, and site conditions.",
-                  },
-                  {
-                    n: "02",
-                    t: "Manufacturing",
-                    d: "All products are manufactured in our Canadian facility using proven processes and strict quality controls at every stage.",
-                  },
-                  {
-                    n: "03",
-                    t: "Assembly",
-                    d: "Equipment is assembled by experienced technicians ensuring precision and consistency throughout production.",
-                  },
-                  {
-                    n: "04",
-                    t: "Testing",
-                    d: "Every system undergoes comprehensive factory acceptance testing before shipment to verify safety, reliability, and compliance.",
-                  },
-                  {
-                    n: "05",
-                    t: "Commissioning Support",
-                    d: "Our team supports installation, startup, and commissioning to ensure reliable operation from day one.",
-                  },
-                ].map((s) => (
-                  <div key={s.n} className="process-v-item">
-                    <div className="process-v-dot">{s.n}</div>
-                    <div>
-                      <div
-                        className="process-v-title"
-                        style={{ color: "var(--white)" }}
-                      >
-                        {s.t}
-                      </div>
-                      <div
-                        className="process-v-text"
-                        style={{ color: "rgba(255,255,255,.45)" }}
-                      >
-                        {s.d}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <ProcessScroll />
             </div>
           </div>
         </div>
@@ -344,7 +290,13 @@ export default function HomePage() {
           <div className="prod-highlights-3">
             <div className="prod-card rv">
               <div className="prod-card-img">
-                <Image src="/images/Switchgear.jpg.jpeg" alt="Electrical Switchgear" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/>
+                <Image
+                  src="/images/switchgear.jpg"
+                  alt="Electrical Switchgear"
+                  fill
+                  style={{ objectFit: "cover" }}
+                  sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
+                />
                 <div className="prod-card-overlay"></div>
                 <div className="prod-card-cat">Switchgear</div>
               </div>
@@ -365,7 +317,13 @@ export default function HomePage() {
             </div>
             <div className="prod-card rv d2">
               <div className="prod-card-img">
-                <Image src="/images/Switchboards%20%26%20Panelboards.jpg.jpeg" alt="Switchboards and Panelboards" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/>
+                <Image
+                  src="/images/switchboards.jpg"
+                  alt="Switchboards and Panelboards"
+                  fill
+                  style={{ objectFit: "cover" }}
+                  sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
+                />
                 <div className="prod-card-overlay"></div>
                 <div className="prod-card-cat">Switchboards</div>
               </div>
@@ -384,7 +342,13 @@ export default function HomePage() {
             </div>
             <div className="prod-card rv d3">
               <div className="prod-card-img">
-                <Image src="/images/Control%20Panels.jpg.jpeg" alt="Control Panels" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/>
+                <Image
+                  src="/images/control-panels.jpg"
+                  alt="Control Panels"
+                  fill
+                  style={{ objectFit: "cover" }}
+                  sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
+                />
                 <div className="prod-card-overlay"></div>
                 <div className="prod-card-cat">Control Panels</div>
               </div>
@@ -433,44 +397,50 @@ export default function HomePage() {
           <div className="ind-grid-home">
             {[
               {
-                img: "/images/Oil%20%26%20Gas.jpg.jpeg",
+                img: "/images/oil-gas.jpg",
                 name: "Oil & Gas",
                 desc: "Hazardous location rated equipment for upstream & downstream",
                 cls: "rv",
               },
               {
-                img: "/images/Data%20Centers.jpg.jpeg",
+                img: "/images/data-centers.jpg",
                 name: "Data Centers",
                 desc: "High-density power distribution for hyperscale compute",
                 cls: "rv d2",
               },
               {
-                img: "/images/Utilities.jpg.jpeg",
+                img: "/images/utilities.jpg",
                 name: "Utilities",
                 desc: "Grid-scale switchgear and distribution infrastructure",
                 cls: "rv d3",
               },
               {
-                img: "/images/Mining.jpg.jpeg",
+                img: "/images/mining.jpg",
                 name: "Mining",
                 desc: "Ruggedized equipment for demanding mine environments",
                 cls: "rv d4",
               },
               {
-                img: "/images/Healthcare.jpg.jpeg",
+                img: "/images/healthcare.jpg",
                 name: "Healthcare",
                 desc: "Life-safety critical power for hospitals and facilities",
                 cls: "rv d5",
               },
               {
-                img: "/images/Renewable%20Energy.jpg.jpeg",
+                img: "/images/renewable-energy.jpg",
                 name: "Renewable Energy",
                 desc: "Power conversion infrastructure for wind, solar & storage",
                 cls: "rv d6",
               },
             ].map((ind) => (
               <div key={ind.name} className={`ind-card ${ind.cls}`}>
-                <Image src={ind.img} alt={ind.name} fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/>
+                <Image
+                  src={ind.img}
+                  alt={ind.name}
+                  fill
+                  style={{ objectFit: "cover" }}
+                  sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
+                />
                 <div className="ind-overlay"></div>
                 <div className="ind-content">
                   <div className="ind-name">{ind.name}</div>

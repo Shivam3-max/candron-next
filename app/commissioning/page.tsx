@@ -1,5 +1,6 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import Image from 'next/image'
+import ProcessStepsAnimate from '@/components/ProcessStepsAnimate'
 
 export const metadata = { title: 'Commissioning', description: 'Candron provides on-site commissioning support — startup assistance, site testing, equipment verification, and performance validation — by the same engineers who designed and built your equipment.' }
 
@@ -7,7 +8,7 @@ export default function CommissioningPage() {
   return (
     <>
       <div className="page-hero">
-        <div className="page-hero-bg" style={{background:"url('/images/Oil%20%26%20Gas.jpg.jpeg') center/cover"}}></div>
+        <div className="page-hero-bg" style={{background:"url('/images/oil-gas.jpg') center/cover"}}></div>
         <div className="container page-hero-content">
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>Commissioning</span></div>
           <div className="label label-white">Field Support</div>
@@ -75,7 +76,7 @@ export default function CommissioningPage() {
           <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'5rem',alignItems:'center'}}>
             <div className="rv-l">
               <div style={{borderRadius:'14px',overflow:'hidden',height:'480px',position:'relative'}}>
-                <Image src="/images/Utilities.jpg.jpeg" alt="Commissioning Support" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 50vw"/>
+                <Image src="/images/utilities.jpg" alt="Commissioning Support" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 50vw"/>
               </div>
             </div>
             <div className="rv-r">
@@ -103,33 +104,13 @@ export default function CommissioningPage() {
             <div className="label label-white" style={{justifyContent:'center'}}>How It Works</div>
             <h2 style={{color:'var(--white)'}}>Commissioning Engagement</h2>
           </div>
-          <div className="process-steps">
-            <div className="process-step rv">
-              <div className="ps-dot" style={{background:'rgba(255,255,255,.06)',borderColor:'rgba(0,71,255,.6)',color:'var(--blue-l)'}}>01</div>
-              <div className="ps-title" style={{color:'var(--white)'}}>Pre-Commissioning Plan</div>
-              <div className="ps-desc" style={{color:'rgba(255,255,255,.4)'}}>Candron develops a site-specific commissioning plan aligned with your project schedule and energization sequence</div>
-            </div>
-            <div className="process-step rv d2">
-              <div className="ps-dot" style={{background:'rgba(255,255,255,.06)',borderColor:'rgba(0,71,255,.6)',color:'var(--blue-l)'}}>02</div>
-              <div className="ps-title" style={{color:'var(--white)'}}>Site Mobilization</div>
-              <div className="ps-desc" style={{color:'rgba(255,255,255,.4)'}}>Our engineers arrive on site with complete project documentation and test equipment for field verification</div>
-            </div>
-            <div className="process-step rv d3">
-              <div className="ps-dot" style={{background:'rgba(255,255,255,.06)',borderColor:'rgba(0,71,255,.6)',color:'var(--blue-l)'}}>03</div>
-              <div className="ps-title" style={{color:'var(--white)'}}>Pre-Energization Checks</div>
-              <div className="ps-desc" style={{color:'rgba(255,255,255,.4)'}}>Physical verification of installation, connections, settings, and configuration prior to initial energization</div>
-            </div>
-            <div className="process-step rv d4">
-              <div className="ps-dot" style={{background:'rgba(255,255,255,.06)',borderColor:'rgba(0,71,255,.6)',color:'var(--blue-l)'}}>04</div>
-              <div className="ps-title" style={{color:'var(--white)'}}>Startup &amp; Verification</div>
-              <div className="ps-desc" style={{color:'rgba(255,255,255,.4)'}}>Supervised energization and functional verification of all systems, protection, and control sequences</div>
-            </div>
-            <div className="process-step rv d5">
-              <div className="ps-dot" style={{background:'rgba(255,255,255,.06)',borderColor:'rgba(0,71,255,.6)',color:'var(--blue-l)'}}>05</div>
-              <div className="ps-title" style={{color:'var(--white)'}}>Handover &amp; Documentation</div>
-              <div className="ps-desc" style={{color:'rgba(255,255,255,.4)'}}>Commissioning report issued and documentation package transferred to your operations team</div>
-            </div>
-          </div>
+          <ProcessStepsAnimate variant="dark" steps={[
+            { n: '01', title: 'Pre-Commissioning Plan', desc: 'Candron develops a site-specific commissioning plan aligned with your project schedule and energization sequence' },
+            { n: '02', title: 'Site Mobilization', desc: 'Our engineers arrive on site with complete project documentation and test equipment for field verification' },
+            { n: '03', title: 'Pre-Energization Checks', desc: 'Physical verification of installation, connections, settings, and configuration prior to initial energization' },
+            { n: '04', title: 'Startup & Verification', desc: 'Supervised energization and functional verification of all systems, protection, and control sequences' },
+            { n: '05', title: 'Handover & Documentation', desc: 'Commissioning report issued and documentation package transferred to your operations team' },
+          ]} />
         </div>
       </div>
 

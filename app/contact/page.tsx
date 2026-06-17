@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import Link from 'next/link'
 import { useState } from 'react'
 
@@ -35,7 +35,7 @@ export default function ContactPage() {
   return (
     <>
       <div className="page-hero">
-        <div className="page-hero-bg" style={{background:"url('/images/Oil%20%26%20Gas.jpg.jpeg') center/cover"}}></div>
+        <div className="page-hero-bg" style={{background:"url('/images/oil-gas.jpg') center/cover"}}></div>
         <div className="container page-hero-content">
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>Contact</span></div>
           <div className="label label-white">Talk to Our Team</div>

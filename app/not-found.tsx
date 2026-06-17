@@ -19,10 +19,7 @@ export default function NotFound() {
         </div>
         <div style={{marginTop:'3rem',paddingTop:'2rem',borderTop:'1px solid rgba(255,255,255,.08)',display:'flex',justifyContent:'center',gap:'2.5rem',flexWrap:'wrap'}}>
           {[['Products','/products'],['Manufacturing','/manufacturing'],['Testing','/testing'],['About','/about']].map(([label,href])=>(
-            <Link key={href} href={href} style={{fontFamily:'var(--ft)',fontSize:'.75rem',fontWeight:600,letterSpacing:'.08em',textTransform:'uppercase',color:'rgba(255,255,255,.35)',textDecoration:'none',transition:'color .2s'}}
-              onMouseEnter={e=>(e.currentTarget.style.color='rgba(255,255,255,.75)')}
-              onMouseLeave={e=>(e.currentTarget.style.color='rgba(255,255,255,.35)')}
-            >{label}</Link>
+            <Link key={href} href={href} className="nf-nav-link">{label}</Link>
           ))}
         </div>
       </div>

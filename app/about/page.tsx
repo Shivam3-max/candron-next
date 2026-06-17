@@ -1,5 +1,7 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import Image from 'next/image'
+import StatBar from '@/components/StatBar'
+import TimelineScroll from '@/components/TimelineScroll'
 
 export const metadata = { title: 'About', description: '15+ years powering North America\'s most critical facilities. Candron Energy Inc. is a Canadian electrical infrastructure partner offering 24/7 emergency response and 650+ machines in stock.' }
 
@@ -7,7 +9,7 @@ export default function AboutPage() {
   return (
     <>
       <div className="page-hero">
-        <div className="page-hero-bg" style={{background:"url('/images/Switchgear.jpg.jpeg') center 30%/cover"}}></div>
+        <div className="page-hero-bg" style={{background:"url('/images/switchgear.jpg') center 30%/cover"}}></div>
         <div className="container page-hero-content">
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>About</span></div>
           <div className="label label-white">Our Story</div>
@@ -36,12 +38,12 @@ export default function AboutPage() {
       {/* STATS */}
       <div className="stat-bar">
         <div className="container">
-          <div className="stat-grid">
-            <div className="stat-item"><div className="stat-num">15+</div><div className="stat-lbl">Years in Business</div></div>
-            <div className="stat-item"><div className="stat-num">650+</div><div className="stat-lbl">Machines in Stock</div></div>
-            <div className="stat-item"><div className="stat-num">9</div><div className="stat-lbl">Industries Served</div></div>
-            <div className="stat-item"><div className="stat-num">24/7</div><div className="stat-lbl">Emergency Response</div></div>
-          </div>
+          <StatBar stats={[
+            { num: '15+', lbl: 'Years in Business' },
+            { num: '650+', lbl: 'Machines in Stock' },
+            { num: '9', lbl: 'Industries Served' },
+            { num: '24/7', lbl: 'Emergency Response' },
+          ]} />
         </div>
       </div>
 
@@ -78,7 +80,7 @@ export default function AboutPage() {
             </div>
             <div className="rv-r" style={{position:'sticky',top:'100px'}}>
               <div style={{borderRadius:'14px',overflow:'hidden',height:'500px',position:'relative'}}>
-                <Image src="/images/Utilities.jpg.jpeg" alt="Candron Engineering Team" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 40vw"/>
+                <Image src="/images/utilities.jpg" alt="Candron Engineering Team" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 40vw"/>
                 <div style={{position:'absolute',inset:0,background:'linear-gradient(to top,rgba(5,9,31,.5),transparent 50%)'}}></div>
                 <div style={{position:'absolute',bottom:'2rem',left:'2rem',right:'2rem'}}>
                   <div style={{fontFamily:'var(--fd)',fontSize:'1rem',fontWeight:700,color:'#fff',marginBottom:'.3rem'}}>Licensed Engineers</div>
@@ -107,51 +109,14 @@ export default function AboutPage() {
             <div className="rv-l">
               <div className="label">Our Journey</div>
               <h2 style={{marginBottom:'2.5rem'}}>15 Years of Keeping<br/>the Lights On</h2>
-              <div className="timeline">
-                <div className="tl-item rv">
-                  <div className="tl-dot"></div>
-                  <div className="tl-year">2009</div>
-                  <div className="tl-title">Founded in North York, Ontario</div>
-                  <div className="tl-text">Candron Energy Inc. is established with a focus on transformer sales and service for the Ontario industrial market. First facility at 4801 Keele St.</div>
-                </div>
-                <div className="tl-item rv">
-                  <div className="tl-dot"></div>
-                  <div className="tl-year">2012</div>
-                  <div className="tl-title">Expanded into Switchgear &amp; Load Banks</div>
-                  <div className="tl-text">Growing client demand drives expansion into medium-voltage switchgear sales and load bank rentals. First emergency response contracts signed with mining operators.</div>
-                </div>
-                <div className="tl-item rv">
-                  <div className="tl-dot"></div>
-                  <div className="tl-year">2015</div>
-                  <div className="tl-title">Launched 24/7 Emergency Response Program</div>
-                  <div className="tl-text">Formalized our sub-30-minute emergency response guarantee with dedicated on-call engineers. First cross-border USA deployments begin.</div>
-                </div>
-                <div className="tl-item rv">
-                  <div className="tl-dot"></div>
-                  <div className="tl-year">2018</div>
-                  <div className="tl-title">Engineering Services Division Opens</div>
-                  <div className="tl-text">Candron hires its first team of licensed power systems engineers to offer in-house design, SCADA integration, and commissioning services.</div>
-                </div>
-                <div className="tl-item rv">
-                  <div className="tl-dot"></div>
-                  <div className="tl-year">2021</div>
-                  <div className="tl-title">Expanded Inventory to 500+ Units</div>
-                  <div className="tl-text">Major inventory investment brings our stocked unit count past 500, enabling same-day or next-day shipment on most transformer and switchgear requests.</div>
-                </div>
-                <div className="tl-item rv">
-                  <div className="tl-dot"></div>
-                  <div className="tl-year">2024</div>
-                  <div className="tl-title">650+ Machines. 9 Industries. Still Growing.</div>
-                  <div className="tl-text">Candron now operates with 650+ machines in stock, serves 9 major industrial sectors, and maintains emergency response capabilities across all of North America.</div>
-                </div>
-              </div>
+              <TimelineScroll />
             </div>
             <div className="rv-r" style={{display:'flex',flexDirection:'column',gap:'1.5rem',marginTop:'5rem'}}>
               <div style={{borderRadius:'12px',overflow:'hidden',height:'280px',position:'relative'}}>
-                <Image src="/images/Switchgear.jpg.jpeg" alt="Candron Facility" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 40vw"/>
+                <Image src="/images/switchgear.jpg" alt="Candron Facility" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 40vw"/>
               </div>
               <div style={{borderRadius:'12px',overflow:'hidden',height:'280px',position:'relative'}}>
-                <Image src="/images/Control%20Panels.jpg.jpeg" alt="Engineering Work" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 40vw"/>
+                <Image src="/images/control-panels.jpg" alt="Engineering Work" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 40vw"/>
               </div>
             </div>
           </div>
@@ -167,9 +132,9 @@ export default function AboutPage() {
             <p className="lead" style={{margin:'1rem auto 0'}}>Our 4801 Keele St facility houses our full inventory, in-house repair workshop, testing lab, and engineering offices — all under one roof.</p>
           </div>
           <div className="facility-grid">
-            <div className="facility-img rv"><Image src="/images/Switchboards%20%26%20Panelboards.jpg.jpeg" alt="Transformer Storage" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
-            <div className="facility-img rv d2"><Image src="/images/Utilities.jpg.jpeg" alt="Testing Laboratory" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
-            <div className="facility-img rv d3"><Image src="/images/Control%20Panels.jpg.jpeg" alt="Engineering Office" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
+            <div className="facility-img rv"><Image src="/images/switchboards.jpg" alt="Transformer Storage" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
+            <div className="facility-img rv d2"><Image src="/images/utilities.jpg" alt="Testing Laboratory" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
+            <div className="facility-img rv d3"><Image src="/images/control-panels.jpg" alt="Engineering Office" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
           </div>
           <div style={{marginTop:'3rem',display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'1.5rem'}} className="rv">
             <div style={{textAlign:'center',padding:'1.5rem',background:'var(--white)',border:'1px solid #E8ECF5',borderRadius:'10px'}}>

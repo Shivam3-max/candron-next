@@ -1,10 +1,11 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import { Orbitron, Chakra_Petch, DM_Sans, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Cursor from '@/components/Cursor'
 import ClientEffects from '@/components/ClientEffects'
+import BackToTop from '@/components/BackToTop'
 
 const orbitron = Orbitron({
   subsets: ['latin'],
@@ -37,6 +38,7 @@ const jetbrainsMono = JetBrains_Mono({
 const fontVars = [orbitron.variable, chakraPetch.variable, dmSans.variable, jetbrainsMono.variable].join(' ')
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://candron.com'),
   title: {
     default: 'Candron Energy Inc. | Canadian Power Distribution Equipment',
     template: '%s | Candron Energy Inc.',
@@ -49,13 +51,13 @@ export const metadata: Metadata = {
     siteName: 'Candron Energy Inc.',
     title: 'Candron Energy Inc. | Canadian Power Distribution Equipment',
     description: 'Factory-direct switchgear, switchboards, and control panels engineered, manufactured, and tested entirely in-house. 24/7 emergency response across North America.',
-    images: [{ url: '/images/Switchgear.jpg.jpeg', width: 1200, height: 630, alt: 'Candron Energy Inc. — Power Distribution Equipment' }],
+    images: [{ url: '/images/switchgear.jpg', width: 1200, height: 630, alt: 'Candron Energy Inc. — Power Distribution Equipment' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Candron Energy Inc. | Canadian Power Distribution Equipment',
     description: 'Factory-direct switchgear, switchboards, and control panels. Built in Canada. 24/7 emergency response.',
-    images: ['/images/Switchgear.jpg.jpeg'],
+    images: ['/images/switchgear.jpg'],
   },
   robots: { index: true, follow: true },
 }
@@ -68,6 +70,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <BackToTop />
         <ClientEffects />
       </body>
     </html>

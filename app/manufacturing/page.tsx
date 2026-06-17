@@ -1,4 +1,4 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import Image from 'next/image'
 
 export const metadata = { title: 'Manufacturing', description: 'Candron\'s Canadian manufacturing facility handles every stage in-house — electrical design, fabrication, assembly, wiring, and factory acceptance testing. No outsourcing, one point of accountability.' }
@@ -7,7 +7,7 @@ export default function ManufacturingPage() {
   return (
     <>
       <div className="page-hero">
-        <div className="page-hero-bg" style={{background:"url('/images/Utilities.jpg.jpeg') center/cover"}}></div>
+        <div className="page-hero-bg" style={{background:"url('/images/manufacturing.jpg') center/cover"}}></div>
         <div className="container page-hero-content">
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>Manufacturing</span></div>
           <div className="label label-white">Our Facility</div>
@@ -38,7 +38,7 @@ export default function ManufacturingPage() {
         <div className="container">
           <div style={{textAlign:'center',maxWidth:'560px',margin:'0 auto 4rem'}} className="rv">
             <div className="label label-white" style={{justifyContent:'center'}}>Capabilities</div>
-            <h2 style={{color:'var(--white)'}}>Everything In-House.<br/>Nothing Outsourced.</h2>
+            <h2 style={{color:'var(--white)'}}>Everything In-House.<br/><span style={{color:'var(--blue-l)'}}>Nothing Outsourced.</span></h2>
           </div>
           <div className="capability-grid">
             <div className="capability-card rv">
@@ -93,7 +93,7 @@ export default function ManufacturingPage() {
       {/* PROCESS */}
       <div className="section bg-off">
         <div className="container">
-          <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'6rem',alignItems:'start'}}>
+          <div className="mfg-process-grid">
             <div className="rv-l">
               <div className="label">Manufacturing Process</div>
               <h2 style={{marginBottom:'1.5rem'}}>A Structured Process That<br/>Eliminates Surprises</h2>
@@ -115,7 +115,7 @@ export default function ManufacturingPage() {
             </div>
             <div className="rv-r">
               <div style={{borderRadius:'14px',overflow:'hidden',height:'420px',marginBottom:'1.5rem',position:'relative'}}>
-                <Image src="/images/Switchgear.jpg.jpeg" alt="Manufacturing Facility" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 50vw"/>
+                <Image src="/images/switchgear-facility.jpg" alt="Manufacturing Facility" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 50vw"/>
               </div>
               <div className="metric-showcase" style={{gridTemplateColumns:'1fr 1fr',marginTop:0}}>
                 <div className="metric-card">
@@ -149,9 +149,9 @@ export default function ManufacturingPage() {
             <p className="lead" style={{margin:'1rem auto 0'}}>Proudly engineered and manufactured in Canada. Candron's North York, Ontario facility serves utilities, contractors, industrial facilities, and infrastructure projects across North America.</p>
           </div>
           <div className="facility-grid">
-            <div className="facility-img rv"><Image src="/images/Utilities.jpg.jpeg" alt="Production Floor" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
-            <div className="facility-img rv d2"><Image src="/images/Switchgear.jpg.jpeg" alt="Assembly Area" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
-            <div className="facility-img rv d3"><Image src="/images/Control%20Panels.jpg.jpeg" alt="Engineering Office" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
+            <div className="facility-img rv"><Image src="/images/manufacturing.jpg" alt="Production Floor" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
+            <div className="facility-img rv d2"><Image src="/images/switchgear-facility.jpg" alt="Assembly Area" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
+            <div className="facility-img rv d3"><Image src="/images/control-panels.jpg" alt="Engineering Office" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
           </div>
         </div>
       </div>
