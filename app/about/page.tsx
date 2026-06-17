@@ -50,7 +50,7 @@ export default function AboutPage() {
       {/* VALUES */}
       <div className="section bg-off">
         <div className="container">
-          <div className="split" style={{gap:'5rem',alignItems:'start'}}>
+          <div className="split" style={{alignItems:'start'}}>
             <div className="rv-l">
               <div className="label">What Drives Us</div>
               <h2 style={{marginBottom:'1.5rem'}}>Our Values</h2>
@@ -78,7 +78,7 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
-            <div className="rv-r" style={{position:'sticky',top:'100px'}}>
+            <div className="rv-r sticky-col">
               <div style={{borderRadius:'14px',overflow:'hidden',height:'500px',position:'relative'}}>
                 <Image src="/images/utilities.jpg" alt="Candron Engineering Team" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 40vw"/>
                 <div style={{position:'absolute',inset:0,background:'linear-gradient(to top,rgba(5,9,31,.5),transparent 50%)'}}></div>
@@ -87,7 +87,7 @@ export default function AboutPage() {
                   <div style={{fontSize:'.82rem',color:'rgba(255,255,255,.65)'}}>On call 24/7, every day of the year</div>
                 </div>
               </div>
-              <div style={{marginTop:'1.5rem',display:'grid',gridTemplateColumns:'1fr 1fr',gap:'1rem'}}>
+              <div className="about-mini-stats">
                 <div style={{padding:'1.5rem',background:'var(--white)',border:'1px solid #E8ECF5',borderRadius:'10px',textAlign:'center'}}>
                   <div style={{fontFamily:'var(--fd)',fontSize:'1.5rem',fontWeight:900,color:'var(--blue)'}}>&lt;30 Min</div>
                   <div style={{fontFamily:'var(--ft)',fontSize:'.68rem',color:'var(--gray)',letterSpacing:'.1em',textTransform:'uppercase',marginTop:'.25rem'}}>Emergency Response</div>
@@ -105,7 +105,7 @@ export default function AboutPage() {
       {/* TIMELINE */}
       <div className="section bg-white">
         <div className="container">
-          <div className="split" style={{gap:'5rem',alignItems:'start'}}>
+          <div className="split" style={{alignItems:'start'}}>
             <div className="rv-l">
               <div className="label">Our Journey</div>
               <h2 style={{marginBottom:'2.5rem'}}>15 Years of Keeping<br/>the Lights On</h2>
@@ -136,7 +136,7 @@ export default function AboutPage() {
             <div className="facility-img rv d2"><Image src="/images/utilities.jpg" alt="Testing Laboratory" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
             <div className="facility-img rv d3"><Image src="/images/control-panels.jpg" alt="Engineering Office" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
           </div>
-          <div style={{marginTop:'3rem',display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'1.5rem'}} className="rv">
+          <div className="metrics-4col rv">
             <div style={{textAlign:'center',padding:'1.5rem',background:'var(--white)',border:'1px solid #E8ECF5',borderRadius:'10px'}}>
               <div style={{fontFamily:'var(--fd)',fontSize:'1.4rem',fontWeight:900,color:'var(--blue)',marginBottom:'.3rem'}}>650+</div>
               <div style={{fontFamily:'var(--ft)',fontSize:'.7rem',color:'var(--gray)',letterSpacing:'.1em',textTransform:'uppercase'}}>Units In Stock</div>

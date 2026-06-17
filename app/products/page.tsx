@@ -27,14 +27,14 @@ export default function ProductsPage() {
 
           {/* SWITCHGEAR */}
           <div id="switchgear" style={{marginBottom:'7rem'}}>
-            <div className="split split-2-3" style={{gap:'5rem',alignItems:'start'}}>
+            <div className="split split-2-3" style={{alignItems:'start'}}>
               <div className="rv-l">
                 <div className="prod-detail-img">
                   <Image src="/images/switchgear.jpg" alt="Electrical Switchgear" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 40vw" priority/>
                 </div>
                 <div style={{marginTop:'1.5rem',padding:'1.75rem',background:'var(--off)',borderRadius:'12px'}}>
                   <div style={{fontFamily:'var(--fm)',fontSize:'.6rem',color:'var(--blue)',letterSpacing:'.22em',textTransform:'uppercase',marginBottom:'.85rem'}}>Quick Specs</div>
-                  <table className="specs-table">
+                  <div className="specs-table-wrap"><table className="specs-table">
                     <tbody>
                       <tr><td>Type</td><td>Medium Voltage &amp; Low Voltage</td></tr>
                       <tr><td>Standards</td><td>ANSI/IEEE C37, CSA</td></tr>
@@ -42,7 +42,7 @@ export default function ProductsPage() {
                       <tr><td>Testing</td><td>Full FAT In-House</td></tr>
                       <tr><td>Origin</td><td>Canadian Manufactured</td></tr>
                     </tbody>
-                  </table>
+                  </table></div>
                 </div>
               </div>
               <div className="rv-r">
@@ -82,7 +82,7 @@ export default function ProductsPage() {
 
           {/* SWITCHBOARDS & PANELBOARDS */}
           <div id="switchboards" style={{marginBottom:'7rem'}}>
-            <div className="split" style={{gap:'5rem',alignItems:'start'}}>
+            <div className="split" style={{alignItems:'start'}}>
               <div className="rv-l">
                 <div className="label">Product 02</div>
                 <h2 style={{marginBottom:'.75rem'}}>Switchboards &amp; Panelboards</h2>
@@ -119,7 +119,7 @@ export default function ProductsPage() {
                 </div>
                 <div style={{marginTop:'1.5rem',padding:'1.75rem',background:'var(--off)',borderRadius:'12px'}}>
                   <div style={{fontFamily:'var(--fm)',fontSize:'.6rem',color:'var(--blue)',letterSpacing:'.22em',textTransform:'uppercase',marginBottom:'.85rem'}}>Quick Specs</div>
-                  <table className="specs-table">
+                  <div className="specs-table-wrap"><table className="specs-table">
                     <tbody>
                       <tr><td>Type</td><td>Switchboards &amp; Panelboards</td></tr>
                       <tr><td>Standards</td><td>UL891, CSA C22.2</td></tr>
@@ -127,7 +127,7 @@ export default function ProductsPage() {
                       <tr><td>Testing</td><td>Factory Acceptance Testing</td></tr>
                       <tr><td>Origin</td><td>Canadian Manufactured</td></tr>
                     </tbody>
-                  </table>
+                  </table></div>
                 </div>
               </div>
             </div>
@@ -137,14 +137,14 @@ export default function ProductsPage() {
 
           {/* CONTROL PANELS */}
           <div id="controlpanels" style={{marginBottom:'4rem'}}>
-            <div className="split split-2-3" style={{gap:'5rem',alignItems:'start'}}>
+            <div className="split split-2-3" style={{alignItems:'start'}}>
               <div className="rv-l">
                 <div className="prod-detail-img">
                   <Image src="/images/control-panels.jpg" alt="Control Panels" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 40vw"/>
                 </div>
                 <div style={{marginTop:'1.5rem',padding:'1.75rem',background:'var(--off)',borderRadius:'12px'}}>
                   <div style={{fontFamily:'var(--fm)',fontSize:'.6rem',color:'var(--blue)',letterSpacing:'.22em',textTransform:'uppercase',marginBottom:'.85rem'}}>Quick Specs</div>
-                  <table className="specs-table">
+                  <div className="specs-table-wrap"><table className="specs-table">
                     <tbody>
                       <tr><td>Type</td><td>Industrial Control Panels</td></tr>
                       <tr><td>Standards</td><td>UL 508A</td></tr>
@@ -152,7 +152,7 @@ export default function ProductsPage() {
                       <tr><td>Testing</td><td>Functional &amp; FAT</td></tr>
                       <tr><td>Origin</td><td>Canadian Manufactured</td></tr>
                     </tbody>
-                  </table>
+                  </table></div>
                 </div>
               </div>
               <div className="rv-r">

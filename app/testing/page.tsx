@@ -1,5 +1,6 @@
 ﻿import Link from "next/link";
 import Image from "next/image";
+import ProcessScroll from "@/components/ProcessScroll";
 
 export const metadata = {
   title: "Testing",
@@ -87,57 +88,19 @@ export default function TestingPage() {
             </div>
             <h2>What We Test</h2>
           </div>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: "5rem",
-              alignItems: "start",
-            }}
-          >
+          <div className="split" style={{ alignItems: "start" }}>
             <div className="rv-l">
-              <div className="process-v">
-                {[
-                  {
-                    n: "01",
-                    t: "Functional Testing",
-                    d: "Verification of all control circuits, protection functions, interlocks, and operational sequences against the approved design documentation.",
-                  },
-                  {
-                    n: "02",
-                    t: "Protection Verification",
-                    d: "Testing of all protection relay functions, overcurrent settings, trip timing, and alarm functions to confirm correct operation.",
-                  },
-                  {
-                    n: "03",
-                    t: "Control Logic Testing",
-                    d: "PLC program verification, HMI functionality testing, and sequence of operations validation against the approved control philosophy.",
-                  },
-                  {
-                    n: "04",
-                    t: "Equipment Validation",
-                    d: "Physical inspection and verification of all components, ratings, labels, and documentation against project specifications and applicable standards.",
-                  },
-                  {
-                    n: "05",
-                    t: "Factory Acceptance Testing",
-                    d: "Comprehensive witnessed or unwitnessed FAT performed to applicable ANSI, IEEE, NETA, CSA, and UL requirements with full test reports.",
-                  },
-                  {
-                    n: "06",
-                    t: "Documentation Review",
-                    d: "Complete review of as-built drawings, test records, equipment data sheets, and O&M manuals against project requirements before shipment.",
-                  },
-                ].map((s) => (
-                  <div key={s.n} className="process-v-item">
-                    <div className="process-v-dot">{s.n}</div>
-                    <div>
-                      <div className="process-v-title">{s.t}</div>
-                      <div className="process-v-text">{s.d}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <ProcessScroll
+                variant="light"
+                steps={[
+                  { n: "01", t: "Functional Testing", d: "Verification of all control circuits, protection functions, interlocks, and operational sequences against the approved design documentation." },
+                  { n: "02", t: "Protection Verification", d: "Testing of all protection relay functions, overcurrent settings, trip timing, and alarm functions to confirm correct operation." },
+                  { n: "03", t: "Control Logic Testing", d: "PLC program verification, HMI functionality testing, and sequence of operations validation against the approved control philosophy." },
+                  { n: "04", t: "Equipment Validation", d: "Physical inspection and verification of all components, ratings, labels, and documentation against project specifications and applicable standards." },
+                  { n: "05", t: "Factory Acceptance Testing", d: "Comprehensive witnessed or unwitnessed FAT performed to applicable ANSI, IEEE, NETA, CSA, and UL requirements with full test reports." },
+                  { n: "06", t: "Documentation Review", d: "Complete review of as-built drawings, test records, equipment data sheets, and O&M manuals against project requirements before shipment." },
+                ]}
+              />
             </div>
             <div className="rv-r">
               <div className="sticky-cta">

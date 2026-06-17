@@ -64,7 +64,7 @@ export default function ContactPage() {
                 </div>
               ) : (
                 <form onSubmit={submit} className="contact-form">
-                  <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'1.25rem'}}>
+                  <div className="form-row">
                     <div className="form-group">
                       <label htmlFor="name">Full Name *</label>
                       <input type="text" id="name" name="name" required placeholder="John Smith" value={form.name} onChange={handle}/>
@@ -74,7 +74,7 @@ export default function ContactPage() {
                       <input type="text" id="company" name="company" placeholder="Acme Electric Ltd." value={form.company} onChange={handle}/>
                     </div>
                   </div>
-                  <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'1.25rem'}}>
+                  <div className="form-row">
                     <div className="form-group">
                       <label htmlFor="email">Email Address *</label>
                       <input type="email" id="email" name="email" required placeholder="john@company.com" value={form.email} onChange={handle}/>

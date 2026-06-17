@@ -117,7 +117,7 @@ export default function ManufacturingPage() {
               <div style={{borderRadius:'14px',overflow:'hidden',height:'420px',marginBottom:'1.5rem',position:'relative'}}>
                 <Image src="/images/switchgear-facility.jpg" alt="Manufacturing Facility" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 50vw"/>
               </div>
-              <div className="metric-showcase" style={{gridTemplateColumns:'1fr 1fr',marginTop:0}}>
+              <div className="metric-showcase" style={{marginTop:0}}>
                 <div className="metric-card">
                   <div className="metric-val">100%</div>
                   <div className="metric-lbl">In-House Production</div>

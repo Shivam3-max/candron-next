@@ -1,6 +1,6 @@
 ﻿import Link from 'next/link'
 import Image from 'next/image'
-import ProcessStepsAnimate from '@/components/ProcessStepsAnimate'
+import ProcessScroll from '@/components/ProcessScroll'
 
 export const metadata = { title: 'Commissioning', description: 'Candron provides on-site commissioning support — startup assistance, site testing, equipment verification, and performance validation — by the same engineers who designed and built your equipment.' }
 
@@ -73,7 +73,7 @@ export default function CommissioningPage() {
       {/* WHY */}
       <div className="section bg-white">
         <div className="container">
-          <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'5rem',alignItems:'center'}}>
+          <div className="split">
             <div className="rv-l">
               <div style={{borderRadius:'14px',overflow:'hidden',height:'480px',position:'relative'}}>
                 <Image src="/images/utilities.jpg" alt="Commissioning Support" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 50vw"/>
@@ -91,7 +91,9 @@ export default function CommissioningPage() {
                 <li>Single point of accountability through project close-out</li>
                 <li>Coordination with your site team and electrical contractor</li>
               </ul>
-              <Link href="/contact" className="btn btn-primary mag" style={{marginTop:'2rem',display:'inline-flex'}}>Request Commissioning Support</Link>
+              <div style={{marginTop:'2rem',display:'flex',justifyContent:'center'}}>
+                <Link href="/contact" className="btn btn-primary mag">Request Commissioning Support</Link>
+              </div>
             </div>
           </div>
         </div>
@@ -104,12 +106,12 @@ export default function CommissioningPage() {
             <div className="label label-white" style={{justifyContent:'center'}}>How It Works</div>
             <h2 style={{color:'var(--white)'}}>Commissioning Engagement</h2>
           </div>
-          <ProcessStepsAnimate variant="dark" steps={[
-            { n: '01', title: 'Pre-Commissioning Plan', desc: 'Candron develops a site-specific commissioning plan aligned with your project schedule and energization sequence' },
-            { n: '02', title: 'Site Mobilization', desc: 'Our engineers arrive on site with complete project documentation and test equipment for field verification' },
-            { n: '03', title: 'Pre-Energization Checks', desc: 'Physical verification of installation, connections, settings, and configuration prior to initial energization' },
-            { n: '04', title: 'Startup & Verification', desc: 'Supervised energization and functional verification of all systems, protection, and control sequences' },
-            { n: '05', title: 'Handover & Documentation', desc: 'Commissioning report issued and documentation package transferred to your operations team' },
+          <ProcessScroll variant="dark" steps={[
+            { n: '01', t: 'Pre-Commissioning Plan', d: 'Candron develops a site-specific commissioning plan aligned with your project schedule and energization sequence' },
+            { n: '02', t: 'Site Mobilization', d: 'Our engineers arrive on site with complete project documentation and test equipment for field verification' },
+            { n: '03', t: 'Pre-Energization Checks', d: 'Physical verification of installation, connections, settings, and configuration prior to initial energization' },
+            { n: '04', t: 'Startup & Verification', d: 'Supervised energization and functional verification of all systems, protection, and control sequences' },
+            { n: '05', t: 'Handover & Documentation', d: 'Commissioning report issued and documentation package transferred to your operations team' },
           ]} />
         </div>
       </div>

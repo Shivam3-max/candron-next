@@ -228,14 +228,7 @@ export default function HomePage() {
       {/* PROCESS */}
       <div className="bg-navy-section">
         <div className="container">
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: "6rem",
-              alignItems: "start",
-            }}
-          >
+          <div className="process-grid">
             <div className="rv-l">
               <div className="label label-white">Our Process</div>
               <h2 style={{ color: "var(--white)", marginBottom: "1.5rem" }}>

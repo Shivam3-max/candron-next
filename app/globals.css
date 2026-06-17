@@ -22,7 +22,8 @@
 }
 
 html {
-  scroll-behavior: smooth
+  scroll-behavior: smooth;
+  overflow-x: hidden
 }
 
 body {
@@ -38,17 +39,19 @@ body {
   }
 }
 
-::-webkit-scrollbar {
-  width: 3px
-}
+@media (pointer: fine) {
+  ::-webkit-scrollbar {
+    width: 3px
+  }
 
-::-webkit-scrollbar-track {
-  background: var(--navy)
-}
+  ::-webkit-scrollbar-track {
+    background: var(--navy)
+  }
 
-::-webkit-scrollbar-thumb {
-  background: var(--blue);
-  border-radius: 2px
+  ::-webkit-scrollbar-thumb {
+    background: var(--blue);
+    border-radius: 2px
+  }
 }
 
 /* CURSOR */
@@ -1582,6 +1585,17 @@ footer {
   animation: rv-right .75s cubic-bezier(.4, 0, .2, 1) forwards
 }
 
+@media(max-width:1024px) {
+  .rv-l,
+  .rv-r {
+    transform: translateY(30px)
+  }
+  .rv-l.visible,
+  .rv-r.visible {
+    animation: rv-up .75s cubic-bezier(.4, 0, .2, 1) forwards
+  }
+}
+
 @keyframes rv-up {
   to {
     opacity: 1;
@@ -1991,9 +2005,13 @@ footer {
     font-size: 2.2rem
   }
 
-  .prod-highlights,
-  .ind-grid-home {
+  .prod-highlights {
     grid-template-columns: 1fr
+  }
+
+  .ind-grid-home {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem
   }
 
   .emergency-bar {
@@ -2321,6 +2339,7 @@ footer {
   box-shadow: 0 0 8px rgba(0, 71, 255, .5);
   z-index: 0
 }
+
 
 .ps-dot {
   transition: background .3s, color .3s, box-shadow .3s, transform .3s
@@ -2741,7 +2760,7 @@ footer {
 
 .value-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 1.5rem
 }
 
@@ -2823,7 +2842,7 @@ footer {
   }
 
   .value-grid {
-    grid-template-columns: 1fr
+    grid-template-columns: repeat(2, 1fr)
   }
 }
 
@@ -2832,6 +2851,24 @@ footer {
   .team-grid,
   .facility-grid {
     grid-template-columns: 1fr
+  }
+
+  .value-item {
+    padding: 1rem 0.9rem
+  }
+
+  .value-num {
+    font-size: 1.8rem;
+    margin-bottom: .4rem
+  }
+
+  .value-title {
+    font-size: .82rem;
+    margin-bottom: .35rem
+  }
+
+  .value-text {
+    display: none
   }
 }
 
@@ -3409,8 +3446,53 @@ footer {
   line-height: 1.55
 }
 
+/* Responsive form row (2-col → 1-col on mobile) */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem
+}
+
+/* 4-column metrics grid (4 → 2 → 2 on smaller screens) */
+.metrics-4col {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem
+}
+
+/* 2-column stats grid inside sidebar panels (about page) */
+.about-mini-stats {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem
+}
+
+/* Sticky sidebar column — goes static at tablet breakpoint */
+.sticky-col {
+  position: sticky;
+  top: 100px
+}
+
+/* Horizontal-scroll wrapper for specs tables on small screens */
+.specs-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch
+}
+
+/* Process section two-column layout */
+.process-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: start
+}
+
 /* Vertical process */
 .process-v {
+  --process-v-dot-size: 56px;
+  --process-v-line-x: calc(var(--process-v-dot-size) / 2);
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -3420,9 +3502,9 @@ footer {
 .process-v::before {
   content: '';
   position: absolute;
-  left: 28px;
-  top: 0;
-  bottom: 0;
+  left: var(--process-v-line-x);
+  top: var(--process-v-line-x);
+  bottom: var(--process-v-line-x);
   width: 2px;
   background: rgba(0, 71, 255, .15);
   transform: translateX(-50%)
@@ -3430,8 +3512,8 @@ footer {
 
 .process-v-progress {
   position: absolute;
-  left: 28px;
-  top: 0;
+  left: var(--process-v-line-x);
+  top: var(--process-v-line-x);
   width: 2px;
   height: 0;
   background: linear-gradient(to bottom, var(--blue), rgba(77, 138, 255, .5));
@@ -3443,7 +3525,7 @@ footer {
 
 .process-v-item {
   display: grid;
-  grid-template-columns: 56px 1fr;
+  grid-template-columns: var(--process-v-dot-size) 1fr;
   gap: 2rem;
   padding: 0 0 3rem;
   position: relative;
@@ -3455,8 +3537,8 @@ footer {
 }
 
 .process-v-dot {
-  width: 56px;
-  height: 56px;
+  width: var(--process-v-dot-size);
+  height: var(--process-v-dot-size);
   background: var(--white);
   border: 2px solid var(--blue);
   border-radius: 50%;
@@ -3482,9 +3564,10 @@ footer {
   font-family: var(--ft);
   font-size: 1rem;
   font-weight: 700;
+  line-height: 1.2;
   color: var(--navy);
   margin-bottom: .4rem;
-  padding-top: .85rem
+  padding-top: calc((var(--process-v-dot-size) - 1.2em) / 2)
 }
 
 .process-v-text {
@@ -3785,6 +3868,10 @@ footer {
 }
 
 @media(max-width:1024px) {
+  .metrics-4col {
+    grid-template-columns: repeat(2, 1fr)
+  }
+
   .why-grid {
     grid-template-columns: 1fr 1fr
   }
@@ -3813,13 +3900,41 @@ footer {
   .prod-highlights-3 {
     grid-template-columns: 1fr 1fr
   }
+
+  .sticky-col {
+    position: static
+  }
 }
 
 @media(max-width:640px) {
 
-  .why-grid,
-  .capability-grid {
+  .why-grid {
     grid-template-columns: 1fr
+  }
+
+  .capability-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: .75rem
+  }
+
+  .capability-card {
+    padding: .85rem
+  }
+
+  .capability-num {
+    font-size: 1.4rem;
+    margin-bottom: .3rem
+  }
+
+  .capability-title {
+    font-size: .72rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none
+  }
+
+  .capability-text {
+    display: none
   }
 
   .standard-grid {
@@ -3832,6 +3947,18 @@ footer {
 
   .prod-highlights-3 {
     grid-template-columns: 1fr
+  }
+
+  .about-mini-stats {
+    grid-template-columns: 1fr
+  }
+
+  .metrics-4col {
+    grid-template-columns: 1fr 1fr
+  }
+
+  .map-placeholder {
+    height: 200px
   }
 }
 
@@ -3950,6 +4077,10 @@ footer {
     grid-template-columns: 1fr
   }
 
+  /* Product pages: show text (rv-r) before image (rv-l) on mobile */
+  .split-2-3 > .rv-l { order: 2 }
+  .split-2-3 > .rv-r { order: 1 }
+
   /* Card grids */
   .card-grid-4 {
     grid-template-columns: repeat(2, 1fr)
@@ -4014,7 +4145,7 @@ footer {
   }
 
   .value-grid {
-    grid-template-columns: 1fr
+    grid-template-columns: repeat(2, 1fr)
   }
 
   .team-grid {
@@ -4027,6 +4158,10 @@ footer {
 
   .timeline {
     padding-left: 2.5rem
+  }
+
+  .tl-dot {
+    left: calc(-2.5rem - 6px)
   }
 
   /* Products */
@@ -4114,7 +4249,20 @@ footer {
   }
 
   .commission-grid {
-    grid-template-columns: 1fr
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem
+  }
+
+  .commission-card {
+    padding: 1.1rem
+  }
+
+  .commission-title {
+    font-size: .82rem
+  }
+
+  .commission-text {
+    display: none
   }
 
   .metric-showcase {
@@ -4127,19 +4275,21 @@ footer {
     margin-bottom: 2rem
   }
 
+  .process-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem
+  }
+
   .process-v-item {
-    grid-template-columns: 44px 1fr;
     gap: 1.25rem
   }
 
-  .process-v-dot {
-    width: 44px;
-    height: 44px;
-    font-size: .65rem
+  .process-v {
+    --process-v-dot-size: 44px
   }
 
-  .process-v::before {
-    left: 22px
+  .process-v-dot {
+    font-size: .65rem
   }
 
   /* CTA band */
@@ -4169,14 +4319,23 @@ footer {
     gap: 2rem
   }
 
-  /* Inline grids used in page files */
-  [style*="grid-template-columns:'1fr 1fr'"] {
-    grid-template-columns: 1fr !important
-  }
 }
 
 /* ---- TABLET PORTRAIT (≤768px) ---- */
 @media(max-width:768px) {
+  .split-img-tall {
+    height: 380px
+  }
+
+  .split-img-med {
+    height: 300px
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem
+  }
+
   .intro-split {
     grid-template-columns: 1fr;
     gap: 2.5rem
@@ -4225,7 +4384,7 @@ footer {
   }
 
   .value-grid {
-    grid-template-columns: 1fr
+    grid-template-columns: repeat(2, 1fr)
   }
 
   .ind-detail,
@@ -4361,7 +4520,8 @@ footer {
   }
 
   .ind-grid-home {
-    grid-template-columns: 1fr
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem
   }
 
   /* Prod detail */
@@ -4395,7 +4555,7 @@ footer {
   }
 
   .value-grid {
-    grid-template-columns: 1fr
+    grid-template-columns: repeat(2, 1fr)
   }
 
   .timeline {
@@ -4403,7 +4563,7 @@ footer {
   }
 
   .tl-dot {
-    left: -2.5rem
+    left: calc(-2rem - 6px)
   }
 
   /* Services */
@@ -4459,12 +4619,13 @@ footer {
   }
 
   .ind-grid-home .ind-card {
-    height: 200px
+    height: 160px
   }
 
   /* Manufacturing / testing / commissioning */
   .capability-grid {
-    grid-template-columns: 1fr
+    grid-template-columns: repeat(3, 1fr);
+    gap: .75rem
   }
 
   .why-grid {
@@ -4497,7 +4658,8 @@ footer {
   }
 
   .commission-grid {
-    grid-template-columns: 1fr
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem
   }
 
   .metric-showcase {
@@ -4514,19 +4676,16 @@ footer {
   }
 
   .process-v-item {
-    grid-template-columns: 38px 1fr;
     gap: 1rem;
     padding-bottom: 2rem
   }
 
-  .process-v-dot {
-    width: 38px;
-    height: 38px;
-    font-size: .6rem
+  .process-v {
+    --process-v-dot-size: 38px
   }
 
-  .process-v::before {
-    left: 19px
+  .process-v-dot {
+    font-size: .6rem
   }
 
   /* Contact */
@@ -4762,5 +4921,40 @@ footer {
 
   .nav-inner {
     padding: 0 1rem
+  }
+
+  .section {
+    padding: 4rem 0
+  }
+
+  .card-grid-2,
+  .card-grid-3,
+  .card-grid-4 {
+    gap: 1rem
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr
+  }
+
+  .hero-btns {
+    flex-direction: column;
+    align-items: flex-start
+  }
+
+  .about-mini-stats {
+    grid-template-columns: 1fr
+  }
+
+  .metrics-4col {
+    grid-template-columns: 1fr 1fr
+  }
+
+  .prod-detail-img {
+    height: 220px
+  }
+
+  .facility-grid {
+    grid-template-columns: 1fr
   }
 }
