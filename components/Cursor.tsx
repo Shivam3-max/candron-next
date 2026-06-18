@@ -24,12 +24,12 @@ export default function Cursor() {
     const hoverEls = document.querySelectorAll('a,button,input,select,textarea,.prod-card,.ind-card,.svc-item,.card,.why-card')
     hoverEls.forEach(el => {
       el.addEventListener('mouseenter', () => {
-        cur.style.width='5px'; cur.style.height='5px'
-        curR.style.width='52px'; curR.style.height='52px'; curR.style.borderColor='rgba(0,71,255,.65)'
+        cur.style.width='4px'; cur.style.height='4px'
+        curR.style.width='48px'; curR.style.height='48px'; curR.style.borderColor='rgba(0,71,255,.75)'
       })
       el.addEventListener('mouseleave', () => {
-        cur.style.width='9px'; cur.style.height='9px'
-        curR.style.width='36px'; curR.style.height='36px'; curR.style.borderColor='rgba(0,71,255,.4)'
+        cur.style.width='7px'; cur.style.height='7px'
+        curR.style.width='36px'; curR.style.height='36px'; curR.style.borderColor='rgba(0,71,255,.55)'
       })
     })
     return () => {

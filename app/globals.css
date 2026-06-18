@@ -33,12 +33,6 @@ body {
   overflow-x: hidden
 }
 
-@media(pointer:fine) {
-  body {
-    cursor: none
-  }
-}
-
 @media (pointer: fine) {
   ::-webkit-scrollbar {
     width: 3px
@@ -52,35 +46,6 @@ body {
     background: var(--blue);
     border-radius: 2px
   }
-}
-
-/* CURSOR */
-.cur,
-.cur-r {
-  position: fixed;
-  pointer-events: none;
-  z-index: 99999;
-  border-radius: 50%;
-  transform: translate(-50%, -50%)
-}
-
-.cur {
-  width: 9px;
-  height: 9px;
-  background: var(--blue);
-  mix-blend-mode: multiply;
-  transition: width .2s, height .2s
-}
-
-.cur-r {
-  width: 36px;
-  height: 36px;
-  border: 1.5px solid rgba(0, 71, 255, .4);
-  transition: width .3s, height .3s, border-color .3s
-}
-
-body.dark .cur {
-  mix-blend-mode: screen
 }
 
 /* NAV */
@@ -229,7 +194,7 @@ nav a {
   color: var(--navy);
   position: relative;
   transition: color .3s;
-  cursor: none
+  cursor: auto
 }
 
 nav a::after {
@@ -298,7 +263,7 @@ header.scrolled nav a.active {
   display: none;
   flex-direction: column;
   gap: 5px;
-  cursor: none;
+  cursor: auto;
   padding: 8px;
   border: none;
   background: none
@@ -334,7 +299,7 @@ header.scrolled .ham span {
   letter-spacing: .08em;
   text-transform: uppercase;
   text-decoration: none;
-  cursor: none;
+  cursor: auto;
   transition: all .3s;
   border: none
 }
@@ -995,7 +960,7 @@ canvas#hero-canvas {
   border-radius: 12px;
   overflow: hidden;
   transition: transform .3s, box-shadow .3s;
-  cursor: none
+  cursor: auto
 }
 
 .card:hover {
@@ -1063,7 +1028,7 @@ canvas#hero-canvas {
   border-radius: 14px;
   overflow: hidden;
   transition: all .35s;
-  cursor: none;
+  cursor: auto;
   display: flex;
   flex-direction: column
 }
@@ -1168,7 +1133,7 @@ canvas#hero-canvas {
   border-radius: 12px;
   overflow: hidden;
   height: 280px;
-  cursor: none
+  cursor: auto
 }
 
 .ind-card img {
@@ -1238,7 +1203,7 @@ canvas#hero-canvas {
   border: 1px solid #E8ECF5;
   border-radius: 12px;
   transition: all .3s;
-  cursor: none
+  cursor: auto
 }
 
 .svc-item:hover {
@@ -1503,7 +1468,7 @@ footer {
   font-size: .72rem;
   font-weight: 700;
   letter-spacing: .05em;
-  cursor: none;
+  cursor: auto;
   transition: background .3s
 }
 
@@ -1533,7 +1498,7 @@ footer {
   text-decoration: none;
   font-size: .83rem;
   transition: color .3s;
-  cursor: none
+  cursor: auto
 }
 
 .footer-col ul a:hover {
@@ -1750,7 +1715,7 @@ footer {
   color: rgba(255, 255, 255, .4);
   text-decoration: none;
   transition: color .3s;
-  cursor: none
+  cursor: auto
 }
 
 .breadcrumb a:hover {
@@ -2120,7 +2085,7 @@ footer {
   border: 1.5px solid #DDE2EE;
   color: var(--gray);
   transition: all .3s;
-  cursor: none
+  cursor: auto
 }
 
 .product-nav a:hover,
@@ -2704,7 +2669,7 @@ footer {
   border-radius: 14px;
   overflow: hidden;
   transition: transform .3s, box-shadow .3s;
-  cursor: none
+  cursor: auto
 }
 
 .team-card:hover {
@@ -2733,6 +2698,35 @@ footer {
 
 .team-body {
   padding: 1.5rem
+}
+
+.team-tag {
+  display: inline-block;
+  font-family: var(--fm);
+  font-size: .6rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  background: rgba(0, 71, 255, .07);
+  color: var(--blue);
+  padding: .3rem .7rem;
+  border-radius: 4px;
+  transition: background .25s, color .25s, transform .2s
+}
+
+.team-tag:hover {
+  background: var(--blue);
+  color: #fff;
+  transform: translateY(-2px)
+}
+
+/* Canadian flag hover lift */
+.canada-flag {
+  transition: transform .4s cubic-bezier(.4,0,.2,1), box-shadow .4s cubic-bezier(.4,0,.2,1)
+}
+
+.canada-flag:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, .28)
 }
 
 .team-name {
@@ -3041,7 +3035,7 @@ footer {
   text-decoration: none;
   display: block;
   transition: opacity .3s;
-  cursor: none
+  cursor: auto
 }
 
 .emergency-phone:hover {
@@ -3191,7 +3185,7 @@ footer {
   color: var(--navy);
   text-decoration: none;
   transition: color .3s;
-  cursor: none
+  cursor: auto
 }
 
 .office-val a:hover {
@@ -3792,7 +3786,7 @@ footer {
   border: 1.5px solid #DDE2EE;
   color: var(--gray);
   transition: all .3s;
-  cursor: none
+  cursor: auto
 }
 
 .prod-nav-v2 a:hover,

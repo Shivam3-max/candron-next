@@ -3,7 +3,7 @@ import Image from 'next/image'
 import StatBar from '@/components/StatBar'
 import TimelineScroll from '@/components/TimelineScroll'
 
-export const metadata = { title: 'About', description: '15+ years powering North America\'s most critical facilities. Candron Energy Inc. is a Canadian electrical infrastructure partner offering 24/7 emergency response and 650+ machines in stock.' }
+export const metadata = { title: 'About', description: '50+ years of combined engineering expertise powering North America\'s most critical facilities. Candron Energy Inc. — licensed engineers, veteran technicians, and 650+ machines in stock.' }
 
 export default function AboutPage() {
   return (
@@ -14,7 +14,7 @@ export default function AboutPage() {
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>About</span></div>
           <div className="label label-white">Our Story</div>
           <h1>Built on Reliability.<br/>Grown on Trust.</h1>
-          <p className="lead" style={{marginTop:'1rem'}}>15+ years powering North America's most critical facilities. One promise, kept every time: when you need us, we're there.</p>
+          <p className="lead" style={{marginTop:'1rem'}}>50+ years of combined engineering expertise powering North America's most critical facilities. One promise, kept every time: when you need us, we're there.</p>
         </div>
       </div>
 
@@ -39,7 +39,7 @@ export default function AboutPage() {
       <div className="stat-bar">
         <div className="container">
           <StatBar stats={[
-            { num: '15+', lbl: 'Years in Business' },
+            { num: '50+', lbl: 'Years Combined Expertise' },
             { num: '650+', lbl: 'Machines in Stock' },
             { num: '9', lbl: 'Industries Served' },
             { num: '24/7', lbl: 'Emergency Response' },
@@ -108,7 +108,7 @@ export default function AboutPage() {
           <div className="split" style={{alignItems:'start'}}>
             <div className="rv-l">
               <div className="label">Our Journey</div>
-              <h2 style={{marginBottom:'2.5rem'}}>15 Years of Keeping<br/>the Lights On</h2>
+              <h2 style={{marginBottom:'2.5rem'}}>50+ Years of Combined<br/>Engineering Excellence</h2>
               <TimelineScroll />
             </div>
             <div className="rv-r" style={{display:'flex',flexDirection:'column',gap:'1.5rem',marginTop:'5rem'}}>
@@ -117,6 +117,76 @@ export default function AboutPage() {
               </div>
               <div style={{borderRadius:'12px',overflow:'hidden',height:'280px',position:'relative'}}>
                 <Image src="/images/control-panels.jpg" alt="Engineering Work" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 40vw"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* MEET OUR TEAM */}
+      <div className="section bg-off">
+        <div className="container">
+          <div style={{textAlign:'center',maxWidth:'600px',margin:'0 auto 3.5rem'}} className="rv">
+            <div className="label" style={{justifyContent:'center'}}>The People Behind The Work</div>
+            <h2>An Army of Experts.<br/>Built for the Field.</h2>
+            <p className="lead" style={{margin:'1rem auto 0'}}>Candron is powered by a team of licensed engineers and battle-tested technicians — over 50 years of combined expertise deployed on every project.</p>
+          </div>
+
+          <div className="team-grid" style={{marginBottom:'3rem'}}>
+            {/* Engineers card */}
+            <div className="team-card rv">
+              <div className="team-img">
+                <Image src="/images/LicensedEngineers.jpeg" alt="Licensed Engineers" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/>
+              </div>
+              <div className="team-body">
+                <div className="team-name">Licensed Engineers</div>
+                <div className="team-role">M.Eng &amp; Ph.D — Power Systems</div>
+                <p style={{fontSize:'.88rem',color:'var(--gray)',lineHeight:1.75,marginTop:'.75rem'}}>
+                  Every engineer on our team holds a professional license and an advanced degree — master's or doctorate — in electrical or power systems engineering. They design, specify, and commission every project with zero shortcuts.
+                </p>
+                <div style={{display:'flex',gap:'0.75rem',marginTop:'1.25rem',flexWrap:'wrap'}}>
+                  {['P.Eng Licensed','M.Eng / Ph.D','Power Systems','SCADA & Controls'].map(tag => (
+                    <span key={tag} className="team-tag">{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Technicians card */}
+            <div className="team-card rv d2">
+              <div className="team-img">
+                <Image src="/images/FieldTechnicians (1).png" alt="Field Technicians" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/>
+              </div>
+              <div className="team-body">
+                <div className="team-name">Field Technicians</div>
+                <div className="team-role">30+ Years on the Front Lines</div>
+                <p style={{fontSize:'.88rem',color:'var(--gray)',lineHeight:1.75,marginTop:'.75rem'}}>
+                  Our technicians are field veterans — not career starters. Each brings more than 30 years of hands-on experience commissioning, maintaining, and troubleshooting industrial electrical systems under real-world conditions.
+                </p>
+                <div style={{display:'flex',gap:'0.75rem',marginTop:'1.25rem',flexWrap:'wrap'}}>
+                  {['30+ Yrs Experience','Field Commissioning','HV / MV Systems','Emergency Response'].map(tag => (
+                    <span key={tag} className="team-tag">{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Combined experience card */}
+            <div className="team-card rv d3">
+              <div className="team-img">
+                <Image src="/images/CombinedExpertise (1).png" alt="Combined Expertise" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/>
+              </div>
+              <div className="team-body">
+                <div className="team-name">Combined Expertise</div>
+                <div className="team-role">Across Every Discipline</div>
+                <p style={{fontSize:'.88rem',color:'var(--gray)',lineHeight:1.75,marginTop:'.75rem'}}>
+                  When you work with Candron, you're not getting one engineer — you're getting the collective weight of over 50 years of power systems engineering and field operations, applied to your project from day one.
+                </p>
+                <div style={{display:'flex',gap:'0.75rem',marginTop:'1.25rem',flexWrap:'wrap'}}>
+                  {['50+ Yrs Combined','Design to Commissioning','24/7 On-Call','North America Wide'].map(tag => (
+                    <span key={tag} className="team-tag">{tag}</span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

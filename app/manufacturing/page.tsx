@@ -143,10 +143,23 @@ export default function ManufacturingPage() {
       {/* CANADIAN ADVANTAGE */}
       <div className="section bg-white">
         <div className="container">
-          <div style={{textAlign:'center',maxWidth:'560px',margin:'0 auto 3.5rem'}} className="rv">
-            <div className="label" style={{justifyContent:'center'}}>Canadian Manufacturing</div>
-            <h2>Built in Canada.<br/>For Canadian Projects.</h2>
-            <p className="lead" style={{margin:'1rem auto 0'}}>Proudly engineered and manufactured in Canada. Candron's North York, Ontario facility serves utilities, contractors, industrial facilities, and infrastructure projects across North America.</p>
+          <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))',alignItems:'center',gap:'3rem',maxWidth:'960px',margin:'0 auto 3.5rem'}}>
+            <div className="rv-l" style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
+              <Image
+                src="/images/Flag_of_Canada.svg"
+                alt="Flag of Canada"
+                width={340}
+                height={170}
+                className="canada-flag"
+                style={{width:'100%',maxWidth:'340px',height:'auto',borderRadius:'10px',boxShadow:'0 16px 56px rgba(0,0,0,0.22)',display:'block'}}
+                priority
+              />
+            </div>
+            <div className="rv-r">
+              <div className="label">Canadian Manufacturing</div>
+              <h2 style={{marginTop:'0.75rem'}}>Built in Canada.<br/>For Canadian Projects.</h2>
+              <p className="lead" style={{margin:'1rem 0 0'}}>Proudly engineered and manufactured in Canada. Candron's North York, Ontario facility serves utilities, contractors, industrial facilities, and infrastructure projects across North America.</p>
+            </div>
           </div>
           <div className="facility-grid">
             <div className="facility-img rv"><Image src="/images/manufacturing.jpg" alt="Production Floor" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>

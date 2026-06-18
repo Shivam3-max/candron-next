@@ -2,12 +2,12 @@
 import { useEffect, useRef } from 'react'
 
 const milestones = [
-  { year: '2009', title: 'Founded in North York, Ontario', text: 'Candron Energy Inc. is established with a focus on transformer sales and service for the Ontario industrial market. First facility at 4801 Keele St.' },
-  { year: '2012', title: 'Expanded into Switchgear & Load Banks', text: 'Growing client demand drives expansion into medium-voltage switchgear sales and load bank rentals. First emergency response contracts signed with mining operators.' },
-  { year: '2015', title: 'Launched 24/7 Emergency Response Program', text: 'Formalized our sub-30-minute emergency response guarantee with dedicated on-call engineers. First cross-border USA deployments begin.' },
-  { year: '2018', title: 'Engineering Services Division Opens', text: 'Candron hires its first team of licensed power systems engineers to offer in-house design, SCADA integration, and commissioning services.' },
-  { year: '2021', title: 'Expanded Inventory to 500+ Units', text: 'Major inventory investment brings our stocked unit count past 500, enabling same-day or next-day shipment on most transformer and switchgear requests.' },
-  { year: '2024', title: '650+ Machines. 9 Industries. Still Growing.', text: 'Candron now operates with 650+ machines in stock, serves 9 major industrial sectors, and maintains emergency response capabilities across all of North America.' },
+  { year: '2009', title: 'Founded in North York, Ontario', text: 'Candron Energy Inc. is established by a team of veteran power engineers — each bringing decades of field experience. From day one, our focus was transformer sales and emergency response for Ontario\'s industrial market.' },
+  { year: '2012', title: 'Expanded into Switchgear & Load Banks', text: 'Client demand drives rapid expansion into medium-voltage switchgear and load bank rentals. Our licensed engineers begin signing long-term emergency response contracts with mining and oil & gas operators.' },
+  { year: '2015', title: 'Launched 24/7 Emergency Response Program', text: 'We formalize our sub-30-minute emergency response guarantee, backed by a dedicated team of on-call licensed engineers. First cross-border USA deployments demonstrate our coast-to-coast reach.' },
+  { year: '2018', title: 'In-House Engineering & Manufacturing Division', text: 'Candron establishes a full in-house engineering division — staffed by licensed engineers holding master\'s and doctoral degrees in power systems. Design, fabrication, SCADA integration, and commissioning all under one roof.' },
+  { year: '2021', title: 'Expanded Inventory to 500+ Units', text: 'A major inventory investment brings our stocked unit count past 500, enabling same-day or next-day shipment across North America. Our field technicians — averaging 30+ years of experience each — oversee every unit.' },
+  { year: '2024', title: '650+ Machines. 50+ Years Combined Expertise. Still Growing.', text: 'Candron operates with 650+ machines in stock, serves 9 major industries, and carries over 50 years of combined engineering and field expertise. The most prepared team in Canadian power distribution — bar none.' },
 ]
 
 export default function TimelineScroll() {

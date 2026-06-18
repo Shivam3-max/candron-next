@@ -3,7 +3,6 @@ import { Orbitron, Chakra_Petch, DM_Sans, JetBrains_Mono } from 'next/font/googl
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import Cursor from '@/components/Cursor'
 import ClientEffects from '@/components/ClientEffects'
 import BackToTop from '@/components/BackToTop'
 
@@ -66,7 +65,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={fontVars}>
       <body>
-        <Cursor />
         <Navbar />
         <main>{children}</main>
         <Footer />
