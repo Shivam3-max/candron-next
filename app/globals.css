@@ -1106,11 +1106,24 @@ canvas#hero-canvas {
 }
 
 .hero-visual {
-  opacity: 1
+  animation: hero-in-r .75s .48s cubic-bezier(.4, 0, .2, 1) both
 }
 
 .trust-logos {
   animation: hero-in-up .65s .60s cubic-bezier(.4, 0, .2, 1) both
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-eyebrow,
+  .hero-home h1,
+  .hero-home .lead,
+  .hero-btns,
+  .hero-visual,
+  .trust-logos {
+    animation: none;
+    opacity: 1;
+    transform: none
+  }
 }
 
 .feat-row {
