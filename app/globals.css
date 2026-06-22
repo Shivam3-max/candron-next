@@ -860,7 +860,7 @@ p.body {
   min-height: 100vh;
   background:
     linear-gradient(105deg, rgba(5, 9, 31, .92) 42%, rgba(5, 9, 31, .55) 100%),
-    url('/images/bg.png') center/cover;
+    url('/images/bg.webp') center/cover;
   display: flex;
   align-items: center;
   padding-top: 72px;

@@ -71,11 +71,14 @@ export default function HomePage() {
                 <span>In-House Built</span>
               </div>
               <div className="hero-visual-img">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/images/hero.png"
+                <Image
+                  src="/images/hero.webp"
                   alt="Candron In-House Manufacturing"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%', opacity: 0.92 }}
+                  width={1280}
+                  height={853}
+                  priority
+                  sizes="(max-width:1024px) 0px, 50vw"
+                  style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'center bottom', opacity: 0.92 }}
                 />
               </div>
               <div className="hero-cert-strip">
