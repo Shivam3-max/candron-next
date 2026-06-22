@@ -1,4 +1,5 @@
-﻿import Link from 'next/link'
+﻿import React from 'react'
+import Link from 'next/link'
 import Image from 'next/image'
 import ProcessScroll from '@/components/ProcessScroll'
 
@@ -35,38 +36,72 @@ export default function CommissioningPage() {
       </div>
 
       {/* SERVICES */}
-      <div className="section bg-off">
+      <div className="wt-section">
         <div className="container">
-          <div style={{textAlign:'center',maxWidth:'560px',margin:'0 auto 4rem'}} className="rv">
-            <div className="label" style={{justifyContent:'center'}}>What We Provide</div>
-            <h2>Commissioning Services</h2>
-          </div>
-          <div className="commission-grid">
-            <div className="commission-card rv">
-              <div className="commission-title">Startup Assistance</div>
-              <div className="commission-text">On-site engineering support during initial equipment energization and system startup. Candron engineers guide the commissioning sequence and verify correct operation of all systems and functions.</div>
+
+          {/* Header */}
+          <div className="wt-header rv">
+            <div>
+              <div className="label label-white">What We Provide</div>
+              <h2 className="wt-h2">Commissioning <em>Services</em></h2>
             </div>
-            <div className="commission-card rv d2">
-              <div className="commission-title">Site Testing</div>
-              <div className="commission-text">Field verification testing of installed equipment to confirm correct installation, proper connections, and alignment with factory test results. Identifies any site-specific issues before operational handover.</div>
-            </div>
-            <div className="commission-card rv d3">
-              <div className="commission-title">Equipment Verification</div>
-              <div className="commission-text">Physical verification of installed equipment condition, settings, and configuration against as-built documentation. Confirms that equipment was installed correctly and is ready for service.</div>
-            </div>
-            <div className="commission-card rv d4">
-              <div className="commission-title">Documentation Review</div>
-              <div className="commission-text">Review of all as-built drawings, test reports, and O&amp;M documentation with your operations team to ensure they have everything needed for long-term system operation and maintenance.</div>
-            </div>
-            <div className="commission-card rv d5">
-              <div className="commission-title">Troubleshooting Support</div>
-              <div className="commission-text">Rapid response troubleshooting support during commissioning. Because Candron designed and built your equipment, we can diagnose and resolve field issues faster than any third-party technician.</div>
-            </div>
-            <div className="commission-card rv d6">
-              <div className="commission-title">Performance Validation</div>
-              <div className="commission-text">Validation of system performance against specified design parameters. Confirms that the installed system delivers the reliability and performance your project requires under actual operating conditions.</div>
+            <div className="wt-header-right">
+              <p className="wt-intro" style={{ maxWidth: '460px', textAlign: 'left' }}>End-to-end commissioning support to ensure your systems are installed correctly, tested thoroughly, and ready to perform.</p>
+              <Link href="/contact" className="btn btn-primary mag" style={{ flexShrink: 0 }}>Request Commissioning Support →</Link>
             </div>
           </div>
+
+          {/* Service cards */}
+          <div className="wt-grid">
+            {([
+              {
+                n: '01',
+                title: 'Startup Assistance',
+                desc: 'On-site engineering support during initial equipment energization and system startup. Candron engineers guide the commissioning sequence and verify correct operation of all systems and functions.',
+                icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+              },
+              {
+                n: '02',
+                title: 'Site Testing',
+                desc: 'Field verification testing of installed equipment to confirm correct installation, proper connections, and alignment with factory test results. Identifies site-specific issues before operational handover.',
+                icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>,
+              },
+              {
+                n: '03',
+                title: 'Equipment Verification',
+                desc: 'Physical verification of installed equipment condition, settings, and configuration against as-built documentation. Confirms that equipment was installed correctly and is ready for service.',
+                icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>,
+              },
+              {
+                n: '04',
+                title: 'Documentation Review',
+                desc: 'Review of all as-built drawings, test reports, and O&M documentation with your operations team to ensure they have everything needed for long-term system operation and maintenance.',
+                icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>,
+              },
+              {
+                n: '05',
+                title: 'Troubleshooting Support',
+                desc: 'Rapid response troubleshooting during commissioning. Because Candron designed and built your equipment, we can diagnose and resolve field issues faster than any third-party technician.',
+                icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>,
+              },
+              {
+                n: '06',
+                title: 'Performance Validation',
+                desc: 'Validation of system performance against specified design parameters. Confirms that the installed system delivers the reliability and performance your project requires under actual operating conditions.',
+                icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>,
+              },
+            ] as { n: string; title: string; desc: string; icon: React.ReactNode }[]).map((item) => (
+              <div className="wt-card rv" key={item.n}>
+                <div className="wt-card-top">
+                  <div className="wt-num">{item.n}</div>
+                  <div className="wt-icon">{item.icon}</div>
+                </div>
+                <div className="wt-title">{item.title}</div>
+                <p className="wt-desc">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
         </div>
       </div>
 
@@ -102,17 +137,34 @@ export default function CommissioningPage() {
       {/* PROCESS */}
       <div className="bg-navy-section">
         <div className="container">
-          <div style={{textAlign:'center',maxWidth:'560px',margin:'0 auto 4rem'}} className="rv">
-            <div className="label label-white" style={{justifyContent:'center'}}>How It Works</div>
-            <h2 style={{color:'var(--white)'}}>Commissioning Engagement</h2>
+          <div className="commission-process-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'start' }}>
+
+            {/* Sticky heading */}
+            <div className="commission-process-sticky rv-l" style={{ position: 'sticky', top: '8rem' }}>
+              <div className="label label-white">How It Works</div>
+              <h2 style={{ color: 'var(--white)', marginTop: '.5rem', letterSpacing: '-.01em' }}>
+                Commissioning<br/><em style={{ fontStyle: 'normal', color: 'var(--blue)' }}>Engagement</em>
+              </h2>
+              <p style={{ color: 'rgba(255,255,255,.48)', fontSize: '.9rem', lineHeight: 1.78, marginTop: '1.5rem', maxWidth: '360px' }}>
+                A structured five-step process — by the same engineers who designed and built your equipment — from first plan to final handover.
+              </p>
+              <Link href="/contact" className="btn btn-primary mag" style={{ marginTop: '2rem', display: 'inline-flex' }}>
+                Request Commissioning Support →
+              </Link>
+            </div>
+
+            {/* Scroll timeline */}
+            <div className="rv-r">
+              <ProcessScroll variant="dark" steps={[
+                { n: '01', t: 'Pre-Commissioning Plan', d: 'Candron develops a site-specific commissioning plan aligned with your project schedule and energization sequence.' },
+                { n: '02', t: 'Site Mobilization', d: 'Our engineers arrive on site with complete project documentation and test equipment for field verification.' },
+                { n: '03', t: 'Pre-Energization Checks', d: 'Physical verification of installation, connections, settings, and configuration prior to initial energization.' },
+                { n: '04', t: 'Startup & Verification', d: 'Supervised energization and functional verification of all systems, protection, and control sequences.' },
+                { n: '05', t: 'Handover & Documentation', d: 'Commissioning report issued and documentation package transferred to your operations team.' },
+              ]} />
+            </div>
+
           </div>
-          <ProcessScroll variant="dark" steps={[
-            { n: '01', t: 'Pre-Commissioning Plan', d: 'Candron develops a site-specific commissioning plan aligned with your project schedule and energization sequence' },
-            { n: '02', t: 'Site Mobilization', d: 'Our engineers arrive on site with complete project documentation and test equipment for field verification' },
-            { n: '03', t: 'Pre-Energization Checks', d: 'Physical verification of installation, connections, settings, and configuration prior to initial energization' },
-            { n: '04', t: 'Startup & Verification', d: 'Supervised energization and functional verification of all systems, protection, and control sequences' },
-            { n: '05', t: 'Handover & Documentation', d: 'Commissioning report issued and documentation package transferred to your operations team' },
-          ]} />
         </div>
       </div>
 

@@ -1,9 +1,10 @@
-﻿import Link from 'next/link'
+﻿import React from 'react'
+import Link from 'next/link'
 import Image from 'next/image'
 import StatBar from '@/components/StatBar'
 import TimelineScroll from '@/components/TimelineScroll'
 
-export const metadata = { title: 'About', description: '50+ years of combined engineering expertise powering North America\'s most critical facilities. Candron Energy Inc. — licensed engineers, veteran technicians, and 650+ machines in stock.' }
+export const metadata = { title: 'About', description: '50+ years of combined engineering expertise powering North America\'s most critical facilities. Candron Energy Inc. — licensed engineers, veteran technicians, and complete in-house manufacturing from design to delivery.' }
 
 export default function AboutPage() {
   return (
@@ -13,7 +14,7 @@ export default function AboutPage() {
         <div className="container page-hero-content">
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>About</span></div>
           <div className="label label-white">Our Story</div>
-          <h1>Built on Reliability.<br/>Grown on Trust.</h1>
+          <h1>Built on Reliability.<br/><em>Grown on Trust.</em></h1>
           <p className="lead" style={{marginTop:'1rem'}}>50+ years of combined engineering expertise powering North America's most critical facilities. One promise, kept every time: when you need us, we're there.</p>
         </div>
       </div>
@@ -24,12 +25,12 @@ export default function AboutPage() {
           <div className="split rv">
             <div className="rv-l">
               <div className="label">Who We Are</div>
-              <h2>North America's Most Responsive Electrical Infrastructure Partner</h2>
+              <h2>Complete In-House Electrical Manufacturing — No Outsourcing, No Third Parties</h2>
             </div>
             <div className="rv-r">
-              <p className="body" style={{marginBottom:'1.25rem'}}>Candron Energy Inc. was founded on a simple observation: when industrial facilities experience electrical failures, the existing supply chain is too slow, too fragmented, and too unreliable. Operators waited weeks for transformers. Engineers flew in from distant offices. Critical production was lost.</p>
-              <p className="body" style={{marginBottom:'1.25rem'}}>We built Candron to fix that. Starting with a deep inventory of transformers, switchgear, and load banks at our North York facility, combined with a team of licensed engineers available 24 hours a day, 7 days a week — we became the partner operators turn to when every minute matters.</p>
-              <p className="body">Today, Candron serves clients across mining, oil and gas, power generation, data centers, healthcare, transportation, and more — delivering electrical infrastructure solutions from design through commissioning, with sub-30-minute emergency response anywhere in North America.</p>
+              <p className="body" style={{marginBottom:'1.25rem'}}>Candron Energy Inc. was founded on a straightforward principle: the best electrical equipment is designed, manufactured, assembled, and tested by the same team — under one roof. Most suppliers depend on fragmented networks of third-party fabricators, external wiring shops, and offshore supply chains. That introduces delays, quality gaps, and accountability problems that ultimately impact your project.</p>
+              <p className="body" style={{marginBottom:'1.25rem'}}>We built Candron differently. Every stage of production happens in our Toronto facility — electrical engineering, mechanical design, fabrication, assembly, wiring, quality inspection, and factory acceptance testing. When you work with Candron, there is one point of contact and one team accountable for the outcome.</p>
+              <p className="body">Today, Candron serves clients across mining, oil and gas, power generation, data centers, healthcare, transportation, and more — delivering engineered power distribution solutions with faster lead times and uncompromising quality built to ANSI, NETA, CSA, and IEEE standards.</p>
             </div>
           </div>
         </div>
@@ -40,86 +41,134 @@ export default function AboutPage() {
         <div className="container">
           <StatBar stats={[
             { num: '50+', lbl: 'Years Combined Expertise' },
-            { num: '650+', lbl: 'Machines in Stock' },
-            { num: '9', lbl: 'Industries Served' },
-            { num: '24/7', lbl: 'Emergency Response' },
+            { num: 'C5M', lbl: 'Paint Standard' },
+            { num: '11-Gauge', lbl: 'Steel Enclosures' },
+            { num: 'Same-Day', lbl: 'Lead Time Quotes' },
           ]} />
         </div>
       </div>
 
       {/* VALUES */}
-      <div className="section bg-off">
+      <div className="wt-section">
         <div className="container">
-          <div className="split" style={{alignItems:'start'}}>
-            <div className="rv-l">
-              <div className="label">What Drives Us</div>
-              <h2 style={{marginBottom:'1.5rem'}}>Our Values</h2>
-              <p className="body" style={{marginBottom:'2.5rem'}}>Four principles guide every decision at Candron — from how we stock our inventory to how we answer the phone at 3am.</p>
-              <div className="value-grid">
-                <div className="value-item rv">
-                  <div className="value-num">01</div>
-                  <div className="value-title">Reliability First</div>
-                  <div className="value-text">We never over-promise. If we say we'll be there in 30 minutes, we're there in 30 minutes. Our reputation is built on delivered commitments, not marketing claims.</div>
+
+          {/* Header */}
+          <div className="wt-header rv">
+            <div>
+              <div className="label label-white">What Drives Us</div>
+              <h2 className="wt-h2">Our <em>Values</em></h2>
+            </div>
+            <div className="wt-header-right">
+              <p className="wt-intro" style={{ maxWidth: '460px', textAlign: 'left' }}>Four principles guide every decision at Candron — from how we specify materials to how we deliver documentation on the last day of a project.</p>
+            </div>
+          </div>
+
+          {/* Split: cards left, image+stats right */}
+          <div className="val-split rv">
+
+            {/* 2×2 value cards */}
+            <div className="val-grid">
+              {([
+                {
+                  n: '01', title: 'Reliability First',
+                  desc: 'We never over-promise. If we commit to a schedule, we deliver on it. Our reputation is built on delivered commitments, not marketing claims.',
+                  icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+                },
+                {
+                  n: '02', title: 'Engineering Integrity',
+                  desc: 'Every recommendation is made by a licensed engineer based on what\'s right for the application — not what\'s fastest to ship or highest margin.',
+                  icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>,
+                },
+                {
+                  n: '03', title: 'Material Standards',
+                  desc: 'We specify 11-gauge steel where others use 13–14, and C5M painting where others use basic coatings. The right material up front costs less than a field failure.',
+                  icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>,
+                },
+                {
+                  n: '04', title: 'Long-Term Partnership',
+                  desc: 'Our relationship with your equipment doesn\'t end at delivery. We\'re your partner for the full lifecycle — testing, maintenance, repair, and eventual replacement.',
+                  icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>,
+                },
+              ] as { n: string; title: string; desc: string; icon: React.ReactNode }[]).map((v) => (
+                <div className="wt-card" key={v.n}>
+                  <div className="wt-card-top">
+                    <div className="wt-num">{v.n}</div>
+                    <div className="wt-icon">{v.icon}</div>
+                  </div>
+                  <div className="wt-title">{v.title}</div>
+                  <p className="wt-desc">{v.desc}</p>
                 </div>
-                <div className="value-item rv d2">
-                  <div className="value-num">02</div>
-                  <div className="value-title">Engineering Integrity</div>
-                  <div className="value-text">Every recommendation is made by a licensed engineer based on what's right for the application — not what's fastest to ship or highest margin.</div>
-                </div>
-                <div className="value-item rv d3">
-                  <div className="value-num">03</div>
-                  <div className="value-title">Inventory Discipline</div>
-                  <div className="value-text">We invest heavily in stock so our clients never pay the price of lead times. 650+ units on hand means same-day or next-day delivery — always.</div>
-                </div>
-                <div className="value-item rv d4">
-                  <div className="value-num">04</div>
-                  <div className="value-title">Long-Term Partnership</div>
-                  <div className="value-text">Our relationship with your equipment doesn't end at delivery. We're your partner for the full lifecycle — testing, maintenance, repair, and eventual replacement.</div>
+              ))}
+            </div>
+
+            {/* Image + stat cards */}
+            <div className="val-aside">
+              <div className="val-img">
+                <Image src="/images/LicensedEngineers.jpeg" alt="Candron Engineering Team" fill style={{ objectFit: 'cover', objectPosition: 'top' }} sizes="(max-width:1024px) 100vw, 400px"/>
+                <div className="val-img-overlay"/>
+                <div className="val-img-badge">
+                  <div className="val-img-badge-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.582-7 8-7s8 3 8 7"/></svg>
+                  </div>
+                  <div className="val-img-badge-text">
+                    <strong>Licensed Engineers</strong>
+                    <span>Deployed on every project, design to commissioning</span>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="rv-r sticky-col">
-              <div style={{borderRadius:'14px',overflow:'hidden',height:'500px',position:'relative'}}>
-                <Image src="/images/utilities.jpg" alt="Candron Engineering Team" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 40vw"/>
-                <div style={{position:'absolute',inset:0,background:'linear-gradient(to top,rgba(5,9,31,.5),transparent 50%)'}}></div>
-                <div style={{position:'absolute',bottom:'2rem',left:'2rem',right:'2rem'}}>
-                  <div style={{fontFamily:'var(--fd)',fontSize:'1rem',fontWeight:700,color:'#fff',marginBottom:'.3rem'}}>Licensed Engineers</div>
-                  <div style={{fontSize:'.82rem',color:'rgba(255,255,255,.65)'}}>On call 24/7, every day of the year</div>
-                </div>
-              </div>
-              <div className="about-mini-stats">
-                <div style={{padding:'1.5rem',background:'var(--white)',border:'1px solid #E8ECF5',borderRadius:'10px',textAlign:'center'}}>
-                  <div style={{fontFamily:'var(--fd)',fontSize:'1.5rem',fontWeight:900,color:'var(--blue)'}}>&lt;30 Min</div>
-                  <div style={{fontFamily:'var(--ft)',fontSize:'.68rem',color:'var(--gray)',letterSpacing:'.1em',textTransform:'uppercase',marginTop:'.25rem'}}>Emergency Response</div>
-                </div>
-                <div style={{padding:'1.5rem',background:'var(--white)',border:'1px solid #E8ECF5',borderRadius:'10px',textAlign:'center'}}>
-                  <div style={{fontFamily:'var(--fd)',fontSize:'1.5rem',fontWeight:900,color:'var(--blue)'}}>2–5 Yr</div>
-                  <div style={{fontFamily:'var(--ft)',fontSize:'.68rem',color:'var(--gray)',letterSpacing:'.1em',textTransform:'uppercase',marginTop:'.25rem'}}>Standard Warranty</div>
-                </div>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>
 
       {/* TIMELINE */}
-      <div className="section bg-white">
+      <div className="wt-section">
         <div className="container">
-          <div className="split" style={{alignItems:'start'}}>
+
+          {/* Header */}
+          <div className="wt-header rv">
+            <div>
+              <div className="label label-white">Founded 2022 · Toronto, Ontario</div>
+              <h2 className="wt-h2">A Young Company.<br/><em>Decades of Expertise.</em></h2>
+            </div>
+            <div className="wt-header-right">
+              <p className="wt-intro" style={{ maxWidth: '460px', textAlign: 'left' }}>Candron was founded in 2022 — but the engineers and technicians behind it bring over 50 years of combined power systems experience. Every project benefits from that depth, on day one.</p>
+            </div>
+          </div>
+
+          {/* Credential strip */}
+          <div className="cred-strip-grid rv" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1px', background: 'rgba(0,71,255,.15)', borderRadius: '14px', overflow: 'hidden', marginBottom: '3rem' }}>
+            {[
+              { val: '2022', lbl: 'Year Founded' },
+              { val: '50+', lbl: 'Years Combined Expertise' },
+              { val: 'P.Eng', lbl: 'Licensed Engineers' },
+              { val: '100%', lbl: 'In-House Manufacturing' },
+            ].map((s) => (
+              <div key={s.lbl} style={{ background: '#080E2C', padding: '1.75rem 1.5rem', textAlign: 'center' }}>
+                <div style={{ fontFamily: 'var(--fd)', fontSize: '1.6rem', fontWeight: 900, color: 'var(--blue)', lineHeight: 1 }}>{s.val}</div>
+                <div style={{ fontFamily: 'var(--ft)', fontSize: '.62rem', color: 'rgba(255,255,255,.42)', letterSpacing: '.1em', textTransform: 'uppercase', marginTop: '.5rem' }}>{s.lbl}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Timeline + images */}
+          <div className="split" style={{ alignItems: 'start' }}>
             <div className="rv-l">
-              <div className="label">Our Journey</div>
-              <h2 style={{marginBottom:'2.5rem'}}>50+ Years of Combined<br/>Engineering Excellence</h2>
               <TimelineScroll />
             </div>
-            <div className="rv-r" style={{display:'flex',flexDirection:'column',gap:'1.5rem',marginTop:'5rem'}}>
-              <div style={{borderRadius:'12px',overflow:'hidden',height:'280px',position:'relative'}}>
-                <Image src="/images/switchgear.jpg" alt="Candron Facility" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 40vw"/>
+            <div className="rv-r" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginTop: '1rem' }}>
+              <div style={{ borderRadius: '14px', overflow: 'hidden', height: '260px', position: 'relative', border: '1px solid rgba(0,71,255,.15)' }}>
+                <Image src="/images/switchgear.jpg" alt="Candron Facility" fill style={{ objectFit: 'cover' }} sizes="(max-width:1024px) 100vw, 40vw"/>
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(5,9,31,.6), transparent 60%)' }}/>
               </div>
-              <div style={{borderRadius:'12px',overflow:'hidden',height:'280px',position:'relative'}}>
-                <Image src="/images/control-panels.jpg" alt="Engineering Work" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 40vw"/>
+              <div style={{ borderRadius: '14px', overflow: 'hidden', height: '260px', position: 'relative', border: '1px solid rgba(0,71,255,.15)' }}>
+                <Image src="/images/control-panels.jpg" alt="Engineering Work" fill style={{ objectFit: 'cover' }} sizes="(max-width:1024px) 100vw, 40vw"/>
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(5,9,31,.6), transparent 60%)' }}/>
               </div>
             </div>
           </div>
+
         </div>
       </div>
 
@@ -149,6 +198,11 @@ export default function AboutPage() {
                     <span key={tag} className="team-tag">{tag}</span>
                   ))}
                 </div>
+                {/* TODO: add LinkedIn URL */}
+                <a href="#" aria-label="LinkedIn" style={{display:'inline-flex',alignItems:'center',gap:'.4rem',marginTop:'1rem',fontSize:'.78rem',color:'var(--blue)',textDecoration:'none',fontWeight:600}}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                  LinkedIn
+                </a>
               </div>
             </div>
 
@@ -159,15 +213,20 @@ export default function AboutPage() {
               </div>
               <div className="team-body">
                 <div className="team-name">Field Technicians</div>
-                <div className="team-role">30+ Years on the Front Lines</div>
+                <div className="team-role">40+ Years on the Front Lines</div>
                 <p style={{fontSize:'.88rem',color:'var(--gray)',lineHeight:1.75,marginTop:'.75rem'}}>
-                  Our technicians are field veterans — not career starters. Each brings more than 30 years of hands-on experience commissioning, maintaining, and troubleshooting industrial electrical systems under real-world conditions.
+                  Our technicians are field veterans — not career starters. Our most experienced member brings over 40 years of hands-on experience commissioning, maintaining, and troubleshooting high-voltage and medium-voltage systems under real-world conditions.
                 </p>
                 <div style={{display:'flex',gap:'0.75rem',marginTop:'1.25rem',flexWrap:'wrap'}}>
-                  {['30+ Yrs Experience','Field Commissioning','HV / MV Systems','Emergency Response'].map(tag => (
+                  {['40+ Yrs Experience','Field Commissioning','HV / MV Systems','Emergency Response'].map(tag => (
                     <span key={tag} className="team-tag">{tag}</span>
                   ))}
                 </div>
+                {/* TODO: add LinkedIn URL */}
+                <a href="#" aria-label="LinkedIn" style={{display:'inline-flex',alignItems:'center',gap:'.4rem',marginTop:'1rem',fontSize:'.78rem',color:'var(--blue)',textDecoration:'none',fontWeight:600}}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                  LinkedIn
+                </a>
               </div>
             </div>
 
@@ -180,15 +239,47 @@ export default function AboutPage() {
                 <div className="team-name">Combined Expertise</div>
                 <div className="team-role">Across Every Discipline</div>
                 <p style={{fontSize:'.88rem',color:'var(--gray)',lineHeight:1.75,marginTop:'.75rem'}}>
-                  When you work with Candron, you're not getting one engineer — you're getting the collective weight of over 50 years of power systems engineering and field operations, applied to your project from day one.
+                  When you work with Candron, you're not getting one engineer — you're getting the collective weight of over 50 years of power systems engineering and field operations, applied to your project from day one. From high-voltage design to medium-voltage commissioning.
                 </p>
                 <div style={{display:'flex',gap:'0.75rem',marginTop:'1.25rem',flexWrap:'wrap'}}>
-                  {['50+ Yrs Combined','Design to Commissioning','24/7 On-Call','North America Wide'].map(tag => (
+                  {['50+ Yrs Combined','Design to Commissioning','HV / MV Expertise','North America Wide'].map(tag => (
                     <span key={tag} className="team-tag">{tag}</span>
                   ))}
                 </div>
+                {/* TODO: add LinkedIn URL */}
+                <a href="#" aria-label="LinkedIn" style={{display:'inline-flex',alignItems:'center',gap:'.4rem',marginTop:'1rem',fontSize:'.78rem',color:'var(--blue)',textDecoration:'none',fontWeight:600}}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                  LinkedIn
+                </a>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* TESTIMONIALS */}
+      <div className="section bg-white">
+        <div className="container">
+          <div style={{textAlign:'center',maxWidth:'580px',margin:'0 auto 3.5rem'}} className="rv">
+            <div className="label" style={{justifyContent:'center'}}>What Clients Say</div>
+            <h2>Trusted by Engineers<br/>Across North America</h2>
+          </div>
+          {/* TODO: Replace with real client quotes */}
+          <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))',gap:'1.5rem'}}>
+            {[
+              { quote: 'Candron delivered our switchgear on schedule and within spec. Their team was responsive at every stage — engineering queries, FAT coordination, and commissioning support. Exactly the partner we needed.', name: 'Client Name', role: 'Project Engineer', company: 'Company Name' },
+              { quote: 'What impressed us most was the ability to visit the facility mid-build and see our equipment taking shape. Full transparency, no surprises — just quality work delivered on time.', name: 'Client Name', role: 'Procurement Manager', company: 'Company Name' },
+              { quote: 'We reached out not knowing if Candron worked with projects our size — they responded the same day and walked us through every option. Completely accessible from day one, and the end product spoke for itself.', name: 'Client Name', role: 'Electrical Lead', company: 'Company Name' },
+            ].map((t, i) => (
+              <div key={i} style={{padding:'2rem',background:'var(--off)',border:'1px solid #E8ECF5',borderRadius:'14px',display:'flex',flexDirection:'column',gap:'1.25rem'}} className="rv">
+                <svg width="28" height="20" viewBox="0 0 28 20" fill="none"><path d="M0 20V12.5C0 5.596 3.956 1.54 11.868 0l1.264 2.1C9.372 3.276 7.34 5.596 7.084 9.5H12V20H0zm16 0V12.5C16 5.596 19.956 1.54 27.868 0l1.264 2.1c-3.76 1.176-5.792 3.496-6.048 7.4H28V20H16z" fill="#0047FF" fillOpacity=".15"/></svg>
+                <p style={{fontSize:'.9rem',color:'var(--gray)',lineHeight:1.8,margin:0,fontStyle:'italic'}}>{t.quote}</p>
+                <div style={{borderTop:'1px solid #E8ECF5',paddingTop:'1rem'}}>
+                  <div style={{fontWeight:700,color:'var(--ink)',fontSize:'.88rem'}}>{t.name}</div>
+                  <div style={{fontSize:'.78rem',color:'var(--gray)',marginTop:'.2rem'}}>{t.role} — {t.company}</div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -198,8 +289,8 @@ export default function AboutPage() {
         <div className="container">
           <div style={{textAlign:'center',maxWidth:'580px',margin:'0 auto 3.5rem'}} className="rv">
             <div className="label" style={{justifyContent:'center'}}>Our Facility</div>
-            <h2>North York, Ontario</h2>
-            <p className="lead" style={{margin:'1rem auto 0'}}>Our 4801 Keele St facility houses our full inventory, in-house repair workshop, testing lab, and engineering offices — all under one roof.</p>
+            <h2>Toronto, Ontario</h2>
+            <p className="lead" style={{margin:'1rem auto 0'}}>Our Toronto facility houses our complete manufacturing operation — electrical engineering, fabrication, assembly, wiring, testing lab, and engineering offices, all under one roof.</p>
           </div>
           <div className="facility-grid">
             <div className="facility-img rv"><Image src="/images/switchboards.jpg" alt="Transformer Storage" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
@@ -208,8 +299,8 @@ export default function AboutPage() {
           </div>
           <div className="metrics-4col rv">
             <div style={{textAlign:'center',padding:'1.5rem',background:'var(--white)',border:'1px solid #E8ECF5',borderRadius:'10px'}}>
-              <div style={{fontFamily:'var(--fd)',fontSize:'1.4rem',fontWeight:900,color:'var(--blue)',marginBottom:'.3rem'}}>650+</div>
-              <div style={{fontFamily:'var(--ft)',fontSize:'.7rem',color:'var(--gray)',letterSpacing:'.1em',textTransform:'uppercase'}}>Units In Stock</div>
+              <div style={{fontFamily:'var(--fd)',fontSize:'1.4rem',fontWeight:900,color:'var(--blue)',marginBottom:'.3rem'}}>100%</div>
+              <div style={{fontFamily:'var(--ft)',fontSize:'.7rem',color:'var(--gray)',letterSpacing:'.1em',textTransform:'uppercase'}}>In-House Production</div>
             </div>
             <div style={{textAlign:'center',padding:'1.5rem',background:'var(--white)',border:'1px solid #E8ECF5',borderRadius:'10px'}}>
               <div style={{fontFamily:'var(--fd)',fontSize:'1.4rem',fontWeight:900,color:'var(--blue)',marginBottom:'.3rem'}}>In-House</div>
@@ -220,8 +311,8 @@ export default function AboutPage() {
               <div style={{fontFamily:'var(--ft)',fontSize:'.7rem',color:'var(--gray)',letterSpacing:'.1em',textTransform:'uppercase'}}>Engineer On Call</div>
             </div>
             <div style={{textAlign:'center',padding:'1.5rem',background:'var(--white)',border:'1px solid #E8ECF5',borderRadius:'10px'}}>
-              <div style={{fontFamily:'var(--fd)',fontSize:'1.4rem',fontWeight:900,color:'var(--blue)',marginBottom:'.3rem'}}>Same Day</div>
-              <div style={{fontFamily:'var(--ft)',fontSize:'.7rem',color:'var(--gray)',letterSpacing:'.1em',textTransform:'uppercase'}}>Shipping Available</div>
+              <div style={{fontFamily:'var(--fd)',fontSize:'1.4rem',fontWeight:900,color:'var(--blue)',marginBottom:'.3rem'}}>Full FAT</div>
+              <div style={{fontFamily:'var(--ft)',fontSize:'.7rem',color:'var(--gray)',letterSpacing:'.1em',textTransform:'uppercase'}}>Before Shipment</div>
             </div>
           </div>
         </div>

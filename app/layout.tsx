@@ -1,6 +1,7 @@
 ﻿import type { Metadata } from 'next'
 import { Orbitron, Chakra_Petch, DM_Sans, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
+import 'flag-icons/css/flag-icons.min.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import ClientEffects from '@/components/ClientEffects'
@@ -42,20 +43,20 @@ export const metadata: Metadata = {
     default: 'Candron Energy Inc. | Canadian Power Distribution Equipment',
     template: '%s | Candron Energy Inc.',
   },
-  description: 'Factory-direct switchgear, switchboards, and control panels engineered, manufactured, and tested entirely in-house. 24/7 emergency response across North America.',
-  keywords: ['switchgear', 'switchboards', 'control panels', 'power distribution', 'electrical equipment', 'Canadian manufacturer', 'North York Ontario'],
+  description: 'Custom-engineered switchgear, switchboards, and control panels — manufactured and tested entirely in-house. Every customer can reach our team directly.',
+  keywords: ['switchgear', 'switchboards', 'control panels', 'power distribution', 'electrical equipment', 'Canadian manufacturer', 'Toronto Ontario'],
   openGraph: {
     type: 'website',
     locale: 'en_CA',
     siteName: 'Candron Energy Inc.',
     title: 'Candron Energy Inc. | Canadian Power Distribution Equipment',
-    description: 'Factory-direct switchgear, switchboards, and control panels engineered, manufactured, and tested entirely in-house. 24/7 emergency response across North America.',
+    description: 'Custom-engineered switchgear, switchboards, and control panels — manufactured and tested entirely in-house. Every customer can reach our team directly.',
     images: [{ url: '/images/switchgear.jpg', width: 1200, height: 630, alt: 'Candron Energy Inc. — Power Distribution Equipment' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Candron Energy Inc. | Canadian Power Distribution Equipment',
-    description: 'Factory-direct switchgear, switchboards, and control panels. Built in Canada. 24/7 emergency response.',
+    description: 'Custom-engineered switchgear, switchboards, and control panels. Built in Canada. Any customer can reach our team directly.',
     images: ['/images/switchgear.jpg'],
   },
   robots: { index: true, follow: true },

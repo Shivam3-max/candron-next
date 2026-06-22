@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 
 export async function POST(req: Request) {
   try {
-    const { name, company, email, phone, project, message } = await req.json()
+    const { name, company, email, phone, location, project, message } = await req.json()
 
     if (!name || !email || !message) {
       return NextResponse.json({ error: 'Name, email, and message are required.' }, { status: 400 })
@@ -29,6 +29,7 @@ export async function POST(req: Request) {
             ${company ? `<tr><td style="padding:10px 0;border-bottom:1px solid #f0f2f8;font-size:12px;color:#6b7a99">Company</td><td style="padding:10px 0;border-bottom:1px solid #f0f2f8;font-size:14px;color:#05091F">${company}</td></tr>` : ''}
             <tr><td style="padding:10px 0;border-bottom:1px solid #f0f2f8;font-size:12px;color:#6b7a99">Email</td><td style="padding:10px 0;border-bottom:1px solid #f0f2f8;font-size:14px;color:#0047FF"><a href="mailto:${email}" style="color:#0047FF">${email}</a></td></tr>
             ${phone ? `<tr><td style="padding:10px 0;border-bottom:1px solid #f0f2f8;font-size:12px;color:#6b7a99">Phone</td><td style="padding:10px 0;border-bottom:1px solid #f0f2f8;font-size:14px;color:#05091F">${phone}</td></tr>` : ''}
+            ${location ? `<tr><td style="padding:10px 0;border-bottom:1px solid #f0f2f8;font-size:12px;color:#6b7a99">Project Location</td><td style="padding:10px 0;border-bottom:1px solid #f0f2f8;font-size:14px;color:#05091F">${location}</td></tr>` : ''}
             ${project ? `<tr><td style="padding:10px 0;border-bottom:1px solid #f0f2f8;font-size:12px;color:#6b7a99">Project Type</td><td style="padding:10px 0;border-bottom:1px solid #f0f2f8;font-size:14px;color:#05091F">${project}</td></tr>` : ''}
           </table>
           <div style="margin-top:24px">

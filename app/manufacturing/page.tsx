@@ -1,5 +1,7 @@
 ﻿import Link from 'next/link'
 import Image from 'next/image'
+import CanadaFlag from '@/components/CanadaFlag'
+import CapabilitiesFlow from '@/components/CapabilitiesFlow'
 
 export const metadata = { title: 'Manufacturing', description: 'Candron\'s Canadian manufacturing facility handles every stage in-house — electrical design, fabrication, assembly, wiring, and factory acceptance testing. No outsourcing, one point of accountability.' }
 
@@ -11,7 +13,7 @@ export default function ManufacturingPage() {
         <div className="container page-hero-content">
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>Manufacturing</span></div>
           <div className="label label-white">Our Facility</div>
-          <h1>Designed, Built &amp;<br/>Tested Under One Roof</h1>
+          <h1>Designed, Built &amp;<br/><em>Tested Under One Roof</em></h1>
           <p className="lead" style={{marginTop:'1rem'}}>Candron Energy provides complete in-house manufacturing capabilities that eliminate unnecessary delays and ensure total quality control — from first engineering drawing to final factory test.</p>
         </div>
       </div>
@@ -33,110 +35,133 @@ export default function ManufacturingPage() {
         </div>
       </div>
 
-      {/* CAPABILITIES */}
-      <div className="bg-navy-section">
+      {/* CAPABILITIES — animated flow */}
+      <CapabilitiesFlow />
+
+      {/* MATERIAL QUALITY */}
+      <div className="mq-section">
         <div className="container">
-          <div style={{textAlign:'center',maxWidth:'560px',margin:'0 auto 4rem'}} className="rv">
-            <div className="label label-white" style={{justifyContent:'center'}}>Capabilities</div>
-            <h2 style={{color:'var(--white)'}}>Everything In-House.<br/><span style={{color:'var(--blue-l)'}}>Nothing Outsourced.</span></h2>
+          <div className="mq-header rv">
+            <div>
+              <div className="label label-white">Built to Last</div>
+              <h2 className="mq-heading">Materials Built to<br/><em>Outlast the Competition</em></h2>
+            </div>
+            <p className="mq-lead">While most suppliers use 13–14 gauge steel and standard coatings, Candron specifies heavier materials and higher finishing standards — because equipment that lasts 30–40 years costs less over its lifetime.</p>
           </div>
           <div className="capability-grid">
             <div className="capability-card rv">
-              <div className="capability-num">01</div>
-              <div className="capability-title">Electrical Design Engineering</div>
-              <div className="capability-text">Complete electrical engineering from concept through detailed design drawings. Single-line diagrams, schematic development, and specification compliance review.</div>
+              <div className="capability-num">11G</div>
+              <div className="capability-title">11-Gauge Steel Enclosures</div>
+              <div className="capability-text">Competitors use 13–14 gauge. We use 11 gauge — heavier, more rigid, and built for a 30–40 year structural lifecycle. The difference is visible and measurable.</div>
             </div>
             <div className="capability-card rv d2">
-              <div className="capability-num">02</div>
-              <div className="capability-title">Mechanical Design</div>
-              <div className="capability-text">Enclosure and structural design engineered for your application. Layout optimization, thermal management, and compliance with applicable standards.</div>
+              <div className="capability-num">C5M</div>
+              <div className="capability-title">C5M Paint Standard</div>
+              <div className="capability-text">C5M is the highest corrosion protection classification for outdoor industrial environments. Our paint standard is at least 10× higher than typical suppliers, with 6–8 mm outdoor coating thickness.</div>
             </div>
             <div className="capability-card rv d3">
-              <div className="capability-num">03</div>
-              <div className="capability-title">Fabrication</div>
-              <div className="capability-text">In-house metal fabrication of enclosures, bus structures, and mounting assemblies. Precision cuts and forming to exact engineering specifications.</div>
+              <div className="capability-num">CRS</div>
+              <div className="capability-title">Cold-Rolled Steel</div>
+              <div className="capability-text">Cold-rolled steel provides the highest corrosion resistance of any carbon steel grade. Combined with our finishing standard, it delivers 30–40 years of reliable service life.</div>
             </div>
             <div className="capability-card rv d4">
-              <div className="capability-num">04</div>
-              <div className="capability-title">Assembly</div>
-              <div className="capability-text">Skilled technicians assemble every unit with precision and consistency. Component installation, bus assembly, and hardware mounting all performed in-house.</div>
+              <div className="capability-num">304 / 316L</div>
+              <div className="capability-title">Stainless Steel Options</div>
+              <div className="capability-text">For demanding environments, we offer enclosures in Type 304 and Type 316 L stainless steel — the right material for coastal, chemical, and high-humidity installations.</div>
             </div>
             <div className="capability-card rv d5">
-              <div className="capability-num">05</div>
-              <div className="capability-title">Wiring</div>
-              <div className="capability-text">Complete wiring by experienced craftsmen following detailed IEC and NFPA wiring standards. Color coding, labeling, and documentation to project specifications.</div>
+              <div className="capability-num">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" strokeWidth="1.8" style={{width:'2.4rem',height:'2.4rem'}}><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              </div>
+              <div className="capability-title">Laser Cutting &amp; Water Jet</div>
+              <div className="capability-text">State-of-the-art German-manufactured laser cutting and water jet cutting machines ensure precise fabrication with tight tolerances — no hand grinding, no rework.</div>
             </div>
             <div className="capability-card rv d6">
-              <div className="capability-num">06</div>
-              <div className="capability-title">Quality Assurance</div>
-              <div className="capability-text">Structured quality checkpoints throughout production. ITP (Inspection and Test Plans) maintained for every project with full documentation traceability.</div>
-            </div>
-            <div className="capability-card rv">
-              <div className="capability-num">07</div>
-              <div className="capability-title">Functional Testing</div>
-              <div className="capability-text">Control logic verification, protection scheme testing, and equipment functional validation performed in our dedicated testing area before shipment.</div>
-            </div>
-            <div className="capability-card rv d2">
-              <div className="capability-num">08</div>
-              <div className="capability-title">Documentation</div>
-              <div className="capability-text">Comprehensive engineering documentation package delivered with every unit — as-built drawings, test reports, wiring schedules, and O&amp;M manuals.</div>
-            </div>
-            <div className="capability-card rv d3">
-              <div className="capability-num">09</div>
-              <div className="capability-title">Factory Acceptance Testing</div>
-              <div className="capability-text">Full FAT performed to applicable ANSI, IEEE, NETA, CSA, and UL standards. Witnessed FAT available for your project team or third-party inspector.</div>
+              <div className="capability-num">99.5%</div>
+              <div className="capability-title">Exceeding Standards</div>
+              <div className="capability-text">Where a standard requires 99.37% efficiency, we target 99.5%. Minimum compliance is the floor — not the goal. Every system ships exceeding the specified requirement.</div>
             </div>
           </div>
         </div>
       </div>
 
       {/* PROCESS */}
-      <div className="section bg-off">
+      <div className="proc-section">
         <div className="container">
-          <div className="mfg-process-grid">
-            <div className="rv-l">
-              <div className="label">Manufacturing Process</div>
-              <h2 style={{marginBottom:'1.5rem'}}>A Structured Process That<br/>Eliminates Surprises</h2>
-              <p className="body" style={{marginBottom:'2rem'}}>Every Candron project follows a documented manufacturing process with defined milestones and quality gates. This structured approach ensures nothing is missed, every standard is met, and your project stays on schedule.</p>
-              <div style={{padding:'2rem',background:'var(--white)',borderRadius:'14px',border:'1px solid #E8ECF5'}}>
-                <div style={{fontFamily:'var(--fm)',fontSize:'.6rem',color:'var(--blue)',letterSpacing:'.22em',textTransform:'uppercase',marginBottom:'1.25rem'}}>Project Flow</div>
-                <ul className="check-list">
-                  <li>Project kickoff and engineering review</li>
-                  <li>Drawing approval and specification sign-off</li>
-                  <li>Material procurement and incoming inspection</li>
-                  <li>Fabrication and sub-assembly</li>
-                  <li>Wiring and final assembly</li>
-                  <li>In-process quality inspection</li>
-                  <li>Factory acceptance testing (FAT)</li>
-                  <li>Documentation compilation and delivery</li>
-                  <li>Packing and shipping coordination</li>
-                </ul>
+
+          {/* Header */}
+          <div className="proc-header-row rv">
+            <div>
+              <div className="label label-white">Manufacturing Process</div>
+              <h2 className="proc-h2">A Structured Process<br/><em>That Eliminates Surprises</em></h2>
+            </div>
+            <p className="proc-intro">Every Candron project follows a documented manufacturing process with defined milestones and quality gates — ensuring nothing is missed, every standard is met, and your project stays on schedule.</p>
+          </div>
+
+          {/* Image + Steps */}
+          <div className="proc-content">
+            <div className="proc-img-wrap rv-l">
+              <Image src="/images/switchgear-facility.jpg" alt="Manufacturing Facility" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 45vw" />
+              <div className="proc-img-overlay">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" strokeWidth="2" style={{flexShrink:0}}><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                <div>
+                  <div style={{fontWeight:700,color:'#fff',fontSize:'.85rem',marginBottom:'.2rem'}}>Your Project, Your Visibility</div>
+                  <div style={{fontSize:'.75rem',color:'rgba(255,255,255,.58)',lineHeight:1.55}}>Visit at any stage — including mid-build. Full transparency, no surprises.</div>
+                </div>
               </div>
             </div>
-            <div className="rv-r">
-              <div style={{borderRadius:'14px',overflow:'hidden',height:'420px',marginBottom:'1.5rem',position:'relative'}}>
-                <Image src="/images/switchgear-facility.jpg" alt="Manufacturing Facility" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 50vw"/>
-              </div>
-              <div className="metric-showcase" style={{marginTop:0}}>
-                <div className="metric-card">
-                  <div className="metric-val">100%</div>
-                  <div className="metric-lbl">In-House Production</div>
+
+            <div className="proc-steps rv-r">
+              {[
+                'Project kickoff and engineering review',
+                'Drawing approval and specification sign-off',
+                'Material procurement',
+                'Incoming inspection',
+                'Fabrication',
+                'Assembly',
+                'Wiring',
+                'Final assembly',
+                'In-process quality inspection',
+                'Document compilation',
+                'Delivery',
+              ].map((step, i) => (
+                <div className="proc-step" key={i}>
+                  <div className="proc-step-num">{String(i + 1).padStart(2, '0')}</div>
+                  <div className="proc-step-text">{step}</div>
                 </div>
-                <div className="metric-card">
-                  <div className="metric-val">Single</div>
-                  <div className="metric-lbl">Point of Accountability</div>
-                </div>
-                <div className="metric-card">
-                  <div className="metric-val">Faster</div>
-                  <div className="metric-lbl">Lead Times</div>
-                </div>
-                <div className="metric-card">
-                  <div className="metric-val">Full FAT</div>
-                  <div className="metric-lbl">Before Shipment</div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
+
+          {/* Metrics row */}
+          <div className="proc-metrics rv">
+            {[
+              {
+                icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>,
+                val: '100%', lbl: 'In-House Production', sub: 'Everything built inside our Toronto facility.',
+              },
+              {
+                icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>,
+                val: 'Single', lbl: 'Point of Accountability', sub: 'One team. One commitment. Zero hand-offs.',
+              },
+              {
+                icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+                val: 'Expedited', lbl: 'Lead Times', sub: 'Streamlined in-house process, on-time delivery.',
+              },
+              {
+                icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>,
+                val: 'Full FAT', lbl: 'Before Shipment', sub: 'Factory Acceptance Testing on every unit.',
+              },
+            ].map((m, i) => (
+              <div className="proc-metric" key={i}>
+                <div className="proc-metric-icon">{m.icon}</div>
+                <div className="proc-metric-val">{m.val}</div>
+                <div className="proc-metric-lbl">{m.lbl}</div>
+                <p className="proc-metric-sub">{m.sub}</p>
+              </div>
+            ))}
+          </div>
+
         </div>
       </div>
 
@@ -158,7 +183,11 @@ export default function ManufacturingPage() {
             <div className="rv-r">
               <div className="label">Canadian Manufacturing</div>
               <h2 style={{marginTop:'0.75rem'}}>Built in Canada.<br/>For Canadian Projects.</h2>
-              <p className="lead" style={{margin:'1rem 0 0'}}>Proudly engineered and manufactured in Canada. Candron's North York, Ontario facility serves utilities, contractors, industrial facilities, and infrastructure projects across North America.</p>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '.4rem', padding: '.28rem .8rem', background: 'rgba(213,43,30,.07)', border: '1px solid rgba(213,43,30,.2)', borderRadius: '20px', margin: '.85rem 0 1rem', fontSize: '.65rem', fontFamily: 'var(--fm)', letterSpacing: '.1em', color: '#C41E30', textTransform: 'uppercase' }}>
+                <CanadaFlag height={18} /> Proudly Made in Canada
+              </div>
+              <p className="lead" style={{margin:'0'}}>Proudly engineered and manufactured in Canada. Candron's Toronto, Ontario facility serves utilities, contractors, industrial facilities, and infrastructure projects across North America.</p>
+              <p className="body" style={{margin:'1rem 0 0',color:'var(--gray)'}}>Our factory can operate up to 24 hours when project schedules demand it — standard shifts are 10–12 hours, but we flex when you need us to.</p>
             </div>
           </div>
           <div className="facility-grid">
@@ -173,7 +202,7 @@ export default function ManufacturingPage() {
       <div className="cta-band">
         <div className="container"><div className="cta-band-inner">
           <h2 className="rv">See What We Can Build For You</h2>
-          <p className="lead rv" style={{color:'rgba(255,255,255,.6)',maxWidth:'500px'}}>Talk to our engineering team about your project requirements. Factory-direct pricing with complete in-house manufacturing control.</p>
+          <p className="lead rv" style={{color:'rgba(255,255,255,.6)',maxWidth:'500px'}}>Talk to our engineering team about your project requirements. Every customer — contractor, consultant, or project owner — can reach us directly.</p>
           <div style={{display:'flex',gap:'1rem',justifyContent:'center',flexWrap:'wrap'}} className="rv">
             <Link href="/contact" className="btn btn-primary btn-lg mag">Request a Quote</Link>
             <Link href="/testing" className="btn btn-outline btn-lg mag">Our Testing Capabilities →</Link>

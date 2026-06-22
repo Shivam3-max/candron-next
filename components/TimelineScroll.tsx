@@ -1,43 +1,61 @@
 'use client'
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useGSAP } from '@gsap/react'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const milestones = [
-  { year: '2009', title: 'Founded in North York, Ontario', text: 'Candron Energy Inc. is established by a team of veteran power engineers — each bringing decades of field experience. From day one, our focus was transformer sales and emergency response for Ontario\'s industrial market.' },
-  { year: '2012', title: 'Expanded into Switchgear & Load Banks', text: 'Client demand drives rapid expansion into medium-voltage switchgear and load bank rentals. Our licensed engineers begin signing long-term emergency response contracts with mining and oil & gas operators.' },
-  { year: '2015', title: 'Launched 24/7 Emergency Response Program', text: 'We formalize our sub-30-minute emergency response guarantee, backed by a dedicated team of on-call licensed engineers. First cross-border USA deployments demonstrate our coast-to-coast reach.' },
-  { year: '2018', title: 'In-House Engineering & Manufacturing Division', text: 'Candron establishes a full in-house engineering division — staffed by licensed engineers holding master\'s and doctoral degrees in power systems. Design, fabrication, SCADA integration, and commissioning all under one roof.' },
-  { year: '2021', title: 'Expanded Inventory to 500+ Units', text: 'A major inventory investment brings our stocked unit count past 500, enabling same-day or next-day shipment across North America. Our field technicians — averaging 30+ years of experience each — oversee every unit.' },
-  { year: '2024', title: '650+ Machines. 50+ Years Combined Expertise. Still Growing.', text: 'Candron operates with 650+ machines in stock, serves 9 major industries, and carries over 50 years of combined engineering and field expertise. The most prepared team in Canadian power distribution — bar none.' },
+  { year: '2022', title: 'Founded in Toronto, Ontario', text: 'Candron Energy Inc. is established by a team of veteran power engineers — each bringing decades of field experience. From day one, the mandate was complete in-house design, fabrication, assembly, and testing under one roof.' },
+  { year: '2023', title: 'First Major Project Deliveries', text: 'Candron completes its first major custom switchgear, switchboard, and control panel projects across mining, oil & gas, and industrial sectors — delivered on time, tested in-house, and meeting ANSI, CSA, and IEEE standards.' },
+  { year: '2024', title: 'Material & Finishing Standards Formalized', text: 'Candron formalizes its premium build standard: 11-gauge steel enclosures, C5M corrosion protection coating, and German-manufactured laser and water-jet cutting equipment — setting a manufacturing bar well above the industry norm.' },
+  { year: '2025', title: 'Expanded Across New Sectors', text: 'Product range expands to serve data centers, healthcare, transportation, renewable energy, and port electrification — with every project still designed, built, and tested entirely at our Toronto facility.' },
+  { year: '2026', title: '50+ Years of Combined Expertise. Still Growing.', text: 'Candron\'s team brings over 50 years of combined power systems engineering and field operations expertise to every project — with licensed engineers, M.Eng and Ph.D credentials, and field technicians with 40+ years of hands-on experience.' },
 ]
 
 export default function TimelineScroll() {
-  const lineRef = useRef<HTMLDivElement>(null)
+  const lineRef      = useRef<HTMLDivElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
-  const dotRefs = useRef<(HTMLDivElement | null)[]>([])
+  const dotRefs      = useRef<(HTMLDivElement | null)[]>([])
 
-  useEffect(() => {
-    const container = containerRef.current
-    const line = lineRef.current
-    if (!container || !line) return
+  useGSAP(() => {
+    const dots = dotRefs.current.filter(Boolean) as HTMLDivElement[]
+    if (dots.length < 2 || !lineRef.current || !containerRef.current) return
 
-    const onScroll = () => {
-      const rect = container.getBoundingClientRect()
-      const startY = window.innerHeight * 0.8
-      const totalTravel = container.offsetHeight + startY - window.innerHeight * 0.2
-      const progress = Math.min(Math.max((startY - rect.top) / totalTravel, 0), 1)
-      line.style.height = `${progress * 100}%`
+    const first = dots[0]
+    const last  = dots[dots.length - 1]
 
-      dotRefs.current.forEach(dot => {
-        if (!dot) return
-        const top = dot.getBoundingClientRect().top
-        dot.classList.toggle('tl-dot-active', top < window.innerHeight * 0.72)
+    const cRect       = containerRef.current.getBoundingClientRect()
+    const firstCenter = first.getBoundingClientRect().top + first.offsetHeight / 2 - cRect.top
+    const lastCenter  = last.getBoundingClientRect().top  + last.offsetHeight  / 2 - cRect.top
+    const targetH     = lastCenter - firstCenter
+
+    lineRef.current.style.top = `${firstCenter}px`
+
+    gsap.fromTo(lineRef.current,
+      { height: 0 },
+      {
+        height: targetH,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top 75%',
+          end: `+=${lastCenter}px`,
+          scrub: 0.6,
+        },
+      }
+    )
+
+    dots.forEach(dot => {
+      ScrollTrigger.create({
+        trigger: dot,
+        start: 'top 72%',
+        onEnter:     () => dot.classList.add('tl-dot-active'),
+        onLeaveBack: () => dot.classList.remove('tl-dot-active'),
       })
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true })
-    onScroll()
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+    })
+  }, { scope: containerRef })
 
   return (
     <div className="timeline" ref={containerRef}>

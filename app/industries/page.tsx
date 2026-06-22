@@ -1,7 +1,7 @@
 ﻿import Link from 'next/link'
 import Image from 'next/image'
 
-export const metadata = { title: 'Industries', description: 'Candron powers mining, oil & gas, data centers, healthcare, utilities, renewables, and transportation — delivering electrical infrastructure built for the most demanding environments in North America.' }
+export const metadata = { title: 'Industries', description: 'Candron powers mining, oil & gas, data centers, healthcare, utilities, renewables, traction power, transit substations, EV charging infrastructure, port electrification, and more — delivering electrical equipment built for the most demanding environments in North America.' }
 
 export default function IndustriesPage() {
   return (
@@ -11,7 +11,7 @@ export default function IndustriesPage() {
         <div className="container page-hero-content">
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>Industries</span></div>
           <div className="label label-white">Markets We Serve</div>
-          <h1>Industries<br/>We Power</h1>
+          <h1>Industries<br/><em>We Power</em></h1>
           <p className="lead" style={{marginTop:'1rem'}}>From underground mines to hyperscale data centers — Candron delivers electrical infrastructure solutions across the most demanding environments in North America.</p>
         </div>
       </div>
@@ -77,7 +77,7 @@ export default function IndustriesPage() {
             <div>
               <div className="label">Industry 03</div>
               <h2>Power &amp; Renewables</h2>
-              <p className="body" style={{marginTop:'.75rem'}}>The energy transition is accelerating, and electrical infrastructure is the foundation. Candron supplies grid-scale transformers and switchgear for wind, solar, and battery storage projects — with the fast-turnaround inventory model that construction schedules demand.</p>
+              <p className="body" style={{marginTop:'.75rem'}}>The energy transition is accelerating, and electrical infrastructure is the foundation. Candron designs, manufactures, and delivers grid-scale switchgear, control systems, and power distribution equipment for wind, solar, and battery storage projects — with expedited lead times built for construction schedules.</p>
               <div className="ind-kpi-row">
                 <div className="ind-kpi"><strong>345kV</strong><span>Max Transmission Voltage</span></div>
                 <div className="ind-kpi"><strong>300MVA</strong><span>Max Transformer Rating</span></div>
@@ -167,6 +167,118 @@ export default function IndustriesPage() {
                 <span className="equip-tag">Port Electrification</span><span className="equip-tag">Airport Ground Power</span>
               </div>
               <Link href="/contact" className="btn btn-primary mag">Talk to a Transportation Specialist →</Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* TRACTION POWER */}
+      <div className="ind-section bg-white" id="traction-power">
+        <div className="container">
+          <div className="ind-detail rv">
+            {/* TODO: replace with dedicated traction power image */}
+            <div className="ind-img-wrap">
+              <Image src="/images/utilities.jpg" alt="Traction Power Substation" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 50vw"/>
+            </div>
+            <div>
+              <div className="label">Industry 07</div>
+              <h2>Traction Power</h2>
+              <p className="body" style={{marginTop:'.75rem'}}>Railway electrification operates at specialized voltages and frequencies — 25 Hz, 50 Hz, and 60 Hz AC traction systems — that demand purpose-engineered transformers and substations. Candron designs and manufactures traction power equipment built to IEEE, CSA, and railway authority standards for mainline and commuter rail applications.</p>
+              <div className="ind-kpi-row">
+                <div className="ind-kpi"><strong>25 Hz / 50 Hz</strong><span>AC Traction Frequency</span></div>
+                <div className="ind-kpi"><strong>25 kV AC</strong><span>Rail Traction Voltage</span></div>
+                <div className="ind-kpi"><strong>IEEE / CSA</strong><span>Railway Standards</span></div>
+              </div>
+              <div className="equip-list">
+                <span className="equip-tag">Traction Power Transformers</span><span className="equip-tag">Autotransformers</span>
+                <span className="equip-tag">Scott-T Configurations</span><span className="equip-tag">Traction Substations</span>
+                <span className="equip-tag">Switchgear for Railway</span><span className="equip-tag">Neutral Section Equipment</span>
+              </div>
+              <Link href="/contact" className="btn btn-primary mag">Talk to a Traction Power Specialist →</Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* TRANSIT SUBSTATIONS */}
+      <div className="ind-section" id="transit-substations">
+        <div className="container">
+          <div className="ind-detail flip rv">
+            {/* TODO: replace with dedicated transit image */}
+            <div className="ind-img-wrap">
+              <Image src="/images/renewable-energy.jpg" alt="Transit Substation" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 50vw"/>
+            </div>
+            <div>
+              <div className="label">Industry 08</div>
+              <h2>Transit Substations</h2>
+              <p className="body" style={{marginTop:'.75rem'}}>Urban rail, LRT, and metro systems rely on a network of traction substations to convert and distribute power along the route. Candron builds compact, reliable traction substations for both new-build transit projects and substation upgrades — designed for ESA compliance and transit authority acceptance.</p>
+              <div className="ind-kpi-row">
+                <div className="ind-kpi"><strong>1500V DC</strong><span>Metro Traction</span></div>
+                <div className="ind-kpi"><strong>750V DC</strong><span>LRT Systems</span></div>
+                <div className="ind-kpi"><strong>ESA</strong><span>Ontario Compliance</span></div>
+              </div>
+              <div className="equip-list">
+                <span className="equip-tag">Rectifier Transformers</span><span className="equip-tag">Traction Rectifiers</span>
+                <span className="equip-tag">DC Switchgear</span><span className="equip-tag">Transit Control Panels</span>
+                <span className="equip-tag">LRT Substations</span><span className="equip-tag">Metro Substations</span>
+              </div>
+              <Link href="/contact" className="btn btn-primary mag">Talk to a Transit Power Specialist →</Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* EV CHARGING INFRASTRUCTURE */}
+      <div className="ind-section bg-white" id="ev-charging">
+        <div className="container">
+          <div className="ind-detail rv">
+            {/* TODO: replace with dedicated EV charging image */}
+            <div className="ind-img-wrap">
+              <Image src="/images/data-centers.jpg" alt="EV Charging Infrastructure" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 50vw"/>
+            </div>
+            <div>
+              <div className="label">Industry 09</div>
+              <h2>EV Charging Infrastructure</h2>
+              <p className="body" style={{marginTop:'.75rem'}}>Fleet electrification and public EV charging depots require engineered electrical infrastructure — from medium voltage service entry through LV distribution switchboards and control systems. Candron supplies and integrates the full electrical backbone for EV charging hubs, transit depots, and fleet yards.</p>
+              <div className="ind-kpi-row">
+                <div className="ind-kpi"><strong>MW-Scale</strong><span>Charging Hub Capacity</span></div>
+                <div className="ind-kpi"><strong>MV / LV</strong><span>Distribution Systems</span></div>
+                <div className="ind-kpi"><strong>Grid Integration</strong><span>Demand Management</span></div>
+              </div>
+              <div className="equip-list">
+                <span className="equip-tag">MV Service Entry Switchgear</span><span className="equip-tag">LV Distribution Switchboards</span>
+                <span className="equip-tag">EV Fleet Control Panels</span><span className="equip-tag">Metering &amp; Monitoring</span>
+                <span className="equip-tag">Grid Demand Management</span><span className="equip-tag">Transit Depot Electrification</span>
+              </div>
+              <Link href="/contact" className="btn btn-primary mag">Talk to an EV Infrastructure Specialist →</Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* PORT ELECTRIFICATION */}
+      <div className="ind-section" id="port-electrification">
+        <div className="container">
+          <div className="ind-detail flip rv">
+            {/* TODO: replace with dedicated port image */}
+            <div className="ind-img-wrap">
+              <Image src="/images/oil-gas.jpg" alt="Port Electrification" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 50vw"/>
+            </div>
+            <div>
+              <div className="label">Industry 10</div>
+              <h2>Port Electrification</h2>
+              <p className="body" style={{marginTop:'.75rem'}}>Modern ports and marine terminals are transitioning from diesel to shore power — supplying vessels, cranes, and terminal equipment with reliable grid power. Candron engineers and supplies the switchgear, transformers, and control infrastructure for shore power systems, cold-ironing installations, and port crane electrification.</p>
+              <div className="ind-kpi-row">
+                <div className="ind-kpi"><strong>6.6 / 11 kV</strong><span>Shore Power Voltage</span></div>
+                <div className="ind-kpi"><strong>IEC 80005</strong><span>Shore Connection Standard</span></div>
+                <div className="ind-kpi"><strong>NEMA 4X</strong><span>Marine Enclosures</span></div>
+              </div>
+              <div className="equip-list">
+                <span className="equip-tag">Shore Power Systems</span><span className="equip-tag">Frequency Converters</span>
+                <span className="equip-tag">Port Crane Switchgear</span><span className="equip-tag">Marine Switchboards</span>
+                <span className="equip-tag">Cold-Ironing Infrastructure</span><span className="equip-tag">Terminal Control Panels</span>
+              </div>
+              <Link href="/contact" className="btn btn-primary mag">Talk to a Port Electrification Specialist →</Link>
             </div>
           </div>
         </div>

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 export default function ContactPage() {
-  const [form, setForm] = useState({name:'',company:'',email:'',phone:'',project:'',message:''})
+  const [form, setForm] = useState({name:'',company:'',email:'',phone:'',location:'',project:'',message:''})
   const [sent, setSent] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
@@ -21,6 +21,7 @@ export default function ContactPage() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
+      // location field is included automatically via spread of form state
       })
       const data = await res.json()
       if (!res.ok) throw new Error(data.error || 'Failed to send.')
@@ -39,7 +40,7 @@ export default function ContactPage() {
         <div className="container page-hero-content">
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>Contact</span></div>
           <div className="label label-white">Talk to Our Team</div>
-          <h1>Let&rsquo;s Build Reliable<br/>Power Infrastructure Together</h1>
+          <h1>Let&rsquo;s Build Reliable<br/><em>Power Infrastructure Together</em></h1>
           <p className="lead" style={{marginTop:'1rem'}}>Ready to discuss your project? Our engineering team is available to review specifications, provide technical guidance, and develop the right power distribution solution for your requirements.</p>
         </div>
       </div>
@@ -83,6 +84,10 @@ export default function ContactPage() {
                       <label htmlFor="phone">Phone Number</label>
                       <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" value={form.phone} onChange={handle}/>
                     </div>
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="location">Project Location</label>
+                    <input type="text" id="location" name="location" placeholder="City, Province / State" value={form.location} onChange={handle}/>
                   </div>
                   <div className="form-group">
                     <label htmlFor="project">Project Type</label>
@@ -140,7 +145,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <div className="contact-card-label">Location</div>
-                  <div className="contact-card-val" style={{cursor:'default'}}>North York, Ontario</div>
+                  <div className="contact-card-val" style={{cursor:'default'}}>Toronto, Ontario</div>
                   <div className="contact-card-sub">Canada</div>
                 </div>
               </div>
@@ -164,8 +169,8 @@ export default function ContactPage() {
       {/* CTA */}
       <div className="cta-band">
         <div className="container"><div className="cta-band-inner">
-          <h2 className="rv">Factory-Direct. Engineer-Backed.</h2>
-          <p className="lead rv" style={{color:'rgba(255,255,255,.6)',maxWidth:'500px'}}>Get the right equipment at the right price — built to your exact specification by the engineers who designed it.</p>
+          <h2 className="rv">We're Easy to Reach. Always.</h2>
+          <p className="lead rv" style={{color:'rgba(255,255,255,.6)',maxWidth:'500px'}}>Whether you're a contractor, consultant, utility, or project owner — you can reach our engineering team directly. No gatekeepers, no middlemen.</p>
           <div style={{display:'flex',gap:'1rem',justifyContent:'center',flexWrap:'wrap'}} className="rv">
             <Link href="/products" className="btn btn-primary btn-lg mag">View Products</Link>
             <a href="tel:+16476162595" className="btn btn-outline btn-lg mag">+1 (647) 616-2595</a>

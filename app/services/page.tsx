@@ -21,7 +21,7 @@ export default function ServicesPage() {
           <h1>
             Full-Spectrum
             <br />
-            Electrical Services
+            <em>Electrical Services</em>
           </h1>
           <p className="lead" style={{ marginTop: "1rem" }}>
             From first-principles design through ongoing maintenance — Candron's
@@ -389,7 +389,7 @@ export default function ServicesPage() {
           <ProcessStepsAnimate variant="light" steps={[
             { n: '01', title: 'Assess', desc: 'Site walk and requirements definition with your operations team' },
             { n: '02', title: 'Design', desc: 'Engineering study and solution design by licensed engineers' },
-            { n: '03', title: 'Supply', desc: 'Equipment sourced from our in-stock inventory or custom-built to spec' },
+            { n: '03', title: 'Supply', desc: 'Equipment engineered and manufactured in-house to your exact specification' },
             { n: '04', title: 'Install', desc: 'On-site installation by our certified HV crew' },
             { n: '05', title: 'Commission', desc: 'Full testing and commissioning with documented test reports' },
           ]} />
@@ -413,42 +413,60 @@ export default function ServicesPage() {
           </div>
           <div className="cert-grid">
             <div className="cert-item rv">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/IEEE.png" alt="IEEE" style={{ display: 'block', height: '22px', width: 'auto', maxWidth: '56px', marginBottom: '.5rem' }} />
               <div className="cert-name">IEEE C57</div>
               <div className="cert-desc">
                 Transformer testing and performance standards
               </div>
             </div>
             <div className="cert-item rv d2">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/neta.svg" alt="NETA" style={{ display: 'block', height: '22px', width: 'auto', maxWidth: '56px', marginBottom: '.5rem' }} />
               <div className="cert-name">NETA</div>
               <div className="cert-desc">
                 Acceptance Testing Specifications for electrical installations
               </div>
             </div>
             <div className="cert-item rv d3">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/IEEE.png" alt="IEEE" style={{ display: 'block', height: '22px', width: 'auto', maxWidth: '56px', marginBottom: '.5rem' }} />
               <div className="cert-name">IEEE 1584</div>
               <div className="cert-desc">
                 Arc-flash hazard analysis and PPE calculations
               </div>
             </div>
             <div className="cert-item rv d4">
+              <div style={{ display: 'flex', gap: '.5rem', alignItems: 'center', marginBottom: '.5rem' }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/images/ansi.png" alt="ANSI" style={{ display: 'block', height: '22px', width: 'auto', maxWidth: '48px' }} />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/images/ugSolutions.png" alt="UL" style={{ display: 'block', height: '22px', width: 'auto', maxWidth: '48px' }} />
+              </div>
               <div className="cert-name">ANSI / UL</div>
               <div className="cert-desc">
                 American National and Underwriters Laboratories standards
               </div>
             </div>
             <div className="cert-item rv">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/IEC.png" alt="IEC" style={{ display: 'block', height: '22px', width: 'auto', maxWidth: '56px', marginBottom: '.5rem' }} />
               <div className="cert-name">IEC 61850</div>
               <div className="cert-desc">
                 Communication standard for electrical substations
               </div>
             </div>
             <div className="cert-item rv d2">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/IEEE.png" alt="IEEE" style={{ display: 'block', height: '22px', width: 'auto', maxWidth: '56px', marginBottom: '.5rem' }} />
               <div className="cert-name">IEEE 519</div>
               <div className="cert-desc">
                 Harmonic control in electric power systems
               </div>
             </div>
             <div className="cert-item rv d3">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/csa.png" alt="CSA" style={{ display: 'block', height: '22px', width: 'auto', maxWidth: '56px', marginBottom: '.5rem' }} />
               <div className="cert-name">CSA C22</div>
               <div className="cert-desc">
                 Canadian Electrical Code — full compliance

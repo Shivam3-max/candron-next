@@ -12,29 +12,109 @@ const links = [
   { href: '/about', label: 'About' },
 ]
 
+const productItems = [
+  {
+    href: '/products/mv-switchgear',
+    name: 'MV Switchgear',
+    sub: '1 kV to 36 kV',
+    desc: 'Custom metal-clad and pad-mounted switchgear from 1 kV to 36 kV with VCBs, load break switches, and integrated protection relays.',
+    image: '/images/switchgear.jpg',
+    types: [
+      { name: 'Metal-Clad', href: '/products/switchgear/metal-clad', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="2"/><line x1="2" y1="9" x2="22" y2="9"/><line x1="9" y1="9" x2="9" y2="22"/></svg> },
+      { name: 'Pad-Mounted', href: '/products/switchgear/load-interrupter', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M7 8V5a5 5 0 0 1 10 0v3"/></svg> },
+      { name: 'Load-Interrupter', href: '/products/switchgear/load-interrupter', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg> },
+      { name: 'Service-Entrance', href: '/products/switchgear/service-entrance', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 9h3M15 12h3M15 15h3"/></svg> },
+    ],
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" />
+      </svg>
+    ),
+  },
+  {
+    href: '/products/lv-switchgear',
+    name: 'LV Switchgear',
+    sub: 'Up to 1000 V',
+    desc: 'Low voltage switchgear up to 1,000 V — main breaker, main-tie-main, service entrance, and distribution configurations.',
+    image: '/images/switchboards.jpg',
+    types: [
+      { name: 'Main Breaker', href: '/products/switchgear/low-voltage', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="12" y1="4" x2="12" y2="20"/><circle cx="7" cy="12" r="2" fill="currentColor" stroke="none"/></svg> },
+      { name: 'Main-Tie-Main', href: '/products/switchgear/low-voltage', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 6h6v12H4zM14 6h6v12h-6z"/><line x1="10" y1="12" x2="14" y2="12"/></svg> },
+      { name: 'Service Entrance', href: '/products/switchgear/service-entrance', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 9h3M15 12h3M15 15h3"/></svg> },
+      { name: 'Distribution', href: '/products/switchgear/low-voltage', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 3v4M12 7l-6 4M12 7l6 4M6 11v6M18 11v6"/></svg> },
+    ],
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+        <rect x="2" y="2" width="20" height="20" rx="2" />
+        <line x1="2" y1="9" x2="22" y2="9" />
+        <line x1="9" y1="9" x2="9" y2="22" />
+      </svg>
+    ),
+  },
+  {
+    href: '/products/junction-box-splitters',
+    name: 'Junction Box & Splitters',
+    sub: 'LV & MV Power Distribution',
+    desc: 'Industrial junction boxes and power splitters from LV up to 1,000 V and MV up to 35 kV — NEMA-rated, weatherproof, and explosion-proof.',
+    image: '/images/switchgear.jpg',
+    types: [
+      { name: 'LV Junction Box', href: '/products/junction-box-splitters', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg> },
+      { name: 'MV Junction Box', href: '/products/junction-box-splitters', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M7 8V5a5 5 0 0 1 10 0v3"/></svg> },
+      { name: 'LV Splitter', href: '/products/junction-box-splitters', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 3v4M12 7l-6 4M12 7l6 4M6 11v6M18 11v6"/></svg> },
+      { name: 'MV Splitter', href: '/products/junction-box-splitters', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg> },
+    ],
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+        <rect x="3" y="3" width="18" height="18" rx="2" />
+        <path d="M3 9h18M9 21V9" />
+      </svg>
+    ),
+  },
+  {
+    href: '/products/switchboards',
+    name: 'Switchboards',
+    sub: 'Low Voltage Distribution',
+    desc: 'Custom switchboards up to 4000 A at 600 V for commercial, industrial, and infrastructure applications.',
+    image: '/images/switchboards.jpg',
+    types: [
+      { name: 'Main Breaker', href: '/products/switchboards/main-breaker', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="12" y1="4" x2="12" y2="20"/><circle cx="7" cy="12" r="2" fill="currentColor" stroke="none"/></svg> },
+      { name: 'Main-Tie-Main', href: '/products/switchboards/main-tie-main', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 6h6v12H4zM14 6h6v12h-6z"/><line x1="10" y1="12" x2="14" y2="12"/></svg> },
+      { name: 'Distribution', href: '/products/switchboards/distribution', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 3v4M12 7l-6 4M12 7l6 4M6 11v6M18 11v6"/></svg> },
+      { name: 'Utility-Approved', href: '/products/switchboards/utility-approved', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg> },
+    ],
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+        <rect x="2" y="2" width="20" height="20" rx="2" />
+        <line x1="2" y1="12" x2="22" y2="12" />
+        <line x1="12" y1="2" x2="12" y2="22" />
+      </svg>
+    ),
+  },
+]
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [prodOpen, setProdOpen] = useState(false)
+  const [hoveredProd, setHoveredProd] = useState(0)
   const pathname = usePathname()
 
   useEffect(() => {
     const update = () => setScrolled(window.scrollY > 60)
-    update()
+    const t = requestAnimationFrame(update)
     window.addEventListener('scroll', update, { passive: true })
-    return () => window.removeEventListener('scroll', update)
+    return () => { cancelAnimationFrame(t); window.removeEventListener('scroll', update) }
   }, [])
 
   useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = ''
-    }
+    document.body.style.overflow = mobileOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
   }, [mobileOpen])
 
   const headerClass = ['dark-nav', scrolled ? 'scrolled' : 'at-top'].join(' ')
-  const mobileNavId = 'mobile-nav'
+  const isProductsActive = pathname === '/products' || pathname.startsWith('/products/')
+
+  const p = productItems[hoveredProd]
 
   return (
     <>
@@ -46,9 +126,130 @@ export default function Navbar() {
           </Link>
 
           <nav aria-label="Main navigation">
-            {links.map(l => (
-              <Link key={l.href} href={l.href} className={pathname === l.href ? 'active' : ''} aria-current={pathname === l.href ? 'page' : undefined}>{l.label}</Link>
-            ))}
+            {links.map(l => {
+              if (l.href !== '/products') {
+                return (
+                  <Link
+                    key={l.href}
+                    href={l.href}
+                    className={pathname === l.href ? 'active' : ''}
+                    aria-current={pathname === l.href ? 'page' : undefined}
+                  >
+                    {l.label}
+                  </Link>
+                )
+              }
+
+              return (
+                <div
+                  key="/products"
+                  className={`nav-dd-wrap${prodOpen ? ' open' : ''}`}
+                  onMouseEnter={() => setProdOpen(true)}
+                  onMouseLeave={() => { setProdOpen(false); setHoveredProd(0) }}
+                >
+                  <Link
+                    href="/products"
+                    className={isProductsActive ? 'active' : ''}
+                    aria-current={isProductsActive ? 'page' : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={prodOpen}
+                  >
+                    Products
+                    <svg
+                      className="nav-dd-chevron"
+                      width="11"
+                      height="11"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </Link>
+
+                  {/* MEGA DROPDOWN */}
+                  <div className={`nav-dropdown${prodOpen ? ' open' : ''}`} role="menu">
+                    <div className="nav-mega-inner">
+
+                      {/* Sidebar */}
+                      <div className="nav-mega-sidebar">
+                        {productItems.map((item, i) => {
+                          const active = hoveredProd === i
+                          return (
+                            <Link
+                              key={item.href}
+                              href={item.href}
+                              className="nav-mega-item"
+                              style={{ background: active ? 'var(--blue)' : 'transparent' }}
+                              onMouseEnter={() => setHoveredProd(i)}
+                              onClick={() => { setProdOpen(false); setHoveredProd(0) }}
+                              role="menuitem"
+                            >
+                              <span className="nav-mega-icon" style={{ background: active ? 'rgba(255,255,255,.18)' : 'rgba(255,255,255,.08)', color: active ? '#fff' : 'var(--blue)' }}>
+                                {item.icon}
+                              </span>
+                              <span style={{ flex: 1, color: '#fff', lineHeight: 1.3 }}>{item.name}</span>
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" style={{ opacity: active ? 1 : 0, flexShrink: 0 }}>
+                                <path d="M9 18l6-6-6-6" />
+                              </svg>
+                            </Link>
+                          )
+                        })}
+                        <div className="nav-mega-footer">
+                          <Link href="/products" className="nav-mega-all" onClick={() => { setProdOpen(false); setHoveredProd(0) }}>
+                            VIEW ALL PRODUCTS →
+                          </Link>
+                        </div>
+                      </div>
+
+                      {/* Preview Panel */}
+                      <div className="nav-mega-preview">
+                        <div key={hoveredProd} className="nav-mega-preview-inner nav-mega-preview-fade">
+                          {/* Top: title + desc on left, image on right */}
+                          <div className="nav-mega-preview-header">
+                            <div className="nav-mega-preview-text">
+                              <div className="nav-mega-preview-name">{p.name}</div>
+                              <span className="nav-mega-preview-sub">{p.sub}</span>
+                              <p className="nav-mega-preview-desc">{p.desc}</p>
+                            </div>
+                            <div className="nav-mega-img-wrap">
+                              {/* eslint-disable-next-line @next/next/no-img-element */}
+                              <img src={p.image} alt={p.name} className="nav-mega-img" />
+                            </div>
+                          </div>
+                          {/* 2×2 type link tiles */}
+                          <div className="nav-mega-type-grid">
+                            {p.types.map(t => (
+                              <Link
+                                key={t.name}
+                                href={t.href}
+                                className="nav-mega-type-link"
+                                onClick={() => { setProdOpen(false); setHoveredProd(0) }}
+                                onMouseEnter={e => { const el = e.currentTarget; el.querySelectorAll('[data-tile-text]').forEach(n => (n as HTMLElement).style.color = '#fff'); el.querySelectorAll('[data-tile-chevron]').forEach(n => (n as SVGElement).style.stroke = '#fff') }}
+                                onMouseLeave={e => { const el = e.currentTarget; el.querySelectorAll('[data-tile-text]').forEach(n => (n as HTMLElement).style.color = '#05091F'); el.querySelectorAll('[data-tile-chevron]').forEach(n => (n as SVGElement).style.stroke = '#05091F') }}
+                              >
+                                <span className="nav-mega-type-icon">{t.icon}</span>
+                                <span data-tile-text style={{ flex: 1, color: '#05091F', fontFamily: 'var(--fm)', fontSize: '.58rem', fontWeight: 700, letterSpacing: '.04em', textTransform: 'uppercase' }}>{t.name}</span>
+                                <svg data-tile-chevron width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#05091F" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+                              </Link>
+                            ))}
+                          </div>
+                          {/* VIEW ALL button */}
+                          <Link
+                            href={p.href}
+                            className="btn btn-primary nav-mega-btn"
+                            onClick={() => { setProdOpen(false); setHoveredProd(0) }}
+                          >
+                            VIEW ALL →
+                          </Link>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
             <Link href="/contact" className="nav-cta">Contact Us</Link>
           </nav>
 
@@ -56,16 +257,16 @@ export default function Navbar() {
             className="ham"
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
-            aria-controls={mobileNavId}
+            aria-controls="mobile-nav"
             onClick={() => setMobileOpen(true)}
           >
-            <span/><span/><span/>
+            <span /><span /><span />
           </button>
         </div>
       </header>
 
       <div
-        id={mobileNavId}
+        id="mobile-nav"
         className={`mobile-nav${mobileOpen ? ' open' : ''}`}
         role="dialog"
         aria-modal="true"
@@ -74,11 +275,28 @@ export default function Navbar() {
       >
         <button className="mobile-close" aria-label="Close menu" onClick={() => setMobileOpen(false)}>✕</button>
         {links.map(l => (
-          <Link key={l.href} href={l.href} onClick={() => setMobileOpen(false)}
-            className={pathname === l.href ? 'active' : ''}
+          <Link
+            key={l.href}
+            href={l.href}
+            onClick={() => setMobileOpen(false)}
+            className={pathname === l.href || (l.href === '/products' && isProductsActive) ? 'active' : ''}
             aria-current={pathname === l.href ? 'page' : undefined}
-          >{l.label}</Link>
+          >
+            {l.label}
+          </Link>
         ))}
+        <div style={{ borderTop: '1px solid rgba(255,255,255,.12)', margin: '.75rem 0 .5rem', paddingTop: '.75rem', width: '100%', textAlign: 'center' }}>
+          {productItems.map(item => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => setMobileOpen(false)}
+              style={{ display: 'block', textAlign: 'center', fontSize: '.82rem', opacity: .8, padding: '.35rem 0' }}
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
         <Link href="/contact" onClick={() => setMobileOpen(false)}>Contact Us</Link>
       </div>
     </>

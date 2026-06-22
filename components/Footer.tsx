@@ -23,31 +23,8 @@ export default function Footer() {
               className="logo footer-logo"
               aria-label="Candron Energy Inc. — Home"
             >
-              <svg
-                className="logo-icon"
-                width="30"
-                height="30"
-                viewBox="0 0 30 30"
-                fill="none"
-                aria-hidden="true"
-              >
-                <rect
-                  x="1.5"
-                  y="1.5"
-                  width="27"
-                  height="27"
-                  rx="6"
-                  stroke="#0047FF"
-                  strokeWidth="1.8"
-                />
-                <path
-                  d="M15 5.5v7l-5.5 5.5H15v6.5L20.5 18H15V5.5z"
-                  fill="#0047FF"
-                />
-              </svg>
-              <span className="logo-text">
-                CANDRON<span>Energy Inc.</span>
-              </span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/logo.svg" alt="" className="logo-img" />
             </Link>
             <p>
               Canadian-engineered power distribution equipment — designed,

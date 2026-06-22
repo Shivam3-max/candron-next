@@ -1,7 +1,8 @@
 'use client'
+import React from 'react'
 import { useEffect, useRef, useState } from 'react'
 
-interface Stat { num: string; lbl: string }
+interface Stat { num: string; lbl: string; icon?: React.ReactNode }
 
 function CountUp({ raw, active }: { raw: string; active: boolean }) {
   const match = raw.match(/^(\d+)(\S*)$/)
@@ -47,7 +48,7 @@ export default function StatBar({ stats }: { stats: Stat[] }) {
       {stats.map((s, i) => (
         <div key={i} className={`stat-item${active ? ' stat-in' : ''}`} style={{ animationDelay: `${i * 0.1}s` }}>
           <div className="stat-num">
-            <CountUp raw={s.num} active={active} />
+            {s.icon ? s.icon : <CountUp raw={s.num} active={active} />}
           </div>
           <div className="stat-lbl">{s.lbl}</div>
         </div>
