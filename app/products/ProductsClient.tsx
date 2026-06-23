@@ -216,7 +216,7 @@ export default function ProductsClient() {
             </div>
 
             {/* KPI stat grid */}
-            <div className="grid grid-cols-4 gap-[.85rem] mb-7">
+            <div className="grid grid-cols-4 max-md:grid-cols-2 gap-[.85rem] max-md:gap-[.5rem] mb-7 w-full">
               {p.kpis.map(k => (
                 <div key={k.label} className="py-[.9rem] px-[.65rem] bg-off rounded-[10px] text-center border border-[#E8ECF5]">
                   <div className="font-display text-[.75rem] font-black text-navy tracking-[.04em] mb-[.2rem]">{k.value}</div>

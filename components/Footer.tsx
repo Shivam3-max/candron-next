@@ -14,16 +14,16 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-navy border-t border-white/[.06] pt-20 pb-8">
+    <footer className="bg-navy border-t border-white/[.06] pt-20 max-md:pt-12 pb-8">
       <div className="container">
-        <div className="responsive-override-exempt grid grid-cols-[2fr_1fr_1fr_1fr] max-md:grid-cols-[1fr_1fr] max-md:gap-8 gap-12 mb-16 max-md:mb-8">
+        <div className="grid grid-cols-[2fr_1fr_1fr_1fr] max-md:grid-cols-[1fr_1fr] max-md:gap-8 gap-12 mb-16 max-md:mb-8">
           {/* Brand — spans full width on mobile */}
           <div className="max-md:col-span-2">
             <Link href="/" className="logo footer-logo" aria-label="Candron Energy Inc. — Home">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/images/logo.svg" alt="" className="logo-img" />
             </Link>
-            <p className="text-[.85rem] text-white/50 leading-[1.85] mt-4 max-w-[300px]">
+            <p className="text-[.85rem] text-white/50 leading-[1.85] mt-4 max-w-[300px] max-md:max-w-none">
               Canadian-engineered power distribution equipment — designed,
               manufactured, assembled, and tested entirely in-house.
             </p>
@@ -58,7 +58,7 @@ export default function Footer() {
           </div>
 
           {/* Link columns — 3-col sub-grid on mobile */}
-          <div className="max-md:col-span-2 responsive-override-exempt grid grid-cols-3 gap-6 max-md:gap-4">
+          <div className="max-md:col-span-2 grid grid-cols-3 gap-6 max-md:gap-4">
             {/* Products */}
             <div>
               <h5 className="font-title text-[.72rem] font-bold tracking-[.16em] uppercase text-white mb-5 max-md:mb-3">Products</h5>

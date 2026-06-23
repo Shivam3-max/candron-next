@@ -138,7 +138,7 @@ export default function AboutPage() {
           </div>
 
           {/* Credential strip */}
-          <div className="cred-strip-grid grid grid-cols-4 max-sm:grid-cols-2 gap-px bg-blue/[.15] rounded-[14px] overflow-hidden mb-12 rv">
+          <div className="cred-strip-grid grid grid-cols-4 max-md:grid-cols-2 gap-px bg-blue/[.15] rounded-[14px] overflow-hidden mb-12 max-md:mb-6 rv">
             {[
               { val: '2022', lbl: 'Year Founded' },
               { val: '50+', lbl: 'Years Combined Expertise' },
@@ -157,7 +157,7 @@ export default function AboutPage() {
             <div className="rv-l">
               <TimelineScroll />
             </div>
-            <div className="rv-r flex flex-col gap-5 mt-4 max-sm:hidden">
+            <div className="rv-r flex flex-col gap-5 mt-4 max-md:hidden">
               <div className="rounded-[14px] overflow-hidden h-[260px] relative border border-blue/[.15]">
                 <Image src="/images/switchgear.jpg" alt="Candron Facility" fill className="object-cover" sizes="(max-width:1024px) 100vw, 40vw"/>
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent"/>

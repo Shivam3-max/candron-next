@@ -5988,7 +5988,8 @@ canvas#hero-canvas {
   .mq-header,
   .proc-header-row {
     text-align: left;
-    align-items: flex-start
+    align-items: flex-start;
+    margin-bottom: 1.5rem
   }
 
   .wt-header .label {
@@ -6002,6 +6003,16 @@ canvas#hero-canvas {
   /* Force all section headings left on mobile */
   .text-center {
     text-align: left !important
+  }
+
+  .home-stat-bar,
+  .home-stat-bar *,
+  .responsive-override-exempt,
+  .responsive-override-exempt *,
+  .responsive-override-exempt .text-center,
+  .cred-strip-grid,
+  .cred-strip-grid * {
+    text-align: center !important
   }
 
   .label.justify-center {

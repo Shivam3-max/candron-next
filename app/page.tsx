@@ -109,10 +109,10 @@ export default function HomePage() {
                   <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" />
                 </svg>
               </div>
-              <div className="font-display text-[2.6rem] max-md:text-[1.4rem] font-black text-white leading-none mb-[.45rem] max-md:mb-0">
+              <div className="font-display text-[2.6rem] max-md:text-[1.1rem] font-black text-white leading-none mb-[.45rem] max-md:mb-0">
                 100%
               </div>
-              <div className="font-mono text-[.58rem] max-md:text-[.48rem] tracking-[.2em] max-md:tracking-[.1em] uppercase text-white/[.6]">
+              <div className="font-mono text-[.58rem] max-md:text-[.42rem] tracking-[.2em] max-md:tracking-[.08em] uppercase text-white/[.6]">
                 In-House Engineering
               </div>
             </div>
@@ -131,12 +131,12 @@ export default function HomePage() {
                   <CanadaFlag height={68} />
                 </span>
               </div>
-              <div className="font-display text-[1.15rem] max-md:text-[.78rem] font-black text-white leading-[1.25] tracking-[.01em] mb-[.45rem] max-md:mb-0">
+              <div className="font-display text-[1.15rem] max-md:text-[.65rem] font-black text-white leading-[1.25] tracking-[.01em] mb-[.45rem] max-md:mb-0">
                 Canadian
                 <br />
                 Manufacturing
               </div>
-              <div className="font-mono text-[.58rem] max-md:text-[.48rem] tracking-[.2em] max-md:tracking-[.1em] uppercase text-white/[.6]">
+              <div className="font-mono text-[.58rem] max-md:text-[.42rem] tracking-[.2em] max-md:tracking-[.08em] uppercase text-white/[.6]">
                 Toronto, Ontario
               </div>
             </div>
@@ -154,10 +154,10 @@ export default function HomePage() {
                   className="h-[30px] max-md:h-[14px] w-auto max-w-[56px] brightness-0 invert"
                 />
               </div>
-              <div className="font-display text-[1.15rem] max-md:text-[.78rem] font-black text-white leading-[1.25] tracking-[.01em] mb-[.45rem] max-md:mb-0">
+              <div className="font-display text-[1.15rem] max-md:text-[.65rem] font-black text-white leading-[1.25] tracking-[.01em] mb-[.45rem] max-md:mb-0">
                 Factory Testing
               </div>
-              <div className="font-mono text-[.58rem] max-md:text-[.48rem] tracking-[.2em] max-md:tracking-[.1em] uppercase text-white/[.6]">
+              <div className="font-mono text-[.58rem] max-md:text-[.42rem] tracking-[.2em] max-md:tracking-[.08em] uppercase text-white/[.6]">
                 To NETA Standards
               </div>
             </div>
@@ -219,7 +219,7 @@ export default function HomePage() {
         <div className="container">
           {/* ── Top split: headline + image ── */}
           <div className="split items-center gap-0 mb-14">
-            <div className="rv-l pr-12">
+            <div className="rv-l pr-12 max-md:pr-0">
               <div className="label">Why Candron</div>
               <h2 className="leading-[1.08] mb-6">
                 Power Distribution.
@@ -243,7 +243,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="rv-r relative max-sm:hidden">
+            <div className="rv-r relative max-md:hidden">
               <div className="rounded-[14px] overflow-hidden h-[360px] max-sm:h-[220px] relative bg-[#111827]">
                 <Image
                   src="/images/switchgear.jpg"

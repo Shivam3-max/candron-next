@@ -109,7 +109,7 @@ export default function CommissioningPage() {
       <div className="section bg-white">
         <div className="container">
           <div className="split">
-            <div className="rv-l max-sm:hidden">
+            <div className="rv-l max-md:hidden">
               <div className="rounded-[14px] overflow-hidden h-[480px] relative">
                 <Image src="/images/utilities.jpg" alt="Commissioning Support" fill className="object-cover" sizes="(max-width:1024px) 100vw, 50vw"/>
               </div>
