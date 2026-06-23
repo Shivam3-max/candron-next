@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import Image from "next/image";
 import CanadaFlag from "@/components/CanadaFlag";
 import CapabilitiesFlow from "@/components/CapabilitiesFlow";
@@ -15,9 +15,7 @@ export default function ManufacturingPage() {
       <div className="page-hero">
         <div
           className="page-hero-bg"
-          style={{
-            background: "url('/images/manufacturing.jpg') center/cover",
-          }}
+          style={{ background: "url('/images/manufacturing.jpg') center/cover" }}
         ></div>
         <div className="container page-hero-content">
           <div className="breadcrumb">
@@ -29,7 +27,7 @@ export default function ManufacturingPage() {
             <br />
             <em>Tested Under One Roof</em>
           </h1>
-          <p className="lead" style={{ marginTop: "1rem" }}>
+          <p className="lead mt-4">
             Candron Energy provides complete in-house manufacturing capabilities
             that eliminate unnecessary delays and ensure total quality control —
             from first engineering drawing to final factory test.
@@ -46,14 +44,14 @@ export default function ManufacturingPage() {
               <h2>Complete Manufacturing Control</h2>
             </div>
             <div>
-              <p className="body" style={{ marginBottom: "1.25rem" }}>
+              <p className="body mb-5">
                 Most electrical equipment suppliers depend on a network of
                 third-party fabricators, outsourced wiring shops, and external
                 testing facilities. This introduces delays, communication gaps,
                 and quality inconsistencies that inevitably impact your project
                 timeline.
               </p>
-              <p className="body" style={{ marginBottom: "1.25rem" }}>
+              <p className="body mb-5">
                 Candron operates differently. Our Canadian manufacturing
                 facility handles every stage of production under one roof —
                 electrical design, mechanical design, fabrication, assembly,
@@ -139,7 +137,7 @@ export default function ManufacturingPage() {
                   fill="none"
                   stroke="var(--blue)"
                   strokeWidth="1.8"
-                  style={{ width: "2.4rem", height: "2.4rem" }}
+                  className="w-[2.4rem] h-[2.4rem]"
                 >
                   <path
                     d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"
@@ -197,7 +195,7 @@ export default function ManufacturingPage() {
                 src="/images/switchgear-facility.jpg"
                 alt="Manufacturing Facility"
                 fill
-                style={{ objectFit: "cover" }}
+                className="object-cover"
                 sizes="(max-width:1024px) 100vw, 45vw"
               />
               <div className="proc-img-overlay">
@@ -208,29 +206,16 @@ export default function ManufacturingPage() {
                   fill="none"
                   stroke="var(--blue)"
                   strokeWidth="2"
-                  style={{ flexShrink: 0 }}
+                  className="shrink-0"
                 >
                   <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                   <circle cx="12" cy="12" r="3" />
                 </svg>
                 <div>
-                  <div
-                    style={{
-                      fontWeight: 700,
-                      color: "#fff",
-                      fontSize: ".85rem",
-                      marginBottom: ".2rem",
-                    }}
-                  >
+                  <div className="font-bold text-white text-[.85rem] mb-[.2rem]">
                     Your Project, Your Visibility
                   </div>
-                  <div
-                    style={{
-                      fontSize: ".75rem",
-                      color: "rgba(255,255,255,.58)",
-                      lineHeight: 1.55,
-                    }}
-                  >
+                  <div className="text-[.75rem] text-white/[.58] leading-[1.55]">
                     Visit at any stage — including mid-build. Full transparency,
                     no surprises.
                   </div>
@@ -267,12 +252,7 @@ export default function ManufacturingPage() {
             {[
               {
                 icon: (
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                  >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <circle cx="12" cy="12" r="3" />
                     <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" />
                   </svg>
@@ -283,12 +263,7 @@ export default function ManufacturingPage() {
               },
               {
                 icon: (
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                  >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <circle cx="12" cy="12" r="10" />
                     <path d="M12 8v4l3 3" />
                   </svg>
@@ -299,17 +274,8 @@ export default function ManufacturingPage() {
               },
               {
                 icon: (
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                  >
-                    <path
-                      d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 ),
                 val: "Expedited",
@@ -318,12 +284,7 @@ export default function ManufacturingPage() {
               },
               {
                 icon: (
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                  >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                     <path d="M9 12l2 2 4-4" />
                   </svg>
@@ -347,77 +308,34 @@ export default function ManufacturingPage() {
       {/* CANADIAN ADVANTAGE */}
       <div className="section bg-white">
         <div className="container">
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))",
-              alignItems: "center",
-              gap: "3rem",
-              maxWidth: "960px",
-              margin: "0 auto 3.5rem",
-            }}
-          >
-            <div
-              className="rv-l"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] items-center gap-12 max-w-[960px] mx-auto mb-14">
+            <div className="rv-l flex justify-center items-center">
               <Image
                 src="/images/Flag_of_Canada.svg"
                 alt="Flag of Canada"
                 width={340}
                 height={170}
-                className="canada-flag"
-                style={{
-                  width: "100%",
-                  maxWidth: "340px",
-                  height: "auto",
-                  borderRadius: "10px",
-                  boxShadow: "0 16px 56px rgba(0,0,0,0.22)",
-                  display: "block",
-                }}
+                className="canada-flag w-full max-w-[340px] h-auto rounded-[10px] shadow-[0_16px_56px_rgba(0,0,0,0.22)] block"
                 priority
               />
             </div>
             <div className="rv-r">
               <div className="label">Canadian Manufacturing</div>
-              <h2 style={{ marginTop: "0.75rem" }}>
+              <h2 className="mt-3">
                 Built in Canada.
                 <br />
                 For Canadian Projects.
               </h2>
-              <div
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: ".4rem",
-                  padding: ".28rem .8rem",
-                  background: "rgba(213,43,30,.07)",
-                  border: "1px solid rgba(213,43,30,.2)",
-                  borderRadius: "20px",
-                  margin: ".85rem 0 1rem",
-                  fontSize: ".65rem",
-                  fontFamily: "var(--fm)",
-                  letterSpacing: ".1em",
-                  color: "#C41E30",
-                  textTransform: "uppercase",
-                }}
-              >
+              <div className="inline-flex items-center gap-[.4rem] py-[.28rem] px-[.8rem] bg-[rgba(213,43,30,.07)] border border-[rgba(213,43,30,.2)] rounded-[20px] mt-[.85rem] mb-4 text-[.65rem] font-mono tracking-[.1em] text-[#C41E30] uppercase">
                 <CanadaFlag height={18} /> Proudly Made in Canada
               </div>
-              <p className="lead" style={{ margin: "0" }}>
+              <p className="lead m-0">
                 Proudly engineered and manufactured in Canada. Candron's
                 Toronto, Ontario facility serves utilities, contractors,
                 industrial facilities, and infrastructure projects across North
                 America.
               </p>
-              <p
-                className="body"
-                style={{ margin: "1rem 0 0", color: "var(--gray)" }}
-              >
+              <p className="body mt-4 text-gray">
                 Our factory can operate up to 24 hours when project schedules
                 demand it — standard shifts are 10–12 hours, but we flex when
                 you need us to.
@@ -430,7 +348,7 @@ export default function ManufacturingPage() {
                 src="/images/manufacturing.jpg"
                 alt="Production Floor"
                 fill
-                style={{ objectFit: "cover" }}
+                className="object-cover"
                 sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
               />
             </div>
@@ -439,7 +357,7 @@ export default function ManufacturingPage() {
                 src="/images/switchgear-facility.jpg"
                 alt="Assembly Area"
                 fill
-                style={{ objectFit: "cover" }}
+                className="object-cover"
                 sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
               />
             </div>
@@ -448,7 +366,7 @@ export default function ManufacturingPage() {
                 src="/images/control-panels.jpg"
                 alt="Engineering Office"
                 fill
-                style={{ objectFit: "cover" }}
+                className="object-cover"
                 sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
               />
             </div>
@@ -461,23 +379,12 @@ export default function ManufacturingPage() {
         <div className="container">
           <div className="cta-band-inner">
             <h2 className="rv">See What We Can Build For You</h2>
-            <p
-              className="lead rv"
-              style={{ color: "rgba(255,255,255,.6)", maxWidth: "500px" }}
-            >
+            <p className="lead rv !text-white/[.6] !max-w-[500px]">
               Talk to our engineering team about your project requirements.
               Every customer — contractor, consultant, or project owner — can
               reach us directly.
             </p>
-            <div
-              style={{
-                display: "flex",
-                gap: "1rem",
-                justifyContent: "center",
-                flexWrap: "wrap",
-              }}
-              className="rv"
-            >
+            <div className="flex gap-4 justify-center flex-wrap rv">
               <Link href="/contact" className="btn btn-primary btn-lg mag">
                 Request a Quote
               </Link>

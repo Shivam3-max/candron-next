@@ -26,8 +26,6 @@ export default function ProcessScroll({ steps = defaultSteps, variant = "dark" }
   const containerRef = useRef<HTMLDivElement>(null)
   const dotRefs      = useRef<(HTMLDivElement | null)[]>([])
 
-  const titleColor = variant === "light" ? "var(--navy)" : "var(--white)"
-  const textColor  = variant === "light" ? "var(--gray)"  : "rgba(255,255,255,.45)"
 
   useGSAP(() => {
     const dots = dotRefs.current.filter(Boolean) as HTMLDivElement[]
@@ -76,8 +74,8 @@ export default function ProcessScroll({ steps = defaultSteps, variant = "dark" }
             {s.n}
           </div>
           <div>
-            <div className="process-v-title" style={{ color: titleColor }}>{s.t}</div>
-            <div className="process-v-text"  style={{ color: textColor }}>{s.d}</div>
+            <div className={`process-v-title ${variant === 'light' ? 'text-navy' : 'text-white'}`}>{s.t}</div>
+            <div className={`process-v-text ${variant === 'light' ? 'text-gray' : 'text-white/45'}`}>{s.d}</div>
           </div>
         </div>
       ))}

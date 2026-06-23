@@ -1,4 +1,4 @@
-﻿import React from 'react'
+import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import ProcessScroll from '@/components/ProcessScroll'
@@ -14,7 +14,7 @@ export default function CommissioningPage() {
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>Commissioning</span></div>
           <div className="label label-white">Field Support</div>
           <h1>Support Beyond<br/>Manufacturing</h1>
-          <p className="lead" style={{marginTop:'1rem'}}>Candron provides commissioning support to ensure systems perform as designed once installed. Our engagement with your project doesn't end at the shipping dock.</p>
+          <p className="lead mt-4">Candron provides commissioning support to ensure systems perform as designed once installed. Our engagement with your project doesn't end at the shipping dock.</p>
         </div>
       </div>
 
@@ -27,8 +27,8 @@ export default function CommissioningPage() {
               <h2>From the Factory<br/>to the Field</h2>
             </div>
             <div>
-              <p className="body" style={{marginBottom:'1.25rem'}}>The transition from factory-tested equipment to an operational installation introduces variables that can only be resolved in the field — site conditions, installation practices, integration with existing systems, and startup sequencing all require engineering knowledge and hands-on experience.</p>
-              <p className="body" style={{marginBottom:'1.25rem'}}>Candron's commissioning support extends our project engagement beyond manufacturing. Our engineering team provides startup assistance, site testing, and performance validation to ensure your equipment operates reliably from day one.</p>
+              <p className="body mb-5">The transition from factory-tested equipment to an operational installation introduces variables that can only be resolved in the field — site conditions, installation practices, integration with existing systems, and startup sequencing all require engineering knowledge and hands-on experience.</p>
+              <p className="body mb-5">Candron's commissioning support extends our project engagement beyond manufacturing. Our engineering team provides startup assistance, site testing, and performance validation to ensure your equipment operates reliably from day one.</p>
               <p className="body">Because we designed and built your equipment, no one is better positioned to support its commissioning. Our engineers understand every circuit, every protection setting, and every aspect of the system we delivered — and we bring that knowledge directly to your site.</p>
             </div>
           </div>
@@ -46,8 +46,8 @@ export default function CommissioningPage() {
               <h2 className="wt-h2">Commissioning <em>Services</em></h2>
             </div>
             <div className="wt-header-right">
-              <p className="wt-intro" style={{ maxWidth: '460px', textAlign: 'left' }}>End-to-end commissioning support to ensure your systems are installed correctly, tested thoroughly, and ready to perform.</p>
-              <Link href="/contact" className="btn btn-primary mag" style={{ flexShrink: 0 }}>Request Commissioning Support →</Link>
+              <p className="wt-intro max-w-[460px] text-left">End-to-end commissioning support to ensure your systems are installed correctly, tested thoroughly, and ready to perform.</p>
+              <Link href="/contact" className="btn btn-primary mag shrink-0">Request Commissioning Support →</Link>
             </div>
           </div>
 
@@ -109,16 +109,16 @@ export default function CommissioningPage() {
       <div className="section bg-white">
         <div className="container">
           <div className="split">
-            <div className="rv-l">
-              <div style={{borderRadius:'14px',overflow:'hidden',height:'480px',position:'relative'}}>
-                <Image src="/images/utilities.jpg" alt="Commissioning Support" fill style={{objectFit:'cover'}} sizes="(max-width:1024px) 100vw, 50vw"/>
+            <div className="rv-l max-sm:hidden">
+              <div className="rounded-[14px] overflow-hidden h-[480px] relative">
+                <Image src="/images/utilities.jpg" alt="Commissioning Support" fill className="object-cover" sizes="(max-width:1024px) 100vw, 50vw"/>
               </div>
             </div>
             <div className="rv-r">
               <div className="label">The Candron Advantage</div>
-              <h2 style={{marginBottom:'1.5rem'}}>We Know Your Equipment<br/>Better Than Anyone</h2>
-              <p className="body" style={{marginBottom:'1.5rem'}}>When a third-party commissioning firm arrives on site, they're reading the same documentation you are. When Candron engineers arrive, they designed the system, built the equipment, and tested it in our facility.</p>
-              <p className="body" style={{marginBottom:'2rem'}}>That difference matters when an issue arises during startup. Our engineers can trace every circuit, understand every protection setting, and resolve issues with authority — not guesswork.</p>
+              <h2 className="mb-6">We Know Your Equipment<br/>Better Than Anyone</h2>
+              <p className="body mb-6">When a third-party commissioning firm arrives on site, they're reading the same documentation you are. When Candron engineers arrive, they designed the system, built the equipment, and tested it in our facility.</p>
+              <p className="body mb-8">That difference matters when an issue arises during startup. Our engineers can trace every circuit, understand every protection setting, and resolve issues with authority — not guesswork.</p>
               <ul className="check-list">
                 <li>Engineers who designed and built your equipment</li>
                 <li>Direct access to as-built documentation and test records</li>
@@ -126,7 +126,7 @@ export default function CommissioningPage() {
                 <li>Single point of accountability through project close-out</li>
                 <li>Coordination with your site team and electrical contractor</li>
               </ul>
-              <div style={{marginTop:'2rem',display:'flex',justifyContent:'center'}}>
+              <div className="mt-8 flex justify-center">
                 <Link href="/contact" className="btn btn-primary mag">Request Commissioning Support</Link>
               </div>
             </div>
@@ -137,18 +137,18 @@ export default function CommissioningPage() {
       {/* PROCESS */}
       <div className="bg-navy-section">
         <div className="container">
-          <div className="commission-process-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'start' }}>
+          <div className="commission-process-grid grid grid-cols-2 gap-[5rem] items-start">
 
             {/* Sticky heading */}
-            <div className="commission-process-sticky rv-l" style={{ position: 'sticky', top: '8rem' }}>
+            <div className="commission-process-sticky rv-l sticky top-[8rem]">
               <div className="label label-white">How It Works</div>
-              <h2 style={{ color: 'var(--white)', marginTop: '.5rem', letterSpacing: '-.01em' }}>
-                Commissioning<br/><em style={{ fontStyle: 'normal', color: 'var(--blue)' }}>Engagement</em>
+              <h2 className="text-white mt-2 tracking-[-.01em]">
+                Commissioning<br/><em className="not-italic text-blue">Engagement</em>
               </h2>
-              <p style={{ color: 'rgba(255,255,255,.48)', fontSize: '.9rem', lineHeight: 1.78, marginTop: '1.5rem', maxWidth: '360px' }}>
+              <p className="text-white/48 text-[.9rem] leading-[1.78] mt-6 max-w-[360px]">
                 A structured five-step process — by the same engineers who designed and built your equipment — from first plan to final handover.
               </p>
-              <Link href="/contact" className="btn btn-primary mag" style={{ marginTop: '2rem', display: 'inline-flex' }}>
+              <Link href="/contact" className="btn btn-primary mag mt-8 inline-flex">
                 Request Commissioning Support →
               </Link>
             </div>
@@ -172,8 +172,8 @@ export default function CommissioningPage() {
       <div className="cta-band">
         <div className="container"><div className="cta-band-inner">
           <h2 className="rv">Reliable Operation From Day One</h2>
-          <p className="lead rv" style={{color:'rgba(255,255,255,.6)',maxWidth:'500px'}}>Add commissioning support to your Candron project and ensure your equipment performs as designed from the first day of operation.</p>
-          <div style={{display:'flex',gap:'1rem',justifyContent:'center',flexWrap:'wrap'}} className="rv">
+          <p className="lead rv !text-white/[.6] !max-w-[500px]">Add commissioning support to your Candron project and ensure your equipment performs as designed from the first day of operation.</p>
+          <div className="flex gap-4 justify-center flex-wrap rv">
             <Link href="/contact" className="btn btn-primary btn-lg mag">Request a Quote</Link>
             <a href="tel:+16476162595" className="btn btn-outline btn-lg mag">+1 (647) 616-2595</a>
           </div>

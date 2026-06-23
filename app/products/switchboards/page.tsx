@@ -140,12 +140,12 @@ export default function SwitchboardsPage() {
           </div>
           <div className="label label-white">UL 891 + CSA C22.2 • ESA-Ready • Canada &amp; United States</div>
           <h1>Switchboards — Heavy-Duty<br />Low Voltage Distribution</h1>
-          <p className="lead" style={{ marginTop: '1rem' }}>
+          <p className="lead mt-4">
             Custom switchboards up to 4000 A at 600 V. Built for commercial, industrial, and infrastructure applications with robust copper bus, safe maintenance clearances, and utility metering options.
           </p>
-          <div style={{ display: 'flex', gap: '.75rem', flexWrap: 'wrap', marginTop: '1.5rem' }}>
+          <div className="flex gap-[.75rem] flex-wrap mt-6">
             {['UL 891', 'ESA-Ready', 'Utility Metering', 'Main-Tie-Main'].map(b => (
-              <span key={b} style={{ padding: '.4rem 1rem', background: 'rgba(255,255,255,.12)', border: '1px solid rgba(255,255,255,.25)', borderRadius: '999px', fontSize: '.78rem', fontWeight: 700, color: '#fff' }}>{b}</span>
+              <span key={b} className="py-[.4rem] px-4 bg-white/[.12] border border-white/25 rounded-full text-[.78rem] font-bold text-white">{b}</span>
             ))}
           </div>
         </div>
@@ -155,59 +155,58 @@ export default function SwitchboardsPage() {
       <TrustBar />
 
       {/* STICKY TAB NAV */}
-      <div style={{ position: 'sticky', top: '64px', background: '#fff', borderBottom: '1px solid #E8ECF5', zIndex: 40 }}>
+      <div className="sticky top-16 bg-white border-b border-[#E8ECF5] z-40">
         <div className="container">
-          <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap', padding: '.6rem 0' }}>
+          <div className="flex gap-1 flex-wrap py-[.6rem]">
             {[['#overview', 'Overview'], ['#types-specs', 'Types & Specs'], ['#standards', 'Standards'], ['#applications', 'Applications'], ['#faq', 'FAQ'], ['#quote', 'Get a Quote']].map(([href, label]) => (
-              <a key={href} href={href} style={{ padding: '.45rem .85rem', borderRadius: '8px', border: '1px solid #E8ECF5', fontSize: '.78rem', fontWeight: 600, color: 'var(--ink)', textDecoration: 'none', whiteSpace: 'nowrap', transition: 'border-color .15s, color .15s' }}
-                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'var(--blue)'; el.style.color = 'var(--blue)' }}
-                onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = '#E8ECF5'; el.style.color = 'var(--ink)' }}
-              >{label}</a>
+              <a key={href} href={href} className="py-[.45rem] px-[.85rem] rounded-lg border border-[#E8ECF5] text-[.78rem] font-semibold text-navy no-underline whitespace-nowrap transition-[border-color,color] duration-150 hover:border-blue hover:text-blue">
+                {label}
+              </a>
             ))}
           </div>
         </div>
       </div>
 
       {/* OVERVIEW */}
-      <div id="overview" className="section bg-white" style={{ scrollMarginTop: '110px' }}>
+      <div id="overview" className="section bg-white scroll-mt-[110px]">
         <div className="container">
-          <div className="split" style={{ alignItems: 'start', gap: '3.5rem' }}>
+          <div className="split items-start gap-14">
             <div className="rv-l">
               <div className="label">Overview</div>
-              <h2 style={{ marginBottom: '1.25rem' }}>Engineered for Heavy-Duty<br />LV Distribution</h2>
-              <p className="body" style={{ marginBottom: '1.5rem' }}>Candron switchboards are engineered for reliable low-voltage distribution in commercial, industrial, and infrastructure applications. Heavy-duty copper bus, wide maintenance clearances, and metering-ready designs built to UL 891 and CSA C22.2.</p>
-              <ul className="check-list" style={{ marginBottom: '2rem' }}>
+              <h2 className="mb-5">Engineered for Heavy-Duty<br />LV Distribution</h2>
+              <p className="body mb-6">Candron switchboards are engineered for reliable low-voltage distribution in commercial, industrial, and infrastructure applications. Heavy-duty copper bus, wide maintenance clearances, and metering-ready designs built to UL 891 and CSA C22.2.</p>
+              <ul className="check-list mb-8">
                 <li>Up to 4000 A at 600 V</li>
                 <li>11-gauge cold-rolled steel enclosures</li>
                 <li>C5M outdoor paint standard available</li>
                 <li>Front and rear accessible configurations</li>
               </ul>
-              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+              <div className="flex gap-4 flex-wrap">
                 <Link href="/contact?product=switchboards" className="btn btn-primary mag">Request a Quote</Link>
                 <Link href="#types-specs" className="btn btn-outline-blue mag">Explore Types →</Link>
               </div>
             </div>
-            <div className="rv-r" style={{ position: 'relative' }}>
+            <div className="rv-r relative">
               <div className="prod-detail-img">
-                <Image src="/images/switchboards.jpg" alt="Candron switchboard assembly" fill style={{ objectFit: 'cover' }} sizes="(max-width:1024px) 100vw,50vw" />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 45%, rgba(5,9,31,.72) 100%)', pointerEvents: 'none' }} />
+                <Image src="/images/switchboards.jpg" alt="Candron switchboard assembly" fill className="object-cover" sizes="(max-width:1024px) 100vw,50vw" />
+                <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_45%,rgba(5,9,31,.72)_100%)] pointer-events-none" />
               </div>
-              <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', background: 'transparent', borderTop: '1px solid rgba(255,255,255,.12)', borderRadius: '0 0 14px 14px' }}>
-                <div style={{ padding: '.95rem .5rem', textAlign: 'center', borderRight: '1px solid rgba(255,255,255,.08)' }}>
-                  <div style={{ fontFamily: 'var(--fd)', fontSize: '.95rem', fontWeight: 900, color: '#fff', letterSpacing: '.04em', marginBottom: '.2rem' }}><span data-count={4000} data-suffix=" A">4000 A</span></div>
-                  <div style={{ fontFamily: 'var(--fm)', fontSize: '.5rem', color: 'rgba(255,255,255,.45)', letterSpacing: '.16em', textTransform: 'uppercase' }}>Max Current</div>
+              <div className="absolute bottom-0 left-0 right-0 grid grid-cols-4 bg-transparent border-t border-white/[.12] rounded-b-[14px]">
+                <div className="py-[.95rem] px-[.5rem] text-center border-r border-white/[.08]">
+                  <div className="font-display text-[.95rem] font-black text-white tracking-[.04em] mb-[.2rem]"><span data-count={4000} data-suffix=" A">4000 A</span></div>
+                  <div className="font-mono text-[.5rem] text-white/[.45] tracking-[.16em] uppercase">Max Current</div>
                 </div>
-                <div style={{ padding: '.95rem .5rem', textAlign: 'center', borderRight: '1px solid rgba(255,255,255,.08)' }}>
-                  <div style={{ fontFamily: 'var(--fd)', fontSize: '.95rem', fontWeight: 900, color: '#fff', letterSpacing: '.04em', marginBottom: '.2rem' }}><span data-count={600} data-suffix=" V">600 V</span></div>
-                  <div style={{ fontFamily: 'var(--fm)', fontSize: '.5rem', color: 'rgba(255,255,255,.45)', letterSpacing: '.16em', textTransform: 'uppercase' }}>Rated Voltage</div>
+                <div className="py-[.95rem] px-[.5rem] text-center border-r border-white/[.08]">
+                  <div className="font-display text-[.95rem] font-black text-white tracking-[.04em] mb-[.2rem]"><span data-count={600} data-suffix=" V">600 V</span></div>
+                  <div className="font-mono text-[.5rem] text-white/[.45] tracking-[.16em] uppercase">Rated Voltage</div>
                 </div>
-                <div style={{ padding: '.95rem .5rem', textAlign: 'center', borderRight: '1px solid rgba(255,255,255,.08)' }}>
-                  <div style={{ fontFamily: 'var(--fd)', fontSize: '.85rem', fontWeight: 900, color: '#fff', letterSpacing: '.04em', marginBottom: '.2rem' }}>UL 891</div>
-                  <div style={{ fontFamily: 'var(--fm)', fontSize: '.5rem', color: 'rgba(255,255,255,.45)', letterSpacing: '.16em', textTransform: 'uppercase' }}>U.S. Compliance</div>
+                <div className="py-[.95rem] px-[.5rem] text-center border-r border-white/[.08]">
+                  <div className="font-display text-[.85rem] font-black text-white tracking-[.04em] mb-[.2rem]">UL 891</div>
+                  <div className="font-mono text-[.5rem] text-white/[.45] tracking-[.16em] uppercase">U.S. Compliance</div>
                 </div>
-                <div style={{ padding: '.95rem .5rem', textAlign: 'center' }}>
-                  <div style={{ fontFamily: 'var(--fd)', fontSize: '.85rem', fontWeight: 900, color: '#fff', letterSpacing: '.04em', marginBottom: '.2rem' }}>CSA / ESA</div>
-                  <div style={{ fontFamily: 'var(--fm)', fontSize: '.5rem', color: 'rgba(255,255,255,.45)', letterSpacing: '.16em', textTransform: 'uppercase' }}>Canadian</div>
+                <div className="py-[.95rem] px-[.5rem] text-center">
+                  <div className="font-display text-[.85rem] font-black text-white tracking-[.04em] mb-[.2rem]">CSA / ESA</div>
+                  <div className="font-mono text-[.5rem] text-white/[.45] tracking-[.16em] uppercase">Canadian</div>
                 </div>
               </div>
             </div>
@@ -216,53 +215,53 @@ export default function SwitchboardsPage() {
       </div>
 
       {/* TYPES & SPECIFICATIONS */}
-      <div id="types-specs" className="section bg-off" style={{ scrollMarginTop: '110px' }}>
+      <div id="types-specs" className="section bg-off scroll-mt-[110px]">
         <div className="container">
           <div className="label rv">Types &amp; Specifications</div>
-          <h2 className="rv" style={{ marginBottom: '.75rem' }}>Switchboard Configurations</h2>
-          <p className="rv" style={{ color: 'var(--gray)', fontSize: '.95rem', marginBottom: '2.5rem', maxWidth: '640px' }}>
+          <h2 className="rv mb-3">Switchboard Configurations</h2>
+          <p className="rv text-gray text-[.95rem] mb-10 max-w-[640px]">
             Explore our range of switchboard configurations engineered for safety, reliability, and performance.
           </p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '.75rem' }}>
+          <div className="flex flex-col gap-3">
             {types.map((t, i) => (
-              <div key={i} className="rv" style={{ background: '#fff', borderRadius: '14px', border: '1px solid #E8ECF5', overflow: 'hidden', boxShadow: openAcc === i ? '0 8px 32px rgba(5,9,31,.1)' : 'none', transition: 'box-shadow .2s' }}>
+              <div key={i} className={`rv bg-white rounded-[14px] border border-[#E8ECF5] overflow-hidden transition-[box-shadow] duration-200 ${openAcc === i ? 'shadow-[0_8px_32px_rgba(5,9,31,.1)]' : ''}`}>
                 <button
                   onClick={() => setOpenAcc(openAcc === i ? null : i)}
-                  style={{ width: '100%', textAlign: 'left', background: 'none', border: 'none', padding: '1.25rem 1.5rem', display: 'flex', alignItems: 'center', gap: '1rem', cursor: 'pointer' }}
+                  className="w-full text-left bg-transparent border-0 py-5 px-6 flex items-center gap-4 cursor-pointer"
                 >
-                  <div style={{ width: '36px', height: '36px', borderRadius: '8px', background: openAcc === i ? 'var(--blue)' : 'rgba(0,71,255,.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, transition: 'background .2s', fontFamily: 'var(--fm)', fontSize: '.58rem', fontWeight: 700, color: openAcc === i ? '#fff' : 'var(--blue)', letterSpacing: '.1em' }}>
+                  <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-[background,color] duration-200 font-mono text-[.58rem] font-bold tracking-[.1em] ${openAcc === i ? 'bg-blue text-white' : 'bg-[rgba(0,71,255,.08)] text-blue'}`}>
                     0{i + 1}
                   </div>
-                  <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ fontFamily: 'var(--ft)', fontWeight: 700, color: 'var(--ink)', fontSize: '.9rem', letterSpacing: '.02em' }}>{t.title}</div>
-                    <div style={{ fontFamily: 'var(--fm)', fontSize: '.6rem', color: 'var(--blue)', letterSpacing: '.08em', marginTop: '.15rem' }}>{t.sub}</div>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-title font-bold text-navy text-[.9rem] tracking-[.02em]">{t.title}</div>
+                    <div className="font-mono text-[.6rem] text-blue tracking-[.08em] mt-[.15rem]">{t.sub}</div>
                   </div>
-                  <div style={{ display: 'flex', gap: '.4rem', flexShrink: 0, marginRight: '.25rem' }}>
-                    <span style={{ background: 'rgba(0,71,255,.07)', color: 'var(--blue)', fontFamily: 'var(--fm)', fontSize: '.55rem', fontWeight: 700, letterSpacing: '.04em', padding: '.22rem .6rem', borderRadius: '5px', whiteSpace: 'nowrap' }}>{t.specs.Voltage}</span>
-                    <span style={{ background: 'rgba(0,71,255,.07)', color: 'var(--blue)', fontFamily: 'var(--fm)', fontSize: '.55rem', fontWeight: 700, letterSpacing: '.04em', padding: '.22rem .6rem', borderRadius: '5px', whiteSpace: 'nowrap' }}>{t.specs.Current}</span>
+                  <div className="flex gap-[.4rem] shrink-0 mr-[.25rem]">
+                    <span className="bg-[rgba(0,71,255,.07)] text-blue font-mono text-[.55rem] font-bold tracking-[.04em] py-[.22rem] px-[.6rem] rounded-[5px] whitespace-nowrap">{t.specs.Voltage}</span>
+                    <span className="bg-[rgba(0,71,255,.07)] text-blue font-mono text-[.55rem] font-bold tracking-[.04em] py-[.22rem] px-[.6rem] rounded-[5px] whitespace-nowrap">{t.specs.Current}</span>
                   </div>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ transform: openAcc === i ? 'rotate(180deg)' : 'none', transition: 'transform .25s', flexShrink: 0, color: 'var(--gray)' }}><path d="M6 9l6 6 6-6" /></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`shrink-0 text-gray transition-[transform] duration-[.25s] ${openAcc === i ? 'rotate-180' : ''}`}><path d="M6 9l6 6 6-6" /></svg>
                 </button>
-                <div style={{ maxHeight: openAcc === i ? '600px' : 0, overflow: 'hidden', transition: 'max-height .4s ease' }}>
-                  <div style={{ borderTop: '1px solid #E8ECF5', background: 'var(--off)' }}>
+                <div className={`overflow-hidden transition-[max-height] duration-[.4s] ease-in-out ${openAcc === i ? 'max-h-[600px]' : 'max-h-0'}`}>
+                  <div className="border-t border-[#E8ECF5] bg-off">
                     {/* Top: image + features + upgrades */}
-                    <div style={{ display: 'flex', gap: '2rem', padding: '1.75rem 1.75rem 1.5rem', alignItems: 'flex-start', flexWrap: 'wrap' }}>
-                      <div style={{ width: '260px', flexShrink: 0, borderRadius: '12px', overflow: 'hidden', height: '220px', boxShadow: '0 2px 12px rgba(5,9,31,.1)' }}>
+                    <div className="flex gap-8 pt-[1.75rem] px-[1.75rem] pb-6 items-start flex-wrap">
+                      <div className="w-[260px] shrink-0 rounded-xl overflow-hidden h-[220px] shadow-[0_2px_12px_rgba(5,9,31,.1)]">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={t.image} alt={t.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                        <img src={t.image} alt={t.title} className="w-full h-full object-cover block" />
                       </div>
-                      <div style={{ flex: 1, minWidth: '200px' }}>
-                        <div style={{ fontFamily: 'var(--fm)', fontSize: '.55rem', color: 'var(--blue)', letterSpacing: '.18em', textTransform: 'uppercase', fontWeight: 700, marginBottom: '1rem' }}>Standard Features</div>
-                        <ul className="check-list" style={{ margin: 0 }}>
+                      <div className="flex-1 min-w-[200px]">
+                        <div className="font-mono text-[.55rem] text-blue tracking-[.18em] uppercase font-bold mb-4">Standard Features</div>
+                        <ul className="check-list m-0">
                           {t.items.map(item => <li key={item}>{item}</li>)}
                         </ul>
                       </div>
-                      <div style={{ flex: 1, minWidth: '200px' }}>
-                        <div style={{ fontFamily: 'var(--fm)', fontSize: '.55rem', color: '#059669', letterSpacing: '.18em', textTransform: 'uppercase', fontWeight: 700, marginBottom: '1rem' }}>Optional Upgrades</div>
-                        <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '.55rem' }}>
+                      <div className="flex-1 min-w-[200px]">
+                        <div className="font-mono text-[.55rem] text-[#059669] tracking-[.18em] uppercase font-bold mb-4">Optional Upgrades</div>
+                        <ul className="m-0 p-0 list-none flex flex-col gap-[.55rem]">
                           {t.upgrades.map(u => (
-                            <li key={u} style={{ display: 'flex', gap: '.55rem', alignItems: 'flex-start', fontSize: '.82rem', color: 'var(--gray)', lineHeight: 1.55 }}>
-                              <span style={{ color: '#059669', fontWeight: 800, flexShrink: 0, fontSize: '.9rem', lineHeight: 1.4 }}>+</span>
+                            <li key={u} className="flex gap-[.55rem] items-start text-[.82rem] text-gray leading-[1.55]">
+                              <span className="text-[#059669] font-extrabold shrink-0 text-[.9rem] leading-[1.4]">+</span>
                               {u}
                             </li>
                           ))}
@@ -270,16 +269,16 @@ export default function SwitchboardsPage() {
                       </div>
                     </div>
                     {/* Bottom: specifications strip */}
-                    <div style={{ borderTop: '1px solid #E8ECF5', display: 'grid', gridTemplateColumns: `repeat(${specCols.length}, 1fr)`, background: '#fff' }}>
+                    <div className="border-t border-[#E8ECF5] grid grid-cols-5 bg-white">
                       {specCols.map((col, ci) => (
-                        <div key={col} style={{ padding: '1rem 1.25rem', borderRight: ci < specCols.length - 1 ? '1px solid #E8ECF5' : 'none' }}>
-                          <div style={{ fontFamily: 'var(--fm)', fontSize: '.5rem', color: 'var(--gray)', letterSpacing: '.15em', textTransform: 'uppercase', marginBottom: '.35rem' }}>{col}</div>
-                          <div style={{ fontFamily: 'var(--ft)', fontSize: '.82rem', fontWeight: 700, color: 'var(--navy)', lineHeight: 1.3 }}>{(t.specs as Record<string, string>)[col] ?? ''}</div>
+                        <div key={col} className={`py-4 px-5 ${ci < specCols.length - 1 ? 'border-r border-[#E8ECF5]' : ''}`}>
+                          <div className="font-mono text-[.5rem] text-gray tracking-[.15em] uppercase mb-[.35rem]">{col}</div>
+                          <div className="font-title text-[.82rem] font-bold text-navy leading-[1.3]">{(t.specs as Record<string, string>)[col] ?? ''}</div>
                         </div>
                       ))}
                     </div>
-                    <div style={{ borderTop: '1px solid #E8ECF5', padding: '.9rem 1.5rem', background: '#fff', display: 'flex', justifyContent: 'flex-end' }}>
-                      <Link href={t.href} style={{ fontFamily: 'var(--fm)', fontSize: '.72rem', fontWeight: 700, color: 'var(--blue)', letterSpacing: '.06em', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '.35rem' }}>
+                    <div className="border-t border-[#E8ECF5] py-[.9rem] px-6 bg-white flex justify-end">
+                      <Link href={t.href} className="font-mono text-[.72rem] font-bold text-blue tracking-[.06em] no-underline flex items-center gap-[.35rem]">
                         View full specifications <span aria-hidden="true">→</span>
                       </Link>
                     </div>
@@ -292,16 +291,16 @@ export default function SwitchboardsPage() {
       </div>
 
       {/* STANDARDS */}
-      <div id="standards" className="section bg-white" style={{ scrollMarginTop: '110px' }}>
+      <div id="standards" className="section bg-white scroll-mt-[110px]">
         <div className="container">
           <div className="label rv">Standards &amp; Compliance</div>
-          <h2 className="rv" style={{ marginBottom: '2.5rem' }}>Built to Standard</h2>
+          <h2 className="rv mb-10">Built to Standard</h2>
           <div className="cert-grid cert-grid-3">
             {standards.map((s, i) => (
               <div key={s.std} className={`cert-item rv${i % 3 === 1 ? ' d2' : i % 3 === 2 ? ' d3' : ''}`}>
-                <div style={{ height: '52px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '.9rem' }}>
+                <div className="h-[52px] flex items-center justify-center mb-[.9rem]">
                   {s.logo
-                    ? <img src={s.logo} alt={s.std} style={{ maxHeight: '44px', maxWidth: '110px', width: 'auto', objectFit: 'contain', display: 'block' }} />
+                    ? <img src={s.logo} alt={s.std} className="max-h-[44px] max-w-[110px] w-auto object-contain block" />
                     : <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" strokeLinejoin="round"/><path d="M9 12l2 2 4-4" strokeLinecap="round" strokeLinejoin="round"/></svg>
                   }
                 </div>
@@ -314,11 +313,11 @@ export default function SwitchboardsPage() {
       </div>
 
       {/* APPLICATIONS */}
-      <div id="applications" className="section bg-off" style={{ scrollMarginTop: '110px' }}>
+      <div id="applications" className="section bg-off scroll-mt-[110px]">
         <div className="container">
           <div className="label rv">Applications</div>
-          <h2 className="rv" style={{ marginBottom: '2.5rem' }}>Where Our Switchboards Are Deployed</h2>
-          <div className="split" style={{ alignItems: 'start', gap: '3.5rem' }}>
+          <h2 className="rv mb-10">Where Our Switchboards Are Deployed</h2>
+          <div className="split items-start gap-14">
             <div className="rv-l">
               <ul className="check-list">
                 <li>Commercial buildings &amp; campuses</li>
@@ -331,10 +330,10 @@ export default function SwitchboardsPage() {
                 <li>Port electrification</li>
               </ul>
             </div>
-            <div className="rv-r" style={{ background: 'var(--navy)', borderRadius: '16px', padding: '2rem 2.25rem', border: '1px solid rgba(0,71,255,.2)' }}>
-              <div style={{ fontFamily: 'var(--fm)', fontSize: '.6rem', color: 'var(--blue)', letterSpacing: '.22em', textTransform: 'uppercase', marginBottom: '1rem' }}>End-to-End Services</div>
-              <h3 style={{ color: '#fff', marginBottom: '1rem', fontSize: '1.05rem' }}>From specification to commissioning.</h3>
-              <p style={{ color: 'rgba(255,255,255,.6)', fontSize: '.88rem', lineHeight: 1.75, marginBottom: '1.5rem' }}>
+            <div className="rv-r bg-navy rounded-[16px] py-8 px-[2.25rem] border border-blue/[.2]">
+              <div className="font-mono text-[.6rem] text-blue tracking-[.22em] uppercase mb-4">End-to-End Services</div>
+              <h3 className="text-white mb-4 text-[1.05rem]">From specification to commissioning.</h3>
+              <p className="text-white/[.6] text-[.88rem] leading-[1.75] mb-6">
                 Specification review, engineering design, factory testing, site commissioning — the same team that built your switchboard supports it through its full lifecycle.
               </p>
               <Link href="/commissioning" className="btn btn-primary mag">View Commissioning Services →</Link>
@@ -344,20 +343,20 @@ export default function SwitchboardsPage() {
       </div>
 
       {/* FAQ */}
-      <div id="faq" className="section bg-white" style={{ scrollMarginTop: '110px' }}>
+      <div id="faq" className="section bg-white scroll-mt-[110px]">
         <div className="container">
           <div className="label rv">FAQ</div>
-          <h2 className="rv" style={{ marginBottom: '2.5rem' }}>Frequently Asked Questions</h2>
-          <div style={{ maxWidth: '780px', display: 'flex', flexDirection: 'column', gap: '.75rem' }}>
+          <h2 className="rv mb-10">Frequently Asked Questions</h2>
+          <div className="max-w-[780px] flex flex-col gap-3">
             {faqs.map((f, i) => (
-              <div key={i} className="rv" style={{ background: '#fff', borderRadius: '14px', border: '1px solid #E8ECF5', overflow: 'hidden', boxShadow: openFaq === i ? '0 8px 32px rgba(5,9,31,.1)' : 'none', transition: 'box-shadow .2s' }}>
-                <button onClick={() => setOpenFaq(openFaq === i ? null : i)} style={{ width: '100%', textAlign: 'left', background: 'none', border: 'none', padding: '1.25rem 1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer', gap: '1rem' }}>
-                  <span style={{ fontFamily: 'var(--ft)', fontWeight: 700, color: 'var(--ink)', fontSize: '.88rem', letterSpacing: '.02em' }}>{f.q}</span>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ transform: openFaq === i ? 'rotate(180deg)' : 'none', transition: 'transform .25s', flexShrink: 0, color: 'var(--gray)' }}><path d="M6 9l6 6 6-6" /></svg>
+              <div key={i} className={`rv bg-white rounded-[14px] border border-[#E8ECF5] overflow-hidden transition-[box-shadow] duration-200 ${openFaq === i ? 'shadow-[0_8px_32px_rgba(5,9,31,.1)]' : ''}`}>
+                <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full text-left bg-transparent border-0 py-5 px-6 flex justify-between items-center cursor-pointer gap-4">
+                  <span className="font-title font-bold text-navy text-[.88rem] tracking-[.02em]">{f.q}</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`shrink-0 text-gray transition-[transform] duration-[.25s] ${openFaq === i ? 'rotate-180' : ''}`}><path d="M6 9l6 6 6-6" /></svg>
                 </button>
-                <div style={{ maxHeight: openFaq === i ? '400px' : 0, overflow: 'hidden', transition: 'max-height .35s ease' }}>
-                  <div style={{ padding: '0 1.5rem 1.5rem' }}>
-                    <p style={{ color: 'var(--gray)', fontSize: '.88rem', lineHeight: 1.75, margin: 0 }}>{f.a}</p>
+                <div className={`overflow-hidden transition-[max-height] duration-[.35s] ease-in-out ${openFaq === i ? 'max-h-[400px]' : 'max-h-0'}`}>
+                  <div className="px-6 pb-6">
+                    <p className="text-gray text-[.88rem] leading-[1.75] m-0">{f.a}</p>
                   </div>
                 </div>
               </div>
@@ -367,13 +366,13 @@ export default function SwitchboardsPage() {
       </div>
 
       {/* GET A QUOTE */}
-      <div id="quote" className="section bg-off" style={{ scrollMarginTop: '110px' }}>
+      <div id="quote" className="section bg-off scroll-mt-[110px]">
         <div className="container">
-          <div className="split" style={{ alignItems: 'center', gap: '3.5rem' }}>
+          <div className="split items-center gap-14">
             <div className="rv-l">
               <div className="label">Get a Quote</div>
-              <h2 style={{ marginBottom: '1.5rem' }}>Request Switchboard Pricing</h2>
-              <div style={{ fontFamily: 'var(--fm)', fontSize: '.6rem', color: 'var(--blue)', letterSpacing: '.22em', textTransform: 'uppercase', marginBottom: '.75rem' }}>What to Include in Your Inquiry</div>
+              <h2 className="mb-6">Request Switchboard Pricing</h2>
+              <div className="font-mono text-[.6rem] text-blue tracking-[.22em] uppercase mb-3">What to Include in Your Inquiry</div>
               <ul className="check-list">
                 <li>Main current rating and voltage</li>
                 <li>Number of feeder circuits</li>
@@ -383,12 +382,12 @@ export default function SwitchboardsPage() {
                 <li>Applicable standards (UL, CSA, ESA)</li>
               </ul>
             </div>
-            <div className="rv-r" style={{ background: 'var(--navy)', borderRadius: '20px', padding: '2.5rem', border: '1px solid rgba(0,71,255,.2)', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-              <div style={{ fontFamily: 'var(--fm)', fontSize: '.6rem', color: 'var(--blue)', letterSpacing: '.22em', textTransform: 'uppercase' }}>Response within 1 business day</div>
-              <h3 style={{ color: '#fff', margin: 0, fontSize: '1.05rem' }}>Same-day lead time quote.<br />Speak directly with our engineers.</h3>
-              <p style={{ color: 'rgba(255,255,255,.6)', fontSize: '.88rem', lineHeight: 1.75, margin: 0 }}>Our engineering team reviews every inquiry personally — no automated responses, no gatekeeping.</p>
+            <div className="rv-r bg-navy rounded-[20px] p-10 border border-blue/[.2] flex flex-col gap-5">
+              <div className="font-mono text-[.6rem] text-blue tracking-[.22em] uppercase">Response within 1 business day</div>
+              <h3 className="text-white m-0 text-[1.05rem]">Same-day lead time quote.<br />Speak directly with our engineers.</h3>
+              <p className="text-white/[.6] text-[.88rem] leading-[1.75] m-0">Our engineering team reviews every inquiry personally — no automated responses, no gatekeeping.</p>
               <Link href="/contact?product=switchboards" className="btn btn-primary btn-lg mag">Request a Quote →</Link>
-              <a href="tel:+16476162595" style={{ color: 'rgba(255,255,255,.35)', fontSize: '.78rem', textDecoration: 'none', letterSpacing: '.04em' }}>Or call +1 (647) 616-2595</a>
+              <a href="tel:+16476162595" className="text-white/[.35] text-[.78rem] no-underline tracking-[.04em]">Or call +1 (647) 616-2595</a>
             </div>
           </div>
         </div>
@@ -398,8 +397,8 @@ export default function SwitchboardsPage() {
       <div className="cta-band">
         <div className="container"><div className="cta-band-inner">
           <h2 className="rv">Built for Your Project. Tested Before Shipment.</h2>
-          <p className="lead rv" style={{ color: 'rgba(255,255,255,.6)', maxWidth: '500px' }}>Built in Canada — reach our engineering team directly for specs, quotes, and lead times.</p>
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }} className="rv">
+          <p className="lead rv !text-white/[.6] !max-w-[500px]">Built in Canada — reach our engineering team directly for specs, quotes, and lead times.</p>
+          <div className="flex gap-4 justify-center flex-wrap rv">
             <Link href="/contact" className="btn btn-primary btn-lg mag">Request a Quote</Link>
             <Link href="/products" className="btn btn-outline btn-lg mag">All Products →</Link>
           </div>

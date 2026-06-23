@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import HeroCanvas from "@/components/HeroCanvas";
@@ -48,7 +48,7 @@ export default function HomePage() {
                       'Healthcare', 'Renewables', 'Manufacturing', 'Water Treatment',
                       'Infrastructure', 'Commercial', 'Traction Power', 'Transit',
                       'EV Charging', 'Ports & Marine',
-                    ].flatMap((item, i, arr) => [
+                    ].flatMap((item, i) => [
                       <span key={`a-${i}`} className="trust-item">{item}</span>,
                       <span key={`a-sep-${i}`} className="trust-sep" aria-hidden="true" />,
                     ]).concat(
@@ -78,7 +78,7 @@ export default function HomePage() {
                   height={853}
                   priority
                   sizes="(max-width:1024px) 0px, 50vw"
-                  style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'center bottom', opacity: 0.92 }}
+                  className="w-full h-full object-contain object-[center_bottom] opacity-[.92]"
                 />
               </div>
               <div className="hero-cert-strip">
@@ -92,263 +92,99 @@ export default function HomePage() {
       </section>
 
       {/* STAT BAR */}
-      <div style={{ background: "#EEF2FF", padding: "2rem 0 0" }}>
+      <div className="bg-[#EEF2FF] pt-8">
         <div className="container">
-          <div
-            className="home-stat-bar"
-            style={{
-              background: "linear-gradient(135deg,#1252FF 0%,#0038CC 100%)",
-              borderRadius: "20px",
-              padding: "2.5rem 1rem",
-              display: "grid",
-              gridTemplateColumns: "1fr auto 1fr auto 1fr",
-              alignItems: "center",
-            }}
-          >
+          <div className="home-stat-bar responsive-override-exempt bg-[linear-gradient(135deg,#1252FF_0%,#0038CC_100%)] rounded-[20px] max-md:rounded-[14px] py-10 px-4 grid grid-cols-[1fr_auto_1fr_auto_1fr] max-md:grid-cols-3 max-md:px-2 max-md:py-4 items-center">
             {/* 100% In-House Engineering */}
-            <div style={{ textAlign: "center", padding: "0 1.5rem" }}>
-              <div
-                style={{
-                  width: "68px",
-                  height: "68px",
-                  background: "rgba(255,255,255,.13)",
-                  borderRadius: "18px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  margin: "0 auto 1.1rem",
-                }}
-              >
+            <div className="flex flex-col items-center text-center px-6 max-md:px-1">
+              <div className="w-[68px] h-[68px] max-md:w-[32px] max-md:h-[32px] bg-white/[.13] rounded-[18px] max-md:rounded-[8px] flex items-center justify-center mx-auto mb-[1.1rem] max-md:mb-1">
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="white"
                   strokeWidth="1.5"
-                  style={{ width: "32px", height: "32px" }}
+                  className="w-8 h-8 max-md:w-4 max-md:h-4"
                 >
                   <circle cx="12" cy="12" r="3" />
                   <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" />
                 </svg>
               </div>
-              <div
-                style={{
-                  fontFamily: "var(--fd)",
-                  fontSize: "2.6rem",
-                  fontWeight: 900,
-                  color: "#fff",
-                  lineHeight: 1,
-                  marginBottom: ".45rem",
-                }}
-              >
+              <div className="font-display text-[2.6rem] max-md:text-[1.4rem] font-black text-white leading-none mb-[.45rem] max-md:mb-0">
                 100%
               </div>
-              <div
-                style={{
-                  fontFamily: "var(--fm)",
-                  fontSize: ".58rem",
-                  letterSpacing: ".2em",
-                  textTransform: "uppercase",
-                  color: "rgba(255,255,255,.6)",
-                }}
-              >
+              <div className="font-mono text-[.58rem] max-md:text-[.48rem] tracking-[.2em] max-md:tracking-[.1em] uppercase text-white/[.6]">
                 In-House Engineering
               </div>
             </div>
 
             {/* Divider */}
-            <div
-              className="home-stat-divider"
-              style={{
-                width: "1px",
-                height: "90px",
-                background: "rgba(255,255,255,.18)",
-              }}
-            />
+            <div className="home-stat-divider w-px h-[90px] bg-white/[.18] max-md:hidden" />
 
             {/* Canadian Manufacturing */}
-            <div style={{ textAlign: "center", padding: "0 1.5rem" }}>
-              <div
-                style={{
-                  width: "76px",
-                  height: "68px",
-                  borderRadius: "18px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  margin: "0 auto 1.1rem",
-                  overflow: "hidden",
-                }}
-              >
-                <CanadaFlag height={68} />
+            <div className="flex flex-col items-center text-center px-6 max-md:px-1">
+              <div className="w-[76px] h-[68px] max-md:w-[32px] max-md:h-[32px] rounded-[18px] max-md:rounded-[8px] flex items-center justify-center mx-auto mb-[1.1rem] max-md:mb-1 overflow-hidden">
+                {/* Full flag component on desktop, flag-icons on mobile */}
+                <span className="hidden max-md:flex items-center justify-center">
+                  <span className="fi fi-ca text-[1.4rem]"></span>
+                </span>
+                <span className="max-md:hidden">
+                  <CanadaFlag height={68} />
+                </span>
               </div>
-              <div
-                style={{
-                  fontFamily: "var(--fd)",
-                  fontSize: "1.15rem",
-                  fontWeight: 900,
-                  color: "#fff",
-                  lineHeight: 1.25,
-                  letterSpacing: ".01em",
-                  marginBottom: ".45rem",
-                }}
-              >
+              <div className="font-display text-[1.15rem] max-md:text-[.78rem] font-black text-white leading-[1.25] tracking-[.01em] mb-[.45rem] max-md:mb-0">
                 Canadian
                 <br />
                 Manufacturing
               </div>
-              <div
-                style={{
-                  fontFamily: "var(--fm)",
-                  fontSize: ".58rem",
-                  letterSpacing: ".2em",
-                  textTransform: "uppercase",
-                  color: "rgba(255,255,255,.6)",
-                }}
-              >
+              <div className="font-mono text-[.58rem] max-md:text-[.48rem] tracking-[.2em] max-md:tracking-[.1em] uppercase text-white/[.6]">
                 Toronto, Ontario
               </div>
             </div>
 
             {/* Divider */}
-            <div
-              className="home-stat-divider"
-              style={{
-                width: "1px",
-                height: "90px",
-                background: "rgba(255,255,255,.18)",
-              }}
-            />
+            <div className="home-stat-divider w-px h-[90px] bg-white/[.18] max-md:hidden" />
 
             {/* Factory Testing */}
-            <div style={{ textAlign: "center", padding: "0 1.5rem" }}>
-              <div
-                style={{
-                  width: "68px",
-                  height: "68px",
-                  background: "rgba(255,255,255,.13)",
-                  borderRadius: "18px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  margin: "0 auto 1.1rem",
-                }}
-              >
+            <div className="flex flex-col items-center text-center px-6 max-md:px-1">
+              <div className="w-[68px] h-[68px] max-md:w-[32px] max-md:h-[32px] bg-white/[.13] rounded-[18px] max-md:rounded-[8px] flex items-center justify-center mx-auto mb-[1.1rem] max-md:mb-1">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/neta.svg"
                   alt="NETA"
-                  style={{
-                    height: "30px",
-                    width: "auto",
-                    maxWidth: "56px",
-                    filter: "brightness(0) invert(1)",
-                  }}
+                  className="h-[30px] max-md:h-[14px] w-auto max-w-[56px] brightness-0 invert"
                 />
               </div>
-              <div
-                style={{
-                  fontFamily: "var(--fd)",
-                  fontSize: "1.15rem",
-                  fontWeight: 900,
-                  color: "#fff",
-                  lineHeight: 1.25,
-                  letterSpacing: ".01em",
-                  marginBottom: ".45rem",
-                }}
-              >
+              <div className="font-display text-[1.15rem] max-md:text-[.78rem] font-black text-white leading-[1.25] tracking-[.01em] mb-[.45rem] max-md:mb-0">
                 Factory Testing
               </div>
-              <div
-                style={{
-                  fontFamily: "var(--fm)",
-                  fontSize: ".58rem",
-                  letterSpacing: ".2em",
-                  textTransform: "uppercase",
-                  color: "rgba(255,255,255,.6)",
-                }}
-              >
+              <div className="font-mono text-[.58rem] max-md:text-[.48rem] tracking-[.2em] max-md:tracking-[.1em] uppercase text-white/[.6]">
                 To NETA Standards
               </div>
             </div>
           </div>
         </div>
       </div>
- {/* CERTIFICATIONS BAND */}
-      <div style={{ background: "#EEF2FF", padding: "2.5rem 0 2rem" }}>
+
+      {/* CERTIFICATIONS BAND */}
+      <div className="bg-[#EEF2FF] pt-10 pb-8">
         <div className="container">
-          <div
-            style={{ position: "relative", padding: "1.75rem 1.5rem 1.5rem" }}
-          >
+          <div className="relative pt-[1.75rem] px-6 pb-6">
             {/* Decorative frame */}
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                border: "1.5px solid #93C5FD",
-                borderRadius: "20px",
-                pointerEvents: "none",
-              }}
-            />
+            <div className="absolute inset-0 border-[1.5px] border-[#93C5FD] rounded-[20px] pointer-events-none" />
 
             {/* Left dot */}
-            <div
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                transform: "translate(-50%,-50%)",
-                width: "11px",
-                height: "11px",
-                borderRadius: "50%",
-                background: "var(--blue)",
-              }}
-            />
+            <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-[11px] h-[11px] rounded-full bg-blue" />
 
             {/* Right dot */}
-            <div
-              style={{
-                position: "absolute",
-                top: 0,
-                right: 0,
-                transform: "translate(50%,-50%)",
-                width: "11px",
-                height: "11px",
-                borderRadius: "50%",
-                background: "var(--blue)",
-              }}
-            />
+            <div className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 w-[11px] h-[11px] rounded-full bg-blue" />
 
             {/* "BUILT TO STANDARD" pill */}
-            <div
-              style={{
-                position: "absolute",
-                top: 0,
-                left: "50%",
-                transform: "translate(-50%,-50%)",
-                background: "#EEF2FF",
-                border: "1.5px solid #93C5FD",
-                borderRadius: "999px",
-                padding: ".28rem 1.1rem",
-                fontFamily: "var(--fm)",
-                fontSize: ".8rem",
-                letterSpacing: ".2em",
-                textTransform: "uppercase",
-                color: "var(--blue)",
-                whiteSpace: "nowrap",
-              }}
-            >
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#EEF2FF] border-[1.5px] border-[#93C5FD] rounded-full py-[.28rem] px-[1.1rem] font-mono text-[.8rem] tracking-[.2em] uppercase text-blue whitespace-nowrap">
               Built to Standard
             </div>
 
             {/* Logo cards */}
-            <div
-              style={{
-                display: "flex",
-                gap: "1rem",
-                justifyContent: "center",
-                flexWrap: "wrap",
-              }}
-            >
+            <div className="flex gap-4 justify-center flex-wrap">
               {(
                 [
                   { src: "/images/ansi.png", alt: "ANSI" },
@@ -359,52 +195,16 @@ export default function HomePage() {
                   { src: "/images/IEC.png", alt: "IEC" },
                 ] as { src: string; alt: string }[]
               ).map(({ src, alt }) => (
-                <div
-                  key={alt}
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    gap: ".55rem",
-                  }}
-                >
-                  <div
-                    style={{
-                      background: "#fff",
-                      border: "1px solid #E0E7FF",
-                      borderRadius: "14px",
-                      padding: ".65rem 1.3rem",
-                      display: "inline-flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      height: "64px",
-                      minWidth: "96px",
-                      boxShadow: "0 2px 8px rgba(0,47,255,.07)",
-                    }}
-                  >
+                <div key={alt} className="flex flex-col items-center gap-[.55rem]">
+                  <div className="bg-white border border-[#E0E7FF] rounded-[14px] py-[.65rem] px-[1.3rem] inline-flex items-center justify-center h-16 min-w-24 shadow-[0_2px_8px_rgba(0,47,255,.07)]">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={src}
                       alt={alt}
-                      style={{
-                        height: "28px",
-                        width: "auto",
-                        maxWidth: "90px",
-                        display: "block",
-                        objectFit: "contain",
-                      }}
+                      className="h-7 w-auto max-w-[90px] block object-contain"
                     />
                   </div>
-                  <span
-                    style={{
-                      fontFamily: "var(--fm)",
-                      fontSize: ".58rem",
-                      letterSpacing: ".12em",
-                      textTransform: "uppercase",
-                      color: "#6B7280",
-                      fontWeight: 600,
-                    }}
-                  >
+                  <span className="font-mono text-[.58rem] tracking-[.12em] uppercase text-[#6B7280] font-semibold">
                     {alt}
                   </span>
                 </div>
@@ -413,40 +213,23 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+
       {/* WHY CANDRON */}
       <div className="section bg-white">
         <div className="container">
           {/* ── Top split: headline + image ── */}
-          <div
-            className="split"
-            style={{ alignItems: "center", gap: 0, marginBottom: "3.5rem" }}
-          >
-            <div className="rv-l" style={{ paddingRight: "3rem" }}>
+          <div className="split items-center gap-0 mb-14">
+            <div className="rv-l pr-12">
               <div className="label">Why Candron</div>
-              <h2 style={{ lineHeight: 1.08, marginBottom: "1.5rem" }}>
+              <h2 className="leading-[1.08] mb-6">
                 Power Distribution.
                 <br />
                 Built Different.
                 <br />
-                <span style={{ color: "var(--blue)" }}>Built Better.</span>
+                <span className="text-blue">Built Better.</span>
               </h2>
-              <div
-                style={{
-                  width: "48px",
-                  height: "3px",
-                  background: "var(--blue)",
-                  borderRadius: "2px",
-                  marginBottom: "1.75rem",
-                }}
-              />
-              <p
-                style={{
-                  color: "var(--gray)",
-                  fontSize: ".95rem",
-                  lineHeight: 1.85,
-                  margin: 0,
-                }}
-              >
+              <div className="w-12 h-[3px] bg-blue rounded-[2px] mb-7" />
+              <p className="text-gray text-[.95rem] leading-[1.85] m-0">
                 At Candron Energy, every product is engineered, manufactured,
                 assembled, and tested under one roof. Combining extensive
                 academic expertise with decades of industrial experience, we
@@ -460,49 +243,19 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="rv-r" style={{ position: "relative" }}>
-              <div
-                style={{
-                  borderRadius: "14px",
-                  overflow: "hidden",
-                  height: "360px",
-                  position: "relative",
-                  background: "#111827",
-                }}
-              >
+            <div className="rv-r relative max-sm:hidden">
+              <div className="rounded-[14px] overflow-hidden h-[360px] max-sm:h-[220px] relative bg-[#111827]">
                 <Image
                   src="/images/switchgear.jpg"
                   alt="Candron power distribution equipment"
                   fill
-                  style={{ objectFit: "cover", opacity: 0.88 }}
+                  className="object-cover opacity-[.88]"
                   sizes="50vw"
                 />
                 {/* gradient scrim so text is legible over the light image */}
-                <div
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    background:
-                      "linear-gradient(to bottom, transparent 45%, rgba(5,9,31,.72) 100%)",
-                    borderRadius: "14px",
-                    pointerEvents: "none",
-                  }}
-                />
+                <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_45%,rgba(5,9,31,.72)_100%)] rounded-[14px] pointer-events-none" />
               </div>
-              <div
-                className="hero-img-grid"
-                style={{
-                  position: "absolute",
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  display: "grid",
-                  gridTemplateColumns: "repeat(4,1fr)",
-                  background: "transparent",
-                  borderRadius: "0 0 14px 14px",
-                  borderTop: "1px solid rgba(255,255,255,.12)",
-                }}
-              >
+              <div className="hero-img-grid absolute bottom-0 left-0 right-0 grid grid-cols-4 bg-transparent rounded-b-[14px] border-t border-white/[.12]">
                 {(
                   [
                     {
@@ -568,28 +321,10 @@ export default function HomePage() {
                 ).map((item, i) => (
                   <div
                     key={i}
-                    style={{
-                      padding: "1rem .6rem",
-                      textAlign: "center",
-                      borderRight:
-                        i < 3 ? "1px solid rgba(255,255,255,.12)" : "none",
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      gap: ".4rem",
-                      color: "var(--blue)",
-                    }}
+                    className={`py-4 px-[.6rem] text-center flex flex-col items-center gap-[.4rem] text-blue${i < 3 ? " border-r border-white/[.12]" : ""}`}
                   >
                     {item.icon}
-                    <div
-                      style={{
-                        fontFamily: "var(--ft)",
-                        fontSize: ".58rem",
-                        fontWeight: 600,
-                        color: "#fff",
-                        lineHeight: 1.4,
-                      }}
-                    >
+                    <div className="font-title text-[.58rem] font-semibold text-white leading-[1.4]">
                       {item.l1}
                       <br />
                       {item.l2}
@@ -601,7 +336,7 @@ export default function HomePage() {
           </div>
 
           {/* ── Card grid ── */}
-          <div className="why-grid" style={{ marginBottom: "2rem" }}>
+          <div className="why-grid mb-8">
             {(
               [
                 {
@@ -713,59 +448,25 @@ export default function HomePage() {
                 key={i}
                 className={`why-card-new rv${card.d ? " " + card.d : ""}`}
               >
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "1rem",
-                    marginBottom: "1rem",
-                  }}
-                >
+                <div className="flex items-center gap-4 mb-4">
                   <div className="wc-icon">
                     {card.rawIcon
                       ? card.rawIcon
                       : React.cloneElement(
                           card.icon as React.ReactElement<{
-                            style?: React.CSSProperties;
+                            className?: string;
                           }>,
                           {
-                            style: {
-                              width: "22px",
-                              height: "22px",
-                              display: "block",
-                            },
+                            className: "w-[22px] h-[22px] block",
                           },
                         )}
                   </div>
-                  <div
-                    style={{
-                      fontFamily: "var(--ft)",
-                      fontWeight: 700,
-                      color: "var(--navy)",
-                      fontSize: "1rem",
-                      lineHeight: 1.25,
-                    }}
-                  >
+                  <div className="font-title font-bold text-navy text-base leading-[1.25]">
                     {card.title}
                   </div>
                 </div>
-                <div
-                  style={{
-                    width: "28px",
-                    height: "2.5px",
-                    background: "var(--blue)",
-                    borderRadius: "2px",
-                    marginBottom: "1.1rem",
-                  }}
-                />
-                <p
-                  style={{
-                    color: "var(--gray)",
-                    fontSize: ".88rem",
-                    lineHeight: 1.82,
-                    margin: 0,
-                  }}
-                >
+                <div className="w-7 h-[2.5px] bg-blue rounded-[2px] mb-[1.1rem]" />
+                <p className="text-gray text-[.88rem] leading-[1.82] m-0">
                   {card.desc}
                 </p>
               </div>
@@ -780,16 +481,7 @@ export default function HomePage() {
       {/* PRODUCTS */}
       <div className="section bg-off">
         <div className="container">
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "flex-end",
-              flexWrap: "wrap",
-              gap: "1.5rem",
-              marginBottom: "3.5rem",
-            }}
-          >
+          <div className="flex justify-between items-end flex-wrap gap-6 mb-14">
             <div className="rv">
               <div className="label">Featured Products</div>
               <h2>Power Distribution Solutions</h2>
@@ -805,7 +497,7 @@ export default function HomePage() {
                   src="/images/switchgear.jpg"
                   alt="Electrical Switchgear"
                   fill
-                  style={{ objectFit: "cover" }}
+                  className="object-cover"
                   sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
                 />
                 <div className="prod-card-overlay"></div>
@@ -832,7 +524,7 @@ export default function HomePage() {
                   src="/images/switchboards.jpg"
                   alt="Switchboards and Panelboards"
                   fill
-                  style={{ objectFit: "cover" }}
+                  className="object-cover"
                   sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
                 />
                 <div className="prod-card-overlay"></div>
@@ -857,7 +549,7 @@ export default function HomePage() {
                   src="/images/control-panels.jpg"
                   alt="Control Panels"
                   fill
-                  style={{ objectFit: "cover" }}
+                  className="object-cover"
                   sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
                 />
                 <div className="prod-card-overlay"></div>
@@ -881,45 +573,17 @@ export default function HomePage() {
       </div>
 
       {/* INDUSTRIES — full viewport height */}
-      <div
-        className="section bg-white home-industries-section"
-        style={{
-          height: "100vh",
-          minHeight: "fit-content",
-          display: "flex",
-          flexDirection: "column",
-          padding: "3.5rem 0 0",
-        }}
-      >
+      <div className="section bg-white home-industries-section h-screen min-h-fit flex flex-col !pt-14 !pb-0 max-md:!pb-12">
         {/* everything inside the standard container */}
-        <div
-          className="container"
-          style={{
-            flex: 1,
-            minHeight: 0,
-            display: "flex",
-            flexDirection: "column",
-            paddingBottom: "2rem",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "flex-end",
-              flexWrap: "wrap",
-              gap: "1.5rem",
-              flexShrink: 0,
-              marginBottom: "2rem",
-            }}
-          >
+        <div className="container flex-1 min-h-0 flex flex-col pb-8">
+          <div className="flex justify-between items-end flex-wrap gap-6 shrink-0 mb-8">
             <div className="rv">
               <div className="label">Industries Served</div>
               <h2>
                 Critical Infrastructure
                 <br />
                 Across{" "}
-                <span style={{ color: "var(--blue)" }}>North America</span>
+                <span className="text-blue">North America</span>
               </h2>
             </div>
             <Link href="/industries" className="btn btn-outline-blue rv">
@@ -968,10 +632,7 @@ export default function HomePage() {
       <div className="cta-band">
         <div className="container">
           <div className="cta-band-inner">
-            <div
-              className="label label-white rv"
-              style={{ justifyContent: "center" }}
-            >
+            <div className="label label-white rv justify-center">
               Get In Touch
             </div>
             <h2 className="rv">
@@ -979,27 +640,12 @@ export default function HomePage() {
               <br />
               Manufacturing Partner?
             </h2>
-            <p
-              className="lead rv"
-              style={{
-                color: "rgba(255,255,255,.6)",
-                maxWidth: "560px",
-                margin: "0 auto 2.5rem",
-              }}
-            >
+            <p className="lead rv !text-white/[.6] !max-w-[560px] mx-auto mb-10">
               Work directly with the engineers building your equipment. Get
               factory-direct pricing, faster turnaround times, and tested
               solutions you can trust.
             </p>
-            <div
-              style={{
-                display: "flex",
-                gap: "1rem",
-                justifyContent: "center",
-                flexWrap: "wrap",
-              }}
-              className="rv"
-            >
+            <div className="flex gap-4 justify-center flex-wrap rv">
               <Link href="/contact" className="btn btn-primary btn-lg mag">
                 Request a Quote
               </Link>

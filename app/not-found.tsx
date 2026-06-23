@@ -4,20 +4,20 @@ export const metadata = { title: '404 — Page Not Found | Candron Energy Inc.' 
 
 export default function NotFound() {
   return (
-    <div style={{minHeight:'100vh',background:'var(--navy)',display:'flex',alignItems:'center',justifyContent:'center',padding:'2rem',position:'relative',overflow:'hidden'}}>
-      <div style={{position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)',width:'600px',height:'600px',background:'radial-gradient(circle,rgba(0,71,255,.12) 0%,transparent 70%)',pointerEvents:'none'}}/>
-      <div style={{position:'relative',zIndex:1,textAlign:'center',maxWidth:'560px'}}>
-        <div style={{fontFamily:'var(--fd)',fontSize:'clamp(6rem,18vw,10rem)',fontWeight:900,color:'rgba(0,71,255,.15)',lineHeight:1,marginBottom:'1rem',letterSpacing:'-.04em'}}>404</div>
-        <div className="label label-white" style={{justifyContent:'center',marginBottom:'1.25rem'}}>Page Not Found</div>
-        <h1 style={{color:'var(--white)',fontSize:'clamp(1.6rem,4vw,2.4rem)',marginBottom:'1rem'}}>This page doesn't exist.</h1>
-        <p style={{color:'rgba(255,255,255,.5)',fontSize:'.95rem',lineHeight:'1.8',marginBottom:'2.5rem',maxWidth:'420px',margin:'0 auto 2.5rem'}}>
-          The page you're looking for has moved or never existed. Head back home or contact our team directly.
+    <div className="min-h-screen bg-navy flex items-center justify-center p-8 relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(0,71,255,.12)_0%,transparent_70%)] pointer-events-none" />
+      <div className="relative z-[1] text-center max-w-[560px]">
+        <div className="font-display text-[clamp(6rem,18vw,10rem)] font-black text-blue/[.15] leading-none mb-4 tracking-[-0.04em]">404</div>
+        <div className="label label-white justify-center mb-5">Page Not Found</div>
+        <h1 className="text-white text-[clamp(1.6rem,4vw,2.4rem)] mb-4">This page doesn&apos;t exist.</h1>
+        <p className="text-white/50 text-[.95rem] leading-[1.8] max-w-[420px] mx-auto mb-10">
+          The page you&apos;re looking for has moved or never existed. Head back home or contact our team directly.
         </p>
-        <div style={{display:'flex',gap:'1rem',justifyContent:'center',flexWrap:'wrap'}}>
+        <div className="flex gap-4 justify-center flex-wrap">
           <Link href="/" className="btn btn-primary">Back to Home</Link>
           <Link href="/contact" className="btn btn-outline">Contact Us</Link>
         </div>
-        <div style={{marginTop:'3rem',paddingTop:'2rem',borderTop:'1px solid rgba(255,255,255,.08)',display:'flex',justifyContent:'center',gap:'2.5rem',flexWrap:'wrap'}}>
+        <div className="mt-12 pt-8 border-t border-white/[.08] flex justify-center gap-10 flex-wrap">
           {[['Products','/products'],['Manufacturing','/manufacturing'],['Testing','/testing'],['About','/about']].map(([label,href])=>(
             <Link key={href} href={href} className="nf-nav-link">{label}</Link>
           ))}

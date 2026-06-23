@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import Image from "next/image";
 import ProcessStepsAnimate from "@/components/ProcessStepsAnimate";
 
@@ -23,59 +23,23 @@ export default function ServicesPage() {
             <br />
             <em>Electrical Services</em>
           </h1>
-          <p className="lead" style={{ marginTop: "1rem" }}>
-            From first-principles design through ongoing maintenance — Candron's
+          <p className="lead mt-4">
+            From first-principles design through ongoing maintenance — Candron&apos;s
             licensed engineers support every phase of your electrical
             infrastructure lifecycle.
           </p>
         </div>
       </div>
 
-      <div className="bg-blue" style={{ padding: "1.5rem 0" }}>
-        <div
-          className="container"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            flexWrap: "wrap",
-            gap: "1rem",
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-            <div
-              style={{
-                width: "10px",
-                height: "10px",
-                background: "#fff",
-                borderRadius: "50%",
-                animation: "pulse-dot 2s infinite",
-                flexShrink: 0,
-              }}
-            ></div>
-            <span
-              style={{
-                fontFamily: "var(--ft)",
-                fontSize: ".88rem",
-                fontWeight: 700,
-                color: "#fff",
-                letterSpacing: ".04em",
-              }}
-            >
+      <div className="bg-blue py-6">
+        <div className="container flex items-center justify-between flex-wrap gap-4">
+          <div className="flex items-center gap-4">
+            <div className="w-[10px] h-[10px] bg-white rounded-full animate-[pulse-dot_2s_infinite] shrink-0"></div>
+            <span className="font-title text-[.88rem] font-bold text-white tracking-[.04em]">
               24/7 Emergency Response — Sub-30-Minute Dispatch Guaranteed
             </span>
           </div>
-          <a
-            href="tel:+17059144444"
-            style={{
-              fontFamily: "var(--fd)",
-              fontSize: ".88rem",
-              fontWeight: 700,
-              color: "#fff",
-              textDecoration: "none",
-              letterSpacing: ".06em",
-            }}
-          >
+          <a href="tel:+17059144444" className="font-display text-[.88rem] font-bold text-white no-underline tracking-[.06em]">
             +1(705)914-4444 →
           </a>
         </div>
@@ -83,24 +47,15 @@ export default function ServicesPage() {
 
       <div className="section bg-white">
         <div className="container">
-          <div
-            style={{
-              textAlign: "center",
-              maxWidth: "640px",
-              margin: "0 auto 5rem",
-            }}
-            className="rv"
-          >
-            <div className="label" style={{ justifyContent: "center" }}>
-              Our Services
-            </div>
+          <div className="text-center max-w-[640px] mx-auto mb-20 rv">
+            <div className="label justify-center">Our Services</div>
             <h2>
               Engineering Expertise.
               <br />
               On-Site Execution.
             </h2>
-            <p className="lead" style={{ margin: "1rem auto 0" }}>
-              Six core service areas, all delivered by Candron's own licensed
+            <p className="lead mt-4 mx-auto">
+              Six core service areas, all delivered by Candron&apos;s own licensed
               engineers — no subcontractors, no delays.
             </p>
           </div>
@@ -111,7 +66,7 @@ export default function ServicesPage() {
                 src="/images/control-panels.jpg"
                 alt="Engineering Design"
                 fill
-                style={{ objectFit: "cover" }}
+                className="object-cover"
                 sizes="(max-width:1024px) 100vw, 50vw"
               />
             </div>
@@ -134,11 +89,7 @@ export default function ServicesPage() {
                 <li>Grounding and shielding design</li>
                 <li>Single-line diagrams and detailed engineering packages</li>
               </ul>
-              <Link
-                href="/contact"
-                className="btn btn-primary btn-sm mag"
-                style={{ alignSelf: "flex-start" }}
-              >
+              <Link href="/contact" className="btn btn-primary btn-sm mag self-start">
                 Request a Study →
               </Link>
             </div>
@@ -150,7 +101,7 @@ export default function ServicesPage() {
                 src="/images/switchgear.jpg"
                 alt="SCADA Controls"
                 fill
-                style={{ objectFit: "cover" }}
+                className="object-cover"
                 sizes="(max-width:1024px) 100vw, 50vw"
               />
             </div>
@@ -171,11 +122,7 @@ export default function ServicesPage() {
                 <li>Cybersecurity hardening for industrial control systems</li>
                 <li>Legacy system upgrades and migration</li>
               </ul>
-              <Link
-                href="/contact"
-                className="btn btn-outline btn-sm mag"
-                style={{ alignSelf: "flex-start" }}
-              >
+              <Link href="/contact" className="btn btn-outline btn-sm mag self-start">
                 Discuss Your Controls →
               </Link>
             </div>
@@ -187,16 +134,7 @@ export default function ServicesPage() {
                 src="/images/utilities.jpg"
                 alt="Electrical Testing"
                 fill
-                style={{ objectFit: "cover" }}
-                sizes="(max-width:1024px) 100vw, 50vw"
-              />
-            </div>
-            <div className="svc-big-img">
-              <Image
-                src="/images/utilities.jpg"
-                alt="Electrical Testing"
-                fill
-                style={{ objectFit: "cover" }}
+                className="object-cover"
                 sizes="(max-width:1024px) 100vw, 50vw"
               />
             </div>
@@ -223,11 +161,7 @@ export default function ServicesPage() {
                 <li>Power factor and insulation dielectric loss tests</li>
                 <li>Relay functional testing and calibration</li>
               </ul>
-              <Link
-                href="/contact"
-                className="btn btn-primary btn-sm mag"
-                style={{ alignSelf: "flex-start" }}
-              >
+              <Link href="/contact" className="btn btn-primary btn-sm mag self-start">
                 Book a Test →
               </Link>
             </div>
@@ -239,7 +173,7 @@ export default function ServicesPage() {
                 src="/images/oil-gas.jpg"
                 alt="High Voltage Installation"
                 fill
-                style={{ objectFit: "cover" }}
+                className="object-cover"
                 sizes="(max-width:1024px) 100vw, 50vw"
               />
             </div>
@@ -248,7 +182,7 @@ export default function ServicesPage() {
               <div className="svc-big-title">High Voltage Installation</div>
               <div className="svc-big-text">
                 Installation of high-voltage equipment demands certified
-                expertise and zero margin for error. Candron's licensed HV
+                expertise and zero margin for error. Candron&apos;s licensed HV
                 technicians handle the full installation lifecycle — from
                 rigging and placement to energization.
               </div>
@@ -260,11 +194,7 @@ export default function ServicesPage() {
                 <li>Energization and commissioning oversight</li>
                 <li>Post-installation testing and documentation</li>
               </ul>
-              <Link
-                href="/contact"
-                className="btn btn-outline btn-sm mag"
-                style={{ alignSelf: "flex-start" }}
-              >
+              <Link href="/contact" className="btn btn-outline btn-sm mag self-start">
                 Plan Your Installation →
               </Link>
             </div>
@@ -276,7 +206,7 @@ export default function ServicesPage() {
                 src="/images/switchboards.jpg"
                 alt="Equipment Rental"
                 fill
-                style={{ objectFit: "cover" }}
+                className="object-cover"
                 sizes="(max-width:1024px) 100vw, 50vw"
               />
             </div>
@@ -285,7 +215,7 @@ export default function ServicesPage() {
               <div className="svc-big-title">Equipment Rentals</div>
               <div className="svc-big-text">
                 When you need equipment now — for commissioning, maintenance
-                bypass, or emergency replacement — Candron's rental fleet
+                bypass, or emergency replacement — Candron&apos;s rental fleet
                 deploys fast. All rental units are fully tested and come with
                 on-site support.
               </div>
@@ -304,11 +234,7 @@ export default function ServicesPage() {
                 <li>Delivery, commissioning, and de-commissioning included</li>
                 <li>24/7 on-call technical support throughout rental period</li>
               </ul>
-              <Link
-                href="/contact"
-                className="btn btn-primary btn-sm mag"
-                style={{ alignSelf: "flex-start" }}
-              >
+              <Link href="/contact" className="btn btn-primary btn-sm mag self-start">
                 Rental Inquiry →
               </Link>
             </div>
@@ -320,7 +246,7 @@ export default function ServicesPage() {
                 src="/images/control-panels.jpg"
                 alt="Repair and Maintenance"
                 fill
-                style={{ objectFit: "cover" }}
+                className="object-cover"
                 sizes="(max-width:1024px) 100vw, 50vw"
               />
             </div>
@@ -329,7 +255,7 @@ export default function ServicesPage() {
               <div className="svc-big-title">Repair &amp; Maintenance</div>
               <div className="svc-big-text">
                 Extending equipment life is almost always more cost-effective
-                than replacement. Candron's repair facility and field crews
+                than replacement. Candron&apos;s repair facility and field crews
                 handle everything from routine preventive maintenance to
                 emergency rewind and rebuild.
               </div>
@@ -355,11 +281,7 @@ export default function ServicesPage() {
                   Thermal imaging surveys and predictive maintenance programs
                 </li>
               </ul>
-              <Link
-                href="/contact"
-                className="btn btn-outline btn-sm mag"
-                style={{ alignSelf: "flex-start" }}
-              >
+              <Link href="/contact" className="btn btn-outline btn-sm mag self-start">
                 Request Repair →
               </Link>
             </div>
@@ -369,19 +291,10 @@ export default function ServicesPage() {
 
       <div className="section bg-off">
         <div className="container">
-          <div
-            style={{
-              textAlign: "center",
-              maxWidth: "600px",
-              margin: "0 auto 4rem",
-            }}
-            className="rv"
-          >
-            <div className="label" style={{ justifyContent: "center" }}>
-              How We Work
-            </div>
+          <div className="text-center max-w-[600px] mx-auto mb-16 rv">
+            <div className="label justify-center">How We Work</div>
             <h2>Our Process</h2>
-            <p className="lead" style={{ margin: "1rem auto 0" }}>
+            <p className="lead mt-4 mx-auto">
               Every engagement follows a structured process that eliminates
               surprises and keeps your project on schedule.
             </p>
@@ -398,85 +311,60 @@ export default function ServicesPage() {
 
       <div className="section bg-white">
         <div className="container">
-          <div
-            style={{
-              textAlign: "center",
-              maxWidth: "560px",
-              margin: "0 auto 3.5rem",
-            }}
-            className="rv"
-          >
-            <div className="label" style={{ justifyContent: "center" }}>
-              Standards &amp; Certifications
-            </div>
+          <div className="text-center max-w-[560px] mx-auto mb-14 rv">
+            <div className="label justify-center">Standards &amp; Certifications</div>
             <h2>Built to the Highest Standards</h2>
           </div>
           <div className="cert-grid">
             <div className="cert-item rv">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/IEEE.png" alt="IEEE" style={{ display: 'block', height: '22px', width: 'auto', maxWidth: '56px', marginBottom: '.5rem' }} />
+              <img src="/images/IEEE.png" alt="IEEE" className="block h-[22px] w-auto max-w-[56px] mb-2" />
               <div className="cert-name">IEEE C57</div>
-              <div className="cert-desc">
-                Transformer testing and performance standards
-              </div>
+              <div className="cert-desc">Transformer testing and performance standards</div>
             </div>
             <div className="cert-item rv d2">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/neta.svg" alt="NETA" style={{ display: 'block', height: '22px', width: 'auto', maxWidth: '56px', marginBottom: '.5rem' }} />
+              <img src="/images/neta.svg" alt="NETA" className="block h-[22px] w-auto max-w-[56px] mb-2" />
               <div className="cert-name">NETA</div>
-              <div className="cert-desc">
-                Acceptance Testing Specifications for electrical installations
-              </div>
+              <div className="cert-desc">Acceptance Testing Specifications for electrical installations</div>
             </div>
             <div className="cert-item rv d3">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/IEEE.png" alt="IEEE" style={{ display: 'block', height: '22px', width: 'auto', maxWidth: '56px', marginBottom: '.5rem' }} />
+              <img src="/images/IEEE.png" alt="IEEE" className="block h-[22px] w-auto max-w-[56px] mb-2" />
               <div className="cert-name">IEEE 1584</div>
-              <div className="cert-desc">
-                Arc-flash hazard analysis and PPE calculations
-              </div>
+              <div className="cert-desc">Arc-flash hazard analysis and PPE calculations</div>
             </div>
             <div className="cert-item rv d4">
-              <div style={{ display: 'flex', gap: '.5rem', alignItems: 'center', marginBottom: '.5rem' }}>
+              <div className="flex gap-2 items-center mb-2">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/ansi.png" alt="ANSI" style={{ display: 'block', height: '22px', width: 'auto', maxWidth: '48px' }} />
+                <img src="/images/ansi.png" alt="ANSI" className="block h-[22px] w-auto max-w-[48px]" />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/ugSolutions.png" alt="UL" style={{ display: 'block', height: '22px', width: 'auto', maxWidth: '48px' }} />
+                <img src="/images/ugSolutions.png" alt="UL" className="block h-[22px] w-auto max-w-[48px]" />
               </div>
               <div className="cert-name">ANSI / UL</div>
-              <div className="cert-desc">
-                American National and Underwriters Laboratories standards
-              </div>
+              <div className="cert-desc">American National and Underwriters Laboratories standards</div>
             </div>
             <div className="cert-item rv">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/IEC.png" alt="IEC" style={{ display: 'block', height: '22px', width: 'auto', maxWidth: '56px', marginBottom: '.5rem' }} />
+              <img src="/images/IEC.png" alt="IEC" className="block h-[22px] w-auto max-w-[56px] mb-2" />
               <div className="cert-name">IEC 61850</div>
-              <div className="cert-desc">
-                Communication standard for electrical substations
-              </div>
+              <div className="cert-desc">Communication standard for electrical substations</div>
             </div>
             <div className="cert-item rv d2">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/IEEE.png" alt="IEEE" style={{ display: 'block', height: '22px', width: 'auto', maxWidth: '56px', marginBottom: '.5rem' }} />
+              <img src="/images/IEEE.png" alt="IEEE" className="block h-[22px] w-auto max-w-[56px] mb-2" />
               <div className="cert-name">IEEE 519</div>
-              <div className="cert-desc">
-                Harmonic control in electric power systems
-              </div>
+              <div className="cert-desc">Harmonic control in electric power systems</div>
             </div>
             <div className="cert-item rv d3">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/csa.png" alt="CSA" style={{ display: 'block', height: '22px', width: 'auto', maxWidth: '56px', marginBottom: '.5rem' }} />
+              <img src="/images/csa.png" alt="CSA" className="block h-[22px] w-auto max-w-[56px] mb-2" />
               <div className="cert-name">CSA C22</div>
-              <div className="cert-desc">
-                Canadian Electrical Code — full compliance
-              </div>
+              <div className="cert-desc">Canadian Electrical Code — full compliance</div>
             </div>
             <div className="cert-item rv d4">
               <div className="cert-name">NERC CIP</div>
-              <div className="cert-desc">
-                Critical infrastructure protection for utility clients
-              </div>
+              <div className="cert-desc">Critical infrastructure protection for utility clients</div>
             </div>
           </div>
         </div>
@@ -492,21 +380,11 @@ export default function ServicesPage() {
                 America. Call our 24/7 emergency line now.
               </p>
             </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: ".75rem",
-                flexShrink: 0,
-              }}
-            >
+            <div className="flex flex-col gap-3 shrink-0">
               <a href="tel:+17059144444" className="btn btn-primary btn-lg mag">
                 +1(705)914-4444
               </a>
-              <a
-                href="mailto:sales@candron.com"
-                className="btn btn-outline mag"
-              >
+              <a href="mailto:sales@candron.com" className="btn btn-outline mag">
                 sales@candron.com
               </a>
             </div>

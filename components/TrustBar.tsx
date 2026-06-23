@@ -3,7 +3,7 @@ import CanadaFlag from '@/components/CanadaFlag'
 const items = [
   {
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" style={{ width: 28, height: 28 }}>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className="w-7 h-7">
         <circle cx="12" cy="12" r="10" />
         <path d="M12 6v6l4 2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
@@ -13,7 +13,7 @@ const items = [
   },
   {
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" style={{ width: 28, height: 28 }}>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className="w-7 h-7">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" strokeLinecap="round" strokeLinejoin="round" />
         <path d="M9 12l2 2 4-4" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
@@ -24,59 +24,38 @@ const items = [
   {
     icon: <CanadaFlag height={28} />,
     title: 'North America Made',
-    sub: <span style={{ display: 'inline-flex', alignItems: 'center', gap: '.35rem' }}><CanadaFlag height={13} /> Built in Toronto, Ontario</span>,
+    sub: <span className="inline-flex items-center gap-[.35rem]"><CanadaFlag height={13} /> Built in Toronto, Ontario</span>,
   },
 ]
 
 export default function TrustBar() {
   return (
-    <div style={{ background: '#F8FAFF', borderBottom: '1px solid #E8ECF5', borderTop: '1px solid #E8ECF5' }}>
+    <div className="bg-[#F8FAFF] border-y border-[#E8ECF5]">
       <div className="container">
-        <div className="trust-bar-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)' }}>
+        <div className="responsive-override-exempt grid grid-cols-3 max-md:grid-cols-3">
           {items.map((item, i) => (
             <div
               key={i}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '1.1rem',
-                padding: '1.4rem 2rem',
-                borderRight: i < items.length - 1 ? '1px solid #E8ECF5' : 'none',
-                justifyContent: i === 0 ? 'flex-start' : i === 1 ? 'center' : 'flex-end',
-              }}
+              className={[
+                'flex items-center gap-[1.1rem] max-md:gap-2 py-[1.4rem] max-md:py-3 px-8 max-md:px-2 max-md:flex-col max-md:text-center',
+                i < items.length - 1
+                  ? 'border-r border-[#E8ECF5]'
+                  : '',
+                i === 0
+                  ? 'justify-start max-md:justify-center'
+                  : i === 1
+                  ? 'justify-center'
+                  : 'justify-end max-md:justify-center',
+              ].join(' ')}
             >
-              <div style={{
-                width: '50px',
-                height: '50px',
-                borderRadius: '14px',
-                background: 'rgba(220,60,30,.09)',
-                border: '1px solid rgba(220,60,30,.14)',
-                color: '#DC3C1E',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexShrink: 0,
-              }}>
+              <div className="w-[50px] h-[50px] max-md:w-[32px] max-md:h-[32px] rounded-[14px] max-md:rounded-[8px] bg-[rgba(220,60,30,.09)] border border-[rgba(220,60,30,.14)] text-[#DC3C1E] flex items-center justify-center shrink-0">
                 {item.icon}
               </div>
               <div>
-                <div style={{
-                  fontFamily: 'var(--fd)',
-                  fontWeight: 800,
-                  fontSize: '.92rem',
-                  color: 'var(--ink)',
-                  letterSpacing: '.01em',
-                  lineHeight: 1.2,
-                  marginBottom: '.28rem',
-                }}>
+                <div className="font-display font-extrabold text-[.92rem] max-md:text-[.6rem] text-navy tracking-[.01em] leading-[1.2] mb-[.28rem] max-md:mb-0">
                   {item.title}
                 </div>
-                <div style={{
-                  fontFamily: 'var(--fm)',
-                  fontSize: '.73rem',
-                  color: 'var(--gray)',
-                  letterSpacing: '.01em',
-                }}>
+                <div className="font-mono text-[.73rem] max-md:text-[.5rem] text-gray tracking-[.01em] max-md:hidden">
                   {item.sub}
                 </div>
               </div>

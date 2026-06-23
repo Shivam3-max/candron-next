@@ -277,7 +277,7 @@ export default function CapabilitiesFlow() {
             <br />
             In&#8209;House.
             <br />
-            <span style={{ color: "var(--blue)" }}>
+            <span className="text-blue">
               Nothing
               <br />
               Outsourced.
@@ -321,8 +321,7 @@ export default function CapabilitiesFlow() {
                   ref={(el) => {
                     dotRefs.current[i] = el;
                   }}
-                  className="cap-dot"
-                  style={{ position: "relative", zIndex: 2 }}
+                  className="cap-dot relative z-[2]"
                 >
                   {c.n}
                 </div>

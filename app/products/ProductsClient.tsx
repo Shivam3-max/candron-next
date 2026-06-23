@@ -173,29 +173,29 @@ export default function ProductsClient() {
         </div>
 
         {/* Detail view — split layout: image+specs left, content right */}
-        <div className="split split-2-3" style={{ alignItems: 'start' }}>
+        <div className="split split-2-3 items-start">
 
           {/* Left column: image + quick specs */}
           <div>
-            <div className="prod-detail-img">
+            <div className="responsive-override-exempt relative w-full h-[480px] max-md:h-[200px] rounded-[14px] overflow-hidden">
               <Image
                 src={p.image}
                 alt={p.name}
                 fill
-                style={{ objectFit: 'cover' }}
-                sizes="(max-width:1024px) 100vw, 40vw"
+                className="object-cover"
+                sizes="(max-width:768px) 100vw, 40vw"
                 priority
               />
             </div>
-            <div style={{ marginTop: '1.5rem', padding: '1.75rem', background: 'var(--off)', borderRadius: '12px' }}>
-              <div style={{ fontFamily: 'var(--fm)', fontSize: '.6rem', color: 'var(--blue)', letterSpacing: '.22em', textTransform: 'uppercase', marginBottom: '.85rem' }}>Quick Specs</div>
+            <div className="mt-6 p-[1.75rem] bg-off rounded-[12px]">
+              <div className="font-mono text-[.6rem] text-blue tracking-[.22em] uppercase mb-[.85rem]">Quick Specs</div>
               <div className="specs-table-wrap">
                 <table className="specs-table">
                   <tbody>
                     {p.quickSpecs.map(([label, value]) => (
                       <tr key={label}>
                         <td>{label}</td>
-                        <td>{label === 'Origin' ? <span style={{ display: 'inline-flex', alignItems: 'center', gap: '.4rem' }}><CanadaFlag height={20} />{value}</span> : value}</td>
+                        <td>{label === 'Origin' ? <span className="inline-flex items-center gap-[.4rem]"><CanadaFlag height={20} />{value}</span> : value}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -207,42 +207,42 @@ export default function ProductsClient() {
           {/* Right column: product content */}
           <div>
             <div className="label">Product {p.num}</div>
-            <h2 style={{ marginBottom: '.5rem' }}>{p.name}</h2>
-            <p style={{ fontSize: '.88rem', fontFamily: 'var(--fm)', color: 'var(--blue)', letterSpacing: '.08em', textTransform: 'uppercase', marginBottom: '1rem' }}>{p.eyebrow}</p>
+            <h2 className="mb-2">{p.name}</h2>
+            <p className="font-mono text-[.88rem] text-blue tracking-[.08em] uppercase mb-4">{p.eyebrow}</p>
 
             {/* Standards badges */}
-            <div className="product-standard-row" style={{ marginBottom: '1.5rem' }}>
+            <div className="product-standard-row mb-6">
               {p.standards.map(s => <span key={s} className="product-standard">{s}</span>)}
             </div>
 
             {/* KPI stat grid */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '.85rem', marginBottom: '1.75rem' }}>
+            <div className="grid grid-cols-4 gap-[.85rem] mb-7">
               {p.kpis.map(k => (
-                <div key={k.label} style={{ padding: '.9rem .65rem', background: 'var(--off)', borderRadius: '10px', textAlign: 'center', border: '1px solid #E8ECF5' }}>
-                  <div style={{ fontFamily: 'var(--fd)', fontSize: '.75rem', fontWeight: 900, color: 'var(--navy)', letterSpacing: '.04em', marginBottom: '.2rem' }}>{k.value}</div>
-                  <div style={{ fontFamily: 'var(--ft)', fontSize: '.5rem', letterSpacing: '.12em', textTransform: 'uppercase', color: 'var(--gray)', fontWeight: 700 }}>{k.label}</div>
+                <div key={k.label} className="py-[.9rem] px-[.65rem] bg-off rounded-[10px] text-center border border-[#E8ECF5]">
+                  <div className="font-display text-[.75rem] font-black text-navy tracking-[.04em] mb-[.2rem]">{k.value}</div>
+                  <div className="font-title text-[.5rem] tracking-[.12em] uppercase text-gray font-bold">{k.label}</div>
                 </div>
               ))}
             </div>
 
             {/* Description */}
-            <p className="body" style={{ marginBottom: '1rem' }}>{p.desc1}</p>
-            <p className="body" style={{ marginBottom: '1.75rem' }}>{p.desc2}</p>
+            <p className="body mb-4">{p.desc1}</p>
+            <p className="body mb-7">{p.desc2}</p>
 
             {/* Key features */}
-            <h4 style={{ fontFamily: 'var(--ft)', fontSize: '.72rem', fontWeight: 700, color: 'var(--gray)', letterSpacing: '.14em', textTransform: 'uppercase', marginBottom: '.75rem' }}>Key Features</h4>
-            <ul className="feature-list" style={{ marginBottom: '1.75rem' }}>
+            <h4 className="font-title text-[.72rem] font-bold text-gray tracking-[.14em] uppercase mb-3">Key Features</h4>
+            <ul className="feature-list mb-7">
               {p.features.map(f => <li key={f}>{f}</li>)}
             </ul>
 
             {/* Applications */}
-            <h4 style={{ fontFamily: 'var(--ft)', fontSize: '.72rem', fontWeight: 700, color: 'var(--gray)', letterSpacing: '.14em', textTransform: 'uppercase', marginBottom: '.75rem' }}>Applications</h4>
-            <div className="industry-tags" style={{ marginBottom: '2rem' }}>
+            <h4 className="font-title text-[.72rem] font-bold text-gray tracking-[.14em] uppercase mb-3">Applications</h4>
+            <div className="industry-tags mb-8">
               {p.applications.map(a => <span key={a} className="industry-tag">{a}</span>)}
             </div>
 
             {/* CTA row */}
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <div className="flex gap-4 flex-wrap">
               <Link href="/contact" className="btn btn-primary mag">Request a Quote</Link>
               <Link href={p.link} className="btn btn-outline-blue mag">Full Product Page →</Link>
             </div>

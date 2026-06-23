@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -26,7 +26,7 @@ export default function TestingPage() {
             <br />
             <em>Factory Testing</em>
           </h1>
-          <p className="lead" style={{ marginTop: "1rem" }}>
+          <p className="lead mt-4">
             Every system is tested before shipment to verify safety,
             reliability, and compliance. No equipment leaves our facility
             without passing a rigorous in-house factory acceptance test.
@@ -47,14 +47,14 @@ export default function TestingPage() {
               </h2>
             </div>
             <div>
-              <p className="body" style={{ marginBottom: "1.25rem" }}>
+              <p className="body mb-5">
                 Field failures cost more than just money — they cost downtime,
                 project delays, safety incidents, and damaged relationships.
                 Comprehensive factory testing is the only reliable way to verify
                 that equipment will perform as designed once it reaches your
                 site.
               </p>
-              <p className="body" style={{ marginBottom: "1.25rem" }}>
+              <p className="body mb-5">
                 At Candron Energy, every system undergoes structured factory
                 testing before shipment. Our in-house testing capability means
                 we control the process, maintain the documentation, and can
@@ -83,8 +83,8 @@ export default function TestingPage() {
               <h2 className="wt-h2">What We <em>Test</em></h2>
             </div>
             <div className="wt-header-right">
-              <p className="wt-intro" style={{ maxWidth: '460px', textAlign: 'left' }}>Every system undergoes structured testing before it leaves our facility. We control the process, maintain full documentation, and can accommodate witnessed FAT for your team or third-party inspector.</p>
-              <Link href="/contact" className="btn btn-primary mag" style={{ flexShrink: 0 }}>Request a Witnessed FAT →</Link>
+              <p className="wt-intro max-w-[460px] text-left">Every system undergoes structured testing before it leaves our facility. We control the process, maintain full documentation, and can accommodate witnessed FAT for your team or third-party inspector.</p>
+              <Link href="/contact" className="btn btn-primary mag shrink-0">Request a Witnessed FAT →</Link>
             </div>
           </div>
 
@@ -146,15 +146,15 @@ export default function TestingPage() {
                 src="/images/testing.jpg"
                 alt="Factory Testing"
                 fill
-                style={{ objectFit: 'cover' }}
+                className="object-cover"
                 sizes="(max-width:1024px) 100vw, 50vw"
               />
               <div className="wt-fat-img-overlay" />
             </div>
             <div className="wt-fat-content">
               <div className="label label-white">Witnessed FAT Available</div>
-              <h3 style={{ color: 'white', marginTop: '.5rem', letterSpacing: '-.01em' }}>Your Team Can<br/>Be Present</h3>
-              <p style={{ color: 'rgba(255,255,255,.55)', fontSize: '.92rem', lineHeight: 1.72, margin: '1rem 0 1.5rem' }}>Candron accommodates witnessed factory acceptance tests for project owners, engineers of record, and third-party inspectors. Schedule your FAT visit during project kickoff to align with your timeline.</p>
+              <h3 className="text-white mt-2 tracking-[-.01em]">Your Team Can<br/>Be Present</h3>
+              <p className="text-white/55 text-[.92rem] leading-[1.72] mt-4 mb-6">Candron accommodates witnessed factory acceptance tests for project owners, engineers of record, and third-party inspectors. Schedule your FAT visit during project kickoff to align with your timeline.</p>
               <Link href="/contact" className="btn btn-primary mag">Schedule a Visit →</Link>
             </div>
           </div>
@@ -165,19 +165,12 @@ export default function TestingPage() {
       {/* STANDARDS */}
       <div className="section bg-white">
         <div className="container">
-          <div
-            style={{
-              textAlign: "center",
-              maxWidth: "560px",
-              margin: "0 auto 4rem",
-            }}
-            className="rv"
-          >
-            <div className="label" style={{ justifyContent: "center" }}>
+          <div className="text-center max-w-[560px] mx-auto mb-16 rv">
+            <div className="label justify-center">
               Standards &amp; Compliance
             </div>
             <h2>Built to the Highest Standards</h2>
-            <p className="lead" style={{ margin: "1rem auto 0" }}>
+            <p className="lead mt-4 mx-auto">
               Candron's testing programs are aligned with applicable national
               and international standards governing power distribution
               equipment.
@@ -194,7 +187,7 @@ export default function TestingPage() {
               <div key={name} className={`standard-card rv${i > 0 ? ` d${i + 1}` : ''}`}>
                 <div className="standard-logo-box">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={src} alt={alt} style={{ height: '32px', width: 'auto', maxWidth: '56px', display: 'block', objectFit: 'contain' }} />
+                  <img src={src} alt={alt} className="h-8 w-auto max-w-[56px] block object-contain" />
                 </div>
                 <div className="standard-name">{name}</div>
                 <div className="standard-desc">{desc}</div>
@@ -207,119 +200,50 @@ export default function TestingPage() {
       {/* WHY IN-HOUSE */}
       <div className="bg-navy-section">
         <div className="container">
-          <div
-            style={{
-              textAlign: "center",
-              maxWidth: "600px",
-              margin: "0 auto 4rem",
-            }}
-            className="rv"
-          >
-            <div
-              className="label label-white"
-              style={{ justifyContent: "center" }}
-            >
-              The Advantage
-            </div>
-            <h2 style={{ color: "var(--white)" }}>
+          <div className="text-center max-w-[600px] mx-auto mb-16 rv">
+            <div className="label label-white justify-center">The Advantage</div>
+            <h2 className="text-white">
               Why In-House Testing
               <br />
               Makes a Difference
             </h2>
           </div>
           <div className="why-grid">
-            <div
-              className="why-card-v2 rv"
-              style={{
-                background: "rgba(255,255,255,.04)",
-                border: "1px solid rgba(255,255,255,.07)",
-              }}
-            >
-              <div
-                className="why-card-icon"
-                style={{ background: "rgba(0,71,255,.2)" }}
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="white"
-                  strokeWidth="1.6"
-                >
+            <div className="why-card-v2 rv bg-white/[.04] border border-white/[.07]">
+              <div className="why-card-icon bg-[rgba(0,71,255,.2)]">
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.6">
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                 </svg>
               </div>
-              <div className="why-card-title" style={{ color: "var(--white)" }}>
-                No Scheduling Delays
-              </div>
-              <div
-                className="why-card-text"
-                style={{ color: "rgba(255,255,255,.45)" }}
-              >
+              <div className="why-card-title text-white">No Scheduling Delays</div>
+              <div className="why-card-text text-white/45">
                 In-house testing means no waiting for an external test lab. Your
                 FAT is scheduled to align with your project timeline — not an
                 external facility's availability.
               </div>
             </div>
-            <div
-              className="why-card-v2 rv d2"
-              style={{
-                background: "rgba(255,255,255,.04)",
-                border: "1px solid rgba(255,255,255,.07)",
-              }}
-            >
-              <div
-                className="why-card-icon"
-                style={{ background: "rgba(0,71,255,.2)" }}
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="white"
-                  strokeWidth="1.6"
-                >
+            <div className="why-card-v2 rv d2 bg-white/[.04] border border-white/[.07]">
+              <div className="why-card-icon bg-[rgba(0,71,255,.2)]">
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.6">
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <div className="why-card-title" style={{ color: "var(--white)" }}>
-                Issues Resolved Immediately
-              </div>
-              <div
-                className="why-card-text"
-                style={{ color: "rgba(255,255,255,.45)" }}
-              >
+              <div className="why-card-title text-white">Issues Resolved Immediately</div>
+              <div className="why-card-text text-white/45">
                 When testing identifies an issue, our engineering and assembly
                 team is on-site to resolve it immediately. No shipping equipment
                 back and forth between facilities.
               </div>
             </div>
-            <div
-              className="why-card-v2 rv d3"
-              style={{
-                background: "rgba(255,255,255,.04)",
-                border: "1px solid rgba(255,255,255,.07)",
-              }}
-            >
-              <div
-                className="why-card-icon"
-                style={{ background: "rgba(0,71,255,.2)" }}
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="white"
-                  strokeWidth="1.6"
-                >
+            <div className="why-card-v2 rv d3 bg-white/[.04] border border-white/[.07]">
+              <div className="why-card-icon bg-[rgba(0,71,255,.2)]">
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.6">
                   <rect x="2" y="7" width="20" height="14" rx="2" />
                   <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" />
                 </svg>
               </div>
-              <div className="why-card-title" style={{ color: "var(--white)" }}>
-                Complete Documentation
-              </div>
-              <div
-                className="why-card-text"
-                style={{ color: "rgba(255,255,255,.45)" }}
-              >
+              <div className="why-card-title text-white">Complete Documentation</div>
+              <div className="why-card-text text-white/45">
                 Detailed test reports generated and reviewed internally before
                 delivery. Full traceability from test results to as-built
                 drawings and equipment data sheets.
@@ -334,29 +258,15 @@ export default function TestingPage() {
         <div className="container">
           <div className="cta-band-inner">
             <h2 className="rv">Every Unit Tested Before It Ships</h2>
-            <p
-              className="lead rv"
-              style={{ color: "rgba(255,255,255,.6)", maxWidth: "500px" }}
-            >
+            <p className="lead rv !text-white/[.6] !max-w-[500px]">
               Quality you can verify. Request a quote and ask about witnessed
               FAT availability for your project.
             </p>
-            <div
-              style={{
-                display: "flex",
-                gap: "1rem",
-                justifyContent: "center",
-                flexWrap: "wrap",
-              }}
-              className="rv"
-            >
+            <div className="flex gap-4 justify-center flex-wrap rv">
               <Link href="/contact" className="btn btn-primary btn-lg mag">
                 Request a Quote
               </Link>
-              <Link
-                href="/commissioning"
-                className="btn btn-outline btn-lg mag"
-              >
+              <Link href="/commissioning" className="btn btn-outline btn-lg mag">
                 Commissioning Support →
               </Link>
             </div>

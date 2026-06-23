@@ -15,7 +15,7 @@ export default function ProductsPage() {
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>Products</span></div>
           <div className="label label-white">Our Product Range</div>
           <h1>Power Distribution Solutions<br /><em>Built For Critical Infrastructure</em></h1>
-          <p className="lead" style={{ marginTop: '1rem' }}>Every product is engineered, manufactured, assembled, and tested in-house to ensure the highest standards of quality and performance.</p>
+          <p className="lead mt-4">Every product is engineered, manufactured, assembled, and tested in-house to ensure the highest standards of quality and performance.</p>
         </div>
       </div>
 
@@ -24,8 +24,8 @@ export default function ProductsPage() {
       <div className="cta-band">
         <div className="container"><div className="cta-band-inner">
           <h2 className="rv">Ready to Get Started?</h2>
-          <p className="lead rv" style={{ color: 'rgba(255,255,255,.6)', maxWidth: '500px' }}>Work directly with our engineers to develop the right power distribution solution for your project. Every type of customer can reach our team — no middlemen, no barriers.</p>
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }} className="rv">
+          <p className="lead rv !text-white/[.6] !max-w-[500px]">Work directly with our engineers to develop the right power distribution solution for your project. Every type of customer can reach our team — no middlemen, no barriers.</p>
+          <div className="flex gap-4 justify-center flex-wrap rv">
             <Link href="/contact" className="btn btn-primary btn-lg mag">Request a Quote</Link>
             <a href="tel:+16476162595" className="btn btn-outline btn-lg mag">+1 (647) 616-2595</a>
           </div>

@@ -1,4 +1,4 @@
-﻿import React from 'react'
+import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import StatBar from '@/components/StatBar'
@@ -15,7 +15,7 @@ export default function AboutPage() {
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>About</span></div>
           <div className="label label-white">Our Story</div>
           <h1>Built on Reliability.<br/><em>Grown on Trust.</em></h1>
-          <p className="lead" style={{marginTop:'1rem'}}>50+ years of combined engineering expertise powering North America's most critical facilities. One promise, kept every time: when you need us, we're there.</p>
+          <p className="lead mt-4">50+ years of combined engineering expertise powering North America's most critical facilities. One promise, kept every time: when you need us, we're there.</p>
         </div>
       </div>
 
@@ -28,8 +28,8 @@ export default function AboutPage() {
               <h2>Complete In-House Electrical Manufacturing — No Outsourcing, No Third Parties</h2>
             </div>
             <div className="rv-r">
-              <p className="body" style={{marginBottom:'1.25rem'}}>Candron Energy Inc. was founded on a straightforward principle: the best electrical equipment is designed, manufactured, assembled, and tested by the same team — under one roof. Most suppliers depend on fragmented networks of third-party fabricators, external wiring shops, and offshore supply chains. That introduces delays, quality gaps, and accountability problems that ultimately impact your project.</p>
-              <p className="body" style={{marginBottom:'1.25rem'}}>We built Candron differently. Every stage of production happens in our Toronto facility — electrical engineering, mechanical design, fabrication, assembly, wiring, quality inspection, and factory acceptance testing. When you work with Candron, there is one point of contact and one team accountable for the outcome.</p>
+              <p className="body mb-5">Candron Energy Inc. was founded on a straightforward principle: the best electrical equipment is designed, manufactured, assembled, and tested by the same team — under one roof. Most suppliers depend on fragmented networks of third-party fabricators, external wiring shops, and offshore supply chains. That introduces delays, quality gaps, and accountability problems that ultimately impact your project.</p>
+              <p className="body mb-5">We built Candron differently. Every stage of production happens in our Toronto facility — electrical engineering, mechanical design, fabrication, assembly, wiring, quality inspection, and factory acceptance testing. When you work with Candron, there is one point of contact and one team accountable for the outcome.</p>
               <p className="body">Today, Candron serves clients across mining, oil and gas, power generation, data centers, healthcare, transportation, and more — delivering engineered power distribution solutions with faster lead times and uncompromising quality built to ANSI, NETA, CSA, and IEEE standards.</p>
             </div>
           </div>
@@ -59,7 +59,7 @@ export default function AboutPage() {
               <h2 className="wt-h2">Our <em>Values</em></h2>
             </div>
             <div className="wt-header-right">
-              <p className="wt-intro" style={{ maxWidth: '460px', textAlign: 'left' }}>Four principles guide every decision at Candron — from how we specify materials to how we deliver documentation on the last day of a project.</p>
+              <p className="wt-intro max-w-[460px] text-left">Four principles guide every decision at Candron — from how we specify materials to how we deliver documentation on the last day of a project.</p>
             </div>
           </div>
 
@@ -104,7 +104,7 @@ export default function AboutPage() {
             {/* Image + stat cards */}
             <div className="val-aside">
               <div className="val-img">
-                <Image src="/images/LicensedEngineers.jpeg" alt="Candron Engineering Team" fill style={{ objectFit: 'cover', objectPosition: 'top' }} sizes="(max-width:1024px) 100vw, 400px"/>
+                <Image src="/images/LicensedEngineers.jpeg" alt="Candron Engineering Team" fill className="object-cover object-top" sizes="(max-width:1024px) 100vw, 400px"/>
                 <div className="val-img-overlay"/>
                 <div className="val-img-badge">
                   <div className="val-img-badge-icon">
@@ -133,38 +133,38 @@ export default function AboutPage() {
               <h2 className="wt-h2">A Young Company.<br/><em>Decades of Expertise.</em></h2>
             </div>
             <div className="wt-header-right">
-              <p className="wt-intro" style={{ maxWidth: '460px', textAlign: 'left' }}>Candron was founded in 2022 — but the engineers and technicians behind it bring over 50 years of combined power systems experience. Every project benefits from that depth, on day one.</p>
+              <p className="wt-intro max-w-[460px] text-left">Candron was founded in 2022 — but the engineers and technicians behind it bring over 50 years of combined power systems experience. Every project benefits from that depth, on day one.</p>
             </div>
           </div>
 
           {/* Credential strip */}
-          <div className="cred-strip-grid rv" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1px', background: 'rgba(0,71,255,.15)', borderRadius: '14px', overflow: 'hidden', marginBottom: '3rem' }}>
+          <div className="cred-strip-grid grid grid-cols-4 max-sm:grid-cols-2 gap-px bg-blue/[.15] rounded-[14px] overflow-hidden mb-12 rv">
             {[
               { val: '2022', lbl: 'Year Founded' },
               { val: '50+', lbl: 'Years Combined Expertise' },
               { val: 'P.Eng', lbl: 'Licensed Engineers' },
               { val: '100%', lbl: 'In-House Manufacturing' },
             ].map((s) => (
-              <div key={s.lbl} style={{ background: '#080E2C', padding: '1.75rem 1.5rem', textAlign: 'center' }}>
-                <div style={{ fontFamily: 'var(--fd)', fontSize: '1.6rem', fontWeight: 900, color: 'var(--blue)', lineHeight: 1 }}>{s.val}</div>
-                <div style={{ fontFamily: 'var(--ft)', fontSize: '.62rem', color: 'rgba(255,255,255,.42)', letterSpacing: '.1em', textTransform: 'uppercase', marginTop: '.5rem' }}>{s.lbl}</div>
+              <div key={s.lbl} className="bg-[#080E2C] py-7 px-6 text-center">
+                <div className="font-display text-[1.6rem] font-black text-blue leading-none">{s.val}</div>
+                <div className="font-title text-[.62rem] text-white/42 tracking-[.1em] uppercase mt-2">{s.lbl}</div>
               </div>
             ))}
           </div>
 
           {/* Timeline + images */}
-          <div className="split" style={{ alignItems: 'start' }}>
+          <div className="split items-start">
             <div className="rv-l">
               <TimelineScroll />
             </div>
-            <div className="rv-r" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginTop: '1rem' }}>
-              <div style={{ borderRadius: '14px', overflow: 'hidden', height: '260px', position: 'relative', border: '1px solid rgba(0,71,255,.15)' }}>
-                <Image src="/images/switchgear.jpg" alt="Candron Facility" fill style={{ objectFit: 'cover' }} sizes="(max-width:1024px) 100vw, 40vw"/>
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(5,9,31,.6), transparent 60%)' }}/>
+            <div className="rv-r flex flex-col gap-5 mt-4 max-sm:hidden">
+              <div className="rounded-[14px] overflow-hidden h-[260px] relative border border-blue/[.15]">
+                <Image src="/images/switchgear.jpg" alt="Candron Facility" fill className="object-cover" sizes="(max-width:1024px) 100vw, 40vw"/>
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent"/>
               </div>
-              <div style={{ borderRadius: '14px', overflow: 'hidden', height: '260px', position: 'relative', border: '1px solid rgba(0,71,255,.15)' }}>
-                <Image src="/images/control-panels.jpg" alt="Engineering Work" fill style={{ objectFit: 'cover' }} sizes="(max-width:1024px) 100vw, 40vw"/>
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(5,9,31,.6), transparent 60%)' }}/>
+              <div className="rounded-[14px] overflow-hidden h-[260px] relative border border-blue/[.15]">
+                <Image src="/images/control-panels.jpg" alt="Engineering Work" fill className="object-cover" sizes="(max-width:1024px) 100vw, 40vw"/>
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent"/>
               </div>
             </div>
           </div>
@@ -175,31 +175,31 @@ export default function AboutPage() {
       {/* MEET OUR TEAM */}
       <div className="section bg-off">
         <div className="container">
-          <div style={{textAlign:'center',maxWidth:'600px',margin:'0 auto 3.5rem'}} className="rv">
-            <div className="label" style={{justifyContent:'center'}}>The People Behind The Work</div>
+          <div className="text-center max-w-[600px] mx-auto mb-14 rv">
+            <div className="label justify-center">The People Behind The Work</div>
             <h2>An Army of Experts.<br/>Built for the Field.</h2>
-            <p className="lead" style={{margin:'1rem auto 0'}}>Candron is powered by a team of licensed engineers and battle-tested technicians — over 50 years of combined expertise deployed on every project.</p>
+            <p className="lead mt-4 mx-auto">Candron is powered by a team of licensed engineers and battle-tested technicians — over 50 years of combined expertise deployed on every project.</p>
           </div>
 
-          <div className="team-grid" style={{marginBottom:'3rem'}}>
+          <div className="team-grid mb-12">
             {/* Engineers card */}
             <div className="team-card rv">
               <div className="team-img">
-                <Image src="/images/LicensedEngineers.jpeg" alt="Licensed Engineers" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/>
+                <Image src="/images/LicensedEngineers.jpeg" alt="Licensed Engineers" fill className="object-cover" sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/>
               </div>
               <div className="team-body">
                 <div className="team-name">Licensed Engineers</div>
                 <div className="team-role">M.Eng &amp; Ph.D — Power Systems</div>
-                <p style={{fontSize:'.88rem',color:'var(--gray)',lineHeight:1.75,marginTop:'.75rem'}}>
+                <p className="text-[.88rem] text-gray leading-[1.75] mt-3">
                   Every engineer on our team holds a professional license and an advanced degree — master's or doctorate — in electrical or power systems engineering. They design, specify, and commission every project with zero shortcuts.
                 </p>
-                <div style={{display:'flex',gap:'0.75rem',marginTop:'1.25rem',flexWrap:'wrap'}}>
+                <div className="flex gap-3 mt-5 flex-wrap">
                   {['P.Eng Licensed','M.Eng / Ph.D','Power Systems','SCADA & Controls'].map(tag => (
                     <span key={tag} className="team-tag">{tag}</span>
                   ))}
                 </div>
                 {/* TODO: add LinkedIn URL */}
-                <a href="#" aria-label="LinkedIn" style={{display:'inline-flex',alignItems:'center',gap:'.4rem',marginTop:'1rem',fontSize:'.78rem',color:'var(--blue)',textDecoration:'none',fontWeight:600}}>
+                <a href="#" aria-label="LinkedIn" className="inline-flex items-center gap-[.4rem] mt-4 text-[.78rem] text-blue no-underline font-semibold">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                   LinkedIn
                 </a>
@@ -209,21 +209,21 @@ export default function AboutPage() {
             {/* Technicians card */}
             <div className="team-card rv d2">
               <div className="team-img">
-                <Image src="/images/FieldTechnicians (1).png" alt="Field Technicians" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/>
+                <Image src="/images/FieldTechnicians (1).png" alt="Field Technicians" fill className="object-cover" sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/>
               </div>
               <div className="team-body">
                 <div className="team-name">Field Technicians</div>
                 <div className="team-role">40+ Years on the Front Lines</div>
-                <p style={{fontSize:'.88rem',color:'var(--gray)',lineHeight:1.75,marginTop:'.75rem'}}>
+                <p className="text-[.88rem] text-gray leading-[1.75] mt-3">
                   Our technicians are field veterans — not career starters. Our most experienced member brings over 40 years of hands-on experience commissioning, maintaining, and troubleshooting high-voltage and medium-voltage systems under real-world conditions.
                 </p>
-                <div style={{display:'flex',gap:'0.75rem',marginTop:'1.25rem',flexWrap:'wrap'}}>
+                <div className="flex gap-3 mt-5 flex-wrap">
                   {['40+ Yrs Experience','Field Commissioning','HV / MV Systems','Emergency Response'].map(tag => (
                     <span key={tag} className="team-tag">{tag}</span>
                   ))}
                 </div>
                 {/* TODO: add LinkedIn URL */}
-                <a href="#" aria-label="LinkedIn" style={{display:'inline-flex',alignItems:'center',gap:'.4rem',marginTop:'1rem',fontSize:'.78rem',color:'var(--blue)',textDecoration:'none',fontWeight:600}}>
+                <a href="#" aria-label="LinkedIn" className="inline-flex items-center gap-[.4rem] mt-4 text-[.78rem] text-blue no-underline font-semibold">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                   LinkedIn
                 </a>
@@ -233,21 +233,21 @@ export default function AboutPage() {
             {/* Combined experience card */}
             <div className="team-card rv d3">
               <div className="team-img">
-                <Image src="/images/CombinedExpertise (1).png" alt="Combined Expertise" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/>
+                <Image src="/images/CombinedExpertise (1).png" alt="Combined Expertise" fill className="object-cover" sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/>
               </div>
               <div className="team-body">
                 <div className="team-name">Combined Expertise</div>
                 <div className="team-role">Across Every Discipline</div>
-                <p style={{fontSize:'.88rem',color:'var(--gray)',lineHeight:1.75,marginTop:'.75rem'}}>
+                <p className="text-[.88rem] text-gray leading-[1.75] mt-3">
                   When you work with Candron, you're not getting one engineer — you're getting the collective weight of over 50 years of power systems engineering and field operations, applied to your project from day one. From high-voltage design to medium-voltage commissioning.
                 </p>
-                <div style={{display:'flex',gap:'0.75rem',marginTop:'1.25rem',flexWrap:'wrap'}}>
+                <div className="flex gap-3 mt-5 flex-wrap">
                   {['50+ Yrs Combined','Design to Commissioning','HV / MV Expertise','North America Wide'].map(tag => (
                     <span key={tag} className="team-tag">{tag}</span>
                   ))}
                 </div>
                 {/* TODO: add LinkedIn URL */}
-                <a href="#" aria-label="LinkedIn" style={{display:'inline-flex',alignItems:'center',gap:'.4rem',marginTop:'1rem',fontSize:'.78rem',color:'var(--blue)',textDecoration:'none',fontWeight:600}}>
+                <a href="#" aria-label="LinkedIn" className="inline-flex items-center gap-[.4rem] mt-4 text-[.78rem] text-blue no-underline font-semibold">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                   LinkedIn
                 </a>
@@ -260,23 +260,23 @@ export default function AboutPage() {
       {/* TESTIMONIALS */}
       <div className="section bg-white">
         <div className="container">
-          <div style={{textAlign:'center',maxWidth:'580px',margin:'0 auto 3.5rem'}} className="rv">
-            <div className="label" style={{justifyContent:'center'}}>What Clients Say</div>
+          <div className="text-center max-w-[580px] mx-auto mb-14 rv">
+            <div className="label justify-center">What Clients Say</div>
             <h2>Trusted by Engineers<br/>Across North America</h2>
           </div>
           {/* TODO: Replace with real client quotes */}
-          <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))',gap:'1.5rem'}}>
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6">
             {[
               { quote: 'Candron delivered our switchgear on schedule and within spec. Their team was responsive at every stage — engineering queries, FAT coordination, and commissioning support. Exactly the partner we needed.', name: 'Client Name', role: 'Project Engineer', company: 'Company Name' },
               { quote: 'What impressed us most was the ability to visit the facility mid-build and see our equipment taking shape. Full transparency, no surprises — just quality work delivered on time.', name: 'Client Name', role: 'Procurement Manager', company: 'Company Name' },
               { quote: 'We reached out not knowing if Candron worked with projects our size — they responded the same day and walked us through every option. Completely accessible from day one, and the end product spoke for itself.', name: 'Client Name', role: 'Electrical Lead', company: 'Company Name' },
             ].map((t, i) => (
-              <div key={i} style={{padding:'2rem',background:'var(--off)',border:'1px solid #E8ECF5',borderRadius:'14px',display:'flex',flexDirection:'column',gap:'1.25rem'}} className="rv">
+              <div key={i} className="p-8 bg-off border border-[#E8ECF5] rounded-[14px] flex flex-col gap-5 rv">
                 <svg width="28" height="20" viewBox="0 0 28 20" fill="none"><path d="M0 20V12.5C0 5.596 3.956 1.54 11.868 0l1.264 2.1C9.372 3.276 7.34 5.596 7.084 9.5H12V20H0zm16 0V12.5C16 5.596 19.956 1.54 27.868 0l1.264 2.1c-3.76 1.176-5.792 3.496-6.048 7.4H28V20H16z" fill="#0047FF" fillOpacity=".15"/></svg>
-                <p style={{fontSize:'.9rem',color:'var(--gray)',lineHeight:1.8,margin:0,fontStyle:'italic'}}>{t.quote}</p>
-                <div style={{borderTop:'1px solid #E8ECF5',paddingTop:'1rem'}}>
-                  <div style={{fontWeight:700,color:'var(--ink)',fontSize:'.88rem'}}>{t.name}</div>
-                  <div style={{fontSize:'.78rem',color:'var(--gray)',marginTop:'.2rem'}}>{t.role} — {t.company}</div>
+                <p className="text-[.9rem] text-gray leading-[1.8] m-0 italic">{t.quote}</p>
+                <div className="border-t border-[#E8ECF5] pt-4">
+                  <div className="font-bold text-navy text-[.88rem]">{t.name}</div>
+                  <div className="text-[.78rem] text-gray mt-[.2rem]">{t.role} — {t.company}</div>
                 </div>
               </div>
             ))}
@@ -287,33 +287,28 @@ export default function AboutPage() {
       {/* FACILITY */}
       <div className="section bg-off">
         <div className="container">
-          <div style={{textAlign:'center',maxWidth:'580px',margin:'0 auto 3.5rem'}} className="rv">
-            <div className="label" style={{justifyContent:'center'}}>Our Facility</div>
+          <div className="text-center max-w-[580px] mx-auto mb-14 rv">
+            <div className="label justify-center">Our Facility</div>
             <h2>Toronto, Ontario</h2>
-            <p className="lead" style={{margin:'1rem auto 0'}}>Our Toronto facility houses our complete manufacturing operation — electrical engineering, fabrication, assembly, wiring, testing lab, and engineering offices, all under one roof.</p>
+            <p className="lead mt-4 mx-auto">Our Toronto facility houses our complete manufacturing operation — electrical engineering, fabrication, assembly, wiring, testing lab, and engineering offices, all under one roof.</p>
           </div>
           <div className="facility-grid">
-            <div className="facility-img rv"><Image src="/images/switchboards.jpg" alt="Transformer Storage" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
-            <div className="facility-img rv d2"><Image src="/images/utilities.jpg" alt="Testing Laboratory" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
-            <div className="facility-img rv d3"><Image src="/images/control-panels.jpg" alt="Engineering Office" fill style={{objectFit:'cover'}} sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
+            <div className="facility-img rv"><Image src="/images/switchboards.jpg" alt="Transformer Storage" fill className="object-cover" sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
+            <div className="facility-img rv d2"><Image src="/images/utilities.jpg" alt="Testing Laboratory" fill className="object-cover" sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
+            <div className="facility-img rv d3"><Image src="/images/control-panels.jpg" alt="Engineering Office" fill className="object-cover" sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
           </div>
           <div className="metrics-4col rv">
-            <div style={{textAlign:'center',padding:'1.5rem',background:'var(--white)',border:'1px solid #E8ECF5',borderRadius:'10px'}}>
-              <div style={{fontFamily:'var(--fd)',fontSize:'1.4rem',fontWeight:900,color:'var(--blue)',marginBottom:'.3rem'}}>100%</div>
-              <div style={{fontFamily:'var(--ft)',fontSize:'.7rem',color:'var(--gray)',letterSpacing:'.1em',textTransform:'uppercase'}}>In-House Production</div>
-            </div>
-            <div style={{textAlign:'center',padding:'1.5rem',background:'var(--white)',border:'1px solid #E8ECF5',borderRadius:'10px'}}>
-              <div style={{fontFamily:'var(--fd)',fontSize:'1.4rem',fontWeight:900,color:'var(--blue)',marginBottom:'.3rem'}}>In-House</div>
-              <div style={{fontFamily:'var(--ft)',fontSize:'.7rem',color:'var(--gray)',letterSpacing:'.1em',textTransform:'uppercase'}}>Testing Lab</div>
-            </div>
-            <div style={{textAlign:'center',padding:'1.5rem',background:'var(--white)',border:'1px solid #E8ECF5',borderRadius:'10px'}}>
-              <div style={{fontFamily:'var(--fd)',fontSize:'1.4rem',fontWeight:900,color:'var(--blue)',marginBottom:'.3rem'}}>24/7</div>
-              <div style={{fontFamily:'var(--ft)',fontSize:'.7rem',color:'var(--gray)',letterSpacing:'.1em',textTransform:'uppercase'}}>Engineer On Call</div>
-            </div>
-            <div style={{textAlign:'center',padding:'1.5rem',background:'var(--white)',border:'1px solid #E8ECF5',borderRadius:'10px'}}>
-              <div style={{fontFamily:'var(--fd)',fontSize:'1.4rem',fontWeight:900,color:'var(--blue)',marginBottom:'.3rem'}}>Full FAT</div>
-              <div style={{fontFamily:'var(--ft)',fontSize:'.7rem',color:'var(--gray)',letterSpacing:'.1em',textTransform:'uppercase'}}>Before Shipment</div>
-            </div>
+            {[
+              { val: '100%', lbl: 'In-House Production' },
+              { val: 'In-House', lbl: 'Testing Lab' },
+              { val: '24/7', lbl: 'Engineer On Call' },
+              { val: 'Full FAT', lbl: 'Before Shipment' },
+            ].map((m) => (
+              <div key={m.lbl} className="text-center p-6 bg-white border border-[#E8ECF5] rounded-[10px]">
+                <div className="font-display text-[1.4rem] font-black text-blue mb-[.3rem]">{m.val}</div>
+                <div className="font-title text-[.7rem] text-gray tracking-[.1em] uppercase">{m.lbl}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -322,8 +317,8 @@ export default function AboutPage() {
       <div className="cta-band">
         <div className="container"><div className="cta-band-inner">
           <h2 className="rv">Ready to Work Together?</h2>
-          <p className="lead rv" style={{color:'rgba(255,255,255,.6)',maxWidth:'500px'}}>Whether you have an urgent need or a long-term project, our team is ready. Let's start the conversation.</p>
-          <div style={{display:'flex',gap:'1rem',justifyContent:'center',flexWrap:'wrap'}} className="rv">
+          <p className="lead rv !text-white/[.6] !max-w-[500px]">Whether you have an urgent need or a long-term project, our team is ready. Let's start the conversation.</p>
+          <div className="flex gap-4 justify-center flex-wrap rv">
             <Link href="/contact" className="btn btn-primary btn-lg mag">Contact Our Team</Link>
             <a href="tel:+16476162595" className="btn btn-outline btn-lg mag">+1 (647) 616-2595</a>
           </div>

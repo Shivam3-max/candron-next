@@ -146,7 +146,6 @@ export default function IndustryCarousel() {
     }
   }, [])
 
-  // Auto-scroll loop
   const startTimer = useCallback(() => {
     if (timerRef.current) clearInterval(timerRef.current)
     timerRef.current = setInterval(() => {
@@ -173,7 +172,6 @@ export default function IndustryCarousel() {
     if (!el) return
     const w = card ? card.offsetWidth + 20 : 340
     el.scrollBy({ left: dir * w, behavior: 'smooth' })
-    // Reset timer so auto-scroll doesn't fire right after manual nav
     startTimer()
   }
 
@@ -190,7 +188,7 @@ export default function IndustryCarousel() {
   }
 
   const stopDrag = () => {
-    if (dragging.current) startTimer() // reset timer after drag
+    if (dragging.current) startTimer()
     dragging.current = false
     if (trackRef.current) trackRef.current.style.cursor = 'grab'
   }
@@ -200,116 +198,52 @@ export default function IndustryCarousel() {
 
   return (
     <div
-      style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', overflow: 'hidden', width: '100%' }}
+      className="flex-1 min-h-0 flex flex-col overflow-hidden w-full"
       onMouseEnter={pause}
       onMouseLeave={resume}
     >
       {/* Scrollable track */}
       <div
         ref={trackRef}
-        className="ind-carousel-track"
+        className="ind-carousel-track flex items-stretch gap-5 overflow-x-auto [scroll-snap-type:x_mandatory] cursor-grab select-none flex-1 min-h-[300px] max-sm:min-h-[250px]"
         onMouseDown={onMouseDown}
         onMouseMove={onMouseMove}
         onMouseUp={stopDrag}
         onMouseLeave={stopDrag}
-        style={{
-          display: 'flex',
-          alignItems: 'stretch',
-          gap: '1.25rem',
-          overflowX: 'auto',
-          scrollSnapType: 'x mandatory',
-          cursor: 'grab',
-          userSelect: 'none',
-          flex: 1,
-          minHeight: 0,
-        }}
       >
         {INDUSTRIES.map((ind, i) => (
           <Link
             key={ind.n}
             ref={i === 0 ? firstCardRef : undefined}
             href={ind.href}
-            className="ind-carousel-card"
-            style={{
-              flexShrink: 0,
-              width: 'clamp(240px, calc(85vw - 1.25rem), 300px)',
-              height: '100%',
-              borderRadius: '18px',
-              overflow: 'hidden',
-              position: 'relative',
-              scrollSnapAlign: 'start',
-              display: 'block',
-              textDecoration: 'none',
-            }}
+            className="ind-carousel-card shrink-0 w-[clamp(240px,calc(85vw-1.25rem),300px)] max-sm:w-[clamp(200px,82vw,260px)] h-[300px] max-sm:h-[250px] rounded-[18px] overflow-hidden relative [scroll-snap-align:start] block no-underline"
           >
             <Image
               src={ind.img}
               alt={ind.name}
               fill
-              className="ind-carousel-img"
-              style={{ objectFit: 'cover' }}
+              className="ind-carousel-img object-cover"
               sizes="(max-width:640px) 85vw, 300px"
               draggable={false}
             />
 
             {/* Gradient scrim */}
-            <div style={{
-              position: 'absolute',
-              inset: 0,
-              background: 'linear-gradient(to bottom, rgba(5,9,31,.08) 0%, transparent 30%, rgba(5,9,31,.9) 100%)',
-            }} />
+            <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(5,9,31,.08)_0%,transparent_30%,rgba(5,9,31,.9)_100%)]" />
 
             {/* Number badge */}
-            <div style={{
-              position: 'absolute',
-              top: '1.1rem',
-              left: '1.1rem',
-              fontFamily: 'var(--fd)',
-              fontWeight: 900,
-              fontSize: '.52rem',
-              letterSpacing: '.2em',
-              color: 'rgba(255,255,255,.75)',
-              textTransform: 'uppercase',
-              padding: '.28rem .7rem',
-              border: '1px solid rgba(255,255,255,.22)',
-              borderRadius: '999px',
-              backdropFilter: 'blur(8px)',
-              background: 'rgba(5,9,31,.25)',
-            }}>
+            <div className="absolute top-[1.1rem] left-[1.1rem] font-display font-black text-[.52rem] tracking-[.2em] text-white/75 uppercase py-[.28rem] px-[.7rem] border border-white/[.22] rounded-full backdrop-blur-[8px] bg-[rgba(5,9,31,.25)]">
               {ind.n}
             </div>
 
             {/* Bottom content */}
-            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '1.4rem' }}>
-              <div style={{
-                fontFamily: 'var(--fd)',
-                fontWeight: 800,
-                color: '#fff',
-                fontSize: '1.08rem',
-                lineHeight: 1.22,
-                marginBottom: '.5rem',
-              }}>
+            <div className="absolute bottom-0 left-0 right-0 p-[1.4rem]">
+              <div className="font-display font-extrabold text-white text-[1.08rem] leading-[1.22] mb-2">
                 {ind.name}
               </div>
-              <div style={{
-                color: 'rgba(255,255,255,.6)',
-                fontSize: '.78rem',
-                lineHeight: 1.65,
-                marginBottom: '.85rem',
-              }}>
+              <div className="text-white/60 text-[.78rem] leading-[1.65] mb-[.85rem]">
                 {ind.desc}
               </div>
-              <div style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '.35rem',
-                color: 'var(--blue)',
-                fontSize: '.7rem',
-                fontFamily: 'var(--fm)',
-                fontWeight: 700,
-                letterSpacing: '.06em',
-                textTransform: 'uppercase',
-              }}>
+              <div className="inline-flex items-center gap-[.35rem] text-blue text-[.7rem] font-mono font-bold tracking-[.06em] uppercase">
                 Explore
                 <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
                   <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
@@ -321,21 +255,12 @@ export default function IndustryCarousel() {
       </div>
 
       {/* Controls row */}
-      <div style={{ flexShrink: 0, paddingTop: '1.25rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+      <div className="shrink-0 pt-5 flex items-center gap-4">
         {/* Prev */}
         <button
           onClick={() => step(-1)}
           aria-label="Previous industry"
-          style={{
-            width: '42px', height: '42px', borderRadius: '50%',
-            border: `1.5px solid ${canPrev ? 'var(--blue)' : '#D1D9F0'}`,
-            background: canPrev ? 'var(--blue)' : 'transparent',
-            color: canPrev ? '#fff' : '#C7D2FE',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            cursor: canPrev ? 'pointer' : 'default',
-            transition: 'background .2s, border-color .2s, color .2s',
-            flexShrink: 0, padding: 0,
-          }}
+          className={`w-[42px] h-[42px] rounded-full flex items-center justify-center shrink-0 p-0 transition-[background,border-color,color] duration-200 ${canPrev ? 'border-[1.5px] border-blue bg-blue text-white cursor-pointer' : 'border-[1.5px] border-[#D1D9F0] bg-transparent text-[#C7D2FE] cursor-default'}`}
         >
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
             <path d="M9 2L4 7l5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
@@ -346,16 +271,7 @@ export default function IndustryCarousel() {
         <button
           onClick={() => step(1)}
           aria-label="Next industry"
-          style={{
-            width: '42px', height: '42px', borderRadius: '50%',
-            border: `1.5px solid ${canNext ? 'var(--blue)' : '#D1D9F0'}`,
-            background: canNext ? 'var(--blue)' : 'transparent',
-            color: canNext ? '#fff' : '#C7D2FE',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            cursor: canNext ? 'pointer' : 'default',
-            transition: 'background .2s, border-color .2s, color .2s',
-            flexShrink: 0, padding: 0,
-          }}
+          className={`w-[42px] h-[42px] rounded-full flex items-center justify-center shrink-0 p-0 transition-[background,border-color,color] duration-200 ${canNext ? 'border-[1.5px] border-blue bg-blue text-white cursor-pointer' : 'border-[1.5px] border-[#D1D9F0] bg-transparent text-[#C7D2FE] cursor-default'}`}
         >
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
             <path d="M5 2l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
@@ -363,26 +279,15 @@ export default function IndustryCarousel() {
         </button>
 
         {/* Progress bar */}
-        <div style={{ flex: 1, height: '3px', background: '#E0E7FF', borderRadius: '999px', overflow: 'hidden' }}>
-          <div style={{
-            height: '100%',
-            background: 'var(--blue)',
-            borderRadius: '999px',
-            width: `${(progress * 100).toFixed(2)}%`,
-            transition: 'width .12s linear',
-          }} />
+        <div className="flex-1 h-[3px] bg-[#E0E7FF] rounded-full overflow-hidden">
+          <div
+            className="h-full bg-blue rounded-full transition-[width] duration-[.12s] linear"
+            style={{ width: `${(progress * 100).toFixed(2)}%` }}
+          />
         </div>
 
         {/* Count */}
-        <div style={{
-          fontFamily: 'var(--fm)',
-          fontSize: '.62rem',
-          letterSpacing: '.12em',
-          textTransform: 'uppercase',
-          color: '#9CA3AF',
-          flexShrink: 0,
-          whiteSpace: 'nowrap',
-        }}>
+        <div className="font-mono text-[.62rem] tracking-[.12em] uppercase text-[#9CA3AF] shrink-0 whitespace-nowrap">
           {INDUSTRIES.length} Sectors
         </div>
       </div>

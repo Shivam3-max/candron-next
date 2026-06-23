@@ -12,7 +12,19 @@ export default function BackToTop() {
 
   return (
     <button
-      className={`back-to-top${visible ? ' btt-visible' : ''}`}
+      className={[
+        'fixed bottom-8 right-8 z-[999]',
+        'w-11 h-11 rounded-full',
+        'bg-blue text-white border-0',
+        'flex items-center justify-center cursor-pointer',
+        'shadow-[0_4px_20px_rgba(0,71,255,.4)]',
+        'transition-[opacity,transform,background,box-shadow] duration-300',
+        'hover:bg-blue-h hover:shadow-[0_6px_28px_rgba(0,71,255,.55)] hover:-translate-y-0.5',
+        'max-sm:bottom-5 max-sm:right-5 max-sm:w-10 max-sm:h-10',
+        visible
+          ? 'opacity-100 translate-y-0 pointer-events-auto'
+          : 'opacity-0 translate-y-3 pointer-events-none',
+      ].join(' ')}
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       aria-label="Back to top"
     >

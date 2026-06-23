@@ -44,13 +44,29 @@ export default function StatBar({ stats }: { stats: Stat[] }) {
   }, [])
 
   return (
-    <div className="stat-grid" ref={ref}>
+    <div ref={ref} className="grid grid-cols-4 max-md:grid-cols-2 gap-0">
       {stats.map((s, i) => (
-        <div key={i} className={`stat-item${active ? ' stat-in' : ''}`} style={{ animationDelay: `${i * 0.1}s` }}>
-          <div className="stat-num">
+        <div
+          key={i}
+          className={[
+            'relative text-center py-4 px-8 max-sm:py-[.85rem] max-sm:px-4',
+            active ? 'animate-stat-fade-up' : 'opacity-0',
+          ].join(' ')}
+          style={{ animationDelay: `${i * 0.1}s` }}
+        >
+          {/* Vertical divider — hidden at end of each row in responsive layouts */}
+          {i < stats.length - 1 && (
+            <div className={[
+              'absolute right-0 top-[20%] h-[60%] w-px bg-white/20',
+              (i + 1) % 2 === 0 ? 'max-md:hidden' : '',
+            ].join(' ')} />
+          )}
+          <div className="font-display text-[clamp(2rem,3.5vw,2.8rem)] font-black text-white leading-none mb-[.4rem] max-sm:text-[1.2rem] max-sm:break-words">
             {s.icon ? s.icon : <CountUp raw={s.num} active={active} />}
           </div>
-          <div className="stat-lbl">{s.lbl}</div>
+          <div className="font-title text-[.72rem] text-white/70 tracking-[.12em] uppercase max-sm:text-[.62rem]">
+            {s.lbl}
+          </div>
         </div>
       ))}
     </div>

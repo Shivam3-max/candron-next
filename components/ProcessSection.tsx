@@ -61,19 +61,25 @@ export default function ProcessSection() {
   const dotRefs = useRef<(HTMLDivElement | null)[]>([])
 
   useGSAP(() => {
+    // Respect reduced-motion preference
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      if (lineRef.current && trackRef.current) {
+        lineRef.current.style.height = trackRef.current.style.height || '100%'
+      }
+      return
+    }
+
     const dots = dotRefs.current.filter(Boolean) as HTMLDivElement[]
     if (dots.length < 2 || !lineRef.current || !trackRef.current || !containerRef.current) return
 
     const first = dots[0]
     const last  = dots[dots.length - 1]
 
-    // getBoundingClientRect is offsetParent-independent; scrollY cancels in the diff
     const cRect       = containerRef.current.getBoundingClientRect()
     const firstCenter = first.getBoundingClientRect().top + first.offsetHeight / 2 - cRect.top
     const lastCenter  = last.getBoundingClientRect().top  + last.offsetHeight  / 2 - cRect.top
     const targetH     = lastCenter - firstCenter
 
-    // Pin both lines precisely between first and last dot centres
     trackRef.current.style.top    = `${firstCenter}px`
     trackRef.current.style.height = `${targetH}px`
     lineRef.current.style.top     = `${firstCenter}px`
@@ -94,88 +100,66 @@ export default function ProcessSection() {
   }, { scope: containerRef })
 
   return (
-    <div style={{ background: '#05091F', padding: '5rem 0' }}>
+    <div className="bg-navy py-20">
       <div className="container">
-        <div style={{ display: 'grid', gridTemplateColumns: '5fr 7fr', gap: '5rem', alignItems: 'start' }}>
+        <div className="grid grid-cols-[5fr_7fr] max-md:grid-cols-1 gap-[5rem] max-md:gap-12 items-start">
 
           {/* ── LEFT ── */}
           <div>
-            <div className="label label-white" style={{ marginBottom: '1.75rem' }}>Our Process</div>
-            <h2 style={{ color: '#fff', fontSize: 'clamp(2.4rem,4vw,3.2rem)', lineHeight: 1.05, fontWeight: 900, marginBottom: '1.1rem' }}>
+            <div className="label label-white mb-7">Our Process</div>
+            <h2 className="text-white text-[clamp(1.9rem,3.5vw,3.2rem)] leading-[1.05] font-black mb-[1.1rem]">
               From Concept<br />to Commissioning
             </h2>
-            <div style={{ width: '36px', height: '3px', background: 'var(--blue)', borderRadius: '2px', marginBottom: '1.5rem' }} />
-            <p style={{ color: 'rgba(255,255,255,.5)', fontSize: '.95rem', lineHeight: 1.9, marginBottom: '2.75rem' }}>
+            <div className="w-9 h-[3px] bg-blue rounded-[2px] mb-6" />
+            <p className="text-white/50 text-[.95rem] leading-[1.9] mb-11">
               Every Candron project follows a structured five-stage process that eliminates surprises, maintains schedule, and delivers equipment that performs exactly as specified.
             </p>
 
-            {/* 4-pillar card — single row */}
-            <div style={{ border: '1px solid rgba(255,255,255,.1)', borderRadius: '16px', overflow: 'hidden', marginBottom: '2.5rem' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)' }}>
+            {/* 4-pillar card */}
+            <div className="border border-white/[.1] rounded-[16px] overflow-hidden mb-10">
+              <div className="responsive-override-exempt grid grid-cols-4 max-md:grid-cols-2">
                 {pillars.map(({ lbl, icon }, ci) => (
-                  <div key={ci} style={{
-                    padding: '1.1rem .75rem',
-                    textAlign: 'center',
-                    borderRight: ci < 3 ? '1px solid rgba(255,255,255,.08)' : 'none',
-                  }}>
-                    <div style={{ width: '40px', height: '40px', borderRadius: '50%', border: '1.5px solid rgba(0,71,255,.55)', background: 'rgba(0,71,255,.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto .65rem', color: '#5B9BFF' }}>
-                      <div style={{ width: '18px', height: '18px' }}>{icon}</div>
+                  <div key={ci} className="py-[1.1rem] px-3 text-center border-r border-white/[.08] last:border-r-0 max-md:[&:nth-child(2)]:border-r-0">
+                    <div className="w-10 h-10 rounded-full border-[1.5px] border-blue/55 bg-[rgba(0,71,255,.08)] flex items-center justify-center mx-auto mb-[.65rem] text-[#5B9BFF]">
+                      <div className="w-[18px] h-[18px]">{icon}</div>
                     </div>
-                    <div style={{ fontFamily: 'var(--ft)', fontSize: '.6rem', fontWeight: 700, color: 'rgba(255,255,255,.75)', lineHeight: 1.35, whiteSpace: 'pre-line' }}>{lbl}</div>
+                    <div className="font-title text-[.6rem] font-bold text-white/75 leading-[1.35] whitespace-pre-line">{lbl}</div>
                   </div>
                 ))}
               </div>
             </div>
 
-            <Link href="/manufacturing" className="btn btn-primary btn-lg mag" style={{ width: '100%', justifyContent: 'center', letterSpacing: '.08em', textTransform: 'uppercase' }}>
+            <Link href="/manufacturing" className="btn btn-primary btn-lg mag w-full justify-center tracking-[.08em] uppercase">
               See Our Manufacturing →
             </Link>
           </div>
 
           {/* ── RIGHT — animated timeline ── */}
-          {/* no padding here — circles sit at left:0 so center = 24px */}
-          <div ref={containerRef} style={{ position: 'relative' }}>
+          <div ref={containerRef} className="relative">
 
-            {/* Track — top/height set by GSAP measurement, not hardcoded */}
-            <div ref={trackRef} style={{
-              position: 'absolute', left: '23px', top: 0,
-              width: '2px', height: 0,
-              background: 'rgba(0,71,255,.15)',
-              borderRadius: '2px',
-            }} />
+            {/* Track — top/height set by GSAP */}
+            <div ref={trackRef} className="absolute left-[23px] max-md:left-[17px] w-[2px] bg-[rgba(0,71,255,.15)] rounded-[2px]" style={{ top: 0, height: 0 }} />
 
-            {/* Animated fill — top/height both owned by JS */}
-            <div ref={lineRef} style={{
-              position: 'absolute', left: '23px', top: 0,
-              width: '2px',
-              background: 'linear-gradient(to bottom, #1A60FF 0%, #5B9BFF 100%)',
-              borderRadius: '2px',
-              boxShadow: '0 0 8px rgba(26,96,255,.7)',
-            }} />
+            {/* Animated fill — top/height owned by GSAP */}
+            <div ref={lineRef} className="absolute left-[23px] max-md:left-[17px] w-[2px] bg-[linear-gradient(to_bottom,#1A60FF_0%,#5B9BFF_100%)] rounded-[2px] shadow-[0_0_8px_rgba(26,96,255,.7)]" style={{ top: 0 }} />
 
             {steps.map(({ n, title, desc, icon }, idx) => (
-              <div key={n} style={{ display: 'flex', gap: '1.5rem', marginBottom: idx < 4 ? '1rem' : 0, alignItems: 'flex-start', position: 'relative' }}>
+              <div key={n} className={`flex gap-6 max-md:gap-3 items-start relative ${idx < 4 ? 'mb-4 max-md:mb-2' : ''}`}>
 
                 {/* Circle */}
                 <div
                   ref={el => { dotRefs.current[idx] = el }}
-                  style={{
-                  width: '48px', height: '48px', borderRadius: '50%', flexShrink: 0, zIndex: 1,
-                  background: 'linear-gradient(135deg,#1A60FF,#0033BB)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontFamily: 'var(--fd)', fontWeight: 900, fontSize: '.72rem', letterSpacing: '.04em',
-                  color: '#fff',
-                  boxShadow: '0 0 0 5px rgba(0,71,255,.2),0 4px 20px rgba(0,71,255,.35)',
-                }}>{n}</div>
+                  className="w-12 h-12 max-md:w-9 max-md:h-9 rounded-full shrink-0 z-[1] bg-[linear-gradient(135deg,#1A60FF,#0033BB)] flex items-center justify-center font-display font-black text-[.72rem] max-md:text-[.55rem] tracking-[.04em] text-white shadow-[0_0_0_5px_rgba(0,71,255,.2),0_4px_20px_rgba(0,71,255,.35)]"
+                >{n}</div>
 
                 {/* Card */}
-                <div style={{ flex: 1, background: 'rgba(255,255,255,.04)', border: '1px solid rgba(255,255,255,.09)', borderRadius: '14px', padding: '1.1rem 1.25rem', display: 'flex', gap: '1rem', alignItems: 'flex-start', marginTop: '2px' }}>
-                  <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'rgba(0,71,255,.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#5B9BFF', flexShrink: 0 }}>
-                    <div style={{ width: '21px', height: '21px' }}>{icon}</div>
+                <div className="flex-1 bg-white/[.04] border border-white/[.09] rounded-[14px] max-md:rounded-[10px] py-[1.1rem] px-5 max-md:py-3 max-md:px-3 flex gap-4 max-md:gap-2 items-start mt-[2px]">
+                  <div className="w-10 h-10 max-md:w-7 max-md:h-7 rounded-[10px] max-md:rounded-[6px] bg-[rgba(0,71,255,.2)] flex items-center justify-center text-[#5B9BFF] shrink-0">
+                    <div className="w-[21px] h-[21px] max-md:w-[14px] max-md:h-[14px]">{icon}</div>
                   </div>
                   <div>
-                    <div style={{ fontFamily: 'var(--fd)', fontWeight: 700, color: '#fff', fontSize: '.92rem', marginBottom: '.3rem' }}>{title}</div>
-                    <div style={{ fontFamily: 'var(--ft)', color: 'rgba(255,255,255,.45)', fontSize: '.8rem', lineHeight: 1.65 }}>{desc}</div>
+                    <div className="font-display font-bold text-white text-[.92rem] max-md:text-[.78rem] mb-[.3rem] max-md:mb-1">{title}</div>
+                    <div className="font-title text-white/45 text-[.8rem] max-md:text-[.7rem] leading-[1.65] max-md:leading-[1.5]">{desc}</div>
                   </div>
                 </div>
 

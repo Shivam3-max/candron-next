@@ -96,6 +96,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [prodOpen, setProdOpen] = useState(false)
+  const [mobileProdOpen, setMobileProdOpen] = useState(false)
   const [hoveredProd, setHoveredProd] = useState(0)
   const pathname = usePathname()
 
@@ -179,17 +180,16 @@ export default function Navbar() {
                             <Link
                               key={item.href}
                               href={item.href}
-                              className="nav-mega-item"
-                              style={{ background: active ? 'var(--blue)' : 'transparent' }}
+                              className={`nav-mega-item ${active ? 'bg-blue' : 'bg-transparent'}`}
                               onMouseEnter={() => setHoveredProd(i)}
                               onClick={() => { setProdOpen(false); setHoveredProd(0) }}
                               role="menuitem"
                             >
-                              <span className="nav-mega-icon" style={{ background: active ? 'rgba(255,255,255,.18)' : 'rgba(255,255,255,.08)', color: active ? '#fff' : 'var(--blue)' }}>
+                              <span className={`nav-mega-icon ${active ? 'bg-white/[.18] text-white' : 'bg-white/[.08] text-blue'}`}>
                                 {item.icon}
                               </span>
-                              <span style={{ flex: 1, color: '#fff', lineHeight: 1.3 }}>{item.name}</span>
-                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" style={{ opacity: active ? 1 : 0, flexShrink: 0 }}>
+                              <span className="flex-1 text-white leading-[1.3]">{item.name}</span>
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" className={`${active ? 'opacity-100' : 'opacity-0'} shrink-0`}>
                                 <path d="M9 18l6-6-6-6" />
                               </svg>
                             </Link>
@@ -225,12 +225,10 @@ export default function Navbar() {
                                 href={t.href}
                                 className="nav-mega-type-link"
                                 onClick={() => { setProdOpen(false); setHoveredProd(0) }}
-                                onMouseEnter={e => { const el = e.currentTarget; el.querySelectorAll('[data-tile-text]').forEach(n => (n as HTMLElement).style.color = '#fff'); el.querySelectorAll('[data-tile-chevron]').forEach(n => (n as SVGElement).style.stroke = '#fff') }}
-                                onMouseLeave={e => { const el = e.currentTarget; el.querySelectorAll('[data-tile-text]').forEach(n => (n as HTMLElement).style.color = '#05091F'); el.querySelectorAll('[data-tile-chevron]').forEach(n => (n as SVGElement).style.stroke = '#05091F') }}
                               >
                                 <span className="nav-mega-type-icon">{t.icon}</span>
-                                <span data-tile-text style={{ flex: 1, color: '#05091F', fontFamily: 'var(--fm)', fontSize: '.58rem', fontWeight: 700, letterSpacing: '.04em', textTransform: 'uppercase' }}>{t.name}</span>
-                                <svg data-tile-chevron width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#05091F" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+                                <span className="nav-mega-type-name flex-1 font-mono text-[.58rem] font-bold tracking-[.04em] uppercase">{t.name}</span>
+                                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
                               </Link>
                             ))}
                           </div>
@@ -274,29 +272,68 @@ export default function Navbar() {
         aria-hidden={!mobileOpen}
       >
         <button className="mobile-close" aria-label="Close menu" onClick={() => setMobileOpen(false)}>✕</button>
-        {links.map(l => (
-          <Link
-            key={l.href}
-            href={l.href}
-            onClick={() => setMobileOpen(false)}
-            className={pathname === l.href || (l.href === '/products' && isProductsActive) ? 'active' : ''}
-            aria-current={pathname === l.href ? 'page' : undefined}
-          >
-            {l.label}
-          </Link>
-        ))}
-        <div style={{ borderTop: '1px solid rgba(255,255,255,.12)', margin: '.75rem 0 .5rem', paddingTop: '.75rem', width: '100%', textAlign: 'center' }}>
-          {productItems.map(item => (
+        {links.map(l => {
+          if (l.href === '/products') {
+            return (
+              <div key="/products" className="mobile-products-group">
+                <button
+                  className={`mobile-products-toggle${isProductsActive ? ' active' : ''}`}
+                  onClick={() => setMobileProdOpen(!mobileProdOpen)}
+                  aria-expanded={mobileProdOpen}
+                >
+                  {l.label}
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className={`mobile-prod-chevron${mobileProdOpen ? ' rotated' : ''}`}
+                    aria-hidden="true"
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+                <div className={`mobile-products-dropdown${mobileProdOpen ? ' open' : ''}`}>
+                  <div className="mobile-products-list">
+                    <Link
+                      href="/products"
+                      onClick={() => setMobileOpen(false)}
+                      className={`mobile-products-all${pathname === '/products' ? ' active' : ''}`}
+                    >
+                      All Products
+                    </Link>
+                    {productItems.map(item => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setMobileOpen(false)}
+                        className={`mobile-products-item${pathname === item.href || pathname.startsWith(item.href + '/') ? ' active' : ''}`}
+                      >
+                        <span className="mobile-products-icon">{item.icon}</span>
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )
+          }
+          return (
             <Link
-              key={item.href}
-              href={item.href}
+              key={l.href}
+              href={l.href}
               onClick={() => setMobileOpen(false)}
-              style={{ display: 'block', textAlign: 'center', fontSize: '.82rem', opacity: .8, padding: '.35rem 0' }}
+              className={pathname === l.href ? 'active' : ''}
+              aria-current={pathname === l.href ? 'page' : undefined}
             >
-              {item.name}
+              {l.label}
             </Link>
-          ))}
-        </div>
+          )
+        })}
         <Link href="/contact" onClick={() => setMobileOpen(false)}>Contact Us</Link>
       </div>
     </>
