@@ -9,7 +9,7 @@ const data: ProductTypePageProps = {
   typeName: 'Main-Tie-Main Switchboards',
   eyebrow: 'UL 891 • ESA-Ready • N+1 Redundancy',
   subtitle: 'Dual-main with tie switchboard lineups for N+1 power continuity. Critical loads stay energized during upstream faults or planned maintenance with automatic or manual bus transfer.',
-  heroImage: 'https://images.pexels.com/photos/28265032/pexels-photo-28265032.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  heroImage: '/images/products/switchboards/main-tie-main.jpg',
   badges: ['Dual Main ACBs', 'Bus Tie Breaker', 'Auto Transfer Option', 'UL 891'],
   kpis: [
     { value: '2000–4000 A', label: 'Main Rating' },

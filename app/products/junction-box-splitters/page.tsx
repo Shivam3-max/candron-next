@@ -7,7 +7,7 @@ const data: ProductTypePageProps = {
   typeName: 'Power Junction Boxes & Splitters',
   eyebrow: 'CSA C22.2 • UL Listed • LV & MV',
   subtitle: 'Industrial power junction boxes and splitters for organized, safe, and efficient power distribution in oil & gas, mining, manufacturing, and utility applications.',
-  heroImage: 'https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  heroImage: '/images/products/control-panels/automation.jpg',
   badges: ['LV to 35 kV', 'NEMA Rated', 'Weatherproof & Explosion-Proof', 'CSA / UL Listed'],
   kpis: [
     { value: 'Up to 35 kV', label: 'MV Rated' },

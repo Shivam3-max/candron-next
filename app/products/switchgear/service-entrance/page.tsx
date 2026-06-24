@@ -9,7 +9,7 @@ const data: ProductTypePageProps = {
   typeName: 'Service-Entrance Rated Switchgear',
   eyebrow: 'CSA C22.2 • ESA-Ready • Utility-Coordinated',
   subtitle: 'Utility-coordinated service entrance equipment with revenue metering cubicles and ESA-accepted layouts. Main and tie breaker configurations with protection relay packages for the utility point of delivery.',
-  heroImage: 'https://images.pexels.com/photos/5767595/pexels-photo-5767595.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  heroImage: '/images/products/switchgear/service-entrance.jpg',
   badges: ['Utility-Approved', 'Revenue Metering', 'ESA Accepted', 'CT / PT Cubicles'],
   kpis: [
     { value: 'Up to 29 kV', label: 'Voltage Class' },

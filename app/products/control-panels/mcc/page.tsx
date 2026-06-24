@@ -9,7 +9,7 @@ const data: ProductTypePageProps = {
   typeName: 'Motor Control Centres (MCC)',
   eyebrow: 'UL 508A • NEMA ICS 18 • VFD Ready',
   subtitle: 'Full-voltage, reduced-voltage, and VFD motor starters in intelligent MCC buckets for industrial motor loads. Custom-engineered for your motor schedule and process requirements.',
-  heroImage: 'https://images.pexels.com/photos/10871585/pexels-photo-10871585.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  heroImage: '/images/products/control-panels/mcc.jpg',
   badges: ['Full-Voltage Starters', 'VFD Drives', 'NEMA ICS 18', 'UL 508A'],
   kpis: [
     { value: 'Up to 600 V', label: 'Voltage' },

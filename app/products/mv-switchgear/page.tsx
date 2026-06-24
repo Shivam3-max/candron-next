@@ -9,7 +9,7 @@ const data: ProductTypePageProps = {
   typeName: 'Medium Voltage Switchgear',
   eyebrow: 'CSA C22.2 • UL 508A • 1 kV to 36 kV',
   subtitle: 'Custom MV switchgear solutions for control, protection, and distribution of power systems from 1 kV to 36 kV in industrial, utility, and commercial applications.',
-  heroImage: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  heroImage: '/images/products/switchgear/metal-clad.jpg',
   badges: ['1–36 kV', 'Metal-Clad', 'Pad-Mounted', 'Arc-Fault Rated'],
   kpis: [
     { value: '1–36 kV', label: 'Voltage Range' },

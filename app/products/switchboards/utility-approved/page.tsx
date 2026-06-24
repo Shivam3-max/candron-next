@@ -9,7 +9,7 @@ const data: ProductTypePageProps = {
   typeName: 'Utility-Approved Switchboards',
   eyebrow: 'UL 891 • ESA • Alectra / Hydro One Approved',
   subtitle: 'Revenue metering compartments with sealable CT/PT sections and inspection-ready layouts accepted by Ontario utilities. Designed for Alectra, Hydro One, Toronto Hydro, and other LDC requirements.',
-  heroImage: 'https://images.pexels.com/photos/11924298/pexels-photo-11924298.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  heroImage: '/images/products/switchboards/utility-approved.jpg',
   badges: ['Utility Metering', 'Lockable CT/PT', 'ESA Accepted', 'Hydro One / Alectra'],
   kpis: [
     { value: 'Utility-Spec', label: 'Layout' },

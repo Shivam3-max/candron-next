@@ -9,7 +9,7 @@ const data: ProductTypePageProps = {
   typeName: 'SCADA Integration Panels',
   eyebrow: 'UL 508A • IEC 62443 • Remote Monitoring',
   subtitle: 'Remote monitoring and control panels with secure network integration, industrial communication protocols, and cybersecurity hardening for mission-critical infrastructure.',
-  heroImage: 'https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  heroImage: '/images/products/control-panels/automation.jpg',
   badges: ['IEC 62443 Hardened', 'OPC-UA', 'Remote Access', 'UL 508A'],
   kpis: [
     { value: 'IEC 62443', label: 'Cybersecurity' },

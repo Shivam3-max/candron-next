@@ -38,7 +38,7 @@ export default function SwitchboardsPage() {
       title: 'Main-Tie-Main Configuration',
       sub: 'Dual Feeder • Redundancy',
       href: '/products/switchboards/main-tie-main',
-      image: 'https://images.pexels.com/photos/28265032/pexels-photo-28265032.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/products/switchboards/main-tie-main.jpg',
       items: [
         'Automatic or manual source transfer',
         'Source-interlocking for reliability',
@@ -61,7 +61,7 @@ export default function SwitchboardsPage() {
       title: 'Distribution Switchboards',
       sub: 'Feeder Section Distribution',
       href: '/products/switchboards/distribution',
-      image: 'https://images.pexels.com/photos/3306057/pexels-photo-3306057.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/products/switchboards/distribution.jpg',
       items: [
         'Multiple feeder circuits with MCCBs or fuses',
         'Custom bus ratings to 4000 A',
@@ -84,7 +84,7 @@ export default function SwitchboardsPage() {
       title: 'Utility-Approved / ESA-Ready',
       sub: 'Revenue Grade • Utility Metering',
       href: '/products/switchboards/utility-approved',
-      image: 'https://images.pexels.com/photos/11924298/pexels-photo-11924298.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/products/switchboards/utility-approved.jpg',
       items: [
         'CT/PT compartments for revenue metering',
         'Tamper-resistant sealing provisions',

@@ -9,7 +9,7 @@ const data: ProductTypePageProps = {
   typeName: 'Metal-Enclosed Load-Interrupter Switchgear',
   eyebrow: 'CSA C22.2 • IEEE C37.20.3 • 5–27.6 kV',
   subtitle: 'Compact, weatherproof medium-voltage switchgear for feeder switching and transformer protection. Load-break switches and current-limiting fuses for indoor and outdoor pad or skid installations.',
-  heroImage: 'https://images.pexels.com/photos/36695590/pexels-photo-36695590.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  heroImage: '/images/products/switchgear/load-interrupter.jpg',
   badges: ['Load-Break Switches', 'IP54+ Rated', 'Outdoor Weatherproof', 'CSA C22.2'],
   kpis: [
     { value: '5–27.6 kV', label: 'Voltage Class' },

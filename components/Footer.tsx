@@ -1,17 +1,7 @@
 "use client";
-import { useState } from "react";
 import Link from "next/link";
 
 export default function Footer() {
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-    setSubscribed(true);
-    setEmail("");
-  };
 
   return (
     <footer className="bg-navy border-t border-white/[.06] pt-20 max-md:pt-12 pb-8">
@@ -28,32 +18,15 @@ export default function Footer() {
               manufactured, assembled, and tested entirely in-house.
             </p>
             <div className="mt-7">
-              {subscribed ? (
-                <p className="text-blue-l text-[.82rem] font-semibold">
-                  ✓ You&apos;re subscribed. Thanks!
-                </p>
-              ) : (
-                <>
-                  <p className="text-[.8rem] text-white/50 mb-3">Stay updated</p>
-                  <form className="flex gap-2 max-sm:flex-col" onSubmit={handleSubscribe}>
-                    <input
-                      type="email"
-                      placeholder="Your email address"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                      aria-label="Email address for newsletter"
-                      className="flex-1 bg-white/[.07] border border-white/[.12] rounded-md py-[.6rem] px-4 text-white text-[.8rem] font-body outline-none transition-[border-color] duration-300 focus:border-blue max-sm:w-full"
-                    />
-                    <button
-                      type="submit"
-                      className="bg-blue border-0 rounded-md py-[.6rem] px-[1.1rem] text-white font-title text-[.72rem] font-bold tracking-[.05em] cursor-pointer transition-[background] duration-300 hover:bg-blue-h max-sm:w-full"
-                    >
-                      Subscribe
-                    </button>
-                  </form>
-                </>
-              )}
+              <p className="text-[.8rem] text-white/50 mb-3">Get in touch</p>
+              <div className="flex gap-3 flex-wrap">
+                <a href="mailto:sales@candron.com" className="bg-blue border-0 rounded-md py-[.6rem] px-[1.1rem] text-white font-title text-[.72rem] font-bold tracking-[.05em] no-underline transition-[background] duration-300 hover:bg-blue-h">
+                  sales@candron.com
+                </a>
+                <a href="tel:+16476162595" className="bg-white/[.07] border border-white/[.12] rounded-md py-[.6rem] px-[1.1rem] text-white/70 font-title text-[.72rem] font-bold tracking-[.05em] no-underline transition-[border-color,color] duration-300 hover:border-blue hover:text-white">
+                  +1 (647) 616-2595
+                </a>
+              </div>
             </div>
           </div>
 

@@ -38,7 +38,7 @@ export default function ControlPanelsPage() {
       title: 'Motor Control Centers',
       sub: 'NEMA 4X • Soft Starters & VFDs',
       href: '/products/control-panels/mcc',
-      image: 'https://images.pexels.com/photos/10871585/pexels-photo-10871585.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/products/control-panels/mcc.jpg',
       items: [
         'Combination motor starters (full voltage & reversing)',
         'Variable frequency drives with bypass',
@@ -61,7 +61,7 @@ export default function ControlPanelsPage() {
       title: 'Process Control Panels',
       sub: 'Loop Control • Instrumentation',
       href: '/products/control-panels/process',
-      image: 'https://images.pexels.com/photos/32529354/pexels-photo-32529354.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/products/control-panels/process.jpg',
       items: [
         'PID loop controllers (temperature, pressure, flow)',
         'Analog and discrete I/O marshalling',
@@ -84,7 +84,7 @@ export default function ControlPanelsPage() {
       title: 'SCADA Integration Panels',
       sub: 'Remote Monitoring • OT Cybersecurity',
       href: '/products/control-panels/scada',
-      image: 'https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/products/control-panels/automation.jpg',
       items: [
         'Data acquisition across PLCs and IEDs',
         'Industrial-grade cellular / fibre gateways',

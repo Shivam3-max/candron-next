@@ -198,18 +198,14 @@ export default function AboutPage() {
                     <span key={tag} className="team-tag">{tag}</span>
                   ))}
                 </div>
-                {/* TODO: add LinkedIn URL */}
-                <a href="#" aria-label="LinkedIn" className="inline-flex items-center gap-[.4rem] mt-4 text-[.78rem] text-blue no-underline font-semibold">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                  LinkedIn
-                </a>
+
               </div>
             </div>
 
             {/* Technicians card */}
             <div className="team-card rv d2">
               <div className="team-img">
-                <Image src="/images/FieldTechnicians (1).png" alt="Field Technicians" fill className="object-cover" sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/>
+                <Image src="/images/field-technicians.png" alt="Field Technicians" fill className="object-cover" sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/>
               </div>
               <div className="team-body">
                 <div className="team-name">Field Technicians</div>
@@ -222,18 +218,14 @@ export default function AboutPage() {
                     <span key={tag} className="team-tag">{tag}</span>
                   ))}
                 </div>
-                {/* TODO: add LinkedIn URL */}
-                <a href="#" aria-label="LinkedIn" className="inline-flex items-center gap-[.4rem] mt-4 text-[.78rem] text-blue no-underline font-semibold">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                  LinkedIn
-                </a>
+
               </div>
             </div>
 
             {/* Combined experience card */}
             <div className="team-card rv d3">
               <div className="team-img">
-                <Image src="/images/CombinedExpertise (1).png" alt="Combined Expertise" fill className="object-cover" sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/>
+                <Image src="/images/combined-expertise.png" alt="Combined Expertise" fill className="object-cover" sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/>
               </div>
               <div className="team-body">
                 <div className="team-name">Combined Expertise</div>
@@ -246,25 +238,20 @@ export default function AboutPage() {
                     <span key={tag} className="team-tag">{tag}</span>
                   ))}
                 </div>
-                {/* TODO: add LinkedIn URL */}
-                <a href="#" aria-label="LinkedIn" className="inline-flex items-center gap-[.4rem] mt-4 text-[.78rem] text-blue no-underline font-semibold">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                  LinkedIn
-                </a>
+
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* TESTIMONIALS */}
+      {/* TESTIMONIALS — hidden until real client quotes are available
       <div className="section bg-white">
         <div className="container">
           <div className="text-center max-w-[580px] mx-auto mb-14 rv">
             <div className="label justify-center">What Clients Say</div>
             <h2>Trusted by Engineers<br/>Across North America</h2>
           </div>
-          {/* TODO: Replace with real client quotes */}
           <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6">
             {[
               { quote: 'Candron delivered our switchgear on schedule and within spec. Their team was responsive at every stage — engineering queries, FAT coordination, and commissioning support. Exactly the partner we needed.', name: 'Client Name', role: 'Project Engineer', company: 'Company Name' },
@@ -283,6 +270,7 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
+      */}
 
       {/* FACILITY */}
       <div className="section bg-off">

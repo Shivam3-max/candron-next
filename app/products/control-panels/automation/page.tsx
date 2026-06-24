@@ -9,7 +9,7 @@ const data: ProductTypePageProps = {
   typeName: 'Automation Control Panels',
   eyebrow: 'UL 508A • CSA C22.2 • PLC / HMI',
   subtitle: 'Custom PLC and HMI control panels engineered for process automation, machine control, and industrial monitoring. Built to UL 508A with full documentation packages for commissioning and maintenance.',
-  heroImage: 'https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  heroImage: '/images/products/control-panels/automation.jpg',
   badges: ['UL 508A Listed', 'PLC Integration', 'HMI Ready', 'Full Documentation'],
   kpis: [
     { value: 'UL 508A', label: 'Standard' },

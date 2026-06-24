@@ -9,7 +9,7 @@ const data: ProductTypePageProps = {
   typeName: 'Process Control Panels',
   eyebrow: 'UL 508A • CSA C22.2 • SCADA Ready',
   subtitle: 'SCADA-integrated process control panels with field I/O, telemetry, and remote monitoring for water treatment, oil & gas, and industrial process applications.',
-  heroImage: 'https://images.pexels.com/photos/32529354/pexels-photo-32529354.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  heroImage: '/images/products/control-panels/process.jpg',
   badges: ['SCADA Integration', 'Field I/O', 'Telemetry Ready', 'UL 508A'],
   kpis: [
     { value: 'UL 508A', label: 'Standard' },

@@ -9,7 +9,7 @@ const data: ProductTypePageProps = {
   typeName: 'Distribution Switchboards',
   eyebrow: 'UL 891 • CSA C22.2 • Industrial & Commercial',
   subtitle: 'Multi-feeder distribution switchboards for the downstream distribution of power across industrial facilities, commercial towers, and large campuses. Designed for selective coordination and easy expansion.',
-  heroImage: 'https://images.pexels.com/photos/3306057/pexels-photo-3306057.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  heroImage: '/images/products/switchboards/distribution.jpg',
   badges: ['Multi-Feeder', 'UL 891 Listed', 'Expansion Ready', 'Selective Coordination'],
   kpis: [
     { value: '800–3200 A', label: 'Main Rating' },

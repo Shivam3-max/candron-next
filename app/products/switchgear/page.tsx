@@ -38,7 +38,7 @@ export default function SwitchgearPage() {
       title: 'Metal-Clad Medium Voltage',
       sub: 'IEC 62271-200 • IEEE C37.20.2',
       href: '/products/switchgear/metal-clad',
-      image: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/products/switchgear/metal-clad.jpg',
       items: [
         'Withdrawable VCBs with three-position isolation',
         'Full bus compartmentalization',
@@ -61,7 +61,7 @@ export default function SwitchgearPage() {
       title: 'Metal-Enclosed Load-Interrupter',
       sub: '5–27.6 kV • Compact',
       href: '/products/switchgear/load-interrupter',
-      image: 'https://images.pexels.com/photos/36695590/pexels-photo-36695590.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/products/switchgear/load-interrupter.jpg',
       items: [
         'Load-break switches and current-limiting fuses',
         'Outdoor weatherproof enclosure (IP54+)',
@@ -84,7 +84,7 @@ export default function SwitchgearPage() {
       title: 'Service-Entrance Rated',
       sub: 'ESA & Utility-Ready',
       href: '/products/switchgear/service-entrance',
-      image: 'https://images.pexels.com/photos/5767595/pexels-photo-5767595.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/products/switchgear/service-entrance.jpg',
       items: [
         'Main breaker / tie breaker with ground fault',
         'Revenue metering cubicles (CT/PT)',

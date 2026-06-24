@@ -9,7 +9,7 @@ const data: ProductTypePageProps = {
   typeName: 'Low Voltage Switchgear',
   eyebrow: 'CSA C22.2 • UL 508A • Up to 1000 V',
   subtitle: 'Custom low voltage switchgear up to 1,000 V for power distribution, motor control, and service entrance applications in industrial and commercial facilities.',
-  heroImage: 'https://images.pexels.com/photos/5767595/pexels-photo-5767595.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  heroImage: '/images/products/switchgear/service-entrance.jpg',
   badges: ['Up to 1000 V', 'Service Entrance Rated', 'Modular Design', 'CSA / UL Listed'],
   kpis: [
     { value: 'Up to 1000 V', label: 'Voltage' },

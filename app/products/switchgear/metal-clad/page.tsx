@@ -9,7 +9,7 @@ const data: ProductTypePageProps = {
   typeName: 'Metal-Clad Medium Voltage Switchgear',
   eyebrow: 'IEC 62271-200 • IEEE C37.20.2 • 5–29 kV',
   subtitle: 'Fully compartmented, draw-out vacuum circuit breaker (VCB) lineups for medium-voltage power distribution. Arc-resistant type (ARST) options and SCADA integration available from 5 kV to 29 kV.',
-  heroImage: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  heroImage: '/images/products/switchgear/metal-clad.jpg',
   badges: ['Draw-Out VCBs', 'Arc-Resistant Option', 'IEC 62271-200', 'IEEE C37.20.2'],
   kpis: [
     { value: '5–29 kV', label: 'Voltage Class' },
