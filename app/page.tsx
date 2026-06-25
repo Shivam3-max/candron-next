@@ -214,6 +214,100 @@ export default function HomePage() {
         </div>
       </div>
 
+      {/* PRODUCTS */}
+      <div className="section bg-off">
+        <div className="container">
+          <div className="flex justify-between items-end flex-wrap gap-6 mb-14">
+            <div className="rv">
+              <div className="label">Featured Products</div>
+              <h2>Power Distribution Solutions</h2>
+            </div>
+            <Link href="/products" className="btn btn-outline-blue rv">
+              All Products →
+            </Link>
+          </div>
+          <div className="prod-highlights-3">
+            <div className="prod-card rv">
+              <div className="prod-card-img">
+                <Image
+                  src="/images/switchgear.jpg"
+                  alt="Electrical Switchgear"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
+                />
+                <div className="prod-card-overlay"></div>
+                <div className="prod-card-cat">Switchgear</div>
+              </div>
+              <div className="prod-card-body">
+                <div className="prod-name">Switchgear</div>
+                <div className="prod-type">
+                  Medium Voltage &amp; Low Voltage
+                </div>
+                <ul className="prod-specs">
+                  <li>Safe power distribution &amp; protection</li>
+                  <li>ANSI/IEEE C37 &amp; CSA Standards</li>
+                  <li>Arc resistant options available</li>
+                </ul>
+                <Link href="/products/switchgear" className="card-link">
+                  View Details →
+                </Link>
+              </div>
+            </div>
+            <div className="prod-card rv d2">
+              <div className="prod-card-img">
+                <Image
+                  src="/images/switchboards.jpg"
+                  alt="Switchboards and Panelboards"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
+                />
+                <div className="prod-card-overlay"></div>
+                <div className="prod-card-cat">Switchboards</div>
+              </div>
+              <div className="prod-card-body">
+                <div className="prod-name">Switchboards &amp; Panelboards</div>
+                <div className="prod-type">Engineered Distribution Systems</div>
+                <ul className="prod-specs">
+                  <li>Commercial, industrial &amp; infrastructure</li>
+                  <li>UL891 &amp; CSA C22.2 Standards</li>
+                  <li>Custom layouts &amp; integrated metering</li>
+                </ul>
+                <Link href="/products/switchboards" className="card-link">
+                  View Details →
+                </Link>
+              </div>
+            </div>
+            <div className="prod-card rv d3">
+              <div className="prod-card-img">
+                <Image
+                  src="/images/control-panels.jpg"
+                  alt="Control Panels"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
+                />
+                <div className="prod-card-overlay"></div>
+                <div className="prod-card-cat">Control Panels</div>
+              </div>
+              <div className="prod-card-body">
+                <div className="prod-name">Control Panels</div>
+                <div className="prod-type">UL 508A Industrial</div>
+                <ul className="prod-specs">
+                  <li>Automation, monitoring &amp; process control</li>
+                  <li>UL 508A Standards</li>
+                  <li>PLC, HMI &amp; SCADA integration</li>
+                </ul>
+                <Link href="/products/control-panels" className="card-link">
+                  View Details →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* WHY CANDRON */}
       <div className="section bg-white">
         <div className="container">
@@ -477,100 +571,6 @@ export default function HomePage() {
 
       {/* PROCESS */}
       <ProcessSection />
-
-      {/* PRODUCTS */}
-      <div className="section bg-off">
-        <div className="container">
-          <div className="flex justify-between items-end flex-wrap gap-6 mb-14">
-            <div className="rv">
-              <div className="label">Featured Products</div>
-              <h2>Power Distribution Solutions</h2>
-            </div>
-            <Link href="/products" className="btn btn-outline-blue rv">
-              All Products →
-            </Link>
-          </div>
-          <div className="prod-highlights-3">
-            <div className="prod-card rv">
-              <div className="prod-card-img">
-                <Image
-                  src="/images/switchgear.jpg"
-                  alt="Electrical Switchgear"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
-                />
-                <div className="prod-card-overlay"></div>
-                <div className="prod-card-cat">Switchgear</div>
-              </div>
-              <div className="prod-card-body">
-                <div className="prod-name">Switchgear</div>
-                <div className="prod-type">
-                  Medium Voltage &amp; Low Voltage
-                </div>
-                <ul className="prod-specs">
-                  <li>Safe power distribution &amp; protection</li>
-                  <li>ANSI/IEEE C37 &amp; CSA Standards</li>
-                  <li>Arc resistant options available</li>
-                </ul>
-                <Link href="/products/switchgear" className="card-link">
-                  View Details →
-                </Link>
-              </div>
-            </div>
-            <div className="prod-card rv d2">
-              <div className="prod-card-img">
-                <Image
-                  src="/images/switchboards.jpg"
-                  alt="Switchboards and Panelboards"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
-                />
-                <div className="prod-card-overlay"></div>
-                <div className="prod-card-cat">Switchboards</div>
-              </div>
-              <div className="prod-card-body">
-                <div className="prod-name">Switchboards &amp; Panelboards</div>
-                <div className="prod-type">Engineered Distribution Systems</div>
-                <ul className="prod-specs">
-                  <li>Commercial, industrial &amp; infrastructure</li>
-                  <li>UL891 &amp; CSA C22.2 Standards</li>
-                  <li>Custom layouts &amp; integrated metering</li>
-                </ul>
-                <Link href="/products/switchboards" className="card-link">
-                  View Details →
-                </Link>
-              </div>
-            </div>
-            <div className="prod-card rv d3">
-              <div className="prod-card-img">
-                <Image
-                  src="/images/control-panels.jpg"
-                  alt="Control Panels"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
-                />
-                <div className="prod-card-overlay"></div>
-                <div className="prod-card-cat">Control Panels</div>
-              </div>
-              <div className="prod-card-body">
-                <div className="prod-name">Control Panels</div>
-                <div className="prod-type">UL 508A Industrial</div>
-                <ul className="prod-specs">
-                  <li>Automation, monitoring &amp; process control</li>
-                  <li>UL 508A Standards</li>
-                  <li>PLC, HMI &amp; SCADA integration</li>
-                </ul>
-                <Link href="/products/control-panels" className="card-link">
-                  View Details →
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* INDUSTRIES — full viewport height */}
       <div className="section bg-white home-industries-section h-screen min-h-fit flex flex-col !pt-14 !pb-0 max-md:!pb-12">

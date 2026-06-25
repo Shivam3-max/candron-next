@@ -1,14 +1,24 @@
 "use client";
+import { useState } from "react";
 import Link from "next/link";
 
 export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    setSubscribed(true);
+    setEmail("");
+  };
 
   return (
     <footer className="bg-navy border-t border-white/[.06] pt-20 max-md:pt-12 pb-8">
       <div className="container">
-        <div className="grid grid-cols-[2fr_1fr_1fr_1fr] max-md:grid-cols-[1fr_1fr] max-md:gap-8 gap-12 mb-16 max-md:mb-8">
-          {/* Brand — spans full width on mobile */}
-          <div className="max-md:col-span-2">
+        <div className="grid grid-cols-[2fr_3fr] max-md:grid-cols-1 gap-12 max-md:gap-8 mb-16 max-md:mb-8">
+          {/* Brand */}
+          <div>
             <Link href="/" className="logo footer-logo" aria-label="Candron Energy Inc. — Home">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/images/logo.svg" alt="" className="logo-img" />
@@ -18,20 +28,37 @@ export default function Footer() {
               manufactured, assembled, and tested entirely in-house.
             </p>
             <div className="mt-7">
-              <p className="text-[.8rem] text-white/50 mb-3">Get in touch</p>
-              <div className="flex gap-3 flex-wrap">
-                <a href="mailto:sales@candron.com" className="bg-blue border-0 rounded-md py-[.6rem] px-[1.1rem] text-white font-title text-[.72rem] font-bold tracking-[.05em] no-underline transition-[background] duration-300 hover:bg-blue-h">
-                  sales@candron.com
-                </a>
-                <a href="tel:+16476162595" className="bg-white/[.07] border border-white/[.12] rounded-md py-[.6rem] px-[1.1rem] text-white/70 font-title text-[.72rem] font-bold tracking-[.05em] no-underline transition-[border-color,color] duration-300 hover:border-blue hover:text-white">
-                  +1 (647) 616-2595
-                </a>
-              </div>
+              {subscribed ? (
+                <p className="text-blue-l text-[.82rem] font-semibold">
+                  ✓ You&apos;re subscribed. Thanks!
+                </p>
+              ) : (
+                <>
+                  <p className="text-[.8rem] text-white/50 mb-3">Stay updated</p>
+                  <form className="flex gap-2 max-md:flex-col" onSubmit={handleSubscribe}>
+                    <input
+                      type="email"
+                      placeholder="Your email address"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      aria-label="Email address for newsletter"
+                      className="flex-1 bg-white/[.07] border border-white/[.12] rounded-md py-[.6rem] px-4 text-white text-[.8rem] font-body outline-none transition-[border-color] duration-300 focus:border-blue max-md:w-full"
+                    />
+                    <button
+                      type="submit"
+                      className="bg-blue border-0 rounded-md py-[.6rem] px-[1.1rem] text-white font-title text-[.72rem] font-bold tracking-[.05em] cursor-pointer transition-[background] duration-300 hover:bg-blue-h max-md:w-full"
+                    >
+                      Subscribe
+                    </button>
+                  </form>
+                </>
+              )}
             </div>
           </div>
 
-          {/* Link columns — 3-col sub-grid on mobile */}
-          <div className="max-md:col-span-2 grid grid-cols-3 gap-6 max-md:gap-4">
+          {/* Link columns */}
+          <div className="grid grid-cols-3 gap-6 max-md:gap-4">
             {/* Products */}
             <div>
               <h5 className="font-title text-[.72rem] font-bold tracking-[.16em] uppercase text-white mb-5 max-md:mb-3">Products</h5>
@@ -71,7 +98,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/[.06] pt-8 flex justify-between items-center flex-wrap gap-4 max-sm:flex-col max-sm:gap-2 max-sm:text-center">
+        <div className="border-t border-white/[.06] pt-8 flex justify-between items-center flex-wrap gap-4 max-md:flex-col max-md:gap-2 max-md:text-center">
           <p className="font-mono text-[.63rem] text-white/[.28] tracking-[.04em]">
             © 2025 Candron Energy Inc. All rights reserved. Proudly Canadian.
           </p>
