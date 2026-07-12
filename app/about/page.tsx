@@ -10,6 +10,10 @@ export default function AboutPage() {
   return (
     <>
       <div className="page-hero">
+
+
+
+        
         <div className="page-hero-bg" style={{background:"url('/images/switchgear.jpg') center 30%/cover"}}></div>
         <div className="container page-hero-content">
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>About</span></div>
