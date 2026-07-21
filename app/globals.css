@@ -335,6 +335,78 @@ header.scrolled nav a:not(.nav-mega-item):not(.nav-mega-all):not(.nav-mega-btn):
   transform: rotate(180deg)
 }
 
+/* COMPANY SIMPLE DROPDOWN */
+.nav-company-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+  min-width: 280px;
+  padding-top: 14px;
+  background: transparent;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s, transform .2s;
+  z-index: 200;
+}
+.nav-company-dropdown::before {
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--navy);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 14px;
+  box-shadow: 0 16px 48px rgba(0,0,0,.45);
+  z-index: -1;
+}
+.nav-company-dropdown.open {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateX(-50%) translateY(0);
+}
+.nav-company-item {
+  display: flex;
+  align-items: flex-start;
+  gap: .75rem;
+  padding: .65rem .85rem;
+  border-radius: 9px;
+  text-decoration: none;
+  transition: background .15s;
+}
+.nav-company-item:hover,
+.nav-company-item.active {
+  background: rgba(255,255,255,.07);
+}
+.nav-company-icon {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 7px;
+  background: rgba(0,71,255,.18);
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+.nav-company-label {
+  font-family: var(--ft);
+  font-weight: 700;
+  font-size: .78rem;
+  color: #fff;
+  letter-spacing: .02em;
+}
+.nav-company-desc {
+  font-family: var(--fm);
+  font-size: .65rem;
+  color: rgba(255,255,255,.42);
+  line-height: 1.4;
+  margin-top: .1rem;
+}
+
 /* MEGA NAV DROPDOWN
    top: 100% + padding-top covers the visual gap without a bridge pseudo-element
    that would bleed over other nav items. */

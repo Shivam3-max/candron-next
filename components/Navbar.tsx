@@ -6,10 +6,35 @@ import { usePathname } from 'next/navigation'
 const links = [
   { href: '/', label: 'Home' },
   { href: '/products', label: 'Products' },
-  { href: '/manufacturing', label: 'Manufacturing' },
-  { href: '/testing', label: 'Testing' },
-  { href: '/commissioning', label: 'Commissioning' },
-  { href: '/about', label: 'About' },
+  { href: '/resources', label: 'Resources' },
+  { href: '/company', label: 'Company' },
+]
+
+const companyItems = [
+  {
+    href: '/manufacturing',
+    label: 'Manufacturing',
+    desc: 'In-house fabrication, assembly, and quality control',
+    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>,
+  },
+  {
+    href: '/testing',
+    label: 'Testing',
+    desc: 'IEEE/NETA certified high-voltage test facility',
+    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg>,
+  },
+  {
+    href: '/commissioning',
+    label: 'Commissioning',
+    desc: 'Field installation, startup, and site acceptance testing',
+    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>,
+  },
+  {
+    href: '/about',
+    label: 'About',
+    desc: 'Our story, leadership team, and company values',
+    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>,
+  },
 ]
 
 const productItems = [
@@ -90,6 +115,29 @@ const productItems = [
       </svg>
     ),
   },
+  {
+    href: '/products/transformers',
+    name: 'Transformers',
+    sub: '1 VA – 100+ MVA',
+    desc: 'Liquid-filled and dry-type transformers from distribution to power class — padmount, substation, LV dry-type, and MV dry-type.',
+    image: '/images/tx-placeholder.svg',
+    types: [
+      { name: 'Padmount', href: '/products/transformers/padmount', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M8 8V5a4 4 0 0 1 8 0v3"/><line x1="12" y1="11" x2="12" y2="17"/></svg> },
+      { name: 'Substation', href: '/products/transformers/substation', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 3v18M16 3v18M2 12h20"/></svg> },
+      { name: 'LV Dry-Type', href: '/products/transformers/dry-type-lv', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="3" x2="12" y2="8"/><line x1="12" y1="16" x2="12" y2="21"/></svg> },
+      { name: 'MV Dry-Type', href: '/products/transformers/dry-type-mv', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg> },
+    ],
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+        <circle cx="12" cy="12" r="9" />
+        <circle cx="12" cy="12" r="4" />
+        <line x1="12" y1="3" x2="12" y2="8" />
+        <line x1="12" y1="16" x2="12" y2="21" />
+        <line x1="3" y1="12" x2="8" y2="12" />
+        <line x1="16" y1="12" x2="21" y2="12" />
+      </svg>
+    ),
+  },
 ]
 
 export default function Navbar() {
@@ -97,6 +145,8 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [prodOpen, setProdOpen] = useState(false)
   const [mobileProdOpen, setMobileProdOpen] = useState(false)
+  const [companyOpen, setCompanyOpen] = useState(false)
+  const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false)
   const [hoveredProd, setHoveredProd] = useState(0)
   const pathname = usePathname()
 
@@ -114,6 +164,7 @@ export default function Navbar() {
 
   const headerClass = ['dark-nav', scrolled ? 'scrolled' : 'at-top'].join(' ')
   const isProductsActive = pathname === '/products' || pathname.startsWith('/products/')
+  const isCompanyActive = companyItems.some(c => pathname === c.href || pathname.startsWith(c.href + '/'))
 
   const p = productItems[hoveredProd]
 
@@ -128,6 +179,47 @@ export default function Navbar() {
 
           <nav aria-label="Main navigation">
             {links.map(l => {
+              if (l.href === '/company') {
+                return (
+                  <div
+                    key="/company"
+                    className={`nav-dd-wrap${companyOpen ? ' open' : ''}`}
+                    onMouseEnter={() => setCompanyOpen(true)}
+                    onMouseLeave={() => setCompanyOpen(false)}
+                  >
+                    <a
+                      href="#"
+                      onClick={e => e.preventDefault()}
+                      className={`nav-dd-link${isCompanyActive ? ' active' : ''}`}
+                      aria-haspopup="true"
+                      aria-expanded={companyOpen}
+                    >
+                      Company
+                      <svg className="nav-dd-chevron" width="11" height="11" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </a>
+                    <div className={`nav-company-dropdown${companyOpen ? ' open' : ''}`} role="menu">
+                      {companyItems.map(c => (
+                        <Link
+                          key={c.href}
+                          href={c.href}
+                          className={`nav-company-item${pathname === c.href ? ' active' : ''}`}
+                          onClick={() => setCompanyOpen(false)}
+                          role="menuitem"
+                        >
+                          <span className="nav-company-icon">{c.icon}</span>
+                          <span className="flex flex-col gap-[.15rem]">
+                            <span className="nav-company-label">{c.label}</span>
+                            <span className="nav-company-desc">{c.desc}</span>
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )
+              }
+
               if (l.href !== '/products') {
                 return (
                   <Link
@@ -273,6 +365,38 @@ export default function Navbar() {
       >
         <button className="mobile-close" aria-label="Close menu" onClick={() => setMobileOpen(false)}>✕</button>
         {links.map(l => {
+          if (l.href === '/company') {
+            return (
+              <div key="/company" className="mobile-products-group">
+                <button
+                  className={`mobile-products-toggle${isCompanyActive ? ' active' : ''}`}
+                  onClick={() => setMobileCompanyOpen(!mobileCompanyOpen)}
+                  aria-expanded={mobileCompanyOpen}
+                >
+                  Company
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={`mobile-prod-chevron${mobileCompanyOpen ? ' rotated' : ''}`} aria-hidden="true">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+                <div className={`mobile-products-dropdown${mobileCompanyOpen ? ' open' : ''}`}>
+                  <div className="mobile-products-list">
+                    {companyItems.map(c => (
+                      <Link
+                        key={c.href}
+                        href={c.href}
+                        onClick={() => setMobileOpen(false)}
+                        className={`mobile-products-item${pathname === c.href ? ' active' : ''}`}
+                      >
+                        <span className="mobile-products-icon">{c.icon}</span>
+                        {c.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )
+          }
+
           if (l.href === '/products') {
             return (
               <div key="/products" className="mobile-products-group">
