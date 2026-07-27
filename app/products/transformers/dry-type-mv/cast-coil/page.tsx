@@ -15,7 +15,7 @@ export default function CastCoilPage() {
       typeName="Cast Coil Transformer"
       eyebrow="Epoxy Resin Encapsulated — Harsh Environments"
       subtitle="Epoxy resin cast coil dry-type transformers rated from 300 kVA to 30 MVA for coastal, chemical, mining, and high-humidity environments where maximum moisture and contamination resistance is required."
-      heroImage="/images/tx-placeholder.svg"
+      heroImage="/images/products/transformers/dry-type-mv-cast-coil.png"
       badges={['300 kVA – 30 MVA', '2.4 kV – 36 kV Primary', 'Epoxy Cast Coil', 'IEC 60076-11', 'IP34 Standard']}
       kpis={[
         { value: '30 MVA', label: 'Max Rating' },

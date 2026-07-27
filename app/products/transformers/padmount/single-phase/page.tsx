@@ -15,7 +15,7 @@ export default function SinglePhasePadmountPage() {
       typeName="Single-Phase Padmount Transformer"
       eyebrow="Liquid-Filled Distribution Transformer"
       subtitle="Single-phase tamper-resistant padmount transformers for residential subdivision loops, streetlighting, and light commercial underground distribution. 10 kVA to 500 kVA."
-      heroImage="/images/tx-placeholder.svg"
+      heroImage="/images/products/transformers/padmount-single-phase.png"
       badges={['10 kVA – 500 kVA', '2.4 kV – 34.5 kV Primary', 'ANSI C57.12.25', 'CSA Certified', '120/240 V Secondary']}
       kpis={[
         { value: '500 kVA', label: 'Max Rating' },

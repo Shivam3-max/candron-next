@@ -15,7 +15,7 @@ export default function StandardLVDryTypePage() {
       typeName="Standard LV Dry-Type Transformer"
       eyebrow="Ventilated Indoor Distribution Transformer"
       subtitle="General-purpose ventilated dry-type transformers for commercial buildings, industrial plants, and institutional facilities. UL 1561 listed and CSA certified from 15 kVA to 2,500 kVA."
-      heroImage="/images/tx-placeholder.svg"
+      heroImage="/images/products/transformers/dry-type-lv-standard.png"
       badges={['15 kVA – 2,500 kVA', 'UL 1561 Listed', 'CSA Certified', 'Class H Insulation', 'NEMA ST-20']}
       kpis={[
         { value: '2,500 kVA', label: 'Max Rating' },

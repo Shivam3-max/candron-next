@@ -176,9 +176,8 @@ export default function IndustriesPage() {
       <div className="ind-section bg-white" id="traction-power">
         <div className="container">
           <div className="ind-detail rv">
-            {/* TODO: replace with dedicated traction power image */}
             <div className="ind-img-wrap">
-              <Image src="/images/utilities.jpg" alt="Traction Power Substation" fill className="object-cover" sizes="(max-width:1024px) 100vw, 50vw"/>
+              <Image src="/images/industries/traction-power.jpg" alt="Traction Power Substation" fill className="object-cover" sizes="(max-width:1024px) 100vw, 50vw"/>
             </div>
             <div>
               <div className="label">Industry 07</div>
@@ -204,9 +203,8 @@ export default function IndustriesPage() {
       <div className="ind-section" id="transit-substations">
         <div className="container">
           <div className="ind-detail flip rv">
-            {/* TODO: replace with dedicated transit image */}
             <div className="ind-img-wrap">
-              <Image src="/images/renewable-energy.jpg" alt="Transit Substation" fill className="object-cover" sizes="(max-width:1024px) 100vw, 50vw"/>
+              <Image src="/images/industries/transit-substations.jpg" alt="Transit Substation" fill className="object-cover" sizes="(max-width:1024px) 100vw, 50vw"/>
             </div>
             <div>
               <div className="label">Industry 08</div>
@@ -232,9 +230,8 @@ export default function IndustriesPage() {
       <div className="ind-section bg-white" id="ev-charging">
         <div className="container">
           <div className="ind-detail rv">
-            {/* TODO: replace with dedicated EV charging image */}
             <div className="ind-img-wrap">
-              <Image src="/images/data-centers.jpg" alt="EV Charging Infrastructure" fill className="object-cover" sizes="(max-width:1024px) 100vw, 50vw"/>
+              <Image src="/images/industries/ev-charging.jpg" alt="EV Charging Infrastructure" fill className="object-cover" sizes="(max-width:1024px) 100vw, 50vw"/>
             </div>
             <div>
               <div className="label">Industry 09</div>
@@ -260,9 +257,8 @@ export default function IndustriesPage() {
       <div className="ind-section" id="port-electrification">
         <div className="container">
           <div className="ind-detail flip rv">
-            {/* TODO: replace with dedicated port image */}
             <div className="ind-img-wrap">
-              <Image src="/images/oil-gas.jpg" alt="Port Electrification" fill className="object-cover" sizes="(max-width:1024px) 100vw, 50vw"/>
+              <Image src="/images/industries/port-electrification.jpg" alt="Port Electrification" fill className="object-cover" sizes="(max-width:1024px) 100vw, 50vw"/>
             </div>
             <div>
               <div className="label">Industry 10</div>

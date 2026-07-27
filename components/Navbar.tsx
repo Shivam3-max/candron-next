@@ -120,7 +120,7 @@ const productItems = [
     name: 'Transformers',
     sub: '1 VA – 100+ MVA',
     desc: 'Liquid-filled and dry-type transformers from distribution to power class — padmount, substation, LV dry-type, and MV dry-type.',
-    image: '/images/tx-placeholder.svg',
+    image: '/images/products/transformers/padmount-three-phase.png',
     types: [
       { name: 'Padmount', href: '/products/transformers/padmount', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M8 8V5a4 4 0 0 1 8 0v3"/><line x1="12" y1="11" x2="12" y2="17"/></svg> },
       { name: 'Substation', href: '/products/transformers/substation', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 3v18M16 3v18M2 12h20"/></svg> },
