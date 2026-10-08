@@ -30,7 +30,7 @@ export default function SubstationPage() {
       <div className="page-hero">
         <div
           className="page-hero-bg"
-          style={{ background: 'linear-gradient(135deg,#05091F 0%,#060d35 60%,#040818 100%)' }}
+          style={{ background: "url('/images/products/transformers/power-substation.png') center/cover" }}
         >
           <div className="absolute inset-0 opacity-[.06]" style={{ backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 39px,#0047FF 39px,#0047FF 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,#0047FF 39px,#0047FF 40px)' }} />
         </div>
