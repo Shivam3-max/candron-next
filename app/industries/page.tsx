@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
-export const metadata = { title: 'Industries', description: 'Candron powers mining, oil & gas, data centers, healthcare, utilities, renewables, traction power, transit substations, EV charging infrastructure, port electrification, and more — delivering electrical equipment built for the most demanding environments in North America.' }
+export const metadata = { title: 'Industries', description: 'CANDRON powers mining, oil & gas, data centers, healthcare, utilities, renewables, traction power, transit substations, EV charging infrastructure, port electrification, and more — delivering electrical equipment built for the most demanding environments in North America.' }
 
 export default function IndustriesPage() {
   return (
@@ -12,7 +12,7 @@ export default function IndustriesPage() {
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>Industries</span></div>
           <div className="label label-white">Markets We Serve</div>
           <h1>Industries<br/><em>We Power</em></h1>
-          <p className="lead mt-4">From underground mines to hyperscale data centers — Candron delivers electrical infrastructure solutions across the most demanding environments in North America.</p>
+          <p className="lead mt-4">From underground mines to hyperscale data centers — CANDRON delivers electrical infrastructure solutions across the most demanding environments in North America.</p>
         </div>
       </div>
 
@@ -25,7 +25,7 @@ export default function IndustriesPage() {
             <div>
               <div className="label">Industry 01</div>
               <h2>Mining</h2>
-              <p className="body mt-3">Mining operations run 24/7 in the harshest conditions on earth — dusty, wet, vibrating, and often miles underground. Electrical failures don't just cost money; they cost lives. Candron engineers and supplies electrical infrastructure that's built for the mine, not the office.</p>
+              <p className="body mt-3">Mining operations run 24/7 in the harshest conditions on earth — dusty, wet, vibrating, and often miles underground. Electrical failures don't just cost money; they cost lives. CANDRON engineers and supplies electrical infrastructure that's built for the mine, not the office.</p>
               <div className="ind-kpi-row">
                 <div className="ind-kpi"><strong>138kV</strong><span>Max Substation Voltage</span></div>
                 <div className="ind-kpi"><strong>ATEX</strong><span>Hazardous Area Rated</span></div>
@@ -51,7 +51,7 @@ export default function IndustriesPage() {
             <div>
               <div className="label">Industry 02</div>
               <h2>Oil &amp; Gas</h2>
-              <p className="body mt-3">Upstream, midstream, or downstream — the oil and gas sector demands electrical equipment that performs flawlessly in classified hazardous locations. Candron supplies and services transformers, switchgear, and load banks rated for Class I, Division 1 and 2 environments.</p>
+              <p className="body mt-3">Upstream, midstream, or downstream — the oil and gas sector demands electrical equipment that performs flawlessly in classified hazardous locations. CANDRON supplies and services transformers, switchgear, and load banks rated for Class I, Division 1 and 2 environments.</p>
               <div className="ind-kpi-row">
                 <div className="ind-kpi"><strong>Class I</strong><span>Div 1 &amp; 2 Rated</span></div>
                 <div className="ind-kpi"><strong>NEMA 7</strong><span>Explosion Proof</span></div>
@@ -77,7 +77,7 @@ export default function IndustriesPage() {
             <div>
               <div className="label">Industry 03</div>
               <h2>Power &amp; Renewables</h2>
-              <p className="body mt-3">The energy transition is accelerating, and electrical infrastructure is the foundation. Candron designs, manufactures, and delivers grid-scale switchgear, control systems, and power distribution equipment for wind, solar, and battery storage projects — with expedited lead times built for construction schedules.</p>
+              <p className="body mt-3">The energy transition is accelerating, and electrical infrastructure is the foundation. CANDRON designs, manufactures, and delivers grid-scale switchgear, control systems, and power distribution equipment for wind, solar, and battery storage projects — with expedited lead times built for construction schedules.</p>
               <div className="ind-kpi-row">
                 <div className="ind-kpi"><strong>345kV</strong><span>Max Transmission Voltage</span></div>
                 <div className="ind-kpi"><strong>300MVA</strong><span>Max Transformer Rating</span></div>
@@ -103,7 +103,7 @@ export default function IndustriesPage() {
             <div>
               <div className="label">Industry 04</div>
               <h2>AI Data Centers</h2>
-              <p className="body mt-3">The AI boom is driving unprecedented data center power demand. Hyperscalers and colocation operators need electrical infrastructure that can scale as fast as their compute capacity — and withstand zero-downtime requirements. Candron delivers.</p>
+              <p className="body mt-3">The AI boom is driving unprecedented data center power demand. Hyperscalers and colocation operators need electrical infrastructure that can scale as fast as their compute capacity — and withstand zero-downtime requirements. CANDRON delivers.</p>
               <div className="ind-kpi-row">
                 <div className="ind-kpi"><strong>99.9999%</strong><span>Uptime Requirement</span></div>
                 <div className="ind-kpi"><strong>N+1</strong><span>Redundancy Design</span></div>
@@ -129,7 +129,7 @@ export default function IndustriesPage() {
             <div>
               <div className="label">Industry 05</div>
               <h2>Healthcare</h2>
-              <p className="body mt-3">Hospitals and medical facilities operate in a life-safety environment where power interruption is simply not an option. Candron designs and supplies electrical infrastructure that meets NFPA 99 and CSA Z32 standards for essential electrical systems.</p>
+              <p className="body mt-3">Hospitals and medical facilities operate in a life-safety environment where power interruption is simply not an option. CANDRON designs and supplies electrical infrastructure that meets NFPA 99 and CSA Z32 standards for essential electrical systems.</p>
               <div className="ind-kpi-row">
                 <div className="ind-kpi"><strong>NFPA 99</strong><span>Healthcare Standard</span></div>
                 <div className="ind-kpi"><strong>CSA Z32</strong><span>Canadian Standard</span></div>
@@ -155,7 +155,7 @@ export default function IndustriesPage() {
             <div>
               <div className="label">Industry 06</div>
               <h2>Transportation</h2>
-              <p className="body mt-3">The electrification of transportation infrastructure — rail, transit, EV charging, ports — creates massive demand for custom electrical solutions. Candron supplies traction power transformers, rectifier transformers, and the supporting infrastructure to keep North America moving.</p>
+              <p className="body mt-3">The electrification of transportation infrastructure — rail, transit, EV charging, ports — creates massive demand for custom electrical solutions. CANDRON supplies traction power transformers, rectifier transformers, and the supporting infrastructure to keep North America moving.</p>
               <div className="ind-kpi-row">
                 <div className="ind-kpi"><strong>25kV AC</strong><span>Rail Traction</span></div>
                 <div className="ind-kpi"><strong>1500V DC</strong><span>Transit Systems</span></div>
@@ -182,7 +182,7 @@ export default function IndustriesPage() {
             <div>
               <div className="label">Industry 07</div>
               <h2>Traction Power</h2>
-              <p className="body mt-3">Railway electrification operates at specialized voltages and frequencies — 25 Hz, 50 Hz, and 60 Hz AC traction systems — that demand purpose-engineered transformers and substations. Candron designs and manufactures traction power equipment built to IEEE, CSA, and railway authority standards for mainline and commuter rail applications.</p>
+              <p className="body mt-3">Railway electrification operates at specialized voltages and frequencies — 25 Hz, 50 Hz, and 60 Hz AC traction systems — that demand purpose-engineered transformers and substations. CANDRON designs and manufactures traction power equipment built to IEEE, CSA, and railway authority standards for mainline and commuter rail applications.</p>
               <div className="ind-kpi-row">
                 <div className="ind-kpi"><strong>25 Hz / 50 Hz</strong><span>AC Traction Frequency</span></div>
                 <div className="ind-kpi"><strong>25 kV AC</strong><span>Rail Traction Voltage</span></div>
@@ -209,7 +209,7 @@ export default function IndustriesPage() {
             <div>
               <div className="label">Industry 08</div>
               <h2>Transit Substations</h2>
-              <p className="body mt-3">Urban rail, LRT, and metro systems rely on a network of traction substations to convert and distribute power along the route. Candron builds compact, reliable traction substations for both new-build transit projects and substation upgrades — designed for ESA compliance and transit authority acceptance.</p>
+              <p className="body mt-3">Urban rail, LRT, and metro systems rely on a network of traction substations to convert and distribute power along the route. CANDRON builds compact, reliable traction substations for both new-build transit projects and substation upgrades — designed for ESA compliance and transit authority acceptance.</p>
               <div className="ind-kpi-row">
                 <div className="ind-kpi"><strong>1500V DC</strong><span>Metro Traction</span></div>
                 <div className="ind-kpi"><strong>750V DC</strong><span>LRT Systems</span></div>
@@ -236,7 +236,7 @@ export default function IndustriesPage() {
             <div>
               <div className="label">Industry 09</div>
               <h2>EV Charging Infrastructure</h2>
-              <p className="body mt-3">Fleet electrification and public EV charging depots require engineered electrical infrastructure — from medium voltage service entry through LV distribution switchboards and control systems. Candron supplies and integrates the full electrical backbone for EV charging hubs, transit depots, and fleet yards.</p>
+              <p className="body mt-3">Fleet electrification and public EV charging depots require engineered electrical infrastructure — from medium voltage service entry through LV distribution switchboards and control systems. CANDRON supplies and integrates the full electrical backbone for EV charging hubs, transit depots, and fleet yards.</p>
               <div className="ind-kpi-row">
                 <div className="ind-kpi"><strong>MW-Scale</strong><span>Charging Hub Capacity</span></div>
                 <div className="ind-kpi"><strong>MV / LV</strong><span>Distribution Systems</span></div>
@@ -263,7 +263,7 @@ export default function IndustriesPage() {
             <div>
               <div className="label">Industry 10</div>
               <h2>Port Electrification</h2>
-              <p className="body mt-3">Modern ports and marine terminals are transitioning from diesel to shore power — supplying vessels, cranes, and terminal equipment with reliable grid power. Candron engineers and supplies the switchgear, transformers, and control infrastructure for shore power systems, cold-ironing installations, and port crane electrification.</p>
+              <p className="body mt-3">Modern ports and marine terminals are transitioning from diesel to shore power — supplying vessels, cranes, and terminal equipment with reliable grid power. CANDRON engineers and supplies the switchgear, transformers, and control infrastructure for shore power systems, cold-ironing installations, and port crane electrification.</p>
               <div className="ind-kpi-row">
                 <div className="ind-kpi"><strong>6.6 / 11 kV</strong><span>Shore Power Voltage</span></div>
                 <div className="ind-kpi"><strong>IEC 80005</strong><span>Shore Connection Standard</span></div>

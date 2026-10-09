@@ -271,7 +271,7 @@ export default function ProductTypePage({
                 </div>
                 <div className="font-display font-extrabold text-[1.05rem] text-navy">End-to-End Services</div>
               </div>
-              <p className="body mb-5">From design and specification through factory testing, commissioning, and ongoing maintenance — Candron delivers at every phase.</p>
+              <p className="body mb-5">From design and specification through factory testing, commissioning, and ongoing maintenance — CANDRON delivers at every phase.</p>
               <ul className="check-list">
                 <li>Engineering drawings and coordination studies</li>
                 <li>Factory acceptance testing (FAT) with full reports</li>

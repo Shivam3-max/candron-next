@@ -15,7 +15,7 @@ export default function PolemountPage() {
       typeName="Polemount Transformer"
       eyebrow="Overhead Distribution Transformer"
       subtitle="Single-phase and three-phase liquid-filled polemount transformers for overhead rural and semi-urban distribution lines. Rated from 3 kVA to 167 kVA at primary voltages from 2.4 kV to 34.5 kV."
-      heroImage="/images/products/transformers/polemount.png"
+      heroImage="/images/products/transformers/polemount.webp"
       badges={['3 kVA – 167 kVA', '2.4 kV – 34.5 kV Primary', 'ANSI C57.12', 'CSA Certified', 'Overhead Mounting']}
       kpis={[
         { value: '167 kVA', label: 'Max Rating' },

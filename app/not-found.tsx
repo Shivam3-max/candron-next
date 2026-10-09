@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export const metadata = { title: '404 — Page Not Found | Candron Energy Inc.' }
+export const metadata = { title: '404 — Page Not Found | CANDRON ENERGY INC.' }
 
 export default function NotFound() {
   return (

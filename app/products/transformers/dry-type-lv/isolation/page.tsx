@@ -15,7 +15,7 @@ export default function IsolationTransformerPage() {
       typeName="Isolation Transformer"
       eyebrow="Electrostatic Shielded — Medical / IT / Lab"
       subtitle="Faraday-shielded dry-type isolation transformers for noise suppression, ground loop elimination, and sensitive equipment protection. Available from 0.5 kVA to 1,000 kVA for medical, data, and laboratory environments."
-      heroImage="/images/products/transformers/dry-type-lv-isolation.png"
+      heroImage="/images/products/transformers/dry-type-lv-isolation.webp"
       badges={['0.5 kVA – 1,000 kVA', 'Faraday Shielded', 'UL 1561 Listed', 'Medical Grade Available', 'CSA Certified']}
       kpis={[
         { value: '1,000 kVA', label: 'Max Rating' },

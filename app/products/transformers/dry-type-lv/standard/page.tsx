@@ -15,7 +15,7 @@ export default function StandardLVDryTypePage() {
       typeName="Standard LV Dry-Type Transformer"
       eyebrow="Ventilated Indoor Distribution Transformer"
       subtitle="General-purpose ventilated dry-type transformers for commercial buildings, industrial plants, and institutional facilities. UL 1561 listed and CSA certified from 15 kVA to 2,500 kVA."
-      heroImage="/images/products/transformers/dry-type-lv-standard.png"
+      heroImage="/images/products/transformers/dry-type-lv-standard.webp"
       badges={['15 kVA – 2,500 kVA', 'UL 1561 Listed', 'CSA Certified', 'Class H Insulation', 'NEMA ST-20']}
       kpis={[
         { value: '2,500 kVA', label: 'Max Rating' },
@@ -100,8 +100,8 @@ export default function StandardLVDryTypePage() {
           a: 'A 150°C temperature rise transformer runs hotter (and is smaller and less expensive), while a 115°C rise unit runs cooler — it has larger conductors and a lower-loss core. The 115°C rise design has longer insulation life, lower audible noise, and better efficiency. It is the better choice for continuously loaded transformers or applications where noise matters.',
         },
         {
-          q: 'Do Candron LV dry-type transformers meet DOE 2016 efficiency requirements?',
-          a: 'Yes. All standard LV dry-type transformers from Candron are designed to meet or exceed the U.S. Department of Energy 2016 minimum energy efficiency requirements (10 CFR Part 431) and Canadian CSA C802.2 equivalent requirements. Actual efficiency values at rated load are provided in the test report for each unit.',
+          q: 'Do CANDRON LV dry-type transformers meet DOE 2016 efficiency requirements?',
+          a: 'Yes. All standard LV dry-type transformers from CANDRON are designed to meet or exceed the U.S. Department of Energy 2016 minimum energy efficiency requirements (10 CFR Part 431) and Canadian CSA C802.2 equivalent requirements. Actual efficiency values at rated load are provided in the test report for each unit.',
         },
       ]}
       quoteItems={[

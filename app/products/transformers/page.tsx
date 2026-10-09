@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export const metadata = {
   title: 'Transformers',
-  description: 'Candron Energy Inc. manufactures padmount, substation, low voltage dry-type, and medium voltage dry-type transformers — engineered and tested to ANSI, IEEE, and CSA standards.',
+  description: 'CANDRON ENERGY INC. manufactures padmount, substation, low voltage dry-type, and medium voltage dry-type transformers — engineered and tested to ANSI, IEEE, and CSA standards.',
 }
 
 const categories = [
@@ -81,7 +81,7 @@ export default function TransformersPage() {
     <>
       {/* HERO */}
       <div className="page-hero">
-        <div className="page-hero-bg" style={{ background: "url('/images/products/transformers/power-substation.png') center/cover" }}>
+        <div className="page-hero-bg" style={{ background: "url('/images/products/transformers/power-substation.webp') center/cover" }}>
           <div className="absolute inset-0 opacity-[.07]" style={{ backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 39px,#0047FF 39px,#0047FF 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,#0047FF 39px,#0047FF 40px)' }} />
         </div>
         <div className="container page-hero-content">
@@ -181,8 +181,8 @@ export default function TransformersPage() {
         <div className="container">
           <div className="wt-header rv">
             <div>
-              <div className="label label-white">The Candron Difference</div>
-              <h2 className="wt-h2">Why Specify <em>Candron</em></h2>
+              <div className="label label-white">The CANDRON Difference</div>
+              <h2 className="wt-h2">Why Specify <em>CANDRON</em></h2>
             </div>
             <div className="wt-header-right">
               <p className="wt-intro max-w-[440px] text-left">Every transformer we build is specified, engineered, manufactured, and tested under one roof — giving you faster delivery, better documentation, and a single point of accountability.</p>

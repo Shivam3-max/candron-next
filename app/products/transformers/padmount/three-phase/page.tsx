@@ -15,7 +15,7 @@ export default function ThreePhasePadmountPage() {
       typeName="Three-Phase Padmount Transformer"
       eyebrow="Liquid-Filled Distribution Transformer"
       subtitle="Tamper-resistant three-phase padmount transformers for underground commercial and industrial distribution systems. Available from 15 kVA to 2,500 kVA at primary voltages from 5 kV to 34.5 kV."
-      heroImage="/images/products/transformers/padmount-three-phase.png"
+      heroImage="/images/products/transformers/padmount-three-phase.webp"
       badges={['15 kVA – 2,500 kVA', '5 kV – 34.5 kV Primary', 'ANSI C57.12.26', 'CSA Certified', 'Oil-Immersed']}
       kpis={[
         { value: '2,500 kVA', label: 'Max Rating' },

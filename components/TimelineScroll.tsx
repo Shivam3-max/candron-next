@@ -7,11 +7,11 @@ import { useGSAP } from '@gsap/react'
 gsap.registerPlugin(ScrollTrigger)
 
 const milestones = [
-  { year: '2022', title: 'Founded in Toronto, Ontario', text: 'Candron Energy Inc. is established by a team of veteran power engineers — each bringing decades of field experience. From day one, the mandate was complete in-house design, fabrication, assembly, and testing under one roof.' },
-  { year: '2023', title: 'First Major Project Deliveries', text: 'Candron completes its first major custom switchgear, switchboard, and control panel projects across mining, oil & gas, and industrial sectors — delivered on time, tested in-house, and meeting ANSI, CSA, and IEEE standards.' },
-  { year: '2024', title: 'Material & Finishing Standards Formalized', text: 'Candron formalizes its premium build standard: 11-gauge steel enclosures, C5M corrosion protection coating, and German-manufactured laser and water-jet cutting equipment — setting a manufacturing bar well above the industry norm.' },
+  { year: '2022', title: 'Founded in Toronto, Ontario', text: 'CANDRON ENERGY INC. is established by a team of veteran power engineers — each bringing decades of field experience. From day one, the mandate was complete in-house design, fabrication, assembly, and testing under one roof.' },
+  { year: '2023', title: 'First Major Project Deliveries', text: 'CANDRON completes its first major custom switchgear, switchboard, and control panel projects across mining, oil & gas, and industrial sectors — delivered on time, tested in-house, and meeting ANSI, CSA, and IEEE standards.' },
+  { year: '2024', title: 'Material & Finishing Standards Formalized', text: 'CANDRON formalizes its premium build standard: 11-gauge steel enclosures, C5M corrosion protection coating, and German-manufactured laser and water-jet cutting equipment — setting a manufacturing bar well above the industry norm.' },
   { year: '2025', title: 'Expanded Across New Sectors', text: 'Product range expands to serve data centers, healthcare, transportation, renewable energy, and port electrification — with every project still designed, built, and tested entirely at our Toronto facility.' },
-  { year: '2026', title: '50+ Years of Combined Expertise. Still Growing.', text: 'Candron\'s team brings over 50 years of combined power systems engineering and field operations expertise to every project — with licensed engineers, M.Eng and Ph.D credentials, and field technicians with 40+ years of hands-on experience.' },
+  { year: '2026', title: '50+ Years of Combined Expertise. Still Growing.', text: 'CANDRON\'s team brings over 50 years of combined power systems engineering and field operations expertise to every project — with licensed engineers, M.Eng and Ph.D credentials, and field technicians with 40+ years of hands-on experience.' },
 ]
 
 export default function TimelineScroll() {

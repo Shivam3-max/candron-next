@@ -15,7 +15,7 @@ export default function StandardMVDryTypePage() {
       typeName="Standard MV Dry-Type Transformer"
       eyebrow="VPI Dry-Type — 2.4 kV to 35 kV"
       subtitle="Vacuum pressure impregnated dry-type transformers for industrial, utility, and commercial applications requiring medium-voltage ratings without oil. From 300 kVA to 20 MVA at 2.4 kV to 35 kV primary."
-      heroImage="/images/products/transformers/dry-type-mv-standard.png"
+      heroImage="/images/products/transformers/dry-type-mv-standard.webp"
       badges={['300 kVA – 20 MVA', '2.4 kV – 35 kV Primary', 'VPI Construction', 'IEEE C57.12.01', 'CSA Certified']}
       kpis={[
         { value: '20 MVA', label: 'Max Rating' },

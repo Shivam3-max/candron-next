@@ -108,7 +108,7 @@ const data: ProductTypePageProps = {
 }
 
 export const metadata = {
-  title: 'Utility-Approved Switchboards | Candron Energy',
+  title: 'Utility-Approved Switchboards | CANDRON ENERGY',
   description: 'Revenue metering switchboards designed to Alectra, Hydro One, and Ontario LDC requirements. UL 891, CSA, and ESA compliant. Built in Toronto.',
 }
 

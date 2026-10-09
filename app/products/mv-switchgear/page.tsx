@@ -113,7 +113,7 @@ const data: ProductTypePageProps = {
 }
 
 export const metadata = {
-  title: 'Medium Voltage Switchgear | Candron Energy',
+  title: 'Medium Voltage Switchgear | CANDRON ENERGY',
   description: 'Custom MV switchgear from 1 kV to 36 kV — metal-clad, pad-mounted, and metal-enclosed configurations. CSA and UL certified. Built in Toronto, Ontario.',
 }
 

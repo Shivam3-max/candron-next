@@ -50,7 +50,7 @@ const products = [
     eyebrow: 'Low Voltage — Up to 1000 V',
     standards: ['CSA C22.2', 'UL 508A', 'ANSI/IEEE C37', 'ESA'],
     desc1: "Custom low voltage switchgear up to 1,000 V — main breaker, main-tie-main, service entrance, and distribution configurations built to your cable schedule and site requirements.",
-    desc2: "Candron LV switchgear integrates air circuit breakers, copper busbars, CT/PT metering, and digital power monitoring in free-standing or wall-mount lineups. Every unit is manufactured and tested in-house in Toronto.",
+    desc2: "CANDRON LV switchgear integrates air circuit breakers, copper busbars, CT/PT metering, and digital power monitoring in free-standing or wall-mount lineups. Every unit is manufactured and tested in-house in Toronto.",
     kpis: [
       { value: 'Up to 1000 V', label: 'Voltage' },
       { value: 'Up to 3200 A', label: 'Max Current' },
@@ -122,7 +122,7 @@ const products = [
     eyebrow: 'Low Voltage Power Distribution',
     standards: ['UL 891', 'CSA C22.2', 'ESA-Ready'],
     desc1: "Custom-engineered switchboards designed to provide safe and efficient power distribution for commercial, industrial, and infrastructure applications. Built to your exact requirements, assembled and tested in-house at our Toronto facility.",
-    desc2: "With full in-house engineering and manufacturing, Candron delivers switchboards that fit your project's specific electrical requirements — not off-the-shelf compromises. Main-tie-main, utility metering, and distribution configurations available.",
+    desc2: "With full in-house engineering and manufacturing, CANDRON delivers switchboards that fit your project's specific electrical requirements — not off-the-shelf compromises. Main-tie-main, utility metering, and distribution configurations available.",
     kpis: [
       { value: 'Up to 4000 A', label: 'Max Current' },
       { value: '600 V', label: 'Rated Voltage' },

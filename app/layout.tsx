@@ -40,22 +40,22 @@ const fontVars = [orbitron.variable, chakraPetch.variable, dmSans.variable, jetb
 export const metadata: Metadata = {
   metadataBase: new URL('https://candron.com'),
   title: {
-    default: 'Candron Energy Inc. | Canadian Power Distribution Equipment',
-    template: '%s | Candron Energy Inc.',
+    default: 'CANDRON ENERGY INC. | Canadian Power Distribution Equipment',
+    template: '%s | CANDRON ENERGY INC.',
   },
   description: 'Custom-engineered switchgear, switchboards, and control panels — manufactured and tested entirely in-house. Every customer can reach our team directly.',
   keywords: ['switchgear', 'switchboards', 'control panels', 'power distribution', 'electrical equipment', 'Canadian manufacturer', 'Toronto Ontario'],
   openGraph: {
     type: 'website',
     locale: 'en_CA',
-    siteName: 'Candron Energy Inc.',
-    title: 'Candron Energy Inc. | Canadian Power Distribution Equipment',
+    siteName: 'CANDRON ENERGY INC.',
+    title: 'CANDRON ENERGY INC. | Canadian Power Distribution Equipment',
     description: 'Custom-engineered switchgear, switchboards, and control panels — manufactured and tested entirely in-house. Every customer can reach our team directly.',
-    images: [{ url: '/images/switchgear.jpg', width: 1200, height: 630, alt: 'Candron Energy Inc. — Power Distribution Equipment' }],
+    images: [{ url: '/images/switchgear.jpg', width: 1200, height: 630, alt: 'CANDRON ENERGY INC. — Power Distribution Equipment' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Candron Energy Inc. | Canadian Power Distribution Equipment',
+    title: 'CANDRON ENERGY INC. | Canadian Power Distribution Equipment',
     description: 'Custom-engineered switchgear, switchboards, and control panels. Built in Canada. Any customer can reach our team directly.',
     images: ['/images/switchgear.jpg'],
   },

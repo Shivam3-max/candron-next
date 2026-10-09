@@ -5,7 +5,7 @@ import Image from "next/image";
 export const metadata = {
   title: "Testing",
   description:
-    "Every Candron system undergoes comprehensive factory acceptance testing — functional, protection, control logic, and equipment validation — to ANSI, IEEE, NETA, CSA, and UL standards before shipment.",
+    "Every CANDRON system undergoes comprehensive factory acceptance testing — functional, protection, control logic, and equipment validation — to ANSI, IEEE, NETA, CSA, and UL standards before shipment.",
 };
 
 export default function TestingPage() {
@@ -55,7 +55,7 @@ export default function TestingPage() {
                 site.
               </p>
               <p className="body mb-5">
-                At Candron Energy, every system undergoes structured factory
+                At CANDRON ENERGY, every system undergoes structured factory
                 testing before shipment. Our in-house testing capability means
                 we control the process, maintain the documentation, and can
                 accommodate witnessed FAT for your project team or third-party
@@ -63,7 +63,7 @@ export default function TestingPage() {
                 facility.
               </p>
               <p className="body">
-                Testing is not an add-on at Candron. It is a fundamental part of
+                Testing is not an add-on at CANDRON. It is a fundamental part of
                 every project, performed to the same rigorous standards
                 regardless of project size or scope.
               </p>
@@ -154,7 +154,7 @@ export default function TestingPage() {
             <div className="wt-fat-content">
               <div className="label label-white">Witnessed FAT Available</div>
               <h3 className="text-white mt-2 tracking-[-.01em]">Your Team Can<br/>Be Present</h3>
-              <p className="text-white/55 text-[.92rem] leading-[1.72] mt-4 mb-6">Candron accommodates witnessed factory acceptance tests for project owners, engineers of record, and third-party inspectors. Schedule your FAT visit during project kickoff to align with your timeline.</p>
+              <p className="text-white/55 text-[.92rem] leading-[1.72] mt-4 mb-6">CANDRON accommodates witnessed factory acceptance tests for project owners, engineers of record, and third-party inspectors. Schedule your FAT visit during project kickoff to align with your timeline.</p>
               <Link href="/contact" className="btn btn-primary mag">Schedule a Visit →</Link>
             </div>
           </div>
@@ -171,7 +171,7 @@ export default function TestingPage() {
             </div>
             <h2>Built to the Highest Standards</h2>
             <p className="lead mt-4 mx-auto">
-              Candron's testing programs are aligned with applicable national
+              CANDRON's testing programs are aligned with applicable national
               and international standards governing power distribution
               equipment.
             </p>

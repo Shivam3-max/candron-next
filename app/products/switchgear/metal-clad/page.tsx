@@ -109,7 +109,7 @@ const data: ProductTypePageProps = {
 }
 
 export const metadata = {
-  title: 'Metal-Clad Medium Voltage Switchgear | Candron Energy',
+  title: 'Metal-Clad Medium Voltage Switchgear | CANDRON ENERGY',
   description: 'IEC 62271-200 and IEEE C37.20.2 metal-clad medium voltage switchgear from 5 kV to 29 kV. Draw-out VCBs, arc-resistant option, built in Toronto, Ontario.',
 }
 

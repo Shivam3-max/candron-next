@@ -174,7 +174,7 @@ export default function SwitchboardsPage() {
             <div className="rv-l">
               <div className="label">Overview</div>
               <h2 className="mb-5">Engineered for Heavy-Duty<br />LV Distribution</h2>
-              <p className="body mb-6">Candron switchboards are engineered for reliable low-voltage distribution in commercial, industrial, and infrastructure applications. Heavy-duty copper bus, wide maintenance clearances, and metering-ready designs built to UL 891 and CSA C22.2.</p>
+              <p className="body mb-6">CANDRON switchboards are engineered for reliable low-voltage distribution in commercial, industrial, and infrastructure applications. Heavy-duty copper bus, wide maintenance clearances, and metering-ready designs built to UL 891 and CSA C22.2.</p>
               <ul className="check-list mb-8">
                 <li>Up to 4000 A at 600 V</li>
                 <li>11-gauge cold-rolled steel enclosures</li>
@@ -188,7 +188,7 @@ export default function SwitchboardsPage() {
             </div>
             <div className="rv-r relative">
               <div className="prod-detail-img">
-                <Image src="/images/switchboards.jpg" alt="Candron switchboard assembly" fill className="object-cover" sizes="(max-width:1024px) 100vw,50vw" />
+                <Image src="/images/switchboards.jpg" alt="CANDRON switchboard assembly" fill className="object-cover" sizes="(max-width:1024px) 100vw,50vw" />
                 <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_45%,rgba(5,9,31,.72)_100%)] pointer-events-none" />
               </div>
               <div className="absolute bottom-0 left-0 right-0 grid grid-cols-4 bg-transparent border-t border-white/[.12] rounded-b-[14px]">

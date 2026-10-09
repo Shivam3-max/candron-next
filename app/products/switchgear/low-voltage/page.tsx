@@ -116,7 +116,7 @@ const data: ProductTypePageProps = {
 }
 
 export const metadata = {
-  title: 'Low Voltage Switchgear | Candron Energy',
+  title: 'Low Voltage Switchgear | CANDRON ENERGY',
   description: 'Custom UL 1558 and CSA C22.2 low voltage switchgear up to 600 V and 6000 A. Built in Toronto, Ontario for commercial, industrial, and infrastructure projects.',
 }
 

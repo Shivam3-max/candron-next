@@ -109,7 +109,7 @@ const data: ProductTypePageProps = {
 }
 
 export const metadata = {
-  title: 'Process Control Panels | Candron Energy',
+  title: 'Process Control Panels | CANDRON ENERGY',
   description: 'UL 508A SCADA-integrated process control panels with field I/O and telemetry for water, oil & gas, and industrial process applications. Toronto, Ontario.',
 }
 

@@ -109,7 +109,7 @@ const data: ProductTypePageProps = {
 }
 
 export const metadata = {
-  title: 'SCADA Integration Panels | Candron Energy',
+  title: 'SCADA Integration Panels | CANDRON ENERGY',
   description: 'UL 508A SCADA integration panels with IEC 62443 cybersecurity hardening, OPC-UA, and remote monitoring. Built in Toronto, Ontario.',
 }
 

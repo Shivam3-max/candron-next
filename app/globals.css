@@ -3913,22 +3913,35 @@ canvas#hero-canvas {
 
 /* Hero kicker line */
 .hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: .75rem;
-  font-family: var(--fm);
-  font-size: .72rem;
-  letter-spacing: .22em;
+  display: flex;
+  align-items: flex-start;
+  gap: .9rem;
+  font-family: var(--fd);
+  font-weight: 700;
+  font-size: clamp(1.25rem, 2.3vw, 2.1rem);
+  line-height: 1.2;
+  letter-spacing: .01em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, .8);
-  margin-bottom: 1rem
+  color: #ffffff;
+  margin-bottom: 1.1rem
 }
 
-.hero-eyebrow span {
-  width: 32px;
-  height: 1px;
+.hero-eyebrow-line {
+  width: 40px;
+  height: 2px;
   background: var(--blue);
-  display: block
+  display: block;
+  flex-shrink: 0;
+  margin-top: .6em
+}
+
+.hero-eyebrow-flag {
+  width: 1.333em;
+  height: 1em;
+  margin: 0 .35em;
+  border-radius: 3px;
+  vertical-align: -.12em;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .15)
 }
 
 /* Canadian badge */
@@ -4917,6 +4930,34 @@ canvas#hero-canvas {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.75rem
+}
+
+/* Home featured products — 4 per row, incomplete last row centred */
+.prod-highlights-all {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem
+}
+
+.prod-highlights-all > .prod-card {
+  flex: 0 0 calc((100% - 4.5rem) / 4)
+}
+
+.prod-highlights-all .prod-card-img {
+  height: 200px
+}
+
+@media(max-width:1024px) {
+  .prod-highlights-all > .prod-card {
+    flex-basis: calc((100% - 1.5rem) / 2)
+  }
+}
+
+@media(max-width:640px) {
+  .prod-highlights-all > .prod-card {
+    flex-basis: 100%
+  }
 }
 
 /* Glass stat float */
@@ -6017,8 +6058,12 @@ canvas#hero-canvas {
   }
 
   .hero-eyebrow {
-    font-size: .62rem;
-    letter-spacing: .14em
+    font-size: 1.05rem;
+    gap: .6rem
+  }
+
+  .hero-eyebrow-line {
+    width: 24px
   }
 
   .trust-lbl {

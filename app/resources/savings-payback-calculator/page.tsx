@@ -256,7 +256,7 @@ export default function SavingsPaybackCalculatorPage() {
       <div className="cta-band">
         <div className="container">
           <div className="cta-band-inner">
-            <h2 className="rv">Need Loss Data for a Candron Transformer?</h2>
+            <h2 className="rv">Need Loss Data for a CANDRON Transformer?</h2>
             <p className="lead rv !text-white/[.6] !max-w-[480px]">Our engineering team can provide complete test reports including no-load and full-load loss data for any transformer in our inventory or custom-built to your specification.</p>
             <div className="flex gap-4 justify-center flex-wrap rv">
               <Link href="/contact?product=transformer" className="btn btn-primary btn-lg mag">Request a Quote</Link>

@@ -15,7 +15,7 @@ export default function PowerSubstationPage() {
       typeName="Power Substation Transformer"
       eyebrow="Oil-Immersed Power Transformer"
       subtitle="High-voltage oil-immersed power transformers for utility transmission and distribution substations, industrial facilities, and renewable energy interconnections. Rated from 1 MVA to 100+ MVA at primary voltages from 34.5 kV to 345 kV."
-      heroImage="/images/products/transformers/power-substation.png"
+      heroImage="/images/products/transformers/power-substation.webp"
       badges={['1 MVA – 100+ MVA', '34.5 kV – 345 kV Primary', 'IEEE C57.12', 'CSA C88', 'ONAN / ONAF / OFAF']}
       kpis={[
         { value: '345 kV', label: 'Max Primary' },

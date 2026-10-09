@@ -112,7 +112,7 @@ const data: ProductTypePageProps = {
 }
 
 export const metadata = {
-  title: 'Low Voltage Switchgear | Candron Energy',
+  title: 'Low Voltage Switchgear | CANDRON ENERGY',
   description: 'Custom LV switchgear up to 1,000 V — service entrance, main-tie-main, and distribution configurations. CSA C22.2 and UL 508A certified. Built in Toronto, Ontario.',
 }
 

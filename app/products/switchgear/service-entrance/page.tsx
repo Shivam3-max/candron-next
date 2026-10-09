@@ -108,7 +108,7 @@ const data: ProductTypePageProps = {
 }
 
 export const metadata = {
-  title: 'Service-Entrance Rated Switchgear | Candron Energy',
+  title: 'Service-Entrance Rated Switchgear | CANDRON ENERGY',
   description: 'CSA and ESA-accepted service entrance switchgear with revenue metering and utility coordination. Built in Toronto, Ontario.',
 }
 

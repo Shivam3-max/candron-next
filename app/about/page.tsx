@@ -4,7 +4,7 @@ import Image from 'next/image'
 import StatBar from '@/components/StatBar'
 import TimelineScroll from '@/components/TimelineScroll'
 
-export const metadata = { title: 'About', description: '50+ years of combined engineering expertise powering North America\'s most critical facilities. Candron Energy Inc. — licensed engineers, veteran technicians, and complete in-house manufacturing from design to delivery.' }
+export const metadata = { title: 'About', description: '50+ years of combined engineering expertise powering North America\'s most critical facilities. CANDRON ENERGY INC. — licensed engineers, veteran technicians, and complete in-house manufacturing from design to delivery.' }
 
 export default function AboutPage() {
   return (
@@ -32,9 +32,9 @@ export default function AboutPage() {
               <h2>Complete In-House Electrical Manufacturing — No Outsourcing, No Third Parties</h2>
             </div>
             <div className="rv-r">
-              <p className="body mb-5">Candron Energy Inc. was founded on a straightforward principle: the best electrical equipment is designed, manufactured, assembled, and tested by the same team — under one roof. Most suppliers depend on fragmented networks of third-party fabricators, external wiring shops, and offshore supply chains. That introduces delays, quality gaps, and accountability problems that ultimately impact your project.</p>
-              <p className="body mb-5">We built Candron differently. Every stage of production happens in our Toronto facility — electrical engineering, mechanical design, fabrication, assembly, wiring, quality inspection, and factory acceptance testing. When you work with Candron, there is one point of contact and one team accountable for the outcome.</p>
-              <p className="body">Today, Candron serves clients across mining, oil and gas, power generation, data centers, healthcare, transportation, and more — delivering engineered power distribution solutions with faster lead times and uncompromising quality built to ANSI, NETA, CSA, and IEEE standards.</p>
+              <p className="body mb-5">CANDRON ENERGY INC. was founded on a straightforward principle: the best electrical equipment is designed, manufactured, assembled, and tested by the same team — under one roof. Most suppliers depend on fragmented networks of third-party fabricators, external wiring shops, and offshore supply chains. That introduces delays, quality gaps, and accountability problems that ultimately impact your project.</p>
+              <p className="body mb-5">We built CANDRON differently. Every stage of production happens in our Toronto facility — electrical engineering, mechanical design, fabrication, assembly, wiring, quality inspection, and factory acceptance testing. When you work with CANDRON, there is one point of contact and one team accountable for the outcome.</p>
+              <p className="body">Today, CANDRON serves clients across mining, oil and gas, power generation, data centers, healthcare, transportation, and more — delivering engineered power distribution solutions with faster lead times and uncompromising quality built to ANSI, NETA, CSA, and IEEE standards.</p>
             </div>
           </div>
         </div>
@@ -63,7 +63,7 @@ export default function AboutPage() {
               <h2 className="wt-h2">Our <em>Values</em></h2>
             </div>
             <div className="wt-header-right">
-              <p className="wt-intro max-w-[460px] text-left">Four principles guide every decision at Candron — from how we specify materials to how we deliver documentation on the last day of a project.</p>
+              <p className="wt-intro max-w-[460px] text-left">Four principles guide every decision at CANDRON — from how we specify materials to how we deliver documentation on the last day of a project.</p>
             </div>
           </div>
 
@@ -108,7 +108,7 @@ export default function AboutPage() {
             {/* Image + stat cards */}
             <div className="val-aside">
               <div className="val-img">
-                <Image src="/images/LicensedEngineers.jpeg" alt="Candron Engineering Team" fill className="object-cover object-top" sizes="(max-width:1024px) 100vw, 400px"/>
+                <Image src="/images/LicensedEngineers.jpeg" alt="CANDRON Engineering Team" fill className="object-cover object-top" sizes="(max-width:1024px) 100vw, 400px"/>
                 <div className="val-img-overlay"/>
                 <div className="val-img-badge">
                   <div className="val-img-badge-icon">
@@ -137,7 +137,7 @@ export default function AboutPage() {
               <h2 className="wt-h2">A Young Company.<br/><em>Decades of Expertise.</em></h2>
             </div>
             <div className="wt-header-right">
-              <p className="wt-intro max-w-[460px] text-left">Candron was founded in 2022 — but the engineers and technicians behind it bring over 50 years of combined power systems experience. Every project benefits from that depth, on day one.</p>
+              <p className="wt-intro max-w-[460px] text-left">CANDRON was founded in 2022 — but the engineers and technicians behind it bring over 50 years of combined power systems experience. Every project benefits from that depth, on day one.</p>
             </div>
           </div>
 
@@ -163,7 +163,7 @@ export default function AboutPage() {
             </div>
             <div className="rv-r flex flex-col gap-5 mt-4 max-md:hidden">
               <div className="rounded-[14px] overflow-hidden h-[260px] relative border border-blue/[.15]">
-                <Image src="/images/switchgear.jpg" alt="Candron Facility" fill className="object-cover" sizes="(max-width:1024px) 100vw, 40vw"/>
+                <Image src="/images/switchgear.jpg" alt="CANDRON Facility" fill className="object-cover" sizes="(max-width:1024px) 100vw, 40vw"/>
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent"/>
               </div>
               <div className="rounded-[14px] overflow-hidden h-[260px] relative border border-blue/[.15]">
@@ -182,7 +182,7 @@ export default function AboutPage() {
           <div className="text-center max-w-[600px] mx-auto mb-14 rv">
             <div className="label justify-center">The People Behind The Work</div>
             <h2>An Army of Experts.<br/>Built for the Field.</h2>
-            <p className="lead mt-4 mx-auto">Candron is powered by a team of licensed engineers and battle-tested technicians — over 50 years of combined expertise deployed on every project.</p>
+            <p className="lead mt-4 mx-auto">CANDRON is powered by a team of licensed engineers and battle-tested technicians — over 50 years of combined expertise deployed on every project.</p>
           </div>
 
           <div className="team-grid mb-12">
@@ -235,7 +235,7 @@ export default function AboutPage() {
                 <div className="team-name">Combined Expertise</div>
                 <div className="team-role">Across Every Discipline</div>
                 <p className="text-[.88rem] text-gray leading-[1.75] mt-3">
-                  When you work with Candron, you're not getting one engineer — you're getting the collective weight of over 50 years of power systems engineering and field operations, applied to your project from day one. From high-voltage design to medium-voltage commissioning.
+                  When you work with CANDRON, you're not getting one engineer — you're getting the collective weight of over 50 years of power systems engineering and field operations, applied to your project from day one. From high-voltage design to medium-voltage commissioning.
                 </p>
                 <div className="flex gap-3 mt-5 flex-wrap">
                   {['50+ Yrs Combined','Design to Commissioning','HV / MV Expertise','North America Wide'].map(tag => (
@@ -258,9 +258,9 @@ export default function AboutPage() {
           </div>
           <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6">
             {[
-              { quote: 'Candron delivered our switchgear on schedule and within spec. Their team was responsive at every stage — engineering queries, FAT coordination, and commissioning support. Exactly the partner we needed.', name: 'Client Name', role: 'Project Engineer', company: 'Company Name' },
+              { quote: 'CANDRON delivered our switchgear on schedule and within spec. Their team was responsive at every stage — engineering queries, FAT coordination, and commissioning support. Exactly the partner we needed.', name: 'Client Name', role: 'Project Engineer', company: 'Company Name' },
               { quote: 'What impressed us most was the ability to visit the facility mid-build and see our equipment taking shape. Full transparency, no surprises — just quality work delivered on time.', name: 'Client Name', role: 'Procurement Manager', company: 'Company Name' },
-              { quote: 'We reached out not knowing if Candron worked with projects our size — they responded the same day and walked us through every option. Completely accessible from day one, and the end product spoke for itself.', name: 'Client Name', role: 'Electrical Lead', company: 'Company Name' },
+              { quote: 'We reached out not knowing if CANDRON worked with projects our size — they responded the same day and walked us through every option. Completely accessible from day one, and the end product spoke for itself.', name: 'Client Name', role: 'Electrical Lead', company: 'Company Name' },
             ].map((t, i) => (
               <div key={i} className="p-8 bg-off border border-[#E8ECF5] rounded-[14px] flex flex-col gap-5 rv">
                 <svg width="28" height="20" viewBox="0 0 28 20" fill="none"><path d="M0 20V12.5C0 5.596 3.956 1.54 11.868 0l1.264 2.1C9.372 3.276 7.34 5.596 7.084 9.5H12V20H0zm16 0V12.5C16 5.596 19.956 1.54 27.868 0l1.264 2.1c-3.76 1.176-5.792 3.496-6.048 7.4H28V20H16z" fill="#0047FF" fillOpacity=".15"/></svg>

@@ -109,7 +109,7 @@ const data: ProductTypePageProps = {
 }
 
 export const metadata = {
-  title: 'Metal-Enclosed Load-Interrupter Switchgear | Candron Energy',
+  title: 'Metal-Enclosed Load-Interrupter Switchgear | CANDRON ENERGY',
   description: 'CSA C22.2 and IEEE C37.20.3 metal-enclosed load-interrupter switchgear from 5 kV to 27.6 kV. Compact outdoor-rated designs for feeder distribution.',
 }
 

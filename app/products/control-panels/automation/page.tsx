@@ -107,7 +107,7 @@ const data: ProductTypePageProps = {
 }
 
 export const metadata = {
-  title: 'Automation Control Panels | Candron Energy',
+  title: 'Automation Control Panels | CANDRON ENERGY',
   description: 'UL 508A custom PLC and HMI control panels for process automation and machine control. Allen-Bradley, Siemens, Schneider. Built in Toronto, Ontario.',
 }
 

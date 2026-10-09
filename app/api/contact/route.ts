@@ -91,7 +91,7 @@ export async function POST(req: Request) {
     const html = `
       <div style="font-family:sans-serif;max-width:600px;margin:0 auto;color:#111">
         <div style="background:#05091F;padding:24px 32px;border-radius:8px 8px 0 0">
-          <p style="margin:0;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5)">Candron Energy Inc.</p>
+          <p style="margin:0;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5)">CANDRON ENERGY INC.</p>
           <h1 style="margin:8px 0 0;font-size:20px;color:#fff">New Contact Form Inquiry</h1>
         </div>
         <div style="padding:32px;background:#fff;border:1px solid #e8ecf5;border-top:none;border-radius:0 0 8px 8px">
@@ -121,7 +121,7 @@ export async function POST(req: Request) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Candron Contact Form <onboarding@resend.dev>',
+        from: 'CANDRON Contact Form <onboarding@resend.dev>',
         to: [toEmail],
         reply_to: email,
         subject: `New Inquiry from ${s.name}${s.company ? ` — ${s.company}` : ''}`,

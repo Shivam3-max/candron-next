@@ -5,7 +5,7 @@ import ProcessStepsAnimate from "@/components/ProcessStepsAnimate";
 export const metadata = {
   title: "Services",
   description:
-    "Full-spectrum electrical services from Candron's licensed engineers: design & engineering, SCADA/controls, testing, high-voltage installation, equipment rental, and repair & maintenance.",
+    "Full-spectrum electrical services from CANDRON's licensed engineers: design & engineering, SCADA/controls, testing, high-voltage installation, equipment rental, and repair & maintenance.",
 };
 
 export default function ServicesPage() {
@@ -24,7 +24,7 @@ export default function ServicesPage() {
             <em>Electrical Services</em>
           </h1>
           <p className="lead mt-4">
-            From first-principles design through ongoing maintenance — Candron&apos;s
+            From first-principles design through ongoing maintenance — CANDRON&apos;s
             licensed engineers support every phase of your electrical
             infrastructure lifecycle.
           </p>
@@ -55,7 +55,7 @@ export default function ServicesPage() {
               On-Site Execution.
             </h2>
             <p className="lead mt-4 mx-auto">
-              Six core service areas, all delivered by Candron&apos;s own licensed
+              Six core service areas, all delivered by CANDRON&apos;s own licensed
               engineers — no subcontractors, no delays.
             </p>
           </div>
@@ -110,7 +110,7 @@ export default function ServicesPage() {
               <div className="svc-big-title">SCADA &amp; Controls Systems</div>
               <div className="svc-big-text">
                 Modern industrial facilities demand real-time visibility and
-                automated control. Candron designs, supplies, and integrates
+                automated control. CANDRON designs, supplies, and integrates
                 SCADA and control systems that give operators full situational
                 awareness and remote operability.
               </div>
@@ -182,7 +182,7 @@ export default function ServicesPage() {
               <div className="svc-big-title">High Voltage Installation</div>
               <div className="svc-big-text">
                 Installation of high-voltage equipment demands certified
-                expertise and zero margin for error. Candron&apos;s licensed HV
+                expertise and zero margin for error. CANDRON&apos;s licensed HV
                 technicians handle the full installation lifecycle — from
                 rigging and placement to energization.
               </div>
@@ -215,7 +215,7 @@ export default function ServicesPage() {
               <div className="svc-big-title">Equipment Rentals</div>
               <div className="svc-big-text">
                 When you need equipment now — for commissioning, maintenance
-                bypass, or emergency replacement — Candron&apos;s rental fleet
+                bypass, or emergency replacement — CANDRON&apos;s rental fleet
                 deploys fast. All rental units are fully tested and come with
                 on-site support.
               </div>
@@ -255,7 +255,7 @@ export default function ServicesPage() {
               <div className="svc-big-title">Repair &amp; Maintenance</div>
               <div className="svc-big-text">
                 Extending equipment life is almost always more cost-effective
-                than replacement. Candron&apos;s repair facility and field crews
+                than replacement. CANDRON&apos;s repair facility and field crews
                 handle everything from routine preventive maintenance to
                 emergency rewind and rebuild.
               </div>

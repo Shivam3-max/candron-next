@@ -30,7 +30,7 @@ export default function DryTypeLVPage() {
       <div className="page-hero">
         <div
           className="page-hero-bg"
-          style={{ background: "url('/images/products/transformers/dry-type-lv-standard.png') center/cover" }}
+          style={{ background: "url('/images/products/transformers/dry-type-lv-standard.webp') center/cover" }}
         >
           <div className="absolute inset-0 opacity-[.06]" style={{ backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 39px,#0047FF 39px,#0047FF 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,#0047FF 39px,#0047FF 40px)' }} />
         </div>
@@ -64,7 +64,7 @@ export default function DryTypeLVPage() {
                 Low voltage dry-type transformers use air as the cooling medium rather than liquid, making them inherently safe for indoor installation in occupied buildings. They are the standard choice for commercial office towers, retail centres, hospitals, universities, and data centres where liquid-filled units would introduce fire risk or require containment systems.
               </p>
               <p className="body mb-5">
-                Candron LV dry-type transformers are UL 1561 listed and CSA certified, meeting DOE 2016 minimum efficiency requirements and NEMA ST-20 performance standards. Class H insulation (180°C rated) provides long service life and allows operation in warm ambient environments.
+                CANDRON LV dry-type transformers are UL 1561 listed and CSA certified, meeting DOE 2016 minimum efficiency requirements and NEMA ST-20 performance standards. Class H insulation (180°C rated) provides long service life and allows operation in warm ambient environments.
               </p>
               <p className="body">
                 Isolation transformer configurations with Faraday/electrostatic shielding are available for sensitive applications in healthcare facilities, laboratories, and IT environments where common-mode noise and ground loop currents must be suppressed.
@@ -121,7 +121,7 @@ export default function DryTypeLVPage() {
             <div>
               <div className="label">Efficiency & Standards</div>
               <h2 className="mb-6">DOE 2016 &amp; CSA Compliance</h2>
-              <p className="body mb-5">All Candron LV dry-type transformers meet or exceed the U.S. Department of Energy 2016 minimum efficiency standards and CSA C802.2 requirements for distribution transformers, ensuring low life-cycle operating costs.</p>
+              <p className="body mb-5">All CANDRON LV dry-type transformers meet or exceed the U.S. Department of Energy 2016 minimum efficiency standards and CSA C802.2 requirements for distribution transformers, ensuring low life-cycle operating costs.</p>
               <ul className="check-list">
                 <li>DOE 2016 minimum efficiency compliance (kVA-dependent)</li>
                 <li>CSA C802.2 energy performance rating</li>

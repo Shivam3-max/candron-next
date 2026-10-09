@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import ProcessScroll from '@/components/ProcessScroll'
 
-export const metadata = { title: 'Commissioning', description: 'Candron provides on-site commissioning support — startup assistance, site testing, equipment verification, and performance validation — by the same engineers who designed and built your equipment.' }
+export const metadata = { title: 'Commissioning', description: 'CANDRON provides on-site commissioning support — startup assistance, site testing, equipment verification, and performance validation — by the same engineers who designed and built your equipment.' }
 
 export default function CommissioningPage() {
   return (
@@ -14,7 +14,7 @@ export default function CommissioningPage() {
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>Commissioning</span></div>
           <div className="label label-white">Field Support</div>
           <h1>Support Beyond<br/>Manufacturing</h1>
-          <p className="lead mt-4">Candron provides commissioning support to ensure systems perform as designed once installed. Our engagement with your project doesn't end at the shipping dock.</p>
+          <p className="lead mt-4">CANDRON provides commissioning support to ensure systems perform as designed once installed. Our engagement with your project doesn't end at the shipping dock.</p>
         </div>
       </div>
 
@@ -28,7 +28,7 @@ export default function CommissioningPage() {
             </div>
             <div>
               <p className="body mb-5">The transition from factory-tested equipment to an operational installation introduces variables that can only be resolved in the field — site conditions, installation practices, integration with existing systems, and startup sequencing all require engineering knowledge and hands-on experience.</p>
-              <p className="body mb-5">Candron's commissioning support extends our project engagement beyond manufacturing. Our engineering team provides startup assistance, site testing, and performance validation to ensure your equipment operates reliably from day one.</p>
+              <p className="body mb-5">CANDRON's commissioning support extends our project engagement beyond manufacturing. Our engineering team provides startup assistance, site testing, and performance validation to ensure your equipment operates reliably from day one.</p>
               <p className="body">Because we designed and built your equipment, no one is better positioned to support its commissioning. Our engineers understand every circuit, every protection setting, and every aspect of the system we delivered — and we bring that knowledge directly to your site.</p>
             </div>
           </div>
@@ -57,7 +57,7 @@ export default function CommissioningPage() {
               {
                 n: '01',
                 title: 'Startup Assistance',
-                desc: 'On-site engineering support during initial equipment energization and system startup. Candron engineers guide the commissioning sequence and verify correct operation of all systems and functions.',
+                desc: 'On-site engineering support during initial equipment energization and system startup. CANDRON engineers guide the commissioning sequence and verify correct operation of all systems and functions.',
                 icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" strokeLinecap="round" strokeLinejoin="round"/></svg>,
               },
               {
@@ -81,7 +81,7 @@ export default function CommissioningPage() {
               {
                 n: '05',
                 title: 'Troubleshooting Support',
-                desc: 'Rapid response troubleshooting during commissioning. Because Candron designed and built your equipment, we can diagnose and resolve field issues faster than any third-party technician.',
+                desc: 'Rapid response troubleshooting during commissioning. Because CANDRON designed and built your equipment, we can diagnose and resolve field issues faster than any third-party technician.',
                 icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>,
               },
               {
@@ -115,9 +115,9 @@ export default function CommissioningPage() {
               </div>
             </div>
             <div className="rv-r">
-              <div className="label">The Candron Advantage</div>
+              <div className="label">The CANDRON Advantage</div>
               <h2 className="mb-6">We Know Your Equipment<br/>Better Than Anyone</h2>
-              <p className="body mb-6">When a third-party commissioning firm arrives on site, they're reading the same documentation you are. When Candron engineers arrive, they designed the system, built the equipment, and tested it in our facility.</p>
+              <p className="body mb-6">When a third-party commissioning firm arrives on site, they're reading the same documentation you are. When CANDRON engineers arrive, they designed the system, built the equipment, and tested it in our facility.</p>
               <p className="body mb-8">That difference matters when an issue arises during startup. Our engineers can trace every circuit, understand every protection setting, and resolve issues with authority — not guesswork.</p>
               <ul className="check-list">
                 <li>Engineers who designed and built your equipment</li>
@@ -156,7 +156,7 @@ export default function CommissioningPage() {
             {/* Scroll timeline */}
             <div className="rv-r">
               <ProcessScroll variant="dark" steps={[
-                { n: '01', t: 'Pre-Commissioning Plan', d: 'Candron develops a site-specific commissioning plan aligned with your project schedule and energization sequence.' },
+                { n: '01', t: 'Pre-Commissioning Plan', d: 'CANDRON develops a site-specific commissioning plan aligned with your project schedule and energization sequence.' },
                 { n: '02', t: 'Site Mobilization', d: 'Our engineers arrive on site with complete project documentation and test equipment for field verification.' },
                 { n: '03', t: 'Pre-Energization Checks', d: 'Physical verification of installation, connections, settings, and configuration prior to initial energization.' },
                 { n: '04', t: 'Startup & Verification', d: 'Supervised energization and functional verification of all systems, protection, and control sequences.' },
@@ -172,7 +172,7 @@ export default function CommissioningPage() {
       <div className="cta-band">
         <div className="container"><div className="cta-band-inner">
           <h2 className="rv">Reliable Operation From Day One</h2>
-          <p className="lead rv !text-white/[.6] !max-w-[500px]">Add commissioning support to your Candron project and ensure your equipment performs as designed from the first day of operation.</p>
+          <p className="lead rv !text-white/[.6] !max-w-[500px]">Add commissioning support to your CANDRON project and ensure your equipment performs as designed from the first day of operation.</p>
           <div className="flex gap-4 justify-center flex-wrap rv">
             <Link href="/contact" className="btn btn-primary btn-lg mag">Request a Quote</Link>
             <a href="tel:+16476162595" className="btn btn-outline btn-lg mag">+1 (647) 616-2595</a>

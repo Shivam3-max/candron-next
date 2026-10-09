@@ -30,7 +30,7 @@ export default function SubstationPage() {
       <div className="page-hero">
         <div
           className="page-hero-bg"
-          style={{ background: "url('/images/products/transformers/power-substation.png') center/cover" }}
+          style={{ background: "url('/images/products/transformers/power-substation.webp') center/cover" }}
         >
           <div className="absolute inset-0 opacity-[.06]" style={{ backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 39px,#0047FF 39px,#0047FF 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,#0047FF 39px,#0047FF 40px)' }} />
         </div>
@@ -64,7 +64,7 @@ export default function SubstationPage() {
                 Substation transformers are the backbone of electrical transmission and distribution infrastructure, stepping down high-voltage transmission levels to sub-transmission and distribution voltages for utility and industrial use. They operate continuously under varying load conditions and must be designed for decades of reliable service.
               </p>
               <p className="body mb-5">
-                Candron substation transformers are built and tested to IEEE C57.12, CSA C88, and IEC 60076, with cooling arrangements matched to your load profile and site conditions. Standard and non-standard impedance values, tap changers (DETC or LTC), and a wide range of protection and monitoring accessories are available.
+                CANDRON substation transformers are built and tested to IEEE C57.12, CSA C88, and IEC 60076, with cooling arrangements matched to your load profile and site conditions. Standard and non-standard impedance values, tap changers (DETC or LTC), and a wide range of protection and monitoring accessories are available.
               </p>
               <p className="body">
                 Polemount distribution transformers complete the voltage cascade from sub-transmission to end users on rural and semi-urban distribution feeders, with a range of primary voltage taps and secondary arrangements.

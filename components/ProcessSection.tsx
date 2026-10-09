@@ -112,7 +112,7 @@ export default function ProcessSection() {
             </h2>
             <div className="w-9 h-[3px] bg-blue rounded-[2px] mb-6" />
             <p className="text-white/50 text-[.95rem] leading-[1.9] mb-11">
-              Every Candron project follows a structured five-stage process that eliminates surprises, maintains schedule, and delivers equipment that performs exactly as specified.
+              Every CANDRON project follows a structured five-stage process that eliminates surprises, maintains schedule, and delivers equipment that performs exactly as specified.
             </p>
 
             {/* 4-pillar card */}

@@ -6,6 +6,68 @@ import CanadaFlag from "@/components/CanadaFlag";
 import ProcessSection from "@/components/ProcessSection";
 import IndustryCarousel from "@/components/IndustryCarousel";
 
+const PLACEHOLDER = "/images/products/placeholder.svg";
+
+// Categories without their own page yet link to /contact and use the placeholder image
+const featuredProducts = [
+  {
+    name: "Transformers",
+    cat: "Transformers",
+    type: "Liquid-Filled & Dry-Type",
+    image: "/images/products/transformers/padmount-three-phase.webp",
+    specs: ["Padmount, substation & dry-type", "Distribution to power class ratings", "Liquid-filled & cast-coil options"],
+    href: "/products/transformers",
+  },
+  {
+    name: "Switchgear",
+    cat: "Switchgear",
+    type: "Medium Voltage & Low Voltage",
+    image: "/images/switchgear.jpg",
+    specs: ["Safe power distribution & protection", "ANSI/IEEE C37 & CSA Standards", "Arc resistant options available"],
+    href: "/products/switchgear",
+  },
+  {
+    name: "Switchboards & Panelboards",
+    cat: "Switchboards",
+    type: "Engineered Distribution Systems",
+    image: "/images/switchboards.jpg",
+    specs: ["Commercial, industrial & infrastructure", "UL891 & CSA C22.2 Standards", "Custom layouts & integrated metering"],
+    href: "/products/switchboards",
+  },
+  {
+    name: "Load Banks",
+    cat: "Load Banks",
+    type: "Resistive, Reactive & Combined",
+    image: PLACEHOLDER,
+    specs: ["Generator & UPS load testing", "Resistive, reactive & RL configurations", "Portable & permanent installations"],
+    href: "/contact",
+  },
+  {
+    name: "Remote Power Panels",
+    cat: "RPP",
+    type: "Data Centre Branch Distribution",
+    image: PLACEHOLDER,
+    specs: ["Branch circuit distribution near the load", "Compact, front-access enclosures", "Per-circuit monitoring options"],
+    href: "/contact",
+  },
+  {
+    name: "Power Distribution Units",
+    cat: "PDU",
+    type: "Critical Power Distribution",
+    image: PLACEHOLDER,
+    specs: ["Floor-standing transformer-based units", "Voltage step-down & isolation", "Branch circuit monitoring options"],
+    href: "/contact",
+  },
+  {
+    name: "Control Panels",
+    cat: "Control Panels",
+    type: "UL 508A Industrial",
+    image: "/images/control-panels.jpg",
+    specs: ["Automation, monitoring & process control", "UL 508A Standards", "PLC, HMI & SCADA integration"],
+    href: "/products/control-panels",
+  },
+];
+
 export default function HomePage() {
   return (
     <>
@@ -16,7 +78,11 @@ export default function HomePage() {
           <div className="hero-inner">
             <div className="hero-content">
               <div className="hero-eyebrow">
-                <span></span>Canadian Power Distribution Equipment
+                <span className="hero-eyebrow-line"></span>
+                <span>
+                  <span className="fi fi-ca hero-eyebrow-flag" role="img" aria-label="Canadian flag" />
+                  Canadian Power Distribution Equipment
+                </span>
               </div>
               <h1>
                 Engineered.
@@ -26,7 +92,7 @@ export default function HomePage() {
                 Tested. Delivered.
               </h1>
               <p className="lead">
-                Candron Energy designs, manufactures, assembles, and tests
+                CANDRON ENERGY designs, manufactures, assembles, and tests
                 electrical power distribution equipment entirely in-house —
                 delivering reliable, Canadian-made solutions with faster lead
                 times and a team you can always reach directly.
@@ -73,7 +139,7 @@ export default function HomePage() {
               <div className="hero-visual-img">
                 <Image
                   src="/images/hero.webp"
-                  alt="Candron In-House Manufacturing"
+                  alt="CANDRON In-House Manufacturing"
                   width={1280}
                   height={853}
                   priority
@@ -226,84 +292,32 @@ export default function HomePage() {
               All Products →
             </Link>
           </div>
-          <div className="prod-highlights-3">
-            <div className="prod-card rv">
-              <div className="prod-card-img">
-                <Image
-                  src="/images/switchgear.jpg"
-                  alt="Electrical Switchgear"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
-                />
-                <div className="prod-card-overlay"></div>
-                <div className="prod-card-cat">Switchgear</div>
-              </div>
-              <div className="prod-card-body">
-                <div className="prod-name">Switchgear</div>
-                <div className="prod-type">
-                  Medium Voltage &amp; Low Voltage
+          <div className="prod-highlights-all">
+            {featuredProducts.map((p, i) => (
+              <div key={p.name} className={`prod-card rv${i % 4 ? ` d${(i % 4) + 1}` : ''}`}>
+                <div className="prod-card-img">
+                  <Image
+                    src={p.image}
+                    alt={p.name}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 25vw"
+                  />
+                  <div className="prod-card-overlay"></div>
+                  <div className="prod-card-cat">{p.cat}</div>
                 </div>
-                <ul className="prod-specs">
-                  <li>Safe power distribution &amp; protection</li>
-                  <li>ANSI/IEEE C37 &amp; CSA Standards</li>
-                  <li>Arc resistant options available</li>
-                </ul>
-                <Link href="/products/switchgear" className="card-link">
-                  View Details →
-                </Link>
+                <div className="prod-card-body">
+                  <div className="prod-name">{p.name}</div>
+                  <div className="prod-type">{p.type}</div>
+                  <ul className="prod-specs">
+                    {p.specs.map(s => <li key={s}>{s}</li>)}
+                  </ul>
+                  <Link href={p.href} className="card-link">
+                    {p.href === '/contact' ? 'Request Info →' : 'View Details →'}
+                  </Link>
+                </div>
               </div>
-            </div>
-            <div className="prod-card rv d2">
-              <div className="prod-card-img">
-                <Image
-                  src="/images/switchboards.jpg"
-                  alt="Switchboards and Panelboards"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
-                />
-                <div className="prod-card-overlay"></div>
-                <div className="prod-card-cat">Switchboards</div>
-              </div>
-              <div className="prod-card-body">
-                <div className="prod-name">Switchboards &amp; Panelboards</div>
-                <div className="prod-type">Engineered Distribution Systems</div>
-                <ul className="prod-specs">
-                  <li>Commercial, industrial &amp; infrastructure</li>
-                  <li>UL891 &amp; CSA C22.2 Standards</li>
-                  <li>Custom layouts &amp; integrated metering</li>
-                </ul>
-                <Link href="/products/switchboards" className="card-link">
-                  View Details →
-                </Link>
-              </div>
-            </div>
-            <div className="prod-card rv d3">
-              <div className="prod-card-img">
-                <Image
-                  src="/images/control-panels.jpg"
-                  alt="Control Panels"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
-                />
-                <div className="prod-card-overlay"></div>
-                <div className="prod-card-cat">Control Panels</div>
-              </div>
-              <div className="prod-card-body">
-                <div className="prod-name">Control Panels</div>
-                <div className="prod-type">UL 508A Industrial</div>
-                <ul className="prod-specs">
-                  <li>Automation, monitoring &amp; process control</li>
-                  <li>UL 508A Standards</li>
-                  <li>PLC, HMI &amp; SCADA integration</li>
-                </ul>
-                <Link href="/products/control-panels" className="card-link">
-                  View Details →
-                </Link>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
@@ -314,7 +328,7 @@ export default function HomePage() {
           {/* ── Top split: headline + image ── */}
           <div className="split items-center gap-0 mb-14">
             <div className="rv-l pr-12 max-md:pr-0">
-              <div className="label">Why Candron</div>
+              <div className="label">Why CANDRON</div>
               <h2 className="leading-[1.08] mb-6">
                 Power Distribution.
                 <br />
@@ -324,7 +338,7 @@ export default function HomePage() {
               </h2>
               <div className="w-12 h-[3px] bg-blue rounded-[2px] mb-7" />
               <p className="text-gray text-[.95rem] leading-[1.85] m-0">
-                At Candron Energy, every product is engineered, manufactured,
+                At CANDRON ENERGY, every product is engineered, manufactured,
                 assembled, and tested under one roof. Combining extensive
                 academic expertise with decades of industrial experience, we
                 utilize advanced design software, detailed simulations,
@@ -341,7 +355,7 @@ export default function HomePage() {
               <div className="rounded-[14px] overflow-hidden h-[360px] max-sm:h-[220px] relative bg-[#111827]">
                 <Image
                   src="/images/switchgear.jpg"
-                  alt="Candron power distribution equipment"
+                  alt="CANDRON power distribution equipment"
                   fill
                   className="object-cover opacity-[.88]"
                   sizes="50vw"

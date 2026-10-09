@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Resources | Candron Energy Inc.',
+  title: 'Resources | CANDRON ENERGY INC.',
   description: 'Free electrical engineering calculators for transformer sizing, fault current analysis, harmonics, efficiency, and power factor — built for engineers and procurement teams.',
 }
 
@@ -154,7 +154,7 @@ export default function ResourcesPage() {
           <div className="mt-20 bg-navy rounded-[20px] p-10 flex flex-col md:flex-row gap-8 items-start md:items-center justify-between">
             <div>
               <div className="font-mono text-[.6rem] text-blue tracking-[.22em] uppercase mb-3">Need More Help?</div>
-              <h3 className="font-display font-black text-white text-[1.4rem] leading-[1.3] m-0">Talk to a Candron Engineer</h3>
+              <h3 className="font-display font-black text-white text-[1.4rem] leading-[1.3] m-0">Talk to a CANDRON Engineer</h3>
               <p className="font-mono text-[.82rem] text-white/50 mt-2 leading-[1.65] m-0 max-w-[420px]">
                 Our engineering team can review your specifications, confirm sizing, and provide same-day quotes on stock and custom-built transformers.
               </p>

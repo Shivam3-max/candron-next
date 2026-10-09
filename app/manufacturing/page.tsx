@@ -6,7 +6,7 @@ import CapabilitiesFlow from "@/components/CapabilitiesFlow";
 export const metadata = {
   title: "Manufacturing",
   description:
-    "Candron's Canadian manufacturing facility handles every stage in-house — electrical design, fabrication, assembly, wiring, and factory acceptance testing. No outsourcing, one point of accountability.",
+    "CANDRON's Canadian manufacturing facility handles every stage in-house — electrical design, fabrication, assembly, wiring, and factory acceptance testing. No outsourcing, one point of accountability.",
 };
 
 export default function ManufacturingPage() {
@@ -28,7 +28,7 @@ export default function ManufacturingPage() {
             <em>Tested Under One Roof</em>
           </h1>
           <p className="lead mt-4">
-            Candron Energy provides complete in-house manufacturing capabilities
+            CANDRON ENERGY provides complete in-house manufacturing capabilities
             that eliminate unnecessary delays and ensure total quality control —
             from first engineering drawing to final factory test.
           </p>
@@ -40,7 +40,7 @@ export default function ManufacturingPage() {
         <div className="container">
           <div className="intro-split rv">
             <div>
-              <div className="label">The Candron Difference</div>
+              <div className="label">The CANDRON Difference</div>
               <h2>Complete Manufacturing Control</h2>
             </div>
             <div>
@@ -52,10 +52,10 @@ export default function ManufacturingPage() {
                 timeline.
               </p>
               <p className="body mb-5">
-                Candron operates differently. Our Canadian manufacturing
+                CANDRON operates differently. Our Canadian manufacturing
                 facility handles every stage of production under one roof —
                 electrical design, mechanical design, fabrication, assembly,
-                wiring, and quality assurance. When you work with Candron, you
+                wiring, and quality assurance. When you work with CANDRON, you
                 have a single point of accountability for the entire
                 manufacturing process.
               </p>
@@ -87,7 +87,7 @@ export default function ManufacturingPage() {
             </div>
             <p className="mq-lead">
               While most suppliers use 13–14 gauge steel and standard coatings,
-              Candron specifies heavier materials and higher finishing standards
+              CANDRON specifies heavier materials and higher finishing standards
               — because equipment that lasts 30–40 years costs less over its
               lifetime.
             </p>
@@ -182,7 +182,7 @@ export default function ManufacturingPage() {
               </h2>
             </div>
             <p className="proc-intro">
-              Every Candron project follows a documented manufacturing process
+              Every CANDRON project follows a documented manufacturing process
               with defined milestones and quality gates — ensuring nothing is
               missed, every standard is met, and your project stays on schedule.
             </p>
@@ -330,7 +330,7 @@ export default function ManufacturingPage() {
                 <CanadaFlag height={18} /> Proudly Made in Canada
               </div>
               <p className="lead m-0">
-                Proudly engineered and manufactured in Canada. Candron's
+                Proudly engineered and manufactured in Canada. CANDRON's
                 Toronto, Ontario facility serves utilities, contractors,
                 industrial facilities, and infrastructure projects across North
                 America.

@@ -251,7 +251,7 @@ export default function InductanceCalculatorPage() {
         <div className="container">
           <div className="cta-band-inner">
             <h2 className="rv">Need %Z or Loss Data for a Specific Unit?</h2>
-            <p className="lead rv !text-white/[.6] !max-w-[480px]">Our engineering team can provide factory test reports, nameplate data, and impedance certificates for any Candron transformer, including custom-wound units.</p>
+            <p className="lead rv !text-white/[.6] !max-w-[480px]">Our engineering team can provide factory test reports, nameplate data, and impedance certificates for any CANDRON transformer, including custom-wound units.</p>
             <div className="flex gap-4 justify-center flex-wrap rv">
               <Link href="/contact" className="btn btn-primary btn-lg mag">Talk to an Engineer</Link>
               <Link href="/products/transformers" className="btn btn-outline btn-lg mag">View Transformers →</Link>

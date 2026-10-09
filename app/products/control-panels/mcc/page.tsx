@@ -108,7 +108,7 @@ const data: ProductTypePageProps = {
 }
 
 export const metadata = {
-  title: 'Motor Control Centres (MCC) | Candron Energy',
+  title: 'Motor Control Centres (MCC) | CANDRON ENERGY',
   description: 'UL 508A and NEMA ICS 18 motor control centres with VFD drives, soft starters, and intelligent motor protection. Built in Toronto, Ontario.',
 }
 

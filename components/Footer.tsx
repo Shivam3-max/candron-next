@@ -19,7 +19,7 @@ export default function Footer() {
         <div className="grid grid-cols-[2fr_3fr] max-md:grid-cols-1 gap-12 max-md:gap-8 mb-16 max-md:mb-8">
           {/* Brand */}
           <div>
-            <Link href="/" className="logo footer-logo" aria-label="Candron Energy Inc. — Home">
+            <Link href="/" className="logo footer-logo" aria-label="CANDRON ENERGY INC. — Home">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/images/logo.svg" alt="" className="logo-img" />
             </Link>
@@ -73,7 +73,8 @@ export default function Footer() {
             <div>
               <h5 className="font-title text-[.72rem] font-bold tracking-[.16em] uppercase text-white mb-5 max-md:mb-3">Capabilities</h5>
               <ul className="list-none flex flex-col gap-[.65rem] max-md:gap-2">
-                <li><Link href="/manufacturing" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Manufacturing</Link></li>
+                <li><Link href="/services" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Services</Link></li>
+                <li><Link href="/manufacturing"className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Manufacturing</Link></li>
                 <li><Link href="/testing" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Testing</Link></li>
                 <li><Link href="/commissioning" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Commissioning</Link></li>
                 <li><Link href="/about" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">About Us</Link></li>
@@ -100,7 +101,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-white/[.06] pt-8 flex justify-between items-center flex-wrap gap-4 max-md:flex-col max-md:gap-2 max-md:text-center">
           <p className="font-mono text-[.63rem] text-white/[.28] tracking-[.04em]">
-            © 2025 Candron Energy Inc. All rights reserved. Proudly Canadian.
+            © 2025 CANDRON ENERGY INC. All rights reserved. Proudly Canadian.
           </p>
           <p className="font-mono text-[.63rem] text-white/[.28] tracking-[.04em]">
             Toronto, Ontario, Canada

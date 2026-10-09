@@ -111,7 +111,7 @@ const data: ProductTypePageProps = {
 }
 
 export const metadata = {
-  title: 'Power Junction Boxes & Splitters | Candron Energy',
+  title: 'Power Junction Boxes & Splitters | CANDRON ENERGY',
   description: 'Custom industrial power junction boxes and splitters — LV up to 1,000 V and MV up to 35 kV. Weatherproof, explosion-proof, and NEMA-rated. Built in Toronto, Ontario.',
 }
 

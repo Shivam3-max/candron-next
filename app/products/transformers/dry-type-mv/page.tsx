@@ -30,7 +30,7 @@ export default function DryTypeMVPage() {
       <div className="page-hero">
         <div
           className="page-hero-bg"
-          style={{ background: "url('/images/products/transformers/dry-type-mv-standard.png') center/cover" }}
+          style={{ background: "url('/images/products/transformers/dry-type-mv-standard.webp') center/cover" }}
         >
           <div className="absolute inset-0 opacity-[.06]" style={{ backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 39px,#0047FF 39px,#0047FF 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,#0047FF 39px,#0047FF 40px)' }} />
         </div>

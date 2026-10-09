@@ -108,7 +108,7 @@ const data: ProductTypePageProps = {
 }
 
 export const metadata = {
-  title: 'Distribution Switchboards | Candron Energy',
+  title: 'Distribution Switchboards | CANDRON ENERGY',
   description: 'UL 891 multi-feeder distribution switchboards for industrial, commercial, and institutional facilities. Built in Toronto, Ontario.',
 }
 

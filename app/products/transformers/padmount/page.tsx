@@ -30,7 +30,7 @@ export default function PadmountPage() {
       <div className="page-hero">
         <div
           className="page-hero-bg"
-          style={{ background: "url('/images/products/transformers/padmount-three-phase.png') center/cover" }}
+          style={{ background: "url('/images/products/transformers/padmount-three-phase.webp') center/cover" }}
         >
           <div className="absolute inset-0 opacity-[.06]" style={{ backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 39px,#0047FF 39px,#0047FF 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,#0047FF 39px,#0047FF 40px)' }} />
         </div>
@@ -64,7 +64,7 @@ export default function PadmountPage() {
                 Padmount transformers serve as the final voltage step-down stage in underground distribution systems, converting medium-voltage supply to the utilization voltage required by residential, commercial, and industrial loads. Their tamper-resistant enclosures and locked compartments make them the standard choice wherever public access is a concern.
               </p>
               <p className="body mb-5">
-                Candron padmount transformers are built to ANSI C57.12.25 (single-phase) and ANSI C57.12.26 (three-phase) with CSA certification for Canadian installations. Standard features include radial or loop configurations, integral overcurrent protection options, and oil-immersed construction for thermal efficiency and long service life.
+                CANDRON padmount transformers are built to ANSI C57.12.25 (single-phase) and ANSI C57.12.26 (three-phase) with CSA certification for Canadian installations. Standard features include radial or loop configurations, integral overcurrent protection options, and oil-immersed construction for thermal efficiency and long service life.
               </p>
               <p className="body">
                 Both single-phase and three-phase configurations are available with customized tank dimensions, high-voltage arrangements (radial, loop, or multi-tap), low-voltage termination options, and a range of protective accessories.
