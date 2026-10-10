@@ -6,9 +6,7 @@ import CanadaFlag from "@/components/CanadaFlag";
 import ProcessSection from "@/components/ProcessSection";
 import IndustryCarousel from "@/components/IndustryCarousel";
 
-const PLACEHOLDER = "/images/products/placeholder.svg";
-
-// Categories without their own page yet link to /contact and use the placeholder image
+// Categories without their own page yet link to /contact.
 const featuredProducts = [
   {
     name: "Transformers",
@@ -38,7 +36,7 @@ const featuredProducts = [
     name: "Load Banks",
     cat: "Load Banks",
     type: "Resistive, Reactive & Combined",
-    image: PLACEHOLDER,
+    image: "/images/products/power-distribution/load-bank.webp",
     specs: ["Generator & UPS load testing", "Resistive, reactive & RL configurations", "Portable & permanent installations"],
     href: "/contact",
   },
@@ -46,7 +44,7 @@ const featuredProducts = [
     name: "Remote Power Panels",
     cat: "RPP",
     type: "Data Centre Branch Distribution",
-    image: PLACEHOLDER,
+    image: "/images/products/power-distribution/remote-power-panel.webp",
     specs: ["Branch circuit distribution near the load", "Compact, front-access enclosures", "Per-circuit monitoring options"],
     href: "/contact",
   },
@@ -54,7 +52,7 @@ const featuredProducts = [
     name: "Power Distribution Units",
     cat: "PDU",
     type: "Critical Power Distribution",
-    image: PLACEHOLDER,
+    image: "/images/products/power-distribution/power-distribution-unit.webp",
     specs: ["Floor-standing transformer-based units", "Voltage step-down & isolation", "Branch circuit monitoring options"],
     href: "/contact",
   },
