@@ -46,10 +46,14 @@ export const metadata: Metadata = {
   description: 'Custom-engineered switchgear, switchboards, and control panels — manufactured and tested entirely in-house. Every customer can reach our team directly.',
   keywords: ['switchgear', 'switchboards', 'control panels', 'power distribution', 'electrical equipment', 'Canadian manufacturer', 'Toronto Ontario'],
   icons: {
-    icon: [{ url: '/favicon.png', type: 'image/png', sizes: '96x96' }],
-    shortcut: ['/favicon.png'],
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.png', type: 'image/png', sizes: '96x96' },
+    ],
+    shortcut: ['/favicon.ico'],
     apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
   },
+  manifest: '/site.webmanifest',
   openGraph: {
     type: 'website',
     locale: 'en_CA',
