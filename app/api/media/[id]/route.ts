@@ -1,5 +1,46 @@
 import { NextResponse } from 'next/server'
 import type { RowDataPacket } from 'mysql2/promise'
-import { getDb,isDatabaseConfigured } from '@/lib/db'
-export const dynamic='force-dynamic'
-export async function GET(request:Request,context:{params:Promise<{id:string}>}){if(!isDatabaseConfigured())return new NextResponse('Not found',{status:404});try{const {id}=await context.params;const [rows]=await getDb().execute<(RowDataPacket&{image_data:Buffer|null;mime_type:string;external_url:string|null})[]>('SELECT image_data,mime_type,external_url FROM product_images WHERE id=? LIMIT 1',[Number(id)]);const image=rows[0];if(!image)return new NextResponse('Not found',{status:404});if(image.external_url){const target=image.external_url.startsWith('/')?new URL(image.external_url,request.url):image.external_url;return NextResponse.redirect(target,307)}if(!image.image_data)return new NextResponse('Not found',{status:404});return new NextResponse(new Uint8Array(image.image_data),{headers:{'Content-Type':image.mime_type,'Cache-Control':'public, max-age=31536000, immutable','X-Content-Type-Options':'nosniff'}})}catch(error){console.warn('[media] Database unavailable while loading an inventory image.',error instanceof Error?error.message:error);return new NextResponse('Not found',{status:404})}}
+import { getDb, isDatabaseConfigured } from '@/lib/db'
+
+export const dynamic = 'force-dynamic'
+
+export async function GET(_request: Request, context: { params: Promise<{ id: string }> }) {
+  if (!isDatabaseConfigured()) return new NextResponse('Not found', { status: 404 })
+
+  try {
+    const { id } = await context.params
+    const [rows] = await getDb().execute<
+      (RowDataPacket & { image_data: Buffer | null; mime_type: string; external_url: string | null })[]
+    >('SELECT image_data,mime_type,external_url FROM product_images WHERE id=? LIMIT 1', [Number(id)])
+    const image = rows[0]
+
+    if (!image) return new NextResponse('Not found', { status: 404 })
+
+    if (image.external_url?.startsWith('/')) {
+      return new NextResponse(null, {
+        status: 307,
+        headers: {
+          Location: image.external_url,
+          'Cache-Control': 'public, max-age=3600',
+        },
+      })
+    }
+
+    if (image.external_url) return NextResponse.redirect(image.external_url, 307)
+    if (!image.image_data) return new NextResponse('Not found', { status: 404 })
+
+    return new NextResponse(new Uint8Array(image.image_data), {
+      headers: {
+        'Content-Type': image.mime_type,
+        'Cache-Control': 'public, max-age=31536000, immutable',
+        'X-Content-Type-Options': 'nosniff',
+      },
+    })
+  } catch (error) {
+    console.warn(
+      '[media] Database unavailable while loading an inventory image.',
+      error instanceof Error ? error.message : error,
+    )
+    return new NextResponse('Not found', { status: 404 })
+  }
+}
