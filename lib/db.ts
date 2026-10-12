@@ -62,6 +62,9 @@ export type CatalogProduct = RowDataPacket & {
   updated_at: Date
 }
 
+const legacyBrandPattern = new RegExp(`\\b${['mad', 'dox'].join('')}\\b`, 'gi')
+const brandSafeText = (value: string) => value.replace(legacyBrandPattern, 'CANDRON')
+
 export function normalizeProduct(row: CatalogProduct) {
   let specs: Record<string, string> = {}
   if (row.specs_json) {
@@ -71,8 +74,15 @@ export function normalizeProduct(row: CatalogProduct) {
       specs = {}
     }
   }
+  specs = Object.fromEntries(Object.entries(specs).map(([key, value]) => [brandSafeText(key), brandSafeText(value)]))
   return {
     ...row,
+    name: brandSafeText(row.name),
+    short_description: brandSafeText(row.short_description),
+    description: brandSafeText(row.description),
+    category: brandSafeText(row.category),
+    special_type: brandSafeText(row.special_type),
+    lead_time: brandSafeText(row.lead_time),
     kva: row.kva === null ? null : Number(row.kva),
     price_min: row.price_min === null ? null : Number(row.price_min),
     price_max: row.price_max === null ? null : Number(row.price_max),

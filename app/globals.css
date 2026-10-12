@@ -1957,6 +1957,12 @@ canvas#hero-canvas {
   align-items: stretch
 }
 
+.inventory-toolbar > *,
+.inventory-search,
+.inventory-select-shell {
+  min-width: 0
+}
+
 .inventory-search,
 .inventory-select-shell {
   position: relative;
@@ -2095,32 +2101,30 @@ canvas#hero-canvas {
 
 @media(max-width:768px) {
   .inventory-toolbar {
-    grid-template-columns: 1fr 1fr
-  }
-
-  .inventory-search {
-    grid-column: 1 / -1
-  }
-
-  .inventory-filter-toggle {
-    width: 100%;
-    padding-inline: .75rem
-  }
-}
-
-@media(max-width:430px) {
-  .inventory-toolbar {
-    grid-template-columns: 1fr;
-    gap: .7rem
+    grid-template-columns: minmax(0, 1fr);
+    gap: .75rem
   }
 
   .inventory-search {
     grid-column: auto
   }
 
+  .inventory-filter-toggle,
+  .inventory-sort-control {
+    width: 100%;
+    padding-inline: .75rem
+  }
+
   .inventory-search input,
   .inventory-select-shell select {
-    height: 58px
+    height: 58px;
+    font-size: 16px
+  }
+}
+
+@media(max-width:430px) {
+  .inventory-toolbar {
+    gap: .7rem
   }
 }
 

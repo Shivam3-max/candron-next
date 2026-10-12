@@ -77,14 +77,14 @@ export default function ProductDetailNoMedia({ slug }: { slug: string }) {
 
   return (
     <>
-      <section className="section pt-28 sm:pt-36 bg-off max-sm:pb-10">
+      <section className="section !pt-28 sm:!pt-36 bg-off max-sm:!pb-10">
         <div className="container">
           <div className="breadcrumb mb-6 sm:mb-8 flex flex-wrap gap-x-1 break-words">
             <Link href="/">Home</Link> / <Link href="/inventory">Inventory</Link> / <span className="break-all">{product.sku}</span>
           </div>
           <div className="max-w-[980px]">
             <div className="label break-words">{product.condition_name} · {product.category}</div>
-            <h1 className="!text-navy !text-[clamp(1.9rem,7vw,4.3rem)] leading-[1.05] break-words">{product.name}</h1>
+            <h1 className="!text-navy !text-[clamp(1.75rem,8vw,4.3rem)] leading-[1.08] break-words">{product.name}</h1>
             <p className="font-mono text-[.7rem] text-blue tracking-[.06em] mt-3 break-all">SKU {product.sku}</p>
             <p className="lead mt-5 !text-gray max-w-[780px] max-sm:!text-[1rem] break-words">{product.short_description}</p>
             <div className="rounded-[14px] bg-white border border-[#E4E9F3] p-5 sm:p-6 my-6 sm:my-7 max-w-[700px]">
@@ -110,13 +110,13 @@ export default function ProductDetailNoMedia({ slug }: { slug: string }) {
             <h2 className="break-words">Built for Reliable Service</h2>
             <p className="body mt-5 whitespace-pre-line break-words">{product.description}</p>
           </div>
-          <div className="min-w-0 rounded-[16px] bg-off border border-[#E4E9F3] p-4 sm:p-6">
+          <div className="min-w-0 rounded-[16px] bg-off border border-[#E4E9F3] p-4 sm:p-6 overflow-hidden">
             <h3 className="font-display font-black text-[1rem] mb-5">Specifications</h3>
             <dl className="m-0">
               {specifications.map(([key, value]) => (
-                <div key={String(key)} className="grid grid-cols-[minmax(0,.8fr)_minmax(0,1.2fr)] max-[360px]:grid-cols-1 gap-2 sm:gap-4 py-3 border-t border-[#DDE3EF]">
+                <div key={String(key)} className="grid grid-cols-[minmax(0,.8fr)_minmax(0,1.2fr)] max-sm:grid-cols-1 gap-2 sm:gap-4 py-3 border-t border-[#DDE3EF]">
                   <dt className="font-mono text-[.65rem] text-gray break-words">{key}</dt>
-                  <dd className="m-0 text-right max-[360px]:text-left font-title text-[.8rem] font-bold text-navy break-words">{String(value)}{key === 'kVA' ? ' kVA' : ''}</dd>
+                  <dd className="m-0 text-right max-sm:text-left font-title text-[.8rem] font-bold text-navy break-words">{String(value)}{key === 'kVA' ? ' kVA' : ''}</dd>
                 </div>
               ))}
             </dl>

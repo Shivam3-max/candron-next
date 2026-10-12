@@ -64,7 +64,7 @@ export default function Footer() {
             <div>
               <h5 className="font-title text-[.72rem] font-bold tracking-[.16em] uppercase text-white mb-5 max-md:mb-3">Products</h5>
               <ul className="list-none flex flex-col gap-[.65rem] max-md:gap-2">
-                <li><Link href="/inventory" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Available Inventory</Link></li>
+                {/* Inventory navigation is temporarily disabled. */}
                 <li><Link href="/products/mv-switchgear" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">MV Switchgear</Link></li>
                 <li><Link href="/products/lv-switchgear" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">LV Switchgear</Link></li>
                 <li><Link href="/products/switchboards" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Switchboards</Link></li>

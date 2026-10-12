@@ -6,7 +6,8 @@ import { usePathname } from 'next/navigation'
 const links = [
   { href: '/', label: 'Home' },
   { href: '/products', label: 'Products' },
-  { href: '/inventory', label: 'Inventory' },
+  // Inventory navigation is temporarily disabled.
+  // { href: '/inventory', label: 'Inventory' },
   { href: '/resources', label: 'Resources' },
   { href: '/company', label: 'Company' },
 ]
@@ -177,9 +178,8 @@ export default function Navbar() {
   const requiresSolidHeader = pathname.startsWith('/admin')
   const headerClass = ['dark-nav', scrolled || requiresSolidHeader ? 'scrolled' : 'at-top'].join(' ')
   const isProductsActive = pathname === '/products' || pathname.startsWith('/products/')
-  const isInventoryActive = pathname === '/inventory' || pathname.startsWith('/inventory/')
   const isCompanyActive = companyItems.some(c => pathname === c.href || pathname.startsWith(c.href + '/'))
-  const isLinkActive = (href: string) => href === '/inventory' ? isInventoryActive : pathname === href
+  const isLinkActive = (href: string) => pathname === href
 
   const p = productItems[hoveredProd]
 
@@ -306,9 +306,7 @@ export default function Navbar() {
                           <Link href="/products" className="nav-mega-all" onClick={() => { setProdOpen(false); setHoveredProd(0) }}>
                             VIEW ALL PRODUCTS →
                           </Link>
-                          <Link href="/inventory" className="nav-mega-all nav-mega-inventory" onClick={() => { setProdOpen(false); setHoveredProd(0) }}>
-                            AVAILABLE INVENTORY →
-                          </Link>
+                          {/* Inventory navigation is temporarily disabled. */}
                         </div>
                       </div>
 
@@ -448,13 +446,7 @@ export default function Navbar() {
                     >
                       All Products
                     </Link>
-                    <Link
-                      href="/inventory"
-                      onClick={() => setMobileOpen(false)}
-                      className={`mobile-products-all mobile-inventory-link${isInventoryActive ? ' active' : ''}`}
-                    >
-                      Available Inventory
-                    </Link>
+                    {/* Inventory navigation is temporarily disabled. */}
                     {productItems.map(item => (
                       <Link
                         key={item.href}

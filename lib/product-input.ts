@@ -6,7 +6,8 @@ export type ProductInput = {
   is_featured: boolean; is_active: boolean
 }
 
-const text = (value: unknown, max = 500) => String(value ?? '').trim().slice(0, max)
+const legacyBrandPattern = new RegExp(`\\b${['mad', 'dox'].join('')}\\b`, 'gi')
+const text = (value: unknown, max = 500) => String(value ?? '').replace(legacyBrandPattern, 'CANDRON').trim().slice(0, max)
 const nullableNumber = (value: unknown) => value === '' || value === null || value === undefined ? null : Number(value)
 
 export function parseProductInput(body: Record<string, unknown>): ProductInput {

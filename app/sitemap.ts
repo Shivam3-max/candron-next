@@ -8,7 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/about',
     '/project-process',
     '/products',
-    '/inventory',
+    // Inventory is temporarily excluded from public navigation and indexing.
     '/products/switchgear',
     '/products/switchgear/metal-clad',
     '/products/switchgear/load-interrupter',
