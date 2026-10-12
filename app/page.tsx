@@ -72,15 +72,12 @@ export default function HomePage() {
       <section className="hero-home">
         <HeroCanvas />
         <div className="container">
-          <div className="hero-eyebrow hero-eyebrow-primary">
-            <span className="hero-eyebrow-line"></span>
-            <span>
-              <span className="fi fi-ca hero-eyebrow-flag" role="img" aria-label="Canadian flag" />
-              Made in Canada - Power Distribution Equipment
-            </span>
-          </div>
           <div className="hero-inner">
             <div className="hero-content">
+              <div className="hero-made-title">
+                Made in Canada —<br />
+                <em>Power Distribution Equipment.</em>
+              </div>
               <h1>
                 Engineered.
                 <br />

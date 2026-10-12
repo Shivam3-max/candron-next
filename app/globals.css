@@ -1026,6 +1026,24 @@ canvas#hero-canvas {
   color: #4D8AFF
 }
 
+.hero-made-title {
+  max-width: 760px;
+  margin-bottom: 1rem;
+  color: #fff;
+  font-family: var(--fd);
+  font-size: clamp(2.15rem, 2.9vw, 3rem);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -.02em;
+  text-wrap: balance;
+  animation: hero-in-up .55s .05s cubic-bezier(.4, 0, .2, 1) both
+}
+
+.hero-made-title em {
+  color: #4D8AFF;
+  font-style: normal
+}
+
 .hero-home .lead {
   color: rgba(255, 255, 255, .68);
   margin-bottom: 1.1rem
@@ -1251,6 +1269,7 @@ canvas#hero-canvas {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .hero-made-title,
   .hero-eyebrow,
   .hero-home h1,
   .hero-home .lead,
@@ -5089,6 +5108,13 @@ canvas#hero-canvas {
   align-items: center
 }
 
+/* The homepage origin statement belongs to the same visual tier as the
+   delivery statement below it, rather than spanning the full hero width. */
+.hero-made-title + h1 {
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, .16)
+}
+
 .hero-eyebrow-primary .hero-eyebrow-line {
   width: clamp(36px, 4vw, 64px)
 }
@@ -5098,6 +5124,10 @@ canvas#hero-canvas {
 }
 
 @media (min-width: 1600px) {
+  .hero-made-title {
+    font-size: clamp(2.8rem, 2.8vw, 3.5rem)
+  }
+
   .hero-eyebrow-primary {
     font-size: clamp(3.8rem, 4vw, 4.6rem)
   }
@@ -5108,6 +5138,10 @@ canvas#hero-canvas {
 }
 
 @media (min-width: 2200px) {
+  .hero-made-title {
+    font-size: clamp(3.2rem, 2.4vw, 4rem)
+  }
+
   .hero-eyebrow-primary {
     font-size: clamp(4.6rem, 3.6vw, 5.4rem)
   }
@@ -5118,6 +5152,11 @@ canvas#hero-canvas {
 }
 
 @media (max-width: 1024px) {
+  .hero-made-title {
+    max-width: 680px;
+    font-size: clamp(1.65rem, 4.8vw, 2.35rem)
+  }
+
   .hero-eyebrow-primary {
     font-size: clamp(2rem, 6vw, 3rem)
   }
@@ -5128,6 +5167,16 @@ canvas#hero-canvas {
 }
 
 @media (max-width: 640px) {
+  .hero-made-title {
+    font-size: clamp(1.35rem, 5.4vw, 1.8rem);
+    line-height: 1.12;
+    margin-bottom: .8rem
+  }
+
+  .hero-made-title + h1 {
+    padding-top: .8rem
+  }
+
   .hero-eyebrow-primary {
     align-items: flex-start;
     font-size: clamp(1.65rem, 7vw, 2.25rem);
