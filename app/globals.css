@@ -413,13 +413,14 @@ header.scrolled nav a:not(.nav-mega-item):not(.nav-mega-all):not(.nav-mega-btn):
 .nav-dropdown {
   position: absolute;
   top: 100%;
-  left: 0;
+  left: 50%;
   width: 620px;
+  max-width: calc(100vw - 2rem);
   padding-top: 18px;
   background: transparent;
   opacity: 0;
   pointer-events: none;
-  transform: translateY(-8px);
+  transform: translate(-50%, -8px);
   transition: opacity .2s ease, transform .2s ease;
   z-index: 200
 }
@@ -427,7 +428,7 @@ header.scrolled nav a:not(.nav-mega-item):not(.nav-mega-all):not(.nav-mega-btn):
 .nav-dropdown.open {
   opacity: 1;
   pointer-events: auto;
-  transform: translateY(0)
+  transform: translate(-50%, 0)
 }
 
 .nav-mega-inner {
