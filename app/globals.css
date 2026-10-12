@@ -4767,6 +4767,111 @@ canvas#hero-canvas {
   }
 }
 
+/* ADMIN — dark control-room interface */
+.admin-dark {
+  min-height: 100dvh;
+  color: #f7f9ff;
+  color-scheme: dark;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(0, 71, 255, .18), transparent 34rem),
+    radial-gradient(circle at 88% 92%, rgba(0, 71, 255, .1), transparent 30rem),
+    #05091f;
+}
+
+.admin-dark .bg-off {
+  background: transparent !important;
+}
+
+.admin-dark .bg-white {
+  background: rgba(11, 18, 45, .94) !important;
+  border-color: rgba(111, 135, 188, .24) !important;
+  box-shadow: 0 20px 65px rgba(0, 0, 0, .28);
+}
+
+.admin-dark h1,
+.admin-dark h2,
+.admin-dark h3,
+.admin-dark .\!text-navy {
+  color: #fff !important;
+}
+
+.admin-dark .text-gray {
+  color: #9ca9c7 !important;
+}
+
+.admin-dark input:not([type='checkbox']),
+.admin-dark select,
+.admin-dark textarea {
+  color: #f7f9ff;
+  background: rgba(3, 8, 27, .78) !important;
+  border-color: rgba(111, 135, 188, .38) !important;
+  caret-color: #4f83ff;
+  transition: border-color .2s, box-shadow .2s, background .2s;
+}
+
+.admin-dark input:not([type='checkbox']):focus,
+.admin-dark select:focus,
+.admin-dark textarea:focus {
+  border-color: #477dff !important;
+  background: rgba(5, 11, 35, .96) !important;
+  box-shadow: 0 0 0 3px rgba(0, 71, 255, .16);
+}
+
+.admin-dark input::placeholder,
+.admin-dark textarea::placeholder {
+  color: #687695;
+  opacity: 1;
+}
+
+.admin-dark select option {
+  color: #f7f9ff;
+  background: #0b122d;
+}
+
+.admin-dark input[type='checkbox'] {
+  accent-color: #165dff;
+}
+
+.admin-dark input[type='file']::file-selector-button {
+  color: #8eb0ff;
+  background: rgba(0, 71, 255, .14);
+  border: 1px solid rgba(74, 123, 255, .28);
+}
+
+.admin-dark tbody tr {
+  border-color: rgba(111, 135, 188, .16) !important;
+}
+
+.admin-dark tbody tr:hover {
+  background: rgba(0, 71, 255, .055);
+}
+
+.admin-dark .bg-navy {
+  background: #070d25 !important;
+}
+
+.admin-dark .bg-gray-100 {
+  background: rgba(128, 145, 184, .14) !important;
+  color: #b9c4dc !important;
+}
+
+.admin-dark .bg-red-50 {
+  background: rgba(185, 28, 28, .16) !important;
+  color: #fca5a5 !important;
+  border: 1px solid rgba(248, 113, 113, .25);
+}
+
+.admin-dark button:disabled {
+  cursor: not-allowed;
+  opacity: .62;
+}
+
+@media(max-width:640px) {
+  .admin-dark .bg-white {
+    box-shadow: 0 14px 40px rgba(0, 0, 0, .24);
+  }
+}
+
 /* Homepage editorial headline — preserve the approved copy while using the
    selected typography hierarchy: primary origin statement, compact proof line. */
 .hero-home .hero-made-title {

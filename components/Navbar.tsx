@@ -174,7 +174,8 @@ export default function Navbar() {
     return () => { document.body.style.overflow = '' }
   }, [mobileOpen])
 
-  const headerClass = ['dark-nav', scrolled ? 'scrolled' : 'at-top'].join(' ')
+  const requiresSolidHeader = pathname.startsWith('/admin')
+  const headerClass = ['dark-nav', scrolled || requiresSolidHeader ? 'scrolled' : 'at-top'].join(' ')
   const isProductsActive = pathname === '/products' || pathname.startsWith('/products/')
   const isInventoryActive = pathname === '/inventory' || pathname.startsWith('/inventory/')
   const isCompanyActive = companyItems.some(c => pathname === c.href || pathname.startsWith(c.href + '/'))
