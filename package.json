@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "db:init": "node --env-file-if-exists=.env.local scripts/init-db.mjs",
-    "catalog:import": "node --env-file-if-exists=.env.local scripts/import-reference-catalog.mjs",
+    "catalog:seed": "node --env-file-if-exists=.env.local scripts/seed-catalog.mjs",
     "hostinger:build": "node scripts/hostinger-build.mjs"
   },
   "dependencies": {

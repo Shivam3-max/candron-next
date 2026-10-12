@@ -1,7 +1,7 @@
 import mysql from 'mysql2/promise'
 import { readFile } from 'node:fs/promises'
 import { randomBytes, scryptSync } from 'node:crypto'
-import { ensureCatalogImageSchema } from './import-reference-catalog.mjs'
+import { ensureCatalogImageSchema } from './seed-catalog.mjs'
 
 const required = (name) => {
   const value = process.env[name]

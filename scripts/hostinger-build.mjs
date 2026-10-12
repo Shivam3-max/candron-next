@@ -10,9 +10,9 @@ console.log('Preparing the optional CANDRON inventory database...')
 const initialized = run(['run', 'db:init'])
 
 if (initialized === 0) {
-  const imported = run(['run', 'catalog:import', '--', '--once'])
-  if (imported !== 0) {
-    console.warn('Catalog import was skipped because the database is unavailable. Continuing deployment with empty inventory.')
+  const seeded = run(['run', 'catalog:seed', '--', '--once'])
+  if (seeded !== 0) {
+    console.warn('Catalog seeding was skipped because the database is unavailable. Continuing deployment with empty inventory.')
   }
 } else {
   console.warn('Database initialization was skipped because MySQL is unavailable or not configured. Continuing deployment with empty inventory.')

@@ -1,6 +1,6 @@
 # CANDRON Inventory Deployment on Hostinger
 
-The catalog is a server-rendered Next.js application backed by Hostinger MySQL. Admin uploads are stored in MySQL, while the initial reference catalog keeps its source image URLs in MySQL so every product gallery can be seeded without duplicating large image files.
+The catalog is a server-rendered Next.js application backed by Hostinger MySQL. Admin uploads are stored in MySQL. The initial CANDRON catalog is bundled with the application in `database/catalog-seed.json`, and its product images are served from `public/images/inventory`. Deployment and runtime do not depend on an external catalog service.
 
 ## 1. Hosting requirements
 
@@ -28,7 +28,6 @@ DB_CONNECTION_LIMIT=8
 ADMIN_SESSION_SECRET=<at least 32 random characters>
 ADMIN_EMAIL=<initial administrator email>
 ADMIN_PASSWORD=<initial administrator password, at least 12 characters>
-REFERENCE_CATALOG_URL=https://store.maddox.com/collections/all-products/products.json?limit=250
 ```
 
 Generate the session secret locally:
@@ -49,17 +48,19 @@ node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"
 
 ```text
 npm run db:init
-npm run catalog:import -- --once
+npm run catalog:seed -- --once
 npm run build
 ```
 
-The importer records `reference-catalog-v1` in the MySQL `deployment_tasks` table only after a successful import. The first deployment imports the 32 reference product families and their image galleries. Every later deployment sees the completed marker, skips the import, and preserves CANDRON Admin changes. A database lock prevents two simultaneous deployments from importing twice.
+The seeder records `candron-catalog-seed-v1` in the MySQL `deployment_tasks` table only after a successful seed. The first deployment adds the 32 bundled CANDRON product records and their local primary images. Every later deployment sees the completed marker, skips the seed, and preserves CANDRON Admin changes. A database lock prevents two simultaneous deployments from seeding twice.
 
 To recover missing products manually without overwriting existing admin edits, use:
 
 ```text
-npm run catalog:import
+npm run catalog:seed
 ```
+
+To deliberately refresh existing seeded product content from the bundled file, use `npm run catalog:seed -- --update`. Admin-uploaded image data is preserved; obsolete HTTP image links are removed.
 
 ## 5. First login
 
