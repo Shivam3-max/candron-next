@@ -41,16 +41,18 @@ node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"
 - Framework: **Next.js**
 - Node.js: **22.x**
 - Install command: `npm ci`
-- Build command: `npm run hostinger:build`
+- Build command: `npm run build`
 - Start command: `npm start`
 
-`hostinger:build` runs these steps in order:
+The standard `build` command runs these steps in order, so Hostinger cannot bypass database preparation:
 
 ```text
 npm run db:init
 npm run catalog:seed -- --once
-npm run build
+npm run build:next
 ```
+
+`npm run hostinger:build` remains available as an alias for the same deployment workflow.
 
 The seeder records `candron-catalog-seed-v1` in the MySQL `deployment_tasks` table only after a successful seed. The first deployment adds the 32 bundled CANDRON product records and their local primary images. Every later deployment sees the completed marker, skips the seed, and preserves CANDRON Admin changes. A database lock prevents two simultaneous deployments from seeding twice.
 

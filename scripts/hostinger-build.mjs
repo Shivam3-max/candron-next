@@ -1,16 +1,17 @@
 import { spawnSync } from 'node:child_process'
 
-const npm = process.platform === 'win32' ? 'npm.cmd' : 'npm'
-
-function run(args) {
-  return spawnSync(npm, args, { stdio: 'inherit', env: process.env }).status ?? 1
+function runNode(args) {
+  const result = spawnSync(process.execPath, args, { stdio: 'inherit', env: process.env })
+  if (result.error) console.error(`Unable to start ${args.join(' ')}:`, result.error.message)
+  return result.status ?? 1
 }
 
 console.log('Preparing the optional CANDRON inventory database...')
-const initialized = run(['run', 'db:init'])
+const envArgs = ['--env-file-if-exists=.env.local']
+const initialized = runNode([...envArgs, 'scripts/init-db.mjs'])
 
 if (initialized === 0) {
-  const seeded = run(['run', 'catalog:seed', '--', '--once'])
+  const seeded = runNode([...envArgs, 'scripts/seed-catalog.mjs', '--once'])
   if (seeded !== 0) {
     console.warn('Catalog seeding was skipped because the database is unavailable. Continuing deployment with empty inventory.')
   }
@@ -19,5 +20,5 @@ if (initialized === 0) {
 }
 
 console.log('Building the CANDRON website...')
-const built = run(['run', 'build'])
+const built = runNode(['node_modules/next/dist/bin/next', 'build', '--webpack'])
 process.exit(built)
