@@ -78,12 +78,10 @@ export default function HomePage() {
                 Made in Canada —<br />
                 <em>Power Distribution Equipment.</em>
               </div>
-              <h1>
-                Engineered.
-                <br />
-                <em>Manufactured.</em>
-                <br />
-                Tested. Delivered.
+              <h1 className="hero-delivery-line">
+                <span>Engineered.</span>{' '}
+                <em>Manufactured.</em>{' '}
+                <span>Tested. Delivered.</span>
               </h1>
               <p className="lead">
                 CANDRON Energy designs, manufactures, assembles, and tests
