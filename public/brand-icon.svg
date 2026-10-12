@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="CANDRON Energy Inc.">
+  <rect width="96" height="96" rx="18" fill="#05091f"/>
+  <path d="M70 27A30 30 0 1 0 70 69" fill="none" stroke="#ffffff" stroke-width="14" stroke-linecap="square"/>
+  <path d="M64 41h22L72 55h14" fill="none" stroke="#0b55ff" stroke-width="7" stroke-linejoin="miter"/>
+</svg>

@@ -1,7 +1,41 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
-export const metadata = { title: 'Industries', description: 'CANDRON powers mining, oil & gas, data centers, healthcare, utilities, renewables, traction power, transit substations, EV charging infrastructure, port electrification, and more — delivering electrical equipment built for the most demanding environments in North America.' }
+export const metadata = { title: 'Sectors We Serve', description: 'CANDRON supports electrical contractors, engineering consultants, utilities, and project owners with power distribution equipment, engineering, testing, commissioning, and technical support.' }
+
+const sectors = [
+  {
+    id: 'electrical-contractors',
+    number: '01',
+    title: 'Electrical Contractors',
+    headline: 'The Equipment, Engineering, and Technical Support You Need to Deliver.',
+    description: 'We help electrical contractors execute projects efficiently with reliable equipment, practical engineering support, and responsive technical service.',
+    capabilities: [
+      { title: 'Equipment Manufacturing & Supply', text: 'Low- and medium-voltage switchboards, switchgear, transformers, and other power distribution equipment.' },
+      { title: 'Testing & Verification', text: 'Certified test reports, factory acceptance testing (FAT), site acceptance testing (SAT), and equipment testing support.' },
+      { title: 'On-Site Commissioning', text: 'Field technical support for equipment installation, commissioning, troubleshooting, and verification.' },
+      { title: 'Electrical Engineering Studies', text: 'Ground potential rise (GPR), arc flash, short-circuit, harmonic analysis, and other project-specific studies through qualified engineering resources.' },
+      { title: 'Engineering Drawings & Submittals', text: 'Equipment drawings, technical documentation, and submittal packages to support utility reviews, ESA inspections, and applicable authority approvals.' },
+    ],
+    closing: 'Your project partner from procurement through commissioning.',
+  },
+  {
+    id: 'engineering-consultants',
+    number: '02',
+    title: 'Engineering Consultants',
+    headline: 'Practical Engineering. Realistic Specifications. Buildable Solutions.',
+    description: 'We collaborate with consulting engineers to develop equipment specifications and designs that align with project requirements, applicable standards, manufacturing capabilities, and actual supply-chain conditions.',
+    capabilities: [
+      { title: 'Equipment Specification & Selection', text: 'Assistance with equipment ratings, configurations, technical requirements, and manufacturer-specific considerations.' },
+      { title: 'Design Coordination', text: 'Practical input during design development to align electrical requirements with available equipment solutions.' },
+      { title: 'Standards & Compliance Support', text: 'Familiarity with applicable IEEE, CSA, CEC, and NEC standards, along with ESA/AHJ requirements and utility-specific criteria.' },
+      { title: 'Lead-Time & Procurement Planning', text: 'Recommendations that consider project schedules, manufacturing capacity, production loading, component availability, and supply-chain constraints.' },
+      { title: 'Technical Submittal Review', text: 'Coordination of equipment drawings, technical data, deviations, and documentation to support consultant reviews and project approvals.' },
+    ],
+    detail: 'We bridge the gap between engineering intent and manufacturing reality — helping consultants specify equipment that is technically appropriate, commercially practical, and achievable within project timelines.',
+    closing: 'Better specifications. Fewer surprises. More predictable project delivery.',
+  },
+]
 
 export default function IndustriesPage() {
   return (
@@ -9,12 +43,73 @@ export default function IndustriesPage() {
       <div className="page-hero">
         <div className="page-hero-bg ind-hero-bg"></div>
         <div className="container page-hero-content">
-          <div className="breadcrumb"><Link href="/">Home</Link> / <span>Industries</span></div>
-          <div className="label label-white">Markets We Serve</div>
-          <h1>Industries<br/><em>We Power</em></h1>
-          <p className="lead mt-4">From underground mines to hyperscale data centers — CANDRON delivers electrical infrastructure solutions across the most demanding environments in North America.</p>
+          <div className="breadcrumb"><Link href="/">Home</Link> / <span>Sectors We Serve</span></div>
+          <div className="label label-white">Sectors We Serve</div>
+          <h1 className="!max-w-[1100px] !text-[clamp(2.7rem,6vw,6.4rem)]">Powering Projects.<br/><em>Supporting People.</em><br/>Delivering Solutions.</h1>
+          <p className="lead mt-4 !max-w-[920px]">CANDRON works alongside electrical contractors, engineering consultants, utilities, and project owners to simplify power distribution projects — from equipment specification and procurement to testing, commissioning, and ongoing technical support.</p>
         </div>
       </div>
+
+      <section className="bg-[#f3f5fa] py-16 sm:py-20 lg:py-28" id="sectors">
+        <div className="container">
+          <div className="mb-10 max-w-3xl sm:mb-14">
+            <div className="label">How We Support Your Team</div>
+            <h2 className="mt-4">Built Around the People<br/><em>Delivering the Project.</em></h2>
+          </div>
+
+          <nav aria-label="Sector links" className="mb-8 flex flex-wrap gap-3">
+            {sectors.map((sector) => (
+              <a key={sector.id} href={`#${sector.id}`} className="rounded-full border border-[#cfd5e2] bg-white px-5 py-3 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-[#050b2a] transition hover:border-[#0755ff] hover:text-[#0755ff]">
+                {sector.title}
+              </a>
+            ))}
+            <a href="#industry-markets" className="rounded-full border border-[#cfd5e2] bg-white px-5 py-3 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-[#050b2a] transition hover:border-[#0755ff] hover:text-[#0755ff]">Industry Markets</a>
+          </nav>
+
+          <div className="space-y-8 lg:space-y-12">
+            {sectors.map((sector, sectorIndex) => (
+              <article key={sector.id} id={sector.id} className={`scroll-mt-28 overflow-hidden rounded-[24px] border ${sectorIndex === 0 ? 'border-[#16265c] bg-[#050b2a] text-white' : 'border-[#dce1eb] bg-white text-[#050b2a]'}`}>
+                <div className="grid lg:grid-cols-[0.82fr_1.18fr]">
+                  <div className={`p-7 sm:p-10 lg:p-14 ${sectorIndex === 0 ? 'border-white/10' : 'border-[#e3e7ef]'} border-b lg:border-b-0 lg:border-r`}>
+                    <div className={`font-mono text-xs font-bold uppercase tracking-[0.2em] ${sectorIndex === 0 ? 'text-[#6591ff]' : 'text-[#0755ff]'}`}>Sector {sector.number}</div>
+                    <h2 className="mt-5 !text-[clamp(2rem,4vw,4.3rem)]">{sector.title}</h2>
+                    <h3 className={`mt-7 text-xl font-semibold leading-snug sm:text-2xl ${sectorIndex === 0 ? 'text-white' : 'text-[#050b2a]'}`}>{sector.headline}</h3>
+                    <p className={`mt-5 text-base leading-8 sm:text-lg ${sectorIndex === 0 ? 'text-[#aeb8d0]' : 'text-[#5d6680]'}`}>{sector.description}</p>
+                    <Link href={`/contact?sector=${encodeURIComponent(sector.title)}`} className="btn btn-primary mag mt-8">Discuss Your Project →</Link>
+                  </div>
+
+                  <div className="p-7 sm:p-10 lg:p-14">
+                    <div className={`mb-5 font-mono text-xs font-bold uppercase tracking-[0.18em] ${sectorIndex === 0 ? 'text-[#8fa5d5]' : 'text-[#6c7590]'}`}>Our capabilities include</div>
+                    <ul className="space-y-3">
+                      {sector.capabilities.map((capability, capabilityIndex) => (
+                        <li key={capability.title} className={`grid grid-cols-[34px_1fr] gap-3 rounded-xl border p-4 sm:grid-cols-[42px_1fr] sm:gap-4 sm:p-5 ${sectorIndex === 0 ? 'border-white/10 bg-white/[0.035]' : 'border-[#e4e8f0] bg-[#f8f9fc]'}`}>
+                          <span className="font-mono text-xs font-bold text-[#0755ff]">{String(capabilityIndex + 1).padStart(2, '0')}</span>
+                          <div>
+                            <h4 className={`text-base font-bold leading-snug ${sectorIndex === 0 ? 'text-white' : 'text-[#050b2a]'}`}>{capability.title}</h4>
+                            <p className={`mt-2 text-sm leading-6 sm:text-base sm:leading-7 ${sectorIndex === 0 ? 'text-[#aeb8d0]' : 'text-[#69728b]'}`}>{capability.text}</p>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                    {'detail' in sector && sector.detail && <p className={`mt-7 text-base leading-7 ${sectorIndex === 0 ? 'text-[#aeb8d0]' : 'text-[#59627a]'}`}>{sector.detail}</p>}
+                    <p className={`mt-7 border-l-2 border-[#0755ff] pl-5 text-lg font-bold leading-7 sm:text-xl ${sectorIndex === 0 ? 'text-white' : 'text-[#050b2a]'}`}>{sector.closing}</p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white pb-10 pt-16 sm:pt-20" id="industry-markets">
+        <div className="container">
+          <div className="max-w-3xl">
+            <div className="label">Industry Markets</div>
+            <h2 className="mt-4">Powering Critical Infrastructure<br/><em>Across North America.</em></h2>
+            <p className="body mt-5">Our equipment, engineering, and field support serve demanding projects across the following industries.</p>
+          </div>
+        </div>
+      </section>
 
       <div className="ind-section bg-white" id="mining">
         <div className="container">
@@ -313,7 +408,7 @@ export default function IndustriesPage() {
           <p className="lead rv !text-white/[.6] !max-w-[520px]">If it runs on electricity, we can help. Our engineers have experience across virtually every industrial sector. Let's talk about your specific requirements.</p>
           <div className="flex gap-4 justify-center flex-wrap rv">
             <Link href="/contact" className="btn btn-primary btn-lg mag">Start a Conversation</Link>
-            <a href="tel:+17059144444" className="btn btn-outline btn-lg mag">+1(705)914-4444</a>
+            <a href="tel:+16476162595" className="btn btn-outline btn-lg mag">+1 (647) 616-2595</a>
           </div>
         </div></div>
       </div>

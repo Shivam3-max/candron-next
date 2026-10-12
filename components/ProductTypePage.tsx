@@ -18,6 +18,7 @@ export interface ProductTypePageProps {
   eyebrow: string
   subtitle: string
   heroImage: string
+  applicationImage?: string
   badges: string[]
   kpis: KPI[]
   overviewTitle: string
@@ -36,7 +37,7 @@ export interface ProductTypePageProps {
 export default function ProductTypePage({
   parentName, parentHref,
   categoryName, categoryHref,
-  typeName, eyebrow, subtitle, heroImage, badges, kpis,
+  typeName, eyebrow, subtitle, heroImage, applicationImage, badges, kpis,
   overviewTitle, overviewText, overviewPoints,
   features, upgrades, specRows,
   standards, applications, relatedTypes, faqs, quoteItems,
@@ -264,7 +265,16 @@ export default function ProductTypePage({
                 {applications.map(a => <li key={a}>{a}</li>)}
               </ul>
             </div>
-            <div className="rv-r w-full bg-off max-md:bg-transparent rounded-[16px] max-md:rounded-none !p-8 max-md:!p-0 border border-[#E8ECF5] max-md:border-0 shadow-[0_4px_24px_rgba(0,71,255,.06)] max-md:shadow-none">
+            <div className="rv-r w-full flex flex-col gap-5">
+              {applicationImage && (
+                <div className="relative w-full aspect-[16/9] overflow-hidden rounded-[16px] border border-[#E8ECF5] shadow-[0_4px_24px_rgba(0,71,255,.08)]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={applicationImage} alt={`${typeName} installed in a working facility`} className="w-full h-full object-cover block" />
+                  <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(5,9,31,.3),transparent_45%)] pointer-events-none" />
+                  <div className="absolute bottom-4 left-4 font-mono text-[.55rem] font-bold tracking-[.14em] uppercase text-white/[.9]">Application View</div>
+                </div>
+              )}
+              <div className="bg-off max-md:bg-transparent rounded-[16px] max-md:rounded-none !p-8 max-md:!p-0 border border-[#E8ECF5] max-md:border-0 shadow-[0_4px_24px_rgba(0,71,255,.06)] max-md:shadow-none">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-[10px] bg-blue/10 flex items-center justify-center text-blue shrink-0">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="w-5 h-5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
@@ -280,6 +290,7 @@ export default function ProductTypePage({
               </ul>
               <div className="mt-6">
                 <Link href="/contact" className="btn btn-primary">Get a Project Quote</Link>
+              </div>
               </div>
             </div>
           </div>

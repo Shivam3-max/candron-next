@@ -78,7 +78,7 @@ const data: ProductTypePageProps = {
     'Skid-mounted equipment power feed and distribution',
   ],
   relatedTypes: [
-    { name: 'MV Switchgear', sub: '1–36 kV Control & Protection', href: '/products/mv-switchgear' },
+    { name: 'MV Switchgear', sub: '2.4–38 kV • Up to 2000 A', href: '/products/mv-switchgear' },
     { name: 'LV Switchgear', sub: 'Up to 1000 V Distribution', href: '/products/lv-switchgear' },
     { name: 'Switchboards', sub: 'LV Power Distribution', href: '/products/switchboards' },
   ],
@@ -111,7 +111,7 @@ const data: ProductTypePageProps = {
 }
 
 export const metadata = {
-  title: 'Power Junction Boxes & Splitters | CANDRON ENERGY',
+  title: 'Power Junction Boxes & Splitters | CANDRON Energy',
   description: 'Custom industrial power junction boxes and splitters — LV up to 1,000 V and MV up to 35 kV. Weatherproof, explosion-proof, and NEMA-rated. Built in Toronto, Ontario.',
 }
 

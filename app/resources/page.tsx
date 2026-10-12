@@ -1,9 +1,40 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Resources | CANDRON ENERGY INC.',
-  description: 'Free electrical engineering calculators for transformer sizing, fault current analysis, harmonics, efficiency, and power factor — built for engineers and procurement teams.',
+  title: 'Resources | CANDRON Energy Inc.',
+  description: 'Explore CANDRON engineering calculators, terms and conditions, warranty support, and industry insights for power distribution projects.',
 }
+
+const resourceLinks = [
+  {
+    href: '#calculators',
+    title: 'Calculators',
+    desc: 'Sizing, conversion, protection, harmonics, and energy-analysis tools.',
+    action: 'Explore 9 calculators',
+    icon: <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 11h2m4 0h2M8 15h2m4 0h2M8 19h2m4 0h2"/></svg>,
+  },
+  {
+    href: '/terms-and-conditions',
+    title: 'Terms & Conditions',
+    desc: 'Find out how to obtain the terms applicable to your quotation, order, or project.',
+    action: 'View document information',
+    icon: <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7"><path d="M6 2h9l4 4v16H6z"/><path d="M14 2v5h5M9 12h7M9 16h7"/></svg>,
+  },
+  {
+    href: '/warranty',
+    title: 'Warranty',
+    desc: 'Warranty document guidance, claim preparation, and direct support from our team.',
+    action: 'Get warranty support',
+    icon: <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>,
+  },
+  {
+    href: '/blog',
+    title: 'Blogs',
+    desc: 'Technical guidance, industry insights, inventory updates, and company news.',
+    action: 'Visit the blog',
+    icon: <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7"><path d="M4 19.5V5a2 2 0 012-2h12a2 2 0 012 2v14.5a1.5 1.5 0 01-2.25 1.3L12 17.5l-5.75 3.3A1.5 1.5 0 014 19.5z"/><path d="M8 7h8M8 11h8"/></svg>,
+  },
+]
 
 const groups = [
   {
@@ -101,20 +132,42 @@ export default function ResourcesPage() {
           <div className="breadcrumb">
             <Link href="/">Home</Link> / <span>Resources</span>
           </div>
-          <div className="label label-white">Engineering Tools</div>
+          <div className="label label-white">Knowledge &amp; Support</div>
           <h1 style={{ fontSize: 'clamp(2rem,5vw,3rem)' }}>
-            Electrical Engineering
-            <br /><em>Calculators</em>
+            Resources for Every
+            <br /><em>Project Stage</em>
           </h1>
           <p className="lead mt-4" style={{ maxWidth: '560px' }}>
-            9 free sizing, conversion, and analysis tools for transformer specification, protection coordination, harmonic mitigation, and energy economics — built for engineers and procurement teams.
+            Access electrical engineering calculators, project documents, warranty support, and practical insights from the CANDRON team.
           </p>
         </div>
       </div>
 
-      {/* CALCULATORS */}
-      <div className="section bg-off" style={{ paddingTop: '5rem', paddingBottom: '6rem' }}>
+      <section className="bg-white border-b border-[#E8ECF5] py-10 max-md:py-7">
         <div className="container">
+          <div className="grid grid-cols-4 max-lg:grid-cols-2 max-sm:grid-cols-1 gap-4">
+            {resourceLinks.map(resource => (
+              <Link key={resource.href} href={resource.href} className="group no-underline rounded-[16px] border border-[#E3E8F2] bg-white p-5 flex flex-col gap-4 transition-all duration-200 hover:border-blue hover:shadow-[0_8px_28px_rgba(0,71,255,.09)]">
+                <div className="w-11 h-11 rounded-[11px] bg-blue/[.07] text-blue flex items-center justify-center transition-colors duration-200 group-hover:bg-blue group-hover:text-white">{resource.icon}</div>
+                <div>
+                  <h2 className="font-title font-bold text-navy text-[1rem] m-0 mb-2">{resource.title}</h2>
+                  <p className="font-mono text-[.72rem] text-gray leading-[1.65] m-0">{resource.desc}</p>
+                </div>
+                <span className="font-mono text-[.65rem] uppercase tracking-[.08em] font-bold text-blue mt-auto">{resource.action} →</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CALCULATORS */}
+      <div id="calculators" className="section bg-off scroll-mt-[100px]" style={{ paddingTop: '5rem', paddingBottom: '6rem' }}>
+        <div className="container">
+          <div className="max-w-[720px] mb-14">
+            <div className="label">Engineering Calculators</div>
+            <h2 className="mb-4">Nine Practical Tools for Faster Decisions</h2>
+            <p className="body">Free sizing, conversion, and analysis tools for transformer specification, protection coordination, harmonic mitigation, and energy economics.</p>
+          </div>
           <div className="flex flex-col gap-16">
             {groups.map(g => (
               <div key={g.heading}>
@@ -151,15 +204,15 @@ export default function ResourcesPage() {
           </div>
 
           {/* INFO STRIP */}
-          <div className="mt-20 bg-navy rounded-[20px] p-10 flex flex-col md:flex-row gap-8 items-start md:items-center justify-between">
-            <div>
+          <div className="resources-help-card mt-20 bg-navy rounded-[20px] p-10 flex flex-col md:flex-row gap-8 items-start md:items-center justify-between">
+            <div className="min-w-0">
               <div className="font-mono text-[.6rem] text-blue tracking-[.22em] uppercase mb-3">Need More Help?</div>
               <h3 className="font-display font-black text-white text-[1.4rem] leading-[1.3] m-0">Talk to a CANDRON Engineer</h3>
               <p className="font-mono text-[.82rem] text-white/50 mt-2 leading-[1.65] m-0 max-w-[420px]">
                 Our engineering team can review your specifications, confirm sizing, and provide same-day quotes on stock and custom-built transformers.
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+            <div className="resources-help-actions flex flex-col sm:flex-row gap-3 shrink-0">
               <Link href="/contact" className="btn btn-primary whitespace-nowrap">Request a Quote</Link>
               <Link href="/products/transformers" className="btn btn-outline whitespace-nowrap">View Transformers →</Link>
             </div>

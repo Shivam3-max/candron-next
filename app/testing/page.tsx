@@ -55,7 +55,7 @@ export default function TestingPage() {
                 site.
               </p>
               <p className="body mb-5">
-                At CANDRON ENERGY, every system undergoes structured factory
+                At CANDRON Energy, every system undergoes structured factory
                 testing before shipment. Our in-house testing capability means
                 we control the process, maintain the documentation, and can
                 accommodate witnessed FAT for your project team or third-party

@@ -6,7 +6,6 @@ import CanadaFlag from "@/components/CanadaFlag";
 import ProcessSection from "@/components/ProcessSection";
 import IndustryCarousel from "@/components/IndustryCarousel";
 
-// Categories without their own page yet link to /contact.
 const featuredProducts = [
   {
     name: "Transformers",
@@ -38,7 +37,7 @@ const featuredProducts = [
     type: "Resistive, Reactive & Combined",
     image: "/images/products/power-distribution/load-bank.webp",
     specs: ["Generator & UPS load testing", "Resistive, reactive & RL configurations", "Portable & permanent installations"],
-    href: "/contact",
+    href: "/products/load-banks",
   },
   {
     name: "Remote Power Panels",
@@ -46,7 +45,7 @@ const featuredProducts = [
     type: "Data Centre Branch Distribution",
     image: "/images/products/power-distribution/remote-power-panel.webp",
     specs: ["Branch circuit distribution near the load", "Compact, front-access enclosures", "Per-circuit monitoring options"],
-    href: "/contact",
+    href: "/products/remote-power-panels",
   },
   {
     name: "Power Distribution Units",
@@ -54,7 +53,7 @@ const featuredProducts = [
     type: "Critical Power Distribution",
     image: "/images/products/power-distribution/power-distribution-unit.webp",
     specs: ["Floor-standing transformer-based units", "Voltage step-down & isolation", "Branch circuit monitoring options"],
-    href: "/contact",
+    href: "/products/power-distribution-units",
   },
   {
     name: "Control Panels",
@@ -73,15 +72,15 @@ export default function HomePage() {
       <section className="hero-home">
         <HeroCanvas />
         <div className="container">
+          <div className="hero-eyebrow hero-eyebrow-primary">
+            <span className="hero-eyebrow-line"></span>
+            <span>
+              <span className="fi fi-ca hero-eyebrow-flag" role="img" aria-label="Canadian flag" />
+              Made in Canada - Power Distribution Equipment
+            </span>
+          </div>
           <div className="hero-inner">
             <div className="hero-content">
-              <div className="hero-eyebrow">
-                <span className="hero-eyebrow-line"></span>
-                <span>
-                  <span className="fi fi-ca hero-eyebrow-flag" role="img" aria-label="Canadian flag" />
-                  Canadian Power Distribution Equipment
-                </span>
-              </div>
               <h1>
                 Engineered.
                 <br />
@@ -90,7 +89,7 @@ export default function HomePage() {
                 Tested. Delivered.
               </h1>
               <p className="lead">
-                CANDRON ENERGY designs, manufactures, assembles, and tests
+                CANDRON Energy designs, manufactures, assembles, and tests
                 electrical power distribution equipment entirely in-house —
                 delivering reliable, Canadian-made solutions with faster lead
                 times and a team you can always reach directly.
@@ -130,10 +129,6 @@ export default function HomePage() {
               </div>
             </div>
             <div className="hero-visual">
-              <div className="hero-stat-float top">
-                <strong>100%</strong>
-                <span>In-House Built</span>
-              </div>
               <div className="hero-visual-img">
                 <Image
                   src="/images/hero.webp"
@@ -159,7 +154,7 @@ export default function HomePage() {
       <div className="bg-[#EEF2FF] pt-8">
         <div className="container">
           <div className="home-stat-bar responsive-override-exempt bg-[linear-gradient(135deg,#1252FF_0%,#0038CC_100%)] rounded-[20px] max-md:rounded-[14px] py-10 px-4 grid grid-cols-[1fr_auto_1fr_auto_1fr] max-md:grid-cols-3 max-md:px-2 max-md:py-4 items-center">
-            {/* 100% In-House Engineering */}
+            {/* Inventory Availability */}
             <div className="flex flex-col items-center text-center px-6 max-md:px-1">
               <div className="w-[68px] h-[68px] max-md:w-[32px] max-md:h-[32px] bg-white/[.13] rounded-[18px] max-md:rounded-[8px] flex items-center justify-center mx-auto mb-[1.1rem] max-md:mb-1">
                 <svg
@@ -169,15 +164,17 @@ export default function HomePage() {
                   strokeWidth="1.5"
                   className="w-8 h-8 max-md:w-4 max-md:h-4"
                 >
-                  <circle cx="12" cy="12" r="3" />
-                  <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" />
+                  <path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" />
                 </svg>
               </div>
-              <div className="font-display text-[2.6rem] max-md:text-[1.1rem] font-black text-white leading-none mb-[.45rem] max-md:mb-0">
-                100%
+              <div className="font-display text-[2.6rem] max-md:text-[1.1rem] font-black text-white leading-none mb-[.45rem] max-md:mb-[2px]">
+                1000+
               </div>
-              <div className="font-mono text-[.58rem] max-md:text-[.42rem] tracking-[.2em] max-md:tracking-[.08em] uppercase text-white/[.6]">
-                In-House Engineering
+              <div className="font-mono text-[.58rem] max-md:text-[.42rem] tracking-[.16em] max-md:tracking-[.05em] uppercase text-white/[.72]">
+                New / Used Inventory
+              </div>
+              <div className="mt-2 max-md:mt-1 rounded-full bg-white px-3 py-1 max-md:px-1.5 max-md:py-[2px] font-display text-[.72rem] max-md:text-[.42rem] font-black tracking-[.08em] text-[#0047FF] whitespace-nowrap">
+                24 × 365
               </div>
             </div>
 
@@ -232,7 +229,7 @@ export default function HomePage() {
       {/* CERTIFICATIONS BAND */}
       <div className="bg-[#EEF2FF] pt-10 pb-8">
         <div className="container">
-          <div className="relative pt-[1.75rem] px-6 pb-6">
+          <div className="relative pt-[1.75rem] max-md:pt-[3.75rem] px-6 pb-6">
             {/* Decorative frame */}
             <div className="absolute inset-0 border-[1.5px] border-[#93C5FD] rounded-[20px] pointer-events-none" />
 
@@ -242,9 +239,9 @@ export default function HomePage() {
             {/* Right dot */}
             <div className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 w-[11px] h-[11px] rounded-full bg-blue" />
 
-            {/* "BUILT TO STANDARD" pill */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#EEF2FF] border-[1.5px] border-[#93C5FD] rounded-full py-[.28rem] px-[1.1rem] font-mono text-[.8rem] tracking-[.2em] uppercase text-blue whitespace-nowrap">
-              Built to Standard
+            {/* Standards promise pill */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#EEF2FF] border-[1.5px] border-[#93C5FD] rounded-full py-[.35rem] px-[1.35rem] font-mono text-[.8rem] max-md:text-[.65rem] tracking-[.16em] max-md:tracking-[.1em] uppercase text-blue whitespace-nowrap max-md:whitespace-normal max-md:w-[calc(100%-2rem)] text-center max-md:leading-[1.55]">
+              Built to Standard. Built to Perform. Built to Last.
             </div>
 
             {/* Logo cards */}
@@ -335,18 +332,29 @@ export default function HomePage() {
                 <span className="text-blue">Built Better.</span>
               </h2>
               <div className="w-12 h-[3px] bg-blue rounded-[2px] mb-7" />
-              <p className="text-gray text-[.95rem] leading-[1.85] m-0">
-                At CANDRON ENERGY, every product is engineered, manufactured,
-                assembled, and tested under one roof. Combining extensive
-                academic expertise with decades of industrial experience, we
-                utilize advanced design software, detailed simulations,
-                multi-stage engineering reviews, and highly automated
-                manufacturing processes to ensure exceptional accuracy and
-                reliability. We never compromise on quality. From premium-grade
-                materials and components to rigorous testing procedures and
-                high-build powder coating systems, every detail is selected to
-                maximize performance and longevity.
-              </p>
+              <div className="flex flex-col gap-4 text-gray text-[.95rem] leading-[1.85]">
+                <p className="m-0">
+                  At CANDRON Energy, engineering, manufacturing, assembly, and
+                  testing come together under one roof. This integrated approach
+                  gives us greater control over quality, consistency, and lead
+                  times—from initial design through final testing.
+                </p>
+                <p className="m-0">
+                  Our products are backed by advanced engineering, decades of
+                  industrial experience, detailed simulations, multi-stage
+                  design reviews, and modern manufacturing processes.
+                </p>
+                <p className="m-0">
+                  We don&rsquo;t compromise on the details. From premium-grade
+                  materials and components to precision fabrication, high-build
+                  coating systems, and rigorous inspection and testing, every
+                  element is selected and built for reliable performance,
+                  durability, and long-term value.
+                </p>
+                <p className="m-0 font-bold text-navy">
+                  Engineered in Canada. Built for Power. Built to Perform.
+                </p>
+              </div>
             </div>
 
             <div className="rv-r relative max-md:hidden">
@@ -584,10 +592,10 @@ export default function HomePage() {
       {/* PROCESS */}
       <ProcessSection />
 
-      {/* INDUSTRIES — full viewport height */}
-      <div className="section bg-white home-industries-section h-screen min-h-fit flex flex-col !pt-14 !pb-0 max-md:!pb-12">
+      {/* INDUSTRIES — content-driven height avoids excess whitespace on large displays */}
+      <div className="section bg-white home-industries-section h-auto min-h-0 flex flex-col !pt-14 !pb-10 max-md:!pb-12">
         {/* everything inside the standard container */}
-        <div className="container flex-1 min-h-0 flex flex-col pb-8">
+        <div className="container min-h-0 flex flex-col">
           <div className="flex justify-between items-end flex-wrap gap-6 shrink-0 mb-8">
             <div className="rv">
               <div className="label">Industries Served</div>

@@ -40,22 +40,27 @@ const fontVars = [orbitron.variable, chakraPetch.variable, dmSans.variable, jetb
 export const metadata: Metadata = {
   metadataBase: new URL('https://candron.com'),
   title: {
-    default: 'CANDRON ENERGY INC. | Canadian Power Distribution Equipment',
-    template: '%s | CANDRON ENERGY INC.',
+    default: 'CANDRON Energy Inc. | Canadian Power Distribution Equipment',
+    template: '%s | CANDRON Energy Inc.',
   },
   description: 'Custom-engineered switchgear, switchboards, and control panels — manufactured and tested entirely in-house. Every customer can reach our team directly.',
   keywords: ['switchgear', 'switchboards', 'control panels', 'power distribution', 'electrical equipment', 'Canadian manufacturer', 'Toronto Ontario'],
+  icons: {
+    icon: [{ url: '/favicon.png', type: 'image/png', sizes: '96x96' }],
+    shortcut: ['/favicon.png'],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+  },
   openGraph: {
     type: 'website',
     locale: 'en_CA',
-    siteName: 'CANDRON ENERGY INC.',
-    title: 'CANDRON ENERGY INC. | Canadian Power Distribution Equipment',
+    siteName: 'CANDRON Energy Inc.',
+    title: 'CANDRON Energy Inc. | Canadian Power Distribution Equipment',
     description: 'Custom-engineered switchgear, switchboards, and control panels — manufactured and tested entirely in-house. Every customer can reach our team directly.',
-    images: [{ url: '/images/switchgear.jpg', width: 1200, height: 630, alt: 'CANDRON ENERGY INC. — Power Distribution Equipment' }],
+    images: [{ url: '/images/switchgear.jpg', width: 1200, height: 630, alt: 'CANDRON Energy Inc. — Power Distribution Equipment' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CANDRON ENERGY INC. | Canadian Power Distribution Equipment',
+    title: 'CANDRON Energy Inc. | Canadian Power Distribution Equipment',
     description: 'Custom-engineered switchgear, switchboards, and control panels. Built in Canada. Any customer can reach our team directly.',
     images: ['/images/switchgear.jpg'],
   },
@@ -63,9 +68,21 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'CANDRON Energy Inc.',
+    url: 'https://candron.com',
+    logo: 'https://candron.com/images/candronpng.png',
+  }
+
   return (
     <html lang="en" className={fontVars}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
         <Navbar />
         <main>{children}</main>
         <Footer />

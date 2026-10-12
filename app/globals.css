@@ -529,7 +529,11 @@ header.scrolled nav a:not(.nav-mega-item):not(.nav-mega-all):not(.nav-mega-btn):
 .nav-mega-footer {
   border-top: 1px solid rgba(255, 255, 255, .08);
   margin-top: auto;
-  padding: .65rem 1rem .8rem
+  padding: .65rem 1rem .8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .45rem
 }
 
 .nav-mega-all {
@@ -545,6 +549,14 @@ header.scrolled nav a:not(.nav-mega-item):not(.nav-mega-all):not(.nav-mega-btn):
 .nav-mega-all:hover {
   color: var(--blue-l) !important;
   letter-spacing: .2em
+}
+
+.nav-mega-inventory {
+  color: #fff !important
+}
+
+.mobile-inventory-link {
+  color: var(--blue-l) !important
 }
 
 .nav-mega-all::after,
@@ -1910,6 +1922,189 @@ canvas#hero-canvas {
   margin: 0 auto 2.5rem
 }
 
+.about-cta-title {
+  width: 100%;
+  max-width: 920px;
+  margin-inline: auto;
+  text-wrap: balance;
+  overflow-wrap: break-word
+}
+
+/* Inventory search, sorting, and filter controls */
+.inventory-toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 250px;
+  gap: .9rem;
+  align-items: stretch
+}
+
+.inventory-search,
+.inventory-select-shell {
+  position: relative;
+  display: block
+}
+
+.inventory-search input,
+.inventory-select-shell select {
+  width: 100%;
+  height: 64px;
+  box-sizing: border-box;
+  border: 1px solid #D7DEEA;
+  border-radius: 12px;
+  background: #fff;
+  color: var(--navy);
+  font-family: var(--fb);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s, background-color .2s
+}
+
+.inventory-search input {
+  padding: 0 1.25rem 0 3.35rem
+}
+
+.inventory-search-icon {
+  position: absolute;
+  z-index: 1;
+  left: 1.15rem;
+  top: 50%;
+  width: 19px;
+  height: 19px;
+  transform: translateY(-50%);
+  stroke: #75819a;
+  stroke-width: 1.7;
+  pointer-events: none
+}
+
+.inventory-select-shell select {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  padding: 1.45rem 3.25rem .35rem 1rem;
+  font-weight: 650
+}
+
+.inventory-select-label {
+  position: absolute;
+  z-index: 1;
+  top: .62rem;
+  left: 1rem;
+  color: #75819a;
+  font-family: var(--fm);
+  font-size: .54rem;
+  font-weight: 700;
+  letter-spacing: .13em;
+  line-height: 1;
+  text-transform: uppercase;
+  pointer-events: none
+}
+
+.inventory-select-chevron {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  transform: translateY(-50%);
+  stroke: var(--navy);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+  transition: transform .2s, color .2s
+}
+
+.inventory-search:focus-within input,
+.inventory-select-shell:focus-within select {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 4px rgba(0, 71, 255, .1)
+}
+
+.inventory-select-shell:hover select,
+.inventory-search:hover input {
+  border-color: #9BA9C1
+}
+
+.inventory-select-shell:focus-within .inventory-select-chevron {
+  stroke: var(--blue);
+  transform: translateY(-50%) rotate(180deg)
+}
+
+.inventory-filter-select select {
+  height: 56px;
+  border-radius: 9px;
+  background: #F8FAFD;
+  padding-top: 1.25rem;
+  font-size: .82rem
+}
+
+.inventory-filter-toggle {
+  min-height: 52px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  border: 1px solid var(--blue);
+  border-radius: 10px;
+  background: rgba(0, 71, 255, .06);
+  color: var(--blue);
+  font-family: var(--fm);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase
+}
+
+.inventory-filter-toggle svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round
+}
+
+@media(max-width:1279px) {
+  .inventory-toolbar {
+    grid-template-columns: minmax(0, 1fr) 230px auto
+  }
+
+  .inventory-filter-toggle {
+    display: inline-flex;
+    padding-inline: 1.2rem
+  }
+}
+
+@media(max-width:768px) {
+  .inventory-toolbar {
+    grid-template-columns: 1fr 1fr
+  }
+
+  .inventory-search {
+    grid-column: 1 / -1
+  }
+
+  .inventory-filter-toggle {
+    width: 100%;
+    padding-inline: .75rem
+  }
+}
+
+@media(max-width:430px) {
+  .inventory-toolbar {
+    grid-template-columns: 1fr;
+    gap: .7rem
+  }
+
+  .inventory-search {
+    grid-column: auto
+  }
+
+  .inventory-search input,
+  .inventory-select-shell select {
+    height: 58px
+  }
+}
+
 /* SPECS TABLE */
 .specs-table {
   width: 100%;
@@ -2265,8 +2460,9 @@ canvas#hero-canvas {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 5rem 1.5rem 2rem;
-  gap: 1.5rem;
+  min-height: 100dvh;
+  padding: max(5.25rem, env(safe-area-inset-top)) max(1.25rem, env(safe-area-inset-right)) max(1.5rem, env(safe-area-inset-bottom)) max(1.25rem, env(safe-area-inset-left));
+  gap: .55rem;
   opacity: 0;
   pointer-events: none;
   transition: opacity .3s;
@@ -2280,14 +2476,16 @@ canvas#hero-canvas {
 
 .mobile-nav a {
   font-family: var(--fd);
-  font-size: 1.4rem;
+  font-size: clamp(1.05rem, 5vw, 1.35rem);
   font-weight: 700;
   color: var(--white);
   text-decoration: none;
   letter-spacing: .1em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: color .3s
+  transition: color .3s;
+  padding: .55rem .75rem;
+  line-height: 1.15
 }
 
 .mobile-nav a:hover,
@@ -2305,7 +2503,7 @@ canvas#hero-canvas {
 
 .mobile-products-toggle {
   font-family: var(--fd);
-  font-size: 1.4rem;
+  font-size: clamp(1.05rem, 5vw, 1.35rem);
   font-weight: 700;
   color: var(--white);
   text-decoration: none;
@@ -2318,7 +2516,7 @@ canvas#hero-canvas {
   display: inline-flex;
   align-items: center;
   gap: .4rem;
-  padding: 0;
+  padding: .55rem .75rem;
 }
 
 .mobile-products-toggle:hover,
@@ -2358,7 +2556,7 @@ canvas#hero-canvas {
   display: flex;
   flex-direction: column;
   gap: .2rem;
-  padding: .75rem 0;
+  padding: .35rem 0;
   border-left: 2px solid rgba(0, 71, 255, .2);
   margin-left: .5rem;
   padding-left: .75rem;
@@ -2371,7 +2569,7 @@ canvas#hero-canvas {
   font-size: .75rem !important;
   font-weight: 600;
   color: rgba(255, 255, 255, .55);
-  padding: .45rem .65rem;
+  padding: .42rem .65rem;
   border-radius: 8px;
   transition: background .15s, color .15s;
   text-decoration: none;
@@ -2431,8 +2629,8 @@ canvas#hero-canvas {
 
 .mobile-close {
   position: absolute;
-  top: 1.25rem;
-  right: 1.25rem;
+  top: max(1rem, env(safe-area-inset-top));
+  right: max(1rem, env(safe-area-inset-right));
   background: rgba(255, 255, 255, .08);
   border: 1px solid rgba(255, 255, 255, .15);
   border-radius: 50%;
@@ -2440,12 +2638,30 @@ canvas#hero-canvas {
   font-size: 1.25rem;
   cursor: pointer;
   line-height: 1;
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: background .2s
+}
+
+@media (max-height: 700px) and (max-width: 768px) {
+  .mobile-nav {
+    padding-top: 4.4rem;
+    gap: .25rem;
+  }
+
+  .mobile-nav a,
+  .mobile-products-toggle {
+    padding-top: .38rem;
+    padding-bottom: .38rem;
+  }
+
+  .mobile-products-dropdown a {
+    padding-top: .32rem;
+    padding-bottom: .32rem;
+  }
 }
 
 .mobile-close:hover {
@@ -4532,6 +4748,423 @@ canvas#hero-canvas {
   }
 }
 
+/* Product-family accordions: mobile-safe across control panels, switchboards and switchgear */
+.product-type-accordion,
+.product-type-accordion-trigger,
+.product-type-accordion-summary,
+.product-type-accordion-badges,
+.product-type-accordion-column,
+.product-type-spec-cell {
+  min-width: 0
+}
+
+.product-type-accordion-badges span,
+.product-type-spec-cell > div {
+  overflow-wrap: anywhere
+}
+
+@media(max-width:768px) {
+  .product-sticky-tabs .container {
+    padding-right: 0
+  }
+
+  .product-sticky-tabs-track {
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding-right: 1rem
+  }
+
+  .product-sticky-tabs-track::-webkit-scrollbar {
+    display: none
+  }
+
+  .product-sticky-tabs-track a {
+    flex: 0 0 auto
+  }
+
+  .product-type-accordion-trigger {
+    display: grid !important;
+    grid-template-columns: 36px minmax(0, 1fr) 18px;
+    grid-template-rows: auto auto;
+    align-items: center;
+    column-gap: .75rem !important;
+    row-gap: .65rem !important;
+    padding: 1rem !important
+  }
+
+  .product-type-accordion-index {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    align-self: center
+  }
+
+  .product-type-accordion-summary {
+    grid-column: 2;
+    grid-row: 1
+  }
+
+  .product-type-accordion-summary > div:first-child {
+    font-size: .84rem;
+    line-height: 1.3
+  }
+
+  .product-type-accordion-summary > div:last-child {
+    margin-top: .3rem;
+    font-size: .55rem;
+    line-height: 1.45;
+    letter-spacing: .05em;
+    overflow-wrap: anywhere
+  }
+
+  .product-type-accordion-badges {
+    grid-column: 2 / 4;
+    grid-row: 2;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: .35rem !important;
+    margin-right: 0 !important
+  }
+
+  .product-type-accordion-badges span {
+    flex: 1 1 130px;
+    padding: .35rem .5rem !important;
+    font-size: .5rem !important;
+    line-height: 1.4;
+    white-space: normal !important
+  }
+
+  .product-type-accordion-chevron {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end
+  }
+
+  .product-type-accordion-body {
+    flex-direction: column;
+    gap: 1.25rem !important;
+    padding: 1rem !important
+  }
+
+  .product-type-accordion-image {
+    width: 100% !important;
+    height: 190px !important;
+    flex: none
+  }
+
+  .product-type-accordion-column {
+    width: 100%;
+    min-width: 0 !important
+  }
+
+  .product-type-spec-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important
+  }
+
+  .product-type-spec-cell {
+    padding: .9rem 1rem !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid #E8ECF5
+  }
+
+  .product-type-spec-cell:nth-child(odd) {
+    border-right: 1px solid #E8ECF5 !important
+  }
+
+  .product-type-spec-cell:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    border-right: 0 !important
+  }
+}
+
+@media(max-width:420px) {
+  .product-type-accordion-trigger {
+    grid-template-columns: 32px minmax(0, 1fr) 16px;
+    column-gap: .6rem !important;
+    padding: .85rem !important
+  }
+
+  .product-type-accordion-index {
+    width: 32px !important;
+    height: 32px !important
+  }
+
+  .product-type-accordion-badges span {
+    flex-basis: 100%
+  }
+
+  .product-type-accordion-image {
+    height: 165px !important
+  }
+}
+
+/* ---- LARGE & ULTRAWIDE DISPLAYS ---------------------------------
+   Keep the interface readable beyond ordinary laptop widths. The base
+   layout remains unchanged; these tiers progressively increase the global
+   type scale, usable canvas, navigation, and homepage hero composition. */
+@media (min-width: 1600px) {
+  html {
+    font-size: 17px
+  }
+
+  .container,
+  .nav-inner {
+    max-width: 1580px;
+    padding-left: 4rem;
+    padding-right: 4rem
+  }
+
+  .nav-inner {
+    height: 82px
+  }
+
+  .logo-img {
+    height: 72px
+  }
+
+  nav {
+    gap: 2.65rem
+  }
+
+  nav a {
+    font-size: .82rem
+  }
+
+  .nav-cta {
+    padding: .68rem 1.7rem
+  }
+
+  section.hero-home {
+    min-height: 100svh;
+    padding-top: 82px;
+    padding-bottom: 2rem
+  }
+
+  .hero-inner {
+    grid-template-columns: minmax(0, 1.08fr) minmax(520px, .92fr);
+    gap: 4.75rem
+  }
+
+  .hero-content {
+    max-width: 760px
+  }
+
+  .hero-home h1 {
+    font-size: clamp(3.8rem, 4.2vw, 5rem);
+    line-height: 1.04;
+    margin-bottom: 1.1rem
+  }
+
+  .hero-home .lead {
+    max-width: 680px;
+    font-size: 1.08rem;
+    line-height: 1.8;
+    margin-bottom: 1.45rem
+  }
+
+  .hero-eyebrow {
+    font-size: 1rem;
+    margin-bottom: 1.25rem
+  }
+
+  .hero-btns {
+    gap: 1.15rem
+  }
+
+  .hero-btns .btn {
+    min-height: 52px;
+    padding-left: 2rem;
+    padding-right: 2rem
+  }
+
+  .hero-visual {
+    padding: 1.25rem
+  }
+
+  .hero-visual-img {
+    height: clamp(460px, 51vh, 620px)
+  }
+
+  .hero-stat-float {
+    padding: 1rem 1.55rem
+  }
+
+  .hero-stat-float strong {
+    font-size: 1.75rem
+  }
+
+  .hero-cert-strip {
+    gap: .7rem;
+    margin-top: 1rem
+  }
+
+  .hero-cert-badge {
+    font-size: .74rem;
+    padding: .4rem .85rem
+  }
+
+  .trust-logos {
+    margin-top: 1.25rem;
+    padding-top: 1.15rem
+  }
+
+  .page-hero {
+    padding-top: 9rem;
+    padding-bottom: 6.5rem
+  }
+
+  .page-hero-content {
+    max-width: 1500px
+  }
+}
+
+@media (min-width: 2200px) {
+  html {
+    font-size: 18px
+  }
+
+  .container,
+  .nav-inner {
+    max-width: 1880px;
+    padding-left: 5rem;
+    padding-right: 5rem
+  }
+
+  .nav-inner {
+    height: 92px
+  }
+
+  .logo-img {
+    height: 80px
+  }
+
+  nav {
+    gap: 3rem
+  }
+
+  section.hero-home {
+    padding-top: 92px
+  }
+
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr) minmax(650px, .95fr);
+    gap: 6rem
+  }
+
+  .hero-content {
+    max-width: 850px
+  }
+
+  .hero-home h1 {
+    font-size: clamp(4.6rem, 3.8vw, 5.8rem)
+  }
+
+  .hero-home .lead {
+    max-width: 760px;
+    font-size: 1.15rem
+  }
+
+  .hero-visual-img {
+    height: clamp(560px, 54vh, 760px)
+  }
+}
+
+/* Homepage hero hierarchy: the Canadian equipment statement is the
+   primary headline, with the three delivery verbs as supporting copy. */
+.hero-home > .container {
+  position: relative;
+  z-index: 2
+}
+
+.hero-eyebrow-primary {
+  width: 100%;
+  max-width: none;
+  margin-bottom: clamp(1.25rem, 2.2vh, 2rem);
+  font-size: clamp(2.7rem, 3.6vw, 3.65rem);
+  line-height: 1.08;
+  letter-spacing: -.025em;
+  align-items: center
+}
+
+.hero-eyebrow-primary .hero-eyebrow-line {
+  width: clamp(36px, 4vw, 64px)
+}
+
+.hero-home h1 {
+  font-size: clamp(2.15rem, 2.9vw, 3rem)
+}
+
+@media (min-width: 1600px) {
+  .hero-eyebrow-primary {
+    font-size: clamp(3.8rem, 4vw, 4.6rem)
+  }
+
+  .hero-home h1 {
+    font-size: clamp(2.8rem, 2.8vw, 3.5rem)
+  }
+}
+
+@media (min-width: 2200px) {
+  .hero-eyebrow-primary {
+    font-size: clamp(4.6rem, 3.6vw, 5.4rem)
+  }
+
+  .hero-home h1 {
+    font-size: clamp(3.2rem, 2.4vw, 4rem)
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-eyebrow-primary {
+    font-size: clamp(2rem, 6vw, 3rem)
+  }
+
+  .hero-home h1 {
+    font-size: clamp(1.65rem, 4.8vw, 2.35rem)
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-eyebrow-primary {
+    align-items: flex-start;
+    font-size: clamp(1.65rem, 7vw, 2.25rem);
+    margin-bottom: 1.25rem
+  }
+
+  .hero-home h1 {
+    font-size: clamp(1.35rem, 5.4vw, 1.8rem)
+  }
+}
+
+/* Resources support card: keep long CTA labels inside the mobile viewport. */
+@media(max-width:767px) {
+  .resources-help-card {
+    padding: 1.5rem !important;
+    gap: 1.5rem !important;
+  }
+
+  .resources-help-actions {
+    width: 100%;
+    min-width: 0;
+    flex-direction: column !important;
+    align-items: stretch;
+  }
+
+  .resources-help-actions .btn {
+    width: 100%;
+    max-width: 100%;
+    min-height: 48px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    justify-content: center;
+    text-align: center;
+    white-space: normal;
+  }
+}
+
 /* CapabilitiesFlow — progressive dot glow */
 .cap-dot-lit {
   background: var(--blue) !important;
@@ -4871,9 +5504,9 @@ canvas#hero-canvas {
 
 /* Product nav v2 */
 .prod-nav-v2 {
-  display: flex;
-  gap: .5rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: .65rem;
   margin-bottom: 5rem;
   padding-bottom: 2.5rem;
   border-bottom: 1px solid #E8ECF5
@@ -4915,7 +5548,15 @@ canvas#hero-canvas {
   background: transparent;
   transition: all .3s;
   cursor: pointer;
-  white-space: nowrap
+  min-width: 0;
+  min-height: 48px;
+  line-height: 1.35;
+  white-space: normal
+}
+
+.prod-nav-v2 button:focus-visible {
+  outline: 3px solid rgba(0, 71, 255, .28);
+  outline-offset: 2px
 }
 
 .prod-nav-v2 button:hover,
@@ -5493,6 +6134,40 @@ canvas#hero-canvas {
 
   .metrics-4col {
     grid-template-columns: 1fr 1fr
+  }
+
+  .about-facility-stat {
+    min-width: 0;
+    min-height: 140px;
+    padding: 1.25rem .8rem
+  }
+
+  .about-facility-stat-value {
+    font-size: clamp(1.15rem, 6vw, 1.65rem);
+    line-height: 1.05;
+    overflow-wrap: anywhere
+  }
+
+  .about-facility-stat-label {
+    font-size: .62rem;
+    line-height: 1.55;
+    letter-spacing: .07em
+  }
+
+  .about-cta-title {
+    max-width: 100%;
+    padding-inline: .25rem;
+    font-size: clamp(1.7rem, 8.5vw, 2.35rem);
+    line-height: 1.08
+  }
+
+  .about-cta-title span {
+    display: block
+  }
+
+  .cta-band-inner {
+    width: 100%;
+    min-width: 0
   }
 
   .map-placeholder {
@@ -6705,6 +7380,28 @@ canvas#hero-canvas {
 
   .container {
     padding: 0 2rem
+  }
+
+  .prod-nav-v2 {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: .5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none
+  }
+
+  .prod-nav-v2::-webkit-scrollbar {
+    display: none
+  }
+
+  .prod-nav-v2 button {
+    flex: 0 0 auto;
+    min-height: 44px;
+    white-space: nowrap;
+    scroll-snap-align: start
   }
 
   .nav-inner {

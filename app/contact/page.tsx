@@ -3,13 +3,31 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 export default function ContactPage() {
-  const [form, setForm] = useState({name:'',company:'',email:'',phone:'',location:'',project:'',message:''})
+  const [form, setForm] = useState({name:'',company:'',email:'',phone:'',message:''})
+  const [files, setFiles] = useState<File[]>([])
   const [sent, setSent] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
-  const handle = (e: React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>) => {
+  const handle = (e: React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement>) => {
     setForm(p => ({...p, [e.target.name]: e.target.value}))
+  }
+
+  const handleFiles = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selected = Array.from(e.target.files ?? [])
+    const totalSize = selected.reduce((sum, file) => sum + file.size, 0)
+    if (selected.length > 3) {
+      setError('Please attach no more than 3 files.')
+      e.target.value = ''
+      return
+    }
+    if (totalSize > 4 * 1024 * 1024) {
+      setError('Attachments must be 4 MB or less in total.')
+      e.target.value = ''
+      return
+    }
+    setError('')
+    setFiles(selected)
   }
 
   const submit = async (e: React.FormEvent) => {
@@ -17,10 +35,13 @@ export default function ContactPage() {
     setLoading(true)
     setError('')
     try {
+      const payload = new FormData()
+      Object.entries(form).forEach(([key, value]) => payload.append(key, value))
+      files.forEach(file => payload.append('attachments', file))
+
       const res = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: payload,
       })
       const data = await res.json()
       if (!res.ok) throw new Error(data.error || 'Failed to send.')
@@ -40,7 +61,7 @@ export default function ContactPage() {
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>Contact</span></div>
           <div className="label label-white">Talk to Our Team</div>
           <h1>Let&rsquo;s Build Reliable<br/><em>Power Infrastructure Together</em></h1>
-          <p className="lead mt-4">Ready to discuss your project? Our engineering team is available to review specifications, provide technical guidance, and develop the right power distribution solution for your requirements.</p>
+          <p className="lead mt-4">Ready to discuss your project? Our team works directly with contractors, consultants, utilities, and project owners to review specifications, provide technical guidance, and identify the right power distribution solution.</p>
         </div>
       </div>
 
@@ -54,13 +75,23 @@ export default function ContactPage() {
               <h2 className="mb-8">Tell Us About Your Project</h2>
 
               {sent ? (
-                <div className="p-12 bg-white rounded-[16px] border border-[#E8ECF5] text-center">
+                <div className="p-12 max-md:p-6 bg-white rounded-[16px] border border-[#E8ECF5] text-center">
                   <div className="w-14 h-14 bg-blue/[.08] rounded-full flex items-center justify-center mx-auto mb-6">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0047FF" strokeWidth="2"><path d="M20 6L9 17l-5-5"/></svg>
                   </div>
-                  <h3 className="mb-3">Message Received</h3>
-                  <p className="text-gray text-[.9rem] leading-[1.7]">Thank you for reaching out. Our engineering team will review your project details and get back to you within one business day.</p>
-                  <p className="text-gray text-[.9rem] mt-4">For urgent inquiries, call us at <a href="tel:+16476162595" className="text-blue no-underline font-semibold">+1 (647) 616-2595</a></p>
+                  <h3 className="mb-3">Thank You. We&apos;ve Received Your Inquiry.</h3>
+                  <p className="text-gray text-[.9rem] leading-[1.7] max-w-[520px] mx-auto">Our team will review your project requirements and get back to you to discuss the next steps.</p>
+
+                  <div className="mt-7 py-6 px-5 max-md:px-4 rounded-[12px] bg-off border border-[#E8ECF5]">
+                    <p className="font-title font-bold text-navy text-[.88rem] mb-2">Need immediate assistance with your project?</p>
+                    <a href="tel:+16476162595" className="inline-block text-blue no-underline font-display font-black text-[1.1rem] max-sm:text-[1rem]">+1 (647) 616-2595</a>
+                    <p className="font-mono text-gray text-[.72rem] mt-2 mb-0">Available 24/7, 365 days a year</p>
+                  </div>
+
+                  <div className="grid grid-cols-2 max-md:grid-cols-1 gap-3 mt-7">
+                    <Link href="/" className="btn btn-outline-blue justify-center">Homepage</Link>
+                    <Link href="/products" className="btn btn-primary justify-center">Discover Our Products &amp; Inventory</Link>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={submit} className="contact-form">
@@ -85,25 +116,38 @@ export default function ContactPage() {
                     </div>
                   </div>
                   <div className="form-group">
-                    <label htmlFor="location">Project Location</label>
-                    <input type="text" id="location" name="location" placeholder="City, Province / State" value={form.location} onChange={handle}/>
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="project">Project Type</label>
-                    <select id="project" name="project" value={form.project} onChange={handle}>
-                      <option value="">Select a product or service</option>
-                      <option>Switchgear</option>
-                      <option>Switchboards &amp; Panelboards</option>
-                      <option>Control Panels</option>
-                      <option>Manufacturing &amp; Fabrication</option>
-                      <option>Factory Acceptance Testing</option>
-                      <option>Commissioning Support</option>
-                      <option>Other</option>
-                    </select>
-                  </div>
-                  <div className="form-group">
                     <label htmlFor="message">Project Details *</label>
                     <textarea id="message" name="message" required rows={5} placeholder="Describe your project requirements, specifications, timeline, or any questions you have for our engineering team..." value={form.message} onChange={handle}></textarea>
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="attachments">Project Files</label>
+                    <input
+                      id="attachments"
+                      name="attachments"
+                      type="file"
+                      multiple
+                      accept=".pdf,.doc,.docx,.xls,.xlsx,.dwg,.dxf,.jpg,.jpeg,.png"
+                      onChange={handleFiles}
+                      className="sr-only"
+                    />
+                    <label htmlFor="attachments" className="!normal-case !tracking-normal cursor-pointer rounded-[10px] border-2 border-dashed border-[#C9D2E5] bg-white px-5 py-5 transition-[border-color,background] duration-200 hover:border-blue hover:bg-blue/[.025]">
+                      <span className="flex items-center gap-3">
+                        <span className="w-10 h-10 rounded-[9px] bg-blue/[.08] text-blue flex items-center justify-center shrink-0">
+                          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M5 14v5a1 1 0 001 1h12a1 1 0 001-1v-5"/></svg>
+                        </span>
+                        <span className="min-w-0">
+                          <span className="block font-title font-bold text-navy text-[.82rem]">Add or upload files</span>
+                          <span className="block font-mono text-gray text-[.68rem] leading-[1.5] mt-1">PDF, Word, Excel, CAD, JPG or PNG · Up to 3 files · 4 MB total</span>
+                        </span>
+                      </span>
+                    </label>
+                    {files.length > 0 && (
+                      <ul className="list-none flex flex-col gap-1 mt-1">
+                        {files.map(file => (
+                          <li key={`${file.name}-${file.size}`} className="font-mono text-[.7rem] text-gray truncate">✓ {file.name}</li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                   {error && (
                     <div className="py-[.9rem] px-[1.1rem] bg-[rgba(220,38,38,.07)] border border-[rgba(220,38,38,.25)] rounded-lg text-[.84rem] text-[#dc2626] leading-[1.5]">{error}</div>
@@ -115,7 +159,7 @@ export default function ContactPage() {
                   >
                     {loading ? 'Sending…' : 'Submit Request'}
                   </button>
-                  <p className="text-[.75rem] text-gray text-center mt-3 leading-[1.6]">We respond to all inquiries within one business day. For urgent needs, call us directly.</p>
+                  <p className="text-[.75rem] text-gray text-center mt-3 leading-[1.6]">Available 24/7, 365 days a year. We respond to inquiries within 4 hours.</p>
                 </form>
               )}
             </div>
@@ -129,7 +173,7 @@ export default function ContactPage() {
                 <div>
                   <div className="contact-card-label">Phone</div>
                   <a href="tel:+16476162595" className="contact-card-val">+1 (647) 616-2595</a>
-                  <div className="contact-card-sub">Monday–Friday, 8am–6pm EST</div>
+                  <div className="contact-card-sub">Available 24/7, 365 days a year</div>
                 </div>
               </div>
               <div className="contact-card">
@@ -139,7 +183,7 @@ export default function ContactPage() {
                 <div>
                   <div className="contact-card-label">Email</div>
                   <a href="mailto:sales@candron.com" className="contact-card-val">sales@candron.com</a>
-                  <div className="contact-card-sub">We respond within one business day</div>
+                  <div className="contact-card-sub">We respond within 4 hours</div>
                 </div>
               </div>
               <div className="contact-card">
@@ -156,7 +200,7 @@ export default function ContactPage() {
               <div className="mt-8 p-8 bg-navy rounded-[14px] border border-blue/[.2]">
                 <div className="font-mono text-[.6rem] text-blue tracking-[.22em] uppercase mb-4">What to Include</div>
                 <ul className="list-none flex flex-col gap-[.65rem]">
-                  {['Product type and specifications','Voltage and current requirements','Applicable standards (CSA, UL, ANSI)','Project location and site conditions','Required delivery timeline','Witnessed FAT requirements'].map(item => (
+                  {['Equipment specifications','Voltage and current requirements','Applicable standards (CSA, UL, ANSI)','Required delivery timeline','Witnessed FAT requirements'].map(item => (
                     <li key={item} className="flex items-start gap-[.65rem] text-[.8rem] text-white/55 leading-[1.6]">
                       <span className="w-[5px] h-[5px] min-w-[5px] bg-blue rounded-full mt-[.45rem]"></span>
                       {item}
@@ -173,7 +217,8 @@ export default function ContactPage() {
       <div className="cta-band">
         <div className="container"><div className="cta-band-inner">
           <h2 className="rv">We're Easy to Reach. Always.</h2>
-          <p className="lead rv !text-white/[.6] !max-w-[500px]">Whether you're a contractor, consultant, utility, or project owner — you can reach our engineering team directly. No gatekeepers, no middlemen.</p>
+          <p className="lead rv !text-white/[.6] !max-w-[680px]">Whether you&rsquo;re a contractor, consultant, utility, or project owner, you&rsquo;ll have direct access to our team — from initial inquiry through engineering and delivery.</p>
+          <p className="lead rv !text-white/[.6] !max-w-[680px] !mt-0">No gatekeepers. No middlemen. Just direct access to the people who know your project.</p>
           <div className="flex gap-4 justify-center flex-wrap rv">
             <Link href="/products" className="btn btn-primary btn-lg mag">View Products</Link>
             <a href="tel:+16476162595" className="btn btn-outline btn-lg mag">+1 (647) 616-2595</a>

@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export const metadata = {
   title: 'Transformers',
-  description: 'CANDRON ENERGY INC. manufactures padmount, substation, low voltage dry-type, and medium voltage dry-type transformers — engineered and tested to ANSI, IEEE, and CSA standards.',
+  description: 'CANDRON Energy Inc. manufactures padmount, substation, low voltage dry-type, and medium voltage dry-type transformers — engineered and tested to ANSI, IEEE, and CSA standards.',
 }
 
 const categories = [
@@ -74,6 +74,27 @@ const categories = [
       </svg>
     ),
   },
+]
+
+const transformerFamilies = [
+  { name: 'Padmount', detail: 'Single- and three-phase underground distribution', href: '/products/transformers/padmount' },
+  { name: 'Pole', detail: 'Overhead utility and rural distribution', href: '/products/transformers/substation/polemount' },
+  { name: 'Station Class', detail: 'Industrial and utility substation applications', href: '/products/transformers/substation' },
+  { name: 'EHV', detail: 'Extra-high-voltage project consultation', href: '/contact?product=ehv-transformer' },
+  { name: 'Dry-Type', detail: 'Low- and medium-voltage dry-type configurations', href: '/products/transformers/dry-type-lv' },
+  { name: 'Solid-State Transformers', detail: 'Application review and engineered solutions', href: '/contact?product=solid-state-transformer' },
+]
+
+const transformerApplications = [
+  { name: 'Control & Lighting', detail: 'Low-voltage dry-type, general-purpose step-up/step-down, isolation, and autotransformers' },
+  { name: 'Distribution', detail: 'Utility, commercial, and industrial power distribution' },
+  { name: 'Solar, Renewable & Inverter Duty', detail: 'Renewable generation and power-electronic loads' },
+  { name: 'Traction', detail: 'Rail and transit power systems' },
+  { name: 'Grounding', detail: 'System grounding and neutral-reference applications' },
+  { name: 'Residential', detail: 'Underground and overhead residential distribution' },
+  { name: 'Rural', detail: 'Long-feeder and remote-service applications' },
+  { name: 'Generation', detail: 'Generator step-up and station-service applications' },
+  { name: 'Transmission', detail: 'Grid and high-voltage power transfer applications' },
 ]
 
 export default function TransformersPage() {
@@ -172,6 +193,59 @@ export default function TransformersPage() {
                 </div>
               </Link>
             ))}
+          </div>
+        </div>
+      </div>
+
+      {/* TRANSFORMER FAMILIES & APPLICATIONS */}
+      <div className="section bg-white">
+        <div className="container">
+          <div className="max-w-[720px] mb-12 rv">
+            <div className="label">Transformer Portfolio</div>
+            <h2>Transformer Types and Applications</h2>
+            <p className="lead mt-4">
+              Explore transformer solutions by construction or by the application they serve. Our engineering team can help translate project requirements into the right configuration.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-6">
+            <section className="rounded-[20px] bg-off border border-[#E8ECF5] p-8 max-sm:p-5 rv" aria-labelledby="transformer-families-heading">
+              <div className="font-mono text-[.58rem] font-bold tracking-[.18em] text-blue uppercase mb-3">By Construction</div>
+              <h3 id="transformer-families-heading" className="font-display text-[1.25rem] font-black text-navy mb-6">Transformer Families</h3>
+              <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-3">
+                {transformerFamilies.map((family, index) => (
+                  <Link
+                    key={family.name}
+                    href={family.href}
+                    className="min-w-0 no-underline group rounded-[14px] bg-white border border-[#E8ECF5] p-4 transition-[border-color,box-shadow] duration-200 hover:border-blue hover:shadow-[0_5px_22px_rgba(0,71,255,.1)]"
+                  >
+                    <div className="flex items-start gap-3">
+                      <span className="font-mono text-[.55rem] font-bold tracking-[.12em] text-blue bg-blue/[.08] rounded-[6px] px-2 py-1 shrink-0">{String(index + 1).padStart(2, '0')}</span>
+                      <div className="min-w-0">
+                        <div className="font-display text-[.9rem] font-extrabold text-navy leading-[1.3] break-words">{family.name}</div>
+                        <p className="font-mono text-[.68rem] text-gray leading-[1.55] mt-2 mb-0 break-words">{family.detail}</p>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </section>
+
+            <section className="rounded-[20px] bg-navy border border-blue/[.18] p-8 max-sm:p-5 rv d2" aria-labelledby="transformer-applications-heading">
+              <div className="font-mono text-[.58rem] font-bold tracking-[.18em] text-blue uppercase mb-3">By Use Case</div>
+              <h3 id="transformer-applications-heading" className="font-display text-[1.25rem] font-black text-white mb-6">Applications</h3>
+              <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-x-5 gap-y-4">
+                {transformerApplications.map((application, index) => (
+                  <div key={application.name} className="min-w-0 flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-blue/[.16] text-blue flex items-center justify-center font-mono text-[.5rem] font-bold shrink-0">{index + 1}</span>
+                    <div className="min-w-0">
+                      <div className="font-display text-[.82rem] font-bold text-white leading-[1.35] break-words">{application.name}</div>
+                      <p className="font-mono text-[.65rem] text-white/45 leading-[1.5] mt-1 mb-0 break-words">{application.detail}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
           </div>
         </div>
       </div>

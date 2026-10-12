@@ -79,7 +79,7 @@ const data: ProductTypePageProps = {
     'Oil & gas facility power distribution centres',
   ],
   relatedTypes: [
-    { name: 'Medium Voltage Switchgear', sub: '1–36 kV Control & Protection', href: '/products/mv-switchgear' },
+    { name: 'Medium Voltage Switchgear', sub: '2.4–38 kV • Up to 2000 A', href: '/products/mv-switchgear' },
     { name: 'Switchboards', sub: 'LV Power Distribution', href: '/products/switchboards' },
     { name: 'Junction Box & Splitters', sub: 'LV & MV Distribution', href: '/products/junction-box-splitters' },
   ],
@@ -112,7 +112,7 @@ const data: ProductTypePageProps = {
 }
 
 export const metadata = {
-  title: 'Low Voltage Switchgear | CANDRON ENERGY',
+  title: 'Low Voltage Switchgear | CANDRON Energy',
   description: 'Custom LV switchgear up to 1,000 V — service entrance, main-tie-main, and distribution configurations. CSA C22.2 and UL 508A certified. Built in Toronto, Ontario.',
 }
 

@@ -19,13 +19,12 @@ export default function Footer() {
         <div className="grid grid-cols-[2fr_3fr] max-md:grid-cols-1 gap-12 max-md:gap-8 mb-16 max-md:mb-8">
           {/* Brand */}
           <div>
-            <Link href="/" className="logo footer-logo" aria-label="CANDRON ENERGY INC. — Home">
+            <Link href="/" className="logo footer-logo" aria-label="CANDRON Energy Inc. — Home">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/images/logo.svg" alt="" className="logo-img" />
             </Link>
             <p className="text-[.85rem] text-white/50 leading-[1.85] mt-4 max-w-[300px] max-md:max-w-none">
-              Canadian-engineered power distribution equipment — designed,
-              manufactured, assembled, and tested entirely in-house.
+              Canadian-Made Power Distribution Equipment, Engineered for Long-Term Reliability.
             </p>
             <div className="mt-7">
               {subscribed ? (
@@ -34,7 +33,9 @@ export default function Footer() {
                 </p>
               ) : (
                 <>
-                  <p className="text-[.8rem] text-white/50 mb-3">Stay updated</p>
+                  <p className="text-[.8rem] text-white/50 leading-[1.6] mb-3">
+                    Subscribe to our inventory list for product availability updates, industry insights, and company news.
+                  </p>
                   <form className="flex gap-2 max-md:flex-col" onSubmit={handleSubscribe}>
                     <input
                       type="email"
@@ -63,9 +64,16 @@ export default function Footer() {
             <div>
               <h5 className="font-title text-[.72rem] font-bold tracking-[.16em] uppercase text-white mb-5 max-md:mb-3">Products</h5>
               <ul className="list-none flex flex-col gap-[.65rem] max-md:gap-2">
-                <li><Link href="/products/switchgear" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Switchgear</Link></li>
+                <li><Link href="/inventory" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Available Inventory</Link></li>
+                <li><Link href="/products/mv-switchgear" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">MV Switchgear</Link></li>
+                <li><Link href="/products/lv-switchgear" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">LV Switchgear</Link></li>
                 <li><Link href="/products/switchboards" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Switchboards</Link></li>
+                <li><Link href="/products/transformers" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Transformers</Link></li>
                 <li><Link href="/products/control-panels" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Control Panels</Link></li>
+                <li><Link href="/products/junction-box-splitters" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Junction Boxes &amp; Splitters</Link></li>
+                <li><Link href="/products/load-banks" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Load Banks</Link></li>
+                <li><Link href="/products/remote-power-panels" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Remote Power Panels</Link></li>
+                <li><Link href="/products/power-distribution-units" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Power Distribution Units</Link></li>
               </ul>
             </div>
 
@@ -73,10 +81,12 @@ export default function Footer() {
             <div>
               <h5 className="font-title text-[.72rem] font-bold tracking-[.16em] uppercase text-white mb-5 max-md:mb-3">Capabilities</h5>
               <ul className="list-none flex flex-col gap-[.65rem] max-md:gap-2">
-                <li><Link href="/services" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Services</Link></li>
+                <li><Link href="/services" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Engineering Services</Link></li>
+                <li><Link href="/commissioning" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Field Service</Link></li>
                 <li><Link href="/manufacturing"className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Manufacturing</Link></li>
                 <li><Link href="/testing" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Testing</Link></li>
                 <li><Link href="/commissioning" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Commissioning</Link></li>
+                <li><Link href="/project-process" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Project Process</Link></li>
                 <li><Link href="/about" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">About Us</Link></li>
               </ul>
             </div>
@@ -101,7 +111,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-white/[.06] pt-8 flex justify-between items-center flex-wrap gap-4 max-md:flex-col max-md:gap-2 max-md:text-center">
           <p className="font-mono text-[.63rem] text-white/[.28] tracking-[.04em]">
-            © 2025 CANDRON ENERGY INC. All rights reserved. Proudly Canadian.
+            © 2025 CANDRON Energy Inc. All rights reserved. Proudly Canadian.
           </p>
           <p className="font-mono text-[.63rem] text-white/[.28] tracking-[.04em]">
             Toronto, Ontario, Canada

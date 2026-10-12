@@ -108,7 +108,7 @@ const data: ProductTypePageProps = {
 }
 
 export const metadata = {
-  title: 'Main Breaker Switchboards | CANDRON ENERGY',
+  title: 'Main Breaker Switchboards | CANDRON Energy',
   description: 'UL 891 and CSA C22.2 main breaker switchboards up to 4000 A. Built in Toronto, Ontario for commercial and industrial facilities.',
 }
 

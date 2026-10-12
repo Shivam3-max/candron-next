@@ -28,7 +28,7 @@ export default function ManufacturingPage() {
             <em>Tested Under One Roof</em>
           </h1>
           <p className="lead mt-4">
-            CANDRON ENERGY provides complete in-house manufacturing capabilities
+            CANDRON Energy provides complete in-house manufacturing capabilities
             that eliminate unnecessary delays and ensure total quality control —
             from first engineering drawing to final factory test.
           </p>

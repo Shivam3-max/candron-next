@@ -4,7 +4,7 @@ import Image from 'next/image'
 import StatBar from '@/components/StatBar'
 import TimelineScroll from '@/components/TimelineScroll'
 
-export const metadata = { title: 'About', description: '50+ years of combined engineering expertise powering North America\'s most critical facilities. CANDRON ENERGY INC. — licensed engineers, veteran technicians, and complete in-house manufacturing from design to delivery.' }
+export const metadata = { title: 'About', description: '50+ years of combined engineering expertise powering North America\'s most critical facilities. CANDRON Energy Inc. — licensed engineers, veteran technicians, and complete in-house manufacturing from design to delivery.' }
 
 export default function AboutPage() {
   return (
@@ -32,7 +32,7 @@ export default function AboutPage() {
               <h2>Complete In-House Electrical Manufacturing — No Outsourcing, No Third Parties</h2>
             </div>
             <div className="rv-r">
-              <p className="body mb-5">CANDRON ENERGY INC. was founded on a straightforward principle: the best electrical equipment is designed, manufactured, assembled, and tested by the same team — under one roof. Most suppliers depend on fragmented networks of third-party fabricators, external wiring shops, and offshore supply chains. That introduces delays, quality gaps, and accountability problems that ultimately impact your project.</p>
+              <p className="body mb-5">CANDRON Energy Inc. was founded on a straightforward principle: the best electrical equipment is designed, manufactured, assembled, and tested by the same team — under one roof. Most suppliers depend on fragmented networks of third-party fabricators, external wiring shops, and offshore supply chains. That introduces delays, quality gaps, and accountability problems that ultimately impact your project.</p>
               <p className="body mb-5">We built CANDRON differently. Every stage of production happens in our Toronto facility — electrical engineering, mechanical design, fabrication, assembly, wiring, quality inspection, and factory acceptance testing. When you work with CANDRON, there is one point of contact and one team accountable for the outcome.</p>
               <p className="body">Today, CANDRON serves clients across mining, oil and gas, power generation, data centers, healthcare, transportation, and more — delivering engineered power distribution solutions with faster lead times and uncompromising quality built to ANSI, NETA, CSA, and IEEE standards.</p>
             </div>
@@ -44,10 +44,10 @@ export default function AboutPage() {
       <div className="stat-bar">
         <div className="container">
           <StatBar stats={[
-            { num: '50+', lbl: 'Years Combined Expertise' },
-            { num: 'C5M', lbl: 'Paint Standard' },
-            { num: '11-Gauge', lbl: 'Steel Enclosures' },
-            { num: 'Same-Day', lbl: 'Lead Time Quotes' },
+            { num: '50+', lbl: 'Years' },
+            { num: 'Same-Day', lbl: 'Quote' },
+            { num: '24/7', lbl: 'Emergency Response' },
+            { num: 'Engineers +', lbl: 'Field Techs Behind Every Conversation' },
           ]} />
         </div>
       </div>
@@ -296,9 +296,9 @@ export default function AboutPage() {
               { val: '24/7', lbl: 'Engineer On Call' },
               { val: 'Full FAT', lbl: 'Before Shipment' },
             ].map((m) => (
-              <div key={m.lbl} className="text-center p-6 bg-white border border-[#E8ECF5] rounded-[10px]">
-                <div className="font-display text-[1.4rem] font-black text-blue mb-[.3rem]">{m.val}</div>
-                <div className="font-title text-[.7rem] text-gray tracking-[.1em] uppercase">{m.lbl}</div>
+              <div key={m.lbl} className="about-facility-stat text-center p-6 bg-white border border-[#E8ECF5] rounded-[10px]">
+                <div className="about-facility-stat-value font-display text-[1.4rem] font-black text-blue mb-[.3rem]">{m.val}</div>
+                <div className="about-facility-stat-label font-title text-[.7rem] text-gray tracking-[.1em] uppercase">{m.lbl}</div>
               </div>
             ))}
           </div>
@@ -308,7 +308,7 @@ export default function AboutPage() {
       {/* CTA */}
       <div className="cta-band">
         <div className="container"><div className="cta-band-inner">
-          <h2 className="rv">Ready to Work Together?</h2>
+          <h2 className="about-cta-title rv">Ready to Work <span>Together?</span></h2>
           <p className="lead rv !text-white/[.6] !max-w-[500px]">Whether you have an urgent need or a long-term project, our team is ready. Let's start the conversation.</p>
           <div className="flex gap-4 justify-center flex-wrap rv">
             <Link href="/contact" className="btn btn-primary btn-lg mag">Contact Our Team</Link>

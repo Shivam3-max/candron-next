@@ -109,7 +109,7 @@ const data: ProductTypePageProps = {
 }
 
 export const metadata = {
-  title: 'Main-Tie-Main Switchboards | CANDRON ENERGY',
+  title: 'Main-Tie-Main Switchboards | CANDRON Energy',
   description: 'UL 891 main-tie-main switchboards with dual mains and bus tie for N+1 power redundancy. Automatic transfer options. Built in Toronto, Ontario.',
 }
 

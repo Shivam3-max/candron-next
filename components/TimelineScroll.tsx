@@ -7,7 +7,7 @@ import { useGSAP } from '@gsap/react'
 gsap.registerPlugin(ScrollTrigger)
 
 const milestones = [
-  { year: '2022', title: 'Founded in Toronto, Ontario', text: 'CANDRON ENERGY INC. is established by a team of veteran power engineers — each bringing decades of field experience. From day one, the mandate was complete in-house design, fabrication, assembly, and testing under one roof.' },
+  { year: '2022', title: 'Founded in Toronto, Ontario', text: 'CANDRON Energy Inc. is established by a team of veteran power engineers — each bringing decades of field experience. From day one, the mandate was complete in-house design, fabrication, assembly, and testing under one roof.' },
   { year: '2023', title: 'First Major Project Deliveries', text: 'CANDRON completes its first major custom switchgear, switchboard, and control panel projects across mining, oil & gas, and industrial sectors — delivered on time, tested in-house, and meeting ANSI, CSA, and IEEE standards.' },
   { year: '2024', title: 'Material & Finishing Standards Formalized', text: 'CANDRON formalizes its premium build standard: 11-gauge steel enclosures, C5M corrosion protection coating, and German-manufactured laser and water-jet cutting equipment — setting a manufacturing bar well above the industry norm.' },
   { year: '2025', title: 'Expanded Across New Sectors', text: 'Product range expands to serve data centers, healthcare, transportation, renewable energy, and port electrification — with every project still designed, built, and tested entirely at our Toronto facility.' },

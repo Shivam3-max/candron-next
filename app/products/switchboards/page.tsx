@@ -155,9 +155,9 @@ export default function SwitchboardsPage() {
       <TrustBar />
 
       {/* STICKY TAB NAV */}
-      <div className="sticky top-16 bg-white border-b border-[#E8ECF5] z-40">
+      <div className="product-sticky-tabs sticky top-16 bg-white border-b border-[#E8ECF5] z-40">
         <div className="container">
-          <div className="flex gap-1 flex-wrap py-[.6rem]">
+          <div className="product-sticky-tabs-track flex gap-1 flex-wrap py-[.6rem]">
             {[['#overview', 'Overview'], ['#types-specs', 'Types & Specs'], ['#standards', 'Standards'], ['#applications', 'Applications'], ['#faq', 'FAQ'], ['#quote', 'Get a Quote']].map(([href, label]) => (
               <a key={href} href={href} className="py-[.45rem] px-[.85rem] rounded-lg border border-[#E8ECF5] text-[.78rem] font-semibold text-navy no-underline whitespace-nowrap transition-[border-color,color] duration-150 hover:border-blue hover:text-blue">
                 {label}
@@ -224,39 +224,43 @@ export default function SwitchboardsPage() {
           </p>
           <div className="flex flex-col gap-3">
             {types.map((t, i) => (
-              <div key={i} className={`rv bg-white rounded-[14px] border border-[#E8ECF5] overflow-hidden transition-[box-shadow] duration-200 ${openAcc === i ? 'shadow-[0_8px_32px_rgba(5,9,31,.1)]' : ''}`}>
+              <div key={i} className={`product-type-accordion rv bg-white rounded-[14px] border border-[#E8ECF5] overflow-hidden transition-[box-shadow] duration-200 ${openAcc === i ? 'shadow-[0_8px_32px_rgba(5,9,31,.1)]' : ''}`}>
                 <button
+                  type="button"
+                  id={`switchboard-trigger-${i}`}
+                  aria-expanded={openAcc === i}
+                  aria-controls={`switchboard-content-${i}`}
                   onClick={() => setOpenAcc(openAcc === i ? null : i)}
-                  className="w-full text-left bg-transparent border-0 py-5 px-6 flex items-center gap-4 cursor-pointer"
+                  className="product-type-accordion-trigger w-full text-left bg-transparent border-0 py-5 px-6 flex items-center gap-4 cursor-pointer"
                 >
-                  <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-[background,color] duration-200 font-mono text-[.58rem] font-bold tracking-[.1em] ${openAcc === i ? 'bg-blue text-white' : 'bg-[rgba(0,71,255,.08)] text-blue'}`}>
+                  <div className={`product-type-accordion-index w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-[background,color] duration-200 font-mono text-[.58rem] font-bold tracking-[.1em] ${openAcc === i ? 'bg-blue text-white' : 'bg-[rgba(0,71,255,.08)] text-blue'}`}>
                     0{i + 1}
                   </div>
-                  <div className="flex-1 min-w-0">
+                  <div className="product-type-accordion-summary flex-1 min-w-0">
                     <div className="font-title font-bold text-navy text-[.9rem] tracking-[.02em]">{t.title}</div>
                     <div className="font-mono text-[.6rem] text-blue tracking-[.08em] mt-[.15rem]">{t.sub}</div>
                   </div>
-                  <div className="flex gap-[.4rem] shrink-0 mr-[.25rem]">
-                    <span className="bg-[rgba(0,71,255,.07)] text-blue font-mono text-[.55rem] font-bold tracking-[.04em] py-[.22rem] px-[.6rem] rounded-[5px] whitespace-nowrap">{t.specs.Voltage}</span>
-                    <span className="bg-[rgba(0,71,255,.07)] text-blue font-mono text-[.55rem] font-bold tracking-[.04em] py-[.22rem] px-[.6rem] rounded-[5px] whitespace-nowrap">{t.specs.Current}</span>
+                  <div className="product-type-accordion-badges flex gap-[.4rem] shrink-0 mr-[.25rem]">
+                    <span className="bg-[rgba(0,71,255,.07)] text-blue font-mono text-[.55rem] font-bold tracking-[.04em] py-[.22rem] px-[.6rem] rounded-[5px]">{t.specs.Voltage}</span>
+                    <span className="bg-[rgba(0,71,255,.07)] text-blue font-mono text-[.55rem] font-bold tracking-[.04em] py-[.22rem] px-[.6rem] rounded-[5px]">{t.specs.Current}</span>
                   </div>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`shrink-0 text-gray transition-[transform] duration-[.25s] ${openAcc === i ? 'rotate-180' : ''}`}><path d="M6 9l6 6 6-6" /></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`product-type-accordion-chevron shrink-0 text-gray transition-[transform] duration-[.25s] ${openAcc === i ? 'rotate-180' : ''}`}><path d="M6 9l6 6 6-6" /></svg>
                 </button>
-                <div className={`overflow-hidden transition-[max-height] duration-[.4s] ease-in-out ${openAcc === i ? 'max-h-[600px]' : 'max-h-0'}`}>
+                <div id={`switchboard-content-${i}`} role="region" aria-labelledby={`switchboard-trigger-${i}`} className={`overflow-hidden transition-[max-height] duration-[.4s] ease-in-out ${openAcc === i ? 'max-h-[2400px]' : 'max-h-0'}`}>
                   <div className="border-t border-[#E8ECF5] bg-off">
                     {/* Top: image + features + upgrades */}
-                    <div className="flex gap-8 pt-[1.75rem] px-[1.75rem] pb-6 items-start flex-wrap">
-                      <div className="w-[260px] shrink-0 rounded-xl overflow-hidden h-[220px] shadow-[0_2px_12px_rgba(5,9,31,.1)]">
+                    <div className="product-type-accordion-body flex gap-8 pt-[1.75rem] px-[1.75rem] pb-6 items-start flex-wrap">
+                      <div className="product-type-accordion-image w-[260px] shrink-0 rounded-xl overflow-hidden h-[220px] shadow-[0_2px_12px_rgba(5,9,31,.1)]">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img src={t.image} alt={t.title} className="w-full h-full object-cover block" />
                       </div>
-                      <div className="flex-1 min-w-[200px]">
+                      <div className="product-type-accordion-column flex-1 min-w-[200px]">
                         <div className="font-mono text-[.55rem] text-blue tracking-[.18em] uppercase font-bold mb-4">Standard Features</div>
                         <ul className="check-list m-0">
                           {t.items.map(item => <li key={item}>{item}</li>)}
                         </ul>
                       </div>
-                      <div className="flex-1 min-w-[200px]">
+                      <div className="product-type-accordion-column flex-1 min-w-[200px]">
                         <div className="font-mono text-[.55rem] text-[#059669] tracking-[.18em] uppercase font-bold mb-4">Optional Upgrades</div>
                         <ul className="m-0 p-0 list-none flex flex-col gap-[.55rem]">
                           {t.upgrades.map(u => (
@@ -269,9 +273,9 @@ export default function SwitchboardsPage() {
                       </div>
                     </div>
                     {/* Bottom: specifications strip */}
-                    <div className="border-t border-[#E8ECF5] grid grid-cols-5 bg-white">
+                    <div className="product-type-spec-grid border-t border-[#E8ECF5] grid grid-cols-5 bg-white">
                       {specCols.map((col, ci) => (
-                        <div key={col} className={`py-4 px-5 ${ci < specCols.length - 1 ? 'border-r border-[#E8ECF5]' : ''}`}>
+                        <div key={col} className={`product-type-spec-cell py-4 px-5 ${ci < specCols.length - 1 ? 'border-r border-[#E8ECF5]' : ''}`}>
                           <div className="font-mono text-[.5rem] text-gray tracking-[.15em] uppercase mb-[.35rem]">{col}</div>
                           <div className="font-title text-[.82rem] font-bold text-navy leading-[1.3]">{(t.specs as Record<string, string>)[col] ?? ''}</div>
                         </div>

@@ -6,34 +6,29 @@ import { usePathname } from 'next/navigation'
 const links = [
   { href: '/', label: 'Home' },
   { href: '/products', label: 'Products' },
+  { href: '/inventory', label: 'Inventory' },
   { href: '/resources', label: 'Resources' },
   { href: '/company', label: 'Company' },
 ]
 
 const companyItems = [
   {
-    href: '/manufacturing',
-    label: 'Manufacturing',
-    desc: 'In-house fabrication, assembly, and quality control',
-    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>,
-  },
-  {
-    href: '/testing',
-    label: 'Testing',
-    desc: 'IEEE/NETA certified high-voltage test facility',
-    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg>,
-  },
-  {
-    href: '/commissioning',
-    label: 'Commissioning',
-    desc: 'Field installation, startup, and site acceptance testing',
-    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>,
-  },
-  {
     href: '/about',
-    label: 'About',
-    desc: 'Our story, leadership team, and company values',
+    label: 'About CANDRON & Team',
+    desc: 'Our company, people, values, and approach',
     icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>,
+  },
+  {
+    href: '/industries',
+    label: 'Sectors We Serve',
+    desc: 'Support for contractors, consultants, utilities, and project owners',
+    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 4V2m8 2V2M7 9h10M7 13h4M7 17h7"/></svg>,
+  },
+  {
+    href: '/project-process',
+    label: 'Project Process',
+    desc: 'The full project cycle, from inception to commissioning',
+    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 5h10a4 4 0 0 1 4 4v1"/><path d="M16 7l3 3 3-3M19 19H9a4 4 0 0 1-4-4v-1"/><path d="M8 17l-3-3-3 3"/></svg>,
   },
 ]
 
@@ -41,8 +36,8 @@ const productItems = [
   {
     href: '/products/mv-switchgear',
     name: 'MV Switchgear',
-    sub: '1 kV to 36 kV',
-    desc: 'Custom metal-clad and pad-mounted switchgear from 1 kV to 36 kV with VCBs, load break switches, and integrated protection relays.',
+    sub: '2.4 kV to 38 kV • 2000 A',
+    desc: 'Custom metal-clad and pad-mounted switchgear from 2.4 kV to 38 kV, rated up to 2000 A, with VCBs, load break switches, and integrated protection relays.',
     image: '/images/switchgear.jpg',
     types: [
       { name: 'Metal-Clad', href: '/products/switchgear/metal-clad', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="2"/><line x1="2" y1="9" x2="22" y2="9"/><line x1="9" y1="9" x2="9" y2="22"/></svg> },
@@ -138,6 +133,23 @@ const productItems = [
       </svg>
     ),
   },
+  {
+    href: '/products/power-distribution',
+    name: 'Critical Power',
+    sub: 'Load Testing & Distribution',
+    desc: 'Load banks, remote power panels, and transformer-based power distribution units for data centres, generators, UPS systems, and critical facilities.',
+    image: '/images/products/power-distribution/power-distribution-unit.webp',
+    types: [
+      { name: 'Load Banks', href: '/products/load-banks', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg> },
+      { name: 'Remote Power Panels', href: '/products/remote-power-panels', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg> },
+      { name: 'Power Distribution Units', href: '/products/power-distribution-units', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="8" cy="12" r="4"/><circle cx="16" cy="12" r="4"/><path d="M2 12h2M20 12h2"/></svg> },
+    ],
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+        <path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" />
+      </svg>
+    ),
+  },
 ]
 
 export default function Navbar() {
@@ -164,7 +176,9 @@ export default function Navbar() {
 
   const headerClass = ['dark-nav', scrolled ? 'scrolled' : 'at-top'].join(' ')
   const isProductsActive = pathname === '/products' || pathname.startsWith('/products/')
+  const isInventoryActive = pathname === '/inventory' || pathname.startsWith('/inventory/')
   const isCompanyActive = companyItems.some(c => pathname === c.href || pathname.startsWith(c.href + '/'))
+  const isLinkActive = (href: string) => href === '/inventory' ? isInventoryActive : pathname === href
 
   const p = productItems[hoveredProd]
 
@@ -172,7 +186,7 @@ export default function Navbar() {
     <>
       <header className={headerClass}>
         <div className="nav-inner">
-          <Link href="/" className="logo" aria-label="CANDRON ENERGY INC. — Home">
+          <Link href="/" className="logo" aria-label="CANDRON Energy Inc. — Home">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/images/logo.svg" alt="" className="logo-img" />
           </Link>
@@ -225,8 +239,8 @@ export default function Navbar() {
                   <Link
                     key={l.href}
                     href={l.href}
-                    className={pathname === l.href ? 'active' : ''}
-                    aria-current={pathname === l.href ? 'page' : undefined}
+                    className={isLinkActive(l.href) ? 'active' : ''}
+                    aria-current={isLinkActive(l.href) ? 'page' : undefined}
                   >
                     {l.label}
                   </Link>
@@ -290,6 +304,9 @@ export default function Navbar() {
                         <div className="nav-mega-footer">
                           <Link href="/products" className="nav-mega-all" onClick={() => { setProdOpen(false); setHoveredProd(0) }}>
                             VIEW ALL PRODUCTS →
+                          </Link>
+                          <Link href="/inventory" className="nav-mega-all nav-mega-inventory" onClick={() => { setProdOpen(false); setHoveredProd(0) }}>
+                            AVAILABLE INVENTORY →
                           </Link>
                         </div>
                       </div>
@@ -370,7 +387,7 @@ export default function Navbar() {
               <div key="/company" className="mobile-products-group">
                 <button
                   className={`mobile-products-toggle${isCompanyActive ? ' active' : ''}`}
-                  onClick={() => setMobileCompanyOpen(!mobileCompanyOpen)}
+                  onClick={() => { setMobileCompanyOpen(!mobileCompanyOpen); setMobileProdOpen(false) }}
                   aria-expanded={mobileCompanyOpen}
                 >
                   Company
@@ -402,7 +419,7 @@ export default function Navbar() {
               <div key="/products" className="mobile-products-group">
                 <button
                   className={`mobile-products-toggle${isProductsActive ? ' active' : ''}`}
-                  onClick={() => setMobileProdOpen(!mobileProdOpen)}
+                  onClick={() => { setMobileProdOpen(!mobileProdOpen); setMobileCompanyOpen(false) }}
                   aria-expanded={mobileProdOpen}
                 >
                   {l.label}
@@ -430,6 +447,13 @@ export default function Navbar() {
                     >
                       All Products
                     </Link>
+                    <Link
+                      href="/inventory"
+                      onClick={() => setMobileOpen(false)}
+                      className={`mobile-products-all mobile-inventory-link${isInventoryActive ? ' active' : ''}`}
+                    >
+                      Available Inventory
+                    </Link>
                     {productItems.map(item => (
                       <Link
                         key={item.href}
@@ -451,8 +475,8 @@ export default function Navbar() {
               key={l.href}
               href={l.href}
               onClick={() => setMobileOpen(false)}
-              className={pathname === l.href ? 'active' : ''}
-              aria-current={pathname === l.href ? 'page' : undefined}
+              className={isLinkActive(l.href) ? 'active' : ''}
+              aria-current={isLinkActive(l.href) ? 'page' : undefined}
             >
               {l.label}
             </Link>
