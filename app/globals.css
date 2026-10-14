@@ -8321,7 +8321,12 @@ canvas#hero-canvas {
 
   .product-image-metrics > div {
     min-width: 0;
-    padding: .55rem .35rem
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: .55rem .35rem;
+    text-align: center !important
   }
 
   .product-image-metrics > div:nth-child(2) {
