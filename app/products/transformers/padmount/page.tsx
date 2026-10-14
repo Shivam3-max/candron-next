@@ -1,18 +1,19 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export const metadata = {
   title: 'Padmount Transformers',
-  description: 'Tamper-resistant liquid-filled padmount transformers — three-phase and single-phase — for underground residential, commercial, and industrial distribution. 15 kVA to 2,500 kVA.',
+  description: 'Tamper-resistant liquid-filled padmount transformers for underground distribution, including custom three-phase inverter-duty designs up to 3 MVA.',
 }
 
 const types = [
   {
     n: '01',
     name: 'Three-Phase Padmount',
-    sub: '15 kVA – 2,500 kVA · 5 kV – 34.5 kV',
+    sub: '15 kVA – 3,000 kVA · 5 kV – 34.5 kV',
     href: '/products/transformers/padmount/three-phase',
     desc: 'Three-phase liquid-filled padmount transformers for commercial, industrial, and utility underground distribution networks.',
-    specs: [['kVA Range', '15 – 2,500 kVA'], ['HV Range', '5 kV – 34.5 kV'], ['LV Range', '208 V – 15 kV'], ['Standard', 'ANSI C57.12.26']],
+    specs: [['kVA Range', '15 – 3,000 kVA'], ['HV Range', '5 kV – 34.5 kV'], ['LV Range', '208 V – 15 kV'], ['Standard', 'ANSI C57.12.26']],
   },
   {
     n: '02',
@@ -41,7 +42,7 @@ export default function PadmountPage() {
           <div className="label label-white">Liquid-Filled · Underground Distribution</div>
           <h1>Padmount<br /><em>Transformers</em></h1>
           <p className="lead mt-4">
-            Tamper-resistant, compartmentalized liquid-filled padmount transformers for single-phase and three-phase underground cable systems. Rated from 10 kVA to 2,500 kVA at primary voltages from 2.4 kV to 34.5 kV.
+            Tamper-resistant, compartmentalized liquid-filled padmount transformers for single-phase and three-phase underground cable systems. Rated from 10 kVA to 3,000 kVA at primary voltages from 2.4 kV to 34.5 kV.
           </p>
           <div className="flex gap-[.65rem] flex-wrap mt-6">
             {['ANSI C57 Rated', 'CSA Certified', 'Oil-Immersed', 'Tamper-Resistant', 'Custom Configurations'].map(b => (
@@ -73,6 +74,92 @@ export default function PadmountPage() {
           </div>
         </div>
       </div>
+
+      {/* 3 MVA INVERTER-DUTY PADMOUNT PROJECT */}
+      <section className="bg-navy py-20 max-md:py-14" aria-labelledby="inverter-padmount-title">
+        <div className="container">
+          <div className="grid grid-cols-[1.08fr_.92fr] max-lg:grid-cols-1 gap-12 max-lg:gap-9 items-center">
+            <div className="grid grid-cols-2 gap-3 rv-l">
+              {[
+                {
+                  src: '/images/projects/3mva-inverter-duty-padmount/3mva-padmount-front.jpg',
+                  alt: 'Front view of a wrapped 3 MVA inverter-duty pad-mounted transformer prepared for delivery',
+                  label: '3 MVA · Delivery Ready',
+                },
+                {
+                  src: '/images/projects/3mva-inverter-duty-padmount/3mva-padmount-three-quarter.jpg',
+                  alt: 'Three-quarter view of a 27.6 kV Delta to 600Y/347 V pad-mounted transformer',
+                  label: '27.6 kV → 600Y/347 V',
+                },
+                {
+                  src: '/images/projects/3mva-inverter-duty-padmount/3mva-padmount-side.jpg',
+                  alt: 'Side view of the corrosion-resistant enclosure on a 3 MVA inverter-duty pad-mounted transformer',
+                  label: 'Inverter Duty',
+                },
+              ].map((image, index) => (
+                <figure key={image.src} className={`relative overflow-hidden rounded-[14px] border border-white/[.12] bg-white/[.04] ${index === 0 ? 'row-span-2 aspect-[3/4] max-sm:row-span-1' : 'aspect-[3/2] max-sm:aspect-[3/4]'}`}>
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover transition-transform duration-500 hover:scale-[1.025]"
+                    sizes={index === 0 ? '(max-width:640px) 50vw, (max-width:1024px) 50vw, 31vw' : '(max-width:640px) 50vw, (max-width:1024px) 50vw, 25vw'}
+                  />
+                  <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(5,9,31,.58),transparent_45%)] pointer-events-none" />
+                  <figcaption className="absolute left-3 right-3 bottom-3 font-mono text-[.5rem] font-bold uppercase tracking-[.07em] text-white">
+                    {image.label}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+
+            <div className="rv-r">
+              <div className="label label-white">Project Spotlight · Inverter Duty</div>
+              <h2 id="inverter-padmount-title" className="text-white mt-4 !leading-[1.08]">
+                Engineered for Performance.<br />
+                <em>Built for Demanding Applications.</em>
+              </h2>
+              <p className="text-white/60 text-[.96rem] leading-[1.8] mt-6 max-w-[620px]">
+                This 3 MVA pad-mounted transformer steps 27.6 kV Delta down to 600Y/347 V for inverter-duty service. Manufactured at our partner facility in Texas, USA, it combines precision engineering with robust, efficiency-focused construction.
+              </p>
+
+              <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-3 mt-8">
+                {[
+                  { value: '3 MVA', label: 'Rated Capacity' },
+                  { value: '27.6 kV Δ', label: 'Primary Voltage' },
+                  { value: '600Y/347 V', label: 'Secondary Voltage' },
+                ].map((item) => (
+                  <div key={item.label} className="rounded-[12px] border border-white/[.1] bg-white/[.045] px-4 py-4 min-w-0">
+                    <div className="font-display text-[.86rem] font-black text-white break-words">{item.value}</div>
+                    <div className="font-mono text-[.5rem] uppercase tracking-[.1em] text-white/40 mt-1.5">{item.label}</div>
+                  </div>
+                ))}
+              </div>
+
+              <ul className="mt-8 p-0 list-none grid gap-3">
+                {[
+                  'Precision-engineered for inverter-duty applications',
+                  'High-grade magnetic core for lower sound levels and improved efficiency',
+                  'Heavy-duty active parts and internal assembly components',
+                  'Generously sized tank interior for convenient field maintenance',
+                  'Corrosion-resistant base construction',
+                  'Three-year warranty',
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-white/65 text-[.84rem] leading-[1.55]">
+                    <span className="mt-[.35rem] w-2 h-2 rounded-full bg-blue shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-wrap gap-3 mt-9">
+                <Link href="/contact?product=3mva-inverter-duty-padmount" className="btn btn-primary mag">Discuss Your Application →</Link>
+                <Link href="/products/transformers/padmount/three-phase" className="btn btn-outline mag">Three-Phase Padmounts</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* TYPE CARDS */}
       <div className="section bg-off">

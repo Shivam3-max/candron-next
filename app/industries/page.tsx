@@ -14,7 +14,7 @@ const sectors = [
       { title: 'Equipment Manufacturing & Supply', text: 'Low- and medium-voltage switchboards, switchgear, transformers, and other power distribution equipment.' },
       { title: 'Testing & Verification', text: 'Certified test reports, factory acceptance testing (FAT), site acceptance testing (SAT), and equipment testing support.' },
       { title: 'On-Site Commissioning', text: 'Field technical support for equipment installation, commissioning, troubleshooting, and verification.' },
-      { title: 'Electrical Engineering Studies', text: 'Ground potential rise (GPR), arc flash, short-circuit, harmonic analysis, and other project-specific studies through qualified engineering resources.' },
+      { title: 'Electrical Engineering Studies', text: 'Ground potential rise (GPR), arc flash, short-circuit, harmonic analysis, and other project-specific studies through Delta Wye Engineering.', href: 'https://deltawyeeng.com' },
       { title: 'Engineering Drawings & Submittals', text: 'Equipment drawings, technical documentation, and submittal packages to support utility reviews, ESA inspections, and applicable authority approvals.' },
     ],
     closing: 'Your project partner from procurement through commissioning.',
@@ -85,7 +85,13 @@ export default function IndustriesPage() {
                         <li key={capability.title} className={`grid grid-cols-[34px_1fr] gap-3 rounded-xl border p-4 sm:grid-cols-[42px_1fr] sm:gap-4 sm:p-5 ${sectorIndex === 0 ? 'border-white/10 bg-white/[0.035]' : 'border-[#e4e8f0] bg-[#f8f9fc]'}`}>
                           <span className="font-mono text-xs font-bold text-[#0755ff]">{String(capabilityIndex + 1).padStart(2, '0')}</span>
                           <div>
-                            <h4 className={`text-base font-bold leading-snug ${sectorIndex === 0 ? 'text-white' : 'text-[#050b2a]'}`}>{capability.title}</h4>
+                            <h4 className={`text-base font-bold leading-snug ${sectorIndex === 0 ? 'text-white' : 'text-[#050b2a]'}`}>
+                              {'href' in capability && capability.href ? (
+                                <a href={capability.href} target="_blank" rel="noopener noreferrer" className="text-inherit no-underline transition-colors hover:text-[#6591ff]">
+                                  {capability.title} ↗
+                                </a>
+                              ) : capability.title}
+                            </h4>
                             <p className={`mt-2 text-sm leading-6 sm:text-base sm:leading-7 ${sectorIndex === 0 ? 'text-[#aeb8d0]' : 'text-[#69728b]'}`}>{capability.text}</p>
                           </div>
                         </li>
@@ -115,12 +121,12 @@ export default function IndustriesPage() {
         <div className="container">
           <div className="ind-detail rv">
             <div className="ind-img-wrap">
-              <Image src="/images/mining.jpg" alt="Mining Operations" fill className="object-cover" sizes="(max-width:1024px) 100vw, 50vw" priority/>
+              <Image src="/images/field-services/mine-transformer-field-testing.jpg" alt="CANDRON technician conducting transformer field testing at a mine" fill className="object-cover object-center" sizes="(max-width:1024px) 100vw, 50vw" priority/>
             </div>
             <div>
               <div className="label">Industry 01</div>
               <h2>Mining</h2>
-              <p className="body mt-3">Mining operations run 24/7 in the harshest conditions on earth — dusty, wet, vibrating, and often miles underground. Electrical failures don't just cost money; they cost lives. CANDRON engineers and supplies electrical infrastructure that's built for the mine, not the office.</p>
+              <p className="body mt-3">Mining operations run 24/7 in demanding conditions where electrical reliability directly affects safety and production. CANDRON supplies power equipment and responsive field support—including a recent transformer-testing assignment where our crew mobilized within 24 hours of order confirmation.</p>
               <div className="ind-kpi-row">
                 <div className="ind-kpi"><strong>138kV</strong><span>Max Substation Voltage</span></div>
                 <div className="ind-kpi"><strong>ATEX</strong><span>Hazardous Area Rated</span></div>
@@ -129,7 +135,7 @@ export default function IndustriesPage() {
               <div className="equip-list">
                 <span className="equip-tag">Mine Substations</span><span className="equip-tag">Hoist Transformers</span>
                 <span className="equip-tag">MV Drive Transformers</span><span className="equip-tag">Trailing Cable Systems</span>
-                <span className="equip-tag">Load Banks</span><span className="equip-tag">Motor Control Centers</span>
+                <span className="equip-tag">Transformer Field Testing</span><span className="equip-tag">DGA &amp; SFRA</span>
               </div>
               <Link href="/contact" className="btn btn-primary mag">Talk to a Mining Specialist →</Link>
             </div>

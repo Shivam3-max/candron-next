@@ -83,7 +83,7 @@ export default function InductanceCalculatorPage() {
         <div className="container">
           <div className="flex flex-col-reverse lg:flex-row gap-16 items-start">
 
-            <div className="flex-1 min-w-0">
+            <div className="w-full max-w-full flex-1 min-w-0">
               <div className="label mb-4">Background</div>
               <h2 className="mb-6" style={{ fontSize: 'clamp(1.4rem,2.5vw,1.9rem)' }}>Leakage Reactance & Fault Current</h2>
               <div className="flex flex-col gap-5">

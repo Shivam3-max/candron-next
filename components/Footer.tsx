@@ -24,7 +24,7 @@ export default function Footer() {
               <img src="/images/logo.svg" alt="" className="logo-img" />
             </Link>
             <p className="text-[.85rem] text-white/50 leading-[1.85] mt-4 max-w-[300px] max-md:max-w-none">
-              Canadian-Made Power Distribution Equipment, Engineered for Long-Term Reliability.
+              Candron is a leading Toronto-based manufacturer of switchgear, switchboards, and dry-type transformers, delivering engineered power distribution solutions with a focus on quality, reliability, and shorter lead times.
             </p>
             <div className="mt-7">
               {subscribed ? (
@@ -59,13 +59,13 @@ export default function Footer() {
           </div>
 
           {/* Link columns */}
-          <div className="grid grid-cols-3 gap-6 max-md:gap-4">
+          <div className="footer-link-grid grid grid-cols-3 gap-6 max-md:gap-4">
             {/* Products */}
             <div>
               <h5 className="font-title text-[.72rem] font-bold tracking-[.16em] uppercase text-white mb-5 max-md:mb-3">Products</h5>
               <ul className="list-none flex flex-col gap-[.65rem] max-md:gap-2">
                 {/* Inventory navigation is temporarily disabled. */}
-                <li><Link href="/products/mv-switchgear" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">MV Switchgear</Link></li>
+                <li><Link href="/products/switchgear" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Switchgear</Link></li>
                 <li><Link href="/products/lv-switchgear" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">LV Switchgear</Link></li>
                 <li><Link href="/products/switchboards" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Switchboards</Link></li>
                 <li><Link href="/products/transformers" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Transformers</Link></li>
@@ -81,18 +81,18 @@ export default function Footer() {
             <div>
               <h5 className="font-title text-[.72rem] font-bold tracking-[.16em] uppercase text-white mb-5 max-md:mb-3">Capabilities</h5>
               <ul className="list-none flex flex-col gap-[.65rem] max-md:gap-2">
-                <li><Link href="/services" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Engineering Services</Link></li>
+                <li><a href="https://deltawyeeng.com" target="_blank" rel="noopener noreferrer" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Electrical Engineering Services</a></li>
                 <li><Link href="/commissioning" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Field Service</Link></li>
                 <li><Link href="/manufacturing"className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Manufacturing</Link></li>
                 <li><Link href="/testing" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Testing</Link></li>
                 <li><Link href="/commissioning" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Commissioning</Link></li>
-                <li><Link href="/project-process" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Project Process</Link></li>
+                <li><Link href="/project-process" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">CANDRON Processes</Link></li>
                 <li><Link href="/about" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">About Us</Link></li>
               </ul>
             </div>
 
             {/* Contact */}
-            <div>
+            <div className="footer-link-contact">
               <h5 className="font-title text-[.72rem] font-bold tracking-[.16em] uppercase text-white mb-5 max-md:mb-3">Contact</h5>
               <ul className="list-none flex flex-col gap-[.65rem] max-md:gap-2">
                 <li><a href="tel:+16476162595" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">+1 (647) 616-2595</a></li>

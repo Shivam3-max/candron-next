@@ -4,7 +4,7 @@ import Image from 'next/image'
 import StatBar from '@/components/StatBar'
 import TimelineScroll from '@/components/TimelineScroll'
 
-export const metadata = { title: 'About', description: '50+ years of combined engineering expertise powering North America\'s most critical facilities. CANDRON Energy Inc. — licensed engineers, veteran technicians, and complete in-house manufacturing from design to delivery.' }
+export const metadata = { title: 'About Our Toronto Manufacturing Team', description: 'Meet CANDRON, a leading Toronto-based manufacturer of switchgear, switchboards, dry-type transformers, and engineered power distribution equipment.' }
 
 export default function AboutPage() {
   return (
@@ -29,10 +29,10 @@ export default function AboutPage() {
           <div className="split rv">
             <div className="rv-l">
               <div className="label">Who We Are</div>
-              <h2>Complete In-House Electrical Manufacturing — No Outsourcing, No Third Parties</h2>
+              <h2>A Leading Toronto Power Equipment Manufacturer</h2>
             </div>
             <div className="rv-r">
-              <p className="body mb-5">CANDRON Energy Inc. was founded on a straightforward principle: the best electrical equipment is designed, manufactured, assembled, and tested by the same team — under one roof. Most suppliers depend on fragmented networks of third-party fabricators, external wiring shops, and offshore supply chains. That introduces delays, quality gaps, and accountability problems that ultimately impact your project.</p>
+              <p className="body mb-5">CANDRON Energy Inc. is a local Toronto-based manufacturer of switchgear, switchboards, dry-type transformers, and engineered power distribution equipment. Our electrical and mechanical teams coordinate design, manufacturing, assembly, and testing under one roof.</p>
               <p className="body mb-5">We built CANDRON differently. Every stage of production happens in our Toronto facility — electrical engineering, mechanical design, fabrication, assembly, wiring, quality inspection, and factory acceptance testing. When you work with CANDRON, there is one point of contact and one team accountable for the outcome.</p>
               <p className="body">Today, CANDRON serves clients across mining, oil and gas, power generation, data centers, healthcare, transportation, and more — delivering engineered power distribution solutions with faster lead times and uncompromising quality built to ANSI, NETA, CSA, and IEEE standards.</p>
             </div>

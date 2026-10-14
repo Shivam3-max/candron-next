@@ -5,6 +5,13 @@ import HeroCanvas from "@/components/HeroCanvas";
 import CanadaFlag from "@/components/CanadaFlag";
 import ProcessSection from "@/components/ProcessSection";
 import IndustryCarousel from "@/components/IndustryCarousel";
+import TorontoManufacturerFlow from "@/components/TorontoManufacturerFlow";
+
+export const metadata = {
+  title: 'Toronto Power Equipment Manufacturer | CANDRON',
+  description: 'CANDRON is a leading Toronto manufacturer of switchgear, switchboards, and dry-type transformers, delivering reliable power distribution equipment with shorter lead times.',
+  alternates: { canonical: '/' },
+};
 
 const featuredProducts = [
   {
@@ -84,10 +91,10 @@ export default function HomePage() {
                 <span>Tested. Delivered.</span>
               </h1>
               <p className="lead">
-                CANDRON Energy designs, manufactures, assembles, and tests
-                electrical power distribution equipment entirely in-house —
-                delivering reliable, Canadian-made solutions with faster lead
-                times and a team you can always reach directly.
+                CANDRON is a leading Toronto-based manufacturer of switchgear,
+                switchboards, and dry-type transformers, delivering engineered
+                power distribution solutions with a focus on quality,
+                reliability, and shorter lead times.
               </p>
               <div className="hero-btns">
                 <Link href="/contact" className="btn btn-primary btn-lg mag">
@@ -313,6 +320,8 @@ export default function HomePage() {
       </div>
 
       {/* WHY CANDRON */}
+      <TorontoManufacturerFlow />
+      {false && (
       <div className="section bg-white">
         <div className="container">
           {/* ── Top split: headline + image ── */}
@@ -583,6 +592,7 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+      )}
 
       {/* PROCESS */}
       <ProcessSection />

@@ -11,7 +11,7 @@ const caps = [
   {
     n: "01",
     title: "Electrical Design Engineering",
-    desc: "Single-line diagrams, schematics, and specification compliance from concept to drawing approval.",
+    desc: "Electrical engineers collaborate on single-line diagrams, schematics, and specification compliance through a multi-level review process.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -26,7 +26,7 @@ const caps = [
   {
     n: "02",
     title: "Mechanical Design",
-    desc: "Enclosure layout, thermal management, and structural design engineered to your specs.",
+    desc: "Mechanical design, enclosure layout, and thermal management are coordinated by a project team of four to six electrical and mechanical engineers.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -42,7 +42,7 @@ const caps = [
   {
     n: "03",
     title: "Fabrication",
-    desc: "In-house metal fabrication — enclosures, bus structures, and assemblies cut to exact tolerances.",
+    desc: "High-quality German robotic machinery supports precise metal fabrication for enclosures, bus structures, and assemblies.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -57,7 +57,7 @@ const caps = [
   {
     n: "04",
     title: "Assembly",
-    desc: "Component installation, bus assembly, and hardware mounting — all by our trained technicians.",
+    desc: "Experienced technicians use high-end tools for component installation, bus assembly, and hardware mounting.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -88,7 +88,7 @@ const caps = [
   {
     n: "06",
     title: "Quality Assurance",
-    desc: "ITP checkpoints at every production stage with full traceability and documentation.",
+    desc: "Documented checkpoints, machine audits, controlled conditions, and full traceability support each production stage.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -104,7 +104,7 @@ const caps = [
   {
     n: "07",
     title: "Functional Testing",
-    desc: "Control logic, protection scheme, and equipment validation in our dedicated test area.",
+    desc: "Omicron and Phenix test systems and dedicated benches validate control logic, protection schemes, and equipment performance.",
     icon: (
       <svg
         viewBox="0 0 24 24"

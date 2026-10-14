@@ -31,6 +31,46 @@ const money = (value: number, currency: string) =>
     maximumFractionDigits: 0,
   }).format(value)
 
+const cleanDescription = (value: string) => value
+  .replace(/\u00a0/g, ' ')
+  .replace(/[ \t]+\n/g, '\n')
+  .replace(/\n{3,}/g, '\n\n')
+  .trim()
+
+function ProductDescription({ value }: { value: string }) {
+  const cleaned = cleanDescription(value || '')
+  const technicalStart = cleaned.search(/(?:^|\n)\s*Size Guide\s*(?:\n|$)/i)
+  const overview = technicalStart >= 0 ? cleaned.slice(0, technicalStart).trim() : cleaned
+  const technical = technicalStart >= 0
+    ? cleaned.slice(technicalStart).replace(/\n\s*\n/g, '\n').trim()
+    : ''
+
+  const paragraphs = overview
+    .split(/\n\s*\n/)
+    .map(part => part.trim())
+    .filter(Boolean)
+
+  return (
+    <div className="catalog-description mt-5">
+      <div className="catalog-description-copy">
+        {paragraphs.map((paragraph, index) => (
+          <p key={`${paragraph.slice(0, 24)}-${index}`} className="body whitespace-pre-line break-words">
+            {paragraph}
+          </p>
+        ))}
+      </div>
+      {technical && (
+        <details className="catalog-technical-data">
+          <summary>Technical sizing and dimensions</summary>
+          <div className="catalog-technical-scroll" tabIndex={0} aria-label="Technical sizing and dimensional data">
+            <pre>{technical}</pre>
+          </div>
+        </details>
+      )}
+    </div>
+  )
+}
+
 export default function ProductDetailNoMedia({ slug }: { slug: string }) {
   const [product, setProduct] = useState<Product | null>(null)
   const [error, setError] = useState('')
@@ -108,7 +148,7 @@ export default function ProductDetailNoMedia({ slug }: { slug: string }) {
           <div className="min-w-0">
             <div className="label">Product Details</div>
             <h2 className="break-words">Built for Reliable Service</h2>
-            <p className="body mt-5 whitespace-pre-line break-words">{product.description}</p>
+            <ProductDescription value={product.description} />
           </div>
           <div className="min-w-0 rounded-[16px] bg-off border border-[#E4E9F3] p-4 sm:p-6 overflow-hidden">
             <h3 className="font-display font-black text-[1rem] mb-5">Specifications</h3>

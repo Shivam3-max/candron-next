@@ -27,6 +27,35 @@ const data: ProductTypePageProps = {
     'Accessible cable termination compartments (elbow type)',
     'IEEE C37.20.3 and CSA C22.2 compliant',
   ],
+  projectSpotlight: {
+    eyebrow: 'Project Spotlight · Arctic Service',
+    title: '15 kV Fusible Load Interrupter',
+    emphasis: 'Built for Tough Arctic Weather.',
+    description: 'A fully equipped three-bay, 600 A lineup engineered for reliable medium-voltage switching and protection in demanding Arctic conditions, with an outdoor Type 3R enclosure and access from both the front and rear.',
+    image: '/images/projects/15kv-arctic-load-interrupter/15kv-arctic-load-interrupter-lineup.png',
+    imageAlt: 'Three-bay 15 kV 600 A fusible load-interrupter switchgear lineup with viewing windows and outdoor Type 3R enclosures',
+    secondaryImage: '/images/projects/15kv-arctic-load-interrupter/15kv-type-3r-enclosure-interior.jpg',
+    secondaryImageAlt: 'Open 15 kV 600 A fusible load-interrupter switchgear compartment inside a Type 3R outdoor-rated enclosure',
+    secondaryImageLabel: 'Type 3R Enclosure Detail',
+    badges: ['Arc-Resistant', 'Front & Rear Access', 'Arctic Service'],
+    stats: [
+      { value: '15 kV', label: 'Voltage Class' },
+      { value: '600 A', label: 'Current Rating' },
+      { value: '3 Bays', label: 'Lineup' },
+      { value: 'Type 3R', label: 'Enclosure' },
+    ],
+    features: [
+      'Fusible load-interrupter switching configuration',
+      'Current transformers and potential transformers',
+      'SEL protection relays',
+      'Equipment viewing windows',
+      'Arc-resistant construction',
+      'Front and rear equipment access',
+      'Outdoor enclosure configured for demanding Arctic weather',
+    ],
+    ctaLabel: 'Discuss an Arctic Switchgear Project',
+    ctaHref: '/contact?product=15kv-arctic-load-interrupter',
+  },
   features: [
     'Load-break switches — gang or independent operation',
     'Current-limiting fuses for transformer protection',
@@ -110,7 +139,7 @@ const data: ProductTypePageProps = {
 
 export const metadata = {
   title: 'Metal-Enclosed Load-Interrupter Switchgear | CANDRON Energy',
-  description: 'CSA C22.2 and IEEE C37.20.3 metal-enclosed load-interrupter switchgear from 5 kV to 27.6 kV. Compact outdoor-rated designs for feeder distribution.',
+  description: 'Metal-enclosed load-interrupter switchgear from 5 kV to 27.6 kV, including 15 kV, 600 A arc-resistant Type 3R lineups engineered for Arctic service.',
 }
 
 export default function LoadInterrupterPage() {

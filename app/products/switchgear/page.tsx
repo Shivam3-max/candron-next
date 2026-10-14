@@ -43,9 +43,9 @@ export default function SwitchgearPage() {
         'Withdrawable VCBs with three-position isolation',
         'Full bus compartmentalization',
         'Protection relays: 50/51, 27/59, 67, 87',
-        'Voltage range: 5–29 kV',
+        'Voltage range: 2.4–38 kV, up to 2000 A',
         'Interlocked safety shutters',
-        'Front and rear cable entry options',
+        'NGR/HRG grounding-system integration',
       ],
       upgrades: [
         'Arc-resistant type (ARST) construction',
@@ -54,8 +54,9 @@ export default function SwitchgearPage() {
         'Partial discharge monitoring',
         'Battery-backed control power',
         'SCADA / IEC 61850 gateway',
+        'Commissioning, P&C studies, arc-flash studies and labels',
       ],
-      specs: { Voltage: '5–29 kV', Current: '600–4000 A', 'Interrupting Rating': 'Up to 40 kA', Features: 'Withdrawable VCBs, arc-rated', Standards: 'IEC 62271-200, IEEE C37' },
+      specs: { Voltage: '2.4–38 kV', Current: 'Up to 2000 A', 'Interrupting Rating': 'Up to 40 kA symmetrical', Features: 'Withdrawable VCBs, arc-rated', Standards: 'IEC 62271-200, IEEE C37' },
     },
     {
       title: 'Metal-Enclosed Load-Interrupter',
@@ -101,7 +102,7 @@ export default function SwitchgearPage() {
         'Power quality analyser integration',
         'Utility coordination study and report',
       ],
-      specs: { Voltage: 'Up to 29 kV', Current: 'Site-specific', 'Interrupting Rating': 'Site-specific', Features: 'Utility-approved, revenue metering', Standards: 'CSA, ESA, UL' },
+      specs: { Voltage: 'Up to 38 kV', Current: 'Up to 2000 A', 'Interrupting Rating': 'Up to 40 kA symmetrical', Features: 'Utility-approved, revenue metering', Standards: 'CSA, ESA, UL' },
     },
   ]
 
@@ -127,6 +128,18 @@ export default function SwitchgearPage() {
       q: 'Do you offer witnessed factory acceptance testing?',
       a: 'Yes. Witnessed FAT is available for your project team or third-party inspector. We perform insulation resistance, primary injection, contact resistance, and full functional tests — with a comprehensive report written for both technical and non-technical stakeholders.',
     },
+    {
+      q: 'What is the difference between metal-clad and metal-enclosed switchgear?',
+      a: 'Metal-clad switchgear uses draw-out vacuum circuit breakers with full compartmentalization between breaker, bus, cable, and control sections. Metal-enclosed switchgear typically uses fixed load-break switches and current-limiting fuses, making it compact and cost-effective for feeder applications.',
+    },
+    {
+      q: 'Can medium-voltage switchgear be installed outdoors?',
+      a: 'Yes. CANDRON supplies pad-mounted outdoor switchgear with NEMA 4 and NEMA 4X enclosure options, including moisture control, protected cable compartments, and project-specific corrosion protection.',
+    },
+    {
+      q: 'Can MV switchgear be customized for non-standard voltage ratings?',
+      a: 'Yes. Our medium-voltage switchgear covers 2.4 kV to 38 kV, including common 5 kV, 13.8 kV, 15 kV, 27.6 kV, and 34.5 kV systems. Insulation, bus, protection, and fault-current ratings are selected for the project.',
+    },
   ]
 
   return (
@@ -141,7 +154,7 @@ export default function SwitchgearPage() {
           <div className="label label-white">UL 1558 + CSA C22.2 • IEEE C37 • Canada &amp; United States</div>
           <h1>Switchgear — Protection,<br />Control, Continuity</h1>
           <p className="lead mt-4">
-            Low- and medium-voltage switchgear engineered for safety, arc-flash mitigation, and operational uptime. Up to 29 kV and 6000 A.
+            One complete range of low- and medium-voltage switchgear: MV from 2.4–38 kV and up to 2000 A, plus LV systems up to 600 V and 6000 A.
           </p>
           <div className="flex gap-[.75rem] flex-wrap mt-6">
             {['Arc-Flash Ready', 'Withdrawable Breakers', 'SCADA Integration', 'ESA Compliant'].map(b => (
@@ -158,7 +171,7 @@ export default function SwitchgearPage() {
       <div className="product-sticky-tabs sticky top-16 bg-white border-b border-[#E8ECF5] z-40">
         <div className="container">
           <div className="product-sticky-tabs-track flex gap-1 flex-wrap py-[.6rem]">
-            {[['#overview', 'Overview'], ['#product-range', 'Product Range'], ['#types-specs', 'Types & Specs'], ['#standards', 'Standards'], ['#applications', 'Applications'], ['#faq', 'FAQ'], ['#quote', 'Get a Quote']].map(([href, label]) => (
+            {[['#overview', 'Overview'], ['#stock', 'Toronto Stock'], ['#product-range', 'Product Range'], ['#types-specs', 'Types & Specs'], ['#standards', 'Standards'], ['#applications', 'Applications'], ['#faq', 'FAQ'], ['#quote', 'Get a Quote']].map(([href, label]) => (
               <a key={href} href={href} className="py-[.45rem] px-[.85rem] rounded-lg border border-[#E8ECF5] text-[.78rem] font-semibold text-navy no-underline whitespace-nowrap transition-[border-color,color] duration-150 hover:border-blue hover:text-blue">
                 {label}
               </a>
@@ -176,10 +189,12 @@ export default function SwitchgearPage() {
               <h2 className="mb-5">Built for Protection,<br />Designed for Uptime</h2>
               <p className="body mb-6">Switchgear isolates faults, protects equipment, and keeps your process running. Our designs align protection settings with utility requirements and downstream coordination. We support indoor arc-resistant lineups and outdoor weatherproof enclosures.</p>
               <ul className="check-list mb-8">
-                <li>Voltage ranges: LV up to 600 V, MV 5–29 kV</li>
+                <li>Voltage ranges: LV up to 600 V; MV from 2.4 kV to 38 kV</li>
+                <li>MV ratings: up to 2000 A and 40 kA symmetrical</li>
+                <li>Outdoor enclosures: NEMA 4 and NEMA 4X options</li>
                 <li>Breaker technologies: ACB, VCB, SF6 alternatives</li>
                 <li>Relaying: ANSI/IEC curves, differential and distance options</li>
-                <li>Remote operation &amp; SCADA gateways</li>
+                <li>NGR/HRG, remote operation, and SCADA/IEC 61850 integration</li>
               </ul>
               <div className="flex gap-4 flex-wrap">
                 <Link href="/contact?product=switchgear" className="btn btn-primary mag">Request a Quote</Link>
@@ -191,22 +206,22 @@ export default function SwitchgearPage() {
                 <Image src="/images/switchgear.jpg" alt="CANDRON switchgear assembly" fill className="object-cover" sizes="(max-width:1024px) 100vw,50vw" />
                 <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_45%,rgba(5,9,31,.72)_100%)] pointer-events-none" />
               </div>
-              <div className="absolute bottom-0 left-0 right-0 grid grid-cols-4 bg-transparent border-t border-white/[.12] rounded-b-[14px]">
+              <div className="product-image-metrics absolute bottom-0 left-0 right-0 grid grid-cols-4 bg-transparent border-t border-white/[.12] rounded-b-[14px]">
                 <div className="py-[.95rem] px-[.5rem] text-center border-r border-white/[.08]">
-                  <div className="font-display text-[.95rem] font-black text-white tracking-[.04em] mb-[.2rem]"><span data-count={29} data-suffix=" kV">29 kV</span></div>
-                  <div className="font-mono text-[.5rem] text-white/[.45] tracking-[.16em] uppercase">Max Voltage</div>
+                  <div className="font-display text-[.95rem] font-black text-white tracking-[.04em] mb-[.2rem]"><span data-count={38} data-suffix=" kV">38 kV</span></div>
+                  <div className="font-mono text-[.5rem] text-white/[.45] tracking-[.16em] uppercase">MV Voltage</div>
                 </div>
                 <div className="py-[.95rem] px-[.5rem] text-center border-r border-white/[.08]">
-                  <div className="font-display text-[.95rem] font-black text-white tracking-[.04em] mb-[.2rem]"><span data-count={6000} data-suffix=" A">6000 A</span></div>
-                  <div className="font-mono text-[.5rem] text-white/[.45] tracking-[.16em] uppercase">Max Current</div>
+                  <div className="font-display text-[.95rem] font-black text-white tracking-[.04em] mb-[.2rem]"><span data-count={2000} data-suffix=" A">2000 A</span></div>
+                  <div className="font-mono text-[.5rem] text-white/[.45] tracking-[.16em] uppercase">MV Current</div>
                 </div>
                 <div className="py-[.95rem] px-[.5rem] text-center border-r border-white/[.08]">
-                  <div className="font-display text-[.85rem] font-black text-white tracking-[.04em] mb-[.2rem]">UL / CSA</div>
-                  <div className="font-mono text-[.5rem] text-white/[.45] tracking-[.16em] uppercase">Compliance</div>
+                  <div className="font-display text-[.85rem] font-black text-white tracking-[.04em] mb-[.2rem]">40 kA</div>
+                  <div className="font-mono text-[.5rem] text-white/[.45] tracking-[.16em] uppercase">Symmetrical</div>
                 </div>
                 <div className="py-[.95rem] px-[.5rem] text-center">
-                  <div className="font-display text-[.85rem] font-black text-white tracking-[.04em] mb-[.2rem]">Arc-Rated</div>
-                  <div className="font-mono text-[.5rem] text-white/[.45] tracking-[.16em] uppercase">Safety</div>
+                  <div className="font-display text-[.85rem] font-black text-white tracking-[.04em] mb-[.2rem]">4–16 Wks</div>
+                  <div className="font-mono text-[.5rem] text-white/[.45] tracking-[.16em] uppercase">ARAD Lead Time</div>
                 </div>
               </div>
             </div>
@@ -214,13 +229,97 @@ export default function SwitchgearPage() {
         </div>
       </div>
 
+      {/* 35 KV TORONTO STOCK */}
+      <section id="stock" className="section bg-off scroll-mt-[110px]" aria-labelledby="toronto-stock-title">
+        <div className="container">
+          <div className="grid grid-cols-[.9fr_1.1fr] max-lg:grid-cols-1 gap-12 max-lg:gap-8 items-center">
+            <div className="rv-l">
+              <div className="flex flex-wrap items-center gap-3 mb-4">
+                <div className="label m-0">Available Inventory · Toronto</div>
+                <span className="inline-flex items-center gap-2 rounded-full border border-[#A7E6C4] bg-[#EAFBF2] px-3 py-1.5 font-mono text-[.58rem] font-bold uppercase tracking-[.09em] text-[#087A43]">
+                  <span className="h-2 w-2 rounded-full bg-[#12A861]" />
+                  4 Units Available
+                </span>
+              </div>
+              <h2 id="toronto-stock-title" className="!leading-[1.08]">
+                35 kV Switchgear.<br />
+                <em>In Stock in Toronto.</em>
+              </h2>
+              <p className="lead mt-6 max-w-[620px]">
+                Four 35 kV-class switchgear units are available in Toronto, Ontario for projects requiring accelerated delivery. These pre-certified units provide a ready-to-deploy option when project timelines are tight.
+              </p>
+
+              <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-3 mt-8">
+                {[
+                  { value: '4 Units', label: 'Current Availability' },
+                  { value: '35 kV Class', label: 'Application Rating' },
+                  { value: 'Toronto, ON', label: 'Stock Location' },
+                ].map((item) => (
+                  <div key={item.label} className="rounded-[12px] border border-[#DCE3F2] bg-white px-4 py-4 min-w-0">
+                    <div className="font-display text-[.88rem] font-black text-navy break-words">{item.value}</div>
+                    <div className="font-mono text-[.5rem] uppercase tracking-[.1em] text-slate mt-1.5">{item.label}</div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 rounded-[14px] border border-[#DCE3F2] bg-white p-6">
+                <div className="font-display text-[.86rem] font-black text-navy mb-4">CANDRON Verification Process</div>
+                <ul className="m-0 p-0 list-none grid gap-3">
+                  {[
+                    '50-point physical inspection checklist',
+                    'Electrical testing and verification',
+                    'Mechanical testing and verification',
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-slate text-[.84rem] leading-[1.55]">
+                      <span className="mt-[.35rem] w-2 h-2 rounded-full bg-blue shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="flex flex-wrap gap-3 mt-8">
+                <Link href="/contact?product=35kv-switchgear-toronto-stock" className="btn btn-primary mag">Request Specifications & Pricing →</Link>
+                <Link href="/products/switchgear/metal-clad" className="btn btn-outline-blue mag">View MV Switchgear</Link>
+              </div>
+              <p className="font-mono text-[.56rem] uppercase tracking-[.08em] text-slate mt-4">Availability is subject to confirmation at the time of inquiry.</p>
+            </div>
+
+            <div className="grid grid-cols-[1.08fr_.92fr] max-sm:grid-cols-1 gap-4 rv-r">
+              <figure className="relative aspect-[3/4] overflow-hidden rounded-[18px] border border-[#DCE3F2] bg-white shadow-[0_12px_35px_rgba(5,9,31,.1)]">
+                <Image
+                  src="/images/projects/35kv-switchgear-toronto-stock/35kv-switchgear-front.jpg"
+                  alt="Front control and switching compartment of a 35 kV-class switchgear unit in Toronto stock"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width:640px) 100vw, (max-width:1024px) 55vw, 31vw"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(5,9,31,.55),transparent_42%)] pointer-events-none" />
+                <figcaption className="absolute left-4 bottom-4 rounded-full border border-white/30 bg-navy/80 px-3 py-2 font-mono text-[.53rem] font-bold uppercase tracking-[.08em] text-white backdrop-blur-sm">Pre-Certified Unit</figcaption>
+              </figure>
+              <figure className="relative aspect-[3/4] overflow-hidden rounded-[18px] border border-[#DCE3F2] bg-white shadow-[0_12px_35px_rgba(5,9,31,.1)]">
+                <Image
+                  src="/images/projects/35kv-switchgear-toronto-stock/35kv-switchgear-nameplate.jpg"
+                  alt="Switchgear nameplate showing a 38 kV rated maximum voltage for the available 35 kV-class equipment"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width:640px) 100vw, (max-width:1024px) 45vw, 27vw"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(5,9,31,.55),transparent_42%)] pointer-events-none" />
+                <figcaption className="absolute left-4 bottom-4 rounded-full border border-white/30 bg-navy/80 px-3 py-2 font-mono text-[.53rem] font-bold uppercase tracking-[.08em] text-white backdrop-blur-sm">38 kV Maximum Rating</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SWITCHGEAR TYPES GRID */}
       <div id="product-range" className="bg-navy py-16 scroll-mt-[110px]">
         <div className="container">
           <div className="mb-10">
             <div className="label !text-blue mb-3">Product Range</div>
             <h2 className="text-white m-0 text-[clamp(1.5rem,3vw,2rem)]">
-              Medium-Voltage Power Distribution<br className="max-md:hidden" /> Switchgear
+              Low- and Medium-Voltage<br className="max-md:hidden" /> Switchgear
             </h2>
           </div>
           <div className="grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-5 max-sm:gap-4">
@@ -234,7 +333,7 @@ export default function SwitchgearPage() {
               {
                 n: '02',
                 title: 'Metal-Clad Switchgear',
-                desc: 'Fully compartmented draw-out VCBs with arc-resistant options. Rated 5–29 kV for utility and infrastructure applications.',
+                desc: 'Fully compartmented draw-out VCBs with arc-resistant options. Rated 2.4–38 kV and up to 2000 A for utility and infrastructure applications.',
                 href: '/products/switchgear/metal-clad',
               },
               {

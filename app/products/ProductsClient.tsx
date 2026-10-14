@@ -38,7 +38,7 @@ const products = [
       ['Origin', 'Made in Canada'],
     ],
     applications: ['Industrial Plants', 'Oil & Gas Facilities', 'Utility Substations', 'Mining Sites', 'Renewable Energy'],
-    link: '/products/mv-switchgear',
+    link: '/products/switchgear',
   },
   {
     id: 'lv-switchgear',

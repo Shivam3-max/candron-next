@@ -27,7 +27,7 @@ const companyItems = [
   },
   {
     href: '/project-process',
-    label: 'Project Process',
+    label: 'CANDRON Processes',
     desc: 'The full project cycle, from inception to commissioning',
     icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 5h10a4 4 0 0 1 4 4v1"/><path d="M16 7l3 3 3-3M19 19H9a4 4 0 0 1-4-4v-1"/><path d="M8 17l-3-3-3 3"/></svg>,
   },
@@ -35,7 +35,7 @@ const companyItems = [
 
 const productItems = [
   {
-    href: '/products/mv-switchgear',
+    href: '/products/switchgear',
     name: 'MV Switchgear',
     sub: '2.4 kV to 38 kV • 2000 A',
     desc: 'Custom metal-clad and pad-mounted switchgear from 2.4 kV to 38 kV, rated up to 2000 A, with VCBs, load break switches, and integrated protection relays.',

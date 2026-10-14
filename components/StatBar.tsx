@@ -44,12 +44,12 @@ export default function StatBar({ stats }: { stats: Stat[] }) {
   }, [])
 
   return (
-    <div ref={ref} className="grid grid-cols-4 max-md:grid-cols-2 gap-0">
+    <div ref={ref} className="grid grid-cols-4 max-md:grid-cols-2 gap-0 min-w-0">
       {stats.map((s, i) => (
         <div
           key={i}
           className={[
-            'relative text-center py-4 px-8 max-sm:py-[.85rem] max-sm:px-4',
+            'relative min-w-0 text-center py-4 px-8 max-sm:py-[.85rem] max-sm:px-3',
             active ? 'animate-stat-fade-up' : 'opacity-0',
           ].join(' ')}
           style={{ animationDelay: `${i * 0.1}s` }}
@@ -61,10 +61,10 @@ export default function StatBar({ stats }: { stats: Stat[] }) {
               (i + 1) % 2 === 0 ? 'max-md:hidden' : '',
             ].join(' ')} />
           )}
-          <div className="font-display text-[clamp(2rem,3.5vw,2.8rem)] font-black text-white leading-none mb-[.4rem] max-sm:text-[1.2rem] max-sm:break-words">
+          <div className="font-display text-[clamp(2rem,3.5vw,2.8rem)] font-black text-white leading-none mb-[.4rem] max-sm:text-[clamp(.92rem,4.8vw,1.2rem)] max-sm:leading-[1.08] break-words [overflow-wrap:anywhere]">
             {s.icon ? s.icon : <CountUp raw={s.num} active={active} />}
           </div>
-          <div className="font-title text-[.72rem] text-white/70 tracking-[.12em] uppercase max-sm:text-[.62rem]">
+          <div className="font-title text-[.72rem] text-white/70 tracking-[.12em] uppercase max-sm:text-[.58rem] max-sm:leading-[1.45] max-sm:tracking-[.08em] break-words [overflow-wrap:anywhere]">
             {s.lbl}
           </div>
         </div>

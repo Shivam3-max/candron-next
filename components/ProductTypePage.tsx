@@ -8,6 +8,23 @@ export interface Standard { name: string; desc: string; logo?: string | null }
 export interface FAQ { q: string; a: string }
 export interface SpecRow { label: string; value: string }
 export interface RelatedType { name: string; sub: string; href: string }
+export interface ProjectSpotlight {
+  eyebrow: string
+  title: string
+  emphasis: string
+  description: string
+  image: string
+  imageAlt: string
+  secondaryImage?: string
+  secondaryImageAlt?: string
+  secondaryImageLabel?: string
+  badges: string[]
+  stats: KPI[]
+  features: string[]
+  ctaLabel: string
+  ctaHref: string
+  imageAspect?: 'landscape' | 'portrait'
+}
 
 export interface ProductTypePageProps {
   parentName: string
@@ -32,6 +49,7 @@ export interface ProductTypePageProps {
   relatedTypes: RelatedType[]
   faqs: FAQ[]
   quoteItems: string[]
+  projectSpotlight?: ProjectSpotlight
 }
 
 export default function ProductTypePage({
@@ -41,6 +59,7 @@ export default function ProductTypePage({
   overviewTitle, overviewText, overviewPoints,
   features, upgrades, specRows,
   standards, applications, relatedTypes, faqs, quoteItems,
+  projectSpotlight,
 }: ProductTypePageProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [showTabNav, setShowTabNav] = useState(false)
@@ -49,6 +68,7 @@ export default function ProductTypePage({
 
   const tabLinks: [string, string][] = [
     ['#overview', 'Overview'],
+    ...(projectSpotlight ? [['#project', 'Project Spotlight'] as [string, string]] : []),
     ['#features', 'Features'],
     ['#specs', 'Specifications'],
     ['#standards', 'Standards'],
@@ -176,6 +196,78 @@ export default function ProductTypePage({
           </div>
         </div>
       </div>
+
+      {/* ── PROJECT SPOTLIGHT ── */}
+      {projectSpotlight && (
+        <section id="project" className="bg-navy py-20 max-md:py-14 scroll-mt-[135px]" aria-labelledby="project-spotlight-title">
+          <div className="container">
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 xl:gap-12 items-center">
+              <div className={`grid ${projectSpotlight.secondaryImage ? 'grid-cols-[1.08fr_.92fr] max-sm:grid-cols-1' : 'grid-cols-1'} gap-3 rv-l`}>
+                <figure
+                  className="relative w-full overflow-hidden rounded-[18px] border border-white/[.12] bg-white/[.04]"
+                  style={{
+                    aspectRatio: projectSpotlight.imageAspect === 'portrait' ? '3 / 4' : '4 / 3',
+                    maxWidth: projectSpotlight.imageAspect === 'portrait' ? '570px' : undefined,
+                    justifySelf: projectSpotlight.imageAspect === 'portrait' ? 'center' : undefined,
+                  }}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={projectSpotlight.image} alt={projectSpotlight.imageAlt} className="absolute inset-0 w-full h-full object-cover block" />
+                  <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(5,9,31,.62),transparent_45%)] pointer-events-none" />
+                  <figcaption className="absolute left-4 bottom-4 flex flex-wrap gap-2">
+                    {projectSpotlight.badges.map((badge) => (
+                      <span key={badge} className="rounded-full border border-white/25 bg-navy/80 px-3 py-2 font-mono text-[.5rem] font-bold uppercase tracking-[.07em] text-white backdrop-blur-sm">{badge}</span>
+                    ))}
+                  </figcaption>
+                </figure>
+                {projectSpotlight.secondaryImage && projectSpotlight.secondaryImageAlt && (
+                  <figure className="relative aspect-[4/3] overflow-hidden rounded-[18px] border border-white/[.12] bg-white/[.04]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={projectSpotlight.secondaryImage} alt={projectSpotlight.secondaryImageAlt} className="absolute inset-0 w-full h-full object-cover block" />
+                    <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(5,9,31,.62),transparent_45%)] pointer-events-none" />
+                    {projectSpotlight.secondaryImageLabel && (
+                      <figcaption className="absolute left-4 bottom-4 rounded-full border border-white/25 bg-navy/80 px-3 py-2 font-mono text-[.5rem] font-bold uppercase tracking-[.07em] text-white backdrop-blur-sm">
+                        {projectSpotlight.secondaryImageLabel}
+                      </figcaption>
+                    )}
+                  </figure>
+                )}
+              </div>
+
+              <div className="rv-r">
+                <div className="label label-white">{projectSpotlight.eyebrow}</div>
+                <h2 id="project-spotlight-title" className="text-white mt-4 !leading-[1.08]">
+                  {projectSpotlight.title}<br />
+                  <em>{projectSpotlight.emphasis}</em>
+                </h2>
+                <p className="text-white/60 text-[.96rem] leading-[1.8] mt-6 max-w-[620px]">{projectSpotlight.description}</p>
+
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-8">
+                  {projectSpotlight.stats.map((item) => (
+                    <div key={item.label} className="rounded-[12px] border border-white/[.1] bg-white/[.045] px-3 py-4 min-w-0">
+                      <div className="font-display text-[.82rem] font-black text-white break-words">{item.value}</div>
+                      <div className="font-mono text-[.47rem] uppercase tracking-[.08em] text-white/40 mt-1.5">{item.label}</div>
+                    </div>
+                  ))}
+                </div>
+
+                <ul className="mt-8 p-0 list-none grid gap-3">
+                  {projectSpotlight.features.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-white/65 text-[.84rem] leading-[1.55]">
+                      <span className="mt-[.35rem] w-2 h-2 rounded-full bg-blue shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-9">
+                  <Link href={projectSpotlight.ctaHref} className="btn btn-primary mag">{projectSpotlight.ctaLabel} →</Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ── FEATURES & UPGRADES ── */}
       <div id="features" className="section bg-off scroll-mt-[135px]">

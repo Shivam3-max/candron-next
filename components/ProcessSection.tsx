@@ -102,7 +102,7 @@ export default function ProcessSection() {
   return (
     <div className="bg-navy py-20">
       <div className="container">
-        <div className="grid grid-cols-[5fr_7fr] max-md:grid-cols-1 gap-[5rem] max-md:gap-12 items-start">
+        <div className="grid grid-cols-[5fr_7fr] max-lg:grid-cols-1 gap-[5rem] max-lg:gap-12 items-start">
 
           {/* ── LEFT ── */}
           <div>
@@ -117,13 +117,13 @@ export default function ProcessSection() {
 
             {/* 4-pillar card */}
             <div className="border border-white/[.1] rounded-[16px] overflow-hidden mb-10">
-              <div className="responsive-override-exempt grid grid-cols-4 max-md:grid-cols-2">
+              <div className="responsive-override-exempt grid grid-cols-4 max-lg:grid-cols-2">
                 {pillars.map(({ lbl, icon }, ci) => (
-                  <div key={ci} className="py-[1.1rem] px-3 text-center border-r border-white/[.08] last:border-r-0 max-md:[&:nth-child(2)]:border-r-0">
+                  <div key={ci} className="min-w-0 py-[1.1rem] px-3 text-center border-r border-white/[.08] last:border-r-0 max-lg:[&:nth-child(2)]:border-r-0">
                     <div className="w-10 h-10 rounded-full border-[1.5px] border-blue/55 bg-[rgba(0,71,255,.08)] flex items-center justify-center mx-auto mb-[.65rem] text-[#5B9BFF]">
                       <div className="w-[18px] h-[18px]">{icon}</div>
                     </div>
-                    <div className="font-title text-[.6rem] font-bold text-white/75 leading-[1.35] whitespace-pre-line">{lbl}</div>
+                    <div className="font-title text-[.6rem] font-bold text-white/75 leading-[1.35] whitespace-pre-line break-words [overflow-wrap:anywhere]">{lbl}</div>
                   </div>
                 ))}
               </div>

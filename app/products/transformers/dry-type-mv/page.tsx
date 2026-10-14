@@ -1,8 +1,9 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export const metadata = {
   title: 'Medium Voltage Dry-Type Transformers',
-  description: 'VPI and resin-encapsulated medium voltage dry-type transformers from 2.4 kV to 35 kV. Cast coil designs for harsh industrial, coastal, and high-humidity environments.',
+  description: 'Canadian-manufactured VPI and resin-encapsulated medium-voltage dry-type transformers from 2.4 kV to 35 kV, including outdoor-rated application-specific designs.',
 }
 
 const types = [
@@ -73,6 +74,97 @@ export default function DryTypeMVPage() {
           </div>
         </div>
       </div>
+
+      {/* CANADIAN-MANUFACTURED VPI PROJECT */}
+      <section className="bg-navy py-20 max-md:py-14" aria-labelledby="canadian-vpi-project-title">
+        <div className="container">
+          <div className="grid grid-cols-[.82fr_1.18fr] max-lg:grid-cols-1 gap-12 max-lg:gap-9 items-center">
+            <div className="rv-l">
+              <div className="label label-white">Project Spotlight · Canadian Manufacturing</div>
+              <h2 id="canadian-vpi-project-title" className="text-white mt-4 !leading-[1.08]">
+                Canadian-Manufactured.<br />
+                <em>Engineered for Your Application.</em>
+              </h2>
+              <p className="text-white/60 text-[.96rem] leading-[1.8] mt-6 max-w-[620px]">
+                This medium-voltage dry-type transformer was manufactured at CANDRON&apos;s Canadian facility with VPI insulation technology and an outdoor-rated enclosure, combining robust construction with application-specific engineering.
+              </p>
+
+              <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-3 mt-8">
+                {[
+                  { value: 'Made in Canada', label: 'Local Manufacturing' },
+                  { value: 'Medium Voltage', label: 'Dry-Type Transformer' },
+                  { value: 'VPI', label: 'Insulation Technology' },
+                  { value: '16 Weeks', label: 'From Drawing Approval' },
+                ].map((item) => (
+                  <div key={item.label} className="rounded-[12px] border border-white/[.1] bg-white/[.045] px-5 py-4 min-w-0">
+                    <div className="font-display text-[.92rem] font-black text-white break-words">{item.value}</div>
+                    <div className="font-mono text-[.52rem] uppercase tracking-[.1em] text-white/40 mt-1.5">{item.label}</div>
+                  </div>
+                ))}
+              </div>
+
+              <ul className="mt-8 p-0 list-none grid gap-3">
+                {[
+                  'Manufactured at CANDRON’s Canadian facility',
+                  'Vacuum Pressure Impregnated insulation system',
+                  'Outdoor-rated enclosure for demanding installations',
+                  'Application-specific electrical and mechanical engineering',
+                  'Manufactured within 16 weeks of drawing approval',
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-white/65 text-[.86rem] leading-[1.6]">
+                    <span className="mt-[.35rem] w-2 h-2 rounded-full bg-blue shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-wrap gap-3 mt-9">
+                <Link href="/contact?product=mv-vpi-outdoor-transformer" className="btn btn-primary mag">Discuss Your Application →</Link>
+                <Link href="/products/transformers/dry-type-mv/standard" className="btn btn-outline mag">VPI Transformer Details</Link>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 rv-r">
+              {[
+                {
+                  src: '/images/projects/mv-vpi-outdoor-transformer/mv-vpi-windings-wide.jpg',
+                  alt: 'Medium-voltage dry-type transformer windings being manufactured at a Canadian facility',
+                  label: 'Canadian Manufacturing',
+                },
+                {
+                  src: '/images/projects/mv-vpi-outdoor-transformer/mv-vpi-windings-close.jpg',
+                  alt: 'Close view of VPI medium-voltage dry-type transformer windings and bus connections',
+                  label: 'VPI Insulation',
+                },
+                {
+                  src: '/images/projects/mv-vpi-outdoor-transformer/mv-vpi-outdoor-enclosure.jpg',
+                  alt: 'Medium-voltage VPI dry-type transformer installed inside its outdoor-rated enclosure',
+                  label: 'Outdoor Enclosure',
+                },
+                {
+                  src: '/images/projects/mv-vpi-outdoor-transformer/mv-vpi-core-assembly.jpg',
+                  alt: 'Three-phase medium-voltage dry-type transformer core and coil assembly during manufacturing',
+                  label: 'Core & Coil Assembly',
+                },
+              ].map((image) => (
+                <figure key={image.src} className="relative aspect-[4/5] max-sm:aspect-[3/4] overflow-hidden rounded-[14px] border border-white/[.12] bg-white/[.04]">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover transition-transform duration-500 hover:scale-[1.025]"
+                    sizes="(max-width:640px) 50vw, (max-width:1024px) 50vw, 29vw"
+                  />
+                  <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(5,9,31,.52),transparent_42%)] pointer-events-none" />
+                  <figcaption className="absolute left-3 right-3 bottom-3 font-mono text-[.52rem] font-bold uppercase tracking-[.08em] text-white">
+                    {image.label}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* TYPE CARDS */}
       <div className="section bg-off">

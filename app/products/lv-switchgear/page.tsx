@@ -79,7 +79,7 @@ const data: ProductTypePageProps = {
     'Oil & gas facility power distribution centres',
   ],
   relatedTypes: [
-    { name: 'Medium Voltage Switchgear', sub: '2.4–38 kV • Up to 2000 A', href: '/products/mv-switchgear' },
+    { name: 'Medium Voltage Switchgear', sub: '2.4–38 kV • Up to 2000 A', href: '/products/switchgear' },
     { name: 'Switchboards', sub: 'LV Power Distribution', href: '/products/switchboards' },
     { name: 'Junction Box & Splitters', sub: 'LV & MV Distribution', href: '/products/junction-box-splitters' },
   ],

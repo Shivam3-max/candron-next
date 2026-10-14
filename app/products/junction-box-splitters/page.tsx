@@ -78,7 +78,7 @@ const data: ProductTypePageProps = {
     'Skid-mounted equipment power feed and distribution',
   ],
   relatedTypes: [
-    { name: 'MV Switchgear', sub: '2.4–38 kV • Up to 2000 A', href: '/products/mv-switchgear' },
+    { name: 'MV Switchgear', sub: '2.4–38 kV • Up to 2000 A', href: '/products/switchgear' },
     { name: 'LV Switchgear', sub: 'Up to 1000 V Distribution', href: '/products/lv-switchgear' },
     { name: 'Switchboards', sub: 'LV Power Distribution', href: '/products/switchboards' },
   ],

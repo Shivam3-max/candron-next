@@ -6,7 +6,7 @@ import CapabilitiesFlow from "@/components/CapabilitiesFlow";
 export const metadata = {
   title: "Manufacturing",
   description:
-    "CANDRON's Canadian manufacturing facility handles every stage in-house — electrical design, fabrication, assembly, wiring, and factory acceptance testing. No outsourcing, one point of accountability.",
+    "CANDRON's Toronto manufacturing facility combines multi-level engineering review, precision fabrication, skilled assembly, quality assurance, and final testing under one roof.",
 };
 
 export default function ManufacturingPage() {
@@ -28,9 +28,9 @@ export default function ManufacturingPage() {
             <em>Tested Under One Roof</em>
           </h1>
           <p className="lead mt-4">
-            CANDRON Energy provides complete in-house manufacturing capabilities
-            that eliminate unnecessary delays and ensure total quality control —
-            from first engineering drawing to final factory test.
+            World-class facilities, precision machinery, experienced people,
+            and structured quality controls support every stage — from the
+            first engineering drawing to final factory testing.
           </p>
         </div>
       </div>
@@ -45,25 +45,24 @@ export default function ManufacturingPage() {
             </div>
             <div>
               <p className="body mb-5">
-                Most electrical equipment suppliers depend on a network of
-                third-party fabricators, outsourced wiring shops, and external
-                testing facilities. This introduces delays, communication gaps,
-                and quality inconsistencies that inevitably impact your project
-                timeline.
+                CANDRON brings electrical and mechanical engineering,
+                fabrication, assembly, wiring, quality assurance, and final
+                testing together in one coordinated manufacturing environment.
+                This gives every project a clear path from approved drawings to
+                finished equipment.
               </p>
               <p className="body mb-5">
-                CANDRON operates differently. Our Canadian manufacturing
-                facility handles every stage of production under one roof —
-                electrical design, mechanical design, fabrication, assembly,
-                wiring, and quality assurance. When you work with CANDRON, you
-                have a single point of accountability for the entire
-                manufacturing process.
+                Four to six electrical and mechanical engineers can collaborate
+                on a single project. Drawings and specifications move through a
+                multi-level review process before release, helping the team
+                identify conflicts early and manufacture with confidence.
               </p>
               <p className="body">
-                The result is faster project execution, greater reliability, and
-                equipment built to perform in the most demanding environments —
-                backed by rigorous in-house testing before it ever leaves our
-                facility.
+                High-quality German robotic fabrication machinery, advanced
+                assembly tools, experienced technicians, and dedicated Omicron
+                and Phenix test equipment allow us to deliver precise,
+                dependable power distribution equipment with efficient lead
+                times.
               </p>
             </div>
           </div>
@@ -73,61 +72,119 @@ export default function ManufacturingPage() {
       {/* CAPABILITIES — animated flow */}
       <CapabilitiesFlow />
 
-      {/* MATERIAL QUALITY */}
+      {/* TRANSFORMER CORE & COIL ASSEMBLY */}
+      <section className="section bg-off" aria-labelledby="core-coil-assembly-title">
+        <div className="container">
+          <div className="grid grid-cols-[1.15fr_.85fr] max-lg:grid-cols-1 gap-12 max-lg:gap-8 items-center">
+            <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-4 rv-l">
+              {[
+                {
+                  src: '/images/projects/transformer-core-coil-assembly/core-coil-assembly-front.jpg',
+                  alt: 'Front view of a three-phase transformer core and coil assembly during production',
+                  label: 'Coil & Lead Assembly',
+                },
+                {
+                  src: '/images/projects/transformer-core-coil-assembly/core-coil-assembly-rear.jpg',
+                  alt: 'Rear view of a three-phase transformer core and coil assembly showing copper bus connections',
+                  label: 'Bus & Connection Layout',
+                },
+              ].map((image) => (
+                <figure key={image.src} className="relative aspect-[4/3] overflow-hidden rounded-[16px] border border-[#DCE3F2] bg-white shadow-[0_10px_30px_rgba(5,9,31,.08)]">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover transition-transform duration-500 hover:scale-[1.025]"
+                    sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 29vw"
+                  />
+                  <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(5,9,31,.58),transparent_45%)] pointer-events-none" />
+                  <figcaption className="absolute left-4 bottom-4 font-mono text-[.52rem] font-bold uppercase tracking-[.08em] text-white">{image.label}</figcaption>
+                </figure>
+              ))}
+            </div>
+
+            <div className="rv-r">
+              <div className="label">Transformer Manufacturing · Assembly Stage</div>
+              <h2 id="core-coil-assembly-title" className="mt-4 !leading-[1.08]">
+                Transformer Core &amp;<br />
+                <em>Coil Assembly.</em>
+              </h2>
+              <p className="lead mt-6">
+                At this stage, the transformer&apos;s three-phase core, windings, internal leads, structural supports, and connection points come together as one coordinated active assembly.
+              </p>
+
+              <div className="grid gap-3 mt-8">
+                {[
+                  { number: '01', title: 'Core & Coil Alignment', text: 'Position the phase assemblies and structural members around the engineered layout.' },
+                  { number: '02', title: 'Lead & Bus Connections', text: 'Route and secure internal leads, terminals, and copper connection points.' },
+                  { number: '03', title: 'Mechanical Bracing', text: 'Support the active assembly for safe handling and dependable operation.' },
+                  { number: '04', title: 'In-Process Inspection', text: 'Review workmanship and assembly details before the next manufacturing stage.' },
+                ].map((item) => (
+                  <article key={item.number} className="grid grid-cols-[42px_1fr] gap-4 rounded-[12px] border border-[#DCE3F2] bg-white px-5 py-4">
+                    <div className="w-[42px] h-[42px] rounded-[10px] bg-blue/[.08] text-blue flex items-center justify-center font-mono text-[.58rem] font-bold tracking-[.08em]">{item.number}</div>
+                    <div>
+                      <div className="font-display text-[.82rem] font-black text-navy mb-1">{item.title}</div>
+                      <p className="font-mono text-[.7rem] leading-[1.55] text-slate m-0">{item.text}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+
+              <Link href="/contact?product=custom-transformer" className="btn btn-primary mag mt-8">Discuss a Transformer Project →</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* MANUFACTURING ENVIRONMENT */}
       <div className="mq-section">
         <div className="container">
           <div className="mq-header rv">
             <div>
-              <div className="label label-white">Built to Last</div>
+              <div className="label label-white">World-Class Manufacturing</div>
               <h2 className="mq-heading">
-                Materials Built to
+                Facilities, People &amp;
                 <br />
-                <em>Outlast the Competition</em>
+                <em>Precision in Every Stage</em>
               </h2>
             </div>
             <p className="mq-lead">
-              While most suppliers use 13–14 gauge steel and standard coatings,
-              CANDRON specifies heavier materials and higher finishing standards
-              — because equipment that lasts 30–40 years costs less over its
-              lifetime.
+              Stable production conditions, regularly audited equipment,
+              advanced machinery, and a skilled team working behind the scenes
+              give CANDRON the control required for precision manufacturing.
             </p>
           </div>
           <div className="capability-grid">
             <div className="capability-card rv">
-              <div className="capability-num">11G</div>
-              <div className="capability-title">11-Gauge Steel Enclosures</div>
+              <div className="capability-num">24/7</div>
+              <div className="capability-title">Around-the-Clock Capability</div>
               <div className="capability-text">
-                Competitors use 13–14 gauge. We use 11 gauge — heavier, more
-                rigid, and built for a 30–40 year structural lifecycle. The
-                difference is visible and measurable.
+                Our production facility can run around the clock when project
+                requirements and delivery schedules demand it.
               </div>
             </div>
             <div className="capability-card rv d2">
-              <div className="capability-num">C5M</div>
-              <div className="capability-title">C5M Paint Standard</div>
+              <div className="capability-num">ISO</div>
+              <div className="capability-title">Certified Operations</div>
               <div className="capability-text">
-                C5M is the highest corrosion protection classification for
-                outdoor industrial environments. Our paint standard is at least
-                10× higher than typical suppliers, with 6–8 mm outdoor coating
-                thickness.
+                ISO-certified factory processes support consistent production,
+                documented controls, and disciplined quality management.
               </div>
             </div>
             <div className="capability-card rv d3">
-              <div className="capability-num">CRS</div>
-              <div className="capability-title">Cold-Rolled Steel</div>
+              <div className="capability-num">6 MO</div>
+              <div className="capability-title">Machine Auditing</div>
               <div className="capability-text">
-                Cold-rolled steel provides the highest corrosion resistance of
-                any carbon steel grade. Combined with our finishing standard, it
-                delivers 30–40 years of reliable service life.
+                Fabrication and production machines undergo six-month auditing
+                and quality-assurance reviews to maintain reliable performance.
               </div>
             </div>
             <div className="capability-card rv d4">
-              <div className="capability-num">304 / 316L</div>
-              <div className="capability-title">Stainless Steel Options</div>
+              <div className="capability-num">°C</div>
+              <div className="capability-title">Temperature Control</div>
               <div className="capability-text">
-                For demanding environments, we offer enclosures in Type 304 and
-                Type 316 L stainless steel — the right material for coastal,
-                chemical, and high-humidity installations.
+                Controlled manufacturing conditions help protect dimensional
+                consistency, material handling, assembly, and testing accuracy.
               </div>
             </div>
             <div className="capability-card rv d5">
@@ -147,21 +204,20 @@ export default function ManufacturingPage() {
                 </svg>
               </div>
               <div className="capability-title">
-                Laser Cutting &amp; Water Jet
+                German Robotic Fabrication
               </div>
               <div className="capability-text">
-                State-of-the-art German-manufactured laser cutting and water jet
-                cutting machines ensure precise fabrication with tight
-                tolerances — no hand grinding, no rework.
+                High-quality German robotic machinery supports precise metal
+                cutting, forming, and fabrication with repeatable results.
               </div>
             </div>
             <div className="capability-card rv d6">
-              <div className="capability-num">99.5%</div>
-              <div className="capability-title">Exceeding Standards</div>
+              <div className="capability-num">TEAM</div>
+              <div className="capability-title">People Behind Production</div>
               <div className="capability-text">
-                Where a standard requires 99.37% efficiency, we target 99.5%.
-                Minimum compliance is the floor — not the goal. Every system
-                ships exceeding the specified requirement.
+                Engineers, fabricators, assemblers, wire technicians, quality
+                specialists, and test personnel work together behind the scenes
+                to move every project forward.
               </div>
             </div>
           </div>
@@ -183,8 +239,8 @@ export default function ManufacturingPage() {
             </div>
             <p className="proc-intro">
               Every CANDRON project follows a documented manufacturing process
-              with defined milestones and quality gates — ensuring nothing is
-              missed, every standard is met, and your project stays on schedule.
+              with defined milestones, multi-level reviews, and quality gates —
+              supporting accurate execution and predictable project delivery.
             </p>
           </div>
 
@@ -225,15 +281,16 @@ export default function ManufacturingPage() {
 
             <div className="proc-steps rv-r">
               {[
-                "Project kickoff and engineering review",
-                "Drawing approval and specification sign-off",
+                "Project kickoff and requirements review",
+                "Electrical and mechanical design collaboration",
+                "Multi-level drawing and specification review",
                 "Material procurement",
                 "Incoming inspection",
-                "Fabrication",
-                "Assembly",
+                "Precision robotic metal fabrication",
+                "Assembly with high-end production tools",
                 "Wiring",
-                "Final assembly",
                 "In-process quality inspection",
+                "Final testing on Omicron and Phenix systems",
                 "Document compilation",
                 "Delivery",
               ].map((step, i) => (
@@ -270,7 +327,7 @@ export default function ManufacturingPage() {
                 ),
                 val: "Single",
                 lbl: "Point of Accountability",
-                sub: "One team. One commitment. Zero hand-offs.",
+                sub: "Coordinated by one accountable project team.",
               },
               {
                 icon: (
@@ -336,9 +393,9 @@ export default function ManufacturingPage() {
                 America.
               </p>
               <p className="body mt-4 text-gray">
-                Our factory can operate up to 24 hours when project schedules
-                demand it — standard shifts are 10–12 hours, but we flex when
-                you need us to.
+                Our facility is equipped for 24/7 production when project
+                schedules require it, supported by controlled manufacturing
+                conditions, regularly audited machinery, and coordinated teams.
               </p>
             </div>
           </div>

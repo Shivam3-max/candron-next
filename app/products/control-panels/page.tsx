@@ -191,7 +191,7 @@ export default function ControlPanelsPage() {
                 <Image src="/images/control-panels.jpg" alt="CANDRON control panel assembly" fill className="object-cover" sizes="(max-width:1024px) 100vw,50vw" />
                 <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_45%,rgba(5,9,31,.72)_100%)] pointer-events-none" />
               </div>
-              <div className="absolute bottom-0 left-0 right-0 grid grid-cols-4 bg-transparent border-t border-white/[.12] rounded-b-[14px]">
+              <div className="product-image-metrics absolute bottom-0 left-0 right-0 grid grid-cols-4 bg-transparent border-t border-white/[.12] rounded-b-[14px]">
                 <div className="py-[.95rem] px-[.5rem] text-center border-r border-white/[.08]">
                   <div className="font-display text-[.85rem] font-black text-white tracking-[.04em] mb-[.2rem]">UL 508A</div>
                   <div className="font-mono text-[.5rem] text-white/[.45] tracking-[.16em] uppercase">Listed</div>

@@ -158,7 +158,7 @@ export default function SwitchboardsPage() {
       <div className="product-sticky-tabs sticky top-16 bg-white border-b border-[#E8ECF5] z-40">
         <div className="container">
           <div className="product-sticky-tabs-track flex gap-1 flex-wrap py-[.6rem]">
-            {[['#overview', 'Overview'], ['#types-specs', 'Types & Specs'], ['#standards', 'Standards'], ['#applications', 'Applications'], ['#faq', 'FAQ'], ['#quote', 'Get a Quote']].map(([href, label]) => (
+            {[['#overview', 'Overview'], ['#production', 'Production'], ['#types-specs', 'Types & Specs'], ['#standards', 'Standards'], ['#applications', 'Applications'], ['#faq', 'FAQ'], ['#quote', 'Get a Quote']].map(([href, label]) => (
               <a key={href} href={href} className="py-[.45rem] px-[.85rem] rounded-lg border border-[#E8ECF5] text-[.78rem] font-semibold text-navy no-underline whitespace-nowrap transition-[border-color,color] duration-150 hover:border-blue hover:text-blue">
                 {label}
               </a>
@@ -177,8 +177,8 @@ export default function SwitchboardsPage() {
               <p className="body mb-6">CANDRON switchboards are engineered for reliable low-voltage distribution in commercial, industrial, and infrastructure applications. Heavy-duty copper bus, wide maintenance clearances, and metering-ready designs built to UL 891 and CSA C22.2.</p>
               <ul className="check-list mb-8">
                 <li>Up to 4000 A at 600 V</li>
-                <li>11-gauge cold-rolled steel enclosures</li>
-                <li>C5M outdoor paint standard available</li>
+                <li>Precision-fabricated, application-specific enclosures</li>
+                <li>Project-specific indoor and outdoor coating systems</li>
                 <li>Front and rear accessible configurations</li>
               </ul>
               <div className="flex gap-4 flex-wrap">
@@ -191,7 +191,7 @@ export default function SwitchboardsPage() {
                 <Image src="/images/switchboards.jpg" alt="CANDRON switchboard assembly" fill className="object-cover" sizes="(max-width:1024px) 100vw,50vw" />
                 <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_45%,rgba(5,9,31,.72)_100%)] pointer-events-none" />
               </div>
-              <div className="absolute bottom-0 left-0 right-0 grid grid-cols-4 bg-transparent border-t border-white/[.12] rounded-b-[14px]">
+              <div className="product-image-metrics absolute bottom-0 left-0 right-0 grid grid-cols-4 bg-transparent border-t border-white/[.12] rounded-b-[14px]">
                 <div className="py-[.95rem] px-[.5rem] text-center border-r border-white/[.08]">
                   <div className="font-display text-[.95rem] font-black text-white tracking-[.04em] mb-[.2rem]"><span data-count={4000} data-suffix=" A">4000 A</span></div>
                   <div className="font-mono text-[.5rem] text-white/[.45] tracking-[.16em] uppercase">Max Current</div>
@@ -213,6 +213,81 @@ export default function SwitchboardsPage() {
           </div>
         </div>
       </div>
+
+      {/* ACCELERATED CANADIAN PRODUCTION */}
+      <section id="production" className="bg-navy py-20 max-md:py-14 scroll-mt-[110px]" aria-labelledby="accelerated-switchboard-title">
+        <div className="container">
+          <div className="grid grid-cols-[1.05fr_.95fr] max-lg:grid-cols-1 gap-12 max-lg:gap-8 items-center">
+            <div className="rv-l">
+              <div className="relative aspect-[4/3] max-sm:aspect-[1/1] overflow-hidden rounded-[18px] border border-white/[.12] bg-white/[.04]">
+                <Image
+                  src="/images/projects/2500a-switchboard-production/2500a-switchboard-production.jpg"
+                  alt="Three-cell 2500 A CANDRON switchboard under production at the Canadian manufacturing facility"
+                  fill
+                  className="object-cover object-[center_68%]"
+                  sizes="(max-width:1024px) 100vw, 53vw"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(5,9,31,.62),transparent_45%)] pointer-events-none" />
+                <div className="absolute left-4 bottom-4 flex flex-wrap gap-2">
+                  {['Built in Canada', '2-Week Production', '3-Cell Assembly'].map((badge) => (
+                    <span key={badge} className="rounded-full border border-white/25 bg-navy/80 px-3 py-2 font-mono text-[.54rem] font-bold uppercase tracking-[.08em] text-white backdrop-blur-sm">{badge}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="rv-r">
+              <div className="label label-white">Production in Progress · Canadian Manufacturing</div>
+              <h2 id="accelerated-switchboard-title" className="text-white mt-4 !leading-[1.08]">
+                Built Fast. Built to Perform.<br />
+                <em>Built in Canada.</em>
+              </h2>
+              <p className="text-white/60 text-[.96rem] leading-[1.8] mt-6 max-w-[620px]">
+                This custom 2,500 A, 600 V, 65 kA switchboard was manufactured by CANDRON in two weeks for a demanding power-distribution application, combining in-house manufacturing, practical engineering, and lean production.
+              </p>
+
+              <div className="grid grid-cols-4 max-sm:grid-cols-2 gap-3 mt-8">
+                {[
+                  { value: '2,500 A', label: 'Current Rating' },
+                  { value: '600 V', label: 'System Voltage' },
+                  { value: '65 kA', label: 'Fault Rating' },
+                  { value: '2 Weeks', label: 'Manufacturing' },
+                ].map((item) => (
+                  <div key={item.label} className="rounded-[12px] border border-white/[.1] bg-white/[.045] px-3 py-4 min-w-0">
+                    <div className="font-display text-[.82rem] font-black text-white break-words">{item.value}</div>
+                    <div className="font-mono text-[.47rem] uppercase tracking-[.08em] text-white/40 mt-1.5">{item.label}</div>
+                  </div>
+                ))}
+              </div>
+
+              <ul className="mt-8 p-0 list-none grid gap-3">
+                {[
+                  'Three-cell switchboard configuration',
+                  'Right-entry wireway into the main breaker section',
+                  'Dedicated PUC metering compartment',
+                  'Final section configured for four 1,600 A breakers',
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-white/65 text-[.85rem] leading-[1.55]">
+                    <span className="mt-[.35rem] w-2 h-2 rounded-full bg-blue shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-8 rounded-[14px] border border-blue/40 bg-blue/[.12] px-5 py-4">
+                <div className="font-mono text-[.56rem] font-bold uppercase tracking-[.12em] text-blue mb-2">Expedited Lead Times Available</div>
+                <div className="font-display text-[.9rem] font-black text-white">2–3 weeks for switchboards up to 3,200 A, 600 V, 65 kA.</div>
+                <div className="font-mono text-[.54rem] leading-[1.55] text-white/40 mt-2">Schedule is subject to approved drawings, component availability, and final project requirements.</div>
+              </div>
+
+              <div className="flex flex-wrap gap-3 mt-8">
+                <Link href="/contact?product=expedited-switchboard" className="btn btn-primary mag">Request an Expedited Quote →</Link>
+                <Link href="/products/switchboards/main-breaker" className="btn btn-outline mag">Main Breaker Switchboards</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* TYPES & SPECIFICATIONS */}
       <div id="types-specs" className="section bg-off scroll-mt-[110px]">

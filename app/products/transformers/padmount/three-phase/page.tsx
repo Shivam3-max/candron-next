@@ -2,7 +2,7 @@ import ProductTypePage from '@/components/ProductTypePage'
 
 export const metadata = {
   title: 'Three-Phase Padmount Transformer',
-  description: 'Three-phase liquid-filled padmount transformers from 15 kVA to 2,500 kVA at 5 kV to 34.5 kV primary voltage. ANSI C57.12.26, IEEE, and CSA certified.',
+  description: 'Three-phase liquid-filled padmount transformers from 15 kVA to 3,000 kVA at 5 kV to 34.5 kV primary voltage. ANSI C57.12.26, IEEE, and CSA certified.',
 }
 
 export default function ThreePhasePadmountPage() {
@@ -14,11 +14,11 @@ export default function ThreePhasePadmountPage() {
       categoryHref="/products/transformers/padmount"
       typeName="Three-Phase Padmount Transformer"
       eyebrow="Liquid-Filled Distribution Transformer"
-      subtitle="Tamper-resistant three-phase padmount transformers for underground commercial and industrial distribution systems. Available from 15 kVA to 2,500 kVA at primary voltages from 5 kV to 34.5 kV."
+      subtitle="Tamper-resistant three-phase padmount transformers for underground commercial and industrial distribution systems. Available from 15 kVA to 3,000 kVA at primary voltages from 5 kV to 34.5 kV."
       heroImage="/images/products/transformers/padmount-three-phase.webp"
-      badges={['15 kVA – 2,500 kVA', '5 kV – 34.5 kV Primary', 'ANSI C57.12.26', 'CSA Certified', 'Oil-Immersed']}
+      badges={['15 kVA – 3,000 kVA', '5 kV – 34.5 kV Primary', 'ANSI C57.12.26', 'CSA Certified', 'Oil-Immersed']}
       kpis={[
-        { value: '2,500 kVA', label: 'Max Rating' },
+        { value: '3,000 kVA', label: 'Max Rating' },
         { value: '34.5 kV', label: 'Max Primary' },
         { value: 'ONAN', label: 'Cooling Class' },
         { value: 'ANSI / CSA', label: 'Standards' },
@@ -54,7 +54,7 @@ export default function ThreePhasePadmountPage() {
         'Thermal imaging port for predictive maintenance',
       ]}
       specRows={[
-        { label: 'kVA Range', value: '15 kVA – 2,500 kVA' },
+        { label: 'kVA Range', value: '15 kVA – 3,000 kVA' },
         { label: 'Primary Voltage (HV)', value: '5 kV – 34.5 kV' },
         { label: 'Secondary Voltage (LV)', value: '208 V – 15 kV (custom available)' },
         { label: 'Winding Configuration', value: 'Three-phase, 2- or 3-winding' },

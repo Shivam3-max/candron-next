@@ -3,9 +3,9 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Testing",
+  title: "Transformer Field & Factory Testing",
   description:
-    "Every CANDRON system undergoes comprehensive factory acceptance testing — functional, protection, control logic, and equipment validation — to ANSI, IEEE, NETA, CSA, and UL standards before shipment.",
+    "CANDRON provides transformer field testing and factory acceptance testing, including oil sampling, DGA, SFRA, tan delta, winding resistance, insulation resistance, and TTR.",
 };
 
 export default function TestingPage() {
@@ -14,22 +14,21 @@ export default function TestingPage() {
       <div className="page-hero">
         <div
           className="page-hero-bg"
-          style={{ background: "url('/images/switchgear.jpg') center/cover" }}
+          style={{ background: "url('/images/field-services/transformer-diagnostic-testing.jpg') center 55%/cover" }}
         ></div>
         <div className="container page-hero-content">
           <div className="breadcrumb">
             <Link href="/">Home</Link> / <span>Testing</span>
           </div>
-          <div className="label label-white">Quality Assurance</div>
+          <div className="label label-white">Factory &amp; Field Testing</div>
           <h1>
             Comprehensive
             <br />
             <em>Factory Testing</em>
           </h1>
           <p className="lead mt-4">
-            Every system is tested before shipment to verify safety,
-            reliability, and compliance. No equipment leaves our facility
-            without passing a rigorous in-house factory acceptance test.
+            Factory acceptance testing and on-site transformer diagnostics to
+            verify safety, reliability, condition, and performance.
           </p>
         </div>
       </div>
@@ -111,8 +110,8 @@ export default function TestingPage() {
               },
               {
                 n: '04',
-                title: 'Equipment Validation',
-                desc: 'Physical inspection and verification of all components, ratings, labels, and documentation against project specifications and applicable standards.',
+                title: 'Transformer Diagnostics',
+                desc: 'On-site oil sampling, DGA, SFRA, tan delta, winding resistance, insulation resistance, and transformer turns-ratio testing.',
                 icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>,
               },
               {
@@ -139,23 +138,23 @@ export default function TestingPage() {
             ))}
           </div>
 
-          {/* Witnessed FAT strip */}
+          {/* Real field-testing case study */}
           <div className="wt-fat-strip rv">
             <div className="wt-fat-img">
               <Image
-                src="/images/testing.jpg"
-                alt="Factory Testing"
+                src="/images/field-services/mine-transformer-field-testing.jpg"
+                alt="CANDRON technician performing transformer field testing at a mine site"
                 fill
-                className="object-cover"
+                className="object-cover object-center"
                 sizes="(max-width:1024px) 100vw, 50vw"
               />
               <div className="wt-fat-img-overlay" />
             </div>
             <div className="wt-fat-content">
-              <div className="label label-white">Witnessed FAT Available</div>
-              <h3 className="text-white mt-2 tracking-[-.01em]">Your Team Can<br/>Be Present</h3>
-              <p className="text-white/55 text-[.92rem] leading-[1.72] mt-4 mb-6">CANDRON accommodates witnessed factory acceptance tests for project owners, engineers of record, and third-party inspectors. Schedule your FAT visit during project kickoff to align with your timeline.</p>
-              <Link href="/contact" className="btn btn-primary mag">Schedule a Visit →</Link>
+              <div className="label label-white">Mine-Site Field Response</div>
+              <h3 className="text-white mt-2 tracking-[-.01em]">On Site Within<br/>24 Hours</h3>
+              <p className="text-white/55 text-[.92rem] leading-[1.72] mt-4 mb-6">Following order confirmation, our field crew mobilized to the mine within 24 hours and completed a thorough transformer test program, including oil samples, DGA, SFRA, tan delta, winding resistance, insulation resistance, and TTR.</p>
+              <Link href="/contact" className="btn btn-primary mag">Request Field Testing →</Link>
             </div>
           </div>
 

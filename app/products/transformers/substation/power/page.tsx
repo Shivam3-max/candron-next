@@ -15,7 +15,7 @@ export default function PowerSubstationPage() {
       typeName="Power Substation Transformer"
       eyebrow="Oil-Immersed Power Transformer"
       subtitle="High-voltage oil-immersed power transformers for utility transmission and distribution substations, industrial facilities, and renewable energy interconnections. Rated from 1 MVA to 100+ MVA at primary voltages from 34.5 kV to 345 kV."
-      heroImage="/images/products/transformers/power-substation.webp"
+      heroImage="/images/projects/arctic-mining-transformer/arctic-mining-power-transformer.jpg"
       badges={['1 MVA – 100+ MVA', '34.5 kV – 345 kV Primary', 'IEEE C57.12', 'CSA C88', 'ONAN / ONAF / OFAF']}
       kpis={[
         { value: '345 kV', label: 'Max Primary' },
@@ -42,6 +42,8 @@ export default function PowerSubstationPage() {
         'Copper or aluminium winding conductors',
         'Core and coil construction to IEEE C57.12.00',
         'High-voltage and low-voltage bushings to IEC / IEEE',
+        'Current transformers (CTs) for protection and metering',
+        'Complete instrumentation package with gauges and monitoring accessories',
       ]}
       upgrades={[
         'On-load tap changer (LTC) — ±10 taps × 1.25% or 1.5% per step',
@@ -79,6 +81,7 @@ export default function PowerSubstationPage() {
         'Utility transmission and distribution substations',
         'Industrial facility main power stations',
         'Mining operations and remote site power supply',
+        'Arctic mining and extreme-cold industrial power systems',
         'Renewable energy plant interconnection (wind, solar, hydro)',
         'Oil and gas upstream and midstream facilities',
         'Steel mills and electric arc furnace supply',

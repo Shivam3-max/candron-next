@@ -3,13 +3,13 @@ import Link from 'next/link'
 import Image from 'next/image'
 import ProcessScroll from '@/components/ProcessScroll'
 
-export const metadata = { title: 'Commissioning', description: 'CANDRON provides on-site commissioning support — startup assistance, site testing, equipment verification, and performance validation — by the same engineers who designed and built your equipment.' }
+export const metadata = { title: 'Electrical Commissioning & Field Testing', description: 'CANDRON provides responsive on-site commissioning and transformer field testing, including oil sampling, DGA, SFRA, tan delta, WR, IR, and TTR.' }
 
 export default function CommissioningPage() {
   return (
     <>
       <div className="page-hero">
-        <div className="page-hero-bg" style={{background:"url('/images/oil-gas.jpg') center/cover"}}></div>
+        <div className="page-hero-bg" style={{background:"url('/images/field-services/mine-site-testing-crew.jpg') center 35%/cover"}}></div>
         <div className="container page-hero-content">
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>Commissioning</span></div>
           <div className="label label-white">Field Support</div>
@@ -63,7 +63,7 @@ export default function CommissioningPage() {
               {
                 n: '02',
                 title: 'Site Testing',
-                desc: 'Field verification testing of installed equipment to confirm correct installation, proper connections, and alignment with factory test results. Identifies site-specific issues before operational handover.',
+                desc: 'Transformer and equipment field verification, including oil sampling, DGA, SFRA, tan delta, winding resistance, insulation resistance, and TTR as required.',
                 icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>,
               },
               {
@@ -111,20 +111,20 @@ export default function CommissioningPage() {
           <div className="split">
             <div className="rv-l max-md:hidden">
               <div className="rounded-[14px] overflow-hidden h-[480px] relative">
-                <Image src="/images/utilities.jpg" alt="Commissioning Support" fill className="object-cover" sizes="(max-width:1024px) 100vw, 50vw"/>
+                <Image src="/images/field-services/transformer-diagnostic-testing.jpg" alt="CANDRON field technician operating transformer diagnostic test equipment at a mine" fill className="object-cover object-center" sizes="(max-width:1024px) 100vw, 50vw"/>
               </div>
             </div>
             <div className="rv-r">
-              <div className="label">The CANDRON Advantage</div>
-              <h2 className="mb-6">We Know Your Equipment<br/>Better Than Anyone</h2>
-              <p className="body mb-6">When a third-party commissioning firm arrives on site, they're reading the same documentation you are. When CANDRON engineers arrive, they designed the system, built the equipment, and tested it in our facility.</p>
-              <p className="body mb-8">That difference matters when an issue arises during startup. Our engineers can trace every circuit, understand every protection setting, and resolve issues with authority — not guesswork.</p>
+              <div className="label">Recent Field Assignment</div>
+              <h2 className="mb-6">Mine-Site Transformer Testing<br/>Mobilized Within 24 Hours</h2>
+              <p className="body mb-6">A CANDRON field crew arrived at the mine within 24 hours of order confirmation, equipped to complete a comprehensive condition assessment of the transformer.</p>
+              <p className="body mb-8">The team combined visual inspection, fluid diagnostics, and electrical measurements to provide the client with clear test records and actionable information about transformer condition.</p>
               <ul className="check-list">
-                <li>Engineers who designed and built your equipment</li>
-                <li>Direct access to as-built documentation and test records</li>
-                <li>Faster issue resolution — no learning curve</li>
-                <li>Single point of accountability through project close-out</li>
-                <li>Coordination with your site team and electrical contractor</li>
+                <li>Oil sampling and dissolved gas analysis (DGA)</li>
+                <li>Sweep frequency response analysis (SFRA)</li>
+                <li>Tan delta / power-factor testing</li>
+                <li>Winding resistance (WR) and insulation resistance (IR)</li>
+                <li>Transformer turns-ratio testing (TTR)</li>
               </ul>
               <div className="mt-8 flex justify-center">
                 <Link href="/contact" className="btn btn-primary mag">Request Commissioning Support</Link>

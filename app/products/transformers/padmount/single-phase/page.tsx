@@ -83,7 +83,7 @@ export default function SinglePhasePadmountPage() {
         'Agricultural and farm service connections',
       ]}
       relatedTypes={[
-        { name: 'Three-Phase Padmount', sub: '15 kVA – 2,500 kVA', href: '/products/transformers/padmount/three-phase' },
+        { name: 'Three-Phase Padmount', sub: '15 kVA – 3,000 kVA', href: '/products/transformers/padmount/three-phase' },
         { name: 'Polemount Transformer', sub: '3 kVA – 167 kVA', href: '/products/transformers/substation/polemount' },
         { name: 'Standard LV Dry-Type', sub: '15 kVA – 2,500 kVA', href: '/products/transformers/dry-type-lv/standard' },
       ]}
