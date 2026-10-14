@@ -9,7 +9,14 @@ export default function ClientEffects() {
     // SCROLL REVEAL — re-observe on every route change
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target) }
+        if (e.isIntersecting) {
+          const element = e.target as HTMLElement
+          // React may replace className when an interactive card changes state.
+          // Keep a separate reveal marker so accordions never become transparent again.
+          element.dataset.revealed = 'true'
+          element.classList.add('visible')
+          obs.unobserve(element)
+        }
       })
     }, { threshold: 0.1 })
     document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(el => obs.observe(el))

@@ -76,76 +76,67 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="hero-home">
+      <section className="hero-home home-hero-v2">
         <HeroCanvas />
-        <div className="container">
-          <div className="hero-inner">
+        <div className="container home-hero-shell">
+          <div className="hero-inner home-hero-main">
             <div className="hero-content">
-              <div className="hero-made-title">
+              <h1 className="hero-made-title">
                 Made in Canada —<br />
-                <em>Power Distribution Equipment.</em>
-              </div>
-              <h1 className="hero-delivery-line">
-                <span>Engineered.</span>{' '}
-                <em>Manufactured.</em>{' '}
-                <span>Tested. Delivered.</span>
+                <em>Power Distribution</em><br className="home-hero-title-break" /> Equipment.
               </h1>
+              <p className="hero-delivery-line">Engineered. Manufactured. Tested. Delivered.</p>
               <p className="lead">
-                CANDRON is a leading Toronto-based manufacturer of switchgear,
-                switchboards, and dry-type transformers, delivering engineered
-                power distribution solutions with a focus on quality,
-                reliability, and shorter lead times.
+                CANDRON provides high-quality switchgear, switchboards, and
+                dry-type transformers built for reliable power distribution
+                across commercial, industrial, transit, and EV charging applications.
               </p>
               <div className="hero-btns">
                 <Link href="/contact" className="btn btn-primary btn-lg mag">
-                  Request a Quote
+                  Request a Quote <span aria-hidden="true">→</span>
                 </Link>
                 <Link href="/products" className="btn btn-outline btn-lg mag">
-                  View Products
+                  View Products <span aria-hidden="true">→</span>
                 </Link>
-              </div>
-              <div className="trust-logos">
-                <span className="trust-lbl">Built for</span>
-                <div className="trust-marquee">
-                  <div className="trust-track">
-                    {[
-                      'Utilities', 'Data Centers', 'Oil & Gas', 'Mining',
-                      'Healthcare', 'Renewables', 'Manufacturing', 'Water Treatment',
-                      'Infrastructure', 'Commercial', 'Traction Power', 'Transit',
-                      'EV Charging', 'Ports & Marine',
-                    ].flatMap((item, i) => [
-                      <span key={`a-${i}`} className="trust-item">{item}</span>,
-                      <span key={`a-sep-${i}`} className="trust-sep" aria-hidden="true" />,
-                    ]).concat(
-                      ['Utilities', 'Data Centers', 'Oil & Gas', 'Mining',
-                        'Healthcare', 'Renewables', 'Manufacturing', 'Water Treatment',
-                        'Infrastructure', 'Commercial', 'Traction Power', 'Transit',
-                        'EV Charging', 'Ports & Marine',
-                      ].flatMap((item, i) => [
-                        <span key={`b-${i}`} className="trust-item">{item}</span>,
-                        <span key={`b-sep-${i}`} className="trust-sep" aria-hidden="true" />,
-                      ])
-                    )}
-                  </div>
-                </div>
               </div>
             </div>
             <div className="hero-visual">
+              <div className="home-hero-blue-facet" aria-hidden="true" />
               <div className="hero-visual-img">
                 <Image
                   src="/images/hero.webp"
-                  alt="CANDRON In-House Manufacturing"
+                  alt="CANDRON power distribution switchgear manufactured in Canada"
                   width={1280}
                   height={853}
                   priority
-                  sizes="(max-width:1024px) 0px, 50vw"
-                  className="w-full h-full object-contain object-[center_bottom] opacity-[.92]"
+                  sizes="(max-width:768px) 94vw, 58vw"
+                  className="w-full h-full object-contain object-[center_bottom]"
                 />
               </div>
-              <div className="hero-cert-strip">
-                {['CSA C22.2', 'UL 508A', 'IEEE C37', 'IEC 62271', 'NETA'].map(s => (
-                  <span key={s} className="hero-cert-badge">{s}</span>
-                ))}
+            </div>
+          </div>
+          <div className="trust-logos home-hero-built-for">
+            <span className="trust-lbl">Built for</span>
+            <div className="trust-marquee">
+              <div className="trust-track">
+                {[
+                  'Utilities', 'Data Centers', 'Oil & Gas', 'Mining',
+                  'Healthcare', 'Renewables', 'Manufacturing', 'Water Treatment',
+                  'Infrastructure', 'Commercial', 'Traction Power', 'Transit',
+                  'EV Charging', 'Ports & Marine',
+                ].flatMap((item, i) => [
+                  <span key={`a-${i}`} className="trust-item">{item}</span>,
+                  <span key={`a-sep-${i}`} className="trust-sep" aria-hidden="true" />,
+                ]).concat(
+                  ['Utilities', 'Data Centers', 'Oil & Gas', 'Mining',
+                    'Healthcare', 'Renewables', 'Manufacturing', 'Water Treatment',
+                    'Infrastructure', 'Commercial', 'Traction Power', 'Transit',
+                    'EV Charging', 'Ports & Marine',
+                  ].flatMap((item, i) => [
+                    <span key={`b-${i}`} className="trust-item">{item}</span>,
+                    <span key={`b-sep-${i}`} className="trust-sep" aria-hidden="true" />,
+                  ])
+                )}
               </div>
             </div>
           </div>

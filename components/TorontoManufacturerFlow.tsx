@@ -67,8 +67,8 @@ export default function TorontoManufacturerFlow() {
           ))}
         </ol>
 
-        <div className="mt-10 flex flex-col items-center justify-between gap-5 rounded-[16px] border border-blue/15 bg-navy px-6 py-6 text-center sm:flex-row sm:text-left lg:px-9">
-          <div>
+        <div className="manufacturer-project-cta mt-10 flex flex-col items-center justify-between gap-5 rounded-[16px] border border-blue/15 bg-navy px-6 py-6 text-center sm:flex-row sm:text-left lg:px-9">
+          <div className="manufacturer-project-copy">
             <div className="font-title text-[1rem] font-bold text-white sm:text-[1.1rem]">
               Switchgear · Switchboards · Dry-Type Transformers
             </div>
@@ -76,7 +76,7 @@ export default function TorontoManufacturerFlow() {
               Engineered and manufactured locally in Toronto for projects across North America.
             </p>
           </div>
-          <Link href="/contact" className="btn btn-primary shrink-0">Discuss Your Project →</Link>
+          <Link href="/contact" className="manufacturer-project-button btn btn-primary shrink-0">Discuss Your Project →</Link>
         </div>
       </div>
     </section>

@@ -201,12 +201,14 @@ export default function SwitchgearPage() {
                 <Link href="#types-specs" className="btn btn-outline-blue mag">Explore Types →</Link>
               </div>
             </div>
-            <div className="rv-r relative">
-              <div className="prod-detail-img">
-                <Image src="/images/switchgear.jpg" alt="CANDRON switchgear assembly" fill className="object-cover" sizes="(max-width:1024px) 100vw,50vw" />
+            <div className="switchgear-overview-visual rv-r relative">
+              <div className="switchgear-overview-image prod-detail-img">
+                {/* A native image keeps this key product visual available on static hosting too. */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/images/switchgear.jpg" alt="CANDRON switchgear assembly" loading="eager" decoding="async" />
                 <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_45%,rgba(5,9,31,.72)_100%)] pointer-events-none" />
               </div>
-              <div className="product-image-metrics absolute bottom-0 left-0 right-0 grid grid-cols-4 bg-transparent border-t border-white/[.12] rounded-b-[14px]">
+              <div className="switchgear-overview-metrics product-image-metrics absolute bottom-0 left-0 right-0 grid grid-cols-4 bg-transparent border-t border-white/[.12] rounded-b-[14px]">
                 <div className="py-[.95rem] px-[.5rem] text-center border-r border-white/[.08]">
                   <div className="font-display text-[.95rem] font-black text-white tracking-[.04em] mb-[.2rem]"><span data-count={38} data-suffix=" kV">38 kV</span></div>
                   <div className="font-mono text-[.5rem] text-white/[.45] tracking-[.16em] uppercase">MV Voltage</div>
