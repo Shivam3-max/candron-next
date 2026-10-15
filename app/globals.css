@@ -4487,6 +4487,13 @@ canvas#hero-canvas {
   flex-shrink: 0
 }
 
+/* The supplied ANSI SVG includes a large square canvas around a wide logo.
+   Scale only this asset so the visible mark matches the other standards logos. */
+img[src$="/ansi-logo.svg"] {
+  transform: scale(2.15);
+  transform-origin: center;
+}
+
 .standard-name {
   font-family: var(--fm);
   font-size: .6rem;
