@@ -2,16 +2,31 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import CanadaFlag from '@/components/CanadaFlag'
 
 const links = [
   { href: '/', label: 'Home' },
   { href: '/products', label: 'Products' },
   // Inventory navigation is temporarily disabled.
   // { href: '/inventory', label: 'Inventory' },
-  { href: '/capabilities', label: 'Capabilities' },
+  { href: '/capabilities', label: 'Services' },
   { href: '/resources', label: 'Resources' },
   { href: '/company', label: 'Company' },
 ]
+
+const mobileNavIcons = {
+  home: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5M9 21v-7h6v7"/></svg>,
+  products: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="m12 3 8 4.5-8 4.5-8-4.5L12 3Z"/><path d="m4 12 8 4.5 8-4.5M4 16.5l8 4.5 8-4.5"/></svg>,
+  services: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5-5l2.1 2.1-8.4 8.4-2.1-2.1a4 4 0 0 0 5 5l8.4-8.4Z"/><path d="m13 11 8 8-2 2-8-8"/></svg>,
+  resources: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 12h7M9 16h7"/></svg>,
+  company: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-4 2.7-7 6-7s6 3 6 7M15 14c3.2 0 5 2.3 5 5.5"/></svg>,
+}
+
+const mobileChevron = (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="m9 18 6-6-6-6" />
+  </svg>
+)
 
 const companyItems = [
   {
@@ -30,9 +45,9 @@ const companyItems = [
 
 const capabilitiesItems = [
   {
-    href: '/contact?service=electrical-engineering',
+    href: '/services',
     label: 'Electrical Engineering Services',
-    desc: 'Discuss studies, coordination, and engineering requirements',
+    desc: 'Studies, coordination, equipment design, and documentation',
     icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg>,
   },
   {
@@ -202,7 +217,14 @@ export default function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMobileOpen(false)
+    }
+    document.addEventListener('keydown', closeOnEscape)
+    return () => {
+      document.body.style.overflow = ''
+      document.removeEventListener('keydown', closeOnEscape)
+    }
   }, [mobileOpen])
 
   const requiresSolidHeader = pathname.startsWith('/admin')
@@ -240,7 +262,7 @@ export default function Navbar() {
                       aria-haspopup="true"
                       aria-expanded={capabilitiesOpen}
                     >
-                      Capabilities
+                      Services
                       <svg className="nav-dd-chevron" width="11" height="11" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                         <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
@@ -436,14 +458,26 @@ export default function Navbar() {
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
             aria-controls="mobile-nav"
-            onClick={() => setMobileOpen(true)}
+            onClick={() => {
+              setMobileOpen(true)
+              setMobileCapabilitiesOpen(isCapabilitiesActive)
+              setMobileProdOpen(false)
+              setMobileCompanyOpen(false)
+            }}
           >
             <span /><span /><span />
           </button>
         </div>
       </header>
 
-      <div
+      <button
+        className={`mobile-nav-backdrop${mobileOpen ? ' open' : ''}`}
+        aria-label="Close navigation menu"
+        tabIndex={mobileOpen ? 0 : -1}
+        onClick={() => setMobileOpen(false)}
+      />
+
+      <aside
         id="mobile-nav"
         className={`mobile-nav${mobileOpen ? ' open' : ''}`}
         role="dialog"
@@ -451,13 +485,24 @@ export default function Navbar() {
         aria-label="Navigation menu"
         aria-hidden={!mobileOpen}
       >
-        <button className="mobile-close" aria-label="Close menu" onClick={() => setMobileOpen(false)}>✕</button>
+        <div className="mobile-nav-header">
+          <Link href="/" className="mobile-nav-logo" aria-label="CANDRON Energy Inc. — Home" onClick={() => setMobileOpen(false)}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/logo.svg" alt="CANDRON Energy Inc." />
+          </Link>
+          <button className="mobile-close" aria-label="Close menu" onClick={() => setMobileOpen(false)}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+          </button>
+        </div>
+
+        <div className="mobile-nav-kicker">Navigation</div>
+        <div className="mobile-nav-menu">
         {links.map(l => {
           if (l.href === '/capabilities') {
             return (
               <div key="/capabilities" className="mobile-products-group">
                 <button
-                  className={`mobile-products-toggle${isCapabilitiesActive ? ' active' : ''}`}
+                  className={`mobile-products-toggle${isCapabilitiesActive ? ' active' : ''}${mobileCapabilitiesOpen ? ' expanded' : ''}`}
                   onClick={() => {
                     setMobileCapabilitiesOpen(!mobileCapabilitiesOpen)
                     setMobileProdOpen(false)
@@ -465,10 +510,9 @@ export default function Navbar() {
                   }}
                   aria-expanded={mobileCapabilitiesOpen}
                 >
-                  Capabilities
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={`mobile-prod-chevron${mobileCapabilitiesOpen ? ' rotated' : ''}`} aria-hidden="true">
-                    <path d="M6 9l6 6 6-6" />
-                  </svg>
+                  <span className="mobile-nav-main-icon">{mobileNavIcons.services}</span>
+                  <span>Services</span>
+                  <span className={`mobile-prod-chevron${mobileCapabilitiesOpen ? ' rotated' : ''}`}>{mobileChevron}</span>
                 </button>
                 <div className={`mobile-products-dropdown${mobileCapabilitiesOpen ? ' open' : ''}`}>
                   <div className="mobile-products-list">
@@ -493,7 +537,7 @@ export default function Navbar() {
             return (
               <div key="/company" className="mobile-products-group">
                 <button
-                  className={`mobile-products-toggle${isCompanyActive ? ' active' : ''}`}
+                  className={`mobile-products-toggle${isCompanyActive ? ' active' : ''}${mobileCompanyOpen ? ' expanded' : ''}`}
                   onClick={() => {
                     setMobileCompanyOpen(!mobileCompanyOpen)
                     setMobileProdOpen(false)
@@ -501,10 +545,9 @@ export default function Navbar() {
                   }}
                   aria-expanded={mobileCompanyOpen}
                 >
-                  Company
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={`mobile-prod-chevron${mobileCompanyOpen ? ' rotated' : ''}`} aria-hidden="true">
-                    <path d="M6 9l6 6 6-6" />
-                  </svg>
+                  <span className="mobile-nav-main-icon">{mobileNavIcons.company}</span>
+                  <span>Company</span>
+                  <span className={`mobile-prod-chevron${mobileCompanyOpen ? ' rotated' : ''}`}>{mobileChevron}</span>
                 </button>
                 <div className={`mobile-products-dropdown${mobileCompanyOpen ? ' open' : ''}`}>
                   <div className="mobile-products-list">
@@ -529,7 +572,7 @@ export default function Navbar() {
             return (
               <div key="/products" className="mobile-products-group">
                 <button
-                  className={`mobile-products-toggle${isProductsActive ? ' active' : ''}`}
+                  className={`mobile-products-toggle${isProductsActive ? ' active' : ''}${mobileProdOpen ? ' expanded' : ''}`}
                   onClick={() => {
                     setMobileProdOpen(!mobileProdOpen)
                     setMobileCompanyOpen(false)
@@ -537,21 +580,9 @@ export default function Navbar() {
                   }}
                   aria-expanded={mobileProdOpen}
                 >
-                  {l.label}
-                  <svg
-                    width="12"
-                    height="12"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className={`mobile-prod-chevron${mobileProdOpen ? ' rotated' : ''}`}
-                    aria-hidden="true"
-                  >
-                    <path d="M6 9l6 6 6-6" />
-                  </svg>
+                  <span className="mobile-nav-main-icon">{mobileNavIcons.products}</span>
+                  <span>{l.label}</span>
+                  <span className={`mobile-prod-chevron${mobileProdOpen ? ' rotated' : ''}`}>{mobileChevron}</span>
                 </button>
                 <div className={`mobile-products-dropdown${mobileProdOpen ? ' open' : ''}`}>
                   <div className="mobile-products-list">
@@ -584,15 +615,31 @@ export default function Navbar() {
               key={l.href}
               href={l.href}
               onClick={() => setMobileOpen(false)}
-              className={isLinkActive(l.href) ? 'active' : ''}
+              className={`mobile-nav-main-item${isLinkActive(l.href) ? ' active' : ''}`}
               aria-current={isLinkActive(l.href) ? 'page' : undefined}
             >
-              {l.label}
+              <span className="mobile-nav-main-icon">{l.href === '/' ? mobileNavIcons.home : mobileNavIcons.resources}</span>
+              <span>{l.label}</span>
+              <span className="mobile-nav-link-chevron">{mobileChevron}</span>
             </Link>
           )
         })}
-        <Link href="/contact" onClick={() => setMobileOpen(false)}>Contact Us</Link>
-      </div>
+        </div>
+
+        <div className="mobile-nav-footer">
+          <Link href="/contact" className="mobile-nav-contact" onClick={() => setMobileOpen(false)}>Contact Us</Link>
+          <a className="mobile-nav-emergency" href="tel:+16476162595">
+            <span className="mobile-nav-emergency-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg>
+            </span>
+            <span><small>24/7 Emergency Response</small><strong>+1 (647) 616-2595</strong></span>
+          </a>
+          <div className="mobile-nav-canada">
+            <CanadaFlag height={24} />
+            <span>Engineered &amp; Manufactured<br />in Canada</span>
+          </div>
+        </div>
+      </aside>
     </>
   )
 }

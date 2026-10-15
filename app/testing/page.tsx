@@ -14,7 +14,7 @@ export default function TestingPage() {
       <div className="page-hero">
         <div
           className="page-hero-bg"
-          style={{ background: "url('/images/field-services/transformer-diagnostic-testing.jpg') center 55%/cover" }}
+          style={{ background: "url('/images/field-services/client-work/transformer-electrical-testing.webp') center 52%/cover" }}
         ></div>
         <div className="container page-hero-content">
           <div className="breadcrumb">
@@ -142,8 +142,8 @@ export default function TestingPage() {
           <div className="wt-fat-strip rv">
             <div className="wt-fat-img">
               <Image
-                src="/images/field-services/mine-transformer-field-testing.jpg"
-                alt="CANDRON technician performing transformer field testing at a mine site"
+                src="/images/field-services/client-work/breaker-compartment-service.webp"
+                alt="Field technician inspecting and servicing an open electrical breaker compartment"
                 fill
                 className="object-cover object-center"
                 sizes="(max-width:1024px) 100vw, 50vw"
@@ -158,6 +158,37 @@ export default function TestingPage() {
             </div>
           </div>
 
+        </div>
+      </div>
+
+      {/* FIELD TESTING GALLERY */}
+      <div className="section bg-white">
+        <div className="container">
+          <div className="max-w-[680px] mb-12 rv">
+            <div className="label">Testing in the Field</div>
+            <h2>Real Equipment. Real Site Conditions.</h2>
+            <p className="lead mt-4">Hands-on diagnostic work performed on installed transformer equipment using purpose-built field test systems.</p>
+          </div>
+          <div className="grid grid-cols-2 gap-5 max-md:grid-cols-1">
+            {[
+              {
+                src: '/images/field-services/client-work/transformer-topside-testing.webp',
+                alt: 'Technician performing topside electrical testing on a power transformer',
+                title: 'Transformer Diagnostics',
+              },
+              {
+                src: '/images/field-services/client-work/transformer-commissioning-test-set.webp',
+                alt: 'Field technician operating a portable transformer diagnostic test set',
+                title: 'On-Site Test Equipment',
+              },
+            ].map((photo) => (
+              <figure key={photo.src} className="rv group relative h-[500px] max-lg:h-[420px] max-md:h-[380px] overflow-hidden rounded-[14px] bg-navy">
+                <Image src={photo.src} alt={photo.alt} fill className="object-cover transition-transform duration-700 group-hover:scale-[1.025]" sizes="(max-width:768px) 100vw, 50vw" />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-transparent to-transparent" />
+                <figcaption className="absolute bottom-0 left-0 p-7 text-white font-semibold text-lg">{photo.title}</figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       </div>
 

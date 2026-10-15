@@ -138,27 +138,27 @@ export default function DryTypeLVPage() {
         </div>
       </section>
 
-      {/* 500 KVA CSA DRY-TYPE PROJECT */}
+      {/* 500 KVA EXPEDITED DISTRIBUTION PACKAGE */}
       <section className="bg-navy py-20 max-md:py-14" aria-labelledby="500kva-transformer-title">
         <div className="container">
           <div className="grid grid-cols-[.8fr_1.2fr] max-lg:grid-cols-1 gap-12 max-lg:gap-8 items-end mb-10">
             <div className="rv-l">
-              <div className="label label-white">Project Showcase · Low Voltage Dry-Type</div>
+              <div className="label label-white">Expedited Delivery · Complete Distribution Package</div>
               <h2 id="500kva-transformer-title" className="text-white mt-4 !leading-[1.08]">
-                500 kVA Dry-Type<br />
-                <em>Transformer.</em>
+                500 kVA Transformer.<br />
+                <em>Delivered in Two Days.</em>
               </h2>
             </div>
             <div className="rv-r">
               <p className="text-white/60 text-[.96rem] leading-[1.8] max-w-[720px]">
-                A CSA-compliant 500 kVA dry-type transformer configured for a 600 V Delta primary and 480 V Wye secondary, documented from its internal core-and-coil assembly through enclosure completion and shipment.
+                A 500 kVA transformer configured for 600 V Delta primary and 480/277 V Wye secondary was produced and delivered within two days of release. A 1200 A Eaton in-stock switchboard completed the distribution package, giving the customer a single expedited source for both pieces of equipment.
               </p>
               <div className="grid grid-cols-4 max-sm:grid-cols-2 gap-3 mt-6">
                 {[
                   { value: '500 kVA', label: 'Rated Capacity' },
                   { value: '600 V Δ', label: 'Primary' },
-                  { value: '480 V Y', label: 'Secondary' },
-                  { value: 'CSA', label: 'Compliance' },
+                  { value: '480/277 V Y', label: 'Secondary' },
+                  { value: '2 Days', label: 'Release to Delivery' },
                 ].map((item) => (
                   <div key={item.label} className="rounded-[12px] border border-white/[.1] bg-white/[.045] px-4 py-4 min-w-0">
                     <div className="font-display text-[.86rem] font-black text-white break-words">{item.value}</div>
@@ -172,14 +172,14 @@ export default function DryTypeLVPage() {
           <div className="grid grid-cols-2 max-md:grid-cols-1 gap-4 mb-4">
             {[
               {
-                src: '/images/projects/500kva-csa-dry-type-transformer/500kva-delivery-front.jpg',
-                alt: 'Front shipping view of a completed 500 kVA CSA dry-type transformer inside a delivery truck',
-                label: 'Delivery Ready · Front',
+                src: '/images/projects/500kva-expedited-distribution/transformer-switchboard-delivery.jpg',
+                alt: '500 kVA transformer and 1200 amp Eaton switchboard delivered together at the customer site',
+                label: 'One-Stop Distribution Package',
               },
               {
-                src: '/images/projects/500kva-csa-dry-type-transformer/500kva-delivery-rear.jpg',
-                alt: 'Rear shipping view of a completed 500 kVA CSA dry-type transformer secured on a pallet',
-                label: 'Delivery Ready · Rear',
+                src: '/images/projects/500kva-expedited-distribution/eaton-switchboard-delivered.jpg',
+                alt: '1200 amp Eaton switchboard delivered alongside EV charging equipment',
+                label: '1200 A Eaton Switchboard',
               },
             ].map((image) => (
               <figure key={image.src} className="relative aspect-[4/3] overflow-hidden rounded-[16px] border border-white/[.12] bg-white/[.04] rv">
@@ -190,44 +190,40 @@ export default function DryTypeLVPage() {
             ))}
           </div>
 
-          <div className="grid grid-cols-5 max-lg:grid-cols-3 max-sm:grid-cols-2 gap-3">
+          <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-3">
             {[
               {
-                src: '/images/projects/500kva-csa-dry-type-transformer/500kva-coil-closeup.jpg',
-                alt: 'Close-up of the windings and copper terminations inside a 500 kVA dry-type transformer',
-                label: 'Coil Detail',
+                src: '/images/projects/500kva-expedited-distribution/equipment-site-arrival.jpg',
+                alt: 'Expedited transformer and switchboard package arriving at the installation site',
+                label: 'Site Arrival',
               },
               {
-                src: '/images/projects/500kva-csa-dry-type-transformer/500kva-enclosure-side.jpg',
-                alt: 'Side enclosure view of a 500 kVA dry-type transformer during manufacturing',
-                label: 'Enclosure',
+                src: '/images/projects/500kva-expedited-distribution/transformer-unloading.jpg',
+                alt: 'Technician unloading the wrapped 500 kVA transformer at the customer site',
+                label: 'Expedited Unloading',
               },
               {
-                src: '/images/projects/500kva-csa-dry-type-transformer/500kva-core-coil-front.jpg',
-                alt: 'Front view of the 500 kVA transformer core-and-coil assembly inside its enclosure',
-                label: 'Core & Coil',
-              },
-              {
-                src: '/images/projects/500kva-csa-dry-type-transformer/500kva-core-coil-angle.jpg',
-                alt: 'Angled view of the 500 kVA dry-type transformer core, coils, and copper connections',
-                label: 'Internal Assembly',
-              },
-              {
-                src: '/images/projects/500kva-csa-dry-type-transformer/500kva-enclosure-rear.jpg',
-                alt: 'Ventilated rear enclosure of the completed 500 kVA dry-type transformer',
-                label: 'Ventilated Rear',
+                src: '/images/projects/500kva-expedited-distribution/transformer-delivered.jpg',
+                alt: 'Wrapped 500 kVA transformer positioned at the project site after delivery',
+                label: 'Delivered in Two Days',
               },
             ].map((image, index) => (
-              <figure key={image.src} className={`relative aspect-[3/4] overflow-hidden rounded-[14px] border border-white/[.12] bg-white/[.04] rv${index ? ` d${Math.min(index + 1, 4)}` : ''}`}>
-                <Image src={image.src} alt={image.alt} fill className="object-cover transition-transform duration-500 hover:scale-[1.025]" sizes="(max-width:640px) 50vw, (max-width:1024px) 33vw, 20vw" />
+              <figure key={image.src} className={`relative aspect-[4/5] overflow-hidden rounded-[14px] border border-white/[.12] bg-white/[.04] rv${index ? ` d${Math.min(index + 1, 4)}` : ''}`}>
+                <Image src={image.src} alt={image.alt} fill className="object-cover transition-transform duration-500 hover:scale-[1.025]" sizes="(max-width:640px) 100vw, 33vw" />
                 <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(5,9,31,.65),transparent_48%)] pointer-events-none" />
                 <figcaption className="absolute left-3 bottom-3 font-mono text-[.49rem] font-bold uppercase tracking-[.07em] text-white">{image.label}</figcaption>
               </figure>
             ))}
           </div>
 
+          <div className="mt-8 rounded-[14px] border border-white/[.1] bg-white/[.045] px-6 py-5 text-center rv">
+            <p className="m-0 text-white/65 text-[.86rem] leading-[1.7]">
+              The customer received a complete, expedited solution from one supplier and was extremely satisfied with the production speed and delivery service. CANDRON products are CSA, cULus, and UL certified as applicable.
+            </p>
+          </div>
+
           <div className="flex justify-center mt-9 rv">
-            <Link href="/contact?product=500kva-csa-dry-type-transformer" className="btn btn-primary mag">Discuss a Custom Dry-Type Transformer →</Link>
+            <Link href="/contact?product=expedited-distribution-package" className="btn btn-primary mag">Request Expedited Distribution Equipment →</Link>
           </div>
         </div>
       </section>

@@ -81,7 +81,7 @@ export default function Footer() {
             <div>
               <h5 className="font-title text-[.72rem] font-bold tracking-[.16em] uppercase text-white mb-5 max-md:mb-3">Capabilities</h5>
               <ul className="list-none flex flex-col gap-[.65rem] max-md:gap-2">
-                <li><Link href="/contact?service=electrical-engineering" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Electrical Engineering Services</Link></li>
+                <li><Link href="/services" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Electrical Engineering Services</Link></li>
                 <li><Link href="/commissioning" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Field Service &amp; Commissioning</Link></li>
                 <li><Link href="/manufacturing"className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Manufacturing</Link></li>
                 <li><Link href="/testing" className="text-white/[.48] no-underline text-[.83rem] max-md:text-[.75rem] transition-colors duration-300 hover:text-blue-l">Testing</Link></li>

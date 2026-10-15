@@ -17,7 +17,7 @@ const featuredProducts = [
     name: "Transformers",
     cat: "Transformers",
     type: "Liquid-Filled & Dry-Type",
-    image: "/images/products/transformers/padmount-three-phase.webp",
+    image: "/images/projects/custom-replacement-transformer/custom-transformer-side-view.jpg",
     specs: ["Padmount, substation & dry-type", "Distribution to power class ratings", "Liquid-filled & cast-coil options"],
     href: "/products/transformers",
   },
@@ -25,7 +25,7 @@ const featuredProducts = [
     name: "Switchgear",
     cat: "Switchgear",
     type: "Medium Voltage & Low Voltage",
-    image: "/images/switchgear.jpg",
+    image: "/images/projects/35kv-switchgear-toronto-stock/35kv-switchgear-front.jpg",
     specs: ["Safe power distribution & protection", "ANSI/IEEE C37 & CSA Standards", "Arc resistant options available"],
     href: "/products/switchgear",
   },
@@ -33,7 +33,7 @@ const featuredProducts = [
     name: "Switchboards & Panelboards",
     cat: "Switchboards",
     type: "Engineered Distribution Systems",
-    image: "/images/switchboards.jpg",
+    image: "/images/projects/2500a-switchboard-production/2500a-switchboard-production.jpg",
     specs: ["Commercial, industrial & infrastructure", "UL891 & CSA C22.2 Standards", "Custom layouts & integrated metering"],
     href: "/products/switchboards",
   },
@@ -281,7 +281,12 @@ export default function HomePage() {
           </div>
           <div className="prod-highlights-all">
             {featuredProducts.map((p, i) => (
-              <div key={p.name} className={`prod-card rv${i % 4 ? ` d${(i % 4) + 1}` : ''}`}>
+              <Link
+                key={p.name}
+                href={p.href}
+                aria-label={`View ${p.name}`}
+                className={`prod-card rv${i % 4 ? ` d${(i % 4) + 1}` : ''}`}
+              >
                 <div className="prod-card-img">
                   <Image
                     src={p.image}
@@ -299,11 +304,11 @@ export default function HomePage() {
                   <ul className="prod-specs">
                     {p.specs.map(s => <li key={s}>{s}</li>)}
                   </ul>
-                  <Link href={p.href} className="card-link">
+                  <span className="card-link">
                     {p.href === '/contact' ? 'Request Info →' : 'View Details →'}
-                  </Link>
+                  </span>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

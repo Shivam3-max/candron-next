@@ -14,7 +14,7 @@ export default function AboutPage() {
 
 
         
-        <div className="page-hero-bg" style={{background:"url('/images/switchgear.jpg') center 30%/cover"}}></div>
+        <div className="page-hero-bg" style={{background:"url('/images/projects/2500a-switchboard-production/2500a-switchboard-production.jpg') center 48%/cover"}}></div>
         <div className="container page-hero-content">
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>About</span></div>
           <div className="label label-white">Our Story</div>
@@ -108,7 +108,7 @@ export default function AboutPage() {
             {/* Image + stat cards */}
             <div className="val-aside">
               <div className="val-img">
-                <Image src="/images/LicensedEngineers.jpeg" alt="CANDRON Engineering Team" fill className="object-cover object-top" sizes="(max-width:1024px) 100vw, 400px"/>
+                <Image src="/images/field-services/client-work/transformer-electrical-testing.webp" alt="CANDRON technician performing electrical testing on transformer equipment" fill className="object-cover object-center" sizes="(max-width:1024px) 100vw, 400px"/>
                 <div className="val-img-overlay"/>
                 <div className="val-img-badge">
                   <div className="val-img-badge-icon">
@@ -163,11 +163,11 @@ export default function AboutPage() {
             </div>
             <div className="rv-r flex flex-col gap-5 mt-4 max-md:hidden">
               <div className="rounded-[14px] overflow-hidden h-[260px] relative border border-blue/[.15]">
-                <Image src="/images/switchgear.jpg" alt="CANDRON Facility" fill className="object-cover" sizes="(max-width:1024px) 100vw, 40vw"/>
+                <Image src="/images/projects/mv-vpi-outdoor-transformer/mv-vpi-three-phase-coil-assembly.jpg" alt="Medium-voltage VPI transformer coil assembly in the manufacturing facility" fill className="object-cover object-center" sizes="(max-width:1024px) 100vw, 40vw"/>
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent"/>
               </div>
               <div className="rounded-[14px] overflow-hidden h-[260px] relative border border-blue/[.15]">
-                <Image src="/images/control-panels.jpg" alt="Engineering Work" fill className="object-cover" sizes="(max-width:1024px) 100vw, 40vw"/>
+                <Image src="/images/projects/custom-replacement-transformer/custom-transformer-side-view.jpg" alt="Custom replacement transformer assembled at the CANDRON facility" fill className="object-cover object-center" sizes="(max-width:1024px) 100vw, 40vw"/>
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent"/>
               </div>
             </div>
@@ -189,7 +189,7 @@ export default function AboutPage() {
             {/* Engineers card */}
             <div className="team-card rv">
               <div className="team-img">
-                <Image src="/images/LicensedEngineers.jpeg" alt="Licensed Engineers" fill className="object-cover" sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/>
+                <Image src="/images/field-services/client-work/transformer-commissioning-test-set.webp" alt="CANDRON engineer operating a transformer commissioning test set" fill className="object-cover object-center" sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/>
               </div>
               <div className="team-body">
                 <div className="team-name">Licensed Engineers</div>
@@ -209,7 +209,7 @@ export default function AboutPage() {
             {/* Technicians card */}
             <div className="team-card rv d2">
               <div className="team-img">
-                <Image src="/images/field-technicians.png" alt="Field Technicians" fill className="object-cover" sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/>
+                <Image src="/images/field-services/client-work/transformer-cable-termination.webp" alt="CANDRON field technician testing transformer cable terminations" fill className="object-cover object-center" sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/>
               </div>
               <div className="team-body">
                 <div className="team-name">Field Technicians</div>
@@ -229,7 +229,7 @@ export default function AboutPage() {
             {/* Combined experience card */}
             <div className="team-card rv d3">
               <div className="team-img">
-                <Image src="/images/combined-expertise.png" alt="Combined Expertise" fill className="object-cover" sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/>
+                <Image src="/images/projects/emergency-loop-transformer-response/overnight-logistics-team.jpg" alt="CANDRON warehouse and logistics team coordinating an overnight transformer dispatch" fill className="object-cover object-center" sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/>
               </div>
               <div className="team-body">
                 <div className="team-name">Combined Expertise</div>
@@ -285,9 +285,9 @@ export default function AboutPage() {
             <p className="lead mt-4 mx-auto">Our Toronto facility houses our complete manufacturing operation — electrical engineering, fabrication, assembly, wiring, testing lab, and engineering offices, all under one roof.</p>
           </div>
           <div className="facility-grid">
-            <div className="facility-img rv"><Image src="/images/switchboards.jpg" alt="Transformer Storage" fill className="object-cover" sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
-            <div className="facility-img rv d2"><Image src="/images/utilities.jpg" alt="Testing Laboratory" fill className="object-cover" sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
-            <div className="facility-img rv d3"><Image src="/images/control-panels.jpg" alt="Engineering Office" fill className="object-cover" sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
+            <div className="facility-img rv"><Image src="/images/projects/mv-vpi-outdoor-transformer/mv-vpi-enclosure-assembly.jpg" alt="Medium-voltage VPI transformer being assembled inside its enclosure" fill className="object-cover object-center" sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
+            <div className="facility-img rv d2"><Image src="/images/projects/2500kva-autotransformer/2500kva-three-phase-coils.jpg" alt="Three copper-wound autotransformer coils in the CANDRON manufacturing facility" fill className="object-cover object-center" sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
+            <div className="facility-img rv d3"><Image src="/images/projects/custom-replacement-transformer/custom-transformer-front-view.jpg" alt="Custom transformer undergoing final factory preparation" fill className="object-cover object-center" sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
           </div>
           <div className="metrics-4col rv">
             {[

@@ -57,6 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/resources/efficiency-calculator',
     '/resources/savings-payback-calculator',
     '/manufacturing',
+    '/services',
     '/testing',
     '/commissioning',
     '/industries',

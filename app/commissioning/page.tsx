@@ -9,7 +9,7 @@ export default function CommissioningPage() {
   return (
     <>
       <div className="page-hero">
-        <div className="page-hero-bg" style={{background:"url('/images/field-services/mine-site-testing-crew.jpg') center 35%/cover"}}></div>
+        <div className="page-hero-bg" style={{background:"url('/images/field-services/client-work/transformer-field-installation.webp') center 48%/cover"}}></div>
         <div className="container page-hero-content">
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>Commissioning</span></div>
           <div className="label label-white">Field Support</div>
@@ -111,7 +111,7 @@ export default function CommissioningPage() {
           <div className="split">
             <div className="rv-l max-md:hidden">
               <div className="rounded-[14px] overflow-hidden h-[480px] relative">
-                <Image src="/images/field-services/transformer-diagnostic-testing.jpg" alt="CANDRON field technician operating transformer diagnostic test equipment at a mine" fill className="object-cover object-center" sizes="(max-width:1024px) 100vw, 50vw"/>
+                <Image src="/images/field-services/client-work/transformer-cable-termination.webp" alt="Field technician testing transformer cable terminations during commissioning" fill className="object-cover object-center" sizes="(max-width:1024px) 100vw, 50vw"/>
               </div>
             </div>
             <div className="rv-r">
@@ -126,10 +126,34 @@ export default function CommissioningPage() {
                 <li>Winding resistance (WR) and insulation resistance (IR)</li>
                 <li>Transformer turns-ratio testing (TTR)</li>
               </ul>
-              <div className="mt-8 flex justify-center">
+              <div className="mt-8 flex justify-start">
                 <Link href="/contact" className="btn btn-primary mag">Request Commissioning Support</Link>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* FIELD WORK */}
+      <div className="section bg-white pt-0">
+        <div className="container">
+          <div className="grid grid-cols-[1.15fr_.85fr] gap-5 max-md:grid-cols-1">
+            <figure className="rv group relative h-[520px] max-md:h-[380px] overflow-hidden rounded-[14px] bg-navy">
+              <Image src="/images/field-services/client-work/transformer-delivery-unloading.webp" alt="Field crew safely unloading a power transformer at the project site" fill className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.025]" sizes="(max-width:768px) 100vw, 58vw" />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-transparent to-transparent" />
+              <figcaption className="absolute bottom-0 left-0 p-7 text-white">
+                <span className="block text-xs uppercase tracking-[.18em] text-white/65 mb-2">Site Mobilization</span>
+                <span className="font-semibold text-xl">Delivery &amp; Installation Support</span>
+              </figcaption>
+            </figure>
+            <figure className="rv d2 group relative h-[520px] max-md:h-[380px] overflow-hidden rounded-[14px] bg-navy">
+              <Image src="/images/field-services/client-work/transformer-terminal-compartment.webp" alt="Technician completing work in an open transformer terminal compartment" fill className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.025]" sizes="(max-width:768px) 100vw, 42vw" />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-transparent to-transparent" />
+              <figcaption className="absolute bottom-0 left-0 p-7 text-white">
+                <span className="block text-xs uppercase tracking-[.18em] text-white/65 mb-2">Field Completion</span>
+                <span className="font-semibold text-xl">Connections &amp; Verification</span>
+              </figcaption>
+            </figure>
           </div>
         </div>
       </div>

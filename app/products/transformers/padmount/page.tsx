@@ -75,7 +75,7 @@ export default function PadmountPage() {
         </div>
       </div>
 
-      {/* 3 MVA INVERTER-DUTY PADMOUNT PROJECT */}
+      {/* 3 MVA INVERTER-DUTY LOOP-FEED PADMOUNT PROJECT */}
       <section className="bg-navy py-20 max-md:py-14" aria-labelledby="inverter-padmount-title">
         <div className="container">
           <div className="grid grid-cols-[1.08fr_.92fr] max-lg:grid-cols-1 gap-12 max-lg:gap-9 items-center">
@@ -84,7 +84,7 @@ export default function PadmountPage() {
                 {
                   src: '/images/projects/3mva-inverter-duty-padmount/3mva-padmount-front.jpg',
                   alt: 'Front view of a wrapped 3 MVA inverter-duty pad-mounted transformer prepared for delivery',
-                  label: '3 MVA · Delivery Ready',
+                  label: 'Loop Feed · Delivery Ready',
                 },
                 {
                   src: '/images/projects/3mva-inverter-duty-padmount/3mva-padmount-three-quarter.jpg',
@@ -94,7 +94,7 @@ export default function PadmountPage() {
                 {
                   src: '/images/projects/3mva-inverter-duty-padmount/3mva-padmount-side.jpg',
                   alt: 'Side view of the corrosion-resistant enclosure on a 3 MVA inverter-duty pad-mounted transformer',
-                  label: 'Inverter Duty',
+                  label: '27.6 kV · Inverter Duty',
                 },
               ].map((image, index) => (
                 <figure key={image.src} className={`relative overflow-hidden rounded-[14px] border border-white/[.12] bg-white/[.04] ${index === 0 ? 'row-span-2 aspect-[3/4] max-sm:row-span-1' : 'aspect-[3/2] max-sm:aspect-[3/4]'}`}>
@@ -114,20 +114,21 @@ export default function PadmountPage() {
             </div>
 
             <div className="rv-r">
-              <div className="label label-white">Project Spotlight · Inverter Duty</div>
+              <div className="label label-white">Project Spotlight · Inverter Duty · Loop Feed</div>
               <h2 id="inverter-padmount-title" className="text-white mt-4 !leading-[1.08]">
                 Engineered for Performance.<br />
                 <em>Built for Demanding Applications.</em>
               </h2>
               <p className="text-white/60 text-[.96rem] leading-[1.8] mt-6 max-w-[620px]">
-                This 3 MVA pad-mounted transformer steps 27.6 kV Delta down to 600Y/347 V for inverter-duty service. Manufactured at our partner facility in Texas, USA, it combines precision engineering with robust, efficiency-focused construction.
+                This 3 MVA, 27.6 kV loop-feed pad-mounted transformer steps 27.6 kV Delta down to 600Y/347 V for inverter-duty service. Manufactured at our partner facility in Texas, USA, it combines precision engineering with robust, efficiency-focused construction.
               </p>
 
-              <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-3 mt-8">
+              <div className="grid grid-cols-4 max-sm:grid-cols-2 gap-3 mt-8">
                 {[
                   { value: '3 MVA', label: 'Rated Capacity' },
                   { value: '27.6 kV Δ', label: 'Primary Voltage' },
                   { value: '600Y/347 V', label: 'Secondary Voltage' },
+                  { value: 'Loop Feed', label: 'HV Configuration' },
                 ].map((item) => (
                   <div key={item.label} className="rounded-[12px] border border-white/[.1] bg-white/[.045] px-4 py-4 min-w-0">
                     <div className="font-display text-[.86rem] font-black text-white break-words">{item.value}</div>
@@ -139,6 +140,7 @@ export default function PadmountPage() {
               <ul className="mt-8 p-0 list-none grid gap-3">
                 {[
                   'Precision-engineered for inverter-duty applications',
+                  'Loop-feed high-voltage configuration for distribution continuity',
                   'High-grade magnetic core for lower sound levels and improved efficiency',
                   'Heavy-duty active parts and internal assembly components',
                   'Generously sized tank interior for convenient field maintenance',

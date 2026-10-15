@@ -127,14 +127,14 @@ export default function DryTypeMVPage() {
             <div className="grid grid-cols-2 gap-3 rv-r">
               {[
                 {
-                  src: '/images/projects/mv-vpi-outdoor-transformer/mv-vpi-windings-wide.jpg',
-                  alt: 'Medium-voltage dry-type transformer windings being manufactured at a Canadian facility',
-                  label: 'Canadian Manufacturing',
+                  src: '/images/projects/mv-vpi-outdoor-transformer/mv-vpi-three-phase-coil-assembly.jpg',
+                  alt: 'Three-phase medium-voltage VPI dry-type transformer coil assembly in production',
+                  label: 'Three-Phase VPI Assembly',
                 },
                 {
-                  src: '/images/projects/mv-vpi-outdoor-transformer/mv-vpi-windings-close.jpg',
-                  alt: 'Close view of VPI medium-voltage dry-type transformer windings and bus connections',
-                  label: 'VPI Insulation',
+                  src: '/images/projects/mv-vpi-outdoor-transformer/mv-vpi-enclosure-assembly.jpg',
+                  alt: 'Medium-voltage VPI dry-type transformer being fitted inside its ventilated enclosure',
+                  label: 'Enclosure Assembly',
                 },
                 {
                   src: '/images/projects/mv-vpi-outdoor-transformer/mv-vpi-outdoor-enclosure.jpg',
@@ -142,9 +142,9 @@ export default function DryTypeMVPage() {
                   label: 'Outdoor Enclosure',
                 },
                 {
-                  src: '/images/projects/mv-vpi-outdoor-transformer/mv-vpi-core-assembly.jpg',
-                  alt: 'Three-phase medium-voltage dry-type transformer core and coil assembly during manufacturing',
-                  label: 'Core & Coil Assembly',
+                  src: '/images/projects/mv-vpi-outdoor-transformer/mv-vpi-windings-close.jpg',
+                  alt: 'Close view of VPI medium-voltage dry-type transformer windings and bus connections',
+                  label: 'VPI Insulation',
                 },
               ].map((image) => (
                 <figure key={image.src} className="relative aspect-[4/5] max-sm:aspect-[3/4] overflow-hidden rounded-[14px] border border-white/[.12] bg-white/[.04]">

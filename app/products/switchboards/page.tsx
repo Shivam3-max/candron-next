@@ -61,7 +61,7 @@ export default function SwitchboardsPage() {
       title: 'Distribution Switchboards',
       sub: 'Feeder Section Distribution',
       href: '/products/switchboards/distribution',
-      image: '/images/products/switchboards/distribution.jpg',
+      image: '/images/projects/custom-panelboard/custom-panelboard.png',
       items: [
         'Multiple feeder circuits with MCCBs or fuses',
         'Custom bus ratings to 4000 A',
@@ -327,7 +327,11 @@ export default function SwitchboardsPage() {
                     <div className="product-type-accordion-body flex gap-8 pt-[1.75rem] px-[1.75rem] pb-6 items-start flex-wrap">
                       <div className="product-type-accordion-image w-[260px] shrink-0 rounded-xl overflow-hidden h-[220px] shadow-[0_2px_12px_rgba(5,9,31,.1)]">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={t.image} alt={t.title} className="w-full h-full object-cover block" />
+                        <img
+                          src={t.image}
+                          alt={t.title}
+                          className={`w-full h-full block ${t.image.includes('/custom-panelboard/') ? 'object-contain bg-navy' : 'object-cover'}`}
+                        />
                       </div>
                       <div className="product-type-accordion-column flex-1 min-w-[200px]">
                         <div className="font-mono text-[.55rem] text-blue tracking-[.18em] uppercase font-bold mb-4">Standard Features</div>

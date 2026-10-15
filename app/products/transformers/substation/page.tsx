@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export const metadata = {
   title: 'Substation Transformers',
@@ -30,7 +31,7 @@ export default function SubstationPage() {
       <div className="page-hero">
         <div
           className="page-hero-bg"
-          style={{ background: "url('/images/products/transformers/power-substation.webp') center/cover" }}
+          style={{ background: "url('/images/projects/substation-class-transformers/substation-transformer-delivery.jpg') center 68%/cover" }}
         >
           <div className="absolute inset-0 opacity-[.06]" style={{ backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 39px,#0047FF 39px,#0047FF 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,#0047FF 39px,#0047FF 40px)' }} />
         </div>
@@ -73,6 +74,114 @@ export default function SubstationPage() {
           </div>
         </div>
       </div>
+
+      {/* PROJECT GALLERY */}
+      <section className="section bg-white pt-0" aria-labelledby="substation-project-gallery-title">
+        <div className="container">
+          <div className="max-w-[650px] mb-10 rv">
+            <div className="label">Substation Class Equipment</div>
+            <h2 id="substation-project-gallery-title">Built for Utility-Scale Power</h2>
+            <p className="lead mt-4">Oil-immersed substation transformers prepared for delivery and installation in demanding utility and industrial applications.</p>
+          </div>
+          <div className="grid grid-cols-3 gap-4 max-md:grid-cols-1">
+            {[
+              {
+                src: '/images/projects/substation-class-transformers/substation-transformer-delivery.jpg',
+                alt: 'Substation class transformer being lifted onto a heavy transport trailer',
+                label: 'Delivery & Handling',
+              },
+              {
+                src: '/images/projects/substation-class-transformers/substation-transformer-rear-view.jpg',
+                alt: 'Rear view of an oil-immersed substation transformer secured for transport',
+                label: 'Cooling & Controls',
+              },
+              {
+                src: '/images/projects/substation-class-transformers/substation-transformer-front-view.jpg',
+                alt: 'Front view of a substation class transformer prepared for site delivery',
+                label: 'Field-Ready Equipment',
+              },
+            ].map((photo, index) => (
+              <figure key={photo.src} className={`rv${index ? ` d${index + 1}` : ''} group relative h-[480px] max-lg:h-[400px] max-md:h-[380px] overflow-hidden rounded-[14px] bg-navy`}>
+                <Image src={photo.src} alt={photo.alt} fill className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.025]" sizes="(max-width:768px) 100vw, 33vw" />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-transparent to-transparent" />
+                <figcaption className="absolute bottom-0 left-0 p-6 font-semibold text-white">{photo.label}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CUSTOM REPLACEMENT TRANSFORMER */}
+      <section className="bg-navy py-20 max-md:py-14" aria-labelledby="custom-transformer-title">
+        <div className="container">
+          <div className="grid grid-cols-[.9fr_1.1fr] gap-12 items-start max-lg:grid-cols-1">
+            <div className="rv-l max-lg:max-w-[720px]">
+              <div className="label label-white">Custom Design · Project Spotlight</div>
+              <h2 id="custom-transformer-title" className="text-white mt-4 !leading-[1.08]">
+                Identical Fit.<br /><em>Better Performance.</em>
+              </h2>
+              <p className="text-white/60 text-[.96rem] leading-[1.8] mt-6">
+                This custom replacement transformer was engineered to match the existing unit&apos;s dimensions and electrical specifications while improving sound performance, efficiency, and overall footprint. A higher-grade Italian core was selected to minimize sound level and losses without compromising the required fit.
+              </p>
+
+              <div className="grid grid-cols-2 gap-3 mt-8 max-sm:grid-cols-1">
+                {[
+                  { value: 'Italian', label: 'High-Grade Core' },
+                  { value: 'Weidmann', label: 'Insulation Material' },
+                  { value: '55 / 65°C', label: 'Split Temperature Rise' },
+                  { value: '26 Weeks', label: 'Design to Delivery' },
+                ].map((item) => (
+                  <div key={item.label} className="rounded-[12px] border border-white/[.1] bg-white/[.045] px-5 py-4">
+                    <div className="font-display text-[1rem] font-black text-white">{item.value}</div>
+                    <div className="font-mono text-[.52rem] uppercase tracking-[.1em] text-white/40 mt-1.5">{item.label}</div>
+                  </div>
+                ))}
+              </div>
+
+              <ul className="mt-8 p-0 list-none grid gap-3">
+                {[
+                  'Matched existing transformer dimensions and electrical specifications',
+                  'Higher-grade core selected for lower sound level and reduced losses',
+                  'Weidmann insulation materials',
+                  'Qualitrol gauges and monitoring instruments',
+                  'Eaton tap changer',
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-white/65 text-[.86rem] leading-[1.6]">
+                    <span className="mt-[.35rem] w-2 h-2 rounded-full bg-blue shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+
+              <Link href="/contact?product=custom-replacement-transformer" className="btn btn-primary mag mt-9 inline-flex">Discuss a Custom Replacement →</Link>
+            </div>
+
+            <div className="rv-r">
+              <div className="grid grid-cols-[1.15fr_.85fr] gap-3 max-sm:grid-cols-1">
+                <figure className="relative h-[570px] max-sm:h-[360px] overflow-hidden rounded-[14px] border border-white/[.12] bg-white/[.04]">
+                  <Image src="/images/projects/custom-replacement-transformer/custom-transformer-side-view.jpg" alt="Custom replacement transformer with forced-air cooling and compact radiator arrangement" fill className="object-cover object-center" sizes="(max-width:640px) 100vw, 36vw" />
+                </figure>
+                <div className="grid grid-rows-2 gap-3 max-sm:grid-rows-none max-sm:grid-cols-2">
+                  <figure className="relative min-h-[275px] max-sm:min-h-[240px] overflow-hidden rounded-[14px] border border-white/[.12] bg-white/[.04]">
+                    <Image src="/images/projects/custom-replacement-transformer/custom-transformer-front-view.jpg" alt="Front view of the custom transformer cooling banks and accessories" fill className="object-cover object-center" sizes="(max-width:640px) 50vw, 27vw" />
+                  </figure>
+                  <figure className="relative min-h-[275px] max-sm:min-h-[240px] overflow-hidden rounded-[14px] border border-white/[.12] bg-white/[.04]">
+                    <Image src="/images/projects/custom-replacement-transformer/custom-transformer-rear-view.jpg" alt="Rear view of the custom replacement transformer during factory handling" fill className="object-cover object-center" sizes="(max-width:640px) 50vw, 27vw" />
+                  </figure>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-3 mt-3">
+                <figure className="relative h-[260px] max-sm:h-[220px] overflow-hidden rounded-[14px] border border-white/[.12] bg-white/[.04]">
+                  <Image src="/images/projects/custom-replacement-transformer/custom-transformer-radiator-view.jpg" alt="Radiator bank and tank assembly on the custom transformer" fill className="object-cover object-center" sizes="(max-width:640px) 50vw, 27vw" />
+                </figure>
+                <figure className="relative h-[260px] max-sm:h-[220px] overflow-hidden rounded-[14px] border border-white/[.12] bg-white/[.04]">
+                  <Image src="/images/projects/custom-replacement-transformer/custom-transformer-three-quarter-view.jpg" alt="Three-quarter view of the completed custom replacement transformer" fill className="object-cover object-center" sizes="(max-width:640px) 50vw, 27vw" />
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* TYPE CARDS */}
       <div className="section bg-off">
