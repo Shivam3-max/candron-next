@@ -8,6 +8,7 @@ const links = [
   { href: '/products', label: 'Products' },
   // Inventory navigation is temporarily disabled.
   // { href: '/inventory', label: 'Inventory' },
+  { href: '/capabilities', label: 'Capabilities' },
   { href: '/resources', label: 'Resources' },
   { href: '/company', label: 'Company' },
 ]
@@ -25,10 +26,37 @@ const companyItems = [
     desc: 'Support for contractors, consultants, utilities, and project owners',
     icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 4V2m8 2V2M7 9h10M7 13h4M7 17h7"/></svg>,
   },
+]
+
+const capabilitiesItems = [
+  {
+    href: '/contact?service=electrical-engineering',
+    label: 'Electrical Engineering Services',
+    desc: 'Discuss studies, coordination, and engineering requirements',
+    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg>,
+  },
+  {
+    href: '/commissioning',
+    label: 'Field Service & Commissioning',
+    desc: 'Installation support, field testing, and commissioning',
+    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M14.7 6.3a4 4 0 0 0-5-5l2.1 2.1-8.4 8.4-2.1-2.1a4 4 0 0 0 5 5l8.4-8.4z"/><path d="M13 11l8 8-2 2-8-8"/></svg>,
+  },
+  {
+    href: '/manufacturing',
+    label: 'Manufacturing',
+    desc: 'Canadian production, assembly, and quality control',
+    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 21V9l6 4V9l6 4V3h6v18H3z"/></svg>,
+  },
+  {
+    href: '/testing',
+    label: 'Testing',
+    desc: 'Factory verification and documented test results',
+    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 2v6l-5 9a3 3 0 0 0 2.6 5h10.8a3 3 0 0 0 2.6-5l-5-9V2"/><path d="M7 14h10"/></svg>,
+  },
   {
     href: '/project-process',
     label: 'CANDRON Processes',
-    desc: 'The full project cycle, from inception to commissioning',
+    desc: 'The complete project cycle from design to delivery',
     icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 5h10a4 4 0 0 1 4 4v1"/><path d="M16 7l3 3 3-3M19 19H9a4 4 0 0 1-4-4v-1"/><path d="M8 17l-3-3-3 3"/></svg>,
   },
 ]
@@ -158,6 +186,8 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [prodOpen, setProdOpen] = useState(false)
   const [mobileProdOpen, setMobileProdOpen] = useState(false)
+  const [capabilitiesOpen, setCapabilitiesOpen] = useState(false)
+  const [mobileCapabilitiesOpen, setMobileCapabilitiesOpen] = useState(false)
   const [companyOpen, setCompanyOpen] = useState(false)
   const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false)
   const [hoveredProd, setHoveredProd] = useState(0)
@@ -178,6 +208,7 @@ export default function Navbar() {
   const requiresSolidHeader = pathname.startsWith('/admin')
   const headerClass = ['dark-nav', scrolled || requiresSolidHeader ? 'scrolled' : 'at-top'].join(' ')
   const isProductsActive = pathname === '/products' || pathname.startsWith('/products/')
+  const isCapabilitiesActive = capabilitiesItems.some(c => pathname === c.href.split('?')[0] || pathname.startsWith(c.href.split('?')[0] + '/'))
   const isCompanyActive = companyItems.some(c => pathname === c.href || pathname.startsWith(c.href + '/'))
   const isLinkActive = (href: string) => pathname === href
 
@@ -194,6 +225,47 @@ export default function Navbar() {
 
           <nav aria-label="Main navigation">
             {links.map(l => {
+              if (l.href === '/capabilities') {
+                return (
+                  <div
+                    key="/capabilities"
+                    className={`nav-dd-wrap${capabilitiesOpen ? ' open' : ''}`}
+                    onMouseEnter={() => setCapabilitiesOpen(true)}
+                    onMouseLeave={() => setCapabilitiesOpen(false)}
+                  >
+                    <a
+                      href="#"
+                      onClick={e => e.preventDefault()}
+                      className={`nav-dd-link${isCapabilitiesActive ? ' active' : ''}`}
+                      aria-haspopup="true"
+                      aria-expanded={capabilitiesOpen}
+                    >
+                      Capabilities
+                      <svg className="nav-dd-chevron" width="11" height="11" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </a>
+                    <div className={`nav-company-dropdown${capabilitiesOpen ? ' open' : ''}`} role="menu">
+                      {capabilitiesItems.map(c => (
+                        <Link
+                          key={c.href}
+                          href={c.href}
+                          className={`nav-company-item${pathname === c.href.split('?')[0] ? ' active' : ''}`}
+                          onClick={() => setCapabilitiesOpen(false)}
+                          role="menuitem"
+                        >
+                          <span className="nav-company-icon">{c.icon}</span>
+                          <span className="flex flex-col gap-[.15rem]">
+                            <span className="nav-company-label">{c.label}</span>
+                            <span className="nav-company-desc">{c.desc}</span>
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )
+              }
+
               if (l.href === '/company') {
                 return (
                   <div
@@ -381,12 +453,52 @@ export default function Navbar() {
       >
         <button className="mobile-close" aria-label="Close menu" onClick={() => setMobileOpen(false)}>✕</button>
         {links.map(l => {
+          if (l.href === '/capabilities') {
+            return (
+              <div key="/capabilities" className="mobile-products-group">
+                <button
+                  className={`mobile-products-toggle${isCapabilitiesActive ? ' active' : ''}`}
+                  onClick={() => {
+                    setMobileCapabilitiesOpen(!mobileCapabilitiesOpen)
+                    setMobileProdOpen(false)
+                    setMobileCompanyOpen(false)
+                  }}
+                  aria-expanded={mobileCapabilitiesOpen}
+                >
+                  Capabilities
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={`mobile-prod-chevron${mobileCapabilitiesOpen ? ' rotated' : ''}`} aria-hidden="true">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+                <div className={`mobile-products-dropdown${mobileCapabilitiesOpen ? ' open' : ''}`}>
+                  <div className="mobile-products-list">
+                    {capabilitiesItems.map(c => (
+                      <Link
+                        key={c.href}
+                        href={c.href}
+                        onClick={() => setMobileOpen(false)}
+                        className={`mobile-products-item${pathname === c.href.split('?')[0] ? ' active' : ''}`}
+                      >
+                        <span className="mobile-products-icon">{c.icon}</span>
+                        {c.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )
+          }
+
           if (l.href === '/company') {
             return (
               <div key="/company" className="mobile-products-group">
                 <button
                   className={`mobile-products-toggle${isCompanyActive ? ' active' : ''}`}
-                  onClick={() => { setMobileCompanyOpen(!mobileCompanyOpen); setMobileProdOpen(false) }}
+                  onClick={() => {
+                    setMobileCompanyOpen(!mobileCompanyOpen)
+                    setMobileProdOpen(false)
+                    setMobileCapabilitiesOpen(false)
+                  }}
                   aria-expanded={mobileCompanyOpen}
                 >
                   Company
@@ -418,7 +530,11 @@ export default function Navbar() {
               <div key="/products" className="mobile-products-group">
                 <button
                   className={`mobile-products-toggle${isProductsActive ? ' active' : ''}`}
-                  onClick={() => { setMobileProdOpen(!mobileProdOpen); setMobileCompanyOpen(false) }}
+                  onClick={() => {
+                    setMobileProdOpen(!mobileProdOpen)
+                    setMobileCompanyOpen(false)
+                    setMobileCapabilitiesOpen(false)
+                  }}
                   aria-expanded={mobileProdOpen}
                 >
                   {l.label}

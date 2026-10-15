@@ -241,7 +241,7 @@ export default function HomePage() {
             <div className="flex gap-4 justify-center flex-wrap">
               {(
                 [
-                  { src: "/images/ansi.png", alt: "ANSI" },
+                  { src: "/images/ansi-logo.svg", alt: "ANSI" },
                   { src: "/images/neta.svg", alt: "NETA" },
                   { src: "/images/csa.png", alt: "CSA Group" },
                   { src: "/images/IEEE.png", alt: "IEEE" },

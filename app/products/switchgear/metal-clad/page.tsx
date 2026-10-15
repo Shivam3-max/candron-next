@@ -66,7 +66,7 @@ const data: ProductTypePageProps = {
     { name: 'IEEE C37.20.2', desc: 'Metal-clad switchgear standard — draw-out, fully compartmented', logo: '/images/IEEE.png' },
     { name: 'IEEE C37.20.7', desc: 'Guide for testing metal-enclosed switchgear rated up to 38 kV for internal arcing faults', logo: '/images/IEEE.png' },
     { name: 'CSA C22.2', desc: 'Canadian electrical safety standard for MV switchgear assemblies', logo: '/images/csa.png' },
-    { name: 'ANSI C37 Series', desc: 'Circuit breaker and switchgear application and testing standards', logo: '/images/ansi.png' },
+    { name: 'ANSI C37 Series', desc: 'Circuit breaker and switchgear application and testing standards', logo: '/images/ansi-logo.svg' },
     { name: 'NETA ATS', desc: 'Acceptance testing specifications applied at FAT and site commissioning', logo: '/images/neta.svg' },
   ],
   applications: [

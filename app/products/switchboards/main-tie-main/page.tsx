@@ -66,7 +66,7 @@ const data: ProductTypePageProps = {
     { name: 'CSA C22.2 No. 29', desc: 'Canadian switchboard standard for construction and performance', logo: '/images/csa.png' },
     { name: 'ESA Ontario', desc: 'Ontario ESA requirements for LV service entrance and distribution', logo: null },
     { name: 'IEEE C37', desc: 'Circuit breaker and relay application standards for transfer schemes', logo: '/images/IEEE.png' },
-    { name: 'ANSI / NEMA', desc: 'Bus and switchboard enclosure ratings', logo: '/images/ansi.png' },
+    { name: 'ANSI / NEMA', desc: 'Bus and switchboard enclosure ratings', logo: '/images/ansi-logo.svg' },
     { name: 'NETA ATS', desc: 'Acceptance testing for transfer scheme and protection relay testing', logo: '/images/neta.svg' },
   ],
   applications: [

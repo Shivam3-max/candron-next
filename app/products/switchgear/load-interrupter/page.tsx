@@ -94,7 +94,7 @@ const data: ProductTypePageProps = {
     { name: 'CSA C22.2', desc: 'Canadian switchgear standard for MV metal-enclosed assemblies', logo: '/images/csa.png' },
     { name: 'IEEE C37.20.3', desc: 'Metal-enclosed interrupter switchgear — 1 to 38 kV', logo: '/images/IEEE.png' },
     { name: 'IEEE C37.74', desc: 'Load-break switches and current-limiting fuses for underground systems', logo: '/images/IEEE.png' },
-    { name: 'ANSI / NEMA', desc: 'Enclosure and equipment ratings for outdoor installations', logo: '/images/ansi.png' },
+    { name: 'ANSI / NEMA', desc: 'Enclosure and equipment ratings for outdoor installations', logo: '/images/ansi-logo.svg' },
     { name: 'ESA / AHJ', desc: 'Ontario ESA and authority-having-jurisdiction acceptance', logo: null },
     { name: 'NETA ATS', desc: 'Factory acceptance and field testing specifications', logo: '/images/neta.svg' },
   ],

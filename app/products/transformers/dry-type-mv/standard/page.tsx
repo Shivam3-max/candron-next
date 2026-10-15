@@ -72,7 +72,7 @@ export default function StandardMVDryTypePage() {
         { name: 'IEEE C57.12.01', desc: 'Standard for dry-type distribution and power transformers', logo: '/images/IEEE.png' },
         { name: 'IEC 60076-11', desc: 'Dry-type transformers international standard', logo: null },
         { name: 'CSA C22.2', desc: 'Canadian electrical certification standard', logo: '/images/csa.png' },
-        { name: 'ANSI C57.12.01', desc: 'American National Standard for dry-type transformers', logo: '/images/ansi.png' },
+        { name: 'ANSI C57.12.01', desc: 'American National Standard for dry-type transformers', logo: '/images/ansi-logo.svg' },
         { name: 'NEMA ST-20', desc: 'Dry-type transformers performance standard', logo: null },
       ]}
       applications={[

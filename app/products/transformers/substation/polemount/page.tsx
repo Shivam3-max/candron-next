@@ -68,7 +68,7 @@ export default function PolemountPage() {
         { label: 'Frequency', value: '60 Hz' },
       ]}
       standards={[
-        { name: 'ANSI C57.12.20', desc: 'Standard for overhead-type distribution transformers', logo: '/images/ansi.png' },
+        { name: 'ANSI C57.12.20', desc: 'Standard for overhead-type distribution transformers', logo: '/images/ansi-logo.svg' },
         { name: 'IEEE C57.12.00', desc: 'General requirements for liquid-immersed distribution transformers', logo: '/images/IEEE.png' },
         { name: 'CSA C88', desc: 'Power transformers and reactors — Canadian certification', logo: '/images/csa.png' },
         { name: 'DOE 2016', desc: 'Energy efficiency requirements for distribution transformers', logo: null },

@@ -177,7 +177,7 @@ export default function TestingPage() {
           </div>
           <div className="standard-grid">
             {([
-              { src: '/images/ansi.png',        alt: 'ANSI',        name: 'ANSI',  desc: 'American National Standards Institute requirements for electrical equipment' },
+              { src: '/images/ansi-logo.svg',        alt: 'ANSI',        name: 'ANSI',  desc: 'American National Standards Institute requirements for electrical equipment' },
               { src: '/images/IEEE.png',         alt: 'IEEE',        name: 'IEEE',  desc: 'Institute of Electrical and Electronics Engineers testing standards' },
               { src: '/images/neta.svg',         alt: 'NETA',        name: 'NETA',  desc: 'InterNational Electrical Testing Association acceptance testing specifications' },
               { src: '/images/csa.png',          alt: 'CSA Group',   name: 'CSA',   desc: 'Canadian Standards Association — full compliance for Canadian projects' },

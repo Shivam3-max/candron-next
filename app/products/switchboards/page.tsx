@@ -108,7 +108,7 @@ export default function SwitchboardsPage() {
   const standards = [
     { std: 'UL 891', desc: 'U.S. switchboard product standard', logo: null },
     { std: 'CSA C22.2', desc: 'Canadian electrical product standards', logo: '/images/csa.png' },
-    { std: 'ANSI / NETA', desc: 'Factory acceptance testing protocols', logo: '/images/ansi.png' },
+    { std: 'ANSI / NETA', desc: 'Factory acceptance testing protocols', logo: '/images/ansi-logo.svg' },
     { std: 'ESA', desc: 'Ontario authority acceptance layouts', logo: null },
     { std: 'Revenue Metering', desc: 'Local utility meter requirements', logo: null },
     { std: 'NFPA 70 / NEC', desc: 'U.S. electrical installation code', logo: null },

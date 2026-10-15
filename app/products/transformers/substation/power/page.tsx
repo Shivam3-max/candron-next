@@ -74,7 +74,7 @@ export default function PowerSubstationPage() {
         { name: 'IEEE C57.12', desc: 'Standard general requirements for liquid-immersed distribution, power, and regulation transformers', logo: '/images/IEEE.png' },
         { name: 'CSA C88', desc: 'Power transformers and reactors — Canadian certification authority', logo: '/images/csa.png' },
         { name: 'IEC 60076', desc: 'International standard for power transformers — series applicable to design, testing, and accessories', logo: null },
-        { name: 'ANSI C57.12.00', desc: 'American National Standard for general requirements for liquid-immersed transformers', logo: '/images/ansi.png' },
+        { name: 'ANSI C57.12.00', desc: 'American National Standard for general requirements for liquid-immersed transformers', logo: '/images/ansi-logo.svg' },
         { name: 'IEEE C57.12.90', desc: 'Test code for liquid-immersed distribution, power, and regulation transformers', logo: '/images/IEEE.png' },
       ]}
       applications={[

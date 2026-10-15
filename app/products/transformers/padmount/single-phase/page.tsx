@@ -69,7 +69,7 @@ export default function SinglePhasePadmountPage() {
         { label: 'Frequency', value: '60 Hz' },
       ]}
       standards={[
-        { name: 'ANSI C57.12.25', desc: 'Standard for single-phase padmounted distribution transformers', logo: '/images/ansi.png' },
+        { name: 'ANSI C57.12.25', desc: 'Standard for single-phase padmounted distribution transformers', logo: '/images/ansi-logo.svg' },
         { name: 'IEEE C57.12.00', desc: 'General requirements for liquid-immersed distribution transformers', logo: '/images/IEEE.png' },
         { name: 'CSA C88', desc: 'Power transformers and reactors — Canadian certification', logo: '/images/csa.png' },
         { name: 'NEMA TR1', desc: 'Transformers, regulators and reactors standard', logo: null },

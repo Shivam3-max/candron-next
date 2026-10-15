@@ -64,7 +64,7 @@ const data: ProductTypePageProps = {
     { name: 'UL 891', desc: 'U.S. deadfront switchboard standard', logo: null },
     { name: 'CSA C22.2 No. 29', desc: 'Canadian switchboard construction and performance standard', logo: '/images/csa.png' },
     { name: 'NEMA PB 2', desc: 'Deadfront distribution switchboard application standard', logo: null },
-    { name: 'ANSI C37', desc: 'Circuit breaker ratings and application standards', logo: '/images/ansi.png' },
+    { name: 'ANSI C37', desc: 'Circuit breaker ratings and application standards', logo: '/images/ansi-logo.svg' },
     { name: 'ESA Ontario', desc: 'Ontario Electrical Safety Authority requirements', logo: null },
     { name: 'NETA ATS', desc: 'Factory and field acceptance testing specifications', logo: '/images/neta.svg' },
   ],

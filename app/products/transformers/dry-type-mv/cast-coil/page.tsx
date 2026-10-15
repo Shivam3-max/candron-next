@@ -74,7 +74,7 @@ export default function CastCoilPage() {
         { name: 'IEEE C57.12.01', desc: 'Standard for dry-type distribution and power transformers', logo: '/images/IEEE.png' },
         { name: 'CSA C22.2', desc: 'Canadian electrical certification standard', logo: '/images/csa.png' },
         { name: 'IEC 60076-3', desc: 'Insulation levels, dielectric tests and external clearances in air', logo: null },
-        { name: 'ANSI C57.12.01', desc: 'American National Standard for dry-type transformers', logo: '/images/ansi.png' },
+        { name: 'ANSI C57.12.01', desc: 'American National Standard for dry-type transformers', logo: '/images/ansi-logo.svg' },
       ]}
       applications={[
         'Coastal and marine facilities (salt spray environments)',

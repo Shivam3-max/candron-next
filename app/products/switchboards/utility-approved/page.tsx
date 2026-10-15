@@ -63,7 +63,7 @@ const data: ProductTypePageProps = {
   standards: [
     { name: 'UL 891', desc: 'U.S. deadfront switchboard standard', logo: null },
     { name: 'CSA C22.2 No. 29', desc: 'Canadian switchboard construction and performance standard', logo: '/images/csa.png' },
-    { name: 'ANSI C12 Series', desc: 'Electricity metering accuracy standards — revenue grade equipment', logo: '/images/ansi.png' },
+    { name: 'ANSI C12 Series', desc: 'Electricity metering accuracy standards — revenue grade equipment', logo: '/images/ansi-logo.svg' },
     { name: 'IEC 62053', desc: 'Electricity metering equipment standards — accuracy classes', logo: '/images/IEC.png' },
     { name: 'ESA Ontario', desc: 'Ontario Electrical Safety Authority inspection and approval requirements', logo: null },
     { name: 'LDC Requirements', desc: 'Alectra, Hydro One, Toronto Hydro, and other Ontario LDC specifications', logo: null },

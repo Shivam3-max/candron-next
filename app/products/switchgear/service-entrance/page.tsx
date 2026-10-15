@@ -63,7 +63,7 @@ const data: ProductTypePageProps = {
   standards: [
     { name: 'CSA C22.2', desc: 'Canadian electrical safety standard for MV and LV assemblies', logo: '/images/csa.png' },
     { name: 'ESA Ontario', desc: 'Ontario Electrical Safety Authority inspection and acceptance requirements', logo: null },
-    { name: 'ANSI C12 Series', desc: 'American National Standard for electricity metering — revenue accuracy', logo: '/images/ansi.png' },
+    { name: 'ANSI C12 Series', desc: 'American National Standard for electricity metering — revenue accuracy', logo: '/images/ansi-logo.svg' },
     { name: 'IEEE C37 Series', desc: 'Circuit breaker, protection relay, and utility interface standards', logo: '/images/IEEE.png' },
     { name: 'Utility Requirements', desc: 'Alectra, Hydro One, ATCO, BC Hydro, and other utility specifications', logo: null },
     { name: 'NETA ATS', desc: 'Acceptance testing specifications applied at FAT and commissioning', logo: '/images/neta.svg' },

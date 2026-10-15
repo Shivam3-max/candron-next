@@ -68,7 +68,7 @@ const data: ProductTypePageProps = {
     { name: 'UL 1558', desc: 'U.S. low voltage switchgear standard — deadfront construction, short-circuit ratings', logo: null },
     { name: 'CSA C22.2 No. 31', desc: 'Canadian switchgear standard for LV deadfront assemblies', logo: '/images/csa.png' },
     { name: 'IEEE C37 Series', desc: 'Circuit breaker testing and application standards', logo: '/images/IEEE.png' },
-    { name: 'ANSI C37.20.1', desc: 'Metal-enclosed low voltage power circuit breaker switchgear', logo: '/images/ansi.png' },
+    { name: 'ANSI C37.20.1', desc: 'Metal-enclosed low voltage power circuit breaker switchgear', logo: '/images/ansi-logo.svg' },
     { name: 'ESA / AHJ', desc: 'Ontario Electrical Safety Authority inspection-ready layouts', logo: null },
     { name: 'NETA ATS', desc: 'Acceptance testing specifications for factory and field testing', logo: '/images/neta.svg' },
   ],

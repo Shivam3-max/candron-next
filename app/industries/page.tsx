@@ -14,7 +14,7 @@ const sectors = [
       { title: 'Equipment Manufacturing & Supply', text: 'Low- and medium-voltage switchboards, switchgear, transformers, and other power distribution equipment.' },
       { title: 'Testing & Verification', text: 'Certified test reports, factory acceptance testing (FAT), site acceptance testing (SAT), and equipment testing support.' },
       { title: 'On-Site Commissioning', text: 'Field technical support for equipment installation, commissioning, troubleshooting, and verification.' },
-      { title: 'Electrical Engineering Studies', text: 'Ground potential rise (GPR), arc flash, short-circuit, harmonic analysis, and other project-specific studies through Delta Wye Engineering.', href: 'https://deltawyeeng.com' },
+      { title: 'Electrical Engineering Studies', text: 'Ground potential rise (GPR), arc flash, short-circuit, harmonic analysis, and other project-specific studies for your application.', href: '/contact?service=electrical-engineering' },
       { title: 'Engineering Drawings & Submittals', text: 'Equipment drawings, technical documentation, and submittal packages to support utility reviews, ESA inspections, and applicable authority approvals.' },
     ],
     closing: 'Your project partner from procurement through commissioning.',

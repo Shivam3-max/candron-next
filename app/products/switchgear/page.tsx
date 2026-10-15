@@ -111,7 +111,7 @@ export default function SwitchgearPage() {
     { std: 'CSA C22.2', desc: 'Canadian electrical product standards', logo: '/images/csa.png' },
     { std: 'IEC 62271-200', desc: 'Medium voltage AC switchgear', logo: '/images/IEC.png' },
     { std: 'IEEE C37 Series', desc: 'Switchgear standards and testing', logo: '/images/IEEE.png' },
-    { std: 'ANSI / NETA', desc: 'Factory acceptance testing protocols', logo: '/images/ansi.png' },
+    { std: 'ANSI / NETA', desc: 'Factory acceptance testing protocols', logo: '/images/ansi-logo.svg' },
     { std: 'ESA / AHJ', desc: 'Ontario authority acceptance layouts', logo: null },
   ]
 
