@@ -5,7 +5,6 @@ import HeroCanvas from "@/components/HeroCanvas";
 import CanadaFlag from "@/components/CanadaFlag";
 import ProcessSection from "@/components/ProcessSection";
 import IndustryCarousel from "@/components/IndustryCarousel";
-import TorontoManufacturerFlow from "@/components/TorontoManufacturerFlow";
 
 export const metadata = {
   title: 'Toronto Power Equipment Manufacturer | CANDRON',
@@ -146,21 +145,21 @@ export default function HomePage() {
       {/* STAT BAR */}
       <div className="bg-[#EEF2FF] pt-8">
         <div className="container">
-          <div className="home-stat-bar responsive-override-exempt bg-[linear-gradient(135deg,#1252FF_0%,#0038CC_100%)] rounded-[20px] max-md:rounded-[14px] py-10 px-4 grid grid-cols-[1fr_auto_1fr_auto_1fr] max-md:grid-cols-3 max-md:px-2 max-md:py-4 items-center">
+          <div className="home-stat-bar responsive-override-exempt bg-[linear-gradient(135deg,#1252FF_0%,#0038CC_100%)] rounded-[20px] max-md:rounded-[14px] py-7 px-4 grid grid-cols-[1fr_auto_1fr_auto_1fr] max-md:grid-cols-3 max-md:px-2 max-md:py-4 items-center">
             {/* Inventory Availability */}
             <div className="flex flex-col items-center text-center px-6 max-md:px-1">
-              <div className="w-[68px] h-[68px] max-md:w-[32px] max-md:h-[32px] bg-white/[.13] rounded-[18px] max-md:rounded-[8px] flex items-center justify-center mx-auto mb-[1.1rem] max-md:mb-1">
+              <div className="w-[54px] h-[54px] max-md:w-[32px] max-md:h-[32px] bg-white/[.13] rounded-[15px] max-md:rounded-[8px] flex items-center justify-center mx-auto mb-3 max-md:mb-1">
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="white"
                   strokeWidth="1.5"
-                  className="w-8 h-8 max-md:w-4 max-md:h-4"
+                  className="w-7 h-7 max-md:w-4 max-md:h-4"
                 >
                   <path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" />
                 </svg>
               </div>
-              <div className="font-display text-[2.6rem] max-md:text-[1.1rem] font-black text-white leading-none mb-[.45rem] max-md:mb-[2px]">
+              <div className="font-display text-[2.15rem] max-md:text-[1.1rem] font-black text-white leading-none mb-[.35rem] max-md:mb-[2px]">
                 1000+
               </div>
               <div className="font-mono text-[.58rem] max-md:text-[.42rem] tracking-[.16em] max-md:tracking-[.05em] uppercase text-white/[.72]">
@@ -172,20 +171,20 @@ export default function HomePage() {
             </div>
 
             {/* Divider */}
-            <div className="home-stat-divider w-px h-[90px] bg-white/[.18] max-md:hidden" />
+            <div className="home-stat-divider w-px h-[72px] bg-white/[.18] max-md:hidden" />
 
             {/* Canadian Manufacturing */}
             <div className="flex flex-col items-center text-center px-6 max-md:px-1">
-              <div className="w-[76px] h-[68px] max-md:w-[32px] max-md:h-[32px] rounded-[18px] max-md:rounded-[8px] flex items-center justify-center mx-auto mb-[1.1rem] max-md:mb-1 overflow-hidden">
+              <div className="w-[62px] h-[54px] max-md:w-[32px] max-md:h-[32px] rounded-[15px] max-md:rounded-[8px] flex items-center justify-center mx-auto mb-3 max-md:mb-1 overflow-hidden">
                 {/* Full flag component on desktop, flag-icons on mobile */}
                 <span className="hidden max-md:flex items-center justify-center">
                   <span className="fi fi-ca text-[1.4rem]"></span>
                 </span>
                 <span className="max-md:hidden">
-                  <CanadaFlag height={68} />
+                  <CanadaFlag height={54} />
                 </span>
               </div>
-              <div className="font-display text-[1.15rem] max-md:text-[.65rem] font-black text-white leading-[1.25] tracking-[.01em] mb-[.45rem] max-md:mb-0">
+              <div className="font-display text-[1.05rem] max-md:text-[.65rem] font-black text-white leading-[1.2] tracking-[.01em] mb-[.35rem] max-md:mb-0">
                 Canadian
                 <br />
                 Manufacturing
@@ -196,19 +195,19 @@ export default function HomePage() {
             </div>
 
             {/* Divider */}
-            <div className="home-stat-divider w-px h-[90px] bg-white/[.18] max-md:hidden" />
+            <div className="home-stat-divider w-px h-[72px] bg-white/[.18] max-md:hidden" />
 
             {/* Factory Testing */}
             <div className="flex flex-col items-center text-center px-6 max-md:px-1">
-              <div className="w-[68px] h-[68px] max-md:w-[32px] max-md:h-[32px] bg-white/[.13] rounded-[18px] max-md:rounded-[8px] flex items-center justify-center mx-auto mb-[1.1rem] max-md:mb-1">
+              <div className="w-[54px] h-[54px] max-md:w-[32px] max-md:h-[32px] bg-white/[.13] rounded-[15px] max-md:rounded-[8px] flex items-center justify-center mx-auto mb-3 max-md:mb-1">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/neta.svg"
                   alt="NETA"
-                  className="h-[30px] max-md:h-[14px] w-auto max-w-[56px] brightness-0 invert"
+                  className="h-[24px] max-md:h-[14px] w-auto max-w-[46px] brightness-0 invert"
                 />
               </div>
-              <div className="font-display text-[1.15rem] max-md:text-[.65rem] font-black text-white leading-[1.25] tracking-[.01em] mb-[.45rem] max-md:mb-0">
+              <div className="font-display text-[1.05rem] max-md:text-[.65rem] font-black text-white leading-[1.2] tracking-[.01em] mb-[.35rem] max-md:mb-0">
                 Factory Testing
               </div>
               <div className="font-mono text-[.58rem] max-md:text-[.42rem] tracking-[.2em] max-md:tracking-[.08em] uppercase text-white/[.6]">
@@ -310,8 +309,6 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* WHY CANDRON */}
-      <TorontoManufacturerFlow />
       {false && (
       <div className="section bg-white">
         <div className="container">

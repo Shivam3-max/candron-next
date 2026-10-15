@@ -1,6 +1,7 @@
 'use client'
 import React, { useRef } from 'react'
 import Link from 'next/link'
+import CanadaFlag from '@/components/CanadaFlag'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
@@ -48,8 +49,8 @@ const steps: { n: string; title: string; desc: string; icon: React.ReactNode }[]
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>,
   },
   {
-    n: '05', title: 'Commissioning Support',
-    desc: 'Our team supports installation, startup, and commissioning to ensure reliable operation from day one.',
+    n: '05', title: 'Delivery & Commissioning',
+    desc: 'Finished equipment ships with test reports and project documentation, backed by installation, startup, and commissioning support.',
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M12 3v1m0 6v1m-4-4h1m6 0h1"/></svg>,
   },
 ]
@@ -106,14 +107,23 @@ export default function ProcessSection() {
 
           {/* ── LEFT ── */}
           <div>
-            <div className="label label-white mb-7">Our Process</div>
+            <div className="label label-white mb-7">Toronto Power Equipment Manufacturer</div>
             <h2 className="text-white text-[clamp(1.9rem,3.5vw,3.2rem)] leading-[1.05] font-black mb-[1.1rem]">
-              From Concept<br />to Commissioning
+              One Connected Process.<br />From Concept to Commissioning.
             </h2>
             <div className="w-9 h-[3px] bg-blue rounded-[2px] mb-6" />
-            <p className="text-white/50 text-[.95rem] leading-[1.9] mb-11">
-              Every CANDRON project follows a structured five-stage process that eliminates surprises, maintains schedule, and delivers equipment that performs exactly as specified.
+            <p className="text-white/50 text-[.95rem] leading-[1.9] mb-5">
+              CANDRON engineers and manufactures switchgear, switchboards, and dry-type transformers in Toronto. Design, precision manufacturing, assembly, testing, delivery, and commissioning support are coordinated through one accountable team for consistent quality and shorter lead times.
             </p>
+
+            <div className="mb-9 flex flex-wrap gap-2.5">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/[.12] bg-white/[.04] px-3.5 py-2 font-mono text-[.58rem] font-bold uppercase tracking-[.1em] text-white/75">
+                <CanadaFlag height={15} /> Toronto, Ontario, Canada
+              </span>
+              <span className="rounded-full border border-white/[.12] bg-white/[.04] px-3.5 py-2 font-mono text-[.58rem] font-bold uppercase tracking-[.1em] text-white/75">
+                Local Engineering &amp; Manufacturing
+              </span>
+            </div>
 
             {/* 4-pillar card */}
             <div className="border border-white/[.1] rounded-[16px] overflow-hidden mb-10">
@@ -129,9 +139,14 @@ export default function ProcessSection() {
               </div>
             </div>
 
-            <Link href="/manufacturing" className="btn btn-primary btn-lg mag w-full justify-center tracking-[.08em] uppercase">
-              See Our Manufacturing →
-            </Link>
+            <div className="flex gap-3 max-sm:flex-col">
+              <Link href="/manufacturing" className="btn btn-primary btn-lg mag flex-1 justify-center tracking-[.06em] uppercase">
+                Explore Manufacturing →
+              </Link>
+              <Link href="/contact" className="btn btn-outline btn-lg mag flex-1 justify-center tracking-[.06em] uppercase">
+                Discuss Your Project →
+              </Link>
+            </div>
           </div>
 
           {/* ── RIGHT — animated timeline ── */}
