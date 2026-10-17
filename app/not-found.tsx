@@ -10,7 +10,7 @@ export default function NotFound() {
         <div className="font-display text-[clamp(6rem,18vw,10rem)] font-black text-blue/[.15] leading-none mb-4 tracking-[-0.04em]">404</div>
         <div className="label label-white justify-center mb-5">Page Not Found</div>
         <h1 className="text-white text-[clamp(1.6rem,4vw,2.4rem)] mb-4">This page doesn&apos;t exist.</h1>
-        <p className="text-white/50 text-[.95rem] leading-[1.8] max-w-[420px] mx-auto mb-10">
+        <p className="text-white/[.68] text-[1.125rem] leading-[1.8] max-w-[420px] mx-auto mb-10">
           The page you&apos;re looking for has moved or never existed. Head back home or contact our team directly.
         </p>
         <div className="flex gap-4 justify-center flex-wrap">

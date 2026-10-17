@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
 import TrustBar from '@/components/TrustBar'
+import { HeroArt } from '@/components/LineArt'
 
 const specCols = ['Voltage', 'Current', 'Short Circuit Rating', 'Features', 'Standards']
 
@@ -134,6 +135,7 @@ export default function SwitchboardsPage() {
       {/* HERO */}
       <div className="page-hero">
         <div className="page-hero-bg" style={{ background: "url('/images/switchboards.jpg') center/cover" }}></div>
+        <HeroArt kind="swbd" />
         <div className="container page-hero-content">
           <div className="breadcrumb">
             <Link href="/">Home</Link> / <Link href="/products">Products</Link> / <span>Switchboards</span>
@@ -145,7 +147,7 @@ export default function SwitchboardsPage() {
           </p>
           <div className="flex gap-[.75rem] flex-wrap mt-6">
             {['UL 891', 'ESA-Ready', 'Utility Metering', 'Main-Tie-Main'].map(b => (
-              <span key={b} className="py-[.4rem] px-4 bg-white/[.12] border border-white/25 rounded-full text-[.78rem] font-bold text-white">{b}</span>
+              <span key={b} className="py-[.4rem] px-4 bg-white/[.12] border border-white/25 rounded-full text-[1rem] font-bold text-white">{b}</span>
             ))}
           </div>
         </div>
@@ -159,7 +161,7 @@ export default function SwitchboardsPage() {
         <div className="container">
           <div className="product-sticky-tabs-track flex gap-1 flex-wrap py-[.6rem]">
             {[['#overview', 'Overview'], ['#production', 'Production'], ['#types-specs', 'Types & Specs'], ['#standards', 'Standards'], ['#applications', 'Applications'], ['#faq', 'FAQ'], ['#quote', 'Get a Quote']].map(([href, label]) => (
-              <a key={href} href={href} className="py-[.45rem] px-[.85rem] rounded-lg border border-[#E8ECF5] text-[.78rem] font-semibold text-navy no-underline whitespace-nowrap transition-[border-color,color] duration-150 hover:border-blue hover:text-blue">
+              <a key={href} href={href} className="py-[.45rem] px-[.85rem] rounded-lg border border-[#E8ECF5] text-[1rem] font-semibold text-navy no-underline whitespace-nowrap transition-[border-color,color] duration-150 hover:border-blue hover:text-blue">
                 {label}
               </a>
             ))}
@@ -193,20 +195,20 @@ export default function SwitchboardsPage() {
               </div>
               <div className="product-image-metrics absolute bottom-0 left-0 right-0 grid grid-cols-4 bg-transparent border-t border-white/[.12] rounded-b-[14px]">
                 <div className="py-[.95rem] px-[.5rem] text-center border-r border-white/[.08]">
-                  <div className="font-display text-[.95rem] font-black text-white tracking-[.04em] mb-[.2rem]"><span data-count={4000} data-suffix=" A">4000 A</span></div>
-                  <div className="font-mono text-[.5rem] text-white/[.45] tracking-[.16em] uppercase">Max Current</div>
+                  <div className="font-display text-[1.125rem] font-black text-white tracking-[.04em] mb-[.2rem]"><span data-count={4000} data-suffix=" A">4000 A</span></div>
+                  <div className="font-mono text-[.8125rem] text-white/[.45] tracking-[.16em] uppercase">Max Current</div>
                 </div>
                 <div className="py-[.95rem] px-[.5rem] text-center border-r border-white/[.08]">
-                  <div className="font-display text-[.95rem] font-black text-white tracking-[.04em] mb-[.2rem]"><span data-count={600} data-suffix=" V">600 V</span></div>
-                  <div className="font-mono text-[.5rem] text-white/[.45] tracking-[.16em] uppercase">Rated Voltage</div>
+                  <div className="font-display text-[1.125rem] font-black text-white tracking-[.04em] mb-[.2rem]"><span data-count={600} data-suffix=" V">600 V</span></div>
+                  <div className="font-mono text-[.8125rem] text-white/[.45] tracking-[.16em] uppercase">Rated Voltage</div>
                 </div>
                 <div className="py-[.95rem] px-[.5rem] text-center border-r border-white/[.08]">
-                  <div className="font-display text-[.85rem] font-black text-white tracking-[.04em] mb-[.2rem]">UL 891</div>
-                  <div className="font-mono text-[.5rem] text-white/[.45] tracking-[.16em] uppercase">U.S. Compliance</div>
+                  <div className="font-display text-[1.0625rem] font-black text-white tracking-[.04em] mb-[.2rem]">UL 891</div>
+                  <div className="font-mono text-[.8125rem] text-white/[.45] tracking-[.16em] uppercase">U.S. Compliance</div>
                 </div>
                 <div className="py-[.95rem] px-[.5rem] text-center">
-                  <div className="font-display text-[.85rem] font-black text-white tracking-[.04em] mb-[.2rem]">CSA / ESA</div>
-                  <div className="font-mono text-[.5rem] text-white/[.45] tracking-[.16em] uppercase">Canadian</div>
+                  <div className="font-display text-[1.0625rem] font-black text-white tracking-[.04em] mb-[.2rem]">CSA / ESA</div>
+                  <div className="font-mono text-[.8125rem] text-white/[.45] tracking-[.16em] uppercase">Canadian</div>
                 </div>
               </div>
             </div>
@@ -214,87 +216,12 @@ export default function SwitchboardsPage() {
         </div>
       </div>
 
-      {/* ACCELERATED CANADIAN PRODUCTION */}
-      <section id="production" className="bg-navy py-20 max-md:py-14 scroll-mt-[110px]" aria-labelledby="accelerated-switchboard-title">
-        <div className="container">
-          <div className="grid grid-cols-[1.05fr_.95fr] max-lg:grid-cols-1 gap-12 max-lg:gap-8 items-center">
-            <div className="rv-l">
-              <div className="relative aspect-[4/3] max-sm:aspect-[1/1] overflow-hidden rounded-[18px] border border-white/[.12] bg-white/[.04]">
-                <Image
-                  src="/images/projects/2500a-switchboard-production/2500a-switchboard-production.jpg"
-                  alt="Three-cell 2500 A CANDRON switchboard under production at the Canadian manufacturing facility"
-                  fill
-                  className="object-cover object-[center_68%]"
-                  sizes="(max-width:1024px) 100vw, 53vw"
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(5,9,31,.62),transparent_45%)] pointer-events-none" />
-                <div className="absolute left-4 bottom-4 flex flex-wrap gap-2">
-                  {['Built in Canada', '2-Week Production', '3-Cell Assembly'].map((badge) => (
-                    <span key={badge} className="rounded-full border border-white/25 bg-navy/80 px-3 py-2 font-mono text-[.54rem] font-bold uppercase tracking-[.08em] text-white backdrop-blur-sm">{badge}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="rv-r">
-              <div className="label label-white">Production in Progress · Canadian Manufacturing</div>
-              <h2 id="accelerated-switchboard-title" className="text-white mt-4 !leading-[1.08]">
-                Built Fast. Built to Perform.<br />
-                <em>Built in Canada.</em>
-              </h2>
-              <p className="text-white/60 text-[.96rem] leading-[1.8] mt-6 max-w-[620px]">
-                This custom 2,500 A, 600 V, 65 kA switchboard was manufactured by CANDRON in two weeks for a demanding power-distribution application, combining in-house manufacturing, practical engineering, and lean production.
-              </p>
-
-              <div className="grid grid-cols-4 max-sm:grid-cols-2 gap-3 mt-8">
-                {[
-                  { value: '2,500 A', label: 'Current Rating' },
-                  { value: '600 V', label: 'System Voltage' },
-                  { value: '65 kA', label: 'Fault Rating' },
-                  { value: '2 Weeks', label: 'Manufacturing' },
-                ].map((item) => (
-                  <div key={item.label} className="rounded-[12px] border border-white/[.1] bg-white/[.045] px-3 py-4 min-w-0">
-                    <div className="font-display text-[.82rem] font-black text-white break-words">{item.value}</div>
-                    <div className="font-mono text-[.47rem] uppercase tracking-[.08em] text-white/40 mt-1.5">{item.label}</div>
-                  </div>
-                ))}
-              </div>
-
-              <ul className="mt-8 p-0 list-none grid gap-3">
-                {[
-                  'Three-cell switchboard configuration',
-                  'Right-entry wireway into the main breaker section',
-                  'Dedicated PUC metering compartment',
-                  'Final section configured for four 1,600 A breakers',
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-white/65 text-[.85rem] leading-[1.55]">
-                    <span className="mt-[.35rem] w-2 h-2 rounded-full bg-blue shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-8 rounded-[14px] border border-blue/40 bg-blue/[.12] px-5 py-4">
-                <div className="font-mono text-[.56rem] font-bold uppercase tracking-[.12em] text-blue mb-2">Expedited Lead Times Available</div>
-                <div className="font-display text-[.9rem] font-black text-white">2–3 weeks for switchboards up to 3,200 A, 600 V, 65 kA.</div>
-                <div className="font-mono text-[.54rem] leading-[1.55] text-white/40 mt-2">Schedule is subject to approved drawings, component availability, and final project requirements.</div>
-              </div>
-
-              <div className="flex flex-wrap gap-3 mt-8">
-                <Link href="/contact?product=expedited-switchboard" className="btn btn-primary mag">Request an Expedited Quote →</Link>
-                <Link href="/products/switchboards/main-breaker" className="btn btn-outline mag">Main Breaker Switchboards</Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* TYPES & SPECIFICATIONS */}
       <div id="types-specs" className="section bg-off scroll-mt-[110px]">
         <div className="container">
           <div className="label rv">Types &amp; Specifications</div>
           <h2 className="rv mb-3">Switchboard Configurations</h2>
-          <p className="rv text-gray text-[.95rem] mb-10 max-w-[640px]">
+          <p className="rv text-gray text-[1.125rem] mb-10 max-w-[640px]">
             Explore our range of switchboard configurations engineered for safety, reliability, and performance.
           </p>
           <div className="flex flex-col gap-3">
@@ -308,16 +235,16 @@ export default function SwitchboardsPage() {
                   onClick={() => setOpenAcc(openAcc === i ? null : i)}
                   className="product-type-accordion-trigger w-full text-left bg-transparent border-0 py-5 px-6 flex items-center gap-4 cursor-pointer"
                 >
-                  <div className={`product-type-accordion-index w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-[background,color] duration-200 font-mono text-[.58rem] font-bold tracking-[.1em] ${openAcc === i ? 'bg-blue text-white' : 'bg-[rgba(0,71,255,.08)] text-blue'}`}>
+                  <div className={`product-type-accordion-index w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-[background,color] duration-200 font-mono text-[.8125rem] font-bold tracking-[.1em] ${openAcc === i ? 'bg-blue text-white' : 'bg-[rgba(0,71,255,.08)] text-blue'}`}>
                     0{i + 1}
                   </div>
                   <div className="product-type-accordion-summary flex-1 min-w-0">
-                    <div className="font-title font-bold text-navy text-[.9rem] tracking-[.02em]">{t.title}</div>
-                    <div className="font-mono text-[.6rem] text-blue tracking-[.08em] mt-[.15rem]">{t.sub}</div>
+                    <div className="font-title font-bold text-navy text-[1.125rem] tracking-[.02em]">{t.title}</div>
+                    <div className="font-mono text-[.8125rem] text-blue tracking-[.08em] mt-[.15rem]">{t.sub}</div>
                   </div>
                   <div className="product-type-accordion-badges flex gap-[.4rem] shrink-0 mr-[.25rem]">
-                    <span className="bg-[rgba(0,71,255,.07)] text-blue font-mono text-[.55rem] font-bold tracking-[.04em] py-[.22rem] px-[.6rem] rounded-[5px]">{t.specs.Voltage}</span>
-                    <span className="bg-[rgba(0,71,255,.07)] text-blue font-mono text-[.55rem] font-bold tracking-[.04em] py-[.22rem] px-[.6rem] rounded-[5px]">{t.specs.Current}</span>
+                    <span className="bg-[rgba(0,71,255,.07)] text-blue font-mono text-[.8125rem] font-bold tracking-[.04em] py-[.22rem] px-[.6rem] rounded-[5px]">{t.specs.Voltage}</span>
+                    <span className="bg-[rgba(0,71,255,.07)] text-blue font-mono text-[.8125rem] font-bold tracking-[.04em] py-[.22rem] px-[.6rem] rounded-[5px]">{t.specs.Current}</span>
                   </div>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`product-type-accordion-chevron shrink-0 text-gray transition-[transform] duration-[.25s] ${openAcc === i ? 'rotate-180' : ''}`}><path d="M6 9l6 6 6-6" /></svg>
                 </button>
@@ -334,17 +261,17 @@ export default function SwitchboardsPage() {
                         />
                       </div>
                       <div className="product-type-accordion-column flex-1 min-w-[200px]">
-                        <div className="font-mono text-[.55rem] text-blue tracking-[.18em] uppercase font-bold mb-4">Standard Features</div>
+                        <div className="font-mono text-[.8125rem] text-blue tracking-[.18em] uppercase font-bold mb-4">Standard Features</div>
                         <ul className="check-list m-0">
                           {t.items.map(item => <li key={item}>{item}</li>)}
                         </ul>
                       </div>
                       <div className="product-type-accordion-column flex-1 min-w-[200px]">
-                        <div className="font-mono text-[.55rem] text-[#059669] tracking-[.18em] uppercase font-bold mb-4">Optional Upgrades</div>
+                        <div className="font-mono text-[.8125rem] text-[#059669] tracking-[.18em] uppercase font-bold mb-4">Optional Upgrades</div>
                         <ul className="m-0 p-0 list-none flex flex-col gap-[.55rem]">
                           {t.upgrades.map(u => (
-                            <li key={u} className="flex gap-[.55rem] items-start text-[.82rem] text-gray leading-[1.55]">
-                              <span className="text-[#059669] font-extrabold shrink-0 text-[.9rem] leading-[1.4]">+</span>
+                            <li key={u} className="flex gap-[.55rem] items-start text-[1.0625rem] text-gray leading-[1.55]">
+                              <span className="text-[#059669] font-extrabold shrink-0 text-[1.125rem] leading-[1.4]">+</span>
                               {u}
                             </li>
                           ))}
@@ -355,13 +282,13 @@ export default function SwitchboardsPage() {
                     <div className="product-type-spec-grid border-t border-[#E8ECF5] grid grid-cols-5 bg-white">
                       {specCols.map((col, ci) => (
                         <div key={col} className={`product-type-spec-cell py-4 px-5 ${ci < specCols.length - 1 ? 'border-r border-[#E8ECF5]' : ''}`}>
-                          <div className="font-mono text-[.5rem] text-gray tracking-[.15em] uppercase mb-[.35rem]">{col}</div>
-                          <div className="font-title text-[.82rem] font-bold text-navy leading-[1.3]">{(t.specs as Record<string, string>)[col] ?? ''}</div>
+                          <div className="font-mono text-[.8125rem] text-gray tracking-[.15em] uppercase mb-[.35rem]">{col}</div>
+                          <div className="font-title text-[1.0625rem] font-bold text-navy leading-[1.3]">{(t.specs as Record<string, string>)[col] ?? ''}</div>
                         </div>
                       ))}
                     </div>
                     <div className="border-t border-[#E8ECF5] py-[.9rem] px-6 bg-white flex justify-end">
-                      <Link href={t.href} className="font-mono text-[.72rem] font-bold text-blue tracking-[.06em] no-underline flex items-center gap-[.35rem]">
+                      <Link href={t.href} className="font-mono text-[.9375rem] font-bold text-blue tracking-[.06em] no-underline flex items-center gap-[.35rem]">
                         View full specifications <span aria-hidden="true">→</span>
                       </Link>
                     </div>
@@ -414,9 +341,9 @@ export default function SwitchboardsPage() {
               </ul>
             </div>
             <div className="rv-r bg-navy rounded-[16px] py-8 px-[2.25rem] border border-blue/[.2]">
-              <div className="font-mono text-[.6rem] text-blue tracking-[.22em] uppercase mb-4">End-to-End Services</div>
-              <h3 className="text-white mb-4 text-[1.05rem]">From specification to commissioning.</h3>
-              <p className="text-white/[.6] text-[.88rem] leading-[1.75] mb-6">
+              <div className="font-mono text-[.8125rem] text-blue tracking-[.22em] uppercase mb-4">End-to-End Services</div>
+              <h3 className="text-white mb-4 text-[1.1875rem]">From specification to commissioning.</h3>
+              <p className="text-white/[.6] text-[1.125rem] leading-[1.75] mb-6">
                 Specification review, engineering design, factory testing, site commissioning — the same team that built your switchboard supports it through its full lifecycle.
               </p>
               <Link href="/commissioning" className="btn btn-primary mag">View Commissioning Services →</Link>
@@ -434,12 +361,12 @@ export default function SwitchboardsPage() {
             {faqs.map((f, i) => (
               <div key={i} className={`rv bg-white rounded-[14px] border border-[#E8ECF5] overflow-hidden transition-[box-shadow] duration-200 ${openFaq === i ? 'shadow-[0_8px_32px_rgba(5,9,31,.1)]' : ''}`}>
                 <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full text-left bg-transparent border-0 py-5 px-6 flex justify-between items-center cursor-pointer gap-4">
-                  <span className="font-title font-bold text-navy text-[.88rem] tracking-[.02em]">{f.q}</span>
+                  <span className="font-title font-bold text-navy text-[1.125rem] tracking-[.02em]">{f.q}</span>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`shrink-0 text-gray transition-[transform] duration-[.25s] ${openFaq === i ? 'rotate-180' : ''}`}><path d="M6 9l6 6 6-6" /></svg>
                 </button>
                 <div className={`overflow-hidden transition-[max-height] duration-[.35s] ease-in-out ${openFaq === i ? 'max-h-[400px]' : 'max-h-0'}`}>
                   <div className="px-6 pb-6">
-                    <p className="text-gray text-[.88rem] leading-[1.75] m-0">{f.a}</p>
+                    <p className="text-gray text-[1.125rem] leading-[1.75] m-0">{f.a}</p>
                   </div>
                 </div>
               </div>
@@ -455,7 +382,7 @@ export default function SwitchboardsPage() {
             <div className="rv-l">
               <div className="label">Get a Quote</div>
               <h2 className="mb-6">Request Switchboard Pricing</h2>
-              <div className="font-mono text-[.6rem] text-blue tracking-[.22em] uppercase mb-3">What to Include in Your Inquiry</div>
+              <div className="font-mono text-[.8125rem] text-blue tracking-[.22em] uppercase mb-3">What to Include in Your Inquiry</div>
               <ul className="check-list">
                 <li>Main current rating and voltage</li>
                 <li>Number of feeder circuits</li>
@@ -466,11 +393,11 @@ export default function SwitchboardsPage() {
               </ul>
             </div>
             <div className="rv-r bg-navy rounded-[20px] p-10 border border-blue/[.2] flex flex-col gap-5">
-              <div className="font-mono text-[.6rem] text-blue tracking-[.22em] uppercase">Response within 1 business day</div>
-              <h3 className="text-white m-0 text-[1.05rem]">Same-day lead time quote.<br />Speak directly with our engineers.</h3>
-              <p className="text-white/[.6] text-[.88rem] leading-[1.75] m-0">Our engineering team reviews every inquiry personally — no automated responses, no gatekeeping.</p>
+              <div className="font-mono text-[.8125rem] text-blue tracking-[.22em] uppercase">Response within 1 business day</div>
+              <h3 className="text-white m-0 text-[1.1875rem]">Same-day lead time quote.<br />Speak directly with our engineers.</h3>
+              <p className="text-white/[.6] text-[1.125rem] leading-[1.75] m-0">Our engineering team reviews every inquiry personally — no automated responses, no gatekeeping.</p>
               <Link href="/contact?product=switchboards" className="btn btn-primary btn-lg mag">Request a Quote →</Link>
-              <a href="tel:+16476162595" className="text-white/[.35] text-[.78rem] no-underline tracking-[.04em]">Or call +1 (647) 616-2595</a>
+              <a href="tel:+16476162595" className="text-white/[.35] text-[1rem] no-underline tracking-[.04em]">Or call +1 (647) 616-2595</a>
             </div>
           </div>
         </div>

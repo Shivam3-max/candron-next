@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { HeroArt } from '@/components/LineArt'
 
 export const metadata = {
   title: 'Substation Transformers',
@@ -35,6 +36,7 @@ export default function SubstationPage() {
         >
           <div className="absolute inset-0 opacity-[.06]" style={{ backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 39px,#0047FF 39px,#0047FF 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,#0047FF 39px,#0047FF 40px)' }} />
         </div>
+        <HeroArt kind="substation" views={['ga', 'iso', 'sld']} />
         <div className="container page-hero-content">
           <div className="breadcrumb">
             <Link href="/">Home</Link> / <Link href="/products">Products</Link> / <Link href="/products/transformers">Transformers</Link> / <span>Substation</span>
@@ -46,7 +48,7 @@ export default function SubstationPage() {
           </p>
           <div className="flex gap-[.65rem] flex-wrap mt-6">
             {['IEEE C57.12 Rated', 'CSA C88 Certified', 'ONAN / ONAF / OFAF', 'LTC Available', 'Custom Impedance'].map(b => (
-              <span key={b} className="py-[.38rem] px-[.9rem] bg-white/[.1] border border-white/20 rounded-full text-[.72rem] font-bold text-white font-mono tracking-[.04em]">{b}</span>
+              <span key={b} className="py-[.38rem] px-[.9rem] bg-white/[.1] border border-white/20 rounded-full text-[.9375rem] font-bold text-white font-mono tracking-[.04em]">{b}</span>
             ))}
           </div>
         </div>
@@ -65,7 +67,7 @@ export default function SubstationPage() {
                 Substation transformers are the backbone of electrical transmission and distribution infrastructure, stepping down high-voltage transmission levels to sub-transmission and distribution voltages for utility and industrial use. They operate continuously under varying load conditions and must be designed for decades of reliable service.
               </p>
               <p className="body mb-5">
-                CANDRON substation transformers are built and tested to IEEE C57.12, CSA C88, and IEC 60076, with cooling arrangements matched to your load profile and site conditions. Standard and non-standard impedance values, tap changers (DETC or LTC), and a wide range of protection and monitoring accessories are available.
+                CANDRON substation transformers are built and tested to IEEE C57.12 and CSA C88, with cooling arrangements matched to your load profile and site conditions. Standard and non-standard impedance values, tap changers (DETC or LTC), and a wide range of protection and monitoring accessories are available.
               </p>
               <p className="body">
                 Polemount distribution transformers complete the voltage cascade from sub-transmission to end users on rural and semi-urban distribution feeders, with a range of primary voltage taps and secondary arrangements.
@@ -111,78 +113,6 @@ export default function SubstationPage() {
         </div>
       </section>
 
-      {/* CUSTOM REPLACEMENT TRANSFORMER */}
-      <section className="bg-navy py-20 max-md:py-14" aria-labelledby="custom-transformer-title">
-        <div className="container">
-          <div className="grid grid-cols-[.9fr_1.1fr] gap-12 items-start max-lg:grid-cols-1">
-            <div className="rv-l max-lg:max-w-[720px]">
-              <div className="label label-white">Custom Design · Project Spotlight</div>
-              <h2 id="custom-transformer-title" className="text-white mt-4 !leading-[1.08]">
-                Identical Fit.<br /><em>Better Performance.</em>
-              </h2>
-              <p className="text-white/60 text-[.96rem] leading-[1.8] mt-6">
-                This custom replacement transformer was engineered to match the existing unit&apos;s dimensions and electrical specifications while improving sound performance, efficiency, and overall footprint. A higher-grade Italian core was selected to minimize sound level and losses without compromising the required fit.
-              </p>
-
-              <div className="grid grid-cols-2 gap-3 mt-8 max-sm:grid-cols-1">
-                {[
-                  { value: 'Italian', label: 'High-Grade Core' },
-                  { value: 'Weidmann', label: 'Insulation Material' },
-                  { value: '55 / 65°C', label: 'Split Temperature Rise' },
-                  { value: '26 Weeks', label: 'Design to Delivery' },
-                ].map((item) => (
-                  <div key={item.label} className="rounded-[12px] border border-white/[.1] bg-white/[.045] px-5 py-4">
-                    <div className="font-display text-[1rem] font-black text-white">{item.value}</div>
-                    <div className="font-mono text-[.52rem] uppercase tracking-[.1em] text-white/40 mt-1.5">{item.label}</div>
-                  </div>
-                ))}
-              </div>
-
-              <ul className="mt-8 p-0 list-none grid gap-3">
-                {[
-                  'Matched existing transformer dimensions and electrical specifications',
-                  'Higher-grade core selected for lower sound level and reduced losses',
-                  'Weidmann insulation materials',
-                  'Qualitrol gauges and monitoring instruments',
-                  'Eaton tap changer',
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-white/65 text-[.86rem] leading-[1.6]">
-                    <span className="mt-[.35rem] w-2 h-2 rounded-full bg-blue shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-
-              <Link href="/contact?product=custom-replacement-transformer" className="btn btn-primary mag mt-9 inline-flex">Discuss a Custom Replacement →</Link>
-            </div>
-
-            <div className="rv-r">
-              <div className="grid grid-cols-[1.15fr_.85fr] gap-3 max-sm:grid-cols-1">
-                <figure className="relative h-[570px] max-sm:h-[360px] overflow-hidden rounded-[14px] border border-white/[.12] bg-white/[.04]">
-                  <Image src="/images/projects/custom-replacement-transformer/custom-transformer-side-view.jpg" alt="Custom replacement transformer with forced-air cooling and compact radiator arrangement" fill className="object-cover object-center" sizes="(max-width:640px) 100vw, 36vw" />
-                </figure>
-                <div className="grid grid-rows-2 gap-3 max-sm:grid-rows-none max-sm:grid-cols-2">
-                  <figure className="relative min-h-[275px] max-sm:min-h-[240px] overflow-hidden rounded-[14px] border border-white/[.12] bg-white/[.04]">
-                    <Image src="/images/projects/custom-replacement-transformer/custom-transformer-front-view.jpg" alt="Front view of the custom transformer cooling banks and accessories" fill className="object-cover object-center" sizes="(max-width:640px) 50vw, 27vw" />
-                  </figure>
-                  <figure className="relative min-h-[275px] max-sm:min-h-[240px] overflow-hidden rounded-[14px] border border-white/[.12] bg-white/[.04]">
-                    <Image src="/images/projects/custom-replacement-transformer/custom-transformer-rear-view.jpg" alt="Rear view of the custom replacement transformer during factory handling" fill className="object-cover object-center" sizes="(max-width:640px) 50vw, 27vw" />
-                  </figure>
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-3 mt-3">
-                <figure className="relative h-[260px] max-sm:h-[220px] overflow-hidden rounded-[14px] border border-white/[.12] bg-white/[.04]">
-                  <Image src="/images/projects/custom-replacement-transformer/custom-transformer-radiator-view.jpg" alt="Radiator bank and tank assembly on the custom transformer" fill className="object-cover object-center" sizes="(max-width:640px) 50vw, 27vw" />
-                </figure>
-                <figure className="relative h-[260px] max-sm:h-[220px] overflow-hidden rounded-[14px] border border-white/[.12] bg-white/[.04]">
-                  <Image src="/images/projects/custom-replacement-transformer/custom-transformer-three-quarter-view.jpg" alt="Three-quarter view of the completed custom replacement transformer" fill className="object-cover object-center" sizes="(max-width:640px) 50vw, 27vw" />
-                </figure>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* TYPE CARDS */}
       <div className="section bg-off">
         <div className="container">
@@ -198,23 +128,23 @@ export default function SubstationPage() {
                 className={`rv no-underline group flex flex-col gap-6 p-8 rounded-[20px] bg-white border border-[#E8ECF5] shadow-[0_2px_16px_rgba(5,9,31,.05)] transition-[border-color,box-shadow,transform] duration-200 hover:border-blue hover:shadow-[0_8px_40px_rgba(0,71,255,.11)] hover:-translate-y-[2px]${i > 0 ? ' d2' : ''}`}
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-[.6rem] font-bold tracking-[.18em] text-blue uppercase">{t.n}</span>
+                  <span className="font-mono text-[.8125rem] font-bold tracking-[.18em] text-blue uppercase">{t.n}</span>
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="opacity-30 group-hover:opacity-70 transition-opacity duration-200"><path d="M3 11L11 3M11 3H5M11 3v6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 </div>
                 <div>
-                  <div className="font-display font-extrabold text-[1.2rem] text-navy leading-[1.2] mb-[.3rem]">{t.name}</div>
-                  <div className="font-mono text-[.64rem] text-blue tracking-[.06em] mb-4">{t.sub}</div>
-                  <p className="font-mono text-[.82rem] text-gray leading-[1.65] m-0">{t.desc}</p>
+                  <div className="font-display font-extrabold text-[1.32rem] text-navy leading-[1.2] mb-[.3rem]">{t.name}</div>
+                  <div className="font-mono text-[.875rem] text-blue tracking-[.06em] mb-4">{t.sub}</div>
+                  <p className="font-mono text-[1.0625rem] text-gray leading-[1.65] m-0">{t.desc}</p>
                 </div>
                 <div className="border border-[#E8ECF5] rounded-[10px] overflow-hidden">
                   {t.specs.map(([label, val], si) => (
-                    <div key={label} className={`flex justify-between py-[.55rem] px-4 text-[.78rem] ${si % 2 === 0 ? 'bg-[#F8FAFF]' : 'bg-white'} border-b border-[#E8ECF5] last:border-0`}>
+                    <div key={label} className={`flex justify-between py-[.55rem] px-4 text-[1rem] ${si % 2 === 0 ? 'bg-[#F8FAFF]' : 'bg-white'} border-b border-[#E8ECF5] last:border-0`}>
                       <span className="font-mono text-gray">{label}</span>
                       <span className="font-title font-bold text-navy">{val}</span>
                     </div>
                   ))}
                 </div>
-                <div className="font-mono text-[.65rem] font-bold text-blue tracking-[.1em] uppercase flex items-center gap-[.4rem] mt-auto group-hover:gap-[.65rem] transition-[gap] duration-200">
+                <div className="font-mono text-[.875rem] font-bold text-blue tracking-[.1em] uppercase flex items-center gap-[.4rem] mt-auto group-hover:gap-[.65rem] transition-[gap] duration-200">
                   View Full Specifications →
                 </div>
               </Link>
@@ -243,8 +173,8 @@ export default function SubstationPage() {
             ].map((a, i) => (
               <div key={a.title} className={`rv bg-white/[.05] border border-white/[.1] rounded-[14px] p-6${i > 0 ? ` d${Math.min(i + 1, 6)}` : ''}`}>
                 <div className="w-[6px] h-[6px] rounded-full bg-blue mb-4"/>
-                <div className="font-display font-extrabold text-[.9rem] text-white mb-2">{a.title}</div>
-                <p className="font-mono text-[.78rem] text-white/50 leading-[1.65] m-0">{a.desc}</p>
+                <div className="font-display font-extrabold text-[1.125rem] text-white mb-2">{a.title}</div>
+                <p className="font-mono text-[1rem] text-white/[.68] leading-[1.65] m-0">{a.desc}</p>
               </div>
             ))}
           </div>

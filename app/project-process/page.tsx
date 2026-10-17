@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { HeroArt } from '@/components/LineArt'
 
 export const metadata = {
   title: 'CANDRON Processes | From Inception to Commissioning',
@@ -49,6 +50,7 @@ export default function ProjectProcessPage() {
     <>
       <section className="page-hero">
         <div className="page-hero-bg" style={{ background: "url('/images/manufacturing.jpg') center/cover" }} />
+        <HeroArt kind="cap-proc" />
         <div className="container page-hero-content">
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>CANDRON Processes</span></div>
           <div className="label label-white">The Full Project Cycle</div>
@@ -70,12 +72,12 @@ export default function ProjectProcessPage() {
             <ol className="list-none relative before:absolute before:left-[27px] before:top-7 before:bottom-7 before:w-px before:bg-blue/20 max-sm:before:left-[21px]">
               {steps.map((step, index) => (
                 <li key={step.number} className={`relative grid grid-cols-[56px_1fr] max-sm:grid-cols-[44px_1fr] gap-5 max-sm:gap-3 pb-6 last:pb-0 rv${index ? ` d${Math.min(index + 1, 4)}` : ''}`}>
-                  <div className="relative z-[1] w-14 h-14 max-sm:w-11 max-sm:h-11 rounded-full bg-navy border border-blue/40 text-blue-l flex items-center justify-center font-mono font-bold text-[.72rem] max-sm:text-[.64rem] tracking-[.08em] shadow-[0_0_0_7px_#F4F6FA]">
+                  <div className="relative z-[1] w-14 h-14 max-sm:w-11 max-sm:h-11 rounded-full bg-navy border border-blue/40 text-blue-l flex items-center justify-center font-mono font-bold text-[.9375rem] max-sm:text-[.875rem] tracking-[.08em] shadow-[0_0_0_7px_#F4F6FA]">
                     {step.number}
                   </div>
                   <article className="bg-white border border-[#E3E8F2] rounded-[16px] px-7 py-6 max-sm:px-5 max-sm:py-5 shadow-[0_10px_35px_rgba(5,9,31,.05)]">
-                    <h3 className="text-[1.12rem] max-sm:text-[1rem] mb-2">{step.title}</h3>
-                    <p className="body !text-[.88rem] max-sm:!text-[.8rem] !leading-[1.7]">{step.description}</p>
+                    <h3 className="text-[1.232rem] max-sm:text-[1.125rem] mb-2">{step.title}</h3>
+                    <p className="body !text-[1.125rem] max-sm:!text-[1.0625rem] !leading-[1.7]">{step.description}</p>
                   </article>
                 </li>
               ))}
@@ -93,7 +95,7 @@ export default function ProjectProcessPage() {
                 Panelboard<br />
                 <em>Design Stage.</em>
               </h2>
-              <p className="text-white/60 text-[.96rem] leading-[1.8] mt-6 max-w-[620px]">
+              <p className="text-white/[.68] text-[1.125rem] leading-[1.8] mt-6 max-w-[620px]">
                 Detailed equipment models allow the engineering team to review the panelboard&apos;s internal arrangement before drawings are approved and the assembly is released for manufacturing.
               </p>
 
@@ -105,9 +107,9 @@ export default function ProjectProcessPage() {
                   { number: '04', title: 'Design Review', text: 'Verify the model and drawings before the manufacturing release.' },
                 ].map((item) => (
                   <article key={item.number} className="rounded-[12px] border border-white/[.1] bg-white/[.045] p-5">
-                    <div className="font-mono text-[.53rem] font-bold tracking-[.14em] text-blue mb-3">{item.number}</div>
-                    <div className="font-display text-[.83rem] font-black text-white mb-2">{item.title}</div>
-                    <p className="font-mono text-[.7rem] leading-[1.6] text-white/45 m-0">{item.text}</p>
+                    <div className="font-mono text-[.8125rem] font-bold tracking-[.14em] text-blue mb-3">{item.number}</div>
+                    <div className="font-display text-[1.0625rem] font-black text-white mb-2">{item.title}</div>
+                    <p className="font-mono text-[.9375rem] leading-[1.6] text-white/[.68] m-0">{item.text}</p>
                   </article>
                 ))}
               </div>
@@ -126,7 +128,7 @@ export default function ProjectProcessPage() {
                 className="object-contain p-4 max-sm:p-2"
                 sizes="(max-width:1024px) 100vw, 57vw"
               />
-              <figcaption className="absolute left-4 bottom-4 rounded-full border border-white/35 bg-navy/80 px-3 py-2 font-mono text-[.52rem] font-bold uppercase tracking-[.08em] text-white backdrop-blur-sm">
+              <figcaption className="absolute left-4 bottom-4 rounded-full border border-white/35 bg-navy/80 px-3 py-2 font-mono text-[.8125rem] font-bold uppercase tracking-[.08em] text-white backdrop-blur-sm">
                 Engineering Visualization · Pre-Manufacturing
               </figcaption>
             </figure>

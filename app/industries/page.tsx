@@ -367,7 +367,7 @@ export default function IndustriesPage() {
               <p className="body mt-3">Modern ports and marine terminals are transitioning from diesel to shore power — supplying vessels, cranes, and terminal equipment with reliable grid power. CANDRON engineers and supplies the switchgear, transformers, and control infrastructure for shore power systems, cold-ironing installations, and port crane electrification.</p>
               <div className="ind-kpi-row">
                 <div className="ind-kpi"><strong>6.6 / 11 kV</strong><span>Shore Power Voltage</span></div>
-                <div className="ind-kpi"><strong>IEC 80005</strong><span>Shore Connection Standard</span></div>
+                <div className="ind-kpi"><strong>CSA / UL</strong><span>Shore Connection Equipment</span></div>
                 <div className="ind-kpi"><strong>NEMA 4X</strong><span>Marine Enclosures</span></div>
               </div>
               <div className="equip-list">

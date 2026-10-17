@@ -72,7 +72,7 @@ const caps = [
   {
     n: "05",
     title: "Wiring",
-    desc: "IEC and NFPA wiring by experienced craftsmen. Color coding, labeling, and documentation included.",
+    desc: "CEC and NFPA 79 wiring by experienced craftsmen. Color coding, labeling, and documentation included.",
     icon: (
       <svg
         viewBox="0 0 24 24"

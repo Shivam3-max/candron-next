@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
+import { HeroArt } from '@/components/LineArt'
 
 // Typical DOE 2016 losses (W) for distribution transformers at full load
 const TYPICAL_LOSSES: { kva: number; core: number; copper: number }[] = [
@@ -90,13 +91,14 @@ export default function EfficiencyCalculatorPage() {
       <div className="page-hero" style={{ minHeight: 'auto', paddingBottom: '4rem' }}>
         <div className="page-hero-bg" style={{ background: 'linear-gradient(135deg,#05091F 0%,#060d35 60%,#040818 100%)' }}>
           <div className="absolute inset-0 opacity-[.06]" style={{ backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 39px,#0047FF 39px,#0047FF 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,#0047FF 39px,#0047FF 40px)' }} />
+        <HeroArt kind="res-efficiency" />
         </div>
         <div className="container page-hero-content">
           <div className="breadcrumb">
             <Link href="/">Home</Link> / <Link href="/resources">Resources</Link> / <span>Efficiency Calculator</span>
           </div>
           <div className="label label-white">Transformer Performance</div>
-          <h1 style={{ fontSize: 'clamp(1.8rem,4vw,2.6rem)' }}>
+          <h1 style={{ fontSize: 'clamp(1.89rem, 4vw, 2.73rem)' }}>
             Transformer Efficiency
             <br /><em>Calculator</em>
           </h1>
@@ -112,7 +114,7 @@ export default function EfficiencyCalculatorPage() {
 
             <div className="flex-1 min-w-0">
               <div className="label mb-4">How It Works</div>
-              <h2 className="mb-6" style={{ fontSize: 'clamp(1.4rem,2.5vw,1.9rem)' }}>Understanding Transformer Efficiency</h2>
+              <h2 className="mb-6" style={{ fontSize: 'clamp(1.54rem, 2.5vw, 1.995rem)' }}>Understanding Transformer Efficiency</h2>
               <div className="flex flex-col gap-5">
                 {[
                   { n: '01', t: 'Two Types of Losses', b: 'No-load (core) losses occur continuously regardless of loading. Load-dependent (copper) losses scale with the square of the load current. Both must be minimised for an efficient transformer — DOE 2016 mandates minimum efficiency standards for distribution transformers.' },
@@ -121,17 +123,17 @@ export default function EfficiencyCalculatorPage() {
                   { n: '04', t: 'All-Day Efficiency', b: 'If a transformer carries load for only part of the day, the idle core losses hurt its 24-hour efficiency. All-day efficiency captures this: a 100 kVA unit energized 24 h but loaded for only 8 h will have a lower all-day efficiency than one carrying steady 75% load around the clock.' },
                 ].map(s => (
                   <div key={s.n} className="flex gap-5 bg-white p-5 rounded-[14px] border border-[#E8ECF5]">
-                    <div className="w-10 h-10 min-w-[2.5rem] rounded-[10px] bg-blue/[.08] flex items-center justify-center font-mono text-[.6rem] font-bold text-blue tracking-[.1em]">{s.n}</div>
+                    <div className="w-10 h-10 min-w-[2.5rem] rounded-[10px] bg-blue/[.08] flex items-center justify-center font-mono text-[.8125rem] font-bold text-blue tracking-[.1em]">{s.n}</div>
                     <div>
-                      <div className="font-title font-bold text-navy text-[.92rem] mb-[.35rem]">{s.t}</div>
-                      <p className="font-mono text-[.8rem] text-gray leading-[1.65] m-0">{s.b}</p>
+                      <div className="font-title font-bold text-navy text-[1.125rem] mb-[.35rem]">{s.t}</div>
+                      <p className="font-mono text-[1.0625rem] text-gray leading-[1.65] m-0">{s.b}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
               <div className="mt-8 bg-navy rounded-[16px] p-7">
-                <div className="font-mono text-[.58rem] text-blue tracking-[.22em] uppercase mb-5">Formulas</div>
+                <div className="font-mono text-[.8125rem] text-blue tracking-[.22em] uppercase mb-5">Formulas</div>
                 <div className="flex flex-col gap-4">
                   {[
                     { label: 'Efficiency at Load L', formula: 'η = (S × PF × L) / (S × PF × L + Pcore/1000 + L² × Pcu/1000) × 100' },
@@ -139,24 +141,24 @@ export default function EfficiencyCalculatorPage() {
                     { label: 'Optimal Load Factor', formula: 'L_opt = √(Pcore / Pcu)' },
                   ].map(row => (
                     <div key={row.label}>
-                      <div className="font-mono text-[.65rem] text-white/45 tracking-[.1em] uppercase mb-2">{row.label}</div>
-                      <div className="font-mono text-[.82rem] text-white bg-white/[.06] rounded-[8px] px-4 py-3 leading-[1.6]">{row.formula}</div>
+                      <div className="font-mono text-[.875rem] text-white/[.68] tracking-[.1em] uppercase mb-2">{row.label}</div>
+                      <div className="font-mono text-[1.0625rem] text-white bg-white/[.06] rounded-[8px] px-4 py-3 leading-[1.6]">{row.formula}</div>
                     </div>
                   ))}
                 </div>
               </div>
 
               <div className="mt-8">
-                <div className="font-mono text-[.6rem] text-blue tracking-[.22em] uppercase mb-5">FAQ</div>
+                <div className="font-mono text-[.8125rem] text-blue tracking-[.22em] uppercase mb-5">FAQ</div>
                 <div className="flex flex-col gap-2">
                   {faqs.map((f, i) => (
                     <div key={i} className={`bg-white rounded-[12px] border border-[#E8ECF5] overflow-hidden ${openFaq === i ? 'shadow-[0_4px_20px_rgba(5,9,31,.08)]' : ''}`}>
                       <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full text-left bg-transparent border-0 py-[1rem] px-5 flex items-center justify-between gap-3 cursor-pointer">
-                        <span className="font-title font-bold text-navy text-[.85rem] leading-[1.4]">{f.q}</span>
+                        <span className="font-title font-bold text-navy text-[1.0625rem] leading-[1.4]">{f.q}</span>
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`shrink-0 text-gray transition-[transform] duration-[.25s] ${openFaq === i ? 'rotate-180' : ''}`}><path d="M6 9l6 6 6-6"/></svg>
                       </button>
                       <div className={`overflow-hidden transition-[max-height] duration-[.3s] ease-[ease] ${openFaq === i ? 'max-h-[400px]' : 'max-h-0'}`}>
-                        <p className="py-0 px-5 pb-4 font-mono text-[.82rem] text-gray leading-[1.7] m-0">{f.a}</p>
+                        <p className="py-0 px-5 pb-4 font-mono text-[1.0625rem] text-gray leading-[1.7] m-0">{f.a}</p>
                       </div>
                     </div>
                   ))}
@@ -166,12 +168,12 @@ export default function EfficiencyCalculatorPage() {
 
             <div className="w-full lg:w-[420px] shrink-0 lg:sticky lg:top-[100px]">
               <div className="bg-white rounded-[20px] border border-[#E8ECF5] p-7 shadow-[0_4px_32px_rgba(5,9,31,.08)]">
-                <div className="font-mono text-[.6rem] text-blue tracking-[.22em] uppercase mb-4">Efficiency Calculator</div>
+                <div className="font-mono text-[.8125rem] text-blue tracking-[.22em] uppercase mb-4">Efficiency Calculator</div>
 
-                <div className="font-mono text-[.6rem] text-gray/60 tracking-[.08em] uppercase mb-2">Quick-Fill by Size</div>
+                <div className="font-mono text-[.8125rem] text-gray/60 tracking-[.08em] uppercase mb-2">Quick-Fill by Size</div>
                 <div className="flex flex-wrap gap-2 mb-5">
                   {[75, 150, 300, 500, 1000, 1500].map(s => (
-                    <button key={s} onClick={() => autofill(s)} className={`py-[.45rem] px-3 border rounded-[7px] font-mono text-[.68rem] font-semibold cursor-pointer transition-[border-color,color,background] duration-150 ${kva === String(s) ? 'bg-blue text-white border-blue' : 'bg-[#F8FAFF] border-[#E8ECF5] text-navy hover:border-blue hover:text-blue'}`}>
+                    <button key={s} onClick={() => autofill(s)} className={`py-[.45rem] px-3 border rounded-[7px] font-mono text-[.9375rem] font-semibold cursor-pointer transition-[border-color,color,background] duration-150 ${kva === String(s) ? 'bg-blue text-white border-blue' : 'bg-[#F8FAFF] border-[#E8ECF5] text-navy hover:border-blue hover:text-blue'}`}>
                       {s} kVA
                     </button>
                   ))}
@@ -187,8 +189,8 @@ export default function EfficiencyCalculatorPage() {
                     { label: 'Hours at Load per Day', val: hoursDay, set: setHoursDay, placeholder: '24' },
                   ].map(f => (
                     <div key={f.label}>
-                      <label className="block font-mono text-[.65rem] font-bold tracking-[.12em] uppercase text-gray mb-[.45rem]">{f.label}</label>
-                      <input type="number" min="0" value={f.val} onChange={e => { f.set(e.target.value); setResult(null); setError('') }} placeholder={f.placeholder} className="w-full px-4 py-[.85rem] border-[1.5px] border-[#E8ECF5] rounded-[10px] font-title text-[.95rem] font-semibold text-navy bg-white outline-none focus:border-blue transition-[border-color] duration-200 box-border placeholder:text-[#C8CDD9] placeholder:font-normal" />
+                      <label className="block font-mono text-[.875rem] font-bold tracking-[.12em] uppercase text-gray mb-[.45rem]">{f.label}</label>
+                      <input type="number" min="0" value={f.val} onChange={e => { f.set(e.target.value); setResult(null); setError('') }} placeholder={f.placeholder} className="w-full px-4 py-[.85rem] border-[1.5px] border-[#E8ECF5] rounded-[10px] font-title text-[1.125rem] font-semibold text-navy bg-white outline-none focus:border-blue transition-[border-color] duration-200 box-border placeholder:text-[#C8CDD9] placeholder:font-normal" />
                     </div>
                   ))}
                 </div>
@@ -198,20 +200,20 @@ export default function EfficiencyCalculatorPage() {
                   <button onClick={reset} className="btn btn-outline-blue px-5">Clear</button>
                 </div>
 
-                {error && <p className="font-mono text-[.78rem] text-[#dc2626] text-center mb-3 mt-[-0.5rem]">{error}</p>}
+                {error && <p className="font-mono text-[1rem] text-[#dc2626] text-center mb-3 mt-[-0.5rem]">{error}</p>}
 
                 {result && (
                   <div className="bg-navy rounded-[14px] p-6">
                     <div className="grid grid-cols-2 gap-4 mb-4">
                       <div className="text-center">
-                        <div className="font-mono text-[.55rem] tracking-[.2em] text-white/40 uppercase mb-1">Efficiency</div>
-                        <div className="font-display font-black text-[2rem] text-white leading-none">{result.eta}</div>
-                        <div className="font-mono text-[.75rem] text-blue/80 mt-[.3rem]">%</div>
+                        <div className="font-mono text-[.8125rem] tracking-[.2em] text-white/[.68] uppercase mb-1">Efficiency</div>
+                        <div className="font-display font-black text-[2.1rem] text-white leading-none">{result.eta}</div>
+                        <div className="font-mono text-[1rem] text-blue/80 mt-[.3rem]">%</div>
                       </div>
                       <div className="text-center">
-                        <div className="font-mono text-[.55rem] tracking-[.2em] text-white/40 uppercase mb-1">All-Day η</div>
-                        <div className="font-display font-black text-[2rem] text-white leading-none">{result.etaAllDay}</div>
-                        <div className="font-mono text-[.75rem] text-blue/80 mt-[.3rem]">%</div>
+                        <div className="font-mono text-[.8125rem] tracking-[.2em] text-white/[.68] uppercase mb-1">All-Day η</div>
+                        <div className="font-display font-black text-[2.1rem] text-white leading-none">{result.etaAllDay}</div>
+                        <div className="font-mono text-[1rem] text-blue/80 mt-[.3rem]">%</div>
                       </div>
                     </div>
                     <div className="border-t border-white/[.1] pt-4 flex flex-col gap-2">
@@ -221,8 +223,8 @@ export default function EfficiencyCalculatorPage() {
                         { label: 'Total Losses', val: result.totalLoss + ' W' },
                       ].map(r => (
                         <div key={r.label} className="flex items-center justify-between">
-                          <span className="font-mono text-[.65rem] text-white/40 tracking-[.08em] uppercase">{r.label}</span>
-                          <span className="font-mono font-bold text-white text-[.88rem]">{r.val}</span>
+                          <span className="font-mono text-[.875rem] text-white/[.68] tracking-[.08em] uppercase">{r.label}</span>
+                          <span className="font-mono font-bold text-white text-[1.125rem]">{r.val}</span>
                         </div>
                       ))}
                     </div>
@@ -230,15 +232,15 @@ export default function EfficiencyCalculatorPage() {
                 )}
 
                 <div className="mt-5 pt-5 border-t border-[#E8ECF5]">
-                  <div className="font-mono text-[.6rem] text-gray/60 tracking-[.12em] uppercase mb-3">Other Calculators</div>
+                  <div className="font-mono text-[.8125rem] text-gray/60 tracking-[.12em] uppercase mb-3">Other Calculators</div>
                   <div className="flex flex-col gap-2">
                     {[
                       { href: '/resources/savings-payback-calculator', label: 'Savings & Payback Calculator' },
                       { href: '/resources/kva-calculator', label: 'kVA Calculator' },
                     ].map(l => (
                       <Link key={l.href} href={l.href} className="flex items-center justify-between py-[.65rem] px-4 rounded-[8px] bg-[#F8FAFF] border border-[#E8ECF5] no-underline group hover:border-blue transition-[border-color] duration-150">
-                        <span className="font-mono text-[.78rem] font-semibold text-navy">{l.label}</span>
-                        <span className="font-mono text-[.65rem] text-blue group-hover:translate-x-[2px] transition-transform duration-150">→</span>
+                        <span className="font-mono text-[1rem] font-semibold text-navy">{l.label}</span>
+                        <span className="font-mono text-[.875rem] text-blue group-hover:translate-x-[2px] transition-transform duration-150">→</span>
                       </Link>
                     ))}
                   </div>

@@ -11,7 +11,7 @@ const products = [
     tagline: '2.4 kV to 38 kV • 2000 A',
     image: '/images/switchgear.jpg',
     eyebrow: 'Medium Voltage — 2.4 kV to 38 kV',
-    standards: ['CSA C22.2', 'UL 508A', 'IEEE C37.20.2', 'IEC 62271'],
+    standards: ['CSA C22.2', 'UL 508A', 'IEEE C37.20.2', 'CSA C22.2 No. 31'],
     desc1: "Custom medium voltage switchgear from 2.4 kV to 38 kV and up to 2000 A — designed, manufactured, and tested in-house at our Toronto facility. Metal-clad, metal-enclosed, and pad-mounted configurations built to your project's exact single-line diagram.",
     desc2: "Every MV switchgear lineup is engineered by our team, assembled with copper busbars and vacuum circuit breakers rated to your fault current, and fully factory-tested before delivery — no outsourced fabrication, no third-party unknowns.",
     kpis: [
@@ -26,7 +26,7 @@ const products = [
       'Arc fault protection rated (ARST) construction with compartmentalization',
       'Protection relay integration: 50/51, 27/59, 67, 81, 87 functions',
       'CT/PT revenue metering compartment per single-line requirements',
-      'SCADA/IEC 61850 gateway integration available per section',
+      'SCADA gateway integration (Modbus / DNP3) available per section',
     ],
     quickSpecs: [
       ['Type', 'Metal-Clad & Metal-Enclosed MV'],
@@ -67,7 +67,7 @@ const products = [
     quickSpecs: [
       ['Type', 'LV Switchgear — Service Entrance / Dist.'],
       ['Standards', 'CSA C22.2, UL 508A, ESA'],
-      ['Voltage Range', 'Up to 600 V (NA); 1000 V (IEC)'],
+      ['Voltage Range', 'Up to 1000 V AC (600 V typical)'],
       ['Current Rating', '400 A to 3200 A main bus'],
       ['Short Circuit', 'Up to 100 kA AIC'],
       ['Testing', 'Factory Acceptance Testing'],
@@ -177,7 +177,7 @@ const products = [
       ['Capacity', '1 VA to 100+ MVA'],
       ['Primary Voltage', 'Up to 230 kV'],
       ['Cooling', 'Liquid, Air, VPI, Cast Coil'],
-      ['Standards', 'CSA, UL, IEEE, IEC'],
+      ['Standards', 'CSA, UL, IEEE, ANSI'],
       ['Testing', 'Factory Acceptance Testing'],
       ['Origin', 'Made in Canada'],
     ],
@@ -299,7 +299,7 @@ const products = [
     tagline: 'Automation & Process Control',
     image: '/images/control-panels.jpg',
     eyebrow: 'UL 508A Industrial Control Systems',
-    standards: ['UL 508A', 'CSA C22.2', 'NFPA 79', 'IEC 61439'],
+    standards: ['UL 508A', 'CSA C22.2', 'NFPA 79', 'CSA C22.2 No. 14'],
     desc1: 'Custom control panels integrate PLCs, HMIs, VFDs, motor starters, instrumentation, communications, and power supplies into coordinated systems for industrial automation and monitoring.',
     desc2: 'From one-off machine panels to plant-wide process control and SCADA systems, each assembly is engineered, wired, labelled, programmed, and factory-tested around the operating sequence.',
     kpis: [
@@ -377,7 +377,7 @@ export default function ProductsClient() {
               />
             </div>
             <div className="mt-6 p-[1.75rem] bg-off rounded-[12px]">
-              <div className="font-mono text-[.6rem] text-blue tracking-[.22em] uppercase mb-[.85rem]">Quick Specs</div>
+              <div className="font-mono text-[.8125rem] text-blue tracking-[.22em] uppercase mb-[.85rem]">Quick Specs</div>
               <div className="specs-table-wrap">
                 <table className="specs-table">
                   <tbody>
@@ -397,7 +397,7 @@ export default function ProductsClient() {
           <div>
             <div className="label">Product {p.num}</div>
             <h2 className="mb-2">{p.name}</h2>
-            <p className="font-mono text-[.88rem] text-blue tracking-[.08em] uppercase mb-4">{p.eyebrow}</p>
+            <p className="font-mono text-[1.125rem] text-blue tracking-[.08em] uppercase mb-4">{p.eyebrow}</p>
 
             {/* Standards badges */}
             <div className="product-standard-row mb-6">
@@ -408,8 +408,8 @@ export default function ProductsClient() {
             <div className="grid grid-cols-4 max-md:grid-cols-2 gap-[.85rem] max-md:gap-[.5rem] mb-7 w-full">
               {p.kpis.map(k => (
                 <div key={k.label} className="py-[.9rem] px-[.65rem] bg-off rounded-[10px] text-center border border-[#E8ECF5]">
-                  <div className="font-display text-[.75rem] font-black text-navy tracking-[.04em] mb-[.2rem]">{k.value}</div>
-                  <div className="font-title text-[.5rem] tracking-[.12em] uppercase text-gray font-bold">{k.label}</div>
+                  <div className="font-display text-[1rem] font-black text-navy tracking-[.04em] mb-[.2rem]">{k.value}</div>
+                  <div className="font-title text-[.8125rem] tracking-[.12em] uppercase text-gray font-bold">{k.label}</div>
                 </div>
               ))}
             </div>
@@ -419,13 +419,13 @@ export default function ProductsClient() {
             <p className="body mb-7">{p.desc2}</p>
 
             {/* Key features */}
-            <h4 className="font-title text-[.72rem] font-bold text-gray tracking-[.14em] uppercase mb-3">Key Features</h4>
+            <h4 className="font-title text-[.9375rem] font-bold text-gray tracking-[.14em] uppercase mb-3">Key Features</h4>
             <ul className="feature-list mb-7">
               {p.features.map(f => <li key={f}>{f}</li>)}
             </ul>
 
             {/* Applications */}
-            <h4 className="font-title text-[.72rem] font-bold text-gray tracking-[.14em] uppercase mb-3">Applications</h4>
+            <h4 className="font-title text-[.9375rem] font-bold text-gray tracking-[.14em] uppercase mb-3">Applications</h4>
             <div className="industry-tags mb-8">
               {p.applications.map(a => <span key={a} className="industry-tag">{a}</span>)}
             </div>

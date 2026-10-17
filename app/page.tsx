@@ -5,71 +5,14 @@ import HeroCanvas from "@/components/HeroCanvas";
 import CanadaFlag from "@/components/CanadaFlag";
 import ProcessSection from "@/components/ProcessSection";
 import IndustryCarousel from "@/components/IndustryCarousel";
+import ProjectHighlights from "@/components/ProjectHighlights";
+import FeaturedProducts from "@/components/FeaturedProducts";
 
 export const metadata = {
   title: 'Toronto Power Equipment Manufacturer | CANDRON',
   description: 'CANDRON is a leading Toronto manufacturer of switchgear, switchboards, and dry-type transformers, delivering reliable power distribution equipment with shorter lead times.',
   alternates: { canonical: '/' },
 };
-
-const featuredProducts = [
-  {
-    name: "Transformers",
-    cat: "Transformers",
-    type: "Liquid-Filled & Dry-Type",
-    image: "/images/projects/custom-replacement-transformer/custom-transformer-side-view.jpg",
-    specs: ["Padmount, substation & dry-type", "Distribution to power class ratings", "Liquid-filled & cast-coil options"],
-    href: "/products/transformers",
-  },
-  {
-    name: "Switchgear",
-    cat: "Switchgear",
-    type: "Medium Voltage & Low Voltage",
-    image: "/images/projects/35kv-switchgear-toronto-stock/35kv-switchgear-front.jpg",
-    specs: ["Safe power distribution & protection", "ANSI/IEEE C37 & CSA Standards", "Arc resistant options available"],
-    href: "/products/switchgear",
-  },
-  {
-    name: "Switchboards & Panelboards",
-    cat: "Switchboards",
-    type: "Engineered Distribution Systems",
-    image: "/images/projects/2500a-switchboard-production/2500a-switchboard-production.jpg",
-    specs: ["Commercial, industrial & infrastructure", "UL891 & CSA C22.2 Standards", "Custom layouts & integrated metering"],
-    href: "/products/switchboards",
-  },
-  {
-    name: "Load Banks",
-    cat: "Load Banks",
-    type: "Resistive, Reactive & Combined",
-    image: "/images/products/power-distribution/load-bank.webp",
-    specs: ["Generator & UPS load testing", "Resistive, reactive & RL configurations", "Portable & permanent installations"],
-    href: "/products/load-banks",
-  },
-  {
-    name: "Remote Power Panels",
-    cat: "RPP",
-    type: "Data Centre Branch Distribution",
-    image: "/images/products/power-distribution/remote-power-panel.webp",
-    specs: ["Branch circuit distribution near the load", "Compact, front-access enclosures", "Per-circuit monitoring options"],
-    href: "/products/remote-power-panels",
-  },
-  {
-    name: "Power Distribution Units",
-    cat: "PDU",
-    type: "Critical Power Distribution",
-    image: "/images/products/power-distribution/power-distribution-unit.webp",
-    specs: ["Floor-standing transformer-based units", "Voltage step-down & isolation", "Branch circuit monitoring options"],
-    href: "/products/power-distribution-units",
-  },
-  {
-    name: "Control Panels",
-    cat: "Control Panels",
-    type: "UL 508A Industrial",
-    image: "/images/control-panels.jpg",
-    specs: ["Automation, monitoring & process control", "UL 508A Standards", "PLC, HMI & SCADA integration"],
-    href: "/products/control-panels",
-  },
-];
 
 export default function HomePage() {
   return (
@@ -103,10 +46,10 @@ export default function HomePage() {
               <div className="home-hero-blue-facet" aria-hidden="true" />
               <div className="hero-visual-img">
                 <Image
-                  src="/images/hero.webp"
-                  alt="CANDRON power distribution switchgear manufactured in Canada"
-                  width={1280}
-                  height={853}
+                  src="/images/hero-switchgear-render.webp"
+                  alt="Three CANDRON 13.8 kV outdoor switchgear enclosures, manufactured in Canada"
+                  width={1434}
+                  height={1078}
                   priority
                   sizes="(max-width:768px) 94vw, 58vw"
                   className="w-full h-full object-contain object-[center_bottom]"
@@ -145,75 +88,47 @@ export default function HomePage() {
       {/* STAT BAR */}
       <div className="bg-[#EEF2FF] pt-8">
         <div className="container">
-          <div className="home-stat-bar responsive-override-exempt bg-[linear-gradient(135deg,#1252FF_0%,#0038CC_100%)] rounded-[20px] max-md:rounded-[14px] py-7 px-4 grid grid-cols-[1fr_auto_1fr_auto_1fr] max-md:grid-cols-3 max-md:px-2 max-md:py-4 items-center">
+          <div className="home-stats responsive-override-exempt">
             {/* Inventory Availability */}
-            <div className="flex flex-col items-center text-center px-6 max-md:px-1">
-              <div className="w-[54px] h-[54px] max-md:w-[32px] max-md:h-[32px] bg-white/[.13] rounded-[15px] max-md:rounded-[8px] flex items-center justify-center mx-auto mb-3 max-md:mb-1">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="white"
-                  strokeWidth="1.5"
-                  className="w-7 h-7 max-md:w-4 max-md:h-4"
-                >
+            <div className="home-stat">
+              <div className="home-stat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" aria-hidden="true">
                   <path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" />
                 </svg>
               </div>
-              <div className="font-display text-[2.15rem] max-md:text-[1.1rem] font-black text-white leading-none mb-[.35rem] max-md:mb-[2px]">
-                1000+
-              </div>
-              <div className="font-mono text-[.58rem] max-md:text-[.42rem] tracking-[.16em] max-md:tracking-[.05em] uppercase text-white/[.72]">
-                New / Used Inventory
-              </div>
-              <div className="mt-2 max-md:mt-1 rounded-full bg-white px-3 py-1 max-md:px-1.5 max-md:py-[2px] font-display text-[.72rem] max-md:text-[.42rem] font-black tracking-[.08em] text-[#0047FF] whitespace-nowrap">
-                24 × 365
-              </div>
+              <div className="home-stat-title home-stat-number">1000+</div>
+              <div className="home-stat-caption">New / Used Inventory</div>
             </div>
 
-            {/* Divider */}
-            <div className="home-stat-divider w-px h-[72px] bg-white/[.18] max-md:hidden" />
-
-            {/* Canadian Manufacturing */}
-            <div className="flex flex-col items-center text-center px-6 max-md:px-1">
-              <div className="w-[62px] h-[54px] max-md:w-[32px] max-md:h-[32px] rounded-[15px] max-md:rounded-[8px] flex items-center justify-center mx-auto mb-3 max-md:mb-1 overflow-hidden">
-                {/* Full flag component on desktop, flag-icons on mobile */}
-                <span className="hidden max-md:flex items-center justify-center">
-                  <span className="fi fi-ca text-[1.4rem]"></span>
-                </span>
-                <span className="max-md:hidden">
-                  <CanadaFlag height={54} />
-                </span>
+            {/* Made in Canada */}
+            <div className="home-stat">
+              <div className="home-stat-icon home-stat-flag">
+                <CanadaFlag height={40} />
               </div>
-              <div className="font-display text-[1.05rem] max-md:text-[.65rem] font-black text-white leading-[1.2] tracking-[.01em] mb-[.35rem] max-md:mb-0">
-                Canadian
-                <br />
-                Manufacturing
-              </div>
-              <div className="font-mono text-[.58rem] max-md:text-[.42rem] tracking-[.2em] max-md:tracking-[.08em] uppercase text-white/[.6]">
-                Toronto, Ontario
-              </div>
+              <div className="home-stat-title">Made in Canada</div>
+              <div className="home-stat-caption">Toronto, Ontario</div>
             </div>
-
-            {/* Divider */}
-            <div className="home-stat-divider w-px h-[72px] bg-white/[.18] max-md:hidden" />
 
             {/* Factory Testing */}
-            <div className="flex flex-col items-center text-center px-6 max-md:px-1">
-              <div className="w-[54px] h-[54px] max-md:w-[32px] max-md:h-[32px] bg-white/[.13] rounded-[15px] max-md:rounded-[8px] flex items-center justify-center mx-auto mb-3 max-md:mb-1">
+            <div className="home-stat">
+              <div className="home-stat-icon">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/images/neta.svg"
-                  alt="NETA"
-                  className="h-[24px] max-md:h-[14px] w-auto max-w-[46px] brightness-0 invert"
-                />
+                <img src="/images/neta.svg" alt="NETA" className="h-[24px] w-auto max-w-[46px] brightness-0 invert" />
               </div>
-              <div className="font-display text-[1.05rem] max-md:text-[.65rem] font-black text-white leading-[1.2] tracking-[.01em] mb-[.35rem] max-md:mb-0">
-                Factory Testing
-              </div>
-              <div className="font-mono text-[.58rem] max-md:text-[.42rem] tracking-[.2em] max-md:tracking-[.08em] uppercase text-white/[.6]">
-                To NETA Standards
-              </div>
+              <div className="home-stat-title">Factory Testing</div>
+              <div className="home-stat-caption">To NETA Standards</div>
             </div>
+
+            {/* Always available */}
+            <a className="home-stat home-stat-call" href="tel:+16476162595" aria-label="Call CANDRON 24/7 at +1 (647) 616-2595">
+              <div className="home-stat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z" />
+                </svg>
+              </div>
+              <div className="home-stat-title">24/7 Available</div>
+              <div className="home-stat-caption">Just One Call Away</div>
+            </a>
           </div>
         </div>
       </div>
@@ -232,7 +147,7 @@ export default function HomePage() {
             <div className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 w-[11px] h-[11px] rounded-full bg-blue" />
 
             {/* Standards promise pill */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#EEF2FF] border-[1.5px] border-[#93C5FD] rounded-full py-[.35rem] px-[1.35rem] font-mono text-[.8rem] max-md:text-[.65rem] tracking-[.16em] max-md:tracking-[.1em] uppercase text-blue whitespace-nowrap max-md:whitespace-normal max-md:w-[calc(100%-2rem)] text-center max-md:leading-[1.55]">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#EEF2FF] border-[1.5px] border-[#93C5FD] rounded-full py-[.35rem] px-[1.35rem] font-mono text-[1.0625rem] max-md:text-[.875rem] tracking-[.16em] max-md:tracking-[.1em] uppercase text-blue whitespace-nowrap max-md:whitespace-normal max-md:w-[calc(100%-2rem)] text-center max-md:leading-[1.55]">
               Built to Standard. Built to Perform. Built to Last.
             </div>
 
@@ -245,7 +160,6 @@ export default function HomePage() {
                   { src: "/images/csa.png", alt: "CSA Group" },
                   { src: "/images/IEEE.png", alt: "IEEE" },
                   { src: "/images/ugSolutions.png", alt: "UL Solutions" },
-                  { src: "/images/IEC.png", alt: "IEC" },
                 ] as { src: string; alt: string }[]
               ).map(({ src, alt }) => (
                 <div key={alt} className="flex flex-col items-center gap-[.55rem]">
@@ -257,7 +171,7 @@ export default function HomePage() {
                       className="h-7 w-auto max-w-[90px] block object-contain"
                     />
                   </div>
-                  <span className="font-mono text-[.58rem] tracking-[.12em] uppercase text-[#6B7280] font-semibold">
+                  <span className="font-mono text-[.8125rem] tracking-[.12em] uppercase text-[#6B7280] font-semibold">
                     {alt}
                   </span>
                 </div>
@@ -267,52 +181,8 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* PRODUCTS */}
-      <div className="section bg-off">
-        <div className="container">
-          <div className="flex justify-between items-end flex-wrap gap-6 mb-14">
-            <div className="rv">
-              <div className="label">Featured Products</div>
-              <h2>Power Distribution Solutions</h2>
-            </div>
-            <Link href="/products" className="btn btn-outline-blue rv">
-              All Products →
-            </Link>
-          </div>
-          <div className="prod-highlights-all">
-            {featuredProducts.map((p, i) => (
-              <Link
-                key={p.name}
-                href={p.href}
-                aria-label={`View ${p.name}`}
-                className={`prod-card rv${i % 4 ? ` d${(i % 4) + 1}` : ''}`}
-              >
-                <div className="prod-card-img">
-                  <Image
-                    src={p.image}
-                    alt={p.name}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 25vw"
-                  />
-                  <div className="prod-card-overlay"></div>
-                  <div className="prod-card-cat">{p.cat}</div>
-                </div>
-                <div className="prod-card-body">
-                  <div className="prod-name">{p.name}</div>
-                  <div className="prod-type">{p.type}</div>
-                  <ul className="prod-specs">
-                    {p.specs.map(s => <li key={s}>{s}</li>)}
-                  </ul>
-                  <span className="card-link">
-                    {p.href === '/contact' ? 'Request Info →' : 'View Details →'}
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </div>
+      {/* PRODUCTS — animated line-art showcase */}
+      <FeaturedProducts />
 
       {false && (
       <div className="section bg-white">
@@ -329,7 +199,7 @@ export default function HomePage() {
                 <span className="text-blue">Built Better.</span>
               </h2>
               <div className="w-12 h-[3px] bg-blue rounded-[2px] mb-7" />
-              <div className="flex flex-col gap-4 text-gray text-[.95rem] leading-[1.85]">
+              <div className="flex flex-col gap-4 text-gray text-[1.125rem] leading-[1.85]">
                 <p className="m-0">
                   At CANDRON Energy, engineering, manufacturing, assembly, and
                   testing come together under one roof. This integrated approach
@@ -435,7 +305,7 @@ export default function HomePage() {
                     className={`py-4 px-[.6rem] text-center flex flex-col items-center gap-[.4rem] text-blue${i < 3 ? " border-r border-white/[.12]" : ""}`}
                   >
                     {item.icon}
-                    <div className="font-title text-[.58rem] font-semibold text-white leading-[1.4]">
+                    <div className="font-title text-[.8125rem] font-semibold text-white leading-[1.4]">
                       {item.l1}
                       <br />
                       {item.l2}
@@ -577,7 +447,7 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="w-7 h-[2.5px] bg-blue rounded-[2px] mb-[1.1rem]" />
-                <p className="text-gray text-[.88rem] leading-[1.82] m-0">
+                <p className="text-gray text-[1.125rem] leading-[1.82] m-0">
                   {card.desc}
                 </p>
               </div>
@@ -589,6 +459,9 @@ export default function HomePage() {
 
       {/* PROCESS */}
       <ProcessSection />
+
+      {/* PROJECT HIGHLIGHTS — every completed-project case study, gathered from the product and service pages */}
+      <ProjectHighlights />
 
       {/* INDUSTRIES — content-driven height avoids excess whitespace on large displays */}
       <div className="section bg-white home-industries-section h-auto min-h-0 flex flex-col !pt-14 !pb-10 max-md:!pb-12">

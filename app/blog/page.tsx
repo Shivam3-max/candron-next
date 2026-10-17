@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { HeroArt } from '@/components/LineArt'
 
 export const metadata = {
   title: 'Insights & Updates | CANDRON Energy Inc.',
@@ -17,6 +18,7 @@ export default function BlogPage() {
     <>
       <section className="page-hero">
         <div className="page-hero-bg" style={{ background: "linear-gradient(90deg,rgba(5,9,31,.94),rgba(5,9,31,.74)),url('/images/switchgear-facility.jpg') center/cover" }} />
+        <HeroArt kind="plant" />
         <div className="container page-hero-content">
           <div className="breadcrumb"><Link href="/">Home</Link> / <Link href="/resources">Resources</Link> / <span>Blogs</span></div>
           <div className="label label-white">CANDRON Insights</div>
@@ -30,16 +32,16 @@ export default function BlogPage() {
           <div className="grid grid-cols-4 max-lg:grid-cols-2 max-sm:grid-cols-1 gap-5">
             {topics.map(topic => (
               <article key={topic.number} className="bg-white rounded-[16px] border border-[#E3E8F2] p-6">
-                <div className="font-mono text-blue text-[.65rem] tracking-[.14em] font-bold mb-5">{topic.number}</div>
-                <h2 className="font-title text-[1.05rem] mb-3">{topic.title}</h2>
-                <p className="body !text-[.8rem] !leading-[1.7]">{topic.text}</p>
+                <div className="font-mono text-blue text-[.875rem] tracking-[.14em] font-bold mb-5">{topic.number}</div>
+                <h2 className="font-title text-[1.1875rem] mb-3">{topic.title}</h2>
+                <p className="body !text-[1.0625rem] !leading-[1.7]">{topic.text}</p>
               </article>
             ))}
           </div>
           <div className="mt-12 bg-navy rounded-[20px] p-10 max-md:p-7 text-center border border-blue/20">
             <div className="label label-white justify-center">Articles Coming Soon</div>
             <h2 className="text-white mb-4">Stay Connected With CANDRON</h2>
-            <p className="text-white/55 text-[.86rem] leading-[1.75] max-w-[620px] mx-auto mb-7">Subscribe through the footer to receive inventory availability updates, industry insights, and company news as new articles are published.</p>
+            <p className="text-white/[.68] text-[1.0625rem] leading-[1.75] max-w-[620px] mx-auto mb-7">Subscribe through the footer to receive inventory availability updates, industry insights, and company news as new articles are published.</p>
             <Link href="/resources" className="btn btn-outline">Explore Engineering Calculators</Link>
           </div>
         </div>

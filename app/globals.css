@@ -29,7 +29,7 @@
   --color-blue-h: #1A5BFF;
   --color-blue-l: #4D8AFF;
   --color-off:   #F4F6FA;
-  --color-gray:  #6B7A99;
+  --color-gray:  #4F5D7A;
 
   /* Fonts — resolved at runtime from Next.js font CSS vars */
   --font-body:    var(--fb);
@@ -66,7 +66,7 @@
   --blue-l: #4D8AFF;
   --white: #FFFFFF;
   --off: #F4F6FA;
-  --gray: #6B7A99;
+  --gray: #4F5D7A;
   --border: rgba(0, 71, 255, .18);
   --glow: rgba(0, 71, 255, .25)
 }
@@ -183,7 +183,7 @@ header.scrolled.dark-nav .ham span {
 .logo-text {
   font-family: var(--fd);
   font-weight: 900;
-  font-size: .92rem;
+  font-size: 1.125rem;
   letter-spacing: .14em;
   color: var(--navy);
   line-height: 1.15;
@@ -192,7 +192,7 @@ header.scrolled.dark-nav .ham span {
 
 .logo-text span {
   display: block;
-  font-size: .52rem;
+  font-size: .8125rem;
   letter-spacing: .22em;
   font-weight: 400;
   color: var(--gray)
@@ -205,7 +205,7 @@ header.at-top .logo-text {
 
 header.dark-nav .logo-text span,
 header.at-top .logo-text span {
-  color: rgba(255, 255, 255, .45)
+  color: rgba(255, 255, 255, .68)
 }
 
 header.scrolled .logo-text {
@@ -225,7 +225,7 @@ header.scrolled .logo-icon rect {
 }
 
 .footer-logo .logo-text span {
-  color: rgba(255, 255, 255, .4)
+  color: rgba(255, 255, 255, .68)
 }
 
 nav {
@@ -236,7 +236,7 @@ nav {
 
 nav a {
   font-family: var(--ft);
-  font-size: .78rem;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: .06em;
   text-transform: uppercase;
@@ -402,14 +402,14 @@ header.scrolled nav a:not(.nav-mega-item):not(.nav-mega-all):not(.nav-mega-btn):
 .nav-company-label {
   font-family: var(--ft);
   font-weight: 700;
-  font-size: .78rem;
+  font-size: 1rem;
   color: #fff;
   letter-spacing: .02em;
 }
 .nav-company-desc {
   font-family: var(--fm);
-  font-size: .65rem;
-  color: rgba(255,255,255,.42);
+  font-size: .875rem;
+  color: rgba(255,255,255,.68);
   line-height: 1.4;
   margin-top: .1rem;
 }
@@ -478,9 +478,9 @@ header.scrolled nav a:not(.nav-mega-item):not(.nav-mega-all):not(.nav-mega-btn):
   gap: .65rem;
   padding: .75rem .9rem .75rem 1rem;
   text-decoration: none;
-  color: rgba(255, 255, 255, .52);
+  color: rgba(255, 255, 255, .68);
   font-family: var(--ft);
-  font-size: .66rem;
+  font-size: .875rem;
   font-weight: 600;
   letter-spacing: .04em;
   transition: color .12s, background .12s;
@@ -526,7 +526,7 @@ header.scrolled nav a:not(.nav-mega-item):not(.nav-mega-all):not(.nav-mega-btn):
   flex-shrink: 0;
   opacity: 0;
   transition: opacity .12s;
-  color: rgba(255, 255, 255, .5)
+  color: rgba(255, 255, 255, .68)
 }
 
 .nav-mega-item.hov .nav-mega-arrow,
@@ -546,7 +546,7 @@ header.scrolled nav a:not(.nav-mega-item):not(.nav-mega-all):not(.nav-mega-btn):
 
 .nav-mega-all {
   font-family: var(--fm);
-  font-size: .56rem;
+  font-size: .8125rem;
   color: var(--blue) !important;
   text-decoration: none;
   letter-spacing: .14em;
@@ -600,7 +600,7 @@ header.scrolled nav a:not(.nav-mega-item):not(.nav-mega-all):not(.nav-mega-btn):
 .nav-mega-preview-name {
   font-family: var(--ft);
   font-weight: 800;
-  font-size: .82rem;
+  font-size: 1.0625rem;
   color: var(--navy);
   letter-spacing: .06em;
   text-transform: uppercase;
@@ -610,7 +610,7 @@ header.scrolled nav a:not(.nav-mega-item):not(.nav-mega-all):not(.nav-mega-btn):
 
 .nav-mega-preview-sub {
   font-family: var(--fm);
-  font-size: .57rem;
+  font-size: .8125rem;
   color: var(--blue);
   letter-spacing: .06em;
   font-weight: 700;
@@ -620,7 +620,7 @@ header.scrolled nav a:not(.nav-mega-item):not(.nav-mega-all):not(.nav-mega-btn):
 
 .nav-mega-preview-desc {
   color: var(--gray);
-  font-size: .74rem;
+  font-size: 1rem;
   line-height: 1.65;
   margin: 0
 }
@@ -656,7 +656,7 @@ header.scrolled nav a:not(.nav-mega-item):not(.nav-mega-all):not(.nav-mega-btn):
   text-decoration: none;
   color: var(--navy) !important;
   font-family: var(--fm);
-  font-size: .58rem;
+  font-size: .8125rem;
   font-weight: 700;
   letter-spacing: .04em;
   text-transform: uppercase;
@@ -701,7 +701,7 @@ header.scrolled nav a:not(.nav-mega-item):not(.nav-mega-all):not(.nav-mega-btn):
 }
 
 .nav-mega-btn {
-  font-size: .67rem !important;
+  font-size: .9375rem !important;
   padding: .5rem 1.1rem !important;
   letter-spacing: .08em !important;
   box-shadow: none !important;
@@ -764,7 +764,7 @@ header.scrolled .ham span {
   padding: .85rem 2.2rem;
   border-radius: 6px;
   font-family: var(--ft);
-  font-size: .82rem;
+  font-size: 1.0625rem;
   font-weight: 700;
   letter-spacing: .08em;
   text-transform: uppercase;
@@ -810,12 +810,12 @@ header.scrolled .ham span {
 
 .btn-sm {
   padding: .6rem 1.4rem;
-  font-size: .75rem
+  font-size: 1rem
 }
 
 .btn-lg {
   padding: 1.05rem 2.8rem;
-  font-size: .88rem
+  font-size: 1.125rem
 }
 
 /* LAYOUT */
@@ -843,7 +843,7 @@ header.scrolled .ham span {
   align-items: center;
   gap: .65rem;
   font-family: var(--fm);
-  font-size: .95rem;
+  font-size: 1.125rem;
   letter-spacing: .18em;
   text-transform: uppercase;
   color: var(--blue);
@@ -875,34 +875,34 @@ h4 {
 }
 
 h1 {
-  font-size: clamp(2.4rem, 5.5vw, 5.5rem);
+  font-size: clamp(2.52rem, 5.5vw, 5.775rem);
   font-weight: 900
 }
 
 h2 {
-  font-size: clamp(1.9rem, 3.5vw, 3rem);
+  font-size: clamp(1.995rem, 3.5vw, 3.15rem);
   font-weight: 700
 }
 
 h3 {
-  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-size: clamp(1.32rem, 2vw, 1.68rem);
   font-weight: 700
 }
 
 h4 {
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 700
 }
 
 p.lead {
-  font-size: 1.08rem;
+  font-size: 1.1875rem;
   color: var(--gray);
   line-height: 1.85;
   max-width: 600px
 }
 
 p.body {
-  font-size: .95rem;
+  font-size: 1.125rem;
   color: var(--gray);
   line-height: 1.8
 }
@@ -967,8 +967,8 @@ p.body {
   align-items: center;
   gap: .65rem;
   font-family: var(--fm);
-  font-size: .65rem;
-  color: rgba(255, 255, 255, .5);
+  font-size: .875rem;
+  color: rgba(255, 255, 255, .68);
   letter-spacing: .2em;
   text-transform: uppercase;
   margin-bottom: 1.5rem;
@@ -1026,7 +1026,7 @@ canvas#hero-canvas {
   color: #ffffff;
   letter-spacing: -.02em;
   margin-bottom: .8rem;
-  font-size: clamp(2.2rem, 4.5vw, 4rem)
+  font-size: clamp(2.31rem, 4.5vw, 4.2rem)
 }
 
 .hero-home h1 em {
@@ -1039,7 +1039,7 @@ canvas#hero-canvas {
   margin-bottom: .35rem;
   color: #fff;
   font-family: var(--fd);
-  font-size: clamp(2.15rem, 2.9vw, 3rem);
+  font-size: clamp(2.257rem, 2.9vw, 3.15rem);
   font-weight: 900;
   line-height: 1.04;
   letter-spacing: -.02em;
@@ -1058,7 +1058,7 @@ canvas#hero-canvas {
 }
 
 .hero-home .hero-badge {
-  color: rgba(255, 255, 255, .6)
+  color: rgba(255, 255, 255, .68)
 }
 
 .hero-inner {
@@ -1095,7 +1095,7 @@ canvas#hero-canvas {
 
 .hero-cert-badge {
   font-family: var(--fm);
-  font-size: .72rem;
+  font-size: .9375rem;
   font-weight: 700;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -1140,23 +1140,23 @@ canvas#hero-canvas {
 }
 
 .hero-stat-float.bot strong {
-  font-size: 1rem
+  font-size: 1.125rem
 }
 
 .hero-stat-float.bot span {
-  font-size: .55rem
+  font-size: .8125rem
 }
 
 .hero-stat-float strong {
   display: block;
-  font-size: 1.6rem;
+  font-size: 1.76rem;
   font-weight: 900;
   line-height: 1
 }
 
 .hero-stat-float span {
   font-family: var(--ft);
-  font-size: .6rem;
+  font-size: .8125rem;
   letter-spacing: .12em;
   opacity: .85;
   text-transform: uppercase
@@ -1173,7 +1173,7 @@ canvas#hero-canvas {
 
 .trust-lbl {
   font-family: var(--fm);
-  font-size: .72rem;
+  font-size: .9375rem;
   color: rgba(255, 255, 255, .8);
   letter-spacing: .16em;
   text-transform: uppercase;
@@ -1200,7 +1200,7 @@ canvas#hero-canvas {
 
 .trust-item {
   font-family: var(--ft);
-  font-size: .85rem;
+  font-size: 1.0625rem;
   font-weight: 600;
   color: rgba(255, 255, 255, .85);
   letter-spacing: .06em;
@@ -1324,14 +1324,14 @@ canvas#hero-canvas {
 
 .feat-title {
   font-family: var(--ft);
-  font-size: 1.05rem;
+  font-size: 1.1875rem;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: .5rem
 }
 
 .feat-text {
-  font-size: .85rem;
+  font-size: 1.0625rem;
   color: var(--gray);
   line-height: 1.75
 }
@@ -1457,7 +1457,7 @@ canvas#hero-canvas {
 .page-hero h1 {
   color: var(--white);
   margin-bottom: 1rem;
-  font-size: clamp(2rem, 3.4vw, 3.4rem);
+  font-size: clamp(2.1rem, 3.4vw, 3.57rem);
   letter-spacing: -.02em
 }
 
@@ -1467,7 +1467,7 @@ canvas#hero-canvas {
 }
 
 .page-hero .lead {
-  color: rgba(255, 255, 255, .65);
+  color: rgba(255, 255, 255, .68);
   margin-bottom: 0
 }
 
@@ -1547,7 +1547,7 @@ canvas#hero-canvas {
   padding: .75rem 1.25rem;
   border-radius: 8px;
   font-family: var(--fd);
-  font-size: 1.4rem;
+  font-size: 1.54rem;
   font-weight: 900;
   line-height: 1
 }
@@ -1555,7 +1555,7 @@ canvas#hero-canvas {
 .img-badge small {
   display: block;
   font-family: var(--ft);
-  font-size: .65rem;
+  font-size: .875rem;
   letter-spacing: .15em;
   font-weight: 400;
   margin-top: .2rem;
@@ -1618,7 +1618,7 @@ canvas#hero-canvas {
 
 .card-tag {
   font-family: var(--fm);
-  font-size: .6rem;
+  font-size: .8125rem;
   color: var(--blue);
   letter-spacing: .2em;
   text-transform: uppercase;
@@ -1627,14 +1627,14 @@ canvas#hero-canvas {
 
 .card-title {
   font-family: var(--ft);
-  font-size: 1.05rem;
+  font-size: 1.1875rem;
   font-weight: 700;
   margin-bottom: .5rem;
   color: var(--navy)
 }
 
 .card-text {
-  font-size: .85rem;
+  font-size: 1.0625rem;
   color: var(--gray);
   line-height: 1.7
 }
@@ -1644,7 +1644,7 @@ canvas#hero-canvas {
   align-items: center;
   gap: .4rem;
   font-family: var(--ft);
-  font-size: .75rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--blue);
   text-decoration: none;
@@ -1723,7 +1723,7 @@ canvas#hero-canvas {
   padding: .3rem .85rem;
   border-radius: 6px;
   font-family: var(--fm);
-  font-size: .58rem;
+  font-size: .8125rem;
   letter-spacing: .12em;
   text-transform: uppercase;
   border: 1px solid rgba(255, 255, 255, .15)
@@ -1738,7 +1738,7 @@ canvas#hero-canvas {
 
 .prod-name {
   font-family: var(--ft);
-  font-size: 1.15rem;
+  font-size: 1.265rem;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: .35rem
@@ -1746,7 +1746,7 @@ canvas#hero-canvas {
 
 .prod-type {
   font-family: var(--fm);
-  font-size: .65rem;
+  font-size: .875rem;
   color: var(--blue);
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -1763,7 +1763,7 @@ canvas#hero-canvas {
 }
 
 .prod-specs li {
-  font-size: .82rem;
+  font-size: 1.0625rem;
   color: var(--gray);
   display: flex;
   align-items: center;
@@ -1828,14 +1828,14 @@ canvas#hero-canvas {
 
 .ind-name {
   font-family: var(--ft);
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--white);
   margin-bottom: .3rem
 }
 
 .ind-desc {
-  font-size: .78rem;
+  font-size: 1rem;
   color: rgba(255, 255, 255, .7);
   line-height: 1.6;
   max-height: 0;
@@ -1883,14 +1883,14 @@ canvas#hero-canvas {
 
 .svc-body h4 {
   font-family: var(--ft);
-  font-size: .95rem;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: .35rem
 }
 
 .svc-body p {
-  font-size: .83rem;
+  font-size: 1.0625rem;
   color: var(--gray);
   line-height: 1.7
 }
@@ -1905,7 +1905,7 @@ canvas#hero-canvas {
 
 .why-num {
   font-family: var(--fd);
-  font-size: 2.5rem;
+  font-size: 2.625rem;
   font-weight: 900;
   color: rgba(0, 71, 255, .12);
   line-height: 1;
@@ -1914,14 +1914,14 @@ canvas#hero-canvas {
 
 .why-title {
   font-family: var(--ft);
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: .5rem
 }
 
 .why-desc {
-  font-size: .88rem;
+  font-size: 1.125rem;
   color: var(--gray);
   line-height: 1.8
 }
@@ -1957,7 +1957,7 @@ canvas#hero-canvas {
 }
 
 .cta-band p {
-  color: rgba(255, 255, 255, .62);
+  color: rgba(255, 255, 255, .68);
   margin: 0 auto 2.5rem
 }
 
@@ -1999,7 +1999,7 @@ canvas#hero-canvas {
   background: #fff;
   color: var(--navy);
   font-family: var(--fb);
-  font-size: 1rem;
+  font-size: 1.125rem;
   outline: none;
   transition: border-color .2s, box-shadow .2s, background-color .2s
 }
@@ -2036,7 +2036,7 @@ canvas#hero-canvas {
   left: 1rem;
   color: #75819a;
   font-family: var(--fm);
-  font-size: .54rem;
+  font-size: .8125rem;
   font-weight: 700;
   letter-spacing: .13em;
   line-height: 1;
@@ -2080,7 +2080,7 @@ canvas#hero-canvas {
   border-radius: 9px;
   background: #F8FAFD;
   padding-top: 1.25rem;
-  font-size: .82rem
+  font-size: 1.0625rem
 }
 
 .inventory-filter-toggle {
@@ -2094,7 +2094,7 @@ canvas#hero-canvas {
   background: rgba(0, 71, 255, .06);
   color: var(--blue);
   font-family: var(--fm);
-  font-size: .68rem;
+  font-size: .9375rem;
   font-weight: 700;
   letter-spacing: .1em;
   text-transform: uppercase
@@ -2159,12 +2159,12 @@ canvas#hero-canvas {
   padding: .9rem 1.2rem;
   text-align: left;
   border-bottom: 1px solid #E8ECF5;
-  font-size: .85rem
+  font-size: 1.0625rem
 }
 
 .specs-table th {
   font-family: var(--ft);
-  font-size: .72rem;
+  font-size: .9375rem;
   font-weight: 700;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -2178,7 +2178,7 @@ canvas#hero-canvas {
 
 .specs-table td:first-child {
   font-family: var(--fm);
-  font-size: .78rem;
+  font-size: 1rem;
   color: var(--navy);
   font-weight: 600
 }
@@ -2208,7 +2208,7 @@ canvas#hero-canvas {
 
 .form-group label {
   font-family: var(--ft);
-  font-size: .7rem;
+  font-size: .9375rem;
   font-weight: 700;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -2222,7 +2222,7 @@ canvas#hero-canvas {
   border-radius: 8px;
   padding: .8rem 1.1rem;
   font-family: var(--fb);
-  font-size: .9rem;
+  font-size: 1.125rem;
   color: var(--navy);
   outline: none;
   transition: border-color .3s, box-shadow .3s;
@@ -2368,15 +2368,15 @@ canvas#hero-canvas {
 }
 
 .bg-navy p {
-  color: rgba(255, 255, 255, .62)
+  color: rgba(255, 255, 255, .68)
 }
 
 .bg-navy .lead {
-  color: rgba(255, 255, 255, .62)
+  color: rgba(255, 255, 255, .68)
 }
 
 .bg-navy .label {
-  color: rgba(255, 255, 255, .6)
+  color: rgba(255, 255, 255, .68)
 }
 
 .bg-navy .label::before {
@@ -2429,15 +2429,15 @@ canvas#hero-canvas {
   align-items: center;
   gap: .5rem;
   font-family: var(--fm);
-  font-size: .65rem;
+  font-size: .875rem;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, .4);
+  color: rgba(255, 255, 255, .68);
   margin-bottom: 1.25rem
 }
 
 .breadcrumb a {
-  color: rgba(255, 255, 255, .4);
+  color: rgba(255, 255, 255, .68);
   text-decoration: none;
   transition: color .3s;
   cursor: auto
@@ -2448,7 +2448,7 @@ canvas#hero-canvas {
 }
 
 .breadcrumb span {
-  color: rgba(255, 255, 255, .65)
+  color: rgba(255, 255, 255, .68)
 }
 
 .divider {
@@ -2478,7 +2478,7 @@ canvas#hero-canvas {
 
 .ci-lbl {
   font-family: var(--fm);
-  font-size: .62rem;
+  font-size: .875rem;
   color: var(--blue);
   letter-spacing: .18em;
   text-transform: uppercase;
@@ -2487,7 +2487,7 @@ canvas#hero-canvas {
 
 .ci-val {
   font-family: var(--ft);
-  font-size: .95rem;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--navy);
   line-height: 1.4
@@ -2565,9 +2565,9 @@ canvas#hero-canvas {
 
 .mobile-nav-kicker {
   padding: 1.2rem .45rem .65rem;
-  color: rgba(255, 255, 255, .38);
+  color: rgba(255, 255, 255, .68);
   font-family: var(--ft);
-  font-size: .64rem;
+  font-size: .875rem;
   font-weight: 700;
   letter-spacing: .24em;
   text-transform: uppercase
@@ -2609,7 +2609,7 @@ canvas#hero-canvas {
   border-radius: 0;
   background: transparent;
   font-family: var(--fd);
-  font-size: .96rem !important;
+  font-size: 1.125rem !important;
   font-weight: 700;
   color: var(--white);
   text-decoration: none;
@@ -2668,7 +2668,7 @@ canvas#hero-canvas {
   width: 22px;
   height: 22px;
   margin-left: auto;
-  color: rgba(255, 255, 255, .42);
+  color: rgba(255, 255, 255, .68);
   transition: transform .25s ease, color .2s
 }
 
@@ -2730,7 +2730,7 @@ canvas#hero-canvas {
   gap: .65rem;
   min-height: 43px;
   font-family: var(--ft);
-  font-size: .74rem !important;
+  font-size: 1rem !important;
   font-weight: 600;
   color: rgba(255, 255, 255, .68);
   letter-spacing: .025em;
@@ -2754,7 +2754,7 @@ canvas#hero-canvas {
 }
 
 .mobile-products-all {
-  font-size: .72rem !important;
+  font-size: .9375rem !important;
   letter-spacing: .1em;
   text-transform: uppercase;
   opacity: .5;
@@ -2768,7 +2768,7 @@ canvas#hero-canvas {
 }
 
 .mobile-products-item {
-  font-size: .85rem !important;
+  font-size: 1.0625rem !important;
 }
 
 .mobile-products-item.active {
@@ -2841,7 +2841,7 @@ canvas#hero-canvas {
   box-shadow: 0 10px 30px rgba(0, 71, 255, .25);
   color: #fff !important;
   font-family: var(--fd);
-  font-size: .9rem !important;
+  font-size: 1.125rem !important;
   font-weight: 700;
   letter-spacing: .09em;
   text-decoration: none;
@@ -2882,15 +2882,15 @@ canvas#hero-canvas {
 
 .mobile-nav-emergency small {
   margin-bottom: .18rem;
-  color: rgba(255, 255, 255, .48);
+  color: rgba(255, 255, 255, .68);
   font-family: var(--ft);
-  font-size: .67rem;
+  font-size: .9375rem;
   letter-spacing: .06em
 }
 
 .mobile-nav-emergency strong {
   font-family: var(--fd);
-  font-size: .9rem;
+  font-size: 1.125rem;
   letter-spacing: .05em
 }
 
@@ -2900,9 +2900,9 @@ canvas#hero-canvas {
   gap: .65rem;
   padding: .65rem .15rem .1rem;
   border-top: 1px solid rgba(255, 255, 255, .07);
-  color: rgba(255, 255, 255, .43);
+  color: rgba(255, 255, 255, .68);
   font-family: var(--ft);
-  font-size: .64rem;
+  font-size: .875rem;
   font-weight: 600;
   letter-spacing: .055em;
   line-height: 1.4;
@@ -3103,7 +3103,7 @@ canvas#hero-canvas {
   }
 
   h1 {
-    font-size: 2.2rem
+    font-size: 2.31rem
   }
 
   .prod-highlights {
@@ -3168,7 +3168,7 @@ canvas#hero-canvas {
   padding: .35rem .85rem;
   border-radius: 4px;
   font-family: var(--fm);
-  font-size: .65rem;
+  font-size: .875rem;
   letter-spacing: .12em;
   text-transform: uppercase
 }
@@ -3185,7 +3185,7 @@ canvas#hero-canvas {
   display: flex;
   align-items: flex-start;
   gap: .75rem;
-  font-size: .9rem;
+  font-size: 1.125rem;
   color: var(--gray);
   line-height: 1.6
 }
@@ -3211,7 +3211,7 @@ canvas#hero-canvas {
 
 .product-nav a {
   font-family: var(--ft);
-  font-size: .78rem;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: .06em;
   text-transform: uppercase;
@@ -3257,7 +3257,7 @@ canvas#hero-canvas {
 
 .app-name {
   font-family: var(--ft);
-  font-size: .88rem;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--navy)
 }
@@ -3274,13 +3274,13 @@ canvas#hero-canvas {
 
 .rental-banner h3 {
   color: var(--white);
-  font-size: 1.5rem;
+  font-size: 1.65rem;
   margin-bottom: .5rem
 }
 
 .rental-banner p {
   color: rgba(255, 255, 255, .75);
-  font-size: .9rem
+  font-size: 1.125rem
 }
 
 @media(max-width:1024px) {
@@ -3347,7 +3347,7 @@ canvas#hero-canvas {
 
 .svc-num {
   font-family: var(--fd);
-  font-size: 3.5rem;
+  font-size: 3.675rem;
   font-weight: 900;
   color: rgba(0, 71, 255, .08);
   line-height: 1;
@@ -3355,12 +3355,12 @@ canvas#hero-canvas {
 }
 
 .svc-big-body.dark .svc-num {
-  color: rgba(255, 255, 255, .05)
+  color: rgba(255, 255, 255, .68)
 }
 
 .svc-big-title {
   font-family: var(--ft);
-  font-size: 1.4rem;
+  font-size: 1.54rem;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: .75rem
@@ -3371,14 +3371,14 @@ canvas#hero-canvas {
 }
 
 .svc-big-text {
-  font-size: .9rem;
+  font-size: 1.125rem;
   color: var(--gray);
   line-height: 1.8;
   margin-bottom: 1.5rem
 }
 
 .svc-big-body.dark .svc-big-text {
-  color: rgba(255, 255, 255, .55)
+  color: rgba(255, 255, 255, .68)
 }
 
 .svc-points {
@@ -3390,7 +3390,7 @@ canvas#hero-canvas {
 }
 
 .svc-points li {
-  font-size: .84rem;
+  font-size: 1.0625rem;
   color: var(--gray);
   display: flex;
   gap: .65rem;
@@ -3409,7 +3409,7 @@ canvas#hero-canvas {
 }
 
 .svc-big-body.dark .svc-points li {
-  color: rgba(255, 255, 255, .55)
+  color: rgba(255, 255, 255, .68)
 }
 
 .process-steps {
@@ -3459,7 +3459,7 @@ canvas#hero-canvas {
 }
 
 .ps-desc-dark {
-  color: rgba(255, 255, 255, .4)
+  color: rgba(255, 255, 255, .68)
 }
 
 .process-step {
@@ -3479,7 +3479,7 @@ canvas#hero-canvas {
   align-items: center;
   justify-content: center;
   font-family: var(--fd);
-  font-size: .75rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--blue);
   margin: 0 auto 1rem
@@ -3487,14 +3487,14 @@ canvas#hero-canvas {
 
 .ps-title {
   font-family: var(--ft);
-  font-size: .88rem;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: .3rem
 }
 
 .ps-desc {
-  font-size: .75rem;
+  font-size: 1rem;
   color: var(--gray);
   line-height: 1.6
 }
@@ -3515,14 +3515,14 @@ canvas#hero-canvas {
 
 .cert-name {
   font-family: var(--fd);
-  font-size: .88rem;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--blue);
   margin-bottom: .4rem
 }
 
 .cert-desc {
-  font-size: .75rem;
+  font-size: 1rem;
   color: var(--gray);
   line-height: 1.6
 }
@@ -3543,14 +3543,14 @@ canvas#hero-canvas {
 
 .emergency-bar h3 {
   font-family: var(--fd);
-  font-size: 1.8rem;
+  font-size: 1.89rem;
   color: var(--white);
   margin-bottom: .5rem
 }
 
 .emergency-bar p {
   color: rgba(255, 255, 255, .75);
-  font-size: .9rem
+  font-size: 1.125rem
 }
 
 @media(max-width:1024px) {
@@ -3659,7 +3659,7 @@ canvas#hero-canvas {
 .ind-kpi strong {
   display: block;
   font-family: var(--fd);
-  font-size: 1.4rem;
+  font-size: 1.54rem;
   font-weight: 900;
   color: var(--blue);
   line-height: 1
@@ -3667,7 +3667,7 @@ canvas#hero-canvas {
 
 .ind-kpi span {
   font-family: var(--ft);
-  font-size: .7rem;
+  font-size: .9375rem;
   color: var(--gray);
   letter-spacing: .1em;
   text-transform: uppercase
@@ -3687,7 +3687,7 @@ canvas#hero-canvas {
   padding: .3rem .9rem;
   border-radius: 4px;
   font-family: var(--fm);
-  font-size: .63rem;
+  font-size: .875rem;
   letter-spacing: .1em;
   text-transform: uppercase
 }
@@ -3795,7 +3795,7 @@ canvas#hero-canvas {
 
 .tl-year {
   font-family: var(--fd);
-  font-size: .75rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--blue);
   letter-spacing: .12em;
@@ -3804,21 +3804,21 @@ canvas#hero-canvas {
 
 .tl-title {
   font-family: var(--ft);
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: .35rem
 }
 
 .tl-text {
-  font-size: .85rem;
+  font-size: 1.0625rem;
   color: var(--gray);
   line-height: 1.75
 }
 
 /* Timeline on dark background */
 .wt-section .tl-title { color: var(--white) }
-.wt-section .tl-text  { color: rgba(255,255,255,.48) }
+.wt-section .tl-text  { color: rgba(255,255,255,.68) }
 .wt-section .tl-dot   { border-color: #080E2C }
 .wt-section .timeline::before { background: rgba(0,71,255,.2) }
 
@@ -3868,7 +3868,7 @@ canvas#hero-canvas {
 .team-tag {
   display: inline-block;
   font-family: var(--fm);
-  font-size: .6rem;
+  font-size: .8125rem;
   letter-spacing: .08em;
   text-transform: uppercase;
   background: rgba(0, 71, 255, .07);
@@ -3896,7 +3896,7 @@ canvas#hero-canvas {
 
 .team-name {
   font-family: var(--ft);
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: .2rem
@@ -3904,7 +3904,7 @@ canvas#hero-canvas {
 
 .team-role {
   font-family: var(--fm);
-  font-size: .62rem;
+  font-size: .875rem;
   color: var(--blue);
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -3912,7 +3912,7 @@ canvas#hero-canvas {
 }
 
 .team-bio {
-  font-size: .82rem;
+  font-size: 1.0625rem;
   color: var(--gray);
   line-height: 1.7
 }
@@ -3944,7 +3944,7 @@ canvas#hero-canvas {
 
 .value-num {
   font-family: var(--fd);
-  font-size: 3rem;
+  font-size: 3.15rem;
   font-weight: 900;
   color: rgba(0, 71, 255, .07);
   line-height: 1;
@@ -3953,14 +3953,14 @@ canvas#hero-canvas {
 
 .value-title {
   font-family: var(--ft);
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: .5rem
 }
 
 .value-text {
-  font-size: .85rem;
+  font-size: 1.0625rem;
   color: var(--gray);
   line-height: 1.8
 }
@@ -4017,12 +4017,12 @@ canvas#hero-canvas {
   }
 
   .value-num {
-    font-size: 1.8rem;
+    font-size: 1.89rem;
     margin-bottom: .4rem
   }
 
   .value-title {
-    font-size: .82rem;
+    font-size: 1.0625rem;
     margin-bottom: .35rem
   }
 
@@ -4058,7 +4058,7 @@ canvas#hero-canvas {
 
 .contact-card-title {
   font-family: var(--ft);
-  font-size: .72rem;
+  font-size: .9375rem;
   font-weight: 700;
   letter-spacing: .16em;
   text-transform: uppercase;
@@ -4088,7 +4088,7 @@ canvas#hero-canvas {
 
 .contact-card-label {
   font-family: var(--fm);
-  font-size: .6rem;
+  font-size: .8125rem;
   letter-spacing: .2em;
   text-transform: uppercase;
   color: var(--blue);
@@ -4097,7 +4097,7 @@ canvas#hero-canvas {
 
 .contact-card-val {
   font-family: var(--ft);
-  font-size: .95rem;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--navy);
   text-decoration: none;
@@ -4111,7 +4111,7 @@ canvas#hero-canvas {
 }
 
 .contact-card-sub {
-  font-size: .78rem;
+  font-size: 1rem;
   color: var(--gray);
   line-height: 1.5
 }
@@ -4131,7 +4131,7 @@ canvas#hero-canvas {
 
 .form-group label {
   font-family: var(--ft);
-  font-size: .7rem;
+  font-size: .9375rem;
   font-weight: 700;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -4146,7 +4146,7 @@ canvas#hero-canvas {
   border: 1.5px solid #DDE2EE;
   border-radius: 8px;
   font-family: var(--fb);
-  font-size: .9rem;
+  font-size: 1.125rem;
   color: var(--navy);
   background: var(--white);
   outline: none;
@@ -4187,12 +4187,12 @@ canvas#hero-canvas {
 
 .emergency-card .contact-card-title {
   color: rgba(255, 255, 255, .7);
-  border-bottom-color: rgba(255, 255, 255, .15)
+  border-bottom-color: rgba(255, 255, 255, .68)
 }
 
 .emergency-phone {
   font-family: var(--fd);
-  font-size: 1.6rem;
+  font-size: 1.76rem;
   font-weight: 900;
   color: var(--white);
   letter-spacing: .04em;
@@ -4208,8 +4208,8 @@ canvas#hero-canvas {
 }
 
 .emergency-sub {
-  font-size: .82rem;
-  color: rgba(255, 255, 255, .65)
+  font-size: 1.0625rem;
+  color: rgba(255, 255, 255, .68)
 }
 
 .emergency-badge {
@@ -4221,7 +4221,7 @@ canvas#hero-canvas {
   border-radius: 100px;
   padding: .3rem .85rem;
   font-family: var(--fm);
-  font-size: .62rem;
+  font-size: .875rem;
   color: rgba(255, 255, 255, .8);
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -4246,7 +4246,7 @@ canvas#hero-canvas {
 
 .form-card-title {
   font-family: var(--ft);
-  font-size: .72rem;
+  font-size: .9375rem;
   font-weight: 700;
   letter-spacing: .16em;
   text-transform: uppercase;
@@ -4300,7 +4300,7 @@ canvas#hero-canvas {
   background: var(--navy);
   color: var(--white);
   font-family: var(--ft);
-  font-size: .7rem;
+  font-size: .9375rem;
   font-weight: 700;
   padding: .35rem .75rem;
   border-radius: 4px;
@@ -4331,7 +4331,7 @@ canvas#hero-canvas {
 
 .office-lbl {
   font-family: var(--fm);
-  font-size: .6rem;
+  font-size: .8125rem;
   color: var(--blue);
   letter-spacing: .16em;
   text-transform: uppercase;
@@ -4340,7 +4340,7 @@ canvas#hero-canvas {
 
 .office-val {
   font-family: var(--ft);
-  font-size: .9rem;
+  font-size: 1.125rem;
   font-weight: 600;
   color: var(--navy);
   line-height: 1.4
@@ -4364,7 +4364,7 @@ canvas#hero-canvas {
   border: 1px solid rgba(0, 71, 255, .2);
   border-radius: 8px;
   font-family: var(--ft);
-  font-size: .88rem;
+  font-size: 1.125rem;
   color: var(--blue);
   font-weight: 600;
   text-align: center
@@ -4390,7 +4390,7 @@ canvas#hero-canvas {
   gap: .9rem;
   font-family: var(--fd);
   font-weight: 700;
-  font-size: clamp(1.25rem, 2.3vw, 2.1rem);
+  font-size: clamp(1.375rem, 2.3vw, 2.205rem);
   line-height: 1.2;
   letter-spacing: .01em;
   text-transform: uppercase;
@@ -4426,7 +4426,7 @@ canvas#hero-canvas {
   border-radius: 6px;
   padding: .45rem 1rem;
   font-family: var(--fm);
-  font-size: .6rem;
+  font-size: .8125rem;
   letter-spacing: .22em;
   text-transform: uppercase;
   color: var(--blue);
@@ -4492,14 +4492,14 @@ canvas#hero-canvas {
 
 .why-card-title {
   font-family: var(--ft);
-  font-size: 1.05rem;
+  font-size: 1.1875rem;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: .6rem
 }
 
 .why-card-text {
-  font-size: .85rem;
+  font-size: 1.0625rem;
   color: var(--gray);
   line-height: 1.8
 }
@@ -4613,7 +4613,7 @@ canvas#hero-canvas {
 
 .capability-num {
   font-family: var(--fd);
-  font-size: 2.6rem;
+  font-size: 2.73rem;
   font-weight: 900;
   line-height: 1;
   margin-bottom: .75rem;
@@ -4625,7 +4625,7 @@ canvas#hero-canvas {
 
 .capability-title {
   font-family: var(--ft);
-  font-size: 1.05rem;
+  font-size: 1.1875rem;
   font-weight: 700;
   color: var(--white);
   margin-bottom: .65rem;
@@ -4634,8 +4634,8 @@ canvas#hero-canvas {
 }
 
 .capability-text {
-  font-size: .83rem;
-  color: rgba(255, 255, 255, .62);
+  font-size: 1.0625rem;
+  color: rgba(255, 255, 255, .68);
   line-height: 1.75
 }
 
@@ -4674,8 +4674,8 @@ canvas#hero-canvas {
 }
 
 .mq-lead {
-  color: rgba(255,255,255,.55);
-  font-size: .95rem;
+  color: rgba(255,255,255,.68);
+  font-size: 1.125rem;
   line-height: 1.75;
   max-width: 480px;
   margin: 0
@@ -4728,7 +4728,7 @@ img[src$="/ansi-logo.svg"] {
 
 .standard-name {
   font-family: var(--fm);
-  font-size: .6rem;
+  font-size: .8125rem;
   font-weight: 700;
   color: var(--navy);
   letter-spacing: .18em;
@@ -4737,7 +4737,7 @@ img[src$="/ansi-logo.svg"] {
 }
 
 .standard-desc {
-  font-size: .72rem;
+  font-size: .9375rem;
   color: var(--gray);
   line-height: 1.6;
   margin: 0
@@ -4781,14 +4781,14 @@ img[src$="/ansi-logo.svg"] {
 .cap-heading {
   color: #fff;
   font-weight: 900;
-  font-size: clamp(1.9rem, 2.6vw, 2.7rem);
+  font-size: clamp(1.995rem, 2.6vw, 2.835rem);
   line-height: 1.08;
   margin: .85rem 0 1.1rem
 }
 
 .cap-sub {
   font-family: var(--fm);
-  font-size: .85rem;
+  font-size: 1.0625rem;
   color: #ffffff9e;
   line-height: 1.75;
   margin-bottom: 1.4rem
@@ -4808,8 +4808,8 @@ img[src$="/ansi-logo.svg"] {
   align-items: flex-start;
   gap: .6rem;
   font-family: var(--fm);
-  font-size: .78rem;
-  color: rgba(255, 255, 255, .6);
+  font-size: 1rem;
+  color: rgba(255, 255, 255, .68);
   line-height: 1.5
 }
 
@@ -4859,7 +4859,7 @@ img[src$="/ansi-logo.svg"] {
   justify-content: center;
   font-family: var(--fd);
   font-weight: 900;
-  font-size: .6rem;
+  font-size: .8125rem;
   letter-spacing: .04em;
   color: rgba(0, 71, 255, .75);
   transition: background .3s, color .3s, border-color .3s, box-shadow .3s
@@ -4881,14 +4881,14 @@ img[src$="/ansi-logo.svg"] {
   font-family: var(--fd);
   font-weight: 700;
   color: #fff;
-  font-size: .8rem;
+  font-size: 1.0625rem;
   line-height: 1.3
 }
 
 .cap-desc {
   font-family: var(--fm);
   color: #ffffff9e;
-  font-size: .7rem;
+  font-size: .9375rem;
   line-height: 1.65
 }
 
@@ -4930,14 +4930,14 @@ img[src$="/ansi-logo.svg"] {
   font-family: var(--fd);
   font-weight: 800;
   color: #fff;
-  font-size: .92rem;
+  font-size: 1.125rem;
   margin-bottom: .3rem
 }
 
 .cap-cta-sub {
   font-family: var(--fm);
-  font-size: .76rem;
-  color: rgba(255, 255, 255, .42);
+  font-size: 1rem;
+  color: rgba(255, 255, 255, .68);
   line-height: 1.6
 }
 
@@ -4960,7 +4960,7 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .cap-heading {
-    font-size: clamp(1.8rem, 5vw, 2.4rem)
+    font-size: clamp(1.89rem, 5vw, 2.52rem)
   }
 
   .cap-cta-strip {
@@ -4988,15 +4988,15 @@ img[src$="/ansi-logo.svg"] {
   .cap-dot {
     width: 28px;
     height: 28px;
-    font-size: .5rem
+    font-size: .8125rem
   }
 
   .cap-title {
-    font-size: .68rem
+    font-size: .9375rem
   }
 
   .cap-desc {
-    font-size: .6rem;
+    font-size: .8125rem;
     line-height: 1.5
   }
 
@@ -5039,7 +5039,7 @@ img[src$="/ansi-logo.svg"] {
   padding: 1rem 3rem 1rem 1rem;
   color: var(--navy);
   font-family: var(--font-title), sans-serif;
-  font-size: .78rem;
+  font-size: 1rem;
   font-weight: 800;
   letter-spacing: .04em;
   list-style: none
@@ -5080,7 +5080,7 @@ img[src$="/ansi-logo.svg"] {
   padding: 1rem;
   color: var(--gray);
   font-family: var(--font-mono), monospace;
-  font-size: .72rem;
+  font-size: .9375rem;
   line-height: 1.65;
   white-space: pre
 }
@@ -5091,7 +5091,7 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .catalog-description-copy .body {
-    font-size: .92rem;
+    font-size: 1.125rem;
     line-height: 1.7
   }
 
@@ -5215,7 +5215,7 @@ img[src$="/ansi-logo.svg"] {
   max-width: 780px;
   margin-bottom: 1.15rem;
   font-family: var(--fb);
-  font-size: clamp(2.75rem, 3.3vw, 3.55rem);
+  font-size: clamp(2.888rem, 3.3vw, 3.728rem);
   font-weight: 700;
   line-height: .96;
   letter-spacing: -.052em;
@@ -5236,7 +5236,7 @@ img[src$="/ansi-logo.svg"] {
   padding: 0;
   border: 0;
   font-family: var(--fb);
-  font-size: clamp(1.35rem, 1.55vw, 1.65rem);
+  font-size: clamp(1.485rem, 1.55vw, 1.732rem);
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: -.025em
@@ -5255,18 +5255,18 @@ img[src$="/ansi-logo.svg"] {
 @media(max-width:1024px) {
   .hero-home .hero-made-title {
     max-width: 680px;
-    font-size: clamp(2.35rem, 5.6vw, 3.15rem)
+    font-size: clamp(2.468rem, 5.6vw, 3.308rem)
   }
 
   .hero-home .hero-delivery-line {
-    font-size: clamp(1.2rem, 2.7vw, 1.45rem)
+    font-size: clamp(1.32rem, 2.7vw, 1.595rem)
   }
 }
 
 @media(max-width:640px) {
   .hero-home .hero-made-title {
     margin-bottom: .9rem;
-    font-size: clamp(2rem, 10.2vw, 2.75rem);
+    font-size: clamp(2.1rem, 10.2vw, 2.888rem);
     line-height: .98;
     letter-spacing: -.045em
   }
@@ -5274,7 +5274,7 @@ img[src$="/ansi-logo.svg"] {
   .hero-home .hero-delivery-line {
     gap: .08em .24em;
     margin-bottom: .9rem;
-    font-size: clamp(1.05rem, 4.8vw, 1.25rem);
+    font-size: clamp(1.1875rem, 4.8vw, 1.375rem);
     line-height: 1.35
   }
 }
@@ -5338,13 +5338,13 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .product-type-accordion-summary > div:first-child {
-    font-size: .84rem;
+    font-size: 1.0625rem;
     line-height: 1.3
   }
 
   .product-type-accordion-summary > div:last-child {
     margin-top: .3rem;
-    font-size: .55rem;
+    font-size: .8125rem;
     line-height: 1.45;
     letter-spacing: .05em;
     overflow-wrap: anywhere
@@ -5363,7 +5363,7 @@ img[src$="/ansi-logo.svg"] {
   .product-type-accordion-badges span {
     flex: 1 1 130px;
     padding: .35rem .5rem !important;
-    font-size: .5rem !important;
+    font-size: .8125rem !important;
     line-height: 1.4;
     white-space: normal !important
   }
@@ -5461,7 +5461,7 @@ img[src$="/ansi-logo.svg"] {
   }
 
   nav a {
-    font-size: .82rem
+    font-size: 1.0625rem
   }
 
   .nav-cta {
@@ -5484,20 +5484,20 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .hero-home h1 {
-    font-size: clamp(3.8rem, 4.2vw, 5rem);
+    font-size: clamp(3.99rem, 4.2vw, 5.25rem);
     line-height: 1.04;
     margin-bottom: 1.1rem
   }
 
   .hero-home .lead {
     max-width: 680px;
-    font-size: 1.08rem;
+    font-size: 1.1875rem;
     line-height: 1.8;
     margin-bottom: 1.45rem
   }
 
   .hero-eyebrow {
-    font-size: 1rem;
+    font-size: 1.125rem;
     margin-bottom: 1.25rem
   }
 
@@ -5524,7 +5524,7 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .hero-stat-float strong {
-    font-size: 1.75rem
+    font-size: 1.838rem
   }
 
   .hero-cert-strip {
@@ -5533,7 +5533,7 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .hero-cert-badge {
-    font-size: .74rem;
+    font-size: 1rem;
     padding: .4rem .85rem
   }
 
@@ -5590,12 +5590,12 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .hero-home h1 {
-    font-size: clamp(4.6rem, 3.8vw, 5.8rem)
+    font-size: clamp(4.83rem, 3.8vw, 6.09rem)
   }
 
   .hero-home .lead {
     max-width: 760px;
-    font-size: 1.15rem
+    font-size: 1.265rem
   }
 
   .hero-visual-img {
@@ -5614,7 +5614,7 @@ img[src$="/ansi-logo.svg"] {
   width: 100%;
   max-width: none;
   margin-bottom: clamp(1.25rem, 2.2vh, 2rem);
-  font-size: clamp(2.7rem, 3.6vw, 3.65rem);
+  font-size: clamp(2.835rem, 3.6vw, 3.833rem);
   line-height: 1.08;
   letter-spacing: -.025em;
   align-items: center
@@ -5630,56 +5630,56 @@ img[src$="/ansi-logo.svg"] {
 }
 
 .hero-home h1 {
-  font-size: clamp(2.15rem, 2.9vw, 3rem);
+  font-size: clamp(2.257rem, 2.9vw, 3.15rem);
   line-height: 1.04
 }
 
 @media (min-width: 1600px) {
   .hero-made-title {
-    font-size: clamp(2.8rem, 2.8vw, 3.5rem)
+    font-size: clamp(2.94rem, 2.8vw, 3.675rem)
   }
 
   .hero-eyebrow-primary {
-    font-size: clamp(3.8rem, 4vw, 4.6rem)
+    font-size: clamp(3.99rem, 4vw, 4.83rem)
   }
 
   .hero-home h1 {
-    font-size: clamp(2.8rem, 2.8vw, 3.5rem)
+    font-size: clamp(2.94rem, 2.8vw, 3.675rem)
   }
 }
 
 @media (min-width: 2200px) {
   .hero-made-title {
-    font-size: clamp(3.2rem, 2.4vw, 4rem)
+    font-size: clamp(3.36rem, 2.4vw, 4.2rem)
   }
 
   .hero-eyebrow-primary {
-    font-size: clamp(4.6rem, 3.6vw, 5.4rem)
+    font-size: clamp(4.83rem, 3.6vw, 5.67rem)
   }
 
   .hero-home h1 {
-    font-size: clamp(3.2rem, 2.4vw, 4rem)
+    font-size: clamp(3.36rem, 2.4vw, 4.2rem)
   }
 }
 
 @media (max-width: 1024px) {
   .hero-made-title {
     max-width: 680px;
-    font-size: clamp(1.65rem, 4.8vw, 2.35rem)
+    font-size: clamp(1.732rem, 4.8vw, 2.468rem)
   }
 
   .hero-eyebrow-primary {
-    font-size: clamp(2rem, 6vw, 3rem)
+    font-size: clamp(2.1rem, 6vw, 3.15rem)
   }
 
   .hero-home h1 {
-    font-size: clamp(1.65rem, 4.8vw, 2.35rem)
+    font-size: clamp(1.732rem, 4.8vw, 2.468rem)
   }
 }
 
 @media (max-width: 640px) {
   .hero-made-title {
-    font-size: clamp(1.35rem, 5.4vw, 1.8rem);
+    font-size: clamp(1.485rem, 5.4vw, 1.89rem);
     line-height: 1.08;
     margin-bottom: .35rem
   }
@@ -5690,12 +5690,12 @@ img[src$="/ansi-logo.svg"] {
 
   .hero-eyebrow-primary {
     align-items: flex-start;
-    font-size: clamp(1.65rem, 7vw, 2.25rem);
+    font-size: clamp(1.732rem, 7vw, 2.363rem);
     margin-bottom: 1.25rem
   }
 
   .hero-home h1 {
-    font-size: clamp(1.35rem, 5.4vw, 1.8rem)
+    font-size: clamp(1.485rem, 5.4vw, 1.89rem)
   }
 }
 
@@ -5832,7 +5832,7 @@ img[src$="/ansi-logo.svg"] {
   align-items: center;
   justify-content: center;
   font-family: var(--fd);
-  font-size: .7rem;
+  font-size: .9375rem;
   font-weight: 700;
   color: var(--blue);
   flex-shrink: 0;
@@ -5842,7 +5842,7 @@ img[src$="/ansi-logo.svg"] {
 .process-v--dark .process-v-dot {
   background: rgba(0,71,255,.08);
   border-color: rgba(0,71,255,.35);
-  color: rgba(255,255,255,.5)
+  color: rgba(255,255,255,.68)
 }
 
 .process-v-dot.active {
@@ -5854,7 +5854,7 @@ img[src$="/ansi-logo.svg"] {
 
 .process-v-title {
   font-family: var(--ft);
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.2;
   color: var(--navy);
@@ -5863,7 +5863,7 @@ img[src$="/ansi-logo.svg"] {
 }
 
 .process-v-text {
-  font-size: .85rem;
+  font-size: 1.0625rem;
   color: var(--gray);
   line-height: 1.75
 }
@@ -5884,14 +5884,14 @@ img[src$="/ansi-logo.svg"] {
 
 .commission-title {
   font-family: var(--ft);
-  font-size: .95rem;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: .4rem
 }
 
 .commission-text {
-  font-size: .82rem;
+  font-size: 1.0625rem;
   color: var(--gray);
   line-height: 1.7
 }
@@ -5906,7 +5906,7 @@ img[src$="/ansi-logo.svg"] {
 
 .product-standard {
   font-family: var(--fd);
-  font-size: .6rem;
+  font-size: .8125rem;
   font-weight: 700;
   color: var(--blue);
   border: 1.5px solid var(--blue);
@@ -5931,7 +5931,7 @@ img[src$="/ansi-logo.svg"] {
   padding: .3rem .9rem;
   border-radius: 4px;
   font-family: var(--ft);
-  font-size: .7rem;
+  font-size: .9375rem;
   font-weight: 600;
   letter-spacing: .05em;
   text-transform: uppercase
@@ -5962,7 +5962,7 @@ img[src$="/ansi-logo.svg"] {
 }
 
 .feat-item-dark .feat-text {
-  color: rgba(255, 255, 255, .45)
+  color: rgba(255, 255, 255, .68)
 }
 
 /* Metric showcase */
@@ -5983,7 +5983,7 @@ img[src$="/ansi-logo.svg"] {
 
 .metric-val {
   font-family: var(--fd);
-  font-size: 1.6rem;
+  font-size: 1.76rem;
   font-weight: 900;
   color: var(--blue);
   line-height: 1;
@@ -5992,7 +5992,7 @@ img[src$="/ansi-logo.svg"] {
 
 .metric-lbl {
   font-family: var(--ft);
-  font-size: .65rem;
+  font-size: .875rem;
   color: var(--gray);
   letter-spacing: .12em;
   text-transform: uppercase
@@ -6010,13 +6010,13 @@ img[src$="/ansi-logo.svg"] {
 
 .sticky-cta h4 {
   color: var(--white);
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   margin-bottom: .75rem
 }
 
 .sticky-cta p {
-  color: rgba(255, 255, 255, .5);
-  font-size: .82rem;
+  color: rgba(255, 255, 255, .68);
+  font-size: 1.0625rem;
   line-height: 1.7;
   margin-bottom: 1.5rem
 }
@@ -6042,7 +6042,7 @@ img[src$="/ansi-logo.svg"] {
   display: flex;
   align-items: flex-start;
   gap: .85rem;
-  font-size: .88rem;
+  font-size: 1.125rem;
   color: var(--gray);
   line-height: 1.6
 }
@@ -6074,7 +6074,7 @@ img[src$="/ansi-logo.svg"] {
 
 .prod-nav-v2 a {
   font-family: var(--ft);
-  font-size: .75rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: .08em;
   text-transform: uppercase;
@@ -6096,7 +6096,7 @@ img[src$="/ansi-logo.svg"] {
 
 .prod-nav-v2 button {
   font-family: var(--ft);
-  font-size: .75rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: .08em;
   text-transform: uppercase;
@@ -6177,7 +6177,7 @@ img[src$="/ansi-logo.svg"] {
 
 .stat-float-glass strong {
   font-family: var(--fd);
-  font-size: 1.5rem;
+  font-size: 1.65rem;
   font-weight: 900;
   color: var(--blue);
   line-height: 1;
@@ -6186,7 +6186,7 @@ img[src$="/ansi-logo.svg"] {
 
 .stat-float-glass span {
   font-family: var(--ft);
-  font-size: .6rem;
+  font-size: .8125rem;
   color: var(--gray);
   letter-spacing: .12em;
   text-transform: uppercase;
@@ -6235,8 +6235,8 @@ img[src$="/ansi-logo.svg"] {
 }
 
 .proc-intro {
-  color: rgba(255,255,255,.52);
-  font-size: .95rem;
+  color: rgba(255,255,255,.68);
+  font-size: 1.125rem;
   line-height: 1.78;
   margin: 0
 }
@@ -6292,7 +6292,7 @@ img[src$="/ansi-logo.svg"] {
 
 .proc-step-num {
   font-family: var(--fm);
-  font-size: .55rem;
+  font-size: .8125rem;
   font-weight: 800;
   color: var(--blue);
   letter-spacing: .08em;
@@ -6310,7 +6310,7 @@ img[src$="/ansi-logo.svg"] {
 
 .proc-step-text {
   font-family: var(--ft);
-  font-size: .88rem;
+  font-size: 1.125rem;
   color: rgba(255,255,255,.7);
   line-height: 1.5;
   padding-top: 5px
@@ -6357,7 +6357,7 @@ img[src$="/ansi-logo.svg"] {
 
 .proc-metric-val {
   font-family: var(--fd);
-  font-size: 1.7rem;
+  font-size: 1.785rem;
   font-weight: 900;
   color: var(--blue);
   line-height: 1;
@@ -6366,17 +6366,17 @@ img[src$="/ansi-logo.svg"] {
 
 .proc-metric-lbl {
   font-family: var(--fm);
-  font-size: .54rem;
+  font-size: .8125rem;
   font-weight: 700;
-  color: rgba(255,255,255,.32);
+  color: rgba(255,255,255,.68);
   letter-spacing: .18em;
   text-transform: uppercase;
   margin-bottom: .65rem
 }
 
 .proc-metric-sub {
-  font-size: .78rem;
-  color: rgba(255,255,255,.48);
+  font-size: 1rem;
+  color: rgba(255,255,255,.68);
   line-height: 1.55;
   margin: 0
 }
@@ -6399,13 +6399,13 @@ img[src$="/ansi-logo.svg"] {
 .val-img-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,9,31,.75) 0%, transparent 55%); pointer-events: none }
 .val-img-badge { position: absolute; bottom: 1.5rem; left: 1.5rem; right: 1.5rem; display: flex; align-items: center; gap: .85rem; background: rgba(5,9,31,.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,.1); border-radius: 10px; padding: .85rem 1.1rem }
 .val-img-badge-icon { width: 36px; height: 36px; background: rgba(0,71,255,.25); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--blue) }
-.val-img-badge-text strong { display: block; font-family: var(--fd); font-size: .85rem; font-weight: 700; color: #fff }
-.val-img-badge-text span { font-size: .75rem; color: rgba(255,255,255,.55) }
+.val-img-badge-text strong { display: block; font-family: var(--fd); font-size: 1.0625rem; font-weight: 700; color: #fff }
+.val-img-badge-text span { font-size: 1rem; color: rgba(255,255,255,.68) }
 .val-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem }
 .val-stat { background: #080E2C; border: 1px solid rgba(0,71,255,.2); border-radius: 12px; padding: 1.4rem 1.2rem; text-align: center; transition: border-color .25s }
 .val-stat:hover { border-color: rgba(0,71,255,.45) }
-.val-stat-num { font-family: var(--fd); font-size: 1.25rem; font-weight: 900; color: var(--blue); line-height: 1 }
-.val-stat-lbl { font-family: var(--ft); font-size: .62rem; color: rgba(255,255,255,.42); letter-spacing: .1em; text-transform: uppercase; margin-top: .4rem }
+.val-stat-num { font-family: var(--fd); font-size: 1.375rem; font-weight: 900; color: var(--blue); line-height: 1 }
+.val-stat-lbl { font-family: var(--ft); font-size: .875rem; color: rgba(255,255,255,.68); letter-spacing: .1em; text-transform: uppercase; margin-top: .4rem }
 
 /* ── What We Test section ──────────────────────── */
 .wt-section {
@@ -6449,8 +6449,8 @@ img[src$="/ansi-logo.svg"] {
   flex-wrap: wrap
 }
 .wt-intro {
-  color: rgba(255,255,255,.52);
-  font-size: .95rem;
+  color: rgba(255,255,255,.68);
+  font-size: 1.125rem;
   line-height: 1.75;
   margin: 0;
   max-width: 480px
@@ -6494,7 +6494,7 @@ img[src$="/ansi-logo.svg"] {
 }
 .wt-num {
   font-family: var(--fm);
-  font-size: .52rem;
+  font-size: .8125rem;
   font-weight: 800;
   color: var(--blue);
   letter-spacing: .1em;
@@ -6519,15 +6519,15 @@ img[src$="/ansi-logo.svg"] {
 }
 .wt-title {
   font-family: var(--fd);
-  font-size: .92rem;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--white);
   margin-bottom: .6rem;
   letter-spacing: -.01em
 }
 .wt-desc {
-  font-size: .8rem;
-  color: rgba(255,255,255,.52);
+  font-size: 1.0625rem;
+  color: rgba(255,255,255,.68);
   line-height: 1.72;
   margin: 0
 }
@@ -6657,12 +6657,12 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .capability-num {
-    font-size: 1.4rem;
+    font-size: 1.54rem;
     margin-bottom: .3rem
   }
 
   .capability-title {
-    font-size: .72rem;
+    font-size: .9375rem;
     margin-bottom: 0;
     padding-bottom: 0;
     border-bottom: none
@@ -6703,13 +6703,13 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .about-facility-stat-value {
-    font-size: clamp(1.15rem, 6vw, 1.65rem);
+    font-size: clamp(1.265rem, 6vw, 1.732rem);
     line-height: 1.05;
     overflow-wrap: anywhere
   }
 
   .about-facility-stat-label {
-    font-size: .62rem;
+    font-size: .875rem;
     line-height: 1.55;
     letter-spacing: .07em
   }
@@ -6717,7 +6717,7 @@ img[src$="/ansi-logo.svg"] {
   .about-cta-title {
     max-width: 100%;
     padding-inline: .25rem;
-    font-size: clamp(1.7rem, 8.5vw, 2.35rem);
+    font-size: clamp(1.785rem, 8.5vw, 2.468rem);
     line-height: 1.08
   }
 
@@ -6745,7 +6745,7 @@ img[src$="/ansi-logo.svg"] {
   align-items: center;
   padding: .9rem 1.25rem;
   font-family: var(--fm);
-  font-size: .72rem;
+  font-size: .9375rem;
   font-weight: 700;
   letter-spacing: .08em;
   text-transform: uppercase;
@@ -6817,7 +6817,7 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .page-hero-content h1 {
-    font-size: clamp(1.8rem, 8vw, 2.6rem)
+    font-size: clamp(1.89rem, 8vw, 2.73rem)
   }
 
   /* Splits */
@@ -7019,7 +7019,7 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .commission-title {
-    font-size: .82rem
+    font-size: 1.0625rem
   }
 
   .commission-text {
@@ -7050,7 +7050,7 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .process-v-dot {
-    font-size: .65rem
+    font-size: .875rem
   }
 
   .commission-process-grid {
@@ -7072,11 +7072,11 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .cta-band h2 {
-    font-size: clamp(1.6rem, 4vw, 2.5rem)
+    font-size: clamp(1.68rem, 4vw, 2.625rem)
   }
 
   .cta-band .lead {
-    font-size: .95rem
+    font-size: 1.125rem
   }
 
   /* Footer */
@@ -7275,25 +7275,25 @@ img[src$="/ansi-logo.svg"] {
   }
 
   h1 {
-    font-size: clamp(1.8rem, 8vw, 2.6rem);
+    font-size: clamp(1.89rem, 8vw, 2.73rem);
     line-height: 1.15
   }
 
   h2 {
-    font-size: clamp(1.4rem, 6vw, 2rem)
+    font-size: clamp(1.54rem, 6vw, 2.1rem)
   }
 
   p.lead {
-    font-size: .95rem
+    font-size: 1.125rem
   }
 
   .label {
-    font-size: .75rem;
+    font-size: 1rem;
     letter-spacing: .14em
   }
 
   .hero-eyebrow {
-    font-size: 1.05rem;
+    font-size: 1.1875rem;
     gap: .6rem
   }
 
@@ -7302,11 +7302,11 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .trust-lbl {
-    font-size: .58rem
+    font-size: .8125rem
   }
 
   .trust-item {
-    font-size: .65rem;
+    font-size: .875rem;
     padding: 0 .7rem
   }
 
@@ -7388,7 +7388,7 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .hero-home h1 {
-    font-size: clamp(1.8rem, 8vw, 2.6rem)
+    font-size: clamp(1.89rem, 8vw, 2.73rem)
   }
 
   .hero-btns {
@@ -7408,7 +7408,7 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .page-hero-content h1 {
-    font-size: 1.65rem
+    font-size: 1.732rem
   }
 
   .breadcrumb {
@@ -7425,12 +7425,12 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .stat-num {
-    font-size: 1.2rem;
+    font-size: 1.32rem;
     word-break: break-word
   }
 
   .stat-lbl {
-    font-size: .62rem
+    font-size: .875rem
   }
 
   /* Cards */
@@ -7461,13 +7461,13 @@ img[src$="/ansi-logo.svg"] {
 
   .prod-nav-v2 a,
   .prod-nav-v2 button {
-    font-size: .65rem;
+    font-size: .875rem;
     padding: .5rem 1rem
   }
 
   /* Products page inline grids */
   .specs-table {
-    font-size: .8rem
+    font-size: 1.0625rem
   }
 
   .specs-table td {
@@ -7511,11 +7511,11 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .cert-name {
-    font-size: .75rem
+    font-size: 1rem
   }
 
   .cert-desc {
-    font-size: .65rem
+    font-size: .875rem
   }
 
   .emergency-bar {
@@ -7525,7 +7525,7 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .emergency-bar h3 {
-    font-size: 1.2rem
+    font-size: 1.32rem
   }
 
   .svc-big-body {
@@ -7533,11 +7533,11 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .svc-big-title {
-    font-size: 1.15rem
+    font-size: 1.265rem
   }
 
   .svc-big-text {
-    font-size: .88rem
+    font-size: 1.125rem
   }
 
   /* Services alert bar — wraps on tiny screens */
@@ -7594,11 +7594,11 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .why-card-title {
-    font-size: .82rem
+    font-size: 1.0625rem
   }
 
   .why-card-text {
-    font-size: .75rem
+    font-size: 1rem
   }
 
   .standard-grid {
@@ -7616,7 +7616,7 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .metric-val {
-    font-size: 1.2rem
+    font-size: 1.32rem
   }
 
   .process-steps {
@@ -7633,7 +7633,7 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .process-v-dot {
-    font-size: .6rem
+    font-size: .8125rem
   }
 
   /* Contact */
@@ -7709,7 +7709,7 @@ img[src$="/ansi-logo.svg"] {
   /* Buttons */
   .btn-lg {
     padding: .9rem 2rem;
-    font-size: .82rem
+    font-size: 1.0625rem
   }
 
   /* Inline layout overrides from page files */
@@ -7823,7 +7823,7 @@ img[src$="/ansi-logo.svg"] {
   /* Hide fixed tab nav on mobile — tabs become redundant at this width */
   .ptype-tab-link {
     padding: .75rem .9rem;
-    font-size: .65rem
+    font-size: .875rem
   }
 }
 
@@ -7832,11 +7832,11 @@ img[src$="/ansi-logo.svg"] {
 /* ====== 404 PAGE ====== */
 .nf-nav-link {
   font-family: var(--ft);
-  font-size: .75rem;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: .08em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, .35);
+  color: rgba(255, 255, 255, .68);
   text-decoration: none;
   transition: color .2s
 }
@@ -7848,15 +7848,15 @@ img[src$="/ansi-logo.svg"] {
 /* ---- EXTRA SMALL (≤390px — iPhone SE / small Android) ---- */
 @media(max-width:390px) {
   h1 {
-    font-size: 1.65rem
+    font-size: 1.732rem
   }
 
   .hero-home h1 {
-    font-size: 1.65rem
+    font-size: 1.732rem
   }
 
   h2 {
-    font-size: 1.35rem
+    font-size: 1.485rem
   }
 
   .stat-grid {
@@ -7877,7 +7877,7 @@ img[src$="/ansi-logo.svg"] {
 
   .btn {
     padding: .8rem 1.4rem;
-    font-size: .78rem
+    font-size: 1rem
   }
 
   .btn-lg {
@@ -8157,7 +8157,7 @@ img[src$="/ansi-logo.svg"] {
   .wt-num {
     width: 22px !important;
     height: 22px !important;
-    font-size: .42rem !important
+    font-size: .8125rem !important
   }
 
   .wt-icon {
@@ -8166,12 +8166,12 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .wt-title {
-    font-size: .7rem !important;
+    font-size: .9375rem !important;
     margin-bottom: .3rem !important
   }
 
   .wt-desc {
-    font-size: .6rem !important;
+    font-size: .8125rem !important;
     line-height: 1.45 !important
   }
 
@@ -8196,11 +8196,11 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .standard-name {
-    font-size: .5rem !important
+    font-size: .8125rem !important
   }
 
   .standard-desc {
-    font-size: .58rem !important;
+    font-size: .8125rem !important;
     line-height: 1.4 !important
   }
 
@@ -8226,18 +8226,18 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .proc-metric-val {
-    font-size: 1rem !important;
+    font-size: 1.125rem !important;
     margin-bottom: .15rem !important
   }
 
   .proc-metric-lbl {
-    font-size: .42rem !important;
+    font-size: .8125rem !important;
     letter-spacing: .1em !important;
     margin-bottom: .35rem !important
   }
 
   .proc-metric-sub {
-    font-size: .62rem !important;
+    font-size: .875rem !important;
     line-height: 1.35 !important
   }
 
@@ -8330,7 +8330,7 @@ img[src$="/ansi-logo.svg"] {
   .btn-lg {
     padding-left: 1rem;
     padding-right: 1rem;
-    font-size: .74rem;
+    font-size: 1rem;
     letter-spacing: .06em
   }
 
@@ -8505,7 +8505,7 @@ img[src$="/ansi-logo.svg"] {
   max-width: 720px;
   margin: 0 0 1rem;
   font-family: var(--fb);
-  font-size: clamp(3.25rem, 4.45vw, 5.15rem);
+  font-size: clamp(3.413rem, 4.45vw, 5.408rem);
   font-weight: 800;
   line-height: .96;
   letter-spacing: -.055em;
@@ -8522,7 +8522,7 @@ img[src$="/ansi-logo.svg"] {
   margin: 0 0 1.15rem;
   color: #fff;
   font-family: var(--fb);
-  font-size: clamp(1rem, 1.2vw, 1.22rem);
+  font-size: clamp(1.125rem, 1.2vw, 1.342rem);
   font-weight: 700;
   line-height: 1.35;
   letter-spacing: -.015em;
@@ -8532,7 +8532,7 @@ img[src$="/ansi-logo.svg"] {
   max-width: 610px;
   margin-bottom: 1.65rem;
   color: rgba(226, 235, 255, .78);
-  font-size: clamp(.9rem, .98vw, 1.02rem);
+  font-size: clamp(1.125rem, .98vw, 1.125rem);
   line-height: 1.75;
 }
 
@@ -8613,7 +8613,7 @@ img[src$="/ansi-logo.svg"] {
   border-right: 1px solid rgba(255, 255, 255, .13);
   color: rgba(233, 240, 255, .72);
   font-family: var(--ft);
-  font-size: .72rem;
+  font-size: .9375rem;
   line-height: 1.35;
 }
 
@@ -8636,7 +8636,7 @@ img[src$="/ansi-logo.svg"] {
 .home-hero-proof-item strong {
   display: block;
   color: #fff;
-  font-size: .78rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 
@@ -8646,7 +8646,7 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .home-hero-v2 .hero-made-title {
-    font-size: clamp(2.8rem, 5vw, 4rem);
+    font-size: clamp(2.94rem, 5vw, 4.2rem);
   }
 
   .home-hero-proof-item {
@@ -8676,7 +8676,7 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .home-hero-v2 .hero-made-title {
-    font-size: clamp(2.5rem, 9.5vw, 4rem);
+    font-size: clamp(2.625rem, 9.5vw, 4.2rem);
   }
 
   .home-hero-v2 .hero-visual {
@@ -8717,16 +8717,16 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .home-hero-v2 .hero-made-title {
-    font-size: clamp(2.15rem, 10.7vw, 3rem);
+    font-size: clamp(2.257rem, 10.7vw, 3.15rem);
     line-height: .98;
   }
 
   .home-hero-v2 .hero-delivery-line {
-    font-size: .96rem;
+    font-size: 1.125rem;
   }
 
   .home-hero-v2 .lead {
-    font-size: .86rem;
+    font-size: 1.0625rem;
     line-height: 1.65;
   }
 
@@ -8743,7 +8743,7 @@ img[src$="/ansi-logo.svg"] {
     min-height: 74px;
     gap: .65rem;
     padding: .85rem .8rem;
-    font-size: .62rem;
+    font-size: .875rem;
   }
 
   .home-hero-proof-item svg {
@@ -8753,7 +8753,7 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .home-hero-proof-item strong {
-    font-size: .7rem;
+    font-size: .9375rem;
   }
 }
 
@@ -8786,7 +8786,7 @@ img[src$="/ansi-logo.svg"] {
 .home-hero-v2 .home-hero-built-for .trust-lbl {
   flex: 0 0 auto;
   color: rgba(255, 255, 255, .76);
-  font-size: .78rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 
@@ -8796,7 +8796,7 @@ img[src$="/ansi-logo.svg"] {
 
 .home-hero-v2 .home-hero-built-for .trust-item {
   color: rgba(255, 255, 255, .86);
-  font-size: .82rem;
+  font-size: 1.0625rem;
 }
 
 @media(max-width:768px) {
@@ -8811,11 +8811,11 @@ img[src$="/ansi-logo.svg"] {
   }
 
   .home-hero-v2 .home-hero-built-for .trust-lbl {
-    font-size: .66rem;
+    font-size: .875rem;
   }
 
   .home-hero-v2 .home-hero-built-for .trust-item {
     padding-inline: .7rem;
-    font-size: .7rem;
+    font-size: .9375rem;
   }
 }

@@ -1,4 +1,5 @@
 import ProductTypePage from '@/components/ProductTypePage'
+import { HeroArt } from '@/components/LineArt'
 import type { ProductTypePageProps } from '@/components/ProductTypePage'
 
 const data: ProductTypePageProps = {
@@ -39,7 +40,7 @@ const data: ProductTypePageProps = {
   upgrades: [
     'Posi Pin connectors — hot-stick operable with visible open-air isolation gap',
     'Safety ground check mechanism — confirms de-energization before access',
-    'Explosion-proof enclosure (Class I Div 1, Zone 1 IECEx)',
+    'Explosion-proof enclosure (Class I, Div 1 / Zone 1)',
     'Fibreglass enclosure for highly corrosive environments',
     'International Orange or custom RAL colour-coded paint',
     'Compression lugs with torque indicator strips for field connection',
@@ -116,5 +117,5 @@ export const metadata = {
 }
 
 export default function JunctionBoxSplittersPage() {
-  return <ProductTypePage {...data} />
+  return <ProductTypePage heroArt={<HeroArt kind="jbox" />} {...data} />
 }

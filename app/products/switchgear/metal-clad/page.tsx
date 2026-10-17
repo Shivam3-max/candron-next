@@ -1,4 +1,5 @@
 import ProductTypePage from '@/components/ProductTypePage'
+import { HeroArt } from '@/components/LineArt'
 import type { ProductTypePageProps } from '@/components/ProductTypePage'
 
 const data: ProductTypePageProps = {
@@ -7,10 +8,10 @@ const data: ProductTypePageProps = {
   categoryName: 'Switchgear',
   categoryHref: '/products/switchgear',
   typeName: 'Metal-Clad Medium Voltage Switchgear',
-  eyebrow: 'IEC 62271-200 • IEEE C37.20.2 • 5–29 kV',
+  eyebrow: 'CSA C22.2 No. 31 • IEEE C37.20.2 • 5–29 kV',
   subtitle: 'Fully compartmented, draw-out vacuum circuit breaker (VCB) lineups for medium-voltage power distribution. Arc-resistant type (ARST) options and SCADA integration available from 5 kV to 29 kV.',
   heroImage: '/images/products/switchgear/metal-clad.jpg',
-  badges: ['Draw-Out VCBs', 'Arc-Resistant Option', 'IEC 62271-200', 'IEEE C37.20.2'],
+  badges: ['Draw-Out VCBs', 'Arc-Resistant Option', 'CSA C22.2 No. 31', 'IEEE C37.20.2'],
   kpis: [
     { value: '5–29 kV', label: 'Voltage Class' },
     { value: '600–4000 A', label: 'Main Rating' },
@@ -18,7 +19,7 @@ const data: ProductTypePageProps = {
     { value: 'Arc-Rated', label: 'Safety Option' },
   ],
   overviewTitle: 'Draw-Out VCBs with Full Bus Compartmentalization',
-  overviewText: 'Metal-clad switchgear is the most robust MV switchgear classification — every functional element (bus, breaker, cables, instruments) is in a separate grounded compartment. Our lineups meet IEC 62271-200 and IEEE C37.20.2 with full three-position (connected/test/disconnected) isolation.',
+  overviewText: 'Metal-clad switchgear is the most robust MV switchgear classification — every functional element (bus, breaker, cables, instruments) is in a separate grounded compartment. Our lineups meet CSA C22.2 No. 31 and IEEE C37.20.2 with full three-position (connected/test/disconnected) isolation.',
   overviewPoints: [
     'Voltage range: 5 kV, 15 kV, 27.6 kV, and 29 kV classes',
     'Vacuum circuit breakers (VCBs) with draw-out chassis',
@@ -43,7 +44,7 @@ const data: ProductTypePageProps = {
     'PT cubicle with revenue-grade metering (class 0.2S)',
     'Partial discharge monitoring system (on-line PD)',
     'Battery-backed DC control power supply',
-    'SCADA / IEC 61850 communication gateway',
+    'SCADA communication gateway (Modbus / DNP3)',
     'Witnessed factory acceptance testing (FAT)',
     'Arc-flash study and labelling',
   ],
@@ -55,14 +56,14 @@ const data: ProductTypePageProps = {
     { label: 'Compartmentalization', value: 'Metal-clad: bus, breaker, cable, instrument — grounded barriers' },
     { label: 'Bus Material', value: 'Copper, silver-plated contact surfaces' },
     { label: 'Protection Relays', value: 'ANSI 50/51, 27/59, 67/67N, 87T, 87B, 81' },
-    { label: 'Communication', value: 'Modbus RTU/TCP, IEC 61850, DNP3 (optional)' },
+    { label: 'Communication', value: 'Modbus RTU/TCP, DNP3 (optional)' },
     { label: 'Arc-Resistant Option', value: 'ARST type A, B, or C per IEEE C37.20.7' },
     { label: 'Enclosure', value: 'NEMA 1 indoor; outdoor weatherproof housing available' },
-    { label: 'Standards', value: 'IEC 62271-200, IEEE C37.20.2, CSA C22.2' },
+    { label: 'Standards', value: 'IEEE C37.20.2, CSA C22.2 No. 31' },
     { label: 'Lead Time', value: '8–16 weeks typical; expedited available' },
   ],
   standards: [
-    { name: 'IEC 62271-200', desc: 'Metal-enclosed MV switchgear — alternating current up to 52 kV', logo: '/images/IEC.png' },
+    { name: 'CSA C22.2 No. 31', desc: 'Canadian standard for switchgear assemblies', logo: '/images/csa.png' },
     { name: 'IEEE C37.20.2', desc: 'Metal-clad switchgear standard — draw-out, fully compartmented', logo: '/images/IEEE.png' },
     { name: 'IEEE C37.20.7', desc: 'Guide for testing metal-enclosed switchgear rated up to 38 kV for internal arcing faults', logo: '/images/IEEE.png' },
     { name: 'CSA C22.2', desc: 'Canadian electrical safety standard for MV switchgear assemblies', logo: '/images/csa.png' },
@@ -95,7 +96,7 @@ const data: ProductTypePageProps = {
     },
     {
       q: 'What protection relay packages are available?',
-      a: 'We work with most major relay manufacturers (Schweitzer, GE/Multilin, ABB, Beckwith, Basler). Standard packages include overcurrent (50/51), voltage (27/59), directional (67), and differential (87). IEC 61850 and DNP3 gateways are available.',
+      a: 'We work with most major relay manufacturers (Schweitzer, GE/Multilin, ABB, Beckwith, Basler). Standard packages include overcurrent (50/51), voltage (27/59), directional (67), and differential (87). DNP3 and Modbus gateways are available.',
     },
   ],
   quoteItems: [
@@ -110,9 +111,9 @@ const data: ProductTypePageProps = {
 
 export const metadata = {
   title: 'Metal-Clad Medium Voltage Switchgear | CANDRON Energy',
-  description: 'IEC 62271-200 and IEEE C37.20.2 metal-clad medium voltage switchgear from 5 kV to 29 kV. Draw-out VCBs, arc-resistant option, built in Toronto, Ontario.',
+  description: 'CSA C22.2 No. 31 and IEEE C37.20.2 metal-clad medium voltage switchgear from 5 kV to 29 kV. Draw-out VCBs, arc-resistant option, built in Toronto, Ontario.',
 }
 
 export default function MetalCladSwitchgearPage() {
-  return <ProductTypePage {...data} />
+  return <ProductTypePage heroArt={<HeroArt kind="mv" />} {...data} />
 }

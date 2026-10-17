@@ -1,4 +1,5 @@
 import ProductTypePage from '@/components/ProductTypePage'
+import { HeroArt } from '@/components/LineArt'
 import type { ProductTypePageProps } from '@/components/ProductTypePage'
 
 const data: ProductTypePageProps = {
@@ -113,5 +114,5 @@ export const metadata = {
 }
 
 export default function DistributionSwitchboardPage() {
-  return <ProductTypePage {...data} />
+  return <ProductTypePage heroArt={<HeroArt kind="swbd" views={['ga', 'iso', 'sld']} />} {...data} />
 }

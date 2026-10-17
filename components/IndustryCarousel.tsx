@@ -231,19 +231,19 @@ export default function IndustryCarousel() {
             <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(5,9,31,.08)_0%,transparent_30%,rgba(5,9,31,.9)_100%)]" />
 
             {/* Number badge */}
-            <div className="absolute top-[1.1rem] left-[1.1rem] font-display font-black text-[.52rem] tracking-[.2em] text-white/75 uppercase py-[.28rem] px-[.7rem] border border-white/[.22] rounded-full backdrop-blur-[8px] bg-[rgba(5,9,31,.25)]">
+            <div className="absolute top-[1.1rem] left-[1.1rem] font-display font-black text-[.8125rem] tracking-[.2em] text-white/75 uppercase py-[.28rem] px-[.7rem] border border-white/[.22] rounded-full backdrop-blur-[8px] bg-[rgba(5,9,31,.25)]">
               {ind.n}
             </div>
 
             {/* Bottom content */}
             <div className="absolute bottom-0 left-0 right-0 p-[1.4rem]">
-              <div className="font-display font-extrabold text-white text-[1.08rem] leading-[1.22] mb-2">
+              <div className="font-display font-extrabold text-white text-[1.1875rem] leading-[1.22] mb-2">
                 {ind.name}
               </div>
-              <div className="text-white/60 text-[.78rem] leading-[1.65] mb-[.85rem]">
+              <div className="text-white/[.68] text-[1rem] leading-[1.65] mb-[.85rem]">
                 {ind.desc}
               </div>
-              <div className="inline-flex items-center gap-[.35rem] text-blue text-[.7rem] font-mono font-bold tracking-[.06em] uppercase">
+              <div className="inline-flex items-center gap-[.35rem] text-blue text-[.9375rem] font-mono font-bold tracking-[.06em] uppercase">
                 Explore
                 <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
                   <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
@@ -287,7 +287,7 @@ export default function IndustryCarousel() {
         </div>
 
         {/* Count */}
-        <div className="font-mono text-[.62rem] tracking-[.12em] uppercase text-[#9CA3AF] shrink-0 whitespace-nowrap">
+        <div className="font-mono text-[.875rem] tracking-[.12em] uppercase text-[#9CA3AF] shrink-0 whitespace-nowrap">
           {INDUSTRIES.length} Sectors
         </div>
       </div>

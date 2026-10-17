@@ -1,4 +1,5 @@
 import ProductTypePage from '@/components/ProductTypePage'
+import { HeroArt } from '@/components/LineArt'
 import type { ProductTypePageProps } from '@/components/ProductTypePage'
 
 const data: ProductTypePageProps = {
@@ -20,7 +21,7 @@ const data: ProductTypePageProps = {
   overviewTitle: 'LV Switchgear for Industrial Power Distribution',
   overviewText: 'Low Voltage Switchgear manages and protects electrical circuits operating up to 1,000 V. Our LV switchgear integrates circuit breakers, contactors, busbars, and metering in modular, free-standing or wall-mount enclosures — custom designed from your single-line diagram and site requirements, compliant with CSA C22.2 and UL 508A.',
   overviewPoints: [
-    'Voltage range up to 600 V (North America) / 1000 V (IEC)',
+    'Voltage range up to 1000 V AC (600 V typical in North America)',
     'Main breaker, main-tie-main, and distribution configurations',
     'Service entrance rated with CT / PT metering compartments',
     'Copper busbar — continuous, welded, or bolted-splice',
@@ -49,7 +50,7 @@ const data: ProductTypePageProps = {
     'Witnessed factory acceptance testing (FAT)',
   ],
   specRows: [
-    { label: 'Voltage Range', value: 'Up to 600 V AC (North America); 1000 V (IEC)' },
+    { label: 'Voltage Range', value: 'Up to 1000 V AC (600 V typical in North America)' },
     { label: 'Phase', value: '3-phase, 4-wire (3P4W); single-phase available' },
     { label: 'Current Rating', value: '400 A to 3200 A main bus' },
     { label: 'Short Circuit Rating', value: 'Up to 100 kA AIC (application-specific)' },
@@ -117,5 +118,5 @@ export const metadata = {
 }
 
 export default function LVSwitchgearPage() {
-  return <ProductTypePage {...data} />
+  return <ProductTypePage heroArt={<HeroArt kind="lv" />} {...data} />
 }

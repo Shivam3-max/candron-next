@@ -1,4 +1,5 @@
 import ProductTypePage from '@/components/ProductTypePage'
+import { HeroArt } from '@/components/LineArt'
 
 export const metadata = {
   title: 'Single-Phase Padmount Transformer',
@@ -7,7 +8,7 @@ export const metadata = {
 
 export default function SinglePhasePadmountPage() {
   return (
-    <ProductTypePage
+    <ProductTypePage heroArt={<HeroArt kind="padmount" views={['ga', 'iso', 'sld']} />}
       parentName="Products"
       parentHref="/products"
       categoryName="Padmount Transformers"

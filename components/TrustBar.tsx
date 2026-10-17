@@ -52,10 +52,10 @@ export default function TrustBar() {
                 {item.icon}
               </div>
               <div>
-                <div className="font-display font-extrabold text-[.92rem] max-md:text-[.6rem] text-navy tracking-[.01em] leading-[1.2] mb-[.28rem] max-md:mb-0">
+                <div className="font-display font-extrabold text-[1.125rem] max-md:text-[.8125rem] text-navy tracking-[.01em] leading-[1.2] mb-[.28rem] max-md:mb-0">
                   {item.title}
                 </div>
-                <div className="font-mono text-[.73rem] max-md:text-[.5rem] text-gray tracking-[.01em] max-md:hidden">
+                <div className="font-mono text-[1rem] max-md:text-[.8125rem] text-gray tracking-[.01em] max-md:hidden">
                   {item.sub}
                 </div>
               </div>

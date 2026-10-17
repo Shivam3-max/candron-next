@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { HeroArt } from '@/components/LineArt'
 
 export const metadata = {
   title: 'Electrical Engineering Services',
@@ -27,6 +28,7 @@ export default function ElectricalEngineeringServicesPage() {
     <>
       <section className="page-hero">
         <div className="page-hero-bg" style={{ background: "linear-gradient(90deg,rgba(5,9,31,.9),rgba(5,9,31,.48)),url('/images/projects/2500a-switchboard-production/2500a-switchboard-production.jpg') center 48%/cover" }} />
+        <HeroArt kind="cap-eng" />
         <div className="container page-hero-content">
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>Electrical Engineering Services</span></div>
           <div className="label label-white">Power Systems · Equipment · Field Support</div>
@@ -55,8 +57,8 @@ export default function ElectricalEngineeringServicesPage() {
                   { value: 'North America', label: 'Project Support' },
                 ].map((item) => (
                   <div key={item.label} className="rounded-[12px] border border-[#DCE3F2] bg-off px-5 py-4">
-                    <div className="font-display text-[1rem] font-black text-navy">{item.value}</div>
-                    <div className="font-mono text-[.5rem] uppercase tracking-[.09em] text-slate mt-1.5">{item.label}</div>
+                    <div className="font-display text-[1.125rem] font-black text-navy">{item.value}</div>
+                    <div className="font-mono text-[.8125rem] uppercase tracking-[.09em] text-slate mt-1.5">{item.label}</div>
                   </div>
                 ))}
               </div>
@@ -64,9 +66,9 @@ export default function ElectricalEngineeringServicesPage() {
             <div className="grid grid-cols-2 max-md:grid-cols-1 gap-4">
               {services.map((service, index) => (
                 <article key={service.number} className={`rv${index ? ` d${Math.min(index + 1, 4)}` : ''} rounded-[16px] border border-[#E3E8F2] bg-off p-7 min-h-[220px]`}>
-                  <div className="font-mono text-[.55rem] font-bold tracking-[.14em] text-blue mb-5">{service.number}</div>
-                  <h3 className="text-[1.02rem] mb-3">{service.title}</h3>
-                  <p className="body !text-[.82rem] !leading-[1.72]">{service.text}</p>
+                  <div className="font-mono text-[.8125rem] font-bold tracking-[.14em] text-blue mb-5">{service.number}</div>
+                  <h3 className="text-[1.125rem] mb-3">{service.title}</h3>
+                  <p className="body !text-[1.0625rem] !leading-[1.72]">{service.text}</p>
                 </article>
               ))}
             </div>
@@ -80,7 +82,7 @@ export default function ElectricalEngineeringServicesPage() {
             <div className="rv-l">
               <div className="label label-white">From Model to Manufactured Equipment</div>
               <h2 id="engineering-design-title" className="text-white mt-4 !leading-[1.08]">Designed to Fit.<br /><em>Engineered to Perform.</em></h2>
-              <p className="text-white/60 text-[.96rem] leading-[1.8] mt-6">Detailed engineering models coordinate equipment layout, device arrangement, bus and cable routing, working clearances, and connection points before a design is released to manufacturing.</p>
+              <p className="text-white/[.68] text-[1.125rem] leading-[1.8] mt-6">Detailed engineering models coordinate equipment layout, device arrangement, bus and cable routing, working clearances, and connection points before a design is released to manufacturing.</p>
               <ul className="mt-8 p-0 list-none grid gap-3">
                 {[
                   'Electrical and mechanical design developed together',
@@ -88,7 +90,7 @@ export default function ElectricalEngineeringServicesPage() {
                   'Design reviews completed before manufacturing release',
                   'Factory testing tied back to approved project requirements',
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-white/65 text-[.86rem] leading-[1.6]">
+                  <li key={item} className="flex items-start gap-3 text-white/[.68] text-[1.0625rem] leading-[1.6]">
                     <span className="mt-[.35rem] w-2 h-2 rounded-full bg-blue shrink-0" />
                     {item}
                   </li>
@@ -99,53 +101,13 @@ export default function ElectricalEngineeringServicesPage() {
             <div className="grid grid-cols-2 gap-4 rv-r max-sm:grid-cols-1">
               <figure className="relative min-h-[510px] max-sm:min-h-[340px] overflow-hidden rounded-[16px] border border-white/15 bg-[#CBECEF]">
                 <Image src="/images/projects/panelboard-design-stage/panelboard-design-stage.png" alt="Detailed engineering model of a custom panelboard before manufacturing release" fill className="object-contain p-4" sizes="(max-width:640px) 100vw, 28vw" />
-                <figcaption className="absolute left-4 bottom-4 rounded-full bg-navy/85 px-3 py-2 font-mono text-[.5rem] font-bold uppercase tracking-[.08em] text-white">Engineering Model</figcaption>
+                <figcaption className="absolute left-4 bottom-4 rounded-full bg-navy/85 px-3 py-2 font-mono text-[.8125rem] font-bold uppercase tracking-[.08em] text-white">Engineering Model</figcaption>
               </figure>
               <figure className="relative min-h-[510px] max-sm:min-h-[340px] overflow-hidden rounded-[16px] border border-white/15 bg-white/[.04]">
                 <Image src="/images/projects/2500a-switchboard-production/2500a-switchboard-production.jpg" alt="Custom 2500 amp switchboard progressing through the CANDRON manufacturing facility" fill className="object-cover object-center" sizes="(max-width:640px) 100vw, 28vw" />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent" />
-                <figcaption className="absolute left-4 bottom-4 rounded-full bg-navy/85 px-3 py-2 font-mono text-[.5rem] font-bold uppercase tracking-[.08em] text-white">Manufacturing Execution</figcaption>
+                <figcaption className="absolute left-4 bottom-4 rounded-full bg-navy/85 px-3 py-2 font-mono text-[.8125rem] font-bold uppercase tracking-[.08em] text-white">Manufacturing Execution</figcaption>
               </figure>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section bg-off" aria-labelledby="replacement-engineering-title">
-        <div className="container">
-          <div className="grid grid-cols-[1.12fr_.88fr] max-lg:grid-cols-1 gap-12 items-center">
-            <div className="grid grid-cols-[1.2fr_.8fr] max-sm:grid-cols-1 gap-4 rv-l">
-              <figure className="relative min-h-[560px] max-sm:min-h-[340px] overflow-hidden rounded-[16px] border border-[#DCE3F2] bg-white">
-                <Image src="/images/projects/custom-replacement-transformer/custom-transformer-side-view.jpg" alt="Custom replacement transformer engineered to match an existing installation footprint" fill className="object-cover object-center" sizes="(max-width:640px) 100vw, 37vw" />
-              </figure>
-              <div className="grid grid-rows-2 gap-4 max-sm:grid-rows-none max-sm:grid-cols-2">
-                <figure className="relative min-h-[270px] overflow-hidden rounded-[16px] border border-[#DCE3F2] bg-white">
-                  <Image src="/images/projects/custom-replacement-transformer/custom-transformer-front-view.jpg" alt="Front cooling arrangement of a custom replacement transformer" fill className="object-cover object-center" sizes="(max-width:640px) 50vw, 22vw" />
-                </figure>
-                <figure className="relative min-h-[270px] overflow-hidden rounded-[16px] border border-[#DCE3F2] bg-white">
-                  <Image src="/images/projects/custom-replacement-transformer/custom-transformer-radiator-view.jpg" alt="Radiator and accessory arrangement engineered for a custom transformer footprint" fill className="object-cover object-center" sizes="(max-width:640px) 50vw, 22vw" />
-                </figure>
-              </div>
-            </div>
-            <div className="rv-r">
-              <div className="label">Replacement Engineering · Project Example</div>
-              <h2 id="replacement-engineering-title" className="mt-4 !leading-[1.08]">Same Connections.<br /><em>Better Performance.</em></h2>
-              <p className="lead mt-6">A custom transformer was engineered to match an existing unit&apos;s dimensions and electrical specifications while improving sound performance, losses, and the overall equipment footprint.</p>
-              <div className="grid grid-cols-2 gap-3 mt-8 max-sm:grid-cols-1">
-                {[
-                  { value: 'Italian', label: 'High-Grade Core' },
-                  { value: 'Weidmann', label: 'Insulation' },
-                  { value: '55 / 65°C', label: 'Split Temperature Rise' },
-                  { value: '26 Weeks', label: 'Design to Delivery' },
-                ].map((item) => (
-                  <div key={item.label} className="rounded-[12px] border border-[#DCE3F2] bg-white px-5 py-4">
-                    <div className="font-display text-[.95rem] font-black text-navy">{item.value}</div>
-                    <div className="font-mono text-[.5rem] uppercase tracking-[.09em] text-slate mt-1.5">{item.label}</div>
-                  </div>
-                ))}
-              </div>
-              <p className="body mt-7">Qualitrol gauges and an Eaton tap changer completed the engineered accessory package, with the design developed around the customer&apos;s existing site interfaces.</p>
-              <Link href="/products/transformers/substation" className="btn btn-primary mag mt-8">View the Transformer Project →</Link>
             </div>
           </div>
         </div>
@@ -161,9 +123,9 @@ export default function ElectricalEngineeringServicesPage() {
           <div className="grid grid-cols-4 max-lg:grid-cols-2 max-sm:grid-cols-1 gap-4">
             {process.map((step, index) => (
               <article key={step.n} className={`rv${index ? ` d${index + 1}` : ''} relative rounded-[16px] border border-[#E3E8F2] bg-off p-7 min-h-[240px]`}>
-                <div className="font-mono text-[.58rem] font-bold tracking-[.14em] text-blue mb-8">{step.n}</div>
-                <h3 className="text-[1.05rem] mb-3">{step.title}</h3>
-                <p className="body !text-[.82rem] !leading-[1.72]">{step.text}</p>
+                <div className="font-mono text-[.8125rem] font-bold tracking-[.14em] text-blue mb-8">{step.n}</div>
+                <h3 className="text-[1.1875rem] mb-3">{step.title}</h3>
+                <p className="body !text-[1.0625rem] !leading-[1.72]">{step.text}</p>
               </article>
             ))}
           </div>
@@ -171,11 +133,11 @@ export default function ElectricalEngineeringServicesPage() {
             <div className="grid grid-cols-[.65fr_1.35fr] max-md:grid-cols-1 gap-6 items-center">
               <div>
                 <div className="label label-white">Standards &amp; Deliverables</div>
-                <h3 className="text-white text-[1.15rem] mt-3 mb-0">Engineering that is ready to review, build, test, and maintain.</h3>
+                <h3 className="text-white text-[1.265rem] mt-3 mb-0">Engineering that is ready to review, build, test, and maintain.</h3>
               </div>
               <div className="flex flex-wrap gap-3 md:justify-end">
                 {['ANSI', 'IEEE', 'CSA', 'NETA', 'Single-Line Diagrams', 'As-Built Documentation'].map((item) => (
-                  <span key={item} className="rounded-full border border-white/15 bg-white/[.06] px-4 py-2 font-mono text-[.55rem] font-bold uppercase tracking-[.08em] text-white/70">{item}</span>
+                  <span key={item} className="rounded-full border border-white/15 bg-white/[.06] px-4 py-2 font-mono text-[.8125rem] font-bold uppercase tracking-[.08em] text-white/70">{item}</span>
                 ))}
               </div>
             </div>

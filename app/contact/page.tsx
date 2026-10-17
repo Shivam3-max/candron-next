@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useState } from 'react'
+import { HeroArt } from '@/components/LineArt'
 
 export default function ContactPage() {
   const [form, setForm] = useState({name:'',company:'',email:'',phone:'',message:''})
@@ -57,6 +58,7 @@ export default function ContactPage() {
     <>
       <div className="page-hero">
         <div className="page-hero-bg" style={{background:"url('/images/oil-gas.jpg') center/cover"}}></div>
+        <HeroArt kind="plant" />
         <div className="container page-hero-content">
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>Contact</span></div>
           <div className="label label-white">Talk to Our Team</div>
@@ -80,12 +82,12 @@ export default function ContactPage() {
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0047FF" strokeWidth="2"><path d="M20 6L9 17l-5-5"/></svg>
                   </div>
                   <h3 className="mb-3">Thank You. We&apos;ve Received Your Inquiry.</h3>
-                  <p className="text-gray text-[.9rem] leading-[1.7] max-w-[520px] mx-auto">Our team will review your project requirements and get back to you to discuss the next steps.</p>
+                  <p className="text-gray text-[1.125rem] leading-[1.7] max-w-[520px] mx-auto">Our team will review your project requirements and get back to you to discuss the next steps.</p>
 
                   <div className="mt-7 py-6 px-5 max-md:px-4 rounded-[12px] bg-off border border-[#E8ECF5]">
-                    <p className="font-title font-bold text-navy text-[.88rem] mb-2">Need immediate assistance with your project?</p>
-                    <a href="tel:+16476162595" className="inline-block text-blue no-underline font-display font-black text-[1.1rem] max-sm:text-[1rem]">+1 (647) 616-2595</a>
-                    <p className="font-mono text-gray text-[.72rem] mt-2 mb-0">Available 24/7, 365 days a year</p>
+                    <p className="font-title font-bold text-navy text-[1.125rem] mb-2">Need immediate assistance with your project?</p>
+                    <a href="tel:+16476162595" className="inline-block text-blue no-underline font-display font-black text-[1.25rem] max-sm:text-[1.125rem]">+1 (647) 616-2595</a>
+                    <p className="font-mono text-gray text-[.9375rem] mt-2 mb-0">Available 24/7, 365 days a year</p>
                   </div>
 
                   <div className="grid grid-cols-2 max-md:grid-cols-1 gap-3 mt-7">
@@ -136,21 +138,21 @@ export default function ContactPage() {
                           <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M5 14v5a1 1 0 001 1h12a1 1 0 001-1v-5"/></svg>
                         </span>
                         <span className="min-w-0">
-                          <span className="block font-title font-bold text-navy text-[.82rem]">Add or upload files</span>
-                          <span className="block font-mono text-gray text-[.68rem] leading-[1.5] mt-1">PDF, Word, Excel, CAD, JPG or PNG · Up to 3 files · 4 MB total</span>
+                          <span className="block font-title font-bold text-navy text-[1.0625rem]">Add or upload files</span>
+                          <span className="block font-mono text-gray text-[.9375rem] leading-[1.5] mt-1">PDF, Word, Excel, CAD, JPG or PNG · Up to 3 files · 4 MB total</span>
                         </span>
                       </span>
                     </label>
                     {files.length > 0 && (
                       <ul className="list-none flex flex-col gap-1 mt-1">
                         {files.map(file => (
-                          <li key={`${file.name}-${file.size}`} className="font-mono text-[.7rem] text-gray truncate">✓ {file.name}</li>
+                          <li key={`${file.name}-${file.size}`} className="font-mono text-[.9375rem] text-gray truncate">✓ {file.name}</li>
                         ))}
                       </ul>
                     )}
                   </div>
                   {error && (
-                    <div className="py-[.9rem] px-[1.1rem] bg-[rgba(220,38,38,.07)] border border-[rgba(220,38,38,.25)] rounded-lg text-[.84rem] text-[#dc2626] leading-[1.5]">{error}</div>
+                    <div className="py-[.9rem] px-[1.1rem] bg-[rgba(220,38,38,.07)] border border-[rgba(220,38,38,.25)] rounded-lg text-[1.0625rem] text-[#dc2626] leading-[1.5]">{error}</div>
                   )}
                   <button
                     type="submit"
@@ -159,7 +161,7 @@ export default function ContactPage() {
                   >
                     {loading ? 'Sending…' : 'Submit Request'}
                   </button>
-                  <p className="text-[.75rem] text-gray text-center mt-3 leading-[1.6]">Available 24/7, 365 days a year. We respond to inquiries within 4 hours.</p>
+                  <p className="text-[1rem] text-gray text-center mt-3 leading-[1.6]">Available 24/7, 365 days a year. We respond to inquiries within 4 hours.</p>
                 </form>
               )}
             </div>
@@ -198,10 +200,10 @@ export default function ContactPage() {
               </div>
 
               <div className="mt-8 p-8 bg-navy rounded-[14px] border border-blue/[.2]">
-                <div className="font-mono text-[.6rem] text-blue tracking-[.22em] uppercase mb-4">What to Include</div>
+                <div className="font-mono text-[.8125rem] text-blue tracking-[.22em] uppercase mb-4">What to Include</div>
                 <ul className="list-none flex flex-col gap-[.65rem]">
                   {['Equipment specifications','Voltage and current requirements','Applicable standards (CSA, UL, ANSI)','Required delivery timeline','Witnessed FAT requirements'].map(item => (
-                    <li key={item} className="flex items-start gap-[.65rem] text-[.8rem] text-white/55 leading-[1.6]">
+                    <li key={item} className="flex items-start gap-[.65rem] text-[1.0625rem] text-white/[.68] leading-[1.6]">
                       <span className="w-[5px] h-[5px] min-w-[5px] bg-blue rounded-full mt-[.45rem]"></span>
                       {item}
                     </li>

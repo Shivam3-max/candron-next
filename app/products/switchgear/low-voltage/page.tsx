@@ -1,4 +1,5 @@
 import ProductTypePage from '@/components/ProductTypePage'
+import { HeroArt } from '@/components/LineArt'
 import type { ProductTypePageProps } from '@/components/ProductTypePage'
 
 const data: ProductTypePageProps = {
@@ -45,7 +46,7 @@ const data: ProductTypePageProps = {
     'Infrared inspection windows at bus joints',
     'Bus differential protection relay (87B)',
     'High-resistance grounding (HRG) system',
-    'Remote monitoring gateway (Modbus / IEC 61850)',
+    'Remote monitoring gateway (Modbus / DNP3)',
     'Witnessed factory acceptance testing (FAT)',
     'Power quality analyser integration',
     'Emergency power-off (EPO) module',
@@ -83,7 +84,7 @@ const data: ProductTypePageProps = {
     'Service entrance (utility point of delivery)',
   ],
   relatedTypes: [
-    { name: 'Metal-Clad Medium Voltage', sub: 'IEC 62271-200 • 5–29 kV', href: '/products/switchgear/metal-clad' },
+    { name: 'Metal-Clad Medium Voltage', sub: 'IEEE C37.20.2 • 5–29 kV', href: '/products/switchgear/metal-clad' },
     { name: 'Metal-Enclosed Load-Interrupter', sub: 'CSA C22.2 • 5–27.6 kV', href: '/products/switchgear/load-interrupter' },
     { name: 'Service-Entrance Rated', sub: 'ESA & Utility-Ready', href: '/products/switchgear/service-entrance' },
   ],
@@ -121,5 +122,5 @@ export const metadata = {
 }
 
 export default function LowVoltageSwitchgearPage() {
-  return <ProductTypePage {...data} />
+  return <ProductTypePage heroArt={<HeroArt kind="lv" views={['ga', 'iso', 'sld']} />} {...data} />
 }

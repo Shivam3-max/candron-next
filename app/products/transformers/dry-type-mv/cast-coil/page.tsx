@@ -1,13 +1,14 @@
 import ProductTypePage from '@/components/ProductTypePage'
+import { HeroArt } from '@/components/LineArt'
 
 export const metadata = {
   title: 'Cast Coil Transformer',
-  description: 'Epoxy resin encapsulated cast coil dry-type transformers for harsh environments. 300 kVA to 30 MVA at 2.4 kV to 36 kV. IEC 60076-11 and IEEE C57.12 certified.',
+  description: 'Epoxy resin encapsulated cast coil dry-type transformers for harsh environments. 300 kVA to 30 MVA at 2.4 kV to 36 kV. IEEE C57.12 and CSA C9 compliant.',
 }
 
 export default function CastCoilPage() {
   return (
-    <ProductTypePage
+    <ProductTypePage heroArt={<HeroArt kind="castcoil" />}
       parentName="Products"
       parentHref="/products"
       categoryName="MV Dry-Type Transformers"
@@ -16,7 +17,7 @@ export default function CastCoilPage() {
       eyebrow="Epoxy Resin Encapsulated — Harsh Environments"
       subtitle="Epoxy resin cast coil dry-type transformers rated from 300 kVA to 30 MVA for coastal, chemical, mining, and high-humidity environments where maximum moisture and contamination resistance is required."
       heroImage="/images/products/transformers/dry-type-mv-cast-coil.webp"
-      badges={['300 kVA – 30 MVA', '2.4 kV – 36 kV Primary', 'Epoxy Cast Coil', 'IEC 60076-11', 'IP34 Standard']}
+      badges={['300 kVA – 30 MVA', '2.4 kV – 36 kV Primary', 'Epoxy Cast Coil', 'CSA C9', 'IP34 Standard']}
       kpis={[
         { value: '30 MVA', label: 'Max Rating' },
         { value: '36 kV', label: 'Max Primary' },
@@ -28,7 +29,7 @@ export default function CastCoilPage() {
       overviewPoints={[
         'Complete epoxy resin encapsulation of all HV and LV windings',
         'Immunity to moisture, salt spray, and corrosive vapours',
-        'Self-extinguishing resin (F1 fire classification per IEC 60076-11)',
+        'Self-extinguishing resin (F1 fire behaviour class)',
         'IP34 standard enclosure; IP54 fully sealed option',
         'Class F (155°C) or Class H (180°C) insulation system',
         'Preferred for coastal, chemical, tropical, and underground installations',
@@ -63,17 +64,17 @@ export default function CastCoilPage() {
         { label: 'Temperature Rise', value: '80°C or 100°C (Class F); 100°C or 125°C (Class H)' },
         { label: 'Cooling', value: 'AN standard; AF optional' },
         { label: 'Enclosure', value: 'IP34 standard; IP54 optional' },
-        { label: 'Fire Classification', value: 'F1 per IEC 60076-11 (self-extinguishing)' },
+        { label: 'Fire Classification', value: 'F1 fire behaviour class (self-extinguishing)' },
         { label: 'HV Taps', value: '±5% DETC standard; LTC optional' },
-        { label: 'Primary Standard', value: 'IEC 60076-11 / IEEE C57.12.01' },
+        { label: 'Primary Standard', value: 'IEEE C57.12.01 / CSA C9' },
         { label: 'Canadian Certification', value: 'CSA C22.2' },
         { label: 'Frequency', value: '60 Hz' },
       ]}
       standards={[
-        { name: 'IEC 60076-11', desc: 'International standard for dry-type transformers — fire classification and encapsulation requirements', logo: null },
+        { name: 'CSA C9', desc: 'Canadian standard for dry-type transformers', logo: '/images/csa.png' },
         { name: 'IEEE C57.12.01', desc: 'Standard for dry-type distribution and power transformers', logo: '/images/IEEE.png' },
         { name: 'CSA C22.2', desc: 'Canadian electrical certification standard', logo: '/images/csa.png' },
-        { name: 'IEC 60076-3', desc: 'Insulation levels, dielectric tests and external clearances in air', logo: null },
+        { name: 'IEEE C57.12.91', desc: 'Test code for dry-type distribution and power transformers', logo: '/images/IEEE.png' },
         { name: 'ANSI C57.12.01', desc: 'American National Standard for dry-type transformers', logo: '/images/ansi-logo.svg' },
       ]}
       applications={[
@@ -94,7 +95,7 @@ export default function CastCoilPage() {
       faqs={[
         {
           q: 'What is the fire classification of cast coil transformers?',
-          a: 'Cast coil transformers using self-extinguishing epoxy resin achieve Fire Classification F1 per IEC 60076-11, which means the material does not sustain combustion and does not propagate flame. This makes them acceptable under most electrical codes for installation inside occupied buildings, tunnels, and underground facilities without the fire separation distances required for liquid-filled transformers.',
+          a: 'Cast coil transformers using self-extinguishing epoxy resin achieve the F1 fire behaviour class, which means the material does not sustain combustion and does not propagate flame. This makes them acceptable under most electrical codes for installation inside occupied buildings, tunnels, and underground facilities without the fire separation distances required for liquid-filled transformers.',
         },
         {
           q: 'How does cast coil compare to VPI in salt spray environments?',
@@ -106,7 +107,7 @@ export default function CastCoilPage() {
         },
         {
           q: 'What partial discharge levels are typical, and can factory PD testing be performed?',
-          a: 'Factory partial discharge (PD) testing is available as an optional test per IEC 60076-11. PD values below 10 pC at 1.3 × Um/√3 are typically achievable for cast coil designs at voltages up to 36 kV. PD test results are included in the factory test report when this test is specified.',
+          a: 'Factory partial discharge (PD) testing is available as an optional factory test. PD values below 10 pC at 1.3 × Um/√3 are typically achievable for cast coil designs at voltages up to 36 kV. PD test results are included in the factory test report when this test is specified.',
         },
       ]}
       quoteItems={[
@@ -117,7 +118,7 @@ export default function CastCoilPage() {
         'Enclosure IP rating (IP34 or IP54)',
         'Environment description (coastal, chemical, indoor, etc.)',
         'Temperature monitoring requirements',
-        'Applicable standards (IEC 60076-11 or IEEE C57.12.01)',
+        'Applicable standards (IEEE C57.12.01 / CSA C9)',
       ]}
     />
   )

@@ -1,33 +1,11 @@
 import Link from 'next/link'
-import Image from 'next/image'
+import { HeroArt } from '@/components/LineArt'
 
 export const metadata = {
   title: 'Custom Power Transformers',
   description: 'Explore CANDRON custom power transformer projects, including matched replacement units, Arctic mining transformers, and a 6 MVA FR3-filled medium-voltage transformer.',
 }
 
-const customTransformerImages = [
-  {
-    src: '/images/projects/custom-power-transformers/transformer-ready-to-ship.jpg',
-    alt: 'Custom CANDRON power transformer prepared for shipment',
-  },
-  {
-    src: '/images/projects/custom-power-transformers/transformer-radiator-bank.jpg',
-    alt: 'Radiator bank and cooling assembly on a custom power transformer',
-  },
-  {
-    src: '/images/projects/custom-power-transformers/transformer-front-view.jpg',
-    alt: 'Front view of a custom-built power transformer in the manufacturing facility',
-  },
-  {
-    src: '/images/projects/custom-power-transformers/transformer-side-view.jpg',
-    alt: 'Side view of a completed custom power transformer before shipment',
-  },
-  {
-    src: '/images/projects/custom-power-transformers/transformer-final-inspection.jpg',
-    alt: 'Custom power transformer undergoing final inspection before delivery',
-  },
-]
 
 const categories = [
   {
@@ -87,7 +65,7 @@ const categories = [
     sub: 'Dry-Type · Industrial / Utility',
     desc: 'VPI and resin-encapsulated dry-type transformers rated from 2.4 kV to 35 kV. Cast coil designs available for demanding chemical, coastal, and high-humidity environments.',
     href: '/products/transformers/dry-type-mv',
-    specs: ['300 kVA – 30 MVA', '2.4 kV – 35 kV Primary', 'IEEE C57.12.01 / IEC 60076'],
+    specs: ['300 kVA – 30 MVA', '2.4 kV – 35 kV Primary', 'IEEE C57.12.01 / CSA C9'],
     types: ['Standard MV Dry-Type', 'Cast Coil Transformer'],
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
@@ -129,11 +107,12 @@ export default function TransformersPage() {
         <div className="page-hero-bg" style={{ background: "url('/images/projects/custom-power-transformers/transformer-ready-to-ship.jpg') center/cover" }}>
           <div className="absolute inset-0 opacity-[.07]" style={{ backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 39px,#0047FF 39px,#0047FF 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,#0047FF 39px,#0047FF 40px)' }} />
         </div>
+        <HeroArt kind="substation" />
         <div className="container page-hero-content">
           <div className="breadcrumb">
             <Link href="/">Home</Link> / <Link href="/products">Products</Link> / <span>Transformers</span>
           </div>
-          <div className="label label-white">ANSI · IEEE · CSA · IEC</div>
+          <div className="label label-white">ANSI · IEEE · CSA · UL</div>
           <h1>
             Transformer Solutions
             <br />
@@ -144,7 +123,7 @@ export default function TransformersPage() {
           </p>
           <div className="flex gap-[.65rem] flex-wrap mt-6">
             {['Padmount', 'Substation', 'LV Dry-Type', 'MV Dry-Type', 'Cast Coil', 'Custom Configurations'].map(b => (
-              <span key={b} className="py-[.38rem] px-[.9rem] bg-white/[.1] border border-white/20 rounded-full text-[.72rem] font-bold text-white font-mono tracking-[.04em]">{b}</span>
+              <span key={b} className="py-[.38rem] px-[.9rem] bg-white/[.1] border border-white/20 rounded-full text-[.9375rem] font-bold text-white font-mono tracking-[.04em]">{b}</span>
             ))}
           </div>
         </div>
@@ -161,223 +140,13 @@ export default function TransformersPage() {
               { v: 'In-House', l: 'FAT & Testing' },
             ].map((k, i) => (
               <div key={k.l} className={`py-[1.1rem] px-4 text-center min-w-0 ${i < 3 ? 'border-r border-white/[.08]' : ''} max-sm:${i === 1 ? 'border-r-0' : ''}`}>
-                <div className="font-display font-black text-[1.05rem] text-white tracking-[.03em] mb-[.2rem] break-words [overflow-wrap:anywhere]">{k.v}</div>
-                <div className="font-mono text-[.52rem] text-white/[.4] tracking-[.14em] uppercase break-words [overflow-wrap:anywhere]">{k.l}</div>
+                <div className="font-display font-black text-[1.1875rem] text-white tracking-[.03em] mb-[.2rem] break-words [overflow-wrap:anywhere]">{k.v}</div>
+                <div className="font-mono text-[.8125rem] text-white/[.4] tracking-[.14em] uppercase break-words [overflow-wrap:anywhere]">{k.l}</div>
               </div>
             ))}
           </div>
         </div>
       </div>
-
-      {/* CUSTOM POWER TRANSFORMER PROJECT */}
-      <section className="section bg-white" id="custom-transformer-project" aria-labelledby="custom-transformer-project-title">
-        <div className="container">
-          <div className="grid grid-cols-[.88fr_1.12fr] max-lg:grid-cols-1 gap-12 max-lg:gap-9 items-start">
-            <div className="rv-l lg:sticky lg:top-[7rem]">
-              <div className="label">Project Spotlight</div>
-              <h2 id="custom-transformer-project-title" className="mt-4 !leading-[1.08]">
-                Custom Engineered.<br />
-                <em>Precision Built.</em><br />
-                Delivered at Scale.
-              </h2>
-              <p className="body mt-6">
-                When replacement equipment needs to match existing infrastructure, precision matters. CANDRON delivered seven identical custom-built power transformers engineered around the customer&apos;s existing specifications and integration requirements.
-              </p>
-
-              <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-3 mt-7">
-                {[
-                  { value: '7', label: 'Identical Units' },
-                  { value: '28 Weeks', label: 'Manufacturing Release to Shipment' },
-                  { value: '55/65°C', label: 'Temperature Rise Design' },
-                ].map((item) => (
-                  <div key={item.label} className="rounded-[12px] border border-blue/[.16] bg-off px-4 py-4 min-w-0">
-                    <div className="font-display text-[1rem] font-black text-blue break-words">{item.value}</div>
-                    <div className="font-mono text-[.52rem] uppercase tracking-[.1em] text-gray mt-1.5 leading-[1.45]">{item.label}</div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-8">
-                <div className="font-mono text-[.58rem] font-bold tracking-[.18em] text-blue uppercase mb-4">Key Highlights</div>
-                <ul className="check-list">
-                  <li>Custom engineered to match the existing transformer specifications</li>
-                  <li>Seven identical units manufactured and shipped within 28 weeks of manufacturing release</li>
-                  <li>High-grade magnetic core engineered to optimize the overall transformer footprint</li>
-                  <li>55/65°C temperature-rise design</li>
-                </ul>
-              </div>
-
-              <p className="body mt-7">
-                Application-specific engineering and manufacturing expertise deliver consistent, space-efficient power solutions for demanding replacement and expansion projects.
-              </p>
-              <Link href="/contact?product=custom-power-transformer" className="btn btn-primary mag mt-8">Discuss a Custom Transformer →</Link>
-            </div>
-
-            <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-3 rv-r">
-              {customTransformerImages.map((image, index) => (
-                <figure
-                  key={image.src}
-                  className={`relative overflow-hidden rounded-[16px] bg-off border border-[#E8ECF5] ${index === 0 ? 'col-span-2 max-sm:col-span-1 aspect-[16/10]' : 'aspect-[4/3]'}`}
-                >
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    className="object-cover transition-transform duration-500 hover:scale-[1.025]"
-                    sizes={index === 0 ? '(max-width:1024px) 100vw, 58vw' : '(max-width:640px) 50vw, 29vw'}
-                  />
-                </figure>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ARCTIC MINING POWER TRANSFORMER */}
-      <section className="bg-navy py-20 max-md:py-14" aria-labelledby="arctic-transformer-title">
-        <div className="container">
-          <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-12 max-lg:gap-8 items-center">
-            <div className="relative min-h-[560px] max-lg:min-h-0 max-lg:aspect-[4/3] max-sm:aspect-[1/1] overflow-hidden rounded-[20px] border border-white/[.12] rv-l">
-              <Image
-                src="/images/projects/arctic-mining-transformer/arctic-mining-power-transformer.jpg"
-                alt="15/20 MVA 69 kV to 13.8 kV power transformer engineered for an Arctic mining project"
-                fill
-                className="object-cover object-center"
-                sizes="(max-width:1024px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(5,9,31,.55),transparent_45%)] pointer-events-none" />
-              <div className="absolute left-5 bottom-5 flex flex-wrap gap-2">
-                {['15/20 MVA', '69 kV → 13.8 kV', 'Arctic Mining'].map((badge) => (
-                  <span key={badge} className="rounded-full border border-white/25 bg-navy/75 px-3 py-2 font-mono text-[.58rem] font-bold uppercase tracking-[.08em] text-white backdrop-blur-sm">{badge}</span>
-                ))}
-              </div>
-            </div>
-
-            <div className="rv-r">
-              <div className="label label-white">Project Spotlight · Arctic Mining</div>
-              <h2 id="arctic-transformer-title" className="text-white mt-4 !leading-[1.08]">
-                Engineered for the Extreme.<br />
-                <em>Built for the Arctic.</em>
-              </h2>
-              <p className="text-white/60 text-[.96rem] leading-[1.8] mt-6 max-w-[620px]">
-                This 15/20 MVA power transformer steps 69 kV down to 13.8 kV for critical infrastructure in a demanding Arctic mining environment, where dependable operation and environmental performance are essential.
-              </p>
-
-              <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-3 mt-8">
-                {[
-                  { value: '15/20 MVA', label: 'Rated Capacity' },
-                  { value: '69 / 13.8 kV', label: 'Voltage Transformation' },
-                  { value: 'CTs Included', label: 'Protection & Metering' },
-                  { value: 'Fully Instrumented', label: 'Gauges & Accessories' },
-                ].map((item) => (
-                  <div key={item.label} className="rounded-[12px] border border-white/[.1] bg-white/[.045] px-5 py-4 min-w-0">
-                    <div className="font-display text-[.92rem] font-black text-white break-words">{item.value}</div>
-                    <div className="font-mono text-[.52rem] uppercase tracking-[.1em] text-white/40 mt-1.5">{item.label}</div>
-                  </div>
-                ))}
-              </div>
-
-              <ul className="mt-8 p-0 list-none grid gap-3">
-                {[
-                  'Engineered specifically for remote Arctic mining applications',
-                  'Current transformers integrated for protection and metering',
-                  'Complete instrumentation package with monitoring gauges and accessories',
-                  'Application-specific configuration for demanding industrial service',
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-white/65 text-[.86rem] leading-[1.6]">
-                    <span className="mt-[.35rem] w-2 h-2 rounded-full bg-blue shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-
-              <div className="flex flex-wrap gap-3 mt-9">
-                <Link href="/contact?product=arctic-power-transformer" className="btn btn-primary mag">Discuss Your Application →</Link>
-                <Link href="/products/transformers/substation/power" className="btn btn-outline mag">Power Transformers</Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 6 MVA FR3 MEDIUM-VOLTAGE TRANSFORMER */}
-      <section className="section bg-off" aria-labelledby="fr3-transformer-title">
-        <div className="container">
-          <div className="grid grid-cols-[.95fr_1.05fr] max-lg:grid-cols-1 gap-12 max-lg:gap-8 items-center">
-            <div className="rv-l">
-              <div className="label">Project Spotlight · Medium Voltage</div>
-              <h2 id="fr3-transformer-title" className="mt-4 !leading-[1.08]">
-                A Big Beast.<br />
-                <em>Built for Serious Power.</em>
-              </h2>
-              <p className="lead mt-6 max-w-[620px]">
-                A 6 MVA power transformer engineered for demanding medium-voltage applications, stepping 44 kV down to 15 kV with copper windings, FR3 natural ester insulating fluid, and fan-assisted cooling.
-              </p>
-
-              <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-3 mt-8">
-                {[
-                  { value: '6 MVA', label: 'Rated Capacity' },
-                  { value: '44 → 15 kV', label: 'Voltage Transformation' },
-                  { value: '36 Months', label: 'Warranty' },
-                ].map((item) => (
-                  <div key={item.label} className="rounded-[12px] border border-[#DCE3F2] bg-white px-4 py-4 min-w-0">
-                    <div className="font-display text-[.9rem] font-black text-navy break-words">{item.value}</div>
-                    <div className="font-mono text-[.5rem] uppercase tracking-[.1em] text-slate mt-1.5">{item.label}</div>
-                  </div>
-                ))}
-              </div>
-
-              <ul className="mt-8 p-0 list-none grid gap-3">
-                {[
-                  'Copper-wound construction',
-                  'FR3 natural ester insulating fluid',
-                  'Fan-assisted cooling',
-                  'Monitoring gauges and complete instrumentation',
-                  'cULus Listed',
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-slate text-[.86rem] leading-[1.6]">
-                    <span className="mt-[.35rem] w-2 h-2 rounded-full bg-blue shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-
-              <div className="flex flex-wrap gap-3 mt-9">
-                <Link href="/contact?product=6mva-fr3-transformer" className="btn btn-primary mag">Discuss Your Application →</Link>
-                <Link href="/products/transformers/substation/power" className="btn btn-outline mag">Power Transformers</Link>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-4 rv-r">
-              {[
-                {
-                  src: '/images/projects/6mva-fr3-transformer/6mva-transformer-front.jpg',
-                  alt: 'Front view of a 6 MVA 44 kV to 15 kV CANDRON power transformer prepared for transport',
-                  label: '6 MVA · 44/15 kV',
-                },
-                {
-                  src: '/images/projects/6mva-fr3-transformer/6mva-transformer-side.jpg',
-                  alt: 'Side view of a copper-wound 6 MVA transformer with FR3 fluid and fan-assisted cooling',
-                  label: 'FR3 · Fan Cooled',
-                },
-              ].map((image) => (
-                <figure key={image.src} className="relative aspect-[3/4] overflow-hidden rounded-[18px] border border-[#DCE3F2] bg-white shadow-[0_12px_35px_rgba(5,9,31,.1)]">
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    className="object-cover transition-transform duration-500 hover:scale-[1.025]"
-                    sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 27vw"
-                  />
-                  <figcaption className="absolute left-4 bottom-4 rounded-full border border-white/35 bg-navy/80 px-3 py-2 font-mono text-[.56rem] font-bold uppercase tracking-[.08em] text-white backdrop-blur-sm">
-                    {image.label}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* CATEGORY GRID */}
       <div className="section bg-off">
@@ -399,30 +168,30 @@ export default function TransformersPage() {
                   <div className="w-12 h-12 rounded-[12px] bg-blue/[.08] text-blue flex items-center justify-center shrink-0 transition-[background] duration-200 group-hover:bg-blue group-hover:text-white">
                     <div className="w-6 h-6">{cat.icon}</div>
                   </div>
-                  <span className="font-mono text-[.58rem] font-bold tracking-[.18em] text-blue/60 uppercase pt-[.2rem]">{cat.num}</span>
+                  <span className="font-mono text-[.8125rem] font-bold tracking-[.18em] text-blue/60 uppercase pt-[.2rem]">{cat.num}</span>
                 </div>
                 <div>
-                  <div className="font-display font-extrabold text-[1.1rem] text-navy leading-[1.2] mb-[.35rem]">{cat.name}</div>
-                  <div className="font-mono text-[.62rem] text-blue tracking-[.06em] mb-3">{cat.sub}</div>
-                  <p className="font-mono text-[.82rem] text-gray leading-[1.65] m-0">{cat.desc}</p>
+                  <div className="font-display font-extrabold text-[1.25rem] text-navy leading-[1.2] mb-[.35rem]">{cat.name}</div>
+                  <div className="font-mono text-[.875rem] text-blue tracking-[.06em] mb-3">{cat.sub}</div>
+                  <p className="font-mono text-[1.0625rem] text-gray leading-[1.65] m-0">{cat.desc}</p>
                 </div>
                 <div className="flex flex-wrap gap-[.45rem]">
                   {cat.specs.map(s => (
-                    <span key={s} className="font-mono text-[.6rem] font-bold tracking-[.04em] text-navy/70 bg-[#F4F6FA] px-[.7rem] py-[.3rem] rounded-[6px] border border-[#E8ECF5]">{s}</span>
+                    <span key={s} className="font-mono text-[.8125rem] font-bold tracking-[.04em] text-navy/70 bg-[#F4F6FA] px-[.7rem] py-[.3rem] rounded-[6px] border border-[#E8ECF5]">{s}</span>
                   ))}
                 </div>
                 <div className="border-t border-[#E8ECF5] pt-4">
-                  <div className="font-mono text-[.58rem] text-gray/60 uppercase tracking-[.12em] mb-2">Types Available</div>
+                  <div className="font-mono text-[.8125rem] text-gray/60 uppercase tracking-[.12em] mb-2">Types Available</div>
                   <div className="flex gap-3 flex-wrap">
                     {cat.types.map(t => (
-                      <span key={t} className="flex items-center gap-[.4rem] font-mono text-[.7rem] text-navy font-semibold">
+                      <span key={t} className="flex items-center gap-[.4rem] font-mono text-[.9375rem] text-navy font-semibold">
                         <span className="w-[5px] h-[5px] rounded-full bg-blue shrink-0"/>
                         {t}
                       </span>
                     ))}
                   </div>
                 </div>
-                <div className="font-mono text-[.65rem] font-bold text-blue tracking-[.08em] uppercase mt-auto flex items-center gap-[.4rem] group-hover:gap-[.65rem] transition-[gap] duration-200">
+                <div className="font-mono text-[.875rem] font-bold text-blue tracking-[.08em] uppercase mt-auto flex items-center gap-[.4rem] group-hover:gap-[.65rem] transition-[gap] duration-200">
                   Explore {cat.name} <span>→</span>
                 </div>
               </Link>
@@ -444,8 +213,8 @@ export default function TransformersPage() {
 
           <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-6">
             <section className="rounded-[20px] bg-off border border-[#E8ECF5] p-8 max-sm:p-5 rv" aria-labelledby="transformer-families-heading">
-              <div className="font-mono text-[.58rem] font-bold tracking-[.18em] text-blue uppercase mb-3">By Construction</div>
-              <h3 id="transformer-families-heading" className="font-display text-[1.25rem] font-black text-navy mb-6">Transformer Families</h3>
+              <div className="font-mono text-[.8125rem] font-bold tracking-[.18em] text-blue uppercase mb-3">By Construction</div>
+              <h3 id="transformer-families-heading" className="font-display text-[1.375rem] font-black text-navy mb-6">Transformer Families</h3>
               <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-3">
                 {transformerFamilies.map((family, index) => (
                   <Link
@@ -454,10 +223,10 @@ export default function TransformersPage() {
                     className="min-w-0 no-underline group rounded-[14px] bg-white border border-[#E8ECF5] p-4 transition-[border-color,box-shadow] duration-200 hover:border-blue hover:shadow-[0_5px_22px_rgba(0,71,255,.1)]"
                   >
                     <div className="flex items-start gap-3">
-                      <span className="font-mono text-[.55rem] font-bold tracking-[.12em] text-blue bg-blue/[.08] rounded-[6px] px-2 py-1 shrink-0">{String(index + 1).padStart(2, '0')}</span>
+                      <span className="font-mono text-[.8125rem] font-bold tracking-[.12em] text-blue bg-blue/[.08] rounded-[6px] px-2 py-1 shrink-0">{String(index + 1).padStart(2, '0')}</span>
                       <div className="min-w-0">
-                        <div className="font-display text-[.9rem] font-extrabold text-navy leading-[1.3] break-words">{family.name}</div>
-                        <p className="font-mono text-[.68rem] text-gray leading-[1.55] mt-2 mb-0 break-words">{family.detail}</p>
+                        <div className="font-display text-[1.125rem] font-extrabold text-navy leading-[1.3] break-words">{family.name}</div>
+                        <p className="font-mono text-[.9375rem] text-gray leading-[1.55] mt-2 mb-0 break-words">{family.detail}</p>
                       </div>
                     </div>
                   </Link>
@@ -466,15 +235,15 @@ export default function TransformersPage() {
             </section>
 
             <section className="rounded-[20px] bg-navy border border-blue/[.18] p-8 max-sm:p-5 rv d2" aria-labelledby="transformer-applications-heading">
-              <div className="font-mono text-[.58rem] font-bold tracking-[.18em] text-blue uppercase mb-3">By Use Case</div>
-              <h3 id="transformer-applications-heading" className="font-display text-[1.25rem] font-black text-white mb-6">Applications</h3>
+              <div className="font-mono text-[.8125rem] font-bold tracking-[.18em] text-blue uppercase mb-3">By Use Case</div>
+              <h3 id="transformer-applications-heading" className="font-display text-[1.375rem] font-black text-white mb-6">Applications</h3>
               <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-x-5 gap-y-4">
                 {transformerApplications.map((application, index) => (
                   <div key={application.name} className="min-w-0 flex items-start gap-3">
-                    <span className="w-6 h-6 rounded-full bg-blue/[.16] text-blue flex items-center justify-center font-mono text-[.5rem] font-bold shrink-0">{index + 1}</span>
+                    <span className="w-6 h-6 rounded-full bg-blue/[.16] text-blue flex items-center justify-center font-mono text-[.8125rem] font-bold shrink-0">{index + 1}</span>
                     <div className="min-w-0">
-                      <div className="font-display text-[.82rem] font-bold text-white leading-[1.35] break-words">{application.name}</div>
-                      <p className="font-mono text-[.65rem] text-white/45 leading-[1.5] mt-1 mb-0 break-words">{application.detail}</p>
+                      <div className="font-display text-[1.0625rem] font-bold text-white leading-[1.35] break-words">{application.name}</div>
+                      <p className="font-mono text-[.875rem] text-white/[.68] leading-[1.5] mt-1 mb-0 break-words">{application.detail}</p>
                     </div>
                   </div>
                 ))}
@@ -511,7 +280,7 @@ export default function TransformersPage() {
               },
               {
                 n: '03', title: 'ANSI, IEEE & CSA Compliance',
-                desc: 'Our transformers are built and tested to the applicable standards for your project — including ANSI C57, IEEE C57.12, CSA C88, IEC 60076, and UL 1561 for listed dry-type units.',
+                desc: 'Our transformers are built and tested to the applicable standards for your project — including ANSI C57, IEEE C57.12, CSA C88, and UL 1561 for listed dry-type units.',
                 icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>,
               },
               {
@@ -558,13 +327,13 @@ export default function TransformersPage() {
                 className={`rv no-underline flex flex-col gap-4 p-7 rounded-[16px] bg-navy border border-blue/[.18] transition-[border-color,box-shadow] duration-200 hover:border-blue hover:shadow-[0_6px_30px_rgba(0,71,255,.2)]${i > 0 ? ` d${i + 1}` : ''}`}
               >
                 <div className="w-11 h-11 rounded-[10px] bg-blue/[.15] flex items-center justify-center">
-                  <span className="font-display font-black text-[.75rem] text-blue tracking-[.04em]">{c.label}</span>
+                  <span className="font-display font-black text-[1rem] text-blue tracking-[.04em]">{c.label}</span>
                 </div>
                 <div>
-                  <div className="font-display font-extrabold text-[.95rem] text-white mb-2">{c.title}</div>
-                  <p className="font-mono text-[.78rem] text-white/50 leading-[1.65] m-0">{c.desc}</p>
+                  <div className="font-display font-extrabold text-[1.125rem] text-white mb-2">{c.title}</div>
+                  <p className="font-mono text-[1rem] text-white/[.68] leading-[1.65] m-0">{c.desc}</p>
                 </div>
-                <div className="font-mono text-[.62rem] font-bold text-blue tracking-[.1em] uppercase mt-auto">Open Calculator →</div>
+                <div className="font-mono text-[.875rem] font-bold text-blue tracking-[.1em] uppercase mt-auto">Open Calculator →</div>
               </Link>
             ))}
           </div>

@@ -1,4 +1,5 @@
 import ProductTypePage from '@/components/ProductTypePage'
+import { HeroArt } from '@/components/LineArt'
 import type { ProductTypePageProps } from '@/components/ProductTypePage'
 
 const data: ProductTypePageProps = {
@@ -80,7 +81,7 @@ const data: ProductTypePageProps = {
   ],
   relatedTypes: [
     { name: 'Low Voltage Switchgear', sub: 'UL 1558 • Up to 600 V', href: '/products/switchgear/low-voltage' },
-    { name: 'Metal-Clad Medium Voltage', sub: 'IEC 62271-200 • 5–29 kV', href: '/products/switchgear/metal-clad' },
+    { name: 'Metal-Clad Medium Voltage', sub: 'IEEE C37.20.2 • 5–29 kV', href: '/products/switchgear/metal-clad' },
     { name: 'Metal-Enclosed Load-Interrupter', sub: 'CSA C22.2 • 5–27.6 kV', href: '/products/switchgear/load-interrupter' },
   ],
   faqs: [
@@ -113,5 +114,5 @@ export const metadata = {
 }
 
 export default function ServiceEntrancePage() {
-  return <ProductTypePage {...data} />
+  return <ProductTypePage heroArt={<HeroArt kind="mv" views={['sld', 'iso', 'ga']} />} {...data} />
 }

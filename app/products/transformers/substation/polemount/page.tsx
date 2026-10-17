@@ -1,4 +1,5 @@
 import ProductTypePage from '@/components/ProductTypePage'
+import { HeroArt } from '@/components/LineArt'
 
 export const metadata = {
   title: 'Polemount Transformer',
@@ -7,7 +8,7 @@ export const metadata = {
 
 export default function PolemountPage() {
   return (
-    <ProductTypePage
+    <ProductTypePage heroArt={<HeroArt kind="polemount" />}
       parentName="Products"
       parentHref="/products"
       categoryName="Substation Transformers"

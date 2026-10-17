@@ -8,21 +8,25 @@ import { useGSAP } from '@gsap/react'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const pillars: { lbl: string; icon: React.ReactNode }[] = [
+const pillars: { lbl: string; sub: string; icon: React.ReactNode }[] = [
   {
-    lbl: 'Built to Your\nRequirements',
+    lbl: 'Built to Your Requirements',
+    sub: 'Custom-engineered to your spec',
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="8"/><line x1="12" y1="16" x2="12" y2="22"/><line x1="2" y1="12" x2="8" y2="12"/><line x1="16" y1="12" x2="22" y2="12"/></svg>,
   },
   {
-    lbl: 'Quality at\nEvery Stage',
+    lbl: 'Quality at Every Stage',
+    sub: 'Inspected and tested in-house',
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>,
   },
   {
-    lbl: 'On Schedule.\nEvery Time.',
+    lbl: 'On Schedule, Every Time',
+    sub: 'Committed, tracked lead times',
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><rect x="7" y="14" width="2" height="2" rx=".5" fill="currentColor"/><rect x="11" y="14" width="2" height="2" rx=".5" fill="currentColor"/><rect x="15" y="14" width="2" height="2" rx=".5" fill="currentColor"/></svg>,
   },
   {
-    lbl: 'Support Beyond\nDelivery',
+    lbl: 'Support Beyond Delivery',
+    sub: 'Commissioning and field service',
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>,
   },
 ]
@@ -112,38 +116,37 @@ export default function ProcessSection() {
               One Connected Process.<br />From Concept to Commissioning.
             </h2>
             <div className="w-9 h-[3px] bg-blue rounded-[2px] mb-6" />
-            <p className="text-white/50 text-[.95rem] leading-[1.9] mb-5">
+            <p className="text-white/[.68] text-[1.125rem] leading-[1.9] mb-5">
               CANDRON engineers and manufactures switchgear, switchboards, and dry-type transformers in Toronto. Design, precision manufacturing, assembly, testing, delivery, and commissioning support are coordinated through one accountable team for consistent quality and shorter lead times.
             </p>
 
             <div className="mb-9 flex flex-wrap gap-2.5">
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/[.12] bg-white/[.04] px-3.5 py-2 font-mono text-[.58rem] font-bold uppercase tracking-[.1em] text-white/75">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/[.12] bg-white/[.04] px-3.5 py-2 font-mono text-[.8125rem] font-bold uppercase tracking-[.1em] text-white/75">
                 <CanadaFlag height={15} /> Toronto, Ontario, Canada
               </span>
-              <span className="rounded-full border border-white/[.12] bg-white/[.04] px-3.5 py-2 font-mono text-[.58rem] font-bold uppercase tracking-[.1em] text-white/75">
+              <span className="rounded-full border border-white/[.12] bg-white/[.04] px-3.5 py-2 font-mono text-[.8125rem] font-bold uppercase tracking-[.1em] text-white/75">
                 Local Engineering &amp; Manufacturing
               </span>
             </div>
 
-            {/* 4-pillar card */}
-            <div className="border border-white/[.1] rounded-[16px] overflow-hidden mb-10">
-              <div className="responsive-override-exempt grid grid-cols-4 max-lg:grid-cols-2">
-                {pillars.map(({ lbl, icon }, ci) => (
-                  <div key={ci} className="min-w-0 py-[1.1rem] px-3 text-center border-r border-white/[.08] last:border-r-0 max-lg:[&:nth-child(2)]:border-r-0">
-                    <div className="w-10 h-10 rounded-full border-[1.5px] border-blue/55 bg-[rgba(0,71,255,.08)] flex items-center justify-center mx-auto mb-[.65rem] text-[#5B9BFF]">
-                      <div className="w-[18px] h-[18px]">{icon}</div>
-                    </div>
-                    <div className="font-title text-[.6rem] font-bold text-white/75 leading-[1.35] whitespace-pre-line break-words [overflow-wrap:anywhere]">{lbl}</div>
+            {/* 4-pillar card — icon + text tiles; hairline dividers come from the 1px grid gap */}
+            <div className="proc-pillars mb-10">
+              {pillars.map(({ lbl, sub, icon }) => (
+                <div key={lbl} className="proc-pillar">
+                  <div className="proc-pillar-icon">{icon}</div>
+                  <div className="min-w-0">
+                    <div className="proc-pillar-title">{lbl}</div>
+                    <div className="proc-pillar-sub">{sub}</div>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
 
-            <div className="flex gap-3 max-sm:flex-col">
-              <Link href="/manufacturing" className="btn btn-primary btn-lg mag flex-1 justify-center tracking-[.06em] uppercase">
+            <div className="flex flex-wrap gap-3">
+              <Link href="/manufacturing" className="btn btn-primary btn-lg mag flex-[1_1_260px] justify-center whitespace-nowrap tracking-[.06em] uppercase">
                 Explore Manufacturing →
               </Link>
-              <Link href="/contact" className="btn btn-outline btn-lg mag flex-1 justify-center tracking-[.06em] uppercase">
+              <Link href="/contact" className="btn btn-outline btn-lg mag flex-[1_1_260px] justify-center whitespace-nowrap tracking-[.06em] uppercase">
                 Discuss Your Project →
               </Link>
             </div>
@@ -164,7 +167,7 @@ export default function ProcessSection() {
                 {/* Circle */}
                 <div
                   ref={el => { dotRefs.current[idx] = el }}
-                  className="w-12 h-12 max-md:w-9 max-md:h-9 rounded-full shrink-0 z-[1] bg-[linear-gradient(135deg,#1A60FF,#0033BB)] flex items-center justify-center font-display font-black text-[.72rem] max-md:text-[.55rem] tracking-[.04em] text-white shadow-[0_0_0_5px_rgba(0,71,255,.2),0_4px_20px_rgba(0,71,255,.35)]"
+                  className="w-12 h-12 max-md:w-9 max-md:h-9 rounded-full shrink-0 z-[1] bg-[linear-gradient(135deg,#1A60FF,#0033BB)] flex items-center justify-center font-display font-black text-[.9375rem] max-md:text-[.8125rem] tracking-[.04em] text-white shadow-[0_0_0_5px_rgba(0,71,255,.2),0_4px_20px_rgba(0,71,255,.35)]"
                 >{n}</div>
 
                 {/* Card */}
@@ -173,8 +176,8 @@ export default function ProcessSection() {
                     <div className="w-[21px] h-[21px] max-md:w-[14px] max-md:h-[14px]">{icon}</div>
                   </div>
                   <div>
-                    <div className="font-display font-bold text-white text-[.92rem] max-md:text-[.78rem] mb-[.3rem] max-md:mb-1">{title}</div>
-                    <div className="font-title text-white/45 text-[.8rem] max-md:text-[.7rem] leading-[1.65] max-md:leading-[1.5]">{desc}</div>
+                    <div className="font-display font-bold text-white text-[1.125rem] max-md:text-[1rem] mb-[.3rem] max-md:mb-1">{title}</div>
+                    <div className="font-title text-white/[.68] text-[1.0625rem] max-md:text-[.9375rem] leading-[1.65] max-md:leading-[1.5]">{desc}</div>
                   </div>
                 </div>
 

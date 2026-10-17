@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Image from 'next/image'
+import { HeroArt } from '@/components/LineArt'
 
 export const metadata = {
   title: 'Low Voltage Dry-Type Transformers',
@@ -35,6 +35,7 @@ export default function DryTypeLVPage() {
         >
           <div className="absolute inset-0 opacity-[.06]" style={{ backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 39px,#0047FF 39px,#0047FF 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,#0047FF 39px,#0047FF 40px)' }} />
         </div>
+        <HeroArt kind="dry" />
         <div className="container page-hero-content">
           <div className="breadcrumb">
             <Link href="/">Home</Link> / <Link href="/products">Products</Link> / <Link href="/products/transformers">Transformers</Link> / <span>LV Dry-Type</span>
@@ -46,7 +47,7 @@ export default function DryTypeLVPage() {
           </p>
           <div className="flex gap-[.65rem] flex-wrap mt-6">
             {['UL 1561 Listed', 'CSA Certified', 'NEMA ST-20', 'Class H Insulation', 'DOE 2016 Compliant'].map(b => (
-              <span key={b} className="py-[.38rem] px-[.9rem] bg-white/[.1] border border-white/20 rounded-full text-[.72rem] font-bold text-white font-mono tracking-[.04em]">{b}</span>
+              <span key={b} className="py-[.38rem] px-[.9rem] bg-white/[.1] border border-white/20 rounded-full text-[.9375rem] font-bold text-white font-mono tracking-[.04em]">{b}</span>
             ))}
           </div>
         </div>
@@ -75,159 +76,6 @@ export default function DryTypeLVPage() {
         </div>
       </div>
 
-      {/* ONE-DAY EXPEDITED TRANSFORMER */}
-      <section className="section bg-off" aria-labelledby="one-day-transformer-title">
-        <div className="container">
-          <div className="grid grid-cols-[.92fr_1.08fr] max-lg:grid-cols-1 gap-12 max-lg:gap-8 items-center">
-            <div className="rv-l">
-              <div className="label">Expedited Manufacturing · Canadian-Made</div>
-              <h2 id="one-day-transformer-title" className="mt-4 !leading-[1.08]">
-                When Every Hour Counts,<br />
-                <em>CANDRON Delivers.</em>
-              </h2>
-              <p className="lead mt-6 max-w-[620px]">
-                When a customer needed a transformer urgently, our team manufactured the unit within 24 hours of order confirmation and personally delivered it to help prevent system disruption.
-              </p>
-              <p className="body mt-4 max-w-[620px]">
-                We go beyond standard production schedules to help keep critical projects moving and customer systems running. Need it fast? We make it happen.
-              </p>
-
-              <div className="mt-8 rounded-[16px] border border-blue/25 bg-white p-6 shadow-[0_8px_30px_rgba(5,9,31,.06)]">
-                <div className="font-mono text-[.56rem] font-bold uppercase tracking-[.13em] text-blue mb-3">One-Day Expedited Turnaround Available</div>
-                <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-3">
-                  {[
-                    { value: '24 Hours', label: 'Case-Study Turnaround' },
-                    { value: 'Up to 300 kVA', label: 'Eligible Capacity' },
-                    { value: 'Up to 600 V', label: 'Eligible Voltage' },
-                  ].map((item) => (
-                    <div key={item.label} className="rounded-[10px] border border-[#DCE3F2] bg-off px-4 py-4 min-w-0">
-                      <div className="font-display text-[.85rem] font-black text-navy break-words">{item.value}</div>
-                      <div className="font-mono text-[.48rem] uppercase tracking-[.09em] text-slate mt-1.5">{item.label}</div>
-                    </div>
-                  ))}
-                </div>
-                <p className="font-mono text-[.55rem] leading-[1.55] text-slate mt-4 mb-0">
-                  Expedited scheduling is subject to transformer configuration, engineering review, component availability, and production capacity at the time of order.
-                </p>
-              </div>
-
-              <div className="flex flex-wrap gap-3 mt-8">
-                <Link href="/contact?product=one-day-dry-type-transformer" className="btn btn-primary mag">Request Expedited Service →</Link>
-                <Link href="/products/transformers/dry-type-lv/standard" className="btn btn-outline-blue mag">Standard LV Transformers</Link>
-              </div>
-            </div>
-
-            <div className="rv-r">
-              <figure className="relative aspect-[16/10] max-sm:aspect-[4/3] overflow-hidden rounded-[18px] border border-[#DCE3F2] bg-white shadow-[0_12px_35px_rgba(5,9,31,.1)]">
-                <Image
-                  src="/images/projects/one-day-dry-type-transformer/one-day-transformer-delivery.jpg"
-                  alt="Canadian-made dry-type transformer delivered within 24 hours for an urgent customer requirement"
-                  fill
-                  className="object-cover object-bottom"
-                  sizes="(max-width:1024px) 100vw, 54vw"
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(5,9,31,.58),transparent_48%)] pointer-events-none" />
-                <figcaption className="absolute left-5 bottom-5 flex flex-wrap gap-2">
-                  {['Manufactured in 24 Hours', 'Personally Delivered', 'Canadian-Made'].map((badge) => (
-                    <span key={badge} className="rounded-full border border-white/30 bg-navy/80 px-3 py-2 font-mono text-[.52rem] font-bold uppercase tracking-[.08em] text-white backdrop-blur-sm">{badge}</span>
-                  ))}
-                </figcaption>
-              </figure>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 500 KVA EXPEDITED DISTRIBUTION PACKAGE */}
-      <section className="bg-navy py-20 max-md:py-14" aria-labelledby="500kva-transformer-title">
-        <div className="container">
-          <div className="grid grid-cols-[.8fr_1.2fr] max-lg:grid-cols-1 gap-12 max-lg:gap-8 items-end mb-10">
-            <div className="rv-l">
-              <div className="label label-white">Expedited Delivery · Complete Distribution Package</div>
-              <h2 id="500kva-transformer-title" className="text-white mt-4 !leading-[1.08]">
-                500 kVA Transformer.<br />
-                <em>Delivered in Two Days.</em>
-              </h2>
-            </div>
-            <div className="rv-r">
-              <p className="text-white/60 text-[.96rem] leading-[1.8] max-w-[720px]">
-                A 500 kVA transformer configured for 600 V Delta primary and 480/277 V Wye secondary was produced and delivered within two days of release. A 1200 A Eaton in-stock switchboard completed the distribution package, giving the customer a single expedited source for both pieces of equipment.
-              </p>
-              <div className="grid grid-cols-4 max-sm:grid-cols-2 gap-3 mt-6">
-                {[
-                  { value: '500 kVA', label: 'Rated Capacity' },
-                  { value: '600 V Δ', label: 'Primary' },
-                  { value: '480/277 V Y', label: 'Secondary' },
-                  { value: '2 Days', label: 'Release to Delivery' },
-                ].map((item) => (
-                  <div key={item.label} className="rounded-[12px] border border-white/[.1] bg-white/[.045] px-4 py-4 min-w-0">
-                    <div className="font-display text-[.86rem] font-black text-white break-words">{item.value}</div>
-                    <div className="font-mono text-[.49rem] uppercase tracking-[.09em] text-white/40 mt-1.5">{item.label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 max-md:grid-cols-1 gap-4 mb-4">
-            {[
-              {
-                src: '/images/projects/500kva-expedited-distribution/transformer-switchboard-delivery.jpg',
-                alt: '500 kVA transformer and 1200 amp Eaton switchboard delivered together at the customer site',
-                label: 'One-Stop Distribution Package',
-              },
-              {
-                src: '/images/projects/500kva-expedited-distribution/eaton-switchboard-delivered.jpg',
-                alt: '1200 amp Eaton switchboard delivered alongside EV charging equipment',
-                label: '1200 A Eaton Switchboard',
-              },
-            ].map((image) => (
-              <figure key={image.src} className="relative aspect-[4/3] overflow-hidden rounded-[16px] border border-white/[.12] bg-white/[.04] rv">
-                <Image src={image.src} alt={image.alt} fill className="object-cover transition-transform duration-500 hover:scale-[1.02]" sizes="(max-width:768px) 100vw, 50vw" />
-                <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(5,9,31,.62),transparent_45%)] pointer-events-none" />
-                <figcaption className="absolute left-4 bottom-4 rounded-full border border-white/25 bg-navy/80 px-3 py-2 font-mono text-[.52rem] font-bold uppercase tracking-[.08em] text-white backdrop-blur-sm">{image.label}</figcaption>
-              </figure>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-3">
-            {[
-              {
-                src: '/images/projects/500kva-expedited-distribution/equipment-site-arrival.jpg',
-                alt: 'Expedited transformer and switchboard package arriving at the installation site',
-                label: 'Site Arrival',
-              },
-              {
-                src: '/images/projects/500kva-expedited-distribution/transformer-unloading.jpg',
-                alt: 'Technician unloading the wrapped 500 kVA transformer at the customer site',
-                label: 'Expedited Unloading',
-              },
-              {
-                src: '/images/projects/500kva-expedited-distribution/transformer-delivered.jpg',
-                alt: 'Wrapped 500 kVA transformer positioned at the project site after delivery',
-                label: 'Delivered in Two Days',
-              },
-            ].map((image, index) => (
-              <figure key={image.src} className={`relative aspect-[4/5] overflow-hidden rounded-[14px] border border-white/[.12] bg-white/[.04] rv${index ? ` d${Math.min(index + 1, 4)}` : ''}`}>
-                <Image src={image.src} alt={image.alt} fill className="object-cover transition-transform duration-500 hover:scale-[1.025]" sizes="(max-width:640px) 100vw, 33vw" />
-                <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(5,9,31,.65),transparent_48%)] pointer-events-none" />
-                <figcaption className="absolute left-3 bottom-3 font-mono text-[.49rem] font-bold uppercase tracking-[.07em] text-white">{image.label}</figcaption>
-              </figure>
-            ))}
-          </div>
-
-          <div className="mt-8 rounded-[14px] border border-white/[.1] bg-white/[.045] px-6 py-5 text-center rv">
-            <p className="m-0 text-white/65 text-[.86rem] leading-[1.7]">
-              The customer received a complete, expedited solution from one supplier and was extremely satisfied with the production speed and delivery service. CANDRON products are CSA, cULus, and UL certified as applicable.
-            </p>
-          </div>
-
-          <div className="flex justify-center mt-9 rv">
-            <Link href="/contact?product=expedited-distribution-package" className="btn btn-primary mag">Request Expedited Distribution Equipment →</Link>
-          </div>
-        </div>
-      </section>
-
       {/* TYPE CARDS */}
       <div className="section bg-off">
         <div className="container">
@@ -243,23 +91,23 @@ export default function DryTypeLVPage() {
                 className={`rv no-underline group flex flex-col gap-6 p-8 rounded-[20px] bg-white border border-[#E8ECF5] shadow-[0_2px_16px_rgba(5,9,31,.05)] transition-[border-color,box-shadow,transform] duration-200 hover:border-blue hover:shadow-[0_8px_40px_rgba(0,71,255,.11)] hover:-translate-y-[2px]${i > 0 ? ' d2' : ''}`}
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-[.6rem] font-bold tracking-[.18em] text-blue uppercase">{t.n}</span>
+                  <span className="font-mono text-[.8125rem] font-bold tracking-[.18em] text-blue uppercase">{t.n}</span>
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="opacity-30 group-hover:opacity-70 transition-opacity duration-200"><path d="M3 11L11 3M11 3H5M11 3v6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 </div>
                 <div>
-                  <div className="font-display font-extrabold text-[1.2rem] text-navy leading-[1.2] mb-[.3rem]">{t.name}</div>
-                  <div className="font-mono text-[.64rem] text-blue tracking-[.06em] mb-4">{t.sub}</div>
-                  <p className="font-mono text-[.82rem] text-gray leading-[1.65] m-0">{t.desc}</p>
+                  <div className="font-display font-extrabold text-[1.32rem] text-navy leading-[1.2] mb-[.3rem]">{t.name}</div>
+                  <div className="font-mono text-[.875rem] text-blue tracking-[.06em] mb-4">{t.sub}</div>
+                  <p className="font-mono text-[1.0625rem] text-gray leading-[1.65] m-0">{t.desc}</p>
                 </div>
                 <div className="border border-[#E8ECF5] rounded-[10px] overflow-hidden">
                   {t.specs.map(([label, val], si) => (
-                    <div key={label} className={`flex justify-between py-[.55rem] px-4 text-[.78rem] ${si % 2 === 0 ? 'bg-[#F8FAFF]' : 'bg-white'} border-b border-[#E8ECF5] last:border-0`}>
+                    <div key={label} className={`flex justify-between py-[.55rem] px-4 text-[1rem] ${si % 2 === 0 ? 'bg-[#F8FAFF]' : 'bg-white'} border-b border-[#E8ECF5] last:border-0`}>
                       <span className="font-mono text-gray">{label}</span>
                       <span className="font-title font-bold text-navy">{val}</span>
                     </div>
                   ))}
                 </div>
-                <div className="font-mono text-[.65rem] font-bold text-blue tracking-[.1em] uppercase flex items-center gap-[.4rem] mt-auto group-hover:gap-[.65rem] transition-[gap] duration-200">
+                <div className="font-mono text-[.875rem] font-bold text-blue tracking-[.1em] uppercase flex items-center gap-[.4rem] mt-auto group-hover:gap-[.65rem] transition-[gap] duration-200">
                   View Full Specifications →
                 </div>
               </Link>
@@ -286,10 +134,10 @@ export default function DryTypeLVPage() {
               </ul>
             </div>
             <div className="bg-navy rounded-[16px] p-8 border border-blue/[.2]">
-              <div className="font-mono text-[.6rem] text-blue tracking-[.22em] uppercase mb-4">Applications</div>
+              <div className="font-mono text-[.8125rem] text-blue tracking-[.22em] uppercase mb-4">Applications</div>
               <ul className="m-0 p-0 list-none flex flex-col gap-[.7rem]">
                 {['Commercial office buildings', 'Healthcare facilities & hospitals', 'Data centres & server rooms', 'Universities & institutional buildings', 'Retail centres & mixed-use', 'Light industrial distribution', 'Laboratory & research facilities', 'High-rise residential'].map(a => (
-                  <li key={a} className="flex items-start gap-[.65rem] font-mono text-[.8rem] text-white/60 leading-[1.55]">
+                  <li key={a} className="flex items-start gap-[.65rem] font-mono text-[1.0625rem] text-white/[.68] leading-[1.55]">
                     <span className="w-[5px] h-[5px] min-w-[5px] bg-blue rounded-full mt-[.42rem]"/>
                     {a}
                   </li>

@@ -1,4 +1,5 @@
 import ProductTypePage from '@/components/ProductTypePage'
+import { HeroArt } from '@/components/LineArt'
 import type { ProductTypePageProps } from '@/components/ProductTypePage'
 
 const data: ProductTypePageProps = {
@@ -63,7 +64,7 @@ const data: ProductTypePageProps = {
     { name: 'UL 508A', desc: 'Industrial control panel standard — required for U.S. and Canada', logo: null },
     { name: 'CSA C22.2 No. 14', desc: 'Canadian industrial control equipment standard', logo: '/images/csa.png' },
     { name: 'NFPA 79', desc: 'Electrical standard for industrial machinery — wiring and safeguarding', logo: null },
-    { name: 'IEC 62443', desc: 'Industrial automation and control system (IACS) cybersecurity framework', logo: '/images/IEC.png' },
+    { name: 'NERC CIP', desc: 'North American critical-infrastructure cybersecurity requirements', logo: null },
     { name: 'ISA-88 / ISA-95', desc: 'Batch process and enterprise-control integration standards', logo: null },
     { name: 'NETA ATS', desc: 'Acceptance testing for control panel verification and commissioning', logo: '/images/neta.svg' },
   ],
@@ -112,5 +113,5 @@ export const metadata = {
 }
 
 export default function AutomationPanelPage() {
-  return <ProductTypePage {...data} />
+  return <ProductTypePage heroArt={<HeroArt kind="control" views={['iso', 'ga', 'sld']} />} {...data} />
 }

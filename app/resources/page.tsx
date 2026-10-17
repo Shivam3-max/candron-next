@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { HeroArt } from '@/components/LineArt'
 
 export const metadata = {
   title: 'Resources | CANDRON Energy Inc.',
@@ -128,12 +129,13 @@ export default function ResourcesPage() {
         <div className="page-hero-bg" style={{ background: 'linear-gradient(135deg,#05091F 0%,#060d35 60%,#040818 100%)' }}>
           <div className="absolute inset-0 opacity-[.06]" style={{ backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 39px,#0047FF 39px,#0047FF 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,#0047FF 39px,#0047FF 40px)' }} />
         </div>
+        <HeroArt kind="res-hub" />
         <div className="container page-hero-content">
           <div className="breadcrumb">
             <Link href="/">Home</Link> / <span>Resources</span>
           </div>
           <div className="label label-white">Knowledge &amp; Support</div>
-          <h1 style={{ fontSize: 'clamp(2rem,5vw,3rem)' }}>
+          <h1 style={{ fontSize: 'clamp(2.1rem, 5vw, 3.15rem)' }}>
             Resources for Every
             <br /><em>Project Stage</em>
           </h1>
@@ -150,10 +152,10 @@ export default function ResourcesPage() {
               <Link key={resource.href} href={resource.href} className="group no-underline rounded-[16px] border border-[#E3E8F2] bg-white p-5 flex flex-col gap-4 transition-all duration-200 hover:border-blue hover:shadow-[0_8px_28px_rgba(0,71,255,.09)]">
                 <div className="w-11 h-11 rounded-[11px] bg-blue/[.07] text-blue flex items-center justify-center transition-colors duration-200 group-hover:bg-blue group-hover:text-white">{resource.icon}</div>
                 <div>
-                  <h2 className="font-title font-bold text-navy text-[1rem] m-0 mb-2">{resource.title}</h2>
-                  <p className="font-mono text-[.72rem] text-gray leading-[1.65] m-0">{resource.desc}</p>
+                  <h2 className="font-title font-bold text-navy text-[1.125rem] m-0 mb-2">{resource.title}</h2>
+                  <p className="font-mono text-[.9375rem] text-gray leading-[1.65] m-0">{resource.desc}</p>
                 </div>
-                <span className="font-mono text-[.65rem] uppercase tracking-[.08em] font-bold text-blue mt-auto">{resource.action} →</span>
+                <span className="font-mono text-[.875rem] uppercase tracking-[.08em] font-bold text-blue mt-auto">{resource.action} →</span>
               </Link>
             ))}
           </div>
@@ -173,7 +175,7 @@ export default function ResourcesPage() {
               <div key={g.heading}>
                 <div className="mb-8">
                   <div className="label mb-2">{g.heading}</div>
-                  <p className="font-mono text-[.85rem] text-gray m-0">{g.desc}</p>
+                  <p className="font-mono text-[1.0625rem] text-gray m-0">{g.desc}</p>
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: '1.5rem' }}>
                   {g.items.map(c => (
@@ -183,15 +185,15 @@ export default function ResourcesPage() {
                           {c.icon}
                         </div>
                         <div className="flex flex-col gap-3 flex-1">
-                          <h2 className="font-title font-bold text-navy text-[1.05rem] leading-[1.3] m-0">{c.title}</h2>
-                          <p className="font-mono text-[.8rem] text-gray leading-[1.7] m-0">{c.desc}</p>
+                          <h2 className="font-title font-bold text-navy text-[1.1875rem] leading-[1.3] m-0">{c.title}</h2>
+                          <p className="font-mono text-[1.0625rem] text-gray leading-[1.7] m-0">{c.desc}</p>
                         </div>
                         <div className="flex flex-wrap gap-2">
                           {c.tags.map(t => (
-                            <span key={t} className="font-mono text-[.6rem] font-bold tracking-[.1em] uppercase text-blue/80 bg-blue/[.07] px-3 py-[.3rem] rounded-full">{t}</span>
+                            <span key={t} className="font-mono text-[.8125rem] font-bold tracking-[.1em] uppercase text-blue/80 bg-blue/[.07] px-3 py-[.3rem] rounded-full">{t}</span>
                           ))}
                         </div>
-                        <div className="flex items-center gap-2 font-mono text-[.75rem] font-semibold text-blue">
+                        <div className="flex items-center gap-2 font-mono text-[1rem] font-semibold text-blue">
                           Open Calculator
                           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="transition-transform duration-150 group-hover:translate-x-[3px]"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                         </div>
@@ -206,9 +208,9 @@ export default function ResourcesPage() {
           {/* INFO STRIP */}
           <div className="resources-help-card mt-20 bg-navy rounded-[20px] p-10 flex flex-col md:flex-row gap-8 items-start md:items-center justify-between">
             <div className="min-w-0">
-              <div className="font-mono text-[.6rem] text-blue tracking-[.22em] uppercase mb-3">Need More Help?</div>
-              <h3 className="font-display font-black text-white text-[1.4rem] leading-[1.3] m-0">Talk to a CANDRON Engineer</h3>
-              <p className="font-mono text-[.82rem] text-white/50 mt-2 leading-[1.65] m-0 max-w-[420px]">
+              <div className="font-mono text-[.8125rem] text-blue tracking-[.22em] uppercase mb-3">Need More Help?</div>
+              <h3 className="font-display font-black text-white text-[1.54rem] leading-[1.3] m-0">Talk to a CANDRON Engineer</h3>
+              <p className="font-mono text-[1.0625rem] text-white/[.68] mt-2 leading-[1.65] m-0 max-w-[420px]">
                 Our engineering team can review your specifications, confirm sizing, and provide same-day quotes on stock and custom-built transformers.
               </p>
             </div>
