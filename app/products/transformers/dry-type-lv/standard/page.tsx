@@ -1,4 +1,5 @@
 import ProductTypePage from '@/components/ProductTypePage'
+import { HeroArt } from '@/components/LineArt'
 
 export const metadata = {
   title: 'Standard LV Dry-Type Transformer',
@@ -7,7 +8,7 @@ export const metadata = {
 
 export default function StandardLVDryTypePage() {
   return (
-    <ProductTypePage
+    <ProductTypePage heroArt={<HeroArt kind="dry" />}
       parentName="Products"
       parentHref="/products"
       categoryName="LV Dry-Type Transformers"

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { HeroArt } from '@/components/LineArt'
 
 export const metadata = {
   title: 'Terms & Conditions | CANDRON Energy Inc.',
@@ -10,6 +11,7 @@ export default function TermsAndConditionsPage() {
     <>
       <section className="page-hero">
         <div className="page-hero-bg" style={{ background: 'linear-gradient(135deg,#05091F,#071342)' }} />
+        <HeroArt kind="swbd" views={['sld', 'ga']} />
         <div className="container page-hero-content">
           <div className="breadcrumb"><Link href="/">Home</Link> / <Link href="/resources">Resources</Link> / <span>Terms &amp; Conditions</span></div>
           <div className="label label-white">Project Documents</div>
@@ -28,9 +30,9 @@ export default function TermsAndConditionsPage() {
               <p className="body">For a current copy or help identifying the document that applies to your project, contact our team and include your quotation, purchase order, or project reference number when available.</p>
             </div>
             <aside className="bg-navy rounded-[18px] p-8 border border-blue/20">
-              <div className="font-mono text-[.62rem] text-blue-l tracking-[.16em] uppercase mb-4">Request a Copy</div>
+              <div className="font-mono text-[.875rem] text-blue-l tracking-[.16em] uppercase mb-4">Request a Copy</div>
               <h3 className="text-white mb-3">Need the Applicable Terms?</h3>
-              <p className="text-white/55 text-[.84rem] leading-[1.75] mb-6">Our team can locate the correct document for your quotation, order, or service engagement.</p>
+              <p className="text-white/[.68] text-[1.0625rem] leading-[1.75] mb-6">Our team can locate the correct document for your quotation, order, or service engagement.</p>
               <Link href="/contact" className="btn btn-primary w-full justify-center">Contact Our Team</Link>
             </aside>
           </div>

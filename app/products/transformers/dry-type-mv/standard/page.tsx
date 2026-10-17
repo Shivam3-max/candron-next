@@ -1,4 +1,5 @@
 import ProductTypePage from '@/components/ProductTypePage'
+import { HeroArt } from '@/components/LineArt'
 
 export const metadata = {
   title: 'Standard MV Dry-Type Transformer',
@@ -7,7 +8,7 @@ export const metadata = {
 
 export default function StandardMVDryTypePage() {
   return (
-    <ProductTypePage
+    <ProductTypePage heroArt={<HeroArt kind="dry" views={['ga', 'iso', 'sld']} />}
       parentName="Products"
       parentHref="/products"
       categoryName="MV Dry-Type Transformers"
@@ -64,13 +65,13 @@ export default function StandardMVDryTypePage() {
         { label: 'Cooling', value: 'AN (air natural) standard; AF optional' },
         { label: 'HV Taps', value: '±5% (2 × 2.5% FCAN, 2 × 2.5% FCBN)' },
         { label: 'Enclosure', value: 'IP21 standard; IP33 / IP44 optional' },
-        { label: 'Primary Standard', value: 'IEEE C57.12.01 / IEC 60076-11' },
+        { label: 'Primary Standard', value: 'IEEE C57.12.01 / CSA C9' },
         { label: 'Canadian Certification', value: 'CSA C22.2' },
         { label: 'Frequency', value: '60 Hz' },
       ]}
       standards={[
         { name: 'IEEE C57.12.01', desc: 'Standard for dry-type distribution and power transformers', logo: '/images/IEEE.png' },
-        { name: 'IEC 60076-11', desc: 'Dry-type transformers international standard', logo: null },
+        { name: 'CSA C9', desc: 'Canadian standard for dry-type transformers', logo: '/images/csa.png' },
         { name: 'CSA C22.2', desc: 'Canadian electrical certification standard', logo: '/images/csa.png' },
         { name: 'ANSI C57.12.01', desc: 'American National Standard for dry-type transformers', logo: '/images/ansi-logo.svg' },
         { name: 'NEMA ST-20', desc: 'Dry-type transformers performance standard', logo: null },
@@ -113,7 +114,7 @@ export default function StandardMVDryTypePage() {
         'Enclosure IP rating (IP21, IP33, IP44)',
         'Forced air cooling requirement (AN or AF)',
         'Temperature sensor and monitoring requirements',
-        'Applicable standards (IEEE/CSA or IEC)',
+        'Applicable standards (IEEE / CSA)',
       ]}
     />
   )

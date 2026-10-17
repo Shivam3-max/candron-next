@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { HeroArt } from '@/components/LineArt'
 
 export const metadata = {
   title: "Transformer Field & Factory Testing",
@@ -16,6 +17,7 @@ export default function TestingPage() {
           className="page-hero-bg"
           style={{ background: "url('/images/field-services/client-work/transformer-electrical-testing.webp') center 52%/cover" }}
         ></div>
+        <HeroArt kind="cap-test" />
         <div className="container page-hero-content">
           <div className="breadcrumb">
             <Link href="/">Home</Link> / <span>Testing</span>
@@ -138,26 +140,6 @@ export default function TestingPage() {
             ))}
           </div>
 
-          {/* Real field-testing case study */}
-          <div className="wt-fat-strip rv">
-            <div className="wt-fat-img">
-              <Image
-                src="/images/field-services/client-work/breaker-compartment-service.webp"
-                alt="Field technician inspecting and servicing an open electrical breaker compartment"
-                fill
-                className="object-cover object-center"
-                sizes="(max-width:1024px) 100vw, 50vw"
-              />
-              <div className="wt-fat-img-overlay" />
-            </div>
-            <div className="wt-fat-content">
-              <div className="label label-white">Mine-Site Field Response</div>
-              <h3 className="text-white mt-2 tracking-[-.01em]">On Site Within<br/>24 Hours</h3>
-              <p className="text-white/55 text-[.92rem] leading-[1.72] mt-4 mb-6">Following order confirmation, our field crew mobilized to the mine within 24 hours and completed a thorough transformer test program, including oil samples, DGA, SFRA, tan delta, winding resistance, insulation resistance, and TTR.</p>
-              <Link href="/contact" className="btn btn-primary mag">Request Field Testing →</Link>
-            </div>
-          </div>
-
         </div>
       </div>
 
@@ -246,7 +228,7 @@ export default function TestingPage() {
                 </svg>
               </div>
               <div className="why-card-title text-white">No Scheduling Delays</div>
-              <div className="why-card-text text-white/45">
+              <div className="why-card-text text-white/[.68]">
                 In-house testing means no waiting for an external test lab. Your
                 FAT is scheduled to align with your project timeline — not an
                 external facility's availability.
@@ -259,7 +241,7 @@ export default function TestingPage() {
                 </svg>
               </div>
               <div className="why-card-title text-white">Issues Resolved Immediately</div>
-              <div className="why-card-text text-white/45">
+              <div className="why-card-text text-white/[.68]">
                 When testing identifies an issue, our engineering and assembly
                 team is on-site to resolve it immediately. No shipping equipment
                 back and forth between facilities.
@@ -273,7 +255,7 @@ export default function TestingPage() {
                 </svg>
               </div>
               <div className="why-card-title text-white">Complete Documentation</div>
-              <div className="why-card-text text-white/45">
+              <div className="why-card-text text-white/[.68]">
                 Detailed test reports generated and reviewed internally before
                 delivery. Full traceability from test results to as-built
                 drawings and equipment data sheets.

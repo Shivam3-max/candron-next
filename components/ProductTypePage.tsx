@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, type ReactNode } from 'react'
 import Link from 'next/link'
 import TrustBar from '@/components/TrustBar'
 
@@ -50,6 +50,8 @@ export interface ProductTypePageProps {
   faqs: FAQ[]
   quoteItems: string[]
   projectSpotlight?: ProjectSpotlight
+  /** Animated technical drawing shown in the right half of the hero. */
+  heroArt?: ReactNode
 }
 
 export default function ProductTypePage({
@@ -60,6 +62,7 @@ export default function ProductTypePage({
   features, upgrades, specRows,
   standards, applications, relatedTypes, faqs, quoteItems,
   projectSpotlight,
+  heroArt,
 }: ProductTypePageProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [showTabNav, setShowTabNav] = useState(false)
@@ -114,6 +117,7 @@ export default function ProductTypePage({
       {/* ── HERO ── */}
       <div className="page-hero min-h-[calc(100vh-165px)]" ref={heroRef}>
         <div className="page-hero-bg" style={{ background: `url('${heroImage}') center/cover` }} />
+        {heroArt}
         <div className="container page-hero-content">
           <div className="breadcrumb">
             <Link href="/">Home</Link> / <Link href={parentHref}>{parentName}</Link>{categoryName && categoryHref ? <> / <Link href={categoryHref}>{categoryName}</Link></> : null} / <span>{typeName}</span>
@@ -123,7 +127,7 @@ export default function ProductTypePage({
           <p className="lead mt-4 max-w-[600px]">{subtitle}</p>
           <div className="flex gap-[.65rem] flex-wrap mt-[1.4rem]">
             {badges.map(b => (
-              <span key={b} className="py-[.38rem] px-[.9rem] bg-white/[.12] border border-white/25 rounded-full text-[.72rem] font-bold text-white font-mono tracking-[.04em]">{b}</span>
+              <span key={b} className="py-[.38rem] px-[.9rem] bg-white/[.12] border border-white/25 rounded-full text-[.9375rem] font-bold text-white font-mono tracking-[.04em]">{b}</span>
             ))}
           </div>
         </div>
@@ -135,8 +139,8 @@ export default function ProductTypePage({
           <div className="ptype-kpi-grid grid" style={{ gridTemplateColumns: `repeat(${kpis.length}, 1fr)` }}>
             {kpis.map((k, i) => (
               <div key={k.label} className={`py-[1.1rem] max-md:py-3 px-4 max-md:px-2 text-center ${i < kpis.length - 1 ? 'border-r border-white/[.08]' : ''}`}>
-                <div className="font-display font-black text-[1.05rem] max-md:text-[.8rem] text-white tracking-[.03em] mb-[.2rem]">{k.value}</div>
-                <div className="font-mono text-[.52rem] max-md:text-[.42rem] text-white/[.4] tracking-[.16em] max-md:tracking-[.08em] uppercase">{k.label}</div>
+                <div className="font-display font-black text-[1.1875rem] max-md:text-[1.0625rem] text-white tracking-[.03em] mb-[.2rem]">{k.value}</div>
+                <div className="font-mono text-[.8125rem] max-md:text-[.8125rem] text-white/[.4] tracking-[.16em] max-md:tracking-[.08em] uppercase">{k.label}</div>
               </div>
             ))}
           </div>
@@ -188,8 +192,8 @@ export default function ProductTypePage({
                 <img src={heroImage} alt={typeName} className="w-full h-full object-cover block rounded-[14px]" />
                 <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_50%,rgba(5,9,31,.65)_100%)] pointer-events-none rounded-[14px]" />
                 <div className="absolute bottom-5 left-5 right-5">
-                  <div className="font-display text-[.68rem] font-extrabold text-white tracking-[.08em] uppercase opacity-[.85]">{categoryName}</div>
-                  <div className="font-mono text-[.6rem] text-white/[.55] tracking-[.06em] mt-[.18rem]">{eyebrow}</div>
+                  <div className="font-display text-[.9375rem] font-extrabold text-white tracking-[.08em] uppercase opacity-[.85]">{categoryName}</div>
+                  <div className="font-mono text-[.8125rem] text-white/[.55] tracking-[.06em] mt-[.18rem]">{eyebrow}</div>
                 </div>
               </div>
             </div>
@@ -216,7 +220,7 @@ export default function ProductTypePage({
                   <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(5,9,31,.62),transparent_45%)] pointer-events-none" />
                   <figcaption className="absolute left-4 bottom-4 flex flex-wrap gap-2">
                     {projectSpotlight.badges.map((badge) => (
-                      <span key={badge} className="rounded-full border border-white/25 bg-navy/80 px-3 py-2 font-mono text-[.5rem] font-bold uppercase tracking-[.07em] text-white backdrop-blur-sm">{badge}</span>
+                      <span key={badge} className="rounded-full border border-white/25 bg-navy/80 px-3 py-2 font-mono text-[.8125rem] font-bold uppercase tracking-[.07em] text-white backdrop-blur-sm">{badge}</span>
                     ))}
                   </figcaption>
                 </figure>
@@ -226,7 +230,7 @@ export default function ProductTypePage({
                     <img src={projectSpotlight.secondaryImage} alt={projectSpotlight.secondaryImageAlt} className="absolute inset-0 w-full h-full object-cover block" />
                     <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(5,9,31,.62),transparent_45%)] pointer-events-none" />
                     {projectSpotlight.secondaryImageLabel && (
-                      <figcaption className="absolute left-4 bottom-4 rounded-full border border-white/25 bg-navy/80 px-3 py-2 font-mono text-[.5rem] font-bold uppercase tracking-[.07em] text-white backdrop-blur-sm">
+                      <figcaption className="absolute left-4 bottom-4 rounded-full border border-white/25 bg-navy/80 px-3 py-2 font-mono text-[.8125rem] font-bold uppercase tracking-[.07em] text-white backdrop-blur-sm">
                         {projectSpotlight.secondaryImageLabel}
                       </figcaption>
                     )}
@@ -240,20 +244,20 @@ export default function ProductTypePage({
                   {projectSpotlight.title}<br />
                   <em>{projectSpotlight.emphasis}</em>
                 </h2>
-                <p className="text-white/60 text-[.96rem] leading-[1.8] mt-6 max-w-[620px]">{projectSpotlight.description}</p>
+                <p className="text-white/[.68] text-[1.125rem] leading-[1.8] mt-6 max-w-[620px]">{projectSpotlight.description}</p>
 
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-8">
                   {projectSpotlight.stats.map((item) => (
                     <div key={item.label} className="rounded-[12px] border border-white/[.1] bg-white/[.045] px-3 py-4 min-w-0">
-                      <div className="font-display text-[.82rem] font-black text-white break-words">{item.value}</div>
-                      <div className="font-mono text-[.47rem] uppercase tracking-[.08em] text-white/40 mt-1.5">{item.label}</div>
+                      <div className="font-display text-[1.0625rem] font-black text-white break-words">{item.value}</div>
+                      <div className="font-mono text-[.8125rem] uppercase tracking-[.08em] text-white/[.68] mt-1.5">{item.label}</div>
                     </div>
                   ))}
                 </div>
 
                 <ul className="mt-8 p-0 list-none grid gap-3">
                   {projectSpotlight.features.map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-white/65 text-[.84rem] leading-[1.55]">
+                    <li key={item} className="flex items-start gap-3 text-white/[.68] text-[1.0625rem] leading-[1.55]">
                       <span className="mt-[.35rem] w-2 h-2 rounded-full bg-blue shrink-0" />
                       {item}
                     </li>
@@ -276,17 +280,17 @@ export default function ProductTypePage({
           <h2 className="rv mb-10">What&apos;s Included</h2>
           <div className="grid grid-cols-2 max-md:grid-cols-1 gap-8">
             <div className="rv bg-white rounded-[14px] border border-[#E8ECF5] p-[1.75rem] shadow-[0_2px_12px_rgba(5,9,31,.05)]">
-              <div className="font-mono text-[.55rem] text-blue tracking-[.18em] uppercase font-bold mb-[1.1rem]">Standard Features</div>
+              <div className="font-mono text-[.8125rem] text-blue tracking-[.18em] uppercase font-bold mb-[1.1rem]">Standard Features</div>
               <ul className="check-list m-0">
                 {features.map(f => <li key={f}>{f}</li>)}
               </ul>
             </div>
             <div className="rv bg-white rounded-[14px] border border-[#E8ECF5] p-[1.75rem] shadow-[0_2px_12px_rgba(5,9,31,.05)]">
-              <div className="font-mono text-[.55rem] text-[#059669] tracking-[.18em] uppercase font-bold mb-[1.1rem]">Optional Upgrades</div>
+              <div className="font-mono text-[.8125rem] text-[#059669] tracking-[.18em] uppercase font-bold mb-[1.1rem]">Optional Upgrades</div>
               <ul className="m-0 p-0 list-none flex flex-col gap-[.6rem]">
                 {upgrades.map(u => (
-                  <li key={u} className="flex gap-[.55rem] items-start text-[.85rem] text-gray leading-[1.55] font-mono">
-                    <span className="text-[#059669] font-extrabold shrink-0 text-[.95rem] leading-[1.4]">+</span>
+                  <li key={u} className="flex gap-[.55rem] items-start text-[1.0625rem] text-gray leading-[1.55] font-mono">
+                    <span className="text-[#059669] font-extrabold shrink-0 text-[1.125rem] leading-[1.4]">+</span>
                     {u}
                   </li>
                 ))}
@@ -303,18 +307,18 @@ export default function ProductTypePage({
           <h2 className="rv mb-8">Full Specifications</h2>
           <div className="overflow-x-auto [-webkit-overflow-scrolling:touch]">
           <div className="rv bg-white border border-[#E8ECF5] rounded-[14px] overflow-hidden shadow-[0_2px_16px_rgba(5,9,31,.06)]">
-            <table className="w-full border-collapse text-[.88rem] max-md:text-[.75rem]">
+            <table className="w-full border-collapse text-[1.125rem] max-md:text-[1rem]">
               <thead>
                 <tr className="bg-navy">
-                  <th className="py-4 max-md:py-3 px-5 max-md:px-3 text-left font-mono text-[.58rem] max-md:text-[.5rem] font-bold tracking-[.14em] uppercase text-white/[.55] w-[35%] max-md:w-[30%]">Parameter</th>
-                  <th className="py-4 max-md:py-3 px-5 max-md:px-3 text-left font-title text-[.82rem] max-md:text-[.72rem] font-bold text-white/[.85]">Value</th>
+                  <th className="py-4 max-md:py-3 px-5 max-md:px-3 text-left font-mono text-[.8125rem] max-md:text-[.8125rem] font-bold tracking-[.14em] uppercase text-white/[.55] w-[35%] max-md:w-[30%]">Parameter</th>
+                  <th className="py-4 max-md:py-3 px-5 max-md:px-3 text-left font-title text-[1.0625rem] max-md:text-[.9375rem] font-bold text-white/[.85]">Value</th>
                 </tr>
               </thead>
               <tbody>
                 {specRows.map((row, i) => (
                   <tr key={row.label} className={i % 2 === 0 ? 'bg-white' : 'bg-[#F8FAFF]'}>
-                    <td className="py-[.85rem] max-md:py-2 px-5 max-md:px-3 border-b border-[#E8ECF5] font-mono text-[.78rem] max-md:text-[.65rem] font-semibold text-gray tracking-[.02em]">{row.label}</td>
-                    <td className="py-[.85rem] max-md:py-2 px-5 max-md:px-3 border-b border-[#E8ECF5] font-title text-[.85rem] max-md:text-[.7rem] font-bold text-navy break-words">{row.value}</td>
+                    <td className="py-[.85rem] max-md:py-2 px-5 max-md:px-3 border-b border-[#E8ECF5] font-mono text-[1rem] max-md:text-[.875rem] font-semibold text-gray tracking-[.02em]">{row.label}</td>
+                    <td className="py-[.85rem] max-md:py-2 px-5 max-md:px-3 border-b border-[#E8ECF5] font-title text-[1.0625rem] max-md:text-[.9375rem] font-bold text-navy break-words">{row.value}</td>
                   </tr>
                 ))}
               </tbody>
@@ -363,7 +367,7 @@ export default function ProductTypePage({
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={applicationImage} alt={`${typeName} installed in a working facility`} className="w-full h-full object-cover block" />
                   <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(5,9,31,.3),transparent_45%)] pointer-events-none" />
-                  <div className="absolute bottom-4 left-4 font-mono text-[.55rem] font-bold tracking-[.14em] uppercase text-white/[.9]">Application View</div>
+                  <div className="absolute bottom-4 left-4 font-mono text-[.8125rem] font-bold tracking-[.14em] uppercase text-white/[.9]">Application View</div>
                 </div>
               )}
               <div className="bg-off max-md:bg-transparent rounded-[16px] max-md:rounded-none !p-8 max-md:!p-0 border border-[#E8ECF5] max-md:border-0 shadow-[0_4px_24px_rgba(0,71,255,.06)] max-md:shadow-none">
@@ -371,7 +375,7 @@ export default function ProductTypePage({
                 <div className="w-10 h-10 rounded-[10px] bg-blue/10 flex items-center justify-center text-blue shrink-0">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="w-5 h-5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
                 </div>
-                <div className="font-display font-extrabold text-[1.05rem] text-navy">End-to-End Services</div>
+                <div className="font-display font-extrabold text-[1.1875rem] text-navy">End-to-End Services</div>
               </div>
               <p className="body mb-5">From design and specification through factory testing, commissioning, and ongoing maintenance — CANDRON delivers at every phase.</p>
               <ul className="check-list">
@@ -401,11 +405,11 @@ export default function ProductTypePage({
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   className="w-full text-left bg-transparent border-0 py-[1.1rem] px-[1.35rem] flex items-center justify-between gap-4 cursor-pointer"
                 >
-                  <span className="font-title font-bold text-navy text-[.88rem] leading-[1.4]">{faq.q}</span>
+                  <span className="font-title font-bold text-navy text-[1.125rem] leading-[1.4]">{faq.q}</span>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`shrink-0 text-gray transition-[transform] duration-[.25s] ${openFaq === i ? 'rotate-180' : ''}`}><path d="M6 9l6 6 6-6" /></svg>
                 </button>
                 <div className={`overflow-hidden transition-[max-height] duration-[.3s] ease-[ease] ${openFaq === i ? 'max-h-[600px]' : 'max-h-0'}`}>
-                  <p className="py-0 px-[1.35rem] max-md:px-4 pb-[1.1rem] max-md:pb-3 font-mono text-[.85rem] max-md:text-[.78rem] text-gray leading-[1.7] m-0">{faq.a}</p>
+                  <p className="py-0 px-[1.35rem] max-md:px-4 pb-[1.1rem] max-md:pb-3 font-mono text-[1.0625rem] max-md:text-[1rem] text-gray leading-[1.7] m-0">{faq.a}</p>
                 </div>
               </div>
             ))}
@@ -420,12 +424,12 @@ export default function ProductTypePage({
             <div>
               <div className="label text-blue">Get a Quote</div>
               <h2 className="text-white mb-5">Ready to Spec<br />Your Project?</h2>
-              <p className="font-mono text-white/[.6] text-[.92rem] leading-[1.75] mb-7">
+              <p className="font-mono text-white/[.6] text-[1.125rem] leading-[1.75] mb-7">
                 Our engineering team responds with specs, lead times, and pricing the same day. Tell us what you need:
               </p>
               <ul className="m-0 p-0 list-none flex flex-col gap-[.65rem]">
                 {quoteItems.map(q => (
-                  <li key={q} className="flex gap-[.7rem] items-start font-mono text-[.85rem] text-white/[.7] leading-[1.5]">
+                  <li key={q} className="flex gap-[.7rem] items-start font-mono text-[1.0625rem] text-white/[.7] leading-[1.5]">
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="shrink-0 mt-[.15rem]">
                       <path d="M2 7l4 4 6-7" stroke="var(--blue)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
@@ -435,14 +439,14 @@ export default function ProductTypePage({
               </ul>
             </div>
             <div className="bg-white/[.04] border border-white/[.1] rounded-[16px] p-8">
-              <div className="font-display font-extrabold text-[1rem] text-white mb-[.6rem]">Same-Day Response</div>
-              <p className="font-mono text-[.82rem] text-white/[.55] mb-6 leading-[1.7]">
+              <div className="font-display font-extrabold text-[1.125rem] text-white mb-[.6rem]">Same-Day Response</div>
+              <p className="font-mono text-[1.0625rem] text-white/[.55] mb-6 leading-[1.7]">
                 Send us your project details and we&apos;ll respond with a price, lead time, and any clarifying questions — typically within a few hours.
               </p>
               <Link href={`/contact?product=${encodeURIComponent(typeName)}`} className="btn btn-primary inline-flex w-full justify-center mb-[.85rem]">
                 Request a Quote →
               </Link>
-              <a href="tel:+14168001234" className="flex items-center justify-center gap-2 font-mono text-[.78rem] text-white/[.45] no-underline">
+              <a href="tel:+14168001234" className="flex items-center justify-center gap-2 font-mono text-[1rem] text-white/[.45] no-underline">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.17 12 19.79 19.79 0 011.12 3.54 2 2 0 013.09 1.36h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" /></svg>
                 Or call us directly
               </a>
@@ -460,9 +464,9 @@ export default function ProductTypePage({
             <div className="ptype-related-grid grid gap-4" style={{ gridTemplateColumns: `repeat(${Math.min(relatedTypes.length, 4)}, 1fr)` }}>
               {relatedTypes.map((t, i) => (
                 <Link key={t.href} href={t.href} className="rv no-underline flex flex-col gap-[.6rem] p-[1.4rem] rounded-[12px] bg-off border border-[#E8ECF5] transition-[border-color,box-shadow] duration-150 hover:border-blue hover:shadow-[0_4px_20px_rgba(0,71,255,.1)]" style={{ animationDelay: `${i * 0.06}s` }}>
-                  <div className="font-title font-bold text-[.88rem] text-navy leading-[1.3]">{t.name}</div>
-                  <div className="font-mono text-[.72rem] text-blue tracking-[.06em]">{t.sub}</div>
-                  <div className="font-mono text-[.68rem] font-bold text-blue tracking-[.08em] uppercase mt-auto pt-2">View specs →</div>
+                  <div className="font-title font-bold text-[1.125rem] text-navy leading-[1.3]">{t.name}</div>
+                  <div className="font-mono text-[.9375rem] text-blue tracking-[.06em]">{t.sub}</div>
+                  <div className="font-mono text-[.9375rem] font-bold text-blue tracking-[.08em] uppercase mt-auto pt-2">View specs →</div>
                 </Link>
               ))}
             </div>

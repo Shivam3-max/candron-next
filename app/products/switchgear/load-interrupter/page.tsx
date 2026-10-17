@@ -1,4 +1,5 @@
 import ProductTypePage from '@/components/ProductTypePage'
+import { HeroArt } from '@/components/LineArt'
 import type { ProductTypePageProps } from '@/components/ProductTypePage'
 
 const data: ProductTypePageProps = {
@@ -27,35 +28,6 @@ const data: ProductTypePageProps = {
     'Accessible cable termination compartments (elbow type)',
     'IEEE C37.20.3 and CSA C22.2 compliant',
   ],
-  projectSpotlight: {
-    eyebrow: 'Project Spotlight · Arctic Service',
-    title: '15 kV Fusible Load Interrupter',
-    emphasis: 'Built for Tough Arctic Weather.',
-    description: 'A fully equipped three-bay, 600 A lineup engineered for reliable medium-voltage switching and protection in demanding Arctic conditions, with an outdoor Type 3R enclosure and access from both the front and rear.',
-    image: '/images/projects/15kv-arctic-load-interrupter/15kv-arctic-load-interrupter-lineup.png',
-    imageAlt: 'Three-bay 15 kV 600 A fusible load-interrupter switchgear lineup with viewing windows and outdoor Type 3R enclosures',
-    secondaryImage: '/images/projects/15kv-arctic-load-interrupter/15kv-type-3r-enclosure-interior.jpg',
-    secondaryImageAlt: 'Open 15 kV 600 A fusible load-interrupter switchgear compartment inside a Type 3R outdoor-rated enclosure',
-    secondaryImageLabel: 'Type 3R Enclosure Detail',
-    badges: ['Arc-Resistant', 'Front & Rear Access', 'Arctic Service'],
-    stats: [
-      { value: '15 kV', label: 'Voltage Class' },
-      { value: '600 A', label: 'Current Rating' },
-      { value: '3 Bays', label: 'Lineup' },
-      { value: 'Type 3R', label: 'Enclosure' },
-    ],
-    features: [
-      'Fusible load-interrupter switching configuration',
-      'Current transformers and potential transformers',
-      'SEL protection relays',
-      'Equipment viewing windows',
-      'Arc-resistant construction',
-      'Front and rear equipment access',
-      'Outdoor enclosure configured for demanding Arctic weather',
-    ],
-    ctaLabel: 'Discuss an Arctic Switchgear Project',
-    ctaHref: '/contact?product=15kv-arctic-load-interrupter',
-  },
   features: [
     'Load-break switches — gang or independent operation',
     'Current-limiting fuses for transformer protection',
@@ -110,7 +82,7 @@ const data: ProductTypePageProps = {
   ],
   relatedTypes: [
     { name: 'Low Voltage Switchgear', sub: 'UL 1558 • Up to 600 V', href: '/products/switchgear/low-voltage' },
-    { name: 'Metal-Clad Medium Voltage', sub: 'IEC 62271-200 • 5–29 kV', href: '/products/switchgear/metal-clad' },
+    { name: 'Metal-Clad Medium Voltage', sub: 'IEEE C37.20.2 • 5–29 kV', href: '/products/switchgear/metal-clad' },
     { name: 'Service-Entrance Rated', sub: 'ESA & Utility-Ready', href: '/products/switchgear/service-entrance' },
   ],
   faqs: [
@@ -143,5 +115,5 @@ export const metadata = {
 }
 
 export default function LoadInterrupterPage() {
-  return <ProductTypePage {...data} />
+  return <ProductTypePage heroArt={<HeroArt kind="mv" views={['ga', 'iso', 'sld']} />} {...data} />
 }

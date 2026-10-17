@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
+import { HeroArt } from '@/components/LineArt'
 
 const SQRT3 = 1.7320508
 
@@ -47,13 +48,14 @@ export default function FaultCurrentCalculatorPage() {
       <div className="page-hero" style={{ minHeight: 'auto', paddingBottom: '4rem' }}>
         <div className="page-hero-bg" style={{ background: 'linear-gradient(135deg,#05091F 0%,#060d35 60%,#040818 100%)' }}>
           <div className="absolute inset-0 opacity-[.06]" style={{ backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 39px,#0047FF 39px,#0047FF 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,#0047FF 39px,#0047FF 40px)' }} />
+        <HeroArt kind="res-fault" />
         </div>
         <div className="container page-hero-content">
           <div className="breadcrumb">
             <Link href="/">Home</Link> / <Link href="/products/transformers">Transformers</Link> / <span>Fault Current Calculator</span>
           </div>
           <div className="label label-white">Protective Device Coordination Tool</div>
-          <h1 style={{ fontSize: 'clamp(1.8rem,4vw,2.6rem)' }}>
+          <h1 style={{ fontSize: 'clamp(1.89rem, 4vw, 2.73rem)' }}>
             Fault Current
             <br /><em>Calculator</em>
           </h1>
@@ -71,7 +73,7 @@ export default function FaultCurrentCalculatorPage() {
             {/* LEFT */}
             <div className="flex-1 min-w-0">
               <div className="label mb-4">How to Use</div>
-              <h2 className="mb-6" style={{ fontSize: 'clamp(1.4rem,2.5vw,1.9rem)' }}>Calculating Fault Current at the Secondary</h2>
+              <h2 className="mb-6" style={{ fontSize: 'clamp(1.54rem, 2.5vw, 1.995rem)' }}>Calculating Fault Current at the Secondary</h2>
               <div className="flex flex-col gap-5">
                 {[
                   { n: '01', t: 'Gather Transformer Parameters', b: 'You need three values from the transformer nameplate: (1) kVA rating, (2) secondary voltage, and (3) percent impedance (%Z or IZ). All three are required for the calculation.' },
@@ -80,10 +82,10 @@ export default function FaultCurrentCalculatorPage() {
                   { n: '04', t: 'Account for System Impedance', b: 'This result is the worst-case (maximum) available fault current assuming an infinite bus on the primary. In practice, utility impedance and cable resistance reduce the actual fault current — consult a licensed engineer for detailed coordination studies.' },
                 ].map(s => (
                   <div key={s.n} className="flex gap-5 bg-white p-5 rounded-[14px] border border-[#E8ECF5]">
-                    <div className="w-10 h-10 min-w-[2.5rem] rounded-[10px] bg-blue/[.08] flex items-center justify-center font-mono text-[.6rem] font-bold text-blue tracking-[.1em]">{s.n}</div>
+                    <div className="w-10 h-10 min-w-[2.5rem] rounded-[10px] bg-blue/[.08] flex items-center justify-center font-mono text-[.8125rem] font-bold text-blue tracking-[.1em]">{s.n}</div>
                     <div>
-                      <div className="font-title font-bold text-navy text-[.92rem] mb-[.35rem]">{s.t}</div>
-                      <p className="font-mono text-[.8rem] text-gray leading-[1.65] m-0">{s.b}</p>
+                      <div className="font-title font-bold text-navy text-[1.125rem] mb-[.35rem]">{s.t}</div>
+                      <p className="font-mono text-[1.0625rem] text-gray leading-[1.65] m-0">{s.b}</p>
                     </div>
                   </div>
                 ))}
@@ -91,19 +93,19 @@ export default function FaultCurrentCalculatorPage() {
 
               {/* FORMULA */}
               <div className="mt-8 bg-navy rounded-[16px] p-7">
-                <div className="font-mono text-[.58rem] text-blue tracking-[.22em] uppercase mb-5">Fault Current Formulas</div>
+                <div className="font-mono text-[.8125rem] text-blue tracking-[.22em] uppercase mb-5">Fault Current Formulas</div>
                 <div className="flex flex-col gap-4">
                   <div>
-                    <div className="font-mono text-[.65rem] text-white/45 tracking-[.1em] uppercase mb-2">Single-Phase</div>
-                    <div className="font-mono text-[.85rem] text-white bg-white/[.06] rounded-[8px] px-4 py-3">AFC = ((kVA × 1,000) ÷ V) ÷ (IZ ÷ 100)</div>
+                    <div className="font-mono text-[.875rem] text-white/[.68] tracking-[.1em] uppercase mb-2">Single-Phase</div>
+                    <div className="font-mono text-[1.0625rem] text-white bg-white/[.06] rounded-[8px] px-4 py-3">AFC = ((kVA × 1,000) ÷ V) ÷ (IZ ÷ 100)</div>
                   </div>
                   <div>
-                    <div className="font-mono text-[.65rem] text-white/45 tracking-[.1em] uppercase mb-2">Three-Phase</div>
-                    <div className="font-mono text-[.85rem] text-white bg-white/[.06] rounded-[8px] px-4 py-3">AFC = ((kVA × 1,000) ÷ (√3 × V)) ÷ (IZ ÷ 100)</div>
+                    <div className="font-mono text-[.875rem] text-white/[.68] tracking-[.1em] uppercase mb-2">Three-Phase</div>
+                    <div className="font-mono text-[1.0625rem] text-white bg-white/[.06] rounded-[8px] px-4 py-3">AFC = ((kVA × 1,000) ÷ (√3 × V)) ÷ (IZ ÷ 100)</div>
                   </div>
                   <div>
-                    <div className="font-mono text-[.65rem] text-white/45 tracking-[.1em] uppercase mb-2">Where</div>
-                    <div className="font-mono text-[.8rem] text-white/60 leading-[1.8]">
+                    <div className="font-mono text-[.875rem] text-white/[.68] tracking-[.1em] uppercase mb-2">Where</div>
+                    <div className="font-mono text-[1.0625rem] text-white/[.68] leading-[1.8]">
                       AFC = Available Fault Current (amps)<br />
                       kVA = Transformer rated capacity<br />
                       V = Secondary line-to-line voltage<br />
@@ -115,13 +117,13 @@ export default function FaultCurrentCalculatorPage() {
 
               {/* Common impedances */}
               <div className="mt-8 bg-white rounded-[14px] border border-[#E8ECF5] p-6">
-                <div className="font-mono text-[.6rem] text-blue tracking-[.22em] uppercase mb-4">Typical % Impedance Values</div>
+                <div className="font-mono text-[.8125rem] text-blue tracking-[.22em] uppercase mb-4">Typical % Impedance Values</div>
                 <div className="overflow-x-auto">
-                  <table className="w-full border-collapse text-[.82rem]">
+                  <table className="w-full border-collapse text-[1.0625rem]">
                     <thead>
                       <tr className="bg-[#F8FAFF]">
-                        <th className="py-2 px-4 text-left font-mono text-[.62rem] text-gray tracking-[.1em] uppercase border-b border-[#E8ECF5]">Transformer Size</th>
-                        <th className="py-2 px-4 text-left font-mono text-[.62rem] text-gray tracking-[.1em] uppercase border-b border-[#E8ECF5]">Typical % Z</th>
+                        <th className="py-2 px-4 text-left font-mono text-[.875rem] text-gray tracking-[.1em] uppercase border-b border-[#E8ECF5]">Transformer Size</th>
+                        <th className="py-2 px-4 text-left font-mono text-[.875rem] text-gray tracking-[.1em] uppercase border-b border-[#E8ECF5]">Typical % Z</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -134,21 +136,21 @@ export default function FaultCurrentCalculatorPage() {
                     </tbody>
                   </table>
                 </div>
-                <p className="font-mono text-[.72rem] text-gray/60 mt-3 leading-[1.6]">Values are typical ANSI/IEEE standard impedances. Actual values vary by manufacturer and specification.</p>
+                <p className="font-mono text-[.9375rem] text-gray/60 mt-3 leading-[1.6]">Values are typical ANSI/IEEE standard impedances. Actual values vary by manufacturer and specification.</p>
               </div>
 
               {/* FAQ */}
               <div className="mt-8">
-                <div className="font-mono text-[.6rem] text-blue tracking-[.22em] uppercase mb-5">FAQ</div>
+                <div className="font-mono text-[.8125rem] text-blue tracking-[.22em] uppercase mb-5">FAQ</div>
                 <div className="flex flex-col gap-2">
                   {faqs.map((f, i) => (
                     <div key={i} className={`bg-white rounded-[12px] border border-[#E8ECF5] overflow-hidden transition-[box-shadow] duration-200 ${openFaq === i ? 'shadow-[0_4px_20px_rgba(5,9,31,.08)]' : ''}`}>
                       <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full text-left bg-transparent border-0 py-[1rem] px-5 flex items-center justify-between gap-3 cursor-pointer">
-                        <span className="font-title font-bold text-navy text-[.85rem] leading-[1.4]">{f.q}</span>
+                        <span className="font-title font-bold text-navy text-[1.0625rem] leading-[1.4]">{f.q}</span>
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`shrink-0 text-gray transition-[transform] duration-[.25s] ${openFaq === i ? 'rotate-180' : ''}`}><path d="M6 9l6 6 6-6"/></svg>
                       </button>
                       <div className={`overflow-hidden transition-[max-height] duration-[.3s] ease-[ease] ${openFaq === i ? 'max-h-[400px]' : 'max-h-0'}`}>
-                        <p className="py-0 px-5 pb-4 font-mono text-[.82rem] text-gray leading-[1.7] m-0">{f.a}</p>
+                        <p className="py-0 px-5 pb-4 font-mono text-[1.0625rem] text-gray leading-[1.7] m-0">{f.a}</p>
                       </div>
                     </div>
                   ))}
@@ -159,7 +161,7 @@ export default function FaultCurrentCalculatorPage() {
             {/* RIGHT: Calculator */}
             <div className="w-full lg:w-[420px] shrink-0 lg:sticky lg:top-[100px]">
               <div className="bg-white rounded-[20px] border border-[#E8ECF5] p-7 shadow-[0_4px_32px_rgba(5,9,31,.08)]">
-                <div className="font-mono text-[.6rem] text-blue tracking-[.22em] uppercase mb-5">Fault Current Calculator</div>
+                <div className="font-mono text-[.8125rem] text-blue tracking-[.22em] uppercase mb-5">Fault Current Calculator</div>
 
                 {/* Phase Toggle */}
                 <div className="flex bg-[#F4F6FA] rounded-[10px] p-1 mb-6 gap-1">
@@ -167,7 +169,7 @@ export default function FaultCurrentCalculatorPage() {
                     <button
                       key={p}
                       onClick={() => { setPhase(p); reset() }}
-                      className={`flex-1 py-[.55rem] rounded-[8px] border-0 cursor-pointer font-mono text-[.7rem] font-bold tracking-[.06em] uppercase transition-all duration-200 ${phase === p ? 'bg-white text-navy shadow-[0_1px_6px_rgba(5,9,31,.12)]' : 'bg-transparent text-gray'}`}
+                      className={`flex-1 py-[.55rem] rounded-[8px] border-0 cursor-pointer font-mono text-[.9375rem] font-bold tracking-[.06em] uppercase transition-all duration-200 ${phase === p ? 'bg-white text-navy shadow-[0_1px_6px_rgba(5,9,31,.12)]' : 'bg-transparent text-gray'}`}
                     >
                       {p === '3' ? '3-Phase' : '1-Phase'}
                     </button>
@@ -182,14 +184,14 @@ export default function FaultCurrentCalculatorPage() {
                     { label: '% Impedance (IZ)', hint: 'From nameplate, e.g., 2.5', val: iz, set: setIz },
                   ].map(f => (
                     <div key={f.label}>
-                      <label className="block font-mono text-[.65rem] font-bold tracking-[.12em] uppercase text-gray mb-[.45rem]">{f.label}</label>
+                      <label className="block font-mono text-[.875rem] font-bold tracking-[.12em] uppercase text-gray mb-[.45rem]">{f.label}</label>
                       <input
                         type="number"
                         min="0"
                         value={f.val}
                         onChange={e => { f.set(e.target.value); setResult(null); setError('') }}
                         placeholder={f.hint}
-                        className="w-full px-4 py-[.85rem] border-[1.5px] border-[#E8ECF5] rounded-[10px] font-title text-[.95rem] font-semibold text-navy bg-white outline-none transition-[border-color] duration-200 focus:border-blue box-border placeholder:text-[#C8CDD9] placeholder:font-normal"
+                        className="w-full px-4 py-[.85rem] border-[1.5px] border-[#E8ECF5] rounded-[10px] font-title text-[1.125rem] font-semibold text-navy bg-white outline-none transition-[border-color] duration-200 focus:border-blue box-border placeholder:text-[#C8CDD9] placeholder:font-normal"
                       />
                     </div>
                   ))}
@@ -202,31 +204,31 @@ export default function FaultCurrentCalculatorPage() {
                 </div>
 
                 {/* Error */}
-                {error && <p className="font-mono text-[.78rem] text-[#dc2626] text-center mb-3 mt-[-0.5rem]">{error}</p>}
+                {error && <p className="font-mono text-[1rem] text-[#dc2626] text-center mb-3 mt-[-0.5rem]">{error}</p>}
 
                 {/* Result */}
                 {result && (
                   <div className="bg-navy rounded-[14px] p-6 text-center">
-                    <div className="font-mono text-[.58rem] tracking-[.22em] text-white/40 uppercase mb-2">Available Fault Current</div>
-                    <div className="font-display font-black text-[2.4rem] text-white tracking-[.02em] leading-none">{parseInt(result).toLocaleString()}</div>
-                    <div className="font-mono text-[.8rem] text-blue/80 mt-[.4rem]">Amperes (A)</div>
+                    <div className="font-mono text-[.8125rem] tracking-[.22em] text-white/[.68] uppercase mb-2">Available Fault Current</div>
+                    <div className="font-display font-black text-[2.52rem] text-white tracking-[.02em] leading-none">{parseInt(result).toLocaleString()}</div>
+                    <div className="font-mono text-[1.0625rem] text-blue/80 mt-[.4rem]">Amperes (A)</div>
                     <div className="mt-4 pt-4 border-t border-white/[.1] text-left">
-                      <p className="font-mono text-[.7rem] text-white/40 leading-[1.65]">⚠ This is the maximum (infinite bus primary) fault current. Consult a licensed engineer for protective device coordination.</p>
+                      <p className="font-mono text-[.9375rem] text-white/[.68] leading-[1.65]">⚠ This is the maximum (infinite bus primary) fault current. Consult a licensed engineer for protective device coordination.</p>
                     </div>
                   </div>
                 )}
 
                 {/* Other calculators */}
                 <div className="mt-5 pt-5 border-t border-[#E8ECF5]">
-                  <div className="font-mono text-[.6rem] text-gray/60 tracking-[.12em] uppercase mb-3">Other Calculators</div>
+                  <div className="font-mono text-[.8125rem] text-gray/60 tracking-[.12em] uppercase mb-3">Other Calculators</div>
                   <div className="flex flex-col gap-2">
                     <Link href="/resources/kva-calculator" className="flex items-center justify-between py-[.65rem] px-4 rounded-[8px] bg-[#F8FAFF] border border-[#E8ECF5] no-underline group hover:border-blue transition-[border-color] duration-150">
-                      <span className="font-mono text-[.78rem] font-semibold text-navy">kVA Calculator</span>
-                      <span className="font-mono text-[.65rem] text-blue group-hover:translate-x-[2px] transition-transform duration-150">→</span>
+                      <span className="font-mono text-[1rem] font-semibold text-navy">kVA Calculator</span>
+                      <span className="font-mono text-[.875rem] text-blue group-hover:translate-x-[2px] transition-transform duration-150">→</span>
                     </Link>
                     <Link href="/resources/kw-kva-calculator" className="flex items-center justify-between py-[.65rem] px-4 rounded-[8px] bg-[#F8FAFF] border border-[#E8ECF5] no-underline group hover:border-blue transition-[border-color] duration-150">
-                      <span className="font-mono text-[.78rem] font-semibold text-navy">kW to kVA Converter</span>
-                      <span className="font-mono text-[.65rem] text-blue group-hover:translate-x-[2px] transition-transform duration-150">→</span>
+                      <span className="font-mono text-[1rem] font-semibold text-navy">kW to kVA Converter</span>
+                      <span className="font-mono text-[.875rem] text-blue group-hover:translate-x-[2px] transition-transform duration-150">→</span>
                     </Link>
                   </div>
                 </div>

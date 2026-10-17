@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { HeroArt } from '@/components/LineArt'
 
 export const metadata = {
   title: 'Critical Power Distribution Equipment',
@@ -38,6 +39,7 @@ export default function PowerDistributionPage() {
     <>
       <div className="page-hero">
         <div className="page-hero-bg" style={{ background: "url('/images/products/power-distribution/power-distribution-unit.webp') center/cover" }} />
+        <HeroArt kind="loadbank" />
         <div className="container page-hero-content">
           <div className="breadcrumb"><Link href="/">Home</Link> / <Link href="/products">Products</Link> / <span>Critical Power Distribution</span></div>
           <div className="label label-white">Critical Power Equipment</div>
@@ -58,13 +60,13 @@ export default function PowerDistributionPage() {
                   <Image src={product.image} alt={product.name} fill className="object-cover transition-transform duration-300 group-hover:scale-[1.03]" sizes="(max-width:768px) 100vw, (max-width:1024px) 50vw, 33vw" />
                 </div>
                 <div className="p-6">
-                  <div className="font-mono text-[.58rem] text-blue tracking-[.16em] uppercase font-bold mb-2">{product.eyebrow}</div>
+                  <div className="font-mono text-[.8125rem] text-blue tracking-[.16em] uppercase font-bold mb-2">{product.eyebrow}</div>
                   <h3 className="mb-3">{product.name}</h3>
                   <p className="body mb-5">{product.description}</p>
                   <ul className="check-list mb-5">
                     {product.specs.map((spec) => <li key={spec}>{spec}</li>)}
                   </ul>
-                  <span className="font-mono text-[.68rem] font-bold text-blue tracking-[.08em] uppercase">View product details →</span>
+                  <span className="font-mono text-[.9375rem] font-bold text-blue tracking-[.08em] uppercase">View product details →</span>
                 </div>
               </Link>
             ))}

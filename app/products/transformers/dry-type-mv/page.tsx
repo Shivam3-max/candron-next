@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Image from 'next/image'
+import { HeroArt } from '@/components/LineArt'
 
 export const metadata = {
   title: 'Medium Voltage Dry-Type Transformers',
@@ -21,7 +21,7 @@ const types = [
     sub: '300 kVA – 30 MVA · Epoxy Resin Encapsulated',
     href: '/products/transformers/dry-type-mv/cast-coil',
     desc: 'Epoxy resin cast coil transformers for demanding environments — coastal, chemical, mining, and high-humidity installations where maximum moisture and contamination resistance is required.',
-    specs: [['kVA Range', '300 kVA – 30 MVA'], ['Protection', 'IP34 standard, IP54 option'], ['Encapsulation', 'Epoxy Resin (Class F/H)'], ['Standard', 'IEC 60076-11 / IEEE C57.12']],
+    specs: [['kVA Range', '300 kVA – 30 MVA'], ['Protection', 'IP34 standard, IP54 option'], ['Encapsulation', 'Epoxy Resin (Class F/H)'], ['Standard', 'IEEE C57.12 / CSA C9']],
   },
 ]
 
@@ -35,6 +35,7 @@ export default function DryTypeMVPage() {
         >
           <div className="absolute inset-0 opacity-[.06]" style={{ backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 39px,#0047FF 39px,#0047FF 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,#0047FF 39px,#0047FF 40px)' }} />
         </div>
+        <HeroArt kind="castcoil" />
         <div className="container page-hero-content">
           <div className="breadcrumb">
             <Link href="/">Home</Link> / <Link href="/products">Products</Link> / <Link href="/products/transformers">Transformers</Link> / <span>MV Dry-Type</span>
@@ -45,8 +46,8 @@ export default function DryTypeMVPage() {
             VPI and epoxy resin cast coil dry-type transformers for industrial and utility applications from 2.4 kV to 35 kV. Designed for environments where oil-filled units cannot be installed and maximum reliability is required.
           </p>
           <div className="flex gap-[.65rem] flex-wrap mt-6">
-            {['IEEE C57.12.01', 'IEC 60076-11', 'CSA Certified', 'VPI & Cast Coil', 'IP34 / IP54 Rated'].map(b => (
-              <span key={b} className="py-[.38rem] px-[.9rem] bg-white/[.1] border border-white/20 rounded-full text-[.72rem] font-bold text-white font-mono tracking-[.04em]">{b}</span>
+            {['IEEE C57.12.01', 'CSA C9', 'CSA Certified', 'VPI & Cast Coil', 'IP34 / IP54 Rated'].map(b => (
+              <span key={b} className="py-[.38rem] px-[.9rem] bg-white/[.1] border border-white/20 rounded-full text-[.9375rem] font-bold text-white font-mono tracking-[.04em]">{b}</span>
             ))}
           </div>
         </div>
@@ -75,97 +76,6 @@ export default function DryTypeMVPage() {
         </div>
       </div>
 
-      {/* CANADIAN-MANUFACTURED VPI PROJECT */}
-      <section className="bg-navy py-20 max-md:py-14" aria-labelledby="canadian-vpi-project-title">
-        <div className="container">
-          <div className="grid grid-cols-[.82fr_1.18fr] max-lg:grid-cols-1 gap-12 max-lg:gap-9 items-center">
-            <div className="rv-l">
-              <div className="label label-white">Project Spotlight · Canadian Manufacturing</div>
-              <h2 id="canadian-vpi-project-title" className="text-white mt-4 !leading-[1.08]">
-                Canadian-Manufactured.<br />
-                <em>Engineered for Your Application.</em>
-              </h2>
-              <p className="text-white/60 text-[.96rem] leading-[1.8] mt-6 max-w-[620px]">
-                This medium-voltage dry-type transformer was manufactured at CANDRON&apos;s Canadian facility with VPI insulation technology and an outdoor-rated enclosure, combining robust construction with application-specific engineering.
-              </p>
-
-              <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-3 mt-8">
-                {[
-                  { value: 'Made in Canada', label: 'Local Manufacturing' },
-                  { value: 'Medium Voltage', label: 'Dry-Type Transformer' },
-                  { value: 'VPI', label: 'Insulation Technology' },
-                  { value: '16 Weeks', label: 'From Drawing Approval' },
-                ].map((item) => (
-                  <div key={item.label} className="rounded-[12px] border border-white/[.1] bg-white/[.045] px-5 py-4 min-w-0">
-                    <div className="font-display text-[.92rem] font-black text-white break-words">{item.value}</div>
-                    <div className="font-mono text-[.52rem] uppercase tracking-[.1em] text-white/40 mt-1.5">{item.label}</div>
-                  </div>
-                ))}
-              </div>
-
-              <ul className="mt-8 p-0 list-none grid gap-3">
-                {[
-                  'Manufactured at CANDRON’s Canadian facility',
-                  'Vacuum Pressure Impregnated insulation system',
-                  'Outdoor-rated enclosure for demanding installations',
-                  'Application-specific electrical and mechanical engineering',
-                  'Manufactured within 16 weeks of drawing approval',
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-white/65 text-[.86rem] leading-[1.6]">
-                    <span className="mt-[.35rem] w-2 h-2 rounded-full bg-blue shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-
-              <div className="flex flex-wrap gap-3 mt-9">
-                <Link href="/contact?product=mv-vpi-outdoor-transformer" className="btn btn-primary mag">Discuss Your Application →</Link>
-                <Link href="/products/transformers/dry-type-mv/standard" className="btn btn-outline mag">VPI Transformer Details</Link>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-3 rv-r">
-              {[
-                {
-                  src: '/images/projects/mv-vpi-outdoor-transformer/mv-vpi-three-phase-coil-assembly.jpg',
-                  alt: 'Three-phase medium-voltage VPI dry-type transformer coil assembly in production',
-                  label: 'Three-Phase VPI Assembly',
-                },
-                {
-                  src: '/images/projects/mv-vpi-outdoor-transformer/mv-vpi-enclosure-assembly.jpg',
-                  alt: 'Medium-voltage VPI dry-type transformer being fitted inside its ventilated enclosure',
-                  label: 'Enclosure Assembly',
-                },
-                {
-                  src: '/images/projects/mv-vpi-outdoor-transformer/mv-vpi-outdoor-enclosure.jpg',
-                  alt: 'Medium-voltage VPI dry-type transformer installed inside its outdoor-rated enclosure',
-                  label: 'Outdoor Enclosure',
-                },
-                {
-                  src: '/images/projects/mv-vpi-outdoor-transformer/mv-vpi-windings-close.jpg',
-                  alt: 'Close view of VPI medium-voltage dry-type transformer windings and bus connections',
-                  label: 'VPI Insulation',
-                },
-              ].map((image) => (
-                <figure key={image.src} className="relative aspect-[4/5] max-sm:aspect-[3/4] overflow-hidden rounded-[14px] border border-white/[.12] bg-white/[.04]">
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    className="object-cover transition-transform duration-500 hover:scale-[1.025]"
-                    sizes="(max-width:640px) 50vw, (max-width:1024px) 50vw, 29vw"
-                  />
-                  <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(5,9,31,.52),transparent_42%)] pointer-events-none" />
-                  <figcaption className="absolute left-3 right-3 bottom-3 font-mono text-[.52rem] font-bold uppercase tracking-[.08em] text-white">
-                    {image.label}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* TYPE CARDS */}
       <div className="section bg-off">
         <div className="container">
@@ -181,23 +91,23 @@ export default function DryTypeMVPage() {
                 className={`rv no-underline group flex flex-col gap-6 p-8 rounded-[20px] bg-white border border-[#E8ECF5] shadow-[0_2px_16px_rgba(5,9,31,.05)] transition-[border-color,box-shadow,transform] duration-200 hover:border-blue hover:shadow-[0_8px_40px_rgba(0,71,255,.11)] hover:-translate-y-[2px]${i > 0 ? ' d2' : ''}`}
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-[.6rem] font-bold tracking-[.18em] text-blue uppercase">{t.n}</span>
+                  <span className="font-mono text-[.8125rem] font-bold tracking-[.18em] text-blue uppercase">{t.n}</span>
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="opacity-30 group-hover:opacity-70 transition-opacity duration-200"><path d="M3 11L11 3M11 3H5M11 3v6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 </div>
                 <div>
-                  <div className="font-display font-extrabold text-[1.2rem] text-navy leading-[1.2] mb-[.3rem]">{t.name}</div>
-                  <div className="font-mono text-[.64rem] text-blue tracking-[.06em] mb-4">{t.sub}</div>
-                  <p className="font-mono text-[.82rem] text-gray leading-[1.65] m-0">{t.desc}</p>
+                  <div className="font-display font-extrabold text-[1.32rem] text-navy leading-[1.2] mb-[.3rem]">{t.name}</div>
+                  <div className="font-mono text-[.875rem] text-blue tracking-[.06em] mb-4">{t.sub}</div>
+                  <p className="font-mono text-[1.0625rem] text-gray leading-[1.65] m-0">{t.desc}</p>
                 </div>
                 <div className="border border-[#E8ECF5] rounded-[10px] overflow-hidden">
                   {t.specs.map(([label, val], si) => (
-                    <div key={label} className={`flex justify-between py-[.55rem] px-4 text-[.78rem] ${si % 2 === 0 ? 'bg-[#F8FAFF]' : 'bg-white'} border-b border-[#E8ECF5] last:border-0`}>
+                    <div key={label} className={`flex justify-between py-[.55rem] px-4 text-[1rem] ${si % 2 === 0 ? 'bg-[#F8FAFF]' : 'bg-white'} border-b border-[#E8ECF5] last:border-0`}>
                       <span className="font-mono text-gray">{label}</span>
                       <span className="font-title font-bold text-navy">{val}</span>
                     </div>
                   ))}
                 </div>
-                <div className="font-mono text-[.65rem] font-bold text-blue tracking-[.1em] uppercase flex items-center gap-[.4rem] mt-auto group-hover:gap-[.65rem] transition-[gap] duration-200">
+                <div className="font-mono text-[.875rem] font-bold text-blue tracking-[.1em] uppercase flex items-center gap-[.4rem] mt-auto group-hover:gap-[.65rem] transition-[gap] duration-200">
                   View Full Specifications →
                 </div>
               </Link>
@@ -219,10 +129,10 @@ export default function DryTypeMVPage() {
               { title: 'Choose Cast Coil When…', items: ['Coastal or marine environment', 'Chemical plant or process facility', 'High-humidity tropical climate', 'Mining or underground installation', 'Maximum contamination resistance required'], color: 'bg-[#059669]' },
             ].map(col => (
               <div key={col.title} className="rv bg-white/[.05] border border-white/[.1] rounded-[16px] p-8">
-                <div className={`inline-flex items-center font-mono text-[.62rem] font-bold tracking-[.14em] text-white uppercase mb-5 px-3 py-[.35rem] rounded-[6px] ${col.color}`}>{col.title}</div>
+                <div className={`inline-flex items-center font-mono text-[.875rem] font-bold tracking-[.14em] text-white uppercase mb-5 px-3 py-[.35rem] rounded-[6px] ${col.color}`}>{col.title}</div>
                 <ul className="m-0 p-0 list-none flex flex-col gap-[.65rem]">
                   {col.items.map(item => (
-                    <li key={item} className="flex items-start gap-[.65rem] font-mono text-[.82rem] text-white/60 leading-[1.55]">
+                    <li key={item} className="flex items-start gap-[.65rem] font-mono text-[1.0625rem] text-white/[.68] leading-[1.55]">
                       <span className="w-[5px] h-[5px] min-w-[5px] bg-blue rounded-full mt-[.45rem]"/>
                       {item}
                     </li>

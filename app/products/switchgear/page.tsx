@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
 import TrustBar from '@/components/TrustBar'
+import { HeroArt } from '@/components/LineArt'
 
 const specCols = ['Voltage', 'Current', 'Interrupting Rating', 'Features', 'Standards']
 
@@ -36,7 +37,7 @@ export default function SwitchgearPage() {
     },
     {
       title: 'Metal-Clad Medium Voltage',
-      sub: 'IEC 62271-200 • IEEE C37.20.2',
+      sub: 'CSA C22.2 No. 31 • IEEE C37.20.2',
       href: '/products/switchgear/metal-clad',
       image: '/images/products/switchgear/metal-clad.jpg',
       items: [
@@ -53,10 +54,10 @@ export default function SwitchgearPage() {
         'PT cubicle with revenue metering',
         'Partial discharge monitoring',
         'Battery-backed control power',
-        'SCADA / IEC 61850 gateway',
+        'SCADA gateway (Modbus / DNP3)',
         'Commissioning, P&C studies, arc-flash studies and labels',
       ],
-      specs: { Voltage: '2.4–38 kV', Current: 'Up to 2000 A', 'Interrupting Rating': 'Up to 40 kA symmetrical', Features: 'Withdrawable VCBs, arc-rated', Standards: 'IEC 62271-200, IEEE C37' },
+      specs: { Voltage: '2.4–38 kV', Current: 'Up to 2000 A', 'Interrupting Rating': 'Up to 40 kA symmetrical', Features: 'Withdrawable VCBs, arc-rated', Standards: 'CSA C22.2 No. 31, IEEE C37' },
     },
     {
       title: 'Metal-Enclosed Load-Interrupter',
@@ -109,7 +110,7 @@ export default function SwitchgearPage() {
   const standards = [
     { std: 'UL 1558', desc: 'U.S. low voltage switchgear standard', logo: null },
     { std: 'CSA C22.2', desc: 'Canadian electrical product standards', logo: '/images/csa.png' },
-    { std: 'IEC 62271-200', desc: 'Medium voltage AC switchgear', logo: '/images/IEC.png' },
+    { std: 'CSA C22.2 No. 31', desc: 'Canadian standard for switchgear assemblies', logo: '/images/csa.png' },
     { std: 'IEEE C37 Series', desc: 'Switchgear standards and testing', logo: '/images/IEEE.png' },
     { std: 'ANSI / NETA', desc: 'Factory acceptance testing protocols', logo: '/images/ansi-logo.svg' },
     { std: 'ESA / AHJ', desc: 'Ontario authority acceptance layouts', logo: null },
@@ -147,6 +148,7 @@ export default function SwitchgearPage() {
       {/* HERO */}
       <div className="page-hero">
         <div className="page-hero-bg" style={{ background: "url('/images/switchgear.jpg') center/cover" }}></div>
+        <HeroArt kind="mv" />
         <div className="container page-hero-content">
           <div className="breadcrumb">
             <Link href="/">Home</Link> / <Link href="/products">Products</Link> / <span>Switchgear</span>
@@ -158,7 +160,7 @@ export default function SwitchgearPage() {
           </p>
           <div className="flex gap-[.75rem] flex-wrap mt-6">
             {['Arc-Flash Ready', 'Withdrawable Breakers', 'SCADA Integration', 'ESA Compliant'].map(b => (
-              <span key={b} className="py-[.4rem] px-4 bg-white/[.12] border border-white/25 rounded-full text-[.78rem] font-bold text-white">{b}</span>
+              <span key={b} className="py-[.4rem] px-4 bg-white/[.12] border border-white/25 rounded-full text-[1rem] font-bold text-white">{b}</span>
             ))}
           </div>
         </div>
@@ -172,7 +174,7 @@ export default function SwitchgearPage() {
         <div className="container">
           <div className="product-sticky-tabs-track flex gap-1 flex-wrap py-[.6rem]">
             {[['#overview', 'Overview'], ['#stock', 'Toronto Stock'], ['#product-range', 'Product Range'], ['#types-specs', 'Types & Specs'], ['#standards', 'Standards'], ['#applications', 'Applications'], ['#faq', 'FAQ'], ['#quote', 'Get a Quote']].map(([href, label]) => (
-              <a key={href} href={href} className="py-[.45rem] px-[.85rem] rounded-lg border border-[#E8ECF5] text-[.78rem] font-semibold text-navy no-underline whitespace-nowrap transition-[border-color,color] duration-150 hover:border-blue hover:text-blue">
+              <a key={href} href={href} className="py-[.45rem] px-[.85rem] rounded-lg border border-[#E8ECF5] text-[1rem] font-semibold text-navy no-underline whitespace-nowrap transition-[border-color,color] duration-150 hover:border-blue hover:text-blue">
                 {label}
               </a>
             ))}
@@ -193,8 +195,8 @@ export default function SwitchgearPage() {
                 <li>MV ratings: up to 2000 A and 40 kA symmetrical</li>
                 <li>Outdoor enclosures: NEMA 4 and NEMA 4X options</li>
                 <li>Breaker technologies: ACB, VCB, SF6 alternatives</li>
-                <li>Relaying: ANSI/IEC curves, differential and distance options</li>
-                <li>NGR/HRG, remote operation, and SCADA/IEC 61850 integration</li>
+                <li>Relaying: ANSI/IEEE curves, differential and distance options</li>
+                <li>NGR/HRG, remote operation, and SCADA integration</li>
               </ul>
               <div className="flex gap-4 flex-wrap">
                 <Link href="/contact?product=switchgear" className="btn btn-primary mag">Request a Quote</Link>
@@ -210,20 +212,20 @@ export default function SwitchgearPage() {
               </div>
               <div className="switchgear-overview-metrics product-image-metrics absolute bottom-0 left-0 right-0 grid grid-cols-4 bg-transparent border-t border-white/[.12] rounded-b-[14px]">
                 <div className="py-[.95rem] px-[.5rem] text-center border-r border-white/[.08]">
-                  <div className="font-display text-[.95rem] font-black text-white tracking-[.04em] mb-[.2rem]"><span data-count={38} data-suffix=" kV">38 kV</span></div>
-                  <div className="font-mono text-[.5rem] text-white/[.45] tracking-[.16em] uppercase">MV Voltage</div>
+                  <div className="font-display text-[1.125rem] font-black text-white tracking-[.04em] mb-[.2rem]"><span data-count={38} data-suffix=" kV">38 kV</span></div>
+                  <div className="font-mono text-[.8125rem] text-white/[.45] tracking-[.16em] uppercase">MV Voltage</div>
                 </div>
                 <div className="py-[.95rem] px-[.5rem] text-center border-r border-white/[.08]">
-                  <div className="font-display text-[.95rem] font-black text-white tracking-[.04em] mb-[.2rem]"><span data-count={2000} data-suffix=" A">2000 A</span></div>
-                  <div className="font-mono text-[.5rem] text-white/[.45] tracking-[.16em] uppercase">MV Current</div>
+                  <div className="font-display text-[1.125rem] font-black text-white tracking-[.04em] mb-[.2rem]"><span data-count={2000} data-suffix=" A">2000 A</span></div>
+                  <div className="font-mono text-[.8125rem] text-white/[.45] tracking-[.16em] uppercase">MV Current</div>
                 </div>
                 <div className="py-[.95rem] px-[.5rem] text-center border-r border-white/[.08]">
-                  <div className="font-display text-[.85rem] font-black text-white tracking-[.04em] mb-[.2rem]">40 kA</div>
-                  <div className="font-mono text-[.5rem] text-white/[.45] tracking-[.16em] uppercase">Symmetrical</div>
+                  <div className="font-display text-[1.0625rem] font-black text-white tracking-[.04em] mb-[.2rem]">40 kA</div>
+                  <div className="font-mono text-[.8125rem] text-white/[.45] tracking-[.16em] uppercase">Symmetrical</div>
                 </div>
                 <div className="py-[.95rem] px-[.5rem] text-center">
-                  <div className="font-display text-[.85rem] font-black text-white tracking-[.04em] mb-[.2rem]">4–16 Wks</div>
-                  <div className="font-mono text-[.5rem] text-white/[.45] tracking-[.16em] uppercase">ARAD Lead Time</div>
+                  <div className="font-display text-[1.0625rem] font-black text-white tracking-[.04em] mb-[.2rem]">4–16 Wks</div>
+                  <div className="font-mono text-[.8125rem] text-white/[.45] tracking-[.16em] uppercase">ARAD Lead Time</div>
                 </div>
               </div>
             </div>
@@ -238,7 +240,7 @@ export default function SwitchgearPage() {
             <div className="rv-l">
               <div className="flex flex-wrap items-center gap-3 mb-4">
                 <div className="label m-0">Available Inventory · Toronto</div>
-                <span className="inline-flex items-center gap-2 rounded-full border border-[#A7E6C4] bg-[#EAFBF2] px-3 py-1.5 font-mono text-[.58rem] font-bold uppercase tracking-[.09em] text-[#087A43]">
+                <span className="inline-flex items-center gap-2 rounded-full border border-[#A7E6C4] bg-[#EAFBF2] px-3 py-1.5 font-mono text-[.8125rem] font-bold uppercase tracking-[.09em] text-[#087A43]">
                   <span className="h-2 w-2 rounded-full bg-[#12A861]" />
                   4 Units Available
                 </span>
@@ -258,21 +260,21 @@ export default function SwitchgearPage() {
                   { value: 'Toronto, ON', label: 'Stock Location' },
                 ].map((item) => (
                   <div key={item.label} className="rounded-[12px] border border-[#DCE3F2] bg-white px-4 py-4 min-w-0">
-                    <div className="font-display text-[.88rem] font-black text-navy break-words">{item.value}</div>
-                    <div className="font-mono text-[.5rem] uppercase tracking-[.1em] text-slate mt-1.5">{item.label}</div>
+                    <div className="font-display text-[1.125rem] font-black text-navy break-words">{item.value}</div>
+                    <div className="font-mono text-[.8125rem] uppercase tracking-[.1em] text-slate mt-1.5">{item.label}</div>
                   </div>
                 ))}
               </div>
 
               <div className="mt-8 rounded-[14px] border border-[#DCE3F2] bg-white p-6">
-                <div className="font-display text-[.86rem] font-black text-navy mb-4">CANDRON Verification Process</div>
+                <div className="font-display text-[1.0625rem] font-black text-navy mb-4">CANDRON Verification Process</div>
                 <ul className="m-0 p-0 list-none grid gap-3">
                   {[
                     '50-point physical inspection checklist',
                     'Electrical testing and verification',
                     'Mechanical testing and verification',
                   ].map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-slate text-[.84rem] leading-[1.55]">
+                    <li key={item} className="flex items-start gap-3 text-slate text-[1.0625rem] leading-[1.55]">
                       <span className="mt-[.35rem] w-2 h-2 rounded-full bg-blue shrink-0" />
                       {item}
                     </li>
@@ -284,7 +286,7 @@ export default function SwitchgearPage() {
                 <Link href="/contact?product=35kv-switchgear-toronto-stock" className="btn btn-primary mag">Request Specifications & Pricing →</Link>
                 <Link href="/products/switchgear/metal-clad" className="btn btn-outline-blue mag">View MV Switchgear</Link>
               </div>
-              <p className="font-mono text-[.56rem] uppercase tracking-[.08em] text-slate mt-4">Availability is subject to confirmation at the time of inquiry.</p>
+              <p className="font-mono text-[.8125rem] uppercase tracking-[.08em] text-slate mt-4">Availability is subject to confirmation at the time of inquiry.</p>
             </div>
 
             <div className="grid grid-cols-[1.08fr_.92fr] max-sm:grid-cols-1 gap-4 rv-r">
@@ -297,7 +299,7 @@ export default function SwitchgearPage() {
                   sizes="(max-width:640px) 100vw, (max-width:1024px) 55vw, 31vw"
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(5,9,31,.55),transparent_42%)] pointer-events-none" />
-                <figcaption className="absolute left-4 bottom-4 rounded-full border border-white/30 bg-navy/80 px-3 py-2 font-mono text-[.53rem] font-bold uppercase tracking-[.08em] text-white backdrop-blur-sm">Pre-Certified Unit</figcaption>
+                <figcaption className="absolute left-4 bottom-4 rounded-full border border-white/30 bg-navy/80 px-3 py-2 font-mono text-[.8125rem] font-bold uppercase tracking-[.08em] text-white backdrop-blur-sm">Pre-Certified Unit</figcaption>
               </figure>
               <figure className="relative aspect-[3/4] overflow-hidden rounded-[18px] border border-[#DCE3F2] bg-white shadow-[0_12px_35px_rgba(5,9,31,.1)]">
                 <Image
@@ -308,7 +310,7 @@ export default function SwitchgearPage() {
                   sizes="(max-width:640px) 100vw, (max-width:1024px) 45vw, 27vw"
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(5,9,31,.55),transparent_42%)] pointer-events-none" />
-                <figcaption className="absolute left-4 bottom-4 rounded-full border border-white/30 bg-navy/80 px-3 py-2 font-mono text-[.53rem] font-bold uppercase tracking-[.08em] text-white backdrop-blur-sm">38 kV Maximum Rating</figcaption>
+                <figcaption className="absolute left-4 bottom-4 rounded-full border border-white/30 bg-navy/80 px-3 py-2 font-mono text-[.8125rem] font-bold uppercase tracking-[.08em] text-white backdrop-blur-sm">38 kV Maximum Rating</figcaption>
               </figure>
             </div>
           </div>
@@ -369,14 +371,14 @@ export default function SwitchgearPage() {
                 className="min-w-0 no-underline flex flex-col gap-[.85rem] p-[1.6rem] max-sm:p-5 rounded-[16px] bg-white/[.05] border border-white/[.1] transition-[background-color,border-color] duration-200 cursor-pointer hover:bg-[rgba(0,71,255,.18)] hover:border-[rgba(0,71,255,.45)]"
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-[.55rem] font-bold tracking-[.18em] text-blue uppercase">{t.n}</span>
+                  <span className="font-mono text-[.8125rem] font-bold tracking-[.18em] text-blue uppercase">{t.n}</span>
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="opacity-[.4]">
                     <path d="M3 11L11 3M11 3H5M11 3v6" stroke="white" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
                 <div className="font-display font-extrabold text-base text-white leading-[1.3] break-words">{t.title}</div>
-                <div className="font-mono text-[.8rem] text-white/[.55] leading-[1.65] flex-1 break-words">{t.desc}</div>
-                <div className="font-mono text-[.65rem] font-bold tracking-[.08em] text-blue uppercase mt-[.25rem]">
+                <div className="font-mono text-[1.0625rem] text-white/[.55] leading-[1.65] flex-1 break-words">{t.desc}</div>
+                <div className="font-mono text-[.875rem] font-bold tracking-[.08em] text-blue uppercase mt-[.25rem]">
                   View specs →
                 </div>
               </a>
@@ -390,7 +392,7 @@ export default function SwitchgearPage() {
         <div className="container">
           <div className="label rv">Types &amp; Specifications</div>
           <h2 className="rv mb-3">Switchgear Configurations</h2>
-          <p className="rv text-gray text-[.95rem] mb-10 max-w-[640px]">
+          <p className="rv text-gray text-[1.125rem] mb-10 max-w-[640px]">
             Explore our range of switchgear configurations engineered for protection, safety, and continuous uptime.
           </p>
           <div className="flex flex-col gap-3">
@@ -404,16 +406,16 @@ export default function SwitchgearPage() {
                   onClick={() => setOpenAcc(openAcc === i ? null : i)}
                   className="product-type-accordion-trigger w-full text-left bg-transparent border-0 py-5 px-6 flex items-center gap-4 cursor-pointer"
                 >
-                  <div className={`product-type-accordion-index w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-[background,color] duration-200 font-mono text-[.58rem] font-bold tracking-[.1em] ${openAcc === i ? 'bg-blue text-white' : 'bg-[rgba(0,71,255,.08)] text-blue'}`}>
+                  <div className={`product-type-accordion-index w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-[background,color] duration-200 font-mono text-[.8125rem] font-bold tracking-[.1em] ${openAcc === i ? 'bg-blue text-white' : 'bg-[rgba(0,71,255,.08)] text-blue'}`}>
                     0{i + 1}
                   </div>
                   <div className="product-type-accordion-summary flex-1 min-w-0">
-                    <div className="font-title font-bold text-navy text-[.9rem] tracking-[.02em]">{t.title}</div>
-                    <div className="font-mono text-[.6rem] text-blue tracking-[.08em] mt-[.15rem]">{t.sub}</div>
+                    <div className="font-title font-bold text-navy text-[1.125rem] tracking-[.02em]">{t.title}</div>
+                    <div className="font-mono text-[.8125rem] text-blue tracking-[.08em] mt-[.15rem]">{t.sub}</div>
                   </div>
                   <div className="product-type-accordion-badges flex gap-[.4rem] shrink-0 mr-[.25rem]">
-                    <span className="bg-[rgba(0,71,255,.07)] text-blue font-mono text-[.55rem] font-bold tracking-[.04em] py-[.22rem] px-[.6rem] rounded-[5px]">{t.specs.Voltage}</span>
-                    <span className="bg-[rgba(0,71,255,.07)] text-blue font-mono text-[.55rem] font-bold tracking-[.04em] py-[.22rem] px-[.6rem] rounded-[5px]">{t.specs.Current}</span>
+                    <span className="bg-[rgba(0,71,255,.07)] text-blue font-mono text-[.8125rem] font-bold tracking-[.04em] py-[.22rem] px-[.6rem] rounded-[5px]">{t.specs.Voltage}</span>
+                    <span className="bg-[rgba(0,71,255,.07)] text-blue font-mono text-[.8125rem] font-bold tracking-[.04em] py-[.22rem] px-[.6rem] rounded-[5px]">{t.specs.Current}</span>
                   </div>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`product-type-accordion-chevron shrink-0 text-gray transition-[transform] duration-[.25s] ${openAcc === i ? 'rotate-180' : ''}`}><path d="M6 9l6 6 6-6" /></svg>
                 </button>
@@ -426,17 +428,17 @@ export default function SwitchgearPage() {
                         <img src={t.image} alt={t.title} className="w-full h-full object-cover block" />
                       </div>
                       <div className="product-type-accordion-column flex-1 min-w-[200px]">
-                        <div className="font-mono text-[.55rem] text-blue tracking-[.18em] uppercase font-bold mb-4">Standard Features</div>
+                        <div className="font-mono text-[.8125rem] text-blue tracking-[.18em] uppercase font-bold mb-4">Standard Features</div>
                         <ul className="check-list m-0">
                           {t.items.map(item => <li key={item}>{item}</li>)}
                         </ul>
                       </div>
                       <div className="product-type-accordion-column flex-1 min-w-[200px]">
-                        <div className="font-mono text-[.55rem] text-[#059669] tracking-[.18em] uppercase font-bold mb-4">Optional Upgrades</div>
+                        <div className="font-mono text-[.8125rem] text-[#059669] tracking-[.18em] uppercase font-bold mb-4">Optional Upgrades</div>
                         <ul className="m-0 p-0 list-none flex flex-col gap-[.55rem]">
                           {t.upgrades.map(u => (
-                            <li key={u} className="flex gap-[.55rem] items-start text-[.82rem] text-gray leading-[1.55]">
-                              <span className="text-[#059669] font-extrabold shrink-0 text-[.9rem] leading-[1.4]">+</span>
+                            <li key={u} className="flex gap-[.55rem] items-start text-[1.0625rem] text-gray leading-[1.55]">
+                              <span className="text-[#059669] font-extrabold shrink-0 text-[1.125rem] leading-[1.4]">+</span>
                               {u}
                             </li>
                           ))}
@@ -447,13 +449,13 @@ export default function SwitchgearPage() {
                     <div className="product-type-spec-grid border-t border-[#E8ECF5] grid grid-cols-5 bg-white">
                       {specCols.map((col, ci) => (
                         <div key={col} className={`product-type-spec-cell py-4 px-5 ${ci < specCols.length - 1 ? 'border-r border-[#E8ECF5]' : ''}`}>
-                          <div className="font-mono text-[.5rem] text-gray tracking-[.15em] uppercase mb-[.35rem]">{col}</div>
-                          <div className="font-title text-[.82rem] font-bold text-navy leading-[1.3]">{(t.specs as Record<string, string>)[col] ?? ''}</div>
+                          <div className="font-mono text-[.8125rem] text-gray tracking-[.15em] uppercase mb-[.35rem]">{col}</div>
+                          <div className="font-title text-[1.0625rem] font-bold text-navy leading-[1.3]">{(t.specs as Record<string, string>)[col] ?? ''}</div>
                         </div>
                       ))}
                     </div>
                     <div className="border-t border-[#E8ECF5] py-[.9rem] px-6 bg-white flex justify-end">
-                      <Link href={t.href} className="font-mono text-[.72rem] font-bold text-blue tracking-[.06em] no-underline flex items-center gap-[.35rem]">
+                      <Link href={t.href} className="font-mono text-[.9375rem] font-bold text-blue tracking-[.06em] no-underline flex items-center gap-[.35rem]">
                         View full specifications <span aria-hidden="true">→</span>
                       </Link>
                     </div>
@@ -506,9 +508,9 @@ export default function SwitchgearPage() {
               </ul>
             </div>
             <div className="rv-r bg-navy rounded-[16px] py-8 px-[2.25rem] border border-blue/[.2]">
-              <div className="font-mono text-[.6rem] text-blue tracking-[.22em] uppercase mb-4">End-to-End Services</div>
-              <h3 className="text-white mb-4 text-[1.05rem]">One team. Design to commissioning.</h3>
-              <p className="text-white/[.6] text-[.88rem] leading-[1.75] mb-6">
+              <div className="font-mono text-[.8125rem] text-blue tracking-[.22em] uppercase mb-4">End-to-End Services</div>
+              <h3 className="text-white mb-4 text-[1.1875rem]">One team. Design to commissioning.</h3>
+              <p className="text-white/[.6] text-[1.125rem] leading-[1.75] mb-6">
                 Protection settings, coordination studies, factory testing, site commissioning, and ongoing maintenance — all from the same team that built your equipment.
               </p>
               <Link href="/commissioning" className="btn btn-primary mag">View Commissioning Services →</Link>
@@ -526,12 +528,12 @@ export default function SwitchgearPage() {
             {faqs.map((f, i) => (
               <div key={i} className={`rv bg-white rounded-[14px] border border-[#E8ECF5] overflow-hidden transition-[box-shadow] duration-200 ${openFaq === i ? 'shadow-[0_8px_32px_rgba(5,9,31,.1)]' : ''}`}>
                 <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full text-left bg-transparent border-0 py-5 px-6 flex justify-between items-center cursor-pointer gap-4">
-                  <span className="font-title font-bold text-navy text-[.88rem] tracking-[.02em]">{f.q}</span>
+                  <span className="font-title font-bold text-navy text-[1.125rem] tracking-[.02em]">{f.q}</span>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`shrink-0 text-gray transition-[transform] duration-[.25s] ${openFaq === i ? 'rotate-180' : ''}`}><path d="M6 9l6 6 6-6" /></svg>
                 </button>
                 <div className={`overflow-hidden transition-[max-height] duration-[.35s] ease-in-out ${openFaq === i ? 'max-h-[400px]' : 'max-h-0'}`}>
                   <div className="px-6 pb-6">
-                    <p className="text-gray text-[.88rem] leading-[1.75] m-0">{f.a}</p>
+                    <p className="text-gray text-[1.125rem] leading-[1.75] m-0">{f.a}</p>
                   </div>
                 </div>
               </div>
@@ -547,7 +549,7 @@ export default function SwitchgearPage() {
             <div className="rv-l">
               <div className="label">Get a Quote</div>
               <h2 className="mb-6">Request Switchgear Pricing</h2>
-              <div className="font-mono text-[.6rem] text-blue tracking-[.22em] uppercase mb-3">What to Include in Your Inquiry</div>
+              <div className="font-mono text-[.8125rem] text-blue tracking-[.22em] uppercase mb-3">What to Include in Your Inquiry</div>
               <ul className="check-list">
                 <li>Site voltage and main current rating</li>
                 <li>One-line diagram or utility requirements</li>
@@ -558,11 +560,11 @@ export default function SwitchgearPage() {
               </ul>
             </div>
             <div className="rv-r bg-navy rounded-[20px] p-10 border border-blue/[.2] flex flex-col gap-5">
-              <div className="font-mono text-[.6rem] text-blue tracking-[.22em] uppercase">Response within 1 business day</div>
-              <h3 className="text-white m-0 text-[1.05rem]">Same-day lead time quote.<br />Speak directly with our engineers.</h3>
-              <p className="text-white/[.6] text-[.88rem] leading-[1.75] m-0">Our engineering team reviews every inquiry personally — no automated responses, no gatekeeping.</p>
+              <div className="font-mono text-[.8125rem] text-blue tracking-[.22em] uppercase">Response within 1 business day</div>
+              <h3 className="text-white m-0 text-[1.1875rem]">Same-day lead time quote.<br />Speak directly with our engineers.</h3>
+              <p className="text-white/[.6] text-[1.125rem] leading-[1.75] m-0">Our engineering team reviews every inquiry personally — no automated responses, no gatekeeping.</p>
               <Link href="/contact?product=switchgear" className="btn btn-primary btn-lg mag">Request a Quote →</Link>
-              <a href="tel:+16476162595" className="text-white/[.35] text-[.78rem] no-underline tracking-[.04em]">Or call +1 (647) 616-2595</a>
+              <a href="tel:+16476162595" className="text-white/[.35] text-[1rem] no-underline tracking-[.04em]">Or call +1 (647) 616-2595</a>
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import ProductTypePage from '@/components/ProductTypePage'
+import { HeroArt } from '@/components/LineArt'
 import type { ProductTypePageProps } from '@/components/ProductTypePage'
 
 const data: ProductTypePageProps = {
@@ -23,7 +24,7 @@ const data: ProductTypePageProps = {
     'Remote terminal unit (RTU) or PLC with local HMI display',
     'Analog input cards: 4–20 mA, RTD (Pt100/Pt1000), thermocouple',
     'Digital I/O for valve feedback, alarm, and field device status',
-    'SCADA communication: Modbus TCP/RTU, DNP3, IEC 60870-5',
+    'SCADA communication: Modbus TCP/RTU, DNP3',
     'UPS and battery backup for power interruption ride-through',
     'Environmental rating: NEMA 4X for outdoor, corrosive, or washdown',
   ],
@@ -33,14 +34,14 @@ const data: ProductTypePageProps = {
     'RTD/TC input cards for temperature monitoring',
     'Intrinsically safe (IS) barriers for hazardous area field devices',
     'Fused terminal blocks per instrument loop',
-    'SCADA communication card (Modbus, DNP3, IEC 60870)',
+    'SCADA communication card (Modbus, DNP3)',
     'Panel-mounted HMI display (optional) for local monitoring',
     'UPS module: 30 min to 8 hr battery backup',
     'Heater and thermostat for outdoor panels in cold climates',
   ],
   upgrades: [
     'Cellular / satellite modem for remote sites (no LAN connectivity)',
-    'IEC 62443-compliant cybersecurity hardening',
+    'NERC CIP-aligned cybersecurity hardening',
     'Fiber optic media converter for long-distance communication',
     'Redundant RTU or PLC CPU for critical process stations',
     'Surge protection on all analog and digital field cables',
@@ -53,7 +54,7 @@ const data: ProductTypePageProps = {
     { label: 'Analog Inputs', value: '4–20 mA (source/sink), 0–10 V, RTD (2/3/4-wire), TC (J/K/T/E)' },
     { label: 'Analog Outputs', value: '4–20 mA control signals to positioners and drives' },
     { label: 'Digital I/O', value: 'Wet/dry contact DI, relay/transistor DO' },
-    { label: 'SCADA Protocol', value: 'Modbus TCP/RTU, DNP3, IEC 60870-5-101/104, OPC-UA' },
+    { label: 'SCADA Protocol', value: 'Modbus TCP/RTU, DNP3, OPC-UA' },
     { label: 'Communication Media', value: 'Ethernet, RS-485, fibre optic, cellular (4G LTE / 5G)' },
     { label: 'Power Supply', value: '120/240 VAC input; 24 VDC output with UPS battery backup' },
     { label: 'Enclosure', value: 'NEMA 4X (stainless) standard for outdoor; NEMA 12 for indoor' },
@@ -64,8 +65,8 @@ const data: ProductTypePageProps = {
   standards: [
     { name: 'UL 508A', desc: 'Industrial control panel standard for process control assemblies', logo: null },
     { name: 'CSA C22.2 No. 14', desc: 'Canadian industrial control equipment standard', logo: '/images/csa.png' },
-    { name: 'IEC 62443', desc: 'Industrial cybersecurity framework for IACS — applied to SCADA-connected panels', logo: '/images/IEC.png' },
-    { name: 'IEC 60870-5', desc: 'Telecontrol protocol for SCADA communication in utility and infrastructure', logo: '/images/IEC.png' },
+    { name: 'NERC CIP', desc: 'North American critical-infrastructure cybersecurity requirements for SCADA-connected panels', logo: null },
+    { name: 'IEEE 1815 (DNP3)', desc: 'Utility SCADA communication protocol used across North America', logo: '/images/IEEE.png' },
     { name: 'CSA C22.2 No. 213', desc: 'Canadian standard for Class I, Div 2 hazardous area installations', logo: '/images/csa.png' },
     { name: 'NETA ATS', desc: 'Acceptance testing specifications for I/O verification and commissioning', logo: '/images/neta.svg' },
   ],
@@ -87,7 +88,7 @@ const data: ProductTypePageProps = {
   faqs: [
     {
       q: 'What communication protocols do you support for SCADA?',
-      a: 'We support all major industrial communication protocols including Modbus RTU/TCP, DNP3, IEC 60870-5-101/104, OPC-UA, Profinet, EtherNet/IP, and BACnet. We select the protocol based on your SCADA host software and existing infrastructure.',
+      a: 'We support all major industrial communication protocols including Modbus RTU/TCP, DNP3, OPC-UA, Profinet, EtherNet/IP, and BACnet. We select the protocol based on your SCADA host software and existing infrastructure.',
     },
     {
       q: 'Can you build panels for installation in hazardous (classified) areas?',
@@ -114,5 +115,5 @@ export const metadata = {
 }
 
 export default function ProcessControlPanelPage() {
-  return <ProductTypePage {...data} />
+  return <ProductTypePage heroArt={<HeroArt kind="control" views={['sld', 'iso', 'ga']} />} {...data} />
 }

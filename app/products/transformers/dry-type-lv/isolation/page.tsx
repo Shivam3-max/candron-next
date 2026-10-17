@@ -1,4 +1,5 @@
 import ProductTypePage from '@/components/ProductTypePage'
+import { HeroArt } from '@/components/LineArt'
 
 export const metadata = {
   title: 'Isolation Transformer',
@@ -7,7 +8,7 @@ export const metadata = {
 
 export default function IsolationTransformerPage() {
   return (
-    <ProductTypePage
+    <ProductTypePage heroArt={<HeroArt kind="dry" views={['sld', 'iso', 'ga']} />}
       parentName="Products"
       parentHref="/products"
       categoryName="LV Dry-Type Transformers"
@@ -45,7 +46,7 @@ export default function IsolationTransformerPage() {
       ]}
       upgrades={[
         'Double electrostatic shield (primary to shield, shield to secondary)',
-        'Medical-grade isolation per UL 60601-1 or IEC 60601-1',
+        'Medical-grade isolation per UL 60601-1 or CSA C22.2 No. 60601-1',
         'K-factor rated winding (K-4 to K-20)',
         'Low capacitance construction for maximum CMR (common mode rejection)',
         '115°C temperature rise for lower operating temperature',
@@ -72,7 +73,7 @@ export default function IsolationTransformerPage() {
         { name: 'UL 1561', desc: 'Dry-type general purpose and power transformers', logo: '/images/ugSolutions.png' },
         { name: 'CSA C22.2 No. 66.2', desc: 'Dry-type transformers — Canadian certification standard', logo: '/images/csa.png' },
         { name: 'NEMA ST-20', desc: 'Dry-type transformers for general applications', logo: null },
-        { name: 'IEC 60601-1', desc: 'Medical electrical equipment — safety requirements (medical-grade option)', logo: null },
+        { name: 'CSA C22.2 No. 60601-1', desc: 'Medical electrical equipment — safety requirements (medical-grade option)', logo: '/images/csa.png' },
       ]}
       applications={[
         'Healthcare facilities — operating theatres, ICUs, imaging',
@@ -100,7 +101,7 @@ export default function IsolationTransformerPage() {
         },
         {
           q: 'Can isolation transformers be used in medical facilities?',
-          a: 'Yes, but medical-grade isolation transformers for patient care areas (line isolation monitors in operating theatres and wet procedure rooms) must meet IEC 60601-1 or the applicable national electrical code requirements for medical grade isolation. These require specific insulation levels, ground fault monitoring, and leakage current limits. Contact our engineering team to discuss your specific healthcare application.',
+          a: 'Yes, but medical-grade isolation transformers for patient care areas (line isolation monitors in operating theatres and wet procedure rooms) must meet CSA C22.2 No. 60601-1, CSA Z32, or the applicable electrical code requirements for medical grade isolation. These require specific insulation levels, ground fault monitoring, and leakage current limits. Contact our engineering team to discuss your specific healthcare application.',
         },
         {
           q: 'What is a centre-tapped (balanced) secondary and when is it needed?',

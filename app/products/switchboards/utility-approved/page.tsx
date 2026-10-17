@@ -1,4 +1,5 @@
 import ProductTypePage from '@/components/ProductTypePage'
+import { HeroArt } from '@/components/LineArt'
 import type { ProductTypePageProps } from '@/components/ProductTypePage'
 
 const data: ProductTypePageProps = {
@@ -34,7 +35,7 @@ const data: ProductTypePageProps = {
     'Utility inspector access clearances per LDC standards',
     'Main breaker below or above metering section as required',
     'Separate metering section with lockable utility door',
-    'CT/PT rated for accuracy class per ANSI C12 / IEC 62053',
+    'CT/PT rated for revenue accuracy class per ANSI C12 and Measurement Canada',
     'Nameplates and warning labels per ESA and utility requirements',
     'Grounding and bonding per local service requirements',
   ],
@@ -52,7 +53,7 @@ const data: ProductTypePageProps = {
     { label: 'Voltage', value: '120/208 V, 277/480 V, 347/600 V — to utility specification' },
     { label: 'CT Ratio', value: 'Per utility specification (e.g., 200:5, 400:5, 800:5)' },
     { label: 'PT Ratio', value: 'Per utility specification (e.g., 120:1 or other)' },
-    { label: 'Metering Accuracy', value: 'Class 0.2S (IEC) or 0.3 (ANSI C12) revenue grade' },
+    { label: 'Metering Accuracy', value: 'ANSI C12 0.3 / 0.2 accuracy class, revenue grade' },
     { label: 'Meter Type', value: 'LDC-approved revenue meter (Itron, Landis+Gyr, Elster)' },
     { label: 'Sealability', value: 'Padlock provision on CT/PT door and meter cover' },
     { label: 'Utility Access', value: 'Lockable compartment with inspector access without trip' },
@@ -64,7 +65,7 @@ const data: ProductTypePageProps = {
     { name: 'UL 891', desc: 'U.S. deadfront switchboard standard', logo: null },
     { name: 'CSA C22.2 No. 29', desc: 'Canadian switchboard construction and performance standard', logo: '/images/csa.png' },
     { name: 'ANSI C12 Series', desc: 'Electricity metering accuracy standards — revenue grade equipment', logo: '/images/ansi-logo.svg' },
-    { name: 'IEC 62053', desc: 'Electricity metering equipment standards — accuracy classes', logo: '/images/IEC.png' },
+    { name: 'Measurement Canada', desc: 'Revenue-metering approval requirements for utility billing in Canada', logo: null },
     { name: 'ESA Ontario', desc: 'Ontario Electrical Safety Authority inspection and approval requirements', logo: null },
     { name: 'LDC Requirements', desc: 'Alectra, Hydro One, Toronto Hydro, and other Ontario LDC specifications', logo: null },
   ],
@@ -113,5 +114,5 @@ export const metadata = {
 }
 
 export default function UtilityApprovedPage() {
-  return <ProductTypePage {...data} />
+  return <ProductTypePage heroArt={<HeroArt kind="swbd" views={['iso', 'sld', 'ga']} />} {...data} />
 }

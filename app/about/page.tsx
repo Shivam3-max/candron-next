@@ -15,6 +15,27 @@ export default function AboutPage() {
 
         
         <div className="page-hero-bg" style={{background:"url('/images/projects/2500a-switchboard-production/2500a-switchboard-production.jpg') center 48%/cover"}}></div>
+        <div className="la-hero-slot hero-panel-slot">
+          <aside className="about-glance" aria-label="CANDRON at a glance">
+            <div className="about-glance-kicker">Inside CANDRON</div>
+            <p className="about-glance-lede">Founded 2022 in Toronto. Engineering, fabrication, assembly, wiring and factory testing — all under one roof.</p>
+            <div className="about-glance-nav" role="navigation" aria-label="About page sections">
+              {[
+                { href: '#values', title: 'Our Values', sub: 'What drives every project' },
+                { href: '#our-story', title: 'Our Story', sub: 'A young company, decades of expertise' },
+                { href: '#team', title: 'The Team', sub: 'Engineers and field technicians' },
+                { href: '#facility', title: 'Our Facility', sub: 'Toronto, Ontario' },
+              ].map((item, i) => (
+                <a key={item.href} href={item.href}>
+                  <span className="about-glance-num">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="about-glance-text"><strong>{item.title}</strong><small>{item.sub}</small></span>
+                  <span className="about-glance-arrow" aria-hidden="true">↓</span>
+                </a>
+              ))}
+            </div>
+            <Link href="/contact" className="about-glance-cta">Talk to Our Team →</Link>
+          </aside>
+        </div>
         <div className="container page-hero-content">
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>About</span></div>
           <div className="label label-white">Our Story</div>
@@ -53,7 +74,7 @@ export default function AboutPage() {
       </div>
 
       {/* VALUES */}
-      <div className="wt-section">
+      <div id="values" className="wt-section">
         <div className="container">
 
           {/* Header */}
@@ -127,7 +148,7 @@ export default function AboutPage() {
       </div>
 
       {/* TIMELINE */}
-      <div className="wt-section">
+      <div id="our-story" className="wt-section">
         <div className="container">
 
           {/* Header */}
@@ -150,8 +171,8 @@ export default function AboutPage() {
               { val: '100%', lbl: 'In-House Manufacturing' },
             ].map((s) => (
               <div key={s.lbl} className="bg-[#080E2C] py-7 px-6 text-center">
-                <div className="font-display text-[1.6rem] font-black text-blue leading-none">{s.val}</div>
-                <div className="font-title text-[.62rem] text-white/42 tracking-[.1em] uppercase mt-2">{s.lbl}</div>
+                <div className="font-display text-[1.76rem] font-black text-blue leading-none">{s.val}</div>
+                <div className="font-title text-[.875rem] text-white/[.68] tracking-[.1em] uppercase mt-2">{s.lbl}</div>
               </div>
             ))}
           </div>
@@ -177,7 +198,7 @@ export default function AboutPage() {
       </div>
 
       {/* MEET OUR TEAM */}
-      <div className="section bg-off">
+      <div id="team" className="section bg-off">
         <div className="container">
           <div className="text-center max-w-[600px] mx-auto mb-14 rv">
             <div className="label justify-center">The People Behind The Work</div>
@@ -194,7 +215,7 @@ export default function AboutPage() {
               <div className="team-body">
                 <div className="team-name">Licensed Engineers</div>
                 <div className="team-role">M.Eng &amp; Ph.D — Power Systems</div>
-                <p className="text-[.88rem] text-gray leading-[1.75] mt-3">
+                <p className="text-[1.125rem] text-gray leading-[1.75] mt-3">
                   Every engineer on our team holds a professional license and an advanced degree — master's or doctorate — in electrical or power systems engineering. They design, specify, and commission every project with zero shortcuts.
                 </p>
                 <div className="flex gap-3 mt-5 flex-wrap">
@@ -214,7 +235,7 @@ export default function AboutPage() {
               <div className="team-body">
                 <div className="team-name">Field Technicians</div>
                 <div className="team-role">40+ Years on the Front Lines</div>
-                <p className="text-[.88rem] text-gray leading-[1.75] mt-3">
+                <p className="text-[1.125rem] text-gray leading-[1.75] mt-3">
                   Our technicians are field veterans — not career starters. Our most experienced member brings over 40 years of hands-on experience commissioning, maintaining, and troubleshooting high-voltage and medium-voltage systems under real-world conditions.
                 </p>
                 <div className="flex gap-3 mt-5 flex-wrap">
@@ -234,7 +255,7 @@ export default function AboutPage() {
               <div className="team-body">
                 <div className="team-name">Combined Expertise</div>
                 <div className="team-role">Across Every Discipline</div>
-                <p className="text-[.88rem] text-gray leading-[1.75] mt-3">
+                <p className="text-[1.125rem] text-gray leading-[1.75] mt-3">
                   When you work with CANDRON, you're not getting one engineer — you're getting the collective weight of over 50 years of power systems engineering and field operations, applied to your project from day one. From high-voltage design to medium-voltage commissioning.
                 </p>
                 <div className="flex gap-3 mt-5 flex-wrap">
@@ -264,10 +285,10 @@ export default function AboutPage() {
             ].map((t, i) => (
               <div key={i} className="p-8 bg-off border border-[#E8ECF5] rounded-[14px] flex flex-col gap-5 rv">
                 <svg width="28" height="20" viewBox="0 0 28 20" fill="none"><path d="M0 20V12.5C0 5.596 3.956 1.54 11.868 0l1.264 2.1C9.372 3.276 7.34 5.596 7.084 9.5H12V20H0zm16 0V12.5C16 5.596 19.956 1.54 27.868 0l1.264 2.1c-3.76 1.176-5.792 3.496-6.048 7.4H28V20H16z" fill="#0047FF" fillOpacity=".15"/></svg>
-                <p className="text-[.9rem] text-gray leading-[1.8] m-0 italic">{t.quote}</p>
+                <p className="text-[1.125rem] text-gray leading-[1.8] m-0 italic">{t.quote}</p>
                 <div className="border-t border-[#E8ECF5] pt-4">
-                  <div className="font-bold text-navy text-[.88rem]">{t.name}</div>
-                  <div className="text-[.78rem] text-gray mt-[.2rem]">{t.role} — {t.company}</div>
+                  <div className="font-bold text-navy text-[1.125rem]">{t.name}</div>
+                  <div className="text-[1rem] text-gray mt-[.2rem]">{t.role} — {t.company}</div>
                 </div>
               </div>
             ))}
@@ -277,7 +298,7 @@ export default function AboutPage() {
       */}
 
       {/* FACILITY */}
-      <div className="section bg-off">
+      <div id="facility" className="section bg-off">
         <div className="container">
           <div className="text-center max-w-[580px] mx-auto mb-14 rv">
             <div className="label justify-center">Our Facility</div>
@@ -297,8 +318,8 @@ export default function AboutPage() {
               { val: 'Full FAT', lbl: 'Before Shipment' },
             ].map((m) => (
               <div key={m.lbl} className="about-facility-stat text-center p-6 bg-white border border-[#E8ECF5] rounded-[10px]">
-                <div className="about-facility-stat-value font-display text-[1.4rem] font-black text-blue mb-[.3rem]">{m.val}</div>
-                <div className="about-facility-stat-label font-title text-[.7rem] text-gray tracking-[.1em] uppercase">{m.lbl}</div>
+                <div className="about-facility-stat-value font-display text-[1.54rem] font-black text-blue mb-[.3rem]">{m.val}</div>
+                <div className="about-facility-stat-label font-title text-[.9375rem] text-gray tracking-[.1em] uppercase">{m.lbl}</div>
               </div>
             ))}
           </div>

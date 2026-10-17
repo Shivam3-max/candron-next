@@ -1,25 +1,23 @@
 ﻿import type { Metadata } from 'next'
-import { Orbitron, Chakra_Petch, DM_Sans, JetBrains_Mono } from 'next/font/google'
+import { Archivo, DM_Sans, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
+import './site-refresh.css'
+import './lineart.css'
+import './project-highlights.css'
+import './featured-products.css'
 import 'flag-icons/css/flag-icons.min.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import ClientEffects from '@/components/ClientEffects'
 import BackToTop from '@/components/BackToTop'
 
-const orbitron = Orbitron({
+// Headings and UI titles: Archivo (variable width) reads far better than the
+// previous Orbitron/Chakra Petch pairing at every size.
+const archivo = Archivo({
   subsets: ['latin'],
   variable: '--fd',
   display: 'swap',
-  weight: ['400', '600', '700', '900'],
-})
-
-const chakraPetch = Chakra_Petch({
-  subsets: ['latin'],
-  variable: '--ft',
-  display: 'swap',
-  weight: ['300', '400', '600', '700'],
-  style: ['normal', 'italic'],
+  axes: ['wdth'],
 })
 
 const dmSans = DM_Sans({
@@ -35,7 +33,7 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ['400', '600'],
 })
 
-const fontVars = [orbitron.variable, chakraPetch.variable, dmSans.variable, jetbrainsMono.variable].join(' ')
+const fontVars = [archivo.variable, dmSans.variable, jetbrainsMono.variable].join(' ')
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://candron.com'),

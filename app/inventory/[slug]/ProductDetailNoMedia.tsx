@@ -125,15 +125,15 @@ export default function ProductDetailNoMedia({ slug }: { slug: string }) {
           <div className="max-w-[980px]">
             <div className="label break-words">{product.condition_name} · {product.category}</div>
             <h1 className="!text-navy !text-[clamp(1.75rem,8vw,4.3rem)] leading-[1.08] break-words">{product.name}</h1>
-            <p className="font-mono text-[.7rem] text-blue tracking-[.06em] mt-3 break-all">SKU {product.sku}</p>
-            <p className="lead mt-5 !text-gray max-w-[780px] max-sm:!text-[1rem] break-words">{product.short_description}</p>
+            <p className="font-mono text-[.9375rem] text-blue tracking-[.06em] mt-3 break-all">SKU {product.sku}</p>
+            <p className="lead mt-5 !text-gray max-w-[780px] max-sm:!text-[1.125rem] break-words">{product.short_description}</p>
             <div className="rounded-[14px] bg-white border border-[#E4E9F3] p-5 sm:p-6 my-6 sm:my-7 max-w-[700px]">
-              <div className="font-display font-black text-[1.15rem] sm:text-[1.35rem] text-navy break-words">{price}</div>
+              <div className="font-display font-black text-[1.265rem] sm:text-[1.485rem] text-navy break-words">{price}</div>
               <div className="flex gap-2 sm:gap-3 flex-wrap mt-4">
-                <span className={`rounded-full px-3 py-1.5 text-[.7rem] font-bold ${product.stock_quantity ? 'bg-[#DCFCE7] text-[#08783E]' : 'bg-[#FEF3C7] text-[#92400E]'}`}>
+                <span className={`rounded-full px-3 py-1.5 text-[.9375rem] font-bold ${product.stock_quantity ? 'bg-[#DCFCE7] text-[#08783E]' : 'bg-[#FEF3C7] text-[#92400E]'}`}>
                   {product.stock_quantity ? `${product.stock_quantity} available` : 'Built to order'}
                 </span>
-                {product.lead_time && <span className="rounded-full px-3 py-1.5 text-[.7rem] bg-blue/[.08] text-blue break-words">{product.lead_time}</span>}
+                {product.lead_time && <span className="rounded-full px-3 py-1.5 text-[.9375rem] bg-blue/[.08] text-blue break-words">{product.lead_time}</span>}
               </div>
             </div>
             <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-3 max-w-[700px]">
@@ -151,12 +151,12 @@ export default function ProductDetailNoMedia({ slug }: { slug: string }) {
             <ProductDescription value={product.description} />
           </div>
           <div className="min-w-0 rounded-[16px] bg-off border border-[#E4E9F3] p-4 sm:p-6 overflow-hidden">
-            <h3 className="font-display font-black text-[1rem] mb-5">Specifications</h3>
+            <h3 className="font-display font-black text-[1.125rem] mb-5">Specifications</h3>
             <dl className="m-0">
               {specifications.map(([key, value]) => (
                 <div key={String(key)} className="grid grid-cols-[minmax(0,.8fr)_minmax(0,1.2fr)] max-sm:grid-cols-1 gap-2 sm:gap-4 py-3 border-t border-[#DDE3EF]">
-                  <dt className="font-mono text-[.65rem] text-gray break-words">{key}</dt>
-                  <dd className="m-0 text-right max-sm:text-left font-title text-[.8rem] font-bold text-navy break-words">{String(value)}{key === 'kVA' ? ' kVA' : ''}</dd>
+                  <dt className="font-mono text-[.875rem] text-gray break-words">{key}</dt>
+                  <dd className="m-0 text-right max-sm:text-left font-title text-[1.0625rem] font-bold text-navy break-words">{String(value)}{key === 'kVA' ? ' kVA' : ''}</dd>
                 </div>
               ))}
             </dl>

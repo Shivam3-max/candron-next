@@ -64,7 +64,7 @@ export default function StatBar({ stats }: { stats: Stat[] }) {
           <div className="font-display text-[clamp(2rem,3.5vw,2.8rem)] font-black text-white leading-none mb-[.4rem] max-sm:text-[clamp(.92rem,4.8vw,1.2rem)] max-sm:leading-[1.08] break-words [overflow-wrap:anywhere]">
             {s.icon ? s.icon : <CountUp raw={s.num} active={active} />}
           </div>
-          <div className="font-title text-[.72rem] text-white/70 tracking-[.12em] uppercase max-sm:text-[.58rem] max-sm:leading-[1.45] max-sm:tracking-[.08em] break-words [overflow-wrap:anywhere]">
+          <div className="font-title text-[.9375rem] text-white/70 tracking-[.12em] uppercase max-sm:text-[.8125rem] max-sm:leading-[1.45] max-sm:tracking-[.08em] break-words [overflow-wrap:anywhere]">
             {s.lbl}
           </div>
         </div>

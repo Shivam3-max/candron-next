@@ -1,4 +1,5 @@
 import ProductTypePage from '@/components/ProductTypePage'
+import { HeroArt } from '@/components/LineArt'
 
 export const metadata = {
   title: 'Remote Power Panels',
@@ -7,7 +8,7 @@ export const metadata = {
 
 export default function RemotePowerPanelsPage() {
   return (
-    <ProductTypePage
+    <ProductTypePage heroArt={<HeroArt kind="rpp" />}
       parentName="Products"
       parentHref="/products"
       categoryName="Critical Power Distribution"
@@ -32,31 +33,7 @@ export default function RemotePowerPanelsPage() {
         'Configurable panelboards, breakers, receptacles, and cable-entry arrangements',
         'Optional branch-circuit metering provides capacity and alarm visibility',
       ]}
-      projectSpotlight={{
-        eyebrow: 'Completed Equipment',
-        title: 'Custom Panelboard.',
-        emphasis: 'Built Around the Application.',
-        description: 'A completed CANDRON panelboard with a compact, floor-standing enclosure and front-access breaker arrangement. The assembly is engineered to organize branch distribution in a serviceable footprint while providing a clean, durable finished installation.',
-        image: '/images/projects/custom-panelboard/custom-panelboard.png',
-        imageAlt: 'Completed CANDRON custom panelboard in a grey floor-standing enclosure with multiple front-access circuit breakers',
-        imageAspect: 'portrait',
-        badges: ['Custom Built', 'Front Access', 'Floor Standing'],
-        stats: [
-          { value: 'Custom', label: 'Configuration' },
-          { value: 'Front', label: 'Access' },
-          { value: 'Multi', label: 'Breaker Layout' },
-          { value: 'CANDRON', label: 'Manufactured' },
-        ],
-        features: [
-          'Compact floor-standing enclosure designed for organized power distribution',
-          'Front-access branch breakers support clear operation and servicing',
-          'Ventilated metal enclosure with integrated equipment identification',
-          'Breaker arrangement and internal construction engineered to project requirements',
-        ],
-        ctaLabel: 'Discuss a Panelboard Project',
-        ctaHref: '/contact?product=custom-panelboard',
-      }}
-      features={[
+features={[
         'Main input breaker or main-lug-only configurations',
         'Copper bus and panelboards arranged for safe front access',
         'Clearly identified branch circuits and load schedules',

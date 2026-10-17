@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import ProductsClient from './ProductsClient'
+import { HeroArt } from '@/components/LineArt'
 
 export const metadata = {
   title: 'Products',
@@ -11,6 +12,7 @@ export default function ProductsPage() {
     <>
       <div className="page-hero">
         <div className="page-hero-bg" style={{ background: "url('/images/switchgear.jpg') center/cover" }}></div>
+        <HeroArt kind="plant" />
         <div className="container page-hero-content">
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>Products</span></div>
           <div className="label label-white">Our Product Range</div>

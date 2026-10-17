@@ -75,7 +75,7 @@ export default function ProcessScroll({ steps = defaultSteps, variant = "dark" }
           </div>
           <div>
             <div className={`process-v-title ${variant === 'light' ? 'text-navy' : 'text-white'}`}>{s.t}</div>
-            <div className={`process-v-text ${variant === 'light' ? 'text-gray' : 'text-white/45'}`}>{s.d}</div>
+            <div className={`process-v-text ${variant === 'light' ? 'text-gray' : 'text-white/[.68]'}`}>{s.d}</div>
           </div>
         </div>
       ))}

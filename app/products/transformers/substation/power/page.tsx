@@ -1,4 +1,5 @@
 import ProductTypePage from '@/components/ProductTypePage'
+import { HeroArt } from '@/components/LineArt'
 
 export const metadata = {
   title: 'Power Substation Transformer',
@@ -7,7 +8,7 @@ export const metadata = {
 
 export default function PowerSubstationPage() {
   return (
-    <ProductTypePage
+    <ProductTypePage heroArt={<HeroArt kind="substation" />}
       parentName="Products"
       parentHref="/products"
       categoryName="Substation Transformers"
@@ -41,7 +42,7 @@ export default function PowerSubstationPage() {
         'De-energized tap changer (DETC) — standard',
         'Copper or aluminium winding conductors',
         'Core and coil construction to IEEE C57.12.00',
-        'High-voltage and low-voltage bushings to IEC / IEEE',
+        'High-voltage and low-voltage bushings to IEEE / CSA',
         'Current transformers (CTs) for protection and metering',
         'Complete instrumentation package with gauges and monitoring accessories',
       ]}
@@ -63,17 +64,16 @@ export default function PowerSubstationPage() {
         { label: 'Cooling Class', value: 'ONAN / ONAF / ONAN/ONAF / ONAN/OFAF' },
         { label: 'Insulating Fluid', value: 'Mineral oil (standard) / FR3 ester (option)' },
         { label: 'HV Taps', value: 'DETC standard; LTC available' },
-        { label: 'Impedance', value: 'Per project specification (IEC / IEEE)' },
+        { label: 'Impedance', value: 'Per project specification (IEEE / CSA)' },
         { label: 'Temperature Rise', value: '65°C (oil) / 80°C (winding) — standard' },
         { label: 'Vector Group', value: 'Project-specific (Dyn11, YNyn0, YNd11, etc.)' },
-        { label: 'Primary Standard', value: 'IEEE C57.12.00 / IEC 60076' },
+        { label: 'Primary Standard', value: 'IEEE C57.12.00 / CSA C88' },
         { label: 'Canadian Certification', value: 'CSA C88' },
         { label: 'Frequency', value: '60 Hz (50 Hz available)' },
       ]}
       standards={[
         { name: 'IEEE C57.12', desc: 'Standard general requirements for liquid-immersed distribution, power, and regulation transformers', logo: '/images/IEEE.png' },
         { name: 'CSA C88', desc: 'Power transformers and reactors — Canadian certification authority', logo: '/images/csa.png' },
-        { name: 'IEC 60076', desc: 'International standard for power transformers — series applicable to design, testing, and accessories', logo: null },
         { name: 'ANSI C57.12.00', desc: 'American National Standard for general requirements for liquid-immersed transformers', logo: '/images/ansi-logo.svg' },
         { name: 'IEEE C57.12.90', desc: 'Test code for liquid-immersed distribution, power, and regulation transformers', logo: '/images/IEEE.png' },
       ]}
@@ -108,8 +108,8 @@ export default function PowerSubstationPage() {
           a: 'Standard factory tests include: winding resistance measurement, turns ratio test, no-load loss and excitation current measurement, load loss and impedance measurement, applied potential (HV) test, and induced potential test. Optional tests include partial discharge, temperature rise, lightning impulse, and audible sound level. Full test reports are provided with every unit.',
         },
         {
-          q: 'Can you supply transformers to both ANSI/IEEE and IEC standards?',
-          a: 'Yes. We specify and supply transformers to either ANSI/IEEE or IEC standards, or a hybrid specification acceptable to both, depending on your project requirements. Most Canadian utility projects reference IEEE/CSA standards, while many international projects use IEC 60076 series standards.',
+          q: 'Can you build to utility-specific transformer specifications?',
+          a: 'Yes. We build to ANSI/IEEE C57 and CSA C88 standards and to utility-specific specifications layered on top of them, depending on your project requirements. Most Canadian and U.S. utility projects reference IEEE/CSA standards, and we document compliance in the factory test report.',
         },
       ]}
       quoteItems={[
@@ -120,7 +120,7 @@ export default function PowerSubstationPage() {
         'Impedance target (% on transformer MVA base)',
         'Tap changer requirements (DETC or LTC, range and steps)',
         'Cooling class and forced cooling requirements',
-        'Applicable standards (IEEE/CSA or IEC)',
+        'Applicable standards (IEEE / CSA)',
       ]}
     />
   )

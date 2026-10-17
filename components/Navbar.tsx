@@ -4,21 +4,26 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import CanadaFlag from '@/components/CanadaFlag'
 
+// Header nav boxes, left to right. `menu` marks the boxes that open a dropdown.
 const links = [
-  { href: '/', label: 'Home' },
-  { href: '/products', label: 'Products' },
-  // Inventory navigation is temporarily disabled.
-  // { href: '/inventory', label: 'Inventory' },
-  { href: '/capabilities', label: 'Services' },
-  { href: '/resources', label: 'Resources' },
-  { href: '/company', label: 'Company' },
-]
+  { href: '/products', label: 'Products', caption: 'Full catalogue', menu: 'products' },
+  { href: '/capabilities', label: 'Capabilities', caption: 'What we do', menu: 'capabilities' },
+  { href: '/industries', label: 'Industries', caption: 'Sectors we serve' },
+  { href: '/about', label: 'About', caption: 'Company & team' },
+  { href: '/resources', label: 'Resources', caption: 'Calculators & tools' },
+  { href: '/contact', label: 'Contact', caption: 'Talk to our team' },
+] as const
+
+const PHONE_HREF = 'tel:+16476162595'
+const PHONE_LABEL = '+1 (647) 616-2595'
 
 const mobileNavIcons = {
   home: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5M9 21v-7h6v7"/></svg>,
   products: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="m12 3 8 4.5-8 4.5-8-4.5L12 3Z"/><path d="m4 12 8 4.5 8-4.5M4 16.5l8 4.5 8-4.5"/></svg>,
   services: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5-5l2.1 2.1-8.4 8.4-2.1-2.1a4 4 0 0 0 5 5l8.4-8.4Z"/><path d="m13 11 8 8-2 2-8-8"/></svg>,
   resources: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 12h7M9 16h7"/></svg>,
+  industries: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="M3 21V9l6 4V9l6 4V3h6v18H3z"/></svg>,
+  contact: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="M4 5h16v12H8l-4 4V5Z"/><path d="M8 10h8M8 13h5"/></svg>,
   company: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-4 2.7-7 6-7s6 3 6 7M15 14c3.2 0 5 2.3 5 5.5"/></svg>,
 }
 
@@ -27,21 +32,6 @@ const mobileChevron = (
     <path d="m9 18 6-6-6-6" />
   </svg>
 )
-
-const companyItems = [
-  {
-    href: '/about',
-    label: 'About CANDRON & Team',
-    desc: 'Our company, people, values, and approach',
-    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>,
-  },
-  {
-    href: '/industries',
-    label: 'Sectors We Serve',
-    desc: 'Support for contractors, consultants, utilities, and project owners',
-    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 4V2m8 2V2M7 9h10M7 13h4M7 17h7"/></svg>,
-  },
-]
 
 const capabilitiesItems = [
   {
@@ -196,20 +186,77 @@ const productItems = [
   },
 ]
 
+
+// Phrases complete the sentence "We are …" in the header tagline.
+const TAGLINES = [
+  'fast at our service.',
+  'engineered & manufactured in Canada.',
+  'on call 24/7 for emergency response.',
+  'ready with in-stock equipment in Toronto.',
+  'building to CSA, UL & IEEE standards.',
+  'testing every unit before it ships.',
+  'quoting the same day you ask.',
+]
+
+function TaglineTicker() {
+  const [index, setIndex] = useState(0)
+  const [text, setText] = useState(TAGLINES[0])
+  const [phase, setPhase] = useState<'hold' | 'erase' | 'type'>('hold')
+
+  useEffect(() => {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const target = TAGLINES[index]
+    let t: ReturnType<typeof setTimeout>
+    if (reduced) {
+      t = setTimeout(() => { const n = (index + 1) % TAGLINES.length; setIndex(n); setText(TAGLINES[n]) }, 3600)
+    } else if (phase === 'hold') {
+      t = setTimeout(() => setPhase('erase'), 2600)
+    } else if (phase === 'erase') {
+      t = text.length
+        ? setTimeout(() => setText(text.slice(0, -1)), 22)
+        : setTimeout(() => { setIndex((index + 1) % TAGLINES.length); setPhase('type') }, 180)
+    } else {
+      t = text.length < target.length
+        ? setTimeout(() => setText(target.slice(0, text.length + 1)), 42)
+        : setTimeout(() => setPhase('hold'), 60)
+    }
+    return () => clearTimeout(t)
+  }, [index, text, phase])
+
+  return (
+    <p className="hdr-tagline">
+      <span className="sr-only">We are fast at our service, engineered and manufactured in Canada, and on call 24/7.</span>
+      <span aria-hidden="true">
+        <span className="hdr-tagline-lead">We are</span>{' '}
+        <span className="hdr-tagline-word">{text}</span>
+        <span className="hdr-tagline-caret" />
+      </span>
+    </p>
+  )
+}
+
+const phoneIcon = (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z" />
+  </svg>
+)
+
+const chevronDown = (
+  <svg className="hdr-box-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+)
+
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
+  const [compact, setCompact] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [prodOpen, setProdOpen] = useState(false)
-  const [mobileProdOpen, setMobileProdOpen] = useState(false)
-  const [capabilitiesOpen, setCapabilitiesOpen] = useState(false)
-  const [mobileCapabilitiesOpen, setMobileCapabilitiesOpen] = useState(false)
-  const [companyOpen, setCompanyOpen] = useState(false)
-  const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false)
+  const [openMenu, setOpenMenu] = useState<'products' | 'capabilities' | null>(null)
+  const [mobileMenu, setMobileMenu] = useState<'products' | 'capabilities' | null>(null)
   const [hoveredProd, setHoveredProd] = useState(0)
   const pathname = usePathname()
 
   useEffect(() => {
-    const update = () => setScrolled(window.scrollY > 60)
+    const update = () => setCompact(window.scrollY > 80)
     const t = requestAnimationFrame(update)
     window.addEventListener('scroll', update, { passive: true })
     return () => { cancelAnimationFrame(t); window.removeEventListener('scroll', update) }
@@ -218,7 +265,7 @@ export default function Navbar() {
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : ''
     const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setMobileOpen(false)
+      if (event.key === 'Escape') { setMobileOpen(false); setOpenMenu(null) }
     }
     document.addEventListener('keydown', closeOnEscape)
     return () => {
@@ -227,247 +274,186 @@ export default function Navbar() {
     }
   }, [mobileOpen])
 
-  const requiresSolidHeader = pathname.startsWith('/admin')
-  const headerClass = ['dark-nav', scrolled || requiresSolidHeader ? 'scrolled' : 'at-top'].join(' ')
-  const isProductsActive = pathname === '/products' || pathname.startsWith('/products/')
-  const isCapabilitiesActive = capabilitiesItems.some(c => pathname === c.href.split('?')[0] || pathname.startsWith(c.href.split('?')[0] + '/'))
-  const isCompanyActive = companyItems.some(c => pathname === c.href || pathname.startsWith(c.href + '/'))
-  const isLinkActive = (href: string) => pathname === href
-
+  const isActive = (href: string) => {
+    if (href === '/products') return pathname === '/products' || pathname.startsWith('/products/')
+    if (href === '/capabilities') return capabilitiesItems.some(c => pathname === c.href || pathname.startsWith(c.href + '/'))
+    return pathname === href || pathname.startsWith(href + '/')
+  }
+  const closeMenus = () => { setOpenMenu(null); setHoveredProd(0) }
   const p = productItems[hoveredProd]
+
+  const productsMenu = (
+    <div className={`nav-dropdown hdr-dropdown${openMenu === 'products' ? ' open' : ''}`} role="menu">
+      <div className="nav-mega-inner">
+        <div className="nav-mega-sidebar">
+          {productItems.map((item, i) => {
+            const active = hoveredProd === i
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`nav-mega-item ${active ? 'bg-blue' : 'bg-transparent'}`}
+                onMouseEnter={() => setHoveredProd(i)}
+                onFocus={() => setHoveredProd(i)}
+                onClick={closeMenus}
+                role="menuitem"
+              >
+                <span className={`nav-mega-icon ${active ? 'bg-white/[.18] text-white' : 'bg-white/[.08] text-blue'}`}>{item.icon}</span>
+                <span className="flex-1 text-white leading-[1.3]">{item.name}</span>
+              </Link>
+            )
+          })}
+          <div className="nav-mega-footer">
+            <Link href="/products" className="nav-mega-all" onClick={closeMenus}>VIEW ALL PRODUCTS →</Link>
+          </div>
+        </div>
+        <div className="nav-mega-preview">
+          <div key={hoveredProd} className="nav-mega-preview-inner nav-mega-preview-fade">
+            <div className="nav-mega-preview-header">
+              <div className="nav-mega-preview-text">
+                <div className="nav-mega-preview-name">{p.name}</div>
+                <span className="nav-mega-preview-sub">{p.sub}</span>
+                <p className="nav-mega-preview-desc">{p.desc}</p>
+              </div>
+              <div className="nav-mega-img-wrap">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={p.image} alt={p.name} className="nav-mega-img" />
+              </div>
+            </div>
+            <div className="nav-mega-type-grid">
+              {p.types.map(t => (
+                <Link key={t.name} href={t.href} className="nav-mega-type-link" onClick={closeMenus}>
+                  <span className="nav-mega-type-icon">{t.icon}</span>
+                  <span className="nav-mega-type-name flex-1">{t.name}</span>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+                </Link>
+              ))}
+            </div>
+            <Link href={p.href} className="btn btn-primary nav-mega-btn" onClick={closeMenus}>VIEW ALL →</Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+
+  const capabilitiesMenu = (
+    <div className={`nav-company-dropdown hdr-dropdown${openMenu === 'capabilities' ? ' open' : ''}`} role="menu">
+      {capabilitiesItems.map(c => (
+        <Link
+          key={c.href}
+          href={c.href}
+          className={`nav-company-item${pathname === c.href ? ' active' : ''}`}
+          onClick={closeMenus}
+          role="menuitem"
+        >
+          <span className="nav-company-icon">{c.icon}</span>
+          <span className="flex flex-col gap-[.15rem]">
+            <span className="nav-company-label">{c.label}</span>
+            <span className="nav-company-desc">{c.desc}</span>
+          </span>
+        </Link>
+      ))}
+    </div>
+  )
 
   return (
     <>
-      <header className={headerClass}>
-        <div className="nav-inner">
-          <Link href="/" className="logo" aria-label="CANDRON Energy Inc. — Home">
+      <header className={`site-hdr${compact ? ' is-compact' : ''}`}>
+        <div className="hdr-shell">
+          <Link href="/" className="hdr-logo" aria-label="CANDRON Energy Inc. — Home">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/logo.svg" alt="" className="logo-img" />
+            <img src="/images/logo.svg" alt="" />
           </Link>
 
-          <nav aria-label="Main navigation">
-            {links.map(l => {
-              if (l.href === '/capabilities') {
-                return (
-                  <div
-                    key="/capabilities"
-                    className={`nav-dd-wrap${capabilitiesOpen ? ' open' : ''}`}
-                    onMouseEnter={() => setCapabilitiesOpen(true)}
-                    onMouseLeave={() => setCapabilitiesOpen(false)}
-                  >
-                    <a
-                      href="#"
-                      onClick={e => e.preventDefault()}
-                      className={`nav-dd-link${isCapabilitiesActive ? ' active' : ''}`}
-                      aria-haspopup="true"
-                      aria-expanded={capabilitiesOpen}
-                    >
-                      Services
-                      <svg className="nav-dd-chevron" width="11" height="11" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </a>
-                    <div className={`nav-company-dropdown${capabilitiesOpen ? ' open' : ''}`} role="menu">
-                      {capabilitiesItems.map(c => (
-                        <Link
-                          key={c.href}
-                          href={c.href}
-                          className={`nav-company-item${pathname === c.href.split('?')[0] ? ' active' : ''}`}
-                          onClick={() => setCapabilitiesOpen(false)}
-                          role="menuitem"
-                        >
-                          <span className="nav-company-icon">{c.icon}</span>
-                          <span className="flex flex-col gap-[.15rem]">
-                            <span className="nav-company-label">{c.label}</span>
-                            <span className="nav-company-desc">{c.desc}</span>
-                          </span>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )
-              }
+          <div className="hdr-main">
+            <div className="hdr-top">
+              <TaglineTicker />
+              <div className="hdr-top-actions">
+                <a className="hdr-call" href={PHONE_HREF} aria-label={`Call CANDRON at ${PHONE_LABEL}`}>
+                  <span className="hdr-call-icon">{phoneIcon}</span>
+                  <span className="hdr-call-text"><small>Call us now · 24/7</small><strong>{PHONE_LABEL}</strong></span>
+                </a>
+                <Link href="/contact" className="hdr-quote">Request a Quote</Link>
+              </div>
+            </div>
 
-              if (l.href === '/company') {
-                return (
-                  <div
-                    key="/company"
-                    className={`nav-dd-wrap${companyOpen ? ' open' : ''}`}
-                    onMouseEnter={() => setCompanyOpen(true)}
-                    onMouseLeave={() => setCompanyOpen(false)}
-                  >
-                    <a
-                      href="#"
-                      onClick={e => e.preventDefault()}
-                      className={`nav-dd-link${isCompanyActive ? ' active' : ''}`}
-                      aria-haspopup="true"
-                      aria-expanded={companyOpen}
-                    >
-                      Company
-                      <svg className="nav-dd-chevron" width="11" height="11" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </a>
-                    <div className={`nav-company-dropdown${companyOpen ? ' open' : ''}`} role="menu">
-                      {companyItems.map(c => (
-                        <Link
-                          key={c.href}
-                          href={c.href}
-                          className={`nav-company-item${pathname === c.href ? ' active' : ''}`}
-                          onClick={() => setCompanyOpen(false)}
-                          role="menuitem"
-                        >
-                          <span className="nav-company-icon">{c.icon}</span>
-                          <span className="flex flex-col gap-[.15rem]">
-                            <span className="nav-company-label">{c.label}</span>
-                            <span className="nav-company-desc">{c.desc}</span>
-                          </span>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
+            <nav className="hdr-nav" aria-label="Main navigation">
+              {links.map((l, i) => {
+                const active = isActive(l.href)
+                const num = String(i + 1).padStart(2, '0')
+                const body = (
+                  <>
+                    <span className="hdr-box-num">{num}</span>
+                    <span className="hdr-box-text">
+                      <span className="hdr-box-label">{l.label}</span>
+                      <span className="hdr-box-caption">{l.caption}</span>
+                    </span>
+                  </>
                 )
-              }
-
-              if (l.href !== '/products') {
+                if ('menu' in l) {
+                  const open = openMenu === l.menu
+                  return (
+                    <div
+                      key={l.href}
+                      className={`hdr-box-wrap${open ? ' open' : ''}`}
+                      onMouseEnter={() => setOpenMenu(l.menu)}
+                      onMouseLeave={closeMenus}
+                    >
+                      {l.menu === 'products' ? (
+                        <Link
+                          href="/products"
+                          className={`hdr-box${active ? ' active' : ''}`}
+                          aria-current={pathname === '/products' ? 'page' : undefined}
+                          aria-haspopup="true"
+                          aria-expanded={open}
+                          onFocus={() => setOpenMenu('products')}
+                        >
+                          {body}{chevronDown}
+                        </Link>
+                      ) : (
+                        <button
+                          type="button"
+                          className={`hdr-box${active ? ' active' : ''}`}
+                          aria-haspopup="true"
+                          aria-expanded={open}
+                          onClick={() => setOpenMenu(open ? null : 'capabilities')}
+                        >
+                          {body}{chevronDown}
+                        </button>
+                      )}
+                      {l.menu === 'products' ? productsMenu : capabilitiesMenu}
+                    </div>
+                  )
+                }
                 return (
                   <Link
                     key={l.href}
                     href={l.href}
-                    className={isLinkActive(l.href) ? 'active' : ''}
-                    aria-current={isLinkActive(l.href) ? 'page' : undefined}
+                    className={`hdr-box${active ? ' active' : ''}${l.href === '/contact' ? ' hdr-box-contact' : ''}`}
+                    aria-current={active ? 'page' : undefined}
                   >
-                    {l.label}
+                    {body}
                   </Link>
                 )
-              }
+              })}
+              <a className="hdr-nav-call" href={PHONE_HREF} aria-label={`Call CANDRON at ${PHONE_LABEL}`}>{phoneIcon}</a>
+            </nav>
+          </div>
 
-              return (
-                <div
-                  key="/products"
-                  className={`nav-dd-wrap${prodOpen ? ' open' : ''}`}
-                  onMouseEnter={() => setProdOpen(true)}
-                  onMouseLeave={() => { setProdOpen(false); setHoveredProd(0) }}
-                >
-                  <Link
-                    href="/products"
-                    className={isProductsActive ? 'active' : ''}
-                    aria-current={isProductsActive ? 'page' : undefined}
-                    aria-haspopup="true"
-                    aria-expanded={prodOpen}
-                  >
-                    Products
-                    <svg
-                      className="nav-dd-chevron"
-                      width="11"
-                      height="11"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      aria-hidden="true"
-                    >
-                      <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </Link>
-
-                  {/* MEGA DROPDOWN */}
-                  <div className={`nav-dropdown${prodOpen ? ' open' : ''}`} role="menu">
-                    <div className="nav-mega-inner">
-
-                      {/* Sidebar */}
-                      <div className="nav-mega-sidebar">
-                        {productItems.map((item, i) => {
-                          const active = hoveredProd === i
-                          return (
-                            <Link
-                              key={item.href}
-                              href={item.href}
-                              className={`nav-mega-item ${active ? 'bg-blue' : 'bg-transparent'}`}
-                              onMouseEnter={() => setHoveredProd(i)}
-                              onClick={() => { setProdOpen(false); setHoveredProd(0) }}
-                              role="menuitem"
-                            >
-                              <span className={`nav-mega-icon ${active ? 'bg-white/[.18] text-white' : 'bg-white/[.08] text-blue'}`}>
-                                {item.icon}
-                              </span>
-                              <span className="flex-1 text-white leading-[1.3]">{item.name}</span>
-                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" className={`${active ? 'opacity-100' : 'opacity-0'} shrink-0`}>
-                                <path d="M9 18l6-6-6-6" />
-                              </svg>
-                            </Link>
-                          )
-                        })}
-                        <div className="nav-mega-footer">
-                          <Link href="/products" className="nav-mega-all" onClick={() => { setProdOpen(false); setHoveredProd(0) }}>
-                            VIEW ALL PRODUCTS →
-                          </Link>
-                          {/* Inventory navigation is temporarily disabled. */}
-                        </div>
-                      </div>
-
-                      {/* Preview Panel */}
-                      <div className="nav-mega-preview">
-                        <div key={hoveredProd} className="nav-mega-preview-inner nav-mega-preview-fade">
-                          {/* Top: title + desc on left, image on right */}
-                          <div className="nav-mega-preview-header">
-                            <div className="nav-mega-preview-text">
-                              <div className="nav-mega-preview-name">{p.name}</div>
-                              <span className="nav-mega-preview-sub">{p.sub}</span>
-                              <p className="nav-mega-preview-desc">{p.desc}</p>
-                            </div>
-                            <div className="nav-mega-img-wrap">
-                              {/* eslint-disable-next-line @next/next/no-img-element */}
-                              <img src={p.image} alt={p.name} className="nav-mega-img" />
-                            </div>
-                          </div>
-                          {/* 2×2 type link tiles */}
-                          <div className="nav-mega-type-grid">
-                            {p.types.map(t => (
-                              <Link
-                                key={t.name}
-                                href={t.href}
-                                className="nav-mega-type-link"
-                                onClick={() => { setProdOpen(false); setHoveredProd(0) }}
-                              >
-                                <span className="nav-mega-type-icon">{t.icon}</span>
-                                <span className="nav-mega-type-name flex-1 font-mono text-[.58rem] font-bold tracking-[.04em] uppercase">{t.name}</span>
-                                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
-                              </Link>
-                            ))}
-                          </div>
-                          {/* VIEW ALL button */}
-                          <Link
-                            href={p.href}
-                            className="btn btn-primary nav-mega-btn"
-                            onClick={() => { setProdOpen(false); setHoveredProd(0) }}
-                          >
-                            VIEW ALL →
-                          </Link>
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-            <Link href="/contact" className="nav-cta">Contact Us</Link>
-          </nav>
-
-          <button
-            className="ham"
-            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={mobileOpen}
-            aria-controls="mobile-nav"
-            onClick={() => {
-              setMobileOpen(true)
-              setMobileCapabilitiesOpen(isCapabilitiesActive)
-              setMobileProdOpen(false)
-              setMobileCompanyOpen(false)
-            }}
-          >
-            <span /><span /><span />
-          </button>
+          <div className="hdr-mobile-actions">
+            <a className="hdr-mobile-call" href={PHONE_HREF} aria-label={`Call CANDRON at ${PHONE_LABEL}`}>{phoneIcon}<span>Call</span></a>
+            <button
+              className="hdr-ham"
+              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-nav"
+              onClick={() => { setMobileOpen(true); setMobileMenu(isActive('/capabilities') ? 'capabilities' : null) }}
+            >
+              <span /><span /><span />
+            </button>
+          </div>
         </div>
+        <div className="hdr-mobile-tagline"><TaglineTicker /></div>
       </header>
 
       <button
@@ -497,142 +483,76 @@ export default function Navbar() {
 
         <div className="mobile-nav-kicker">Navigation</div>
         <div className="mobile-nav-menu">
-        {links.map(l => {
-          if (l.href === '/capabilities') {
-            return (
-              <div key="/capabilities" className="mobile-products-group">
-                <button
-                  className={`mobile-products-toggle${isCapabilitiesActive ? ' active' : ''}${mobileCapabilitiesOpen ? ' expanded' : ''}`}
-                  onClick={() => {
-                    setMobileCapabilitiesOpen(!mobileCapabilitiesOpen)
-                    setMobileProdOpen(false)
-                    setMobileCompanyOpen(false)
-                  }}
-                  aria-expanded={mobileCapabilitiesOpen}
-                >
-                  <span className="mobile-nav-main-icon">{mobileNavIcons.services}</span>
-                  <span>Services</span>
-                  <span className={`mobile-prod-chevron${mobileCapabilitiesOpen ? ' rotated' : ''}`}>{mobileChevron}</span>
-                </button>
-                <div className={`mobile-products-dropdown${mobileCapabilitiesOpen ? ' open' : ''}`}>
-                  <div className="mobile-products-list">
-                    {capabilitiesItems.map(c => (
-                      <Link
-                        key={c.href}
-                        href={c.href}
-                        onClick={() => setMobileOpen(false)}
-                        className={`mobile-products-item${pathname === c.href.split('?')[0] ? ' active' : ''}`}
-                      >
-                        <span className="mobile-products-icon">{c.icon}</span>
-                        {c.label}
-                      </Link>
-                    ))}
+          <Link href="/" onClick={() => setMobileOpen(false)} className={`mobile-nav-main-item${pathname === '/' ? ' active' : ''}`} aria-current={pathname === '/' ? 'page' : undefined}>
+            <span className="mobile-nav-main-icon">{mobileNavIcons.home}</span>
+            <span>Home</span>
+            <span className="mobile-nav-link-chevron">{mobileChevron}</span>
+          </Link>
+          {links.map(l => {
+            if ('menu' in l) {
+              const open = mobileMenu === l.menu
+              const items = l.menu === 'products'
+                ? productItems.map(item => ({ href: item.href, label: item.name, icon: item.icon }))
+                : capabilitiesItems.map(c => ({ href: c.href, label: c.label, icon: c.icon }))
+              return (
+                <div key={l.href} className="mobile-products-group">
+                  <button
+                    className={`mobile-products-toggle${isActive(l.href) ? ' active' : ''}${open ? ' expanded' : ''}`}
+                    onClick={() => setMobileMenu(open ? null : l.menu)}
+                    aria-expanded={open}
+                  >
+                    <span className="mobile-nav-main-icon">{l.menu === 'products' ? mobileNavIcons.products : mobileNavIcons.services}</span>
+                    <span>{l.label}</span>
+                    <span className={`mobile-prod-chevron${open ? ' rotated' : ''}`}>{mobileChevron}</span>
+                  </button>
+                  <div className={`mobile-products-dropdown${open ? ' open' : ''}`}>
+                    <div className="mobile-products-list">
+                      {l.menu === 'products' && (
+                        <Link href="/products" onClick={() => setMobileOpen(false)} className={`mobile-products-all${pathname === '/products' ? ' active' : ''}`}>
+                          All Products
+                        </Link>
+                      )}
+                      {items.map(item => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          onClick={() => setMobileOpen(false)}
+                          className={`mobile-products-item${pathname === item.href || pathname.startsWith(item.href + '/') ? ' active' : ''}`}
+                        >
+                          <span className="mobile-products-icon">{item.icon}</span>
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            )
-          }
-
-          if (l.href === '/company') {
+              )
+            }
+            const icon = l.href === '/industries' ? mobileNavIcons.industries
+              : l.href === '/about' ? mobileNavIcons.company
+              : l.href === '/contact' ? mobileNavIcons.contact
+              : mobileNavIcons.resources
             return (
-              <div key="/company" className="mobile-products-group">
-                <button
-                  className={`mobile-products-toggle${isCompanyActive ? ' active' : ''}${mobileCompanyOpen ? ' expanded' : ''}`}
-                  onClick={() => {
-                    setMobileCompanyOpen(!mobileCompanyOpen)
-                    setMobileProdOpen(false)
-                    setMobileCapabilitiesOpen(false)
-                  }}
-                  aria-expanded={mobileCompanyOpen}
-                >
-                  <span className="mobile-nav-main-icon">{mobileNavIcons.company}</span>
-                  <span>Company</span>
-                  <span className={`mobile-prod-chevron${mobileCompanyOpen ? ' rotated' : ''}`}>{mobileChevron}</span>
-                </button>
-                <div className={`mobile-products-dropdown${mobileCompanyOpen ? ' open' : ''}`}>
-                  <div className="mobile-products-list">
-                    {companyItems.map(c => (
-                      <Link
-                        key={c.href}
-                        href={c.href}
-                        onClick={() => setMobileOpen(false)}
-                        className={`mobile-products-item${pathname === c.href ? ' active' : ''}`}
-                      >
-                        <span className="mobile-products-icon">{c.icon}</span>
-                        {c.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
+              <Link
+                key={l.href}
+                href={l.href}
+                onClick={() => setMobileOpen(false)}
+                className={`mobile-nav-main-item${isActive(l.href) ? ' active' : ''}`}
+                aria-current={isActive(l.href) ? 'page' : undefined}
+              >
+                <span className="mobile-nav-main-icon">{icon}</span>
+                <span>{l.label}</span>
+                <span className="mobile-nav-link-chevron">{mobileChevron}</span>
+              </Link>
             )
-          }
-
-          if (l.href === '/products') {
-            return (
-              <div key="/products" className="mobile-products-group">
-                <button
-                  className={`mobile-products-toggle${isProductsActive ? ' active' : ''}${mobileProdOpen ? ' expanded' : ''}`}
-                  onClick={() => {
-                    setMobileProdOpen(!mobileProdOpen)
-                    setMobileCompanyOpen(false)
-                    setMobileCapabilitiesOpen(false)
-                  }}
-                  aria-expanded={mobileProdOpen}
-                >
-                  <span className="mobile-nav-main-icon">{mobileNavIcons.products}</span>
-                  <span>{l.label}</span>
-                  <span className={`mobile-prod-chevron${mobileProdOpen ? ' rotated' : ''}`}>{mobileChevron}</span>
-                </button>
-                <div className={`mobile-products-dropdown${mobileProdOpen ? ' open' : ''}`}>
-                  <div className="mobile-products-list">
-                    <Link
-                      href="/products"
-                      onClick={() => setMobileOpen(false)}
-                      className={`mobile-products-all${pathname === '/products' ? ' active' : ''}`}
-                    >
-                      All Products
-                    </Link>
-                    {/* Inventory navigation is temporarily disabled. */}
-                    {productItems.map(item => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        onClick={() => setMobileOpen(false)}
-                        className={`mobile-products-item${pathname === item.href || pathname.startsWith(item.href + '/') ? ' active' : ''}`}
-                      >
-                        <span className="mobile-products-icon">{item.icon}</span>
-                        {item.name}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            )
-          }
-          return (
-            <Link
-              key={l.href}
-              href={l.href}
-              onClick={() => setMobileOpen(false)}
-              className={`mobile-nav-main-item${isLinkActive(l.href) ? ' active' : ''}`}
-              aria-current={isLinkActive(l.href) ? 'page' : undefined}
-            >
-              <span className="mobile-nav-main-icon">{l.href === '/' ? mobileNavIcons.home : mobileNavIcons.resources}</span>
-              <span>{l.label}</span>
-              <span className="mobile-nav-link-chevron">{mobileChevron}</span>
-            </Link>
-          )
-        })}
+          })}
         </div>
 
         <div className="mobile-nav-footer">
-          <Link href="/contact" className="mobile-nav-contact" onClick={() => setMobileOpen(false)}>Contact Us</Link>
-          <a className="mobile-nav-emergency" href="tel:+16476162595">
-            <span className="mobile-nav-emergency-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg>
-            </span>
-            <span><small>24/7 Emergency Response</small><strong>+1 (647) 616-2595</strong></span>
+          <Link href="/contact" className="mobile-nav-contact" onClick={() => setMobileOpen(false)}>Request a Quote</Link>
+          <a className="mobile-nav-emergency" href={PHONE_HREF}>
+            <span className="mobile-nav-emergency-icon">{phoneIcon}</span>
+            <span><small>24/7 Emergency Response</small><strong>{PHONE_LABEL}</strong></span>
           </a>
           <div className="mobile-nav-canada">
             <CanadaFlag height={24} />
