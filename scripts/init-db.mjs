@@ -2,8 +2,7 @@ import mysql from 'mysql2/promise'
 import { readFile } from 'node:fs/promises'
 import { randomBytes, scryptSync } from 'node:crypto'
 import { ensureCatalogImageSchema } from './seed-catalog.mjs'
-
-const legacyBrand = ['Mad', 'dox'].join('')
+import { ensureInventorySchema } from './migrate-inventory.mjs'
 
 const required = (name) => {
   const value = process.env[name]
@@ -25,19 +24,7 @@ try {
   const schema = await readFile(new URL('../database/schema.sql', import.meta.url), 'utf8')
   await connection.query(schema)
   await ensureCatalogImageSchema(connection)
-  const [brandCleanup] = await connection.execute(
-    `UPDATE products SET
-       name = REPLACE(name, ?, 'CANDRON'),
-       short_description = REPLACE(short_description, ?, 'CANDRON'),
-       description = REPLACE(description, ?, 'CANDRON'),
-       category = REPLACE(category, ?, 'CANDRON'),
-       special_type = REPLACE(special_type, ?, 'CANDRON'),
-       lead_time = REPLACE(lead_time, ?, 'CANDRON'),
-       specs_json = REPLACE(specs_json, ?, 'CANDRON')
-     WHERE CONCAT_WS(' ', name, short_description, description, category, special_type, lead_time, specs_json) LIKE CONCAT('%', ?, '%')`,
-    Array(8).fill(legacyBrand),
-  )
-  if (brandCleanup.affectedRows) console.log(`Removed legacy catalog branding from ${brandCleanup.affectedRows} product record(s).`)
+  await ensureInventorySchema(connection)
   const email = required('ADMIN_EMAIL').toLowerCase().trim()
   const password = required('ADMIN_PASSWORD')
   if (password.length < 12) throw new Error('ADMIN_PASSWORD must contain at least 12 characters')

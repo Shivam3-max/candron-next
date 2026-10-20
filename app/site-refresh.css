@@ -705,3 +705,7 @@ section.hero-home {
 @media (max-width: 520px) {
   .proc-pillars { grid-template-columns: minmax(0, 1fr); }
 }
+
+.home-stat-link { transition: background .2s; border-radius: 14px 0 0 14px; }
+.home-stat-link:hover { background: rgba(255, 255, 255, .08); }
+.site-hdr .nav-mega-stock { color: #7BE3AA !important; }

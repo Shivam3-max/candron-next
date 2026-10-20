@@ -1,5 +1,11 @@
 import { NextResponse } from 'next/server'
-import type { RowDataPacket } from 'mysql2/promise'
-import { getDb,isDatabaseConfigured,normalizeProduct,type CatalogProduct } from '@/lib/db'
-export const dynamic='force-dynamic'
-export async function GET(_:Request,context:{params:Promise<{slug:string}>}){if(!isDatabaseConfigured())return NextResponse.json({error:'Product not found.'},{status:404});try{const {slug}=await context.params;const [rows]=await getDb().execute<CatalogProduct[]>(`SELECT p.*,(SELECT pi.id FROM product_images pi WHERE pi.product_id=p.id ORDER BY pi.sort_order,pi.id LIMIT 1) primary_image_id FROM products p WHERE p.slug=? AND p.is_active=1 LIMIT 1`,[slug]);if(!rows[0])return NextResponse.json({error:'Product not found.'},{status:404});const [images]=await getDb().execute<(RowDataPacket&{id:number})[]>('SELECT id FROM product_images WHERE product_id=? ORDER BY sort_order,id',[rows[0].id]);return NextResponse.json({product:{...normalizeProduct(rows[0]),images:images.map(i=>`/api/media/${i.id}`)}})}catch(error){console.warn('[catalog] Database unavailable while loading a product.',error instanceof Error?error.message:error);return NextResponse.json({error:'Product not found.'},{status:404})}}
+import { getPublicProduct } from '@/lib/db'
+
+export const dynamic = 'force-dynamic'
+
+export async function GET(_: Request, context: { params: Promise<{ slug: string }> }) {
+  const { slug } = await context.params
+  const result = await getPublicProduct(slug)
+  if (!result) return NextResponse.json({ error: 'Product not found.' }, { status: 404 })
+  return NextResponse.json(result)
+}

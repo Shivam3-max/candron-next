@@ -275,7 +275,7 @@ export default function Navbar() {
   }, [mobileOpen])
 
   const isActive = (href: string) => {
-    if (href === '/products') return pathname === '/products' || pathname.startsWith('/products/')
+    if (href === '/products') return pathname === '/products' || pathname.startsWith('/products/') || pathname.startsWith('/inventory')
     if (href === '/capabilities') return capabilitiesItems.some(c => pathname === c.href || pathname.startsWith(c.href + '/'))
     return pathname === href || pathname.startsWith(href + '/')
   }
@@ -305,6 +305,7 @@ export default function Navbar() {
           })}
           <div className="nav-mega-footer">
             <Link href="/products" className="nav-mega-all" onClick={closeMenus}>VIEW ALL PRODUCTS →</Link>
+            <Link href="/inventory" className="nav-mega-all nav-mega-stock" onClick={closeMenus}>IN-STOCK INVENTORY →</Link>
           </div>
         </div>
         <div className="nav-mega-preview">
@@ -508,9 +509,14 @@ export default function Navbar() {
                   <div className={`mobile-products-dropdown${open ? ' open' : ''}`}>
                     <div className="mobile-products-list">
                       {l.menu === 'products' && (
-                        <Link href="/products" onClick={() => setMobileOpen(false)} className={`mobile-products-all${pathname === '/products' ? ' active' : ''}`}>
-                          All Products
-                        </Link>
+                        <>
+                          <Link href="/products" onClick={() => setMobileOpen(false)} className={`mobile-products-all${pathname === '/products' ? ' active' : ''}`}>
+                            All Products
+                          </Link>
+                          <Link href="/inventory" onClick={() => setMobileOpen(false)} className={`mobile-products-all${pathname.startsWith('/inventory') ? ' active' : ''}`}>
+                            In-Stock Inventory
+                          </Link>
+                        </>
                       )}
                       {items.map(item => (
                         <Link

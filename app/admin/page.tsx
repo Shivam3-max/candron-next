@@ -1,3 +1,15 @@
-import type { Metadata } from 'next';import { redirect } from 'next/navigation';import { getCurrentAdmin } from '@/lib/admin-auth';import { getDb,normalizeProduct,type CatalogProduct } from '@/lib/db';import AdminProducts from '@/components/admin/AdminProducts'
-export const dynamic='force-dynamic';export const metadata:Metadata={title:'Inventory Admin',robots:{index:false,follow:false}}
-export default async function AdminPage(){const admin=await getCurrentAdmin();if(!admin)redirect('/admin/login');const [rows]=await getDb().query<CatalogProduct[]>(`SELECT p.*,(SELECT pi.id FROM product_images pi WHERE pi.product_id=p.id ORDER BY pi.sort_order,pi.id LIMIT 1) primary_image_id FROM products p ORDER BY p.updated_at DESC`);return <div className="admin-dark"><AdminProducts initialProducts={rows.map(normalizeProduct)} adminEmail={admin.email}/></div>}
+import type { Metadata } from 'next'
+import { redirect } from 'next/navigation'
+import { getCurrentAdmin } from '@/lib/admin-auth'
+import { getDb, normalizeProduct, PRIMARY_IMAGE, type CatalogProduct } from '@/lib/db'
+import AdminProducts from '@/components/admin/AdminProducts'
+
+export const dynamic = 'force-dynamic'
+export const metadata: Metadata = { title: 'Inventory Admin', robots: { index: false, follow: false } }
+
+export default async function AdminPage() {
+  const admin = await getCurrentAdmin()
+  if (!admin) redirect('/admin/login')
+  const [rows] = await getDb().query<CatalogProduct[]>(`SELECT p.*, ${PRIMARY_IMAGE} FROM products p ORDER BY p.updated_at DESC`)
+  return <AdminProducts initialProducts={rows.map(normalizeProduct)} adminEmail={admin.email} />
+}

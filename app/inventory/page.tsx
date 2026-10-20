@@ -1,4 +1,12 @@
 import type { Metadata } from 'next'
 import InventoryClient from './InventoryClient'
-export const metadata:Metadata={title:'Available Inventory',description:'Search CANDRON new, used, and remanufactured power distribution equipment by rating, voltage, condition, and application.'}
-export default function InventoryPage(){return <InventoryClient/>}
+
+export const metadata: Metadata = {
+  title: 'In-Stock Inventory',
+  description: 'CANDRON transformers, switchgear and power distribution equipment in stock in Toronto — new, surplus and remanufactured, factory-tested and ready to ship.',
+  alternates: { canonical: '/inventory' },
+}
+
+export default function InventoryPage() {
+  return <InventoryClient />
+}
