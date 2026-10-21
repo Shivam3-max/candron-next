@@ -43,6 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/products/transformers/dry-type-mv',
     '/products/transformers/dry-type-mv/standard',
     '/products/transformers/dry-type-mv/cast-coil',
+    '/inventory',
     '/resources',
     '/terms-and-conditions',
     '/warranty',

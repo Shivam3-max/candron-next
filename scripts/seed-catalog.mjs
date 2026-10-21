@@ -16,7 +16,12 @@ export async function ensureCatalogImageSchema(connection) {
      WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'product_images' AND COLUMN_NAME = 'external_url'`,
   )
   if (!externalColumns.length) await connection.query('ALTER TABLE product_images ADD COLUMN external_url VARCHAR(2048) NULL AFTER image_data')
-  await connection.query('ALTER TABLE product_images MODIFY image_data MEDIUMBLOB NULL')
+  // Only alter when needed: this runs on every server start and the table holds image blobs
+  const [dataColumn] = await connection.execute(
+    `SELECT IS_NULLABLE FROM INFORMATION_SCHEMA.COLUMNS
+     WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'product_images' AND COLUMN_NAME = 'image_data'`,
+  )
+  if (dataColumn[0]?.IS_NULLABLE !== 'YES') await connection.query('ALTER TABLE product_images MODIFY image_data MEDIUMBLOB NULL')
 }
 
 async function loadSeed() {
@@ -31,8 +36,7 @@ export async function seedCatalog(connection, { updateExisting = false } = {}) {
   const products = await loadSeed()
   let productsAdded = 0
   let productsUpdated = 0
-  let imagesAdded = 0
-  let remoteImagesRemoved = 0
+  let seedImagesRemoved = 0
 
   for (const product of products) {
     const values = [
@@ -79,29 +83,13 @@ export async function seedCatalog(connection, { updateExisting = false } = {}) {
       productsUpdated += 1
     }
 
-    const [removed] = await connection.execute(
-      `DELETE FROM product_images
-       WHERE product_id=? AND external_url REGEXP '^https?://'`,
-      [productId],
-    )
-    remoteImagesRemoved += Number(removed.affectedRows || 0)
-
-    const [localImage] = await connection.execute(
-      'SELECT id FROM product_images WHERE product_id=? AND external_url=? LIMIT 1',
-      [productId, product.image],
-    )
-    if (!localImage.length) {
-      const [remaining] = await connection.execute('SELECT COUNT(*) total FROM product_images WHERE product_id=?', [productId])
-      const sortOrder = Number(remaining[0]?.total || 0) ? 100 : 0
-      await connection.execute(
-        'INSERT INTO product_images (product_id,file_name,mime_type,image_data,external_url,sort_order) VALUES (?,?,?,NULL,?,?)',
-        [productId, product.image.split('/').pop() || `${product.slug}.jpg`, 'image/local', product.image, sortOrder],
-      )
-      imagesAdded += 1
-    }
+    // Seeded catalog photos carried another manufacturer's nameplate, so the seed links
+    // no images; products show a placeholder until an admin uploads a photo.
+    const [removed] = await connection.execute('DELETE FROM product_images WHERE product_id=? AND image_data IS NULL', [productId])
+    seedImagesRemoved += Number(removed.affectedRows || 0)
   }
 
-  return { seedProducts: products.length, productsAdded, productsUpdated, imagesAdded, remoteImagesRemoved }
+  return { seedProducts: products.length, productsAdded, productsUpdated, seedImagesRemoved }
 }
 
 async function run() {
@@ -132,14 +120,14 @@ async function run() {
         }
         const result = await seedCatalog(connection, { updateExisting: false })
         await connection.execute('INSERT INTO deployment_tasks (task_key,result_json) VALUES (?,?)', [DEPLOYMENT_TASK_KEY, JSON.stringify(result)])
-        console.log(`One-time local catalog seed complete: ${result.seedProducts} available, ${result.productsAdded} added, ${result.imagesAdded} local images linked, ${result.remoteImagesRemoved} remote image links removed.`)
+        console.log(`One-time local catalog seed complete: ${result.seedProducts} available, ${result.productsAdded} added, ${result.seedImagesRemoved} seeded image links removed.`)
       } finally {
         await connection.execute('SELECT RELEASE_LOCK(?)', [`candron-${DEPLOYMENT_TASK_KEY}`])
       }
       return
     }
     const result = await seedCatalog(connection, { updateExisting: process.argv.includes('--update') })
-    console.log(`Local catalog seed complete: ${result.seedProducts} available, ${result.productsAdded} added, ${result.productsUpdated} updated, ${result.imagesAdded} local images linked, ${result.remoteImagesRemoved} remote image links removed.`)
+    console.log(`Local catalog seed complete: ${result.seedProducts} available, ${result.productsAdded} added, ${result.productsUpdated} updated, ${result.seedImagesRemoved} seeded image links removed.`)
   } finally {
     await connection.end()
   }

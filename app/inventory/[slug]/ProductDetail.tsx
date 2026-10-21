@@ -22,14 +22,18 @@ type Product = {
   stock_quantity: number
   lead_time: string
   specs: Record<string, string>
+  image: string
+  images: string[]
 }
 
-const money = (value: number, currency: string) =>
-  new Intl.NumberFormat('en-CA', {
-    style: 'currency',
-    currency,
-    maximumFractionDigits: 0,
-  }).format(value)
+const money = (value: number, currency: string) => {
+  // Bad currency codes must not crash the page
+  try {
+    return new Intl.NumberFormat('en-CA', { style: 'currency', currency, maximumFractionDigits: 0 }).format(value)
+  } catch {
+    return `${currency} ${Math.round(value).toLocaleString('en-CA')}`
+  }
+}
 
 const cleanDescription = (value: string) => value
   .replace(/\u00a0/g, ' ')
@@ -71,12 +75,13 @@ function ProductDescription({ value }: { value: string }) {
   )
 }
 
-export default function ProductDetailNoMedia({ slug }: { slug: string }) {
+export default function ProductDetail({ slug }: { slug: string }) {
   const [product, setProduct] = useState<Product | null>(null)
   const [error, setError] = useState('')
+  const [activeImage, setActiveImage] = useState('')
 
+  // The page remounts this component per slug (key={slug}), so state starts fresh
   useEffect(() => {
-    setError('')
     fetch(`/api/catalog/${encodeURIComponent(slug)}`, { cache: 'no-store' })
       .then(async response => {
         const data = await response.json()
@@ -105,6 +110,9 @@ export default function ProductDetailNoMedia({ slug }: { slug: string }) {
       : money(product.price_min, product.currency)
     : 'Request a Quote'
 
+  const images = product.images?.length ? product.images : [product.image]
+  const primaryImage = activeImage || images[0]
+
   const specifications = [
     ['Condition', product.condition_name],
     ['kVA', product.kva],
@@ -122,9 +130,33 @@ export default function ProductDetailNoMedia({ slug }: { slug: string }) {
           <div className="breadcrumb mb-6 sm:mb-8 flex flex-wrap gap-x-1 break-words">
             <Link href="/">Home</Link> / <Link href="/inventory">Inventory</Link> / <span className="break-all">{product.sku}</span>
           </div>
-          <div className="max-w-[980px]">
+          <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-8 lg:gap-12 items-start">
+          <div className="min-w-0">
+            <div className="aspect-[4/3] max-sm:aspect-square rounded-[14px] sm:rounded-[18px] overflow-hidden bg-white border border-[#E4E9F3]">
+              {/* eslint-disable-next-line @next/next/no-img-element -- served from /api/media (DB or local redirect) */}
+              <img src={primaryImage} alt={product.name} className="w-full h-full object-contain p-3" />
+            </div>
+            {images.length > 1 && (
+              <div className="grid grid-cols-5 max-sm:grid-cols-4 gap-2 sm:gap-3 mt-3">
+                {images.map((src, index) => (
+                  <button
+                    type="button"
+                    key={src}
+                    onClick={() => setActiveImage(src)}
+                    aria-label={`View product image ${index + 1}`}
+                    aria-pressed={primaryImage === src}
+                    className={`aspect-square p-0 rounded-[8px] overflow-hidden bg-white border cursor-pointer ${primaryImage === src ? 'border-blue ring-2 ring-blue/15' : 'border-[#E4E9F3]'}`}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={src} alt="" loading="lazy" className="w-full h-full object-contain p-1" />
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+          <div className="min-w-0">
             <div className="label break-words">{product.condition_name} · {product.category}</div>
-            <h1 className="!text-navy !text-[clamp(1.75rem,8vw,4.3rem)] leading-[1.08] break-words">{product.name}</h1>
+            <h1 className="!text-navy !text-[clamp(1.75rem,6vw,3.3rem)] leading-[1.08] break-words">{product.name}</h1>
             <p className="font-mono text-[.9375rem] text-blue tracking-[.06em] mt-3 break-all">SKU {product.sku}</p>
             <p className="lead mt-5 !text-gray max-w-[780px] max-sm:!text-[1.125rem] break-words">{product.short_description}</p>
             <div className="rounded-[14px] bg-white border border-[#E4E9F3] p-5 sm:p-6 my-6 sm:my-7 max-w-[700px]">
@@ -140,6 +172,7 @@ export default function ProductDetailNoMedia({ slug }: { slug: string }) {
               <Link href={`/contact?product=${encodeURIComponent(product.name)}&sku=${encodeURIComponent(product.sku)}`} className="btn btn-primary btn-lg min-h-12 justify-center text-center">Request a Quote</Link>
               <a href="tel:+16476162595" className="btn btn-outline-blue btn-lg min-h-12 justify-center text-center">Call +1 (647) 616-2595</a>
             </div>
+          </div>
           </div>
         </div>
       </section>

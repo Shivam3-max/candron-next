@@ -25,8 +25,7 @@
         "Available Configurations": "33"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/3-phase-480v-delta-208-y-120.jpg"
+      "is_active": true
     },
     {
       "slug": "3-phase-208v-delta-480-y-277-step-up",
@@ -52,8 +51,7 @@
         "Available Configurations": "9"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/3-phase-208v-delta-480-y-277-step-up.jpg"
+      "is_active": true
     },
     {
       "slug": "3-phase-240v-delta-480-y-277-step-up",
@@ -79,8 +77,7 @@
         "Available Configurations": "10"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/3-phase-240v-delta-480-y-277-step-up.jpg"
+      "is_active": true
     },
     {
       "slug": "3-phase-auto-600-480-400-240-208v",
@@ -105,8 +102,7 @@
         "Available Configurations": "8"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/3-phase-auto-600-480-400-240-208v.jpg"
+      "is_active": true
     },
     {
       "slug": "3-phase-480v-delta-240v-delta-120",
@@ -133,8 +129,7 @@
         "Available Configurations": "16"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/3-phase-480v-delta-240v-delta-120.jpg"
+      "is_active": true
     },
     {
       "slug": "1-phase-240x480-120-240",
@@ -160,8 +155,7 @@
         "Available Configurations": "13"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/1-phase-240x480-120-240.jpg"
+      "is_active": true
     },
     {
       "slug": "3-phase-auto-600-480v-or-480-380v",
@@ -186,8 +180,7 @@
         "Available Configurations": "10"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/3-phase-auto-600-480v-or-480-380v.jpg"
+      "is_active": true
     },
     {
       "slug": "1-phase-240x480v-pri-120-240v-sec-encapsulated-transformer",
@@ -212,8 +205,7 @@
         "Available Configurations": "10"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/1-phase-240x480v-pri-120-240v-sec-encapsulated-transformer.jpg"
+      "is_active": true
     },
     {
       "slug": "3-phase-240v-delta-208-y-120",
@@ -239,8 +231,7 @@
         "Available Configurations": "10"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/3-phase-240v-delta-208-y-120.jpg"
+      "is_active": true
     },
     {
       "slug": "3-phase-480v-delta-400-y-231",
@@ -266,8 +257,7 @@
         "Available Configurations": "7"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/3-phase-480v-delta-400-y-231.jpg"
+      "is_active": true
     },
     {
       "slug": "3-phase-480v-delta-380-y-220",
@@ -293,8 +283,7 @@
         "Available Configurations": "6"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/3-phase-480v-delta-380-y-220.jpg"
+      "is_active": true
     },
     {
       "slug": "3-phase-208-d-480-y-277-step-up",
@@ -320,8 +309,7 @@
         "Available Configurations": "8"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/3-phase-208-d-480-y-277-step-up.jpg"
+      "is_active": true
     },
     {
       "slug": "3-phase-480v-delta-480-y-277-isolation",
@@ -347,8 +335,7 @@
         "Available Configurations": "11"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/3-phase-480v-delta-480-y-277-isolation.jpg"
+      "is_active": true
     },
     {
       "slug": "3-phase-208v-delta-380-y-219-step-up",
@@ -374,8 +361,7 @@
         "Available Configurations": "6"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/3-phase-208v-delta-380-y-219-step-up.jpg"
+      "is_active": true
     },
     {
       "slug": "3-phase-208v-delta-400-y-231-step-up",
@@ -401,8 +387,7 @@
         "Available Configurations": "6"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/3-phase-208v-delta-400-y-231-step-up.jpg"
+      "is_active": true
     },
     {
       "slug": "1-phase-208-120-240",
@@ -428,8 +413,7 @@
         "Available Configurations": "6"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/1-phase-208-120-240.jpg"
+      "is_active": true
     },
     {
       "slug": "3-phase-480-y-277-208-y-120-solar",
@@ -455,8 +439,7 @@
         "Available Configurations": "8"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/3-phase-480-y-277-208-y-120-solar.jpg"
+      "is_active": true
     },
     {
       "slug": "3-phase-240v-delta-380-y-219-step-up",
@@ -482,8 +465,7 @@
         "Available Configurations": "7"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/3-phase-240v-delta-380-y-219-step-up.jpg"
+      "is_active": true
     },
     {
       "slug": "3-phase-480-d-480-y-277-drive-isolation",
@@ -509,8 +491,7 @@
         "Available Configurations": "14"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/3-phase-480-d-480-y-277-drive-isolation.jpg"
+      "is_active": true
     },
     {
       "slug": "3-phase-240v-delta-400-y-231-step-up",
@@ -536,8 +517,7 @@
         "Available Configurations": "7"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/3-phase-240v-delta-400-y-231-step-up.jpg"
+      "is_active": true
     },
     {
       "slug": "3-phase-480v-delta-416-y-240",
@@ -563,8 +543,7 @@
         "Available Configurations": "7"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/3-phase-480v-delta-416-y-240.jpg"
+      "is_active": true
     },
     {
       "slug": "3-phase-480-d-240-y-139-drive-isolation",
@@ -589,8 +568,7 @@
         "Available Configurations": "8"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/3-phase-480-d-240-y-139-drive-isolation.jpg"
+      "is_active": true
     },
     {
       "slug": "3-phase-600v-delta-480-y-277",
@@ -616,8 +594,7 @@
         "Available Configurations": "9"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/3-phase-600v-delta-480-y-277.jpg"
+      "is_active": true
     },
     {
       "slug": "3-phase-480-pri-208y-120-sec-encapsulated",
@@ -642,8 +619,7 @@
         "Available Configurations": "6"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/3-phase-480-pri-208y-120-sec-encapsulated.jpg"
+      "is_active": true
     },
     {
       "slug": "3-phase-208v-delta-240-d-120-step-up",
@@ -669,8 +645,7 @@
         "Available Configurations": "1"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/3-phase-208v-delta-240-d-120-step-up.jpg"
+      "is_active": true
     },
     {
       "slug": "mini-power-center-480v-120-240",
@@ -695,8 +670,7 @@
         "Available Configurations": "3"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/mini-power-center-480v-120-240.jpg"
+      "is_active": true
     },
     {
       "slug": "208v-delta-208-y-120-isolation-transformer",
@@ -722,8 +696,7 @@
         "Available Configurations": "4"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/208v-delta-208-y-120-isolation-transformer.jpg"
+      "is_active": true
     },
     {
       "slug": "3-phase-208v-delta-416-y-240-step-up",
@@ -749,8 +722,7 @@
         "Available Configurations": "6"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/3-phase-208v-delta-416-y-240-step-up.jpg"
+      "is_active": true
     },
     {
       "slug": "3-phase-600v-delta-208-y-120",
@@ -776,8 +748,7 @@
         "Available Configurations": "13"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/3-phase-600v-delta-208-y-120.jpg"
+      "is_active": true
     },
     {
       "slug": "3-phase-460-d-230-y-133-drive-isolation",
@@ -803,8 +774,7 @@
         "Available Configurations": "7"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/3-phase-460-d-230-y-133-drive-isolation.jpg"
+      "is_active": true
     },
     {
       "slug": "3-phase-460-d-460-y-266-drive-isolation",
@@ -830,8 +800,7 @@
         "Available Configurations": "30"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/3-phase-460-d-460-y-266-drive-isolation.jpg"
+      "is_active": true
     },
     {
       "slug": "3-phase-240v-delta-416-y-240-step-up",
@@ -857,8 +826,7 @@
         "Available Configurations": "7"
       },
       "is_featured": false,
-      "is_active": true,
-      "image": "/images/inventory/3-phase-240v-delta-416-y-240-step-up.jpg"
+      "is_active": true
     }
   ]
 }
