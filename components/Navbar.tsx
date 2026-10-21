@@ -549,7 +549,7 @@ export default function Navbar() {
         </div>
 
         <div className="mobile-nav-footer">
-          <Link href="/contact" className="mobile-nav-contact" onClick={() => setMobileOpen(false)}>Request a Quote</Link>
+          <Link href="/inventory" className="mobile-nav-contact" onClick={() => setMobileOpen(false)}>Shop 600V</Link>
           <a className="mobile-nav-emergency" href={PHONE_HREF}>
             <span className="mobile-nav-emergency-icon">{phoneIcon}</span>
             <span><small>24/7 Emergency Response</small><strong>{PHONE_LABEL}</strong></span>
