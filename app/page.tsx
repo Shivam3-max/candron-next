@@ -34,8 +34,8 @@ export default function HomePage() {
                 across commercial, industrial, transit, and EV charging applications.
               </p>
               <div className="hero-btns">
-                <Link href="/contact" className="btn btn-primary btn-lg mag">
-                  Request a Quote <span aria-hidden="true">→</span>
+                <Link href="/inventory" className="btn btn-primary btn-lg mag">
+                  Shop 600V <span aria-hidden="true">→</span>
                 </Link>
                 <Link href="/products" className="btn btn-outline btn-lg mag">
                   View Products <span aria-hidden="true">→</span>
