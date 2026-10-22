@@ -86,7 +86,7 @@ export default function SinglePhasePadmountPage() {
       relatedTypes={[
         { name: 'Three-Phase Padmount', sub: '15 kVA – 3,000 kVA', href: '/products/transformers/padmount/three-phase' },
         { name: 'Polemount Transformer', sub: '3 kVA – 167 kVA', href: '/products/transformers/substation/polemount' },
-        { name: 'Standard LV Dry-Type', sub: '15 kVA – 2,500 kVA', href: '/products/transformers/dry-type-lv/standard' },
+        { name: 'General-Purpose Dry-Type', sub: '3 – 900 kVA · 1.2 kV class', href: '/products/transformers/dry-type-lv/standard' },
       ]}
       faqs={[
         {

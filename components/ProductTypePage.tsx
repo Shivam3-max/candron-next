@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef, type ReactNode } from 'react'
 import Link from 'next/link'
 import TrustBar from '@/components/TrustBar'
+import { PHONE } from '@/lib/inventory'
 
 export interface KPI { value: string; label: string }
 export interface Standard { name: string; desc: string; logo?: string | null }
@@ -34,7 +35,8 @@ export interface ProductTypePageProps {
   typeName: string
   eyebrow: string
   subtitle: string
-  heroImage: string
+  /** Background photo for the hero; omit for a plain drawing-sheet hero. */
+  heroImage?: string
   applicationImage?: string
   badges: string[]
   kpis: KPI[]
@@ -52,6 +54,12 @@ export interface ProductTypePageProps {
   projectSpotlight?: ProjectSpotlight
   /** Animated technical drawing shown in the right half of the hero. */
   heroArt?: ReactNode
+  /** Replaces the overview photo (e.g. a photo slot with a placeholder). */
+  overviewAside?: ReactNode
+  /** Extra section rendered right after the overview. */
+  afterOverview?: ReactNode
+  /** Title over the related-types grid; defaults to "Explore {categoryName}". */
+  relatedTitle?: string
 }
 
 export default function ProductTypePage({
@@ -62,7 +70,7 @@ export default function ProductTypePage({
   features, upgrades, specRows,
   standards, applications, relatedTypes, faqs, quoteItems,
   projectSpotlight,
-  heroArt,
+  heroArt, overviewAside, afterOverview, relatedTitle,
 }: ProductTypePageProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [showTabNav, setShowTabNav] = useState(false)
@@ -116,7 +124,7 @@ export default function ProductTypePage({
     <>
       {/* ── HERO ── */}
       <div className="page-hero min-h-[calc(100vh-165px)]" ref={heroRef}>
-        <div className="page-hero-bg" style={{ background: `url('${heroImage}') center/cover` }} />
+        <div className="page-hero-bg" style={heroImage ? { background: `url('${heroImage}') center/cover` } : undefined} />
         {heroArt}
         <div className="container page-hero-content">
           <div className="breadcrumb">
@@ -187,6 +195,7 @@ export default function ProductTypePage({
               </div>
             </div>
             <div className="rv-r w-full">
+              {overviewAside ?? (
               <div className="prod-detail-img w-full">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={heroImage} alt={typeName} className="w-full h-full object-cover block rounded-[14px]" />
@@ -196,10 +205,13 @@ export default function ProductTypePage({
                   <div className="font-mono text-[.8125rem] text-white/[.55] tracking-[.06em] mt-[.18rem]">{eyebrow}</div>
                 </div>
               </div>
+              )}
             </div>
           </div>
         </div>
       </div>
+
+      {afterOverview}
 
       {/* ── PROJECT SPOTLIGHT ── */}
       {projectSpotlight && (
@@ -446,9 +458,9 @@ export default function ProductTypePage({
               <Link href={`/contact?product=${encodeURIComponent(typeName)}`} className="btn btn-primary inline-flex w-full justify-center mb-[.85rem]">
                 Request a Quote →
               </Link>
-              <a href="tel:+14168001234" className="flex items-center justify-center gap-2 font-mono text-[1rem] text-white/[.45] no-underline">
+              <a href={PHONE.href} className="flex items-center justify-center gap-2 font-mono text-[1rem] text-white/[.45] no-underline">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.17 12 19.79 19.79 0 011.12 3.54 2 2 0 013.09 1.36h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" /></svg>
-                Or call us directly
+                Or call {PHONE.label}
               </a>
             </div>
           </div>
@@ -460,7 +472,7 @@ export default function ProductTypePage({
         <div className="section bg-white">
           <div className="container">
             <div className="label rv">Other Types</div>
-            <h2 className="rv mb-8">Explore {categoryName}</h2>
+            <h2 className="rv mb-8">{relatedTitle ?? `Explore ${categoryName}`}</h2>
             <div className="ptype-related-grid grid gap-4" style={{ gridTemplateColumns: `repeat(${Math.min(relatedTypes.length, 4)}, 1fr)` }}>
               {relatedTypes.map((t, i) => (
                 <Link key={t.href} href={t.href} className="rv no-underline flex flex-col gap-[.6rem] p-[1.4rem] rounded-[12px] bg-off border border-[#E8ECF5] transition-[border-color,box-shadow] duration-150 hover:border-blue hover:shadow-[0_4px_20px_rgba(0,71,255,.1)]" style={{ animationDelay: `${i * 0.06}s` }}>
