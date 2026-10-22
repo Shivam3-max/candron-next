@@ -6,7 +6,7 @@ export default function CompareTable({ family }: { family?: FamilyId }) {
   const fams = family ? FAMILIES.filter(f => f.id === family) : FAMILIES
   return (
     <div className="dt-table-wrap">
-      <table className="dt-table">
+      <table className="dt-table dt-table-stack">
         <thead>
           <tr><th scope="col">Product</th><th scope="col">Rating</th><th scope="col">Voltage class</th><th scope="col">Insulation / rise</th><th scope="col">Enclosure</th></tr>
         </thead>
@@ -16,10 +16,10 @@ export default function CompareTable({ family }: { family?: FamilyId }) {
             {PRODUCTS.filter(p => p.family === f.id).map(p => (
               <tr key={productHref(p)}>
                 <th scope="row"><Link href={productHref(p)}>{p.short}</Link></th>
-                <td>{p.compare.rating}</td>
-                <td>{p.compare.voltage}</td>
-                <td>{p.compare.insulation}</td>
-                <td>{p.compare.enclosure}</td>
+                <td data-label="Rating">{p.compare.rating}</td>
+                <td data-label="Voltage">{p.compare.voltage}</td>
+                <td data-label="Insulation">{p.compare.insulation}</td>
+                <td data-label="Enclosure">{p.compare.enclosure}</td>
               </tr>
             ))}
           </tbody>

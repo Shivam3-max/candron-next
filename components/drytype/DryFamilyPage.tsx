@@ -3,6 +3,7 @@ import { HeroArt } from '@/components/LineArt'
 import PhotoSlot from '@/components/drytype/PhotoSlot'
 import RangeNav from '@/components/drytype/RangeNav'
 import CompareTable from '@/components/drytype/CompareTable'
+import MobileCollapse from '@/components/drytype/MobileCollapse'
 import { DRY_GUIDE, DRY_HUB, FAMILIES, productHref, productsIn, type DryFamily } from '@/lib/dry-type'
 
 export function familyMetadata(f: DryFamily) {
@@ -80,7 +81,7 @@ export default function DryFamilyPage({ f }: { f: DryFamily }) {
         <div className="container">
           <div className="label">Side by Side</div>
           <h2 className="mb-8">Compare at a glance</h2>
-          <CompareTable family={f.id} />
+          <MobileCollapse label={`Compare all ${items.length} products`}><CompareTable family={f.id} /></MobileCollapse>
         </div>
       </section>
 

@@ -86,15 +86,15 @@ export default function DryTypeGuide() {
             <section id="dry-vs-liquid">
               <h2>Dry-type vs oil-filled</h2>
               <div className="dt-table-wrap">
-                <table className="dt-table dt-table-plain">
+                <table className="dt-table dt-table-plain dt-table-stack">
                   <thead><tr><th scope="col"></th><th scope="col">Dry-type</th><th scope="col">Oil-filled (liquid)</th></tr></thead>
                   <tbody>
-                    <tr><th scope="row">Cooling</th><td>Air (natural or fans)</td><td>Mineral oil or natural ester fluid</td></tr>
-                    <tr><th scope="row">Fire &amp; spill risk</th><td>Very low — no liquid</td><td>Needs containment and clearances, sometimes a vault</td></tr>
-                    <tr><th scope="row">Best location</th><td>Indoors, close to the load</td><td>Outdoors on a pad or pole</td></tr>
-                    <tr><th scope="row">Maintenance</th><td>Inspect, vacuum, check connections</td><td>Plus oil sampling and gasket care</td></tr>
-                    <tr><th scope="row">Size &amp; weight</th><td>Larger for the same kVA</td><td>More compact at high ratings</td></tr>
-                    <tr><th scope="row">Upfront cost</th><td>Higher at large ratings</td><td>Lower at large ratings</td></tr>
+                    <tr><th scope="row">Cooling</th><td data-label="Dry-type">Air (natural or fans)</td><td data-label="Oil-filled">Mineral oil or natural ester fluid</td></tr>
+                    <tr><th scope="row">Fire &amp; spill risk</th><td data-label="Dry-type">Very low — no liquid</td><td data-label="Oil-filled">Needs containment and clearances, sometimes a vault</td></tr>
+                    <tr><th scope="row">Best location</th><td data-label="Dry-type">Indoors, close to the load</td><td data-label="Oil-filled">Outdoors on a pad or pole</td></tr>
+                    <tr><th scope="row">Maintenance</th><td data-label="Dry-type">Inspect, vacuum, check connections</td><td data-label="Oil-filled">Plus oil sampling and gasket care</td></tr>
+                    <tr><th scope="row">Size &amp; weight</th><td data-label="Dry-type">Larger for the same kVA</td><td data-label="Oil-filled">More compact at high ratings</td></tr>
+                    <tr><th scope="row">Upfront cost</th><td data-label="Dry-type">Higher at large ratings</td><td data-label="Oil-filled">Lower at large ratings</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -141,15 +141,15 @@ export default function DryTypeGuide() {
               <h2>Enclosure types</h2>
               <p>The enclosure “Type” tells you what the box keeps out.</p>
               <div className="dt-table-wrap">
-                <table className="dt-table dt-table-plain">
+                <table className="dt-table dt-table-plain dt-table-stack">
                   <thead><tr><th scope="col">Type</th><th scope="col">Where</th><th scope="col">Keeps out</th></tr></thead>
                   <tbody>
-                    <tr><th scope="row">Type 1</th><td>Indoors</td><td>Fingers and falling dirt</td></tr>
-                    <tr><th scope="row">Type 2</th><td>Indoors</td><td>Dripping water</td></tr>
-                    <tr><th scope="row">Type 3R</th><td>Outdoors</td><td>Rain, snow and ice on the box</td></tr>
-                    <tr><th scope="row">Type 4</th><td>In or out</td><td>Hose-directed water, wind-blown dust</td></tr>
-                    <tr><th scope="row">Type 4X</th><td>In or out</td><td>Same as 4, plus corrosion (stainless)</td></tr>
-                    <tr><th scope="row">Type 12</th><td>Indoors (industrial)</td><td>Dust, lint, dripping oil and water</td></tr>
+                    <tr><th scope="row">Type 1</th><td data-label="Where">Indoors</td><td data-label="Keeps out">Fingers and falling dirt</td></tr>
+                    <tr><th scope="row">Type 2</th><td data-label="Where">Indoors</td><td data-label="Keeps out">Dripping water</td></tr>
+                    <tr><th scope="row">Type 3R</th><td data-label="Where">Outdoors</td><td data-label="Keeps out">Rain, snow and ice on the box</td></tr>
+                    <tr><th scope="row">Type 4</th><td data-label="Where">In or out</td><td data-label="Keeps out">Hose-directed water, wind-blown dust</td></tr>
+                    <tr><th scope="row">Type 4X</th><td data-label="Where">In or out</td><td data-label="Keeps out">Same as 4, plus corrosion (stainless)</td></tr>
+                    <tr><th scope="row">Type 12</th><td data-label="Where">Indoors (industrial)</td><td data-label="Keeps out">Dust, lint, dripping oil and water</td></tr>
                   </tbody>
                 </table>
               </div>

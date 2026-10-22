@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { HeroArt } from '@/components/LineArt'
 import DryFinder from '@/components/drytype/DryFinder'
 import CompareTable from '@/components/drytype/CompareTable'
+import MobileCollapse from '@/components/drytype/MobileCollapse'
 import { DRY_GUIDE, DRY_HUB, FAMILIES, NEEDS, PRODUCTS, productHref, productsIn } from '@/lib/dry-type'
 import { PHONE } from '@/lib/inventory'
 
@@ -135,7 +136,7 @@ export default function DryTypeHub() {
         <div className="container">
           <div className="label">Compare</div>
           <h2 className="mb-8">The whole range, side by side</h2>
-          <CompareTable />
+          <MobileCollapse label={`Compare all ${PRODUCTS.length} products`}><CompareTable /></MobileCollapse>
           <p className="dt-fine">Ratings shown are our standard build range. Larger, smaller and special designs are available — ask our engineers.</p>
         </div>
       </section>

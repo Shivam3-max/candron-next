@@ -72,7 +72,7 @@
 .dt-family-head h3 a:hover { color: var(--blue); }
 .dt-family-head p { margin: .3rem 0 0; color: var(--gray); font-size: 1.0625rem; }
 .dt-family-range { font-family: var(--fm); font-size: .875rem; font-weight: 700; color: var(--blue); white-space: nowrap; padding: .35rem .7rem; border-radius: 999px; background: #EEF3FF; }
-.dt-family-items { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: .6rem; }
+.dt-family-items { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr)); gap: .6rem; }
 .dt-family-items a { display: block; height: 100%; padding: .9rem 1rem; border-radius: 12px; background: var(--off); border: 1px solid transparent; text-decoration: none; transition: border-color .15s, background .15s; }
 .dt-family-items a:hover { border-color: var(--blue); background: #fff; }
 .dt-family-items strong { display: block; font-family: var(--ft); font-size: 1.0625rem; color: var(--navy); }
@@ -225,7 +225,7 @@
   .dt-cards { grid-template-columns: repeat(2, 1fr); }
   .dt-finder { grid-template-columns: 1fr; }
   .dt-finder-out { position: static; }
-  .dt-guide { grid-template-columns: 1fr; }
+  .dt-guide { grid-template-columns: minmax(0, 1fr); }
   .dt-toc { position: static; }
 }
 @media (max-width: 767px) {
@@ -251,3 +251,131 @@
   .dt-finder-out { min-height: 0; }
   .dt-finder-empty { padding: 1rem .5rem; }
 }
+
+/* ────────────────────────────────────────────────────────────────
+   RESPONSIVE PASS — tablets, phones and very small phones
+──────────────────────────────────────────────────────────────── */
+.dt-hero h1, .dt-article h2, .dt-family-head h3, .dt-card-body h3 { overflow-wrap: anywhere; hyphens: auto; }
+
+/* tablets (768 – 1099) */
+@media (max-width: 1099px) {
+  .dt-basics, .dt-fams { grid-template-columns: repeat(2, 1fr); }
+  .dt-plain-grid { grid-template-columns: 1fr 1fr; }
+  .dt-plain-does { grid-column: 1 / -1; }
+  .dt-finder-list { max-height: none; }
+  .dt-range-head { align-items: flex-start; }
+  .dt-toc-inner { padding: 1rem 1.1rem; }
+  .dt-toc ol { display: flex; flex-wrap: wrap; gap: .45rem; padding: 0; list-style: none; }
+  .dt-toc li a { display: inline-block; padding: .4rem .75rem; border-radius: 999px; background: #fff; border: 1px solid #E1E7F2; font-size: .9rem; }
+  .dt-guide { gap: 2rem; }
+}
+
+/* phones (≤ 767) */
+@media (max-width: 767px) {
+  .dt-anchor { scroll-margin-top: 120px; }
+  .dt-hero-points li { font-size: 1rem; }
+
+  .dt-stats li { padding: .9rem .5rem; }
+  .dt-stats strong { font-size: 1.1rem; }
+  .dt-stats span { font-size: .7rem; letter-spacing: .08em; }
+
+  .dt-why { gap: .7rem; }
+  .dt-why-card { padding: 1.1rem 1.2rem; display: grid; grid-template-columns: auto 1fr; column-gap: .8rem; }
+  .dt-why-card span { grid-row: span 2; padding-top: .2rem; }
+  .dt-why-card h3 { margin: 0 0 .3rem; font-size: 1.08rem; }
+  .dt-why-card p { font-size: 1rem; }
+
+  .dt-finder-head { gap: 1rem; margin-bottom: 1.4rem; }
+  .dt-finder-head > p { font-size: 1rem; }
+  .dt-finder-out { padding: 1rem; border-radius: 14px; }
+  .dt-finder-list p { font-size: .95rem; }
+
+  .dt-family { padding: 1.1rem; border-radius: 14px; }
+  .dt-family-head h3 { font-size: 1.2rem; }
+  .dt-family-head p { font-size: 1rem; }
+  .dt-family-items { grid-template-columns: 1fr; gap: .4rem; }
+  .dt-family-items a { position: relative; padding: .7rem 2.2rem .7rem .9rem; }
+  .dt-family-items a::after { content: '→'; position: absolute; right: .9rem; top: 50%; transform: translateY(-50%); color: var(--blue); font-weight: 700; }
+  .dt-family-items span { display: none; }
+
+  /* comparison tables become stacked cards */
+  .dt-table-wrap:has(.dt-table-stack) { overflow: visible; border: 0; background: transparent; }
+  .dt-table-stack { min-width: 0; display: block; font-size: .975rem; }
+  .dt-table-stack thead { display: none; }
+  .dt-table-stack tbody { display: grid; gap: .6rem; margin-bottom: .6rem; }
+  .dt-table-stack tr { display: grid; grid-template-columns: 1fr; padding: .85rem 1rem; border: 1px solid #E8ECF5; border-radius: 12px; background: #fff; }
+  .dt-table-stack tbody th, .dt-table-stack td { display: block; padding: 0; border: 0; white-space: normal; background: none !important; }
+  .dt-table-stack tbody th { margin-bottom: .45rem; font-size: 1.05rem; }
+  .dt-table-stack td { display: flex; justify-content: space-between; gap: 1rem; padding: .35rem 0; border-top: 1px solid #EEF1F7; text-align: right; color: var(--navy); }
+  .dt-table-stack td::before { content: attr(data-label); flex: 0 0 auto; text-align: left; font-family: var(--fm); font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); padding-top: .15rem; }
+  .dt-table-stack .dt-table-group { padding: .2rem 0 0; border: 0; background: transparent; }
+  .dt-table-stack .dt-table-group th { padding: 0; background: transparent; margin: .6rem 0 0; }
+
+  .dt-basics, .dt-fams { grid-template-columns: 1fr; gap: .7rem; }
+  .dt-basic, .dt-fam { padding: 1.1rem 1.2rem; }
+
+  .dt-faq summary { padding: .95rem 1rem; font-size: 1.02rem; }
+  .dt-faq details p { padding: 0 1rem 1rem; font-size: 1rem; }
+
+  .dt-plain { padding: 2.5rem 0; }
+  .dt-plain-grid { grid-template-columns: 1fr; gap: .7rem; }
+  .dt-plain-card { padding: 1.15rem 1.2rem; }
+  .dt-plain-does p { font-size: 1.12rem; }
+
+  .dt-range { padding: 2.8rem 0; }
+  .dt-range-links { width: 100%; }
+  .dt-range-links .btn { flex: 1 1 0; justify-content: center; text-align: center; padding-left: .5rem; padding-right: .5rem; }
+  .dt-range-grid { gap: 1.4rem; }
+  .dt-range-col ul { display: grid; grid-template-columns: 1fr 1fr; column-gap: .8rem; }
+  .dt-range-col a:not(.dt-range-fam) { margin: 0; padding: .45rem .5rem; font-size: .95rem; line-height: 1.3; }
+  .dt-range-col a small { display: none; }
+
+  .dt-cards { gap: .9rem; }
+  .dt-card .dt-photo img, .dt-card .dt-photo-empty { aspect-ratio: 16 / 9; }
+  .dt-card-body { padding: 1rem 1.1rem 1.1rem; }
+
+  .dt-photo-empty { padding: 1rem; }
+  .dt-photo-empty svg { width: 38px; height: 38px; }
+
+  .dt-guide { gap: 1.5rem; }
+  .dt-toc li a { font-size: .85rem; padding: .35rem .65rem; }
+  .dt-toc-call { margin-top: .8rem; }
+  .dt-article section { padding-bottom: 2rem; margin-bottom: 2rem; }
+  .dt-article p, .dt-steps li, .dt-checks li, .dt-numbered li { font-size: 1.02rem; }
+  .dt-callout { padding: .95rem 1rem; font-size: 1rem; }
+  .dt-cons > div { padding: 1rem; }
+  .dt-glossary div { padding: .85rem 1rem; }
+}
+
+/* small phones (≤ 380) */
+@media (max-width: 380px) {
+  .dt-finder-needs strong { font-size: .88rem; }
+  .dt-finder-needs button { padding: .45rem .7rem; }
+  .dt-range-col ul { grid-template-columns: 1fr; }
+  .dt-stats strong { font-size: 1rem; }
+}
+
+/* fold long comparisons on phones */
+.dt-collapse-btn { display: none; }
+@media (max-width: 767px) {
+  .dt-collapse:not(.is-open) .dt-collapse-body { position: relative; max-height: 420px; overflow: hidden; }
+  .dt-collapse:not(.is-open) .dt-collapse-body::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 140px; background: linear-gradient(rgba(244, 246, 250, 0), var(--off)); pointer-events: none; }
+  .bg-white .dt-collapse:not(.is-open) .dt-collapse-body::after { background: linear-gradient(rgba(255, 255, 255, 0), #fff); }
+  .dt-collapse-btn {
+    display: flex; width: 100%; justify-content: center; align-items: center; gap: .6rem; margin-top: .8rem; padding: .85rem 1rem;
+    border-radius: 12px; border: 1.5px solid var(--blue); background: #fff; color: var(--blue); cursor: pointer;
+    font-family: var(--fm); font-size: .85rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  }
+  .dt-collapse-btn span { font-size: 1.2rem; line-height: 1; }
+}
+@media (max-width: 767px) {
+  /* guide: TOC becomes one swipeable row, two-column tables sit side by side */
+  .dt-toc ol { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 -1.1rem; padding: 0 1.1rem .2rem; }
+  .dt-toc ol::-webkit-scrollbar { display: none; }
+  .dt-toc li { flex: 0 0 auto; }
+  .dt-toc li a { white-space: nowrap; }
+  .dt-table-plain.dt-table-stack tr { grid-template-columns: 1fr 1fr; column-gap: .9rem; }
+  .dt-table-plain.dt-table-stack tbody th { grid-column: 1 / -1; }
+  .dt-table-plain.dt-table-stack td { flex-direction: column; justify-content: flex-start; gap: .15rem; text-align: left; font-size: .95rem; }
+}
+.dt-toc, .dt-article, .dt-finder > *, .dt-family, .dt-range-col { min-width: 0; }

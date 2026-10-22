@@ -319,7 +319,7 @@ export default function ProductTypePage({
           <h2 className="rv mb-8">Full Specifications</h2>
           <div className="overflow-x-auto [-webkit-overflow-scrolling:touch]">
           <div className="rv bg-white border border-[#E8ECF5] rounded-[14px] overflow-hidden shadow-[0_2px_16px_rgba(5,9,31,.06)]">
-            <table className="w-full border-collapse text-[1.125rem] max-md:text-[1rem]">
+            <table className="ptype-spec-table w-full border-collapse text-[1.125rem] max-md:text-[1rem]">
               <thead>
                 <tr className="bg-navy">
                   <th className="py-4 max-md:py-3 px-5 max-md:px-3 text-left font-mono text-[.8125rem] max-md:text-[.8125rem] font-bold tracking-[.14em] uppercase text-white/[.55] w-[35%] max-md:w-[30%]">Parameter</th>

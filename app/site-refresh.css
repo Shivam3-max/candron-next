@@ -709,3 +709,30 @@ section.hero-home {
 .home-stat-link { transition: background .2s; border-radius: 14px 0 0 14px; }
 .home-stat-link:hover { background: rgba(255, 255, 255, .08); }
 .site-hdr .nav-mega-stock { color: #7BE3AA !important; }
+
+/* Product spec tables: on small phones stack each label above its value. */
+@media (max-width: 520px) {
+  .ptype-spec-table thead { display: none; }
+  .ptype-spec-table, .ptype-spec-table tbody { display: block; }
+  .ptype-spec-table tr { display: block; padding: .7rem .9rem; border-bottom: 1px solid #E8ECF5; }
+  .ptype-spec-table td { display: block; width: auto !important; padding: 0 !important; border: 0 !important; }
+  .ptype-spec-table td:first-child { margin-bottom: .2rem; font-size: .78rem !important; letter-spacing: .08em; text-transform: uppercase; }
+}
+
+/* Standards cards: one per row on small phones, icon beside the text. */
+@media (max-width: 420px) {
+  .cert-grid.cert-grid-3 { grid-template-columns: 1fr !important; gap: .6rem; }
+  .cert-grid-3 .cert-item { display: grid; grid-template-columns: 44px 1fr; column-gap: .9rem; align-items: start; text-align: left; padding: 1rem 1.1rem; }
+  .cert-grid-3 .cert-item > :first-child { grid-row: span 2; height: 44px !important; margin: 0 !important; }
+  .cert-grid-3 .cert-item .cert-name, .cert-grid-3 .cert-item .cert-desc { text-align: left; }
+}
+
+/* Footer on tablets: brand block above the link columns so links get room. */
+@media (min-width: 768px) and (max-width: 1099px) {
+  .footer-top { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+}
+.footer-link-grid a { overflow-wrap: anywhere; }
+
+/* Breadcrumbs wrap between items, never inside one ("DRY- / TYPE"). */
+.breadcrumb { flex-wrap: wrap; row-gap: .25rem; }
+.breadcrumb a, .breadcrumb span { white-space: nowrap; }
