@@ -90,7 +90,7 @@ export default function HomePage() {
         <div className="container">
           <div className="home-stats responsive-override-exempt">
             {/* Inventory Availability */}
-            <div className="home-stat">
+            <Link href="/inventory" className="home-stat home-stat-link" aria-label="Browse in-stock inventory">
               <div className="home-stat-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" aria-hidden="true">
                   <path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" />
@@ -98,7 +98,7 @@ export default function HomePage() {
               </div>
               <div className="home-stat-title home-stat-number">1000+</div>
               <div className="home-stat-caption">New / Used Inventory</div>
-            </div>
+            </Link>
 
             {/* Made in Canada */}
             <div className="home-stat">

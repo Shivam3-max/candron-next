@@ -106,6 +106,7 @@
 }
 
 .la-tabs button:hover { opacity: 1; }
+.la-tabs button { white-space: nowrap; }
 .la-tabs button.on { background: var(--la-accent); color: #fff; opacity: 1; }
 
 .la-stage {
@@ -341,6 +342,14 @@
   .la-tb-title { font-size: .85rem; }
   .la-sheet { padding-bottom: 1rem; }
   .la-tabs button { padding: .25rem .5rem; font-size: .7rem; }
+}
+
+/* very small phones: let the view tabs scroll instead of wrapping into the sheet */
+@media (max-width: 400px) {
+  .la-hero-slot { width: calc(100% - 2rem); height: 380px; }
+  .la-head { min-width: 0; }
+  .la-tabs { max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+  .la-tabs::-webkit-scrollbar { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

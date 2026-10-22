@@ -47,10 +47,10 @@ const categories = [
     num: '03',
     name: 'Low Voltage Dry-Type',
     sub: 'Dry-Type · Indoor Distribution',
-    desc: 'Ventilated and encapsulated dry-type units for commercial buildings, data centres, and industrial distribution systems. UL 1561 listed and CSA certified for indoor installations.',
+    desc: 'Nine low-voltage dry-type designs — general-purpose, shielded isolation, drive isolation, K-factor, harmonic-mitigating, autotransformer, encapsulated, mini power centre and hazardous-location.',
     href: '/products/transformers/dry-type-lv',
-    specs: ['15 kVA – 2,500 kVA', 'Primary to 600 V', 'UL 1561 / CSA / NEMA ST-20'],
-    types: ['Standard LV Dry-Type', 'Isolation Transformer'],
+    specs: ['3 kVA – 1,000 kVA', 'Up to 1.2 kV class', 'DOE 2016 / NRCan 2019'],
+    types: ['General-Purpose', 'Shielded Isolation', 'K-Factor & Harmonic', '+ 6 more'],
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
         <path d="M12 2 Q7 7 7 12 Q7 17 12 22 Q17 17 17 12 Q17 7 12 2"/>
@@ -63,10 +63,10 @@ const categories = [
     num: '04',
     name: 'Medium Voltage Dry-Type',
     sub: 'Dry-Type · Industrial / Utility',
-    desc: 'VPI and resin-encapsulated dry-type transformers rated from 2.4 kV to 35 kV. Cast coil designs available for demanding chemical, coastal, and high-humidity environments.',
+    desc: 'VPI/VPE and epoxy cast-coil power transformers up to 46 kV class, plus neutral grounding transformers — oil-free medium voltage for plants, campuses, data centres and renewables.',
     href: '/products/transformers/dry-type-mv',
-    specs: ['300 kVA – 30 MVA', '2.4 kV – 35 kV Primary', 'IEEE C57.12.01 / CSA C9'],
-    types: ['Standard MV Dry-Type', 'Cast Coil Transformer'],
+    specs: ['Up to 15,000 kVA', 'Up to 46 kV · 250 kV BIL', 'IEEE C57.12.01 / CSA C9'],
+    types: ['VPI / VPE Power', 'Cast Coil', 'Grounding Transformer'],
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
         <path d="M2 12 C2 7 7 4 12 4 C17 4 22 7 22 12 C22 17 17 20 12 20 C7 20 2 17 2 12"/>
@@ -83,7 +83,7 @@ const transformerFamilies = [
   { name: 'Pole', detail: 'Overhead utility and rural distribution', href: '/products/transformers/substation/polemount' },
   { name: 'Station Class', detail: 'Industrial and utility substation applications', href: '/products/transformers/substation' },
   { name: 'EHV', detail: 'Extra-high-voltage project consultation', href: '/contact?product=ehv-transformer' },
-  { name: 'Dry-Type', detail: 'Low- and medium-voltage dry-type configurations', href: '/products/transformers/dry-type-lv' },
+  { name: 'Dry-Type', detail: '19 oil-free products: LV, MV, control, reactors & filters', href: '/products/transformers/dry-type' },
   { name: 'Solid-State Transformers', detail: 'Application review and engineered solutions', href: '/contact?product=solid-state-transformer' },
 ]
 

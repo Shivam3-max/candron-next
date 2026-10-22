@@ -1,51 +1,189 @@
 'use client'
-/* eslint-disable @next/next/no-img-element -- product photos come from /api/media (DB blob or redirect to a local file) */
-import { useCallback,useEffect,useMemo,useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
+import ProductCard, { type CardProduct } from '@/components/inventory/ProductCard'
+import { PHONE } from '@/lib/inventory'
 
-type Product={id:number;slug:string;sku:string;name:string;short_description:string;category:string;condition_name:string;kva:number|null;input_voltage:string;output_voltage:string;phase:string;special_type:string;price_min:number|null;price_max:number|null;currency:string;stock_quantity:number;lead_time:string;image:string}
-type Option={value:string|number;count:number};type Filters=Record<string,Option[]>
-const filterConfig=[['condition','condition_name','Condition'],['category','category','Category'],['kva','kva','kVA'],['inputVoltage','input_voltage','Input Voltage'],['outputVoltage','output_voltage','Output Voltage'],['phase','phase','Phase'],['specialType','special_type','Special Type']] as const
-const money=(value:number,currency:string)=>{try{return new Intl.NumberFormat('en-CA',{style:'currency',currency,maximumFractionDigits:0}).format(value)}catch{return `${currency} ${Math.round(value).toLocaleString('en-CA')}`}} // bad currency codes must not crash the page
-function ProductPrice({product,large=false}:{product:Product;large?:boolean}){if(product.price_min===null)return <div><div className="font-mono text-[.8125rem] font-bold uppercase tracking-[.12em] text-gray mb-1">Price</div><div className={`font-display font-black text-navy ${large?'text-[1.375rem] sm:text-[1.705rem]':'text-[1.1875rem]'}`}>Request Quote</div></div>;const ranged=product.price_max!==null&&product.price_max!==product.price_min;return <div className="min-w-0"><div className="font-mono text-[.8125rem] font-bold uppercase tracking-[.12em] text-gray mb-1">{ranged?'Starting at':'Price'}</div><div className={`font-display font-black leading-none text-navy break-words ${large?'text-[1.485rem] sm:text-[1.785rem]':'text-[1.25rem]'}`}>{money(product.price_min,product.currency)}</div><div className="font-mono text-[.8125rem] sm:text-[.8125rem] text-gray mt-1.5 break-words">{ranged?`Up to ${money(product.price_max as number,product.currency)} · `:''}{product.currency}</div></div>}
+type Option = { value: string | number; count: number }
+type Filters = Record<string, Option[]>
 
-export default function InventoryClient(){
- const [products,setProducts]=useState<Product[]>([]),[filters,setFilters]=useState<Filters>({}),[total,setTotal]=useState(0),[loading,setLoading]=useState(true),[error,setError]=useState(''),[unavailable,setUnavailable]=useState(false),[mobileFilters,setMobileFilters]=useState(false),[quick,setQuick]=useState<Product|null>(null)
- const [query,setQuery]=useState(''),[sort,setSort]=useState('newest'),[page,setPage]=useState(1),[selected,setSelected]=useState<Record<string,string>>({})
- const params=useMemo(()=>{const p=new URLSearchParams({page:String(page),limit:'12',sort});if(query.trim())p.set('q',query.trim());Object.entries(selected).forEach(([k,v])=>v&&p.set(k,v));return p},[page,query,selected,sort])
- const load=useCallback(async()=>{setLoading(true);setError('');try{const r=await fetch(`/api/catalog?${params}`,{cache:'no-store'});const d=await r.json();if(!r.ok)throw new Error(d.error||'Unable to load inventory');setProducts(d.products);setFilters(d.filters);setTotal(d.total);setUnavailable(d.databaseAvailable===false)}catch(e){setError(e instanceof Error?e.message:'Unable to load inventory')}finally{setLoading(false)}},[params])
- useEffect(()=>{const t=setTimeout(load,query?250:0);return()=>clearTimeout(t)},[load,query])
- useEffect(()=>{if(!quick)return;const previous=document.body.style.overflow;document.body.style.overflow='hidden';
-const onKey=(e:KeyboardEvent)=>{if(e.key==='Escape')setQuick(null)};
-document.addEventListener('keydown',onKey);return()=>{document.body.style.overflow=previous;document.removeEventListener('keydown',onKey)}},[quick])
- const setFilter=(key:string,value:string)=>{setSelected(s=>({...s,[key]:value}));setPage(1)}
- return <>
-  <section className="relative overflow-hidden bg-navy pt-28 sm:pt-36 pb-10 sm:pb-16 border-b border-blue/20"><div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_45%,rgba(0,71,255,.18),transparent_34%)]" aria-hidden="true"/><div className="container relative"><div className="min-w-0 max-w-[980px]"><div className="label label-white">CANDRON Inventory</div><h1 className="text-white !text-[clamp(2.05rem,10vw,5.4rem)] leading-[1.03] break-words">Power Distribution Equipment <em className="block mt-1">Ready for Your Project</em></h1><p className="lead mt-4 sm:mt-5 max-w-[760px] max-sm:!text-[1.125rem] max-sm:!leading-[1.65]">Search new, used, and remanufactured equipment by rating, voltage, condition, and application. For engineered modifications, speak directly with our team.</p><div className="flex flex-wrap gap-2 mt-5 sm:mt-6"><span className="rounded-full border border-white/15 bg-white/[.06] px-3 py-2 font-mono text-[.8125rem] uppercase tracking-[.1em] text-blue-l">New</span><span className="rounded-full border border-white/15 bg-white/[.06] px-3 py-2 font-mono text-[.8125rem] uppercase tracking-[.1em] text-blue-l">Used</span><span className="rounded-full border border-white/15 bg-white/[.06] px-3 py-2 font-mono text-[.8125rem] uppercase tracking-[.1em] text-blue-l">Remanufactured</span></div></div></div></section>
-  <section className="section bg-off max-sm:py-10"><div className="container">
-   <div className="inventory-toolbar mb-8">
-    <label className="inventory-search min-w-0">
-     <span className="sr-only">Search inventory</span>
-     <svg className="inventory-search-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
-     <input value={query} onChange={e=>{setQuery(e.target.value);setPage(1)}} placeholder="Search inventory" />
-    </label>
-    <label className="inventory-select-shell inventory-sort-control">
-     <span className="inventory-select-label">Sort by</span>
-     <select aria-label="Sort inventory" value={sort} onChange={e=>{setSort(e.target.value);setPage(1)}}>
-      <option value="newest">Newest first</option><option value="name">Name A–Z</option><option value="price-asc">Price: Low to High</option><option value="price-desc">Price: High to Low</option><option value="stock">Availability</option>
-     </select>
-     <svg className="inventory-select-chevron" aria-hidden="true" viewBox="0 0 20 20" fill="none"><path d="m5 7.5 5 5 5-5"/></svg>
-    </label>
-    <button type="button" onClick={()=>setMobileFilters(!mobileFilters)} className="inventory-filter-toggle lg:hidden" aria-expanded={mobileFilters} aria-controls="inventory-filters">
-     <svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
-     {mobileFilters?'Hide filters':'Show filters'}
-    </button>
-   </div>
-   <div className="grid grid-cols-[240px_minmax(0,1fr)] max-lg:grid-cols-1 gap-8">
-    <aside id="inventory-filters" className={`${mobileFilters?'block':'max-lg:hidden'} rounded-[14px] bg-white border border-[#E4E9F3] p-4 sm:p-5 h-fit lg:sticky lg:top-28`}><div className="flex items-center justify-between gap-3 mb-4 sm:mb-5"><div className="min-w-0"><div className="font-mono text-[.8125rem] font-bold uppercase tracking-[.16em] text-blue mb-1">Inventory</div><h2 className="font-display text-[1.1875rem] font-black m-0 break-words">Refine Results</h2></div><button type="button" onClick={()=>{setSelected({});setPage(1)}} className="min-h-11 px-2 border-0 bg-transparent text-blue text-[.9375rem] font-bold cursor-pointer shrink-0">Clear all</button></div>{filterConfig.map(([queryKey,dataKey,label])=><div key={queryKey} className="border-t border-[#EDF0F6] py-3 sm:py-4"><label className="inventory-select-shell inventory-filter-select"><span className="inventory-select-label">{label}</span><select aria-label={`Filter by ${label}`} value={selected[queryKey]||''} onChange={e=>setFilter(queryKey,e.target.value)}><option value="">Any {label === 'kVA' ? 'rating' : label.toLowerCase()}</option>{(filters[dataKey]||[]).map(o=><option key={String(o.value)} value={String(o.value)}>{dataKey==='kva'?`${Number(o.value)} kVA`:o.value} ({o.count})</option>)}</select><svg className="inventory-select-chevron" aria-hidden="true" viewBox="0 0 20 20" fill="none"><path d="m5 7.5 5 5 5-5"/></svg></label></div>)}</aside>
-    <div className="min-w-0"><div className="flex items-center justify-between mb-4 sm:mb-5"><p className="font-mono text-[.9375rem] text-gray m-0" aria-live="polite">{total} products</p></div>{loading?<div className="py-24 text-center text-gray">Loading inventory…</div>:error?<div className="rounded-[14px] bg-white border border-red-200 py-16 px-6 text-center"><h2>Inventory unavailable</h2><p className="text-gray break-words">{error}</p><button type="button" onClick={load} className="btn btn-primary mt-4">Try Again</button></div>:unavailable?<div className="rounded-[14px] bg-white border border-[#E4E9F3] py-16 sm:py-24 px-5 sm:px-6 text-center"><h2>Inventory temporarily unavailable</h2><p className="text-gray">We can&apos;t load our stock list right now. Please call +1 (647) 616-2595 or request a quote and our team will confirm availability.</p><Link href="/contact" className="btn btn-primary mt-4">Request a Quote</Link></div>:products.length===0?<div className="rounded-[14px] bg-white border border-[#E4E9F3] py-16 sm:py-24 px-5 sm:px-6 text-center"><h2>No products found</h2><p className="text-gray">Clear filters or contact our team for a custom configuration.</p><Link href="/contact" className="btn btn-primary mt-4">Request a Quote</Link></div>:<div className="grid grid-cols-1 md:grid-cols-2 min-[1536px]:grid-cols-3 gap-4 sm:gap-5">{products.map(p=><article key={p.id} className="min-w-0 bg-white rounded-[14px] border border-[#E4E9F3] overflow-hidden flex flex-col group"><Link href={`/inventory/${p.slug}`} tabIndex={-1} aria-hidden="true" className="block aspect-[4/3] bg-white border-b border-[#EDF0F6] overflow-hidden"><img src={p.image} alt="" loading="lazy" decoding="async" className="w-full h-full object-contain p-3 transition-transform duration-300 group-hover:scale-[1.03]"/></Link><div className="p-4 sm:p-5 flex flex-col flex-1 min-w-0"><div className="flex flex-wrap items-center gap-2 mb-4"><span className="rounded-full bg-blue/[.07] px-2.5 py-1 font-mono text-[.8125rem] font-bold text-blue">{p.condition_name}</span>{p.stock_quantity>0&&<span className="rounded-full bg-[#DCFCE7] px-2.5 py-1 font-mono text-[.8125rem] font-bold text-[#08783E]">IN STOCK</span>}</div><div className="font-mono text-[.8125rem] tracking-[.08em] text-blue uppercase mb-2 break-words">{p.sku} · {p.category}</div><Link href={`/inventory/${p.slug}`} className="font-display font-extrabold text-[1.125rem] sm:text-[1.1875rem] leading-[1.35] text-navy no-underline break-words">{p.name}</Link><p className="text-[1.0625rem] leading-[1.6] text-gray my-3 break-words">{p.short_description}</p><div className="grid grid-cols-2 max-[360px]:grid-cols-1 gap-2 text-[.9375rem] font-mono text-gray mb-4">{p.kva!==null&&<span className="break-words">{p.kva} kVA</span>}{p.input_voltage&&<span className="break-words">{p.input_voltage} V input</span>}{p.output_voltage&&<span className="break-words">{p.output_voltage} V output</span>}{p.phase&&<span className="break-words">{p.phase} phase</span>}</div><div className="mt-auto border-t border-[#EDF0F6] pt-4 flex items-end justify-between gap-3 max-sm:flex-col max-sm:items-stretch"><ProductPrice product={p}/><div className="flex items-center justify-end gap-2 max-sm:justify-between"><button type="button" onClick={()=>setQuick(p)} className="min-h-11 border-0 bg-transparent px-2 font-mono text-[.875rem] font-bold text-gray uppercase cursor-pointer">Quick view</button><Link href={`/inventory/${p.slug}`} className="min-h-11 inline-flex items-center justify-center px-2 font-mono text-[.875rem] font-bold text-blue uppercase no-underline">View →</Link></div></div></div></article>)}</div>}
-    {total>12&&<div className="flex justify-center items-center gap-3 mt-10 max-sm:flex-wrap"><button disabled={page===1} onClick={()=>{setPage(p=>Math.max(1,p-1));document.querySelector('.inventory-toolbar')?.scrollIntoView({behavior:'smooth'})}} className="btn btn-outline-blue min-h-11 disabled:opacity-40">Previous</button><span className="font-mono text-[.9375rem] text-gray order-first w-full text-center sm:order-none sm:w-auto">Page {page} of {Math.ceil(total/12)}</span><button disabled={page>=Math.ceil(total/12)} onClick={()=>{setPage(p=>p+1);document.querySelector('.inventory-toolbar')?.scrollIntoView({behavior:'smooth'})}} className="btn btn-outline-blue min-h-11 disabled:opacity-40">Next</button></div>}</div>
-   </div>
-  </div></section>
-  {quick&&<div className="fixed inset-0 z-[10000] bg-navy/75 backdrop-blur-[4px] p-4 max-sm:p-0 flex items-center max-sm:items-end justify-center" role="dialog" aria-modal="true" aria-labelledby="quick-view-title" onClick={()=>setQuick(null)}><div className="bg-white rounded-[18px] max-sm:rounded-b-none overflow-hidden w-full max-w-[620px] max-h-[92dvh] overflow-y-auto overscroll-contain relative" onClick={e=>e.stopPropagation()}><button type="button" aria-label="Close quick view" onClick={()=>setQuick(null)} className="absolute z-10 top-3 right-3 w-11 h-11 rounded-full border border-[#DDE3EF] bg-white text-navy text-xl cursor-pointer">×</button><img src={quick.image} alt={quick.name} className="block w-full aspect-[4/3] max-sm:aspect-[16/10] object-contain bg-white border-b border-[#EDF0F6] p-4"/><div className="p-8 max-sm:p-5 min-w-0"><div className="label break-words pr-12">{quick.condition_name} · {quick.category}</div><h2 id="quick-view-title" className="!text-[clamp(1.25rem,6vw,1.55rem)] mb-2 break-words">{quick.name}</h2><p className="font-mono text-[.875rem] text-blue break-all">SKU {quick.sku}</p><p className="text-gray text-[1.125rem] leading-[1.65] my-4 break-words">{quick.short_description}</p><div className="grid grid-cols-2 max-[360px]:grid-cols-1 gap-3 rounded-[10px] bg-off p-4 font-mono text-[.9375rem] text-gray">{quick.kva!==null&&<span className="break-words">{quick.kva} kVA</span>}{quick.input_voltage&&<span className="break-words">{quick.input_voltage} V input</span>}{quick.output_voltage&&<span className="break-words">{quick.output_voltage} V output</span>}{quick.phase&&<span className="break-words">{quick.phase} phase</span>}</div><div className="my-5"><ProductPrice product={quick} large/></div><Link href={`/inventory/${quick.slug}`} className="btn btn-primary min-h-12 w-full justify-center">View Full Details</Link></div></div></div>}
- </>
+// query param, column in the API's filter payload, label
+const FACETS = [
+  ['condition', 'condition_name', 'Condition'],
+  ['status', 'status', 'Availability'],
+  ['phase', 'phase', 'Phase'],
+  ['rating', 'kva', 'Rating'],
+  ['primary', 'input_voltage', 'Primary voltage'],
+  ['secondary', 'output_voltage', 'Secondary voltage'],
+] as const
+
+const SORTS = [
+  ['featured', 'Featured first'], ['newest', 'Newest'], ['rating-asc', 'Rating: low to high'],
+  ['rating-desc', 'Rating: high to low'], ['price-asc', 'Price: low to high'], ['price-desc', 'Price: high to low'], ['name', 'Name A–Z'],
+] as const
+
+const PAGE_SIZE = 12
+
+export default function InventoryClient() {
+  const [products, setProducts] = useState<CardProduct[]>([])
+  const [filters, setFilters] = useState<Filters>({})
+  const [total, setTotal] = useState(0)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
+  const [query, setQuery] = useState('')
+  const [sort, setSort] = useState('featured')
+  const [page, setPage] = useState(1)
+  const [category, setCategory] = useState('')
+  const [inStock, setInStock] = useState(false)
+  const [selected, setSelected] = useState<Record<string, string>>({})
+  const [showFilters, setShowFilters] = useState(false)
+
+  const params = useMemo(() => {
+    const p = new URLSearchParams({ page: String(page), limit: String(PAGE_SIZE), sort })
+    if (query.trim()) p.set('q', query.trim())
+    if (category) p.set('category', category)
+    if (inStock) p.set('inStock', '1')
+    Object.entries(selected).forEach(([k, v]) => v && p.set(k, v))
+    return p
+  }, [page, sort, query, category, inStock, selected])
+
+  const load = useCallback(async () => {
+    setLoading(true)
+    setError('')
+    try {
+      const r = await fetch(`/api/catalog?${params}`, { cache: 'no-store' })
+      const d = await r.json()
+      if (!r.ok) throw new Error(d.error || 'Unable to load inventory')
+      if (d.databaseAvailable === false) throw new Error('Inventory is temporarily unavailable. Please call us or try again shortly.')
+      setProducts(d.products)
+      setFilters(d.filters)
+      setTotal(d.total)
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Unable to load inventory')
+    } finally {
+      setLoading(false)
+    }
+  }, [params])
+
+  useEffect(() => {
+    const t = setTimeout(load, query ? 250 : 0)
+    return () => clearTimeout(t)
+  }, [load, query])
+
+  const pick = (key: string, value: string) => { setSelected(s => ({ ...s, [key]: s[key] === value ? '' : value })); setPage(1) }
+  const clearAll = () => { setSelected({}); setCategory(''); setInStock(false); setQuery(''); setPage(1) }
+  const activeCount = Object.values(selected).filter(Boolean).length + (category ? 1 : 0) + (inStock ? 1 : 0)
+  const pages = Math.max(1, Math.ceil(total / PAGE_SIZE))
+  const categories = filters.category || []
+
+  return (
+    <>
+      <section className="inv-hero">
+        <div className="container inv-hero-inner">
+          <div className="inv-hero-copy">
+            <div className="label label-white">CANDRON Inventory</div>
+            <h1>Equipment ready <em>to ship.</em></h1>
+            <p>Transformers, switchgear and power distribution equipment in stock in Toronto. Every unit is inspected and tested before it leaves our floor.</p>
+            <label className="inv-search">
+              <span className="sr-only">Search inventory</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4 4" /></svg>
+              <input value={query} onChange={e => { setQuery(e.target.value); setPage(1) }} placeholder="Search by rating, voltage, item code…" />
+            </label>
+          </div>
+          <ul className="inv-hero-facts">
+            <li><strong>Factory-tested</strong><span>Test report with every unit</span></li>
+            <li><strong>Ships from Toronto</strong><span>Crated and loaded by our team</span></li>
+            <li><strong>Same-day quotes</strong><span><a href={PHONE.href}>{PHONE.label}</a></span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section className="inv-body">
+        <div className="container">
+          {categories.length > 0 && (
+            <div className="inv-cats" role="group" aria-label="Filter by category">
+              <button type="button" className={!category ? 'on' : ''} onClick={() => { setCategory(''); setPage(1) }}>All equipment</button>
+              {categories.map(c => (
+                <button key={String(c.value)} type="button" className={category === c.value ? 'on' : ''} onClick={() => { setCategory(category === c.value ? '' : String(c.value)); setPage(1) }}>
+                  {c.value}<span>{c.count}</span>
+                </button>
+              ))}
+            </div>
+          )}
+
+          <div className="inv-layout">
+            <aside className={`inv-filters${showFilters ? ' open' : ''}`} aria-label="Refine results">
+              <div className="inv-filters-head">
+                <h2>Refine</h2>
+                {activeCount > 0 && <button type="button" onClick={clearAll}>Clear all ({activeCount})</button>}
+              </div>
+              <label className="inv-switch">
+                <input type="checkbox" checked={inStock} onChange={e => { setInStock(e.target.checked); setPage(1) }} />
+                <span>In stock, ready to ship</span>
+              </label>
+              {FACETS.map(([key, column, label]) => {
+                const options = filters[column] || []
+                if (!options.length) return null
+                return (
+                  <fieldset key={key} className="inv-facet">
+                    <legend>{label}</legend>
+                    <div className="inv-chips">
+                      {options.map(o => {
+                        const v = String(o.value)
+                        return (
+                          <button key={v} type="button" className={selected[key] === v ? 'on' : ''} aria-pressed={selected[key] === v} onClick={() => pick(key, v)}>
+                            {column === 'kva' ? Number(v).toLocaleString('en-CA') : v}<span>{o.count}</span>
+                          </button>
+                        )
+                      })}
+                    </div>
+                  </fieldset>
+                )
+              })}
+            </aside>
+
+            <div className="inv-results">
+              <div className="inv-toolbar">
+                <p aria-live="polite"><strong>{total}</strong> {total === 1 ? 'item' : 'items'}{category ? ` in ${category}` : ''}</p>
+                <button type="button" className="inv-filter-toggle" onClick={() => setShowFilters(s => !s)} aria-expanded={showFilters}>
+                  Filters{activeCount ? ` (${activeCount})` : ''}
+                </button>
+                <label className="inv-sort">
+                  <span>Sort</span>
+                  <select value={sort} onChange={e => { setSort(e.target.value); setPage(1) }}>
+                    {SORTS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}
+                  </select>
+                </label>
+              </div>
+
+              {loading ? (
+                <div className="inv-grid">{Array.from({ length: 3 }, (_, i) => <div key={i} className="inv-card inv-skeleton" />)}</div>
+              ) : error ? (
+                <div className="inv-empty"><h2>Inventory unavailable</h2><p>{error}</p><button type="button" onClick={load} className="btn btn-primary">Try again</button></div>
+              ) : products.length === 0 ? (
+                <div className="inv-empty">
+                  <h2>Nothing matches yet</h2>
+                  <p>We build to order too. Tell us the rating and voltages you need and we’ll quote stock or a factory build the same day.</p>
+                  <div className="inv-empty-actions">
+                    {activeCount > 0 && <button type="button" className="btn btn-outline-blue" onClick={clearAll}>Clear filters</button>}
+                    <Link href="/contact" className="btn btn-primary">Request a quote</Link>
+                  </div>
+                </div>
+              ) : (
+                <div className="inv-grid">{products.map(p => <ProductCard key={p.id} p={p} />)}</div>
+              )}
+
+              {pages > 1 && (
+                <nav className="inv-pager" aria-label="Pages">
+                  <button type="button" disabled={page === 1} onClick={() => setPage(p => p - 1)}>← Previous</button>
+                  <span>Page {page} of {pages}</span>
+                  <button type="button" disabled={page >= pages} onClick={() => setPage(p => p + 1)}>Next →</button>
+                </nav>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  )
 }

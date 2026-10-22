@@ -149,7 +149,8 @@ def main():
     # Capability-page scenes (capability_art.SCENES) carry their own view names.
     import capability_art
     import resources_art
-    for kind, (title, code, legend, views) in {**capability_art.SCENES, **resources_art.SCENES}.items():
+    import drytype_art
+    for kind, (title, code, legend, views) in {**capability_art.SCENES, **resources_art.SCENES, **drytype_art.SCENES}.items():
         mviews = []
         for key, label, fn, how in views:
             raw = capability_art.render(fn, how)

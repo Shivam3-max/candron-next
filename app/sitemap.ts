@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next'
+import { FAMILIES, PRODUCTS, productHref } from '@/lib/dry-type'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://candron.com'
@@ -8,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/about',
     '/project-process',
     '/products',
-    // Inventory is temporarily excluded from public navigation and indexing.
+    '/inventory',
     '/products/switchgear',
     '/products/switchgear/metal-clad',
     '/products/switchgear/load-interrupter',
@@ -37,12 +38,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/products/transformers/substation',
     '/products/transformers/substation/polemount',
     '/products/transformers/substation/power',
-    '/products/transformers/dry-type-lv',
-    '/products/transformers/dry-type-lv/standard',
-    '/products/transformers/dry-type-lv/isolation',
-    '/products/transformers/dry-type-mv',
-    '/products/transformers/dry-type-mv/standard',
-    '/products/transformers/dry-type-mv/cast-coil',
+    '/products/transformers/dry-type',
+    '/products/transformers/dry-type/guide',
+    ...FAMILIES.map(f => f.href),
+    ...PRODUCTS.map(p => productHref(p)),
     '/inventory',
     '/resources',
     '/terms-and-conditions',

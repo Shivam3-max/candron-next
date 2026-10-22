@@ -168,6 +168,25 @@ const productItems = [
     ),
   },
   {
+    href: '/products/transformers/dry-type',
+    name: 'Dry-Type Range',
+    sub: '25 VA – 15 MVA • up to 46 kV',
+    desc: 'Oil-free transformers built in Toronto: LV distribution, MV power, control & motor-starting, plus reactors, filters and RC snubbers — with a product finder and plain-English guide.',
+    image: '/images/products/transformers/dry-type-lv-standard.webp',
+    types: [
+      { name: 'LV Distribution', href: '/products/transformers/dry-type-lv', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 10h8M8 14h8M8 17h8"/></svg> },
+      { name: 'MV Power', href: '/products/transformers/dry-type-mv', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg> },
+      { name: 'Control & Motor', href: '/products/transformers/dry-type/control', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg> },
+      { name: 'Reactors & Filters', href: '/products/transformers/dry-type/reactors', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 12c2-6 4-6 6 0s4 6 6 0 4-6 6 0"/></svg> },
+    ],
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+        <rect x="5" y="3" width="14" height="18" rx="2" />
+        <path d="M9 7h6M9 10h6M9 14h6M9 17h6" />
+      </svg>
+    ),
+  },
+  {
     href: '/products/power-distribution',
     name: 'Critical Power',
     sub: 'Load Testing & Distribution',
@@ -275,7 +294,7 @@ export default function Navbar() {
   }, [mobileOpen])
 
   const isActive = (href: string) => {
-    if (href === '/products') return pathname === '/products' || pathname.startsWith('/products/')
+    if (href === '/products') return pathname === '/products' || pathname.startsWith('/products/') || pathname.startsWith('/inventory')
     if (href === '/capabilities') return capabilitiesItems.some(c => pathname === c.href || pathname.startsWith(c.href + '/'))
     return pathname === href || pathname.startsWith(href + '/')
   }
@@ -305,6 +324,7 @@ export default function Navbar() {
           })}
           <div className="nav-mega-footer">
             <Link href="/products" className="nav-mega-all" onClick={closeMenus}>VIEW ALL PRODUCTS →</Link>
+            <Link href="/inventory" className="nav-mega-all nav-mega-stock" onClick={closeMenus}>IN-STOCK INVENTORY →</Link>
           </div>
         </div>
         <div className="nav-mega-preview">
@@ -508,9 +528,14 @@ export default function Navbar() {
                   <div className={`mobile-products-dropdown${open ? ' open' : ''}`}>
                     <div className="mobile-products-list">
                       {l.menu === 'products' && (
-                        <Link href="/products" onClick={() => setMobileOpen(false)} className={`mobile-products-all${pathname === '/products' ? ' active' : ''}`}>
-                          All Products
-                        </Link>
+                        <>
+                          <Link href="/products" onClick={() => setMobileOpen(false)} className={`mobile-products-all${pathname === '/products' ? ' active' : ''}`}>
+                            All Products
+                          </Link>
+                          <Link href="/inventory" onClick={() => setMobileOpen(false)} className={`mobile-products-all${pathname.startsWith('/inventory') ? ' active' : ''}`}>
+                            In-Stock Inventory
+                          </Link>
+                        </>
                       )}
                       {items.map(item => (
                         <Link

@@ -91,8 +91,8 @@ export default function PowerSubstationPage() {
       relatedTypes={[
         { name: 'Polemount Transformer', sub: '3 kVA – 167 kVA', href: '/products/transformers/substation/polemount' },
         { name: 'Three-Phase Padmount', sub: '15 kVA – 2,500 kVA', href: '/products/transformers/padmount/three-phase' },
-        { name: 'Standard MV Dry-Type', sub: '300 kVA – 20 MVA', href: '/products/transformers/dry-type-mv/standard' },
-        { name: 'Cast Coil Transformer', sub: '300 kVA – 30 MVA', href: '/products/transformers/dry-type-mv/cast-coil' },
+        { name: 'VPI / VPE Power Transformer', sub: '300 – 15,000 kVA · up to 46 kV', href: '/products/transformers/dry-type-mv/standard' },
+        { name: 'Cast-Coil Power Transformer', sub: 'up to 15,000 kVA · up to 46 kV', href: '/products/transformers/dry-type-mv/cast-coil' },
       ]}
       faqs={[
         {

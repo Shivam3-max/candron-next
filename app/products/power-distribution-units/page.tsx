@@ -78,7 +78,7 @@ export default function PowerDistributionUnitsPage() {
       relatedTypes={[
         { name: 'Remote Power Panels', sub: 'Up to 600 V', href: '/products/remote-power-panels' },
         { name: 'Load Banks', sub: '1 kW–30 MW', href: '/products/load-banks' },
-        { name: 'LV Dry-Type Transformers', sub: '15–2,500 kVA', href: '/products/transformers/dry-type-lv' },
+        { name: 'LV Dry-Type Transformers', sub: '3 – 1,000 kVA', href: '/products/transformers/dry-type-lv' },
       ]}
       faqs={[
         { q: 'What is the difference between a PDU and an RPP?', a: 'A PDU normally includes an isolation transformer that changes voltage and feeds integrated distribution. An RPP generally receives power at the utilization voltage and provides branch distribution closer to the loads without a transformer.' },

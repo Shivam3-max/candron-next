@@ -1,8 +1,34 @@
 import mysql from 'mysql2/promise'
 import { readFile } from 'node:fs/promises'
 import { pathToFileURL } from 'node:url'
+import { ensureInventorySchema } from './migrate-inventory.mjs'
 
-const DEPLOYMENT_TASK_KEY = 'candron-catalog-seed-v1'
+// v2 replaces the original catalog import: it removes the legacy imported listings and
+// adds CANDRON's own demo item. Products added through /admin are never touched.
+const DEPLOYMENT_TASK_KEY = 'candron-catalog-reset-v2'
+
+// Slugs of the legacy imported listings (third-party catalogue content, now withdrawn).
+const LEGACY_SLUGS = [
+  '3-phase-480v-delta-208-y-120', '3-phase-208v-delta-480-y-277-step-up', '3-phase-240v-delta-480-y-277-step-up',
+  '3-phase-auto-600-480-400-240-208v', '3-phase-480v-delta-240v-delta-120', '1-phase-240x480-120-240',
+  '3-phase-auto-600-480v-or-480-380v', '1-phase-240x480v-pri-120-240v-sec-encapsulated-transformer',
+  '3-phase-240v-delta-208-y-120', '3-phase-480v-delta-400-y-231', '3-phase-480v-delta-380-y-220',
+  '3-phase-208-d-480-y-277-step-up', '3-phase-480v-delta-480-y-277-isolation', '3-phase-208v-delta-380-y-219-step-up',
+  '3-phase-208v-delta-400-y-231-step-up', '1-phase-208-120-240', '3-phase-480-y-277-208-y-120-solar',
+  '3-phase-240v-delta-380-y-219-step-up', '3-phase-480-d-480-y-277-drive-isolation', '3-phase-240v-delta-400-y-231-step-up',
+  '3-phase-480v-delta-416-y-240', '3-phase-480-d-240-y-139-drive-isolation', '3-phase-600v-delta-480-y-277',
+  '3-phase-480-pri-208y-120-sec-encapsulated', '3-phase-208v-delta-240-d-120-step-up', 'mini-power-center-480v-120-240',
+  '208v-delta-208-y-120-isolation-transformer', '3-phase-208v-delta-416-y-240-step-up', '3-phase-600v-delta-208-y-120',
+  '3-phase-460-d-230-y-133-drive-isolation', '3-phase-460-d-460-y-266-drive-isolation', '3-phase-240v-delta-416-y-240-step-up',
+]
+
+const COLUMNS = [
+  'slug', 'sku', 'name', 'short_description', 'description', 'category', 'condition_name', 'status', 'manufacturer',
+  'year_built', 'kva', 'rating_unit', 'input_voltage', 'output_voltage', 'phase', 'frequency', 'winding', 'cooling',
+  'special_type', 'price_min', 'price_max', 'show_price', 'currency', 'stock_quantity', 'location', 'lead_time',
+  'warranty', 'dim_height', 'dim_width', 'dim_depth', 'dim_unit', 'weight', 'weight_unit', 'highlights_json',
+  'documents_json', 'specs_json', 'is_featured', 'is_active',
+]
 
 const required = (name) => {
   const value = process.env[name]
@@ -31,65 +57,50 @@ async function loadSeed() {
   return payload.products
 }
 
-export async function seedCatalog(connection, { updateExisting = false } = {}) {
+const rowValues = (p) => [
+  p.slug, p.sku, p.name, p.short_description || '', p.description || '', p.category, p.condition_name || 'New',
+  p.status || 'Available', p.manufacturer || 'CANDRON', p.year_built ?? null, p.kva ?? null, p.rating_unit || 'kVA',
+  p.input_voltage || '', p.output_voltage || '', p.phase || '', p.frequency || '', p.winding || '', p.cooling || '',
+  p.special_type || '', p.price_min ?? null, p.price_max ?? null, p.show_price === false ? 0 : 1, p.currency || 'CAD',
+  Number(p.stock_quantity || 0), p.location || '', p.lead_time || '', p.warranty || '', p.dim_height ?? null,
+  p.dim_width ?? null, p.dim_depth ?? null, p.dim_unit || 'in', p.weight ?? null, p.weight_unit || 'lb',
+  JSON.stringify(p.highlights || []), JSON.stringify(p.documents || []), JSON.stringify(p.specs || []),
+  p.is_featured ? 1 : 0, p.is_active === false ? 0 : 1,
+]
+
+/** Remove the withdrawn legacy listings (and their images, via ON DELETE CASCADE). */
+export async function removeLegacyListings(connection) {
+  const placeholders = LEGACY_SLUGS.map(() => '?').join(',')
+  const [result] = await connection.execute(`DELETE FROM products WHERE slug IN (${placeholders})`, LEGACY_SLUGS)
+  return Number(result.affectedRows || 0)
+}
+
+/** Insert seed products that are not already present (matched by slug). Never overwrites admin edits. */
+export async function seedCatalog(connection) {
   await ensureCatalogImageSchema(connection)
+  await ensureInventorySchema(connection)
   const products = await loadSeed()
-  let productsAdded = 0
-  let productsUpdated = 0
-  let seedImagesRemoved = 0
-
+  let added = 0
   for (const product of products) {
-    const values = [
-      product.slug,
-      product.sku,
-      product.name,
-      product.short_description || '',
-      product.description || '',
-      product.category,
-      product.condition_name || 'New',
-      product.kva,
-      product.input_voltage || '',
-      product.output_voltage || '',
-      product.phase || '',
-      product.special_type || '',
-      product.price_min,
-      product.price_max,
-      product.currency || 'USD',
-      Number(product.stock_quantity || 0),
-      product.lead_time || '',
-      JSON.stringify(product.specs || {}),
-      product.is_featured ? 1 : 0,
-      product.is_active === false ? 0 : 1,
-    ]
-
-    const [existing] = await connection.execute('SELECT id FROM products WHERE slug=? LIMIT 1', [product.slug])
-    let productId = existing[0]?.id
-    if (!productId) {
-      const [result] = await connection.execute(
-        `INSERT INTO products
-         (slug,sku,name,short_description,description,category,condition_name,kva,input_voltage,output_voltage,phase,special_type,price_min,price_max,currency,stock_quantity,lead_time,specs_json,is_featured,is_active)
-         VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
-        values,
-      )
-      productId = result.insertId
-      productsAdded += 1
-    } else if (updateExisting) {
+    const [existing] = await connection.execute('SELECT id FROM products WHERE slug=? OR sku=? LIMIT 1', [product.slug, product.sku])
+    if (existing.length) continue
+    const [result] = await connection.execute(
+      `INSERT INTO products (${COLUMNS.join(',')}) VALUES (${COLUMNS.map(() => '?').join(',')})`,
+      rowValues(product),
+    )
+    // Seed photos are stored like admin uploads (image_data): the media route serves uploads only.
+    const images = product.images || []
+    for (const [i, url] of images.entries()) {
+      const data = await readFile(new URL(`../public${url}`, import.meta.url))
+      const mime = url.endsWith('.png') ? 'image/png' : url.endsWith('.webp') ? 'image/webp' : 'image/jpeg'
       await connection.execute(
-        `UPDATE products SET
-         slug=?,sku=?,name=?,short_description=?,description=?,category=?,condition_name=?,kva=?,input_voltage=?,output_voltage=?,phase=?,special_type=?,price_min=?,price_max=?,currency=?,stock_quantity=?,lead_time=?,specs_json=?,is_featured=?,is_active=?
-         WHERE id=?`,
-        [...values, productId],
+        'INSERT INTO product_images (product_id,file_name,mime_type,image_data,external_url,sort_order) VALUES (?,?,?,?,NULL,?)',
+        [result.insertId, url.split('/').pop(), mime, data, i],
       )
-      productsUpdated += 1
     }
-
-    // Seeded catalog photos carried another manufacturer's nameplate, so the seed links
-    // no images; products show a placeholder until an admin uploads a photo.
-    const [removed] = await connection.execute('DELETE FROM product_images WHERE product_id=? AND image_data IS NULL', [productId])
-    seedImagesRemoved += Number(removed.affectedRows || 0)
+    added += 1
   }
-
-  return { seedProducts: products.length, productsAdded, productsUpdated, seedImagesRemoved }
+  return { seedProducts: products.length, added }
 }
 
 async function run() {
@@ -102,32 +113,33 @@ async function run() {
     ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: true } : undefined,
   })
   try {
-    const once = process.argv.includes('--once')
-    if (once) {
-      await connection.query(`CREATE TABLE IF NOT EXISTS deployment_tasks (
-        task_key VARCHAR(190) NOT NULL,
-        result_json JSON NULL,
-        completed_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        PRIMARY KEY (task_key)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`)
-      const [lockRows] = await connection.execute('SELECT GET_LOCK(?, 60) acquired', [`candron-${DEPLOYMENT_TASK_KEY}`])
-      if (Number(lockRows[0]?.acquired) !== 1) throw new Error('Could not acquire the one-time catalog seed lock.')
-      try {
-        const [completed] = await connection.execute('SELECT completed_at FROM deployment_tasks WHERE task_key=? LIMIT 1', [DEPLOYMENT_TASK_KEY])
-        if (completed.length) {
-          console.log(`Catalog seed skipped: ${DEPLOYMENT_TASK_KEY} already completed at ${completed[0].completed_at}.`)
-          return
-        }
-        const result = await seedCatalog(connection, { updateExisting: false })
-        await connection.execute('INSERT INTO deployment_tasks (task_key,result_json) VALUES (?,?)', [DEPLOYMENT_TASK_KEY, JSON.stringify(result)])
-        console.log(`One-time local catalog seed complete: ${result.seedProducts} available, ${result.productsAdded} added, ${result.seedImagesRemoved} seeded image links removed.`)
-      } finally {
-        await connection.execute('SELECT RELEASE_LOCK(?)', [`candron-${DEPLOYMENT_TASK_KEY}`])
-      }
+    if (!process.argv.includes('--once')) {
+      const removed = await removeLegacyListings(connection)
+      const result = await seedCatalog(connection)
+      console.log(`Catalog: ${removed} legacy listing(s) removed, ${result.added} of ${result.seedProducts} seed product(s) added.`)
       return
     }
-    const result = await seedCatalog(connection, { updateExisting: process.argv.includes('--update') })
-    console.log(`Local catalog seed complete: ${result.seedProducts} available, ${result.productsAdded} added, ${result.productsUpdated} updated, ${result.seedImagesRemoved} seeded image links removed.`)
+    await connection.query(`CREATE TABLE IF NOT EXISTS deployment_tasks (
+      task_key VARCHAR(190) NOT NULL,
+      result_json JSON NULL,
+      completed_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      PRIMARY KEY (task_key)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`)
+    const [lockRows] = await connection.execute('SELECT GET_LOCK(?, 60) acquired', [DEPLOYMENT_TASK_KEY])
+    if (Number(lockRows[0]?.acquired) !== 1) throw new Error('Could not acquire the catalog reset lock.')
+    try {
+      const [done] = await connection.execute('SELECT completed_at FROM deployment_tasks WHERE task_key=? LIMIT 1', [DEPLOYMENT_TASK_KEY])
+      if (done.length) {
+        console.log(`Catalog reset skipped: ${DEPLOYMENT_TASK_KEY} already completed at ${done[0].completed_at}.`)
+        return
+      }
+      const removed = await removeLegacyListings(connection)
+      const result = await seedCatalog(connection)
+      await connection.execute('INSERT INTO deployment_tasks (task_key,result_json) VALUES (?,?)', [DEPLOYMENT_TASK_KEY, JSON.stringify({ removed, ...result })])
+      console.log(`Catalog reset complete: ${removed} legacy listing(s) removed, ${result.added} demo product(s) added.`)
+    } finally {
+      await connection.execute('SELECT RELEASE_LOCK(?)', [DEPLOYMENT_TASK_KEY])
+    }
   } finally {
     await connection.end()
   }

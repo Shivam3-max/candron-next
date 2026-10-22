@@ -16,7 +16,7 @@ export default function Footer() {
   return (
     <footer className="bg-navy border-t border-white/[.06] pt-20 max-md:pt-12 pb-8">
       <div className="container">
-        <div className="grid grid-cols-[2fr_3fr] max-md:grid-cols-1 gap-12 max-md:gap-8 mb-16 max-md:mb-8">
+        <div className="footer-top grid grid-cols-[2fr_3fr] max-md:grid-cols-1 gap-12 max-md:gap-8 mb-16 max-md:mb-8">
           {/* Brand */}
           <div>
             <Link href="/" className="logo footer-logo" aria-label="CANDRON Energy Inc. — Home">

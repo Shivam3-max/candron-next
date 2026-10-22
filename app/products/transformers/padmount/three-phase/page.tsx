@@ -89,8 +89,8 @@ export default function ThreePhasePadmountPage() {
       relatedTypes={[
         { name: 'Single-Phase Padmount', sub: '10 kVA – 500 kVA', href: '/products/transformers/padmount/single-phase' },
         { name: 'Power Substation Transformer', sub: '1 MVA – 100+ MVA', href: '/products/transformers/substation/power' },
-        { name: 'Standard LV Dry-Type', sub: '15 kVA – 2,500 kVA', href: '/products/transformers/dry-type-lv/standard' },
-        { name: 'Standard MV Dry-Type', sub: '300 kVA – 20 MVA', href: '/products/transformers/dry-type-mv/standard' },
+        { name: 'General-Purpose Dry-Type', sub: '3 – 900 kVA · 1.2 kV class', href: '/products/transformers/dry-type-lv/standard' },
+        { name: 'VPI / VPE Power Transformer', sub: '300 – 15,000 kVA · up to 46 kV', href: '/products/transformers/dry-type-mv/standard' },
       ]}
       faqs={[
         {

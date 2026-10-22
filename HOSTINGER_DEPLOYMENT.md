@@ -1,6 +1,6 @@
 # CANDRON Inventory Deployment on Hostinger
 
-The catalog is a server-rendered Next.js application backed by Hostinger MySQL. Admin uploads are stored in MySQL. The initial CANDRON catalog is bundled with the application in `database/catalog-seed.json`, without product photos: each product shows an "Image coming soon" placeholder until a photo is uploaded in Admin. Product photos are stored in MySQL and only photos of visible products are public. Deployment and runtime do not depend on an external catalog service.
+The catalog is a server-rendered Next.js application backed by Hostinger MySQL. Inventory is entered by the CANDRON team through `/admin`. Product photos are stored in MySQL as uploads, and only photos of visible products are public. The only bundled record is one CANDRON demo item in `database/catalog-seed.json`; its photos (CANDRON's own project photos) are loaded into MySQL by the seed like any upload. Products without photos show a line drawing of their category. Deployment and runtime do not depend on an external catalog service.
 
 ## 1. Hosting requirements
 
@@ -72,15 +72,18 @@ If you instead see `[db-bootstrap] Database initialization failed`, the `DB_*` o
 
 `npm run hostinger:build` remains available as an alias for the same deployment workflow.
 
-The seeder records `candron-catalog-seed-v1` in the MySQL `deployment_tasks` table only after a successful seed. The first deployment adds the 32 bundled CANDRON product records. Every later deployment sees the completed marker, skips the seed, and preserves CANDRON Admin changes. A database lock prevents two simultaneous deployments from seeding twice.
+The seeder runs the one-time task `candron-catalog-reset-v2` and records it in the MySQL `deployment_tasks` table after it succeeds. On the first deployment it:
 
-To recover missing products manually without overwriting existing admin edits, use:
+- removes the 32 legacy imported listings (matched by their original URL slugs), and
+- adds the CANDRON demo item if no product already uses its slug or item code.
+
+Products created in CANDRON Admin are never modified or deleted. Later deployments see the completed marker and skip the task. A database lock prevents two simultaneous deployments from running it twice. `npm run db:init` also adds any missing inventory columns (status, dimensions, highlights, documents and so on) to an existing `products` table without touching data.
+
+To re-add the demo item manually, for example after deleting it, use:
 
 ```text
 npm run catalog:seed
 ```
-
-To deliberately refresh existing seeded product content from the bundled file, use `npm run catalog:seed -- --update`. Admin-uploaded photos are preserved.
 
 ## 5. First login
 
