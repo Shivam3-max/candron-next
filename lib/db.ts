@@ -128,7 +128,8 @@ export function normalizeProduct(row: CatalogProduct) {
 
 export type InventoryProduct = ReturnType<typeof normalizeProduct>
 
-const PRIMARY_IMAGE = '(SELECT pi.id FROM product_images pi WHERE pi.product_id=p.id ORDER BY pi.sort_order,pi.id LIMIT 1) primary_image_id'
+// Only uploaded photos (image_data) are ever shown; see app/api/media/[id]/route.ts
+const PRIMARY_IMAGE = '(SELECT pi.id FROM product_images pi WHERE pi.product_id=p.id AND pi.image_data IS NOT NULL ORDER BY pi.sort_order,pi.id LIMIT 1) primary_image_id'
 
 /** Public product lookup with its ordered images and a few related items from the same category. */
 export async function getPublicProduct(slug: string) {
@@ -138,7 +139,7 @@ export async function getPublicProduct(slug: string) {
     const [rows] = await db.execute<CatalogProduct[]>(`SELECT p.*, ${PRIMARY_IMAGE} FROM products p WHERE p.slug=? AND p.is_active=1 LIMIT 1`, [slug])
     if (!rows[0]) return null
     const product = normalizeProduct(rows[0])
-    const [images] = await db.execute<(RowDataPacket & { id: number })[]>('SELECT id FROM product_images WHERE product_id=? ORDER BY sort_order,id', [product.id])
+    const [images] = await db.execute<(RowDataPacket & { id: number })[]>('SELECT id FROM product_images WHERE product_id=? AND image_data IS NOT NULL ORDER BY sort_order,id', [product.id])
     const [related] = await db.execute<CatalogProduct[]>(
       `SELECT p.*, ${PRIMARY_IMAGE} FROM products p WHERE p.is_active=1 AND p.id<>? ORDER BY (p.category=?) DESC, p.is_featured DESC, p.updated_at DESC LIMIT 3`,
       [product.id, product.category],

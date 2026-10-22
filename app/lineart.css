@@ -257,6 +257,11 @@
 @media (min-width: 1100px) {
   .page-hero:has(> .la-hero-slot) {
     min-height: max(640px, 100svh);
+    /* Slot geometry, redefined per breakpoint below. The copy width is derived
+       from it so text always stops short of the drawing's left edge. */
+    --la-slot-right: max(2.5rem, calc((100vw - 1380px) / 2 + 3rem));
+    --la-slot-w: min(46vw, 720px);
+    --la-copy-left: max(3rem, calc((100vw - 1380px) / 2 + 3rem));
   }
 
   .la-hero-slot {
@@ -265,13 +270,13 @@
     z-index: 3;
     top: calc(var(--hdr-h) + 2.25rem);
     bottom: 2.5rem;
-    right: max(2.5rem, calc((100vw - 1380px) / 2 + 3rem));
-    width: min(46vw, 720px);
+    right: var(--la-slot-right);
+    width: var(--la-slot-w);
     max-height: 720px;
   }
 
   .page-hero:has(> .la-hero-slot) .page-hero-content > * {
-    max-width: min(50%, 720px);
+    max-width: min(720px, calc(100vw - var(--la-slot-right) - var(--la-slot-w) - var(--la-copy-left) - 2.5rem));
   }
 
   /* The copy container spans the full width; let clicks fall through its empty
@@ -285,17 +290,23 @@
 }
 
 @media (min-width: 1600px) {
+  .page-hero:has(> .la-hero-slot) {
+    --la-slot-right: max(4rem, calc((100vw - 1580px) / 2 + 4rem));
+    --la-slot-w: min(44vw, 820px);
+  }
+
   .la-hero-slot {
-    right: max(4rem, calc((100vw - 1580px) / 2 + 4rem));
-    width: min(44vw, 820px);
     max-height: 800px;
   }
 }
 
 @media (min-width: 2200px) {
+  .page-hero:has(> .la-hero-slot) {
+    --la-slot-right: max(5rem, calc((100vw - 1880px) / 2 + 5rem));
+    --la-slot-w: min(42vw, 940px);
+  }
+
   .la-hero-slot {
-    right: max(5rem, calc((100vw - 1880px) / 2 + 5rem));
-    width: min(42vw, 940px);
     max-height: 880px;
   }
 }
@@ -348,7 +359,8 @@
 .hero-panel-slot { display: flex !important; align-items: center; }
 
 @media (min-width: 1100px) {
-  .hero-panel-slot { width: min(36vw, 520px); max-height: none; }
+  .page-hero:has(> .la-hero-slot.hero-panel-slot) { --la-slot-w: min(36vw, 520px); }
+  .hero-panel-slot { max-height: none; }
 }
 
 @media (max-width: 1099px) {

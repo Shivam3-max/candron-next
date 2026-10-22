@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { HeroArt } from '@/components/LineArt'
 
 export default function ContactPage() {
@@ -9,6 +9,17 @@ export default function ContactPage() {
   const [sent, setSent] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+
+  // Product pages link here with ?product=…&sku=…; carry that into the inquiry
+  useEffect(() => {
+    const query = new URLSearchParams(window.location.search)
+    const product = query.get('product')?.trim().slice(0, 200)
+    if (!product) return
+    const sku = query.get('sku')?.trim().slice(0, 100)
+    const label = sku ? `${product} (SKU ${sku})` : product.replace(/-/g, ' ')
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time read of the URL after hydration
+    setForm(p => p.message ? p : { ...p, message: `I'm interested in: ${label}\n\n` })
+  }, [])
 
   const handle = (e: React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement>) => {
     setForm(p => ({...p, [e.target.name]: e.target.value}))

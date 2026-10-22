@@ -1,6 +1,6 @@
 # CANDRON Inventory Deployment on Hostinger
 
-The catalog is a server-rendered Next.js application backed by Hostinger MySQL. Admin uploads are stored in MySQL. Inventory is entered by the CANDRON team through `/admin`. The only bundled record is one CANDRON demo item in `database/catalog-seed.json`, which uses CANDRON's own project photos from `public/images/projects`. Deployment and runtime do not depend on an external catalog service.
+The catalog is a server-rendered Next.js application backed by Hostinger MySQL. Inventory is entered by the CANDRON team through `/admin`. Product photos are stored in MySQL as uploads, and only photos of visible products are public. The only bundled record is one CANDRON demo item in `database/catalog-seed.json`; its photos (CANDRON's own project photos) are loaded into MySQL by the seed like any upload. Products without photos show a line drawing of their category. Deployment and runtime do not depend on an external catalog service.
 
 ## 1. Hosting requirements
 
@@ -12,6 +12,8 @@ The catalog is a server-rendered Next.js application backed by Hostinger MySQL. 
 ## 2. Create the MySQL database
 
 In hPanel, create a database and user under **Databases → MySQL Databases**. Keep the database host, port, name, user, and password.
+
+For `DB_HOST`, use the host hPanel shows for the database. If the Node.js app runs on the same hosting plan this is usually `localhost`; if the app cannot connect, use the remote MySQL hostname from hPanel and allow the app's IP under **Remote MySQL**.
 
 ## 3. Configure environment variables
 
@@ -28,7 +30,11 @@ DB_CONNECTION_LIMIT=8
 ADMIN_SESSION_SECRET=<at least 32 random characters>
 ADMIN_EMAIL=<initial administrator email>
 ADMIN_PASSWORD=<initial administrator password, at least 12 characters>
+RESEND_API_KEY=<Resend API key — without it the contact form returns "Email service is unavailable">
+CONTACT_FROM_EMAIL=<sender on a domain verified in Resend, e.g. website@candron.com>
 ```
+
+`ADMIN_EMAIL` is the only administrator account: on every start, any other admin row is deleted. Changing `ADMIN_PASSWORD` (or `ADMIN_EMAIL`) and restarting signs out every existing admin session; restarting with the same values does not.
 
 Generate the session secret locally:
 
@@ -44,13 +50,25 @@ node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"
 - Build command: `npm run build`
 - Start command: `npm start`
 
-The standard `build` command runs these steps in order, so Hostinger cannot bypass database preparation:
+The standard `build` command runs these steps in order:
 
 ```text
 npm run db:init
 npm run catalog:seed -- --once
 npm run build:next
 ```
+
+If MySQL is unreachable during the build (Hostinger's build container often cannot reach the database, or does not receive the environment variables), the first two steps are skipped with a warning and the build still succeeds.
+
+The same two steps therefore also run **every time the server starts** (`instrumentation.ts` → `lib/db-bootstrap.ts`), where the runtime database is reachable. Both are idempotent: tables are created only if missing, the administrator password is re-applied from `ADMIN_PASSWORD`, and the catalog seed runs only once. After a deploy, check the application's runtime logs for:
+
+```text
+Database initialized. Administrator ready: <ADMIN_EMAIL>
+One-time local catalog seed complete: 32 available, 32 added, ...   (first deploy)
+Catalog seed skipped: candron-catalog-seed-v1 already completed ...  (later deploys)
+```
+
+If you instead see `[db-bootstrap] Database initialization failed`, the `DB_*` or `ADMIN_*` variables are wrong or missing.
 
 `npm run hostinger:build` remains available as an alias for the same deployment workflow.
 

@@ -42,7 +42,12 @@ export async function ensureCatalogImageSchema(connection) {
      WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'product_images' AND COLUMN_NAME = 'external_url'`,
   )
   if (!externalColumns.length) await connection.query('ALTER TABLE product_images ADD COLUMN external_url VARCHAR(2048) NULL AFTER image_data')
-  await connection.query('ALTER TABLE product_images MODIFY image_data MEDIUMBLOB NULL')
+  // Only alter when needed: this runs on every server start and the table holds image blobs
+  const [dataColumn] = await connection.execute(
+    `SELECT IS_NULLABLE FROM INFORMATION_SCHEMA.COLUMNS
+     WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'product_images' AND COLUMN_NAME = 'image_data'`,
+  )
+  if (dataColumn[0]?.IS_NULLABLE !== 'YES') await connection.query('ALTER TABLE product_images MODIFY image_data MEDIUMBLOB NULL')
 }
 
 async function loadSeed() {
@@ -83,11 +88,14 @@ export async function seedCatalog(connection) {
       `INSERT INTO products (${COLUMNS.join(',')}) VALUES (${COLUMNS.map(() => '?').join(',')})`,
       rowValues(product),
     )
+    // Seed photos are stored like admin uploads (image_data): the media route serves uploads only.
     const images = product.images || []
     for (const [i, url] of images.entries()) {
+      const data = await readFile(new URL(`../public${url}`, import.meta.url))
+      const mime = url.endsWith('.png') ? 'image/png' : url.endsWith('.webp') ? 'image/webp' : 'image/jpeg'
       await connection.execute(
-        'INSERT INTO product_images (product_id,file_name,mime_type,image_data,external_url,sort_order) VALUES (?,?,?,NULL,?,?)',
-        [result.insertId, url.split('/').pop(), 'image/local', url, i],
+        'INSERT INTO product_images (product_id,file_name,mime_type,image_data,external_url,sort_order) VALUES (?,?,?,?,NULL,?)',
+        [result.insertId, url.split('/').pop(), mime, data, i],
       )
     }
     added += 1

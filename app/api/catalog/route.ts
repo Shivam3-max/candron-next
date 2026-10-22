@@ -37,16 +37,18 @@ export async function GET(request: NextRequest) {
       if (value) { where.push(`p.${column} = ?`); values.push(value) }
     }
     if (params.get('inStock') === '1') where.push("p.stock_quantity > 0 AND p.status = 'Available'")
-    const search = params.get('q')?.trim()
+    const search = params.get('q')?.trim().slice(0, 200)
     if (search) {
+      // escape LIKE wildcards so "%" isn't match-all
+      const like = `%${search.replace(/[\\%_]/g, '\\$&')}%`
       where.push('(p.name LIKE ? OR p.sku LIKE ? OR p.short_description LIKE ? OR p.category LIKE ? OR p.special_type LIKE ?)')
-      values.push(...Array(5).fill(`%${search}%`))
+      values.push(...Array(5).fill(like))
     }
     const sqlWhere = `WHERE ${where.join(' AND ')}`
     const db = getDb()
     const [countRows] = await db.execute<(RowDataPacket & { total: number })[]>(`SELECT COUNT(*) total FROM products p ${sqlWhere}`, values)
     const [rows] = await db.query<CatalogProduct[]>(
-      `SELECT p.*, ${PRIMARY_IMAGE} FROM products p ${sqlWhere} ORDER BY ${SORTS[params.get('sort') || 'featured'] || SORTS.featured} LIMIT ? OFFSET ?`,
+      `SELECT p.*, ${PRIMARY_IMAGE} FROM products p ${sqlWhere} ORDER BY ${Object.hasOwn(SORTS, params.get('sort') || '') ? SORTS[params.get('sort') as string] : SORTS.featured} LIMIT ? OFFSET ?`,
       [...values, limit, (page - 1) * limit],
     )
     const filters: Record<string, unknown[]> = {}

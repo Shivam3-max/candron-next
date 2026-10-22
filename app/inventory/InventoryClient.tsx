@@ -54,6 +54,7 @@ export default function InventoryClient() {
       const r = await fetch(`/api/catalog?${params}`, { cache: 'no-store' })
       const d = await r.json()
       if (!r.ok) throw new Error(d.error || 'Unable to load inventory')
+      if (d.databaseAvailable === false) throw new Error('Inventory is temporarily unavailable. Please call us or try again shortly.')
       setProducts(d.products)
       setFilters(d.filters)
       setTotal(d.total)

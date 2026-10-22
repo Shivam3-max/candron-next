@@ -139,7 +139,7 @@ export default function ResourcesPage() {
             Resources for Every
             <br /><em>Project Stage</em>
           </h1>
-          <p className="lead mt-4" style={{ maxWidth: '560px' }}>
+          <p className="lead mt-4" style={{ width: 'min(560px, 100%)' }}>
             Access electrical engineering calculators, project documents, warranty support, and practical insights from the CANDRON team.
           </p>
         </div>

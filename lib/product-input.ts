@@ -15,6 +15,19 @@ export type ProductInput = {
 
 const text = (value: unknown, max = 500) => String(value ?? '').trim().slice(0, max)
 const nullableNumber = (value: unknown) => (value === '' || value === null || value === undefined ? null : Number(value))
+export function isValidCurrency(code: string) {
+  if (!/^[A-Z]{3}$/.test(code)) return false
+  try { new Intl.NumberFormat('en-CA', { style: 'currency', currency: code }); return true } catch { return false }
+}
+
+/** Map MySQL errors to messages that are safe to show in the admin UI. */
+export function productErrorMessage(error: unknown, fallback: string) {
+  const code = (error as { code?: string })?.code
+  if (code === 'ER_DUP_ENTRY') return 'That item code or URL slug is already used by another product.'
+  if (code?.startsWith('ER_')) return fallback
+  return error instanceof Error ? error.message : fallback
+}
+
 const oneOf = (value: string, list: readonly string[], label: string) => {
   if (!list.includes(value)) throw new Error(`Invalid ${label}.`)
   return value
@@ -38,6 +51,15 @@ export function parseProductInput(body: Record<string, unknown>): ProductInput {
     if (value !== null && (!Number.isFinite(value) || value < 0)) throw new Error(`${key.replace('_', ' ')} must be a positive number.`)
   }
   if (numbers.price_min !== null && numbers.price_max !== null && numbers.price_max < numbers.price_min) throw new Error('Maximum price must be at least the starting price.')
+  // Column limits: kva DECIMAL(12,2), prices DECIMAL(14,2), dimensions DECIMAL(10,2), weight DECIMAL(12,2), stock INT UNSIGNED
+  if (numbers.kva !== null && numbers.kva >= 1e10) throw new Error('Rating is too large.')
+  if ([numbers.price_min, numbers.price_max].some(v => v !== null && v >= 1e12)) throw new Error('Price is too large.')
+  if ([numbers.dim_height, numbers.dim_width, numbers.dim_depth].some(v => v !== null && v >= 1e8)) throw new Error('Dimension is too large.')
+  if (numbers.weight !== null && numbers.weight >= 1e10) throw new Error('Weight is too large.')
+  if (Number(body.stock_quantity) > 1_000_000_000) throw new Error('Stock quantity is too large.')
+  // An invalid code makes Intl.NumberFormat throw and would crash the public inventory pages
+  const currency = text(body.currency || 'CAD', 10).toUpperCase()
+  if (!['CAD', 'USD'].includes(currency) || !isValidCurrency(currency)) throw new Error('Currency must be CAD or USD.')
 
   const highlights = Array.isArray(body.highlights) ? body.highlights.map(h => text(h, 200)).filter(Boolean).slice(0, 12) : []
   const documents = Array.isArray(body.documents)
@@ -69,7 +91,7 @@ export function parseProductInput(body: Record<string, unknown>): ProductInput {
     phase: text(body.phase, 40), frequency: text(body.frequency, 20), winding: text(body.winding, 40),
     cooling: text(body.cooling, 40), special_type: text(body.special_type, 120),
     price_min: numbers.price_min, price_max: numbers.price_max, show_price: body.show_price !== false,
-    currency: text(body.currency || 'CAD', 3).toUpperCase(),
+    currency,
     stock_quantity: Math.max(0, Math.floor(Number(body.stock_quantity) || 0)),
     location: text(body.location, 120), lead_time: text(body.lead_time, 120), warranty: text(body.warranty, 120),
     dim_height: numbers.dim_height, dim_width: numbers.dim_width, dim_depth: numbers.dim_depth,
