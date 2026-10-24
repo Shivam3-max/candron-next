@@ -107,8 +107,6 @@ def main():
                 "Ventilated Dry-Type Transformer", "CE-DTT-01"),
         "control": (lambda s, c: pa.draw_control_panel(s, call=c), lambda: draw2d.ga_box("control"), "control", None,
                     "Industrial Control Panel", "CE-CTP-01"),
-        "jbox": (lambda s, c: pa.draw_junction_box(s, call=c), lambda: draw2d.ga_box("jbox"), "jbox", None,
-                 "Power Junction Box", "CE-JBX-01"),
         "loadbank": (lambda s, c: pa.draw_load_bank(s, call=c), lambda: draw2d.ga_box("loadbank"), "loadbank", None,
                      "Resistive Load Bank", "CE-LDB-01"),
         "pdu": (lambda s, c: pa.draw_pdu(s, call=c), lambda: draw2d.ga_box("pdu"), "pdu", None,

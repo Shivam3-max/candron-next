@@ -1,5 +1,12 @@
 import type { MetadataRoute } from 'next'
-import { FAMILIES, PRODUCTS, productHref } from '@/lib/dry-type'
+import { DRY } from '@/lib/dry-type'
+import { LIQUID } from '@/lib/ranges/liquid'
+import { DIST } from '@/lib/ranges/dist'
+import { LOADBANKS } from '@/lib/ranges/loadbanks'
+import { productHref, type RangeDef } from '@/lib/ranges/core'
+
+/** Hub, family and product URLs of a range. */
+const rangeUrls = (r: RangeDef) => [r.hubHref, ...r.families.map(f => f.href), ...r.products.map(p => productHref(r, p))]
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://candron.com'
@@ -10,38 +17,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/project-process',
     '/products',
     '/inventory',
-    '/products/switchgear',
-    '/products/switchgear/metal-clad',
-    '/products/switchgear/load-interrupter',
-    '/products/switchgear/service-entrance',
-    '/products/switchgear/low-voltage',
-    '/products/switchboards',
-    '/products/switchboards/main-breaker',
-    '/products/switchboards/main-tie-main',
-    '/products/switchboards/distribution',
-    '/products/switchboards/utility-approved',
     '/products/control-panels',
     '/products/control-panels/automation',
     '/products/control-panels/mcc',
     '/products/control-panels/process',
     '/products/control-panels/scada',
-    '/products/junction-box-splitters',
-    '/products/power-distribution',
-    '/products/load-banks',
-    '/products/remote-power-panels',
-    '/products/power-distribution-units',
-    '/products/lv-switchgear',
     '/products/transformers',
-    '/products/transformers/padmount',
-    '/products/transformers/padmount/single-phase',
-    '/products/transformers/padmount/three-phase',
-    '/products/transformers/substation',
-    '/products/transformers/substation/polemount',
-    '/products/transformers/substation/power',
-    '/products/transformers/dry-type',
+    ...rangeUrls(LIQUID),
+    ...rangeUrls(DRY),
     '/products/transformers/dry-type/guide',
-    ...FAMILIES.map(f => f.href),
-    ...PRODUCTS.map(p => productHref(p)),
+    ...rangeUrls(DIST),
+    ...rangeUrls(LOADBANKS),
     '/inventory',
     '/resources',
     '/terms-and-conditions',
@@ -64,7 +50,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/contact',
   ]
 
-  return routes.map((route) => ({
+  return [...new Set(routes)].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: route === '' ? 'weekly' : 'monthly',

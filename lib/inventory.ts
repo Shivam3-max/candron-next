@@ -23,7 +23,6 @@ export const CATEGORIES: InventoryCategory[] = [
   { name: 'Load Bank', code: 'LDB', art: 'loadbank' },
   { name: 'Power Distribution Unit', code: 'PDU', art: 'pdu' },
   { name: 'Remote Power Panel', code: 'RPP', art: 'rpp' },
-  { name: 'Junction Box', code: 'JBX', art: 'jbox' },
 ]
 
 export const CONDITIONS = ['New', 'Surplus', 'Remanufactured', 'Used'] as const

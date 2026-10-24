@@ -12,10 +12,10 @@ const categories = [
     num: '01',
     name: 'Padmount Transformers',
     sub: 'Liquid-Filled · Underground Distribution',
-    desc: 'Tamper-resistant, compartmentalized liquid-filled units for pad-mount underground cable systems. Three-phase and single-phase configurations from 15 kVA to 3,000 kVA.',
+    desc: 'Tamper-resistant, compartmentalized liquid-filled units for underground cable systems: three-phase 45 – 10,000 kVA, single-phase 10 – 250 kVA, and inverter-duty step-up units for solar and storage.',
     href: '/products/transformers/padmount',
-    specs: ['15 kVA – 3,000 kVA', '5 kV – 34.5 kV Primary', 'ANSI C57 / IEEE / CSA'],
-    types: ['Three-Phase Padmount', 'Single-Phase Padmount'],
+    specs: ['10 kVA – 10 MVA', 'Up to 34.5 kV primary', 'CSA C227 / IEEE C57.12'],
+    types: ['Three-Phase Padmount', 'Single-Phase Padmount', 'Inverter-Duty Step-Up'],
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
         <rect x="3" y="8" width="18" height="12" rx="2"/>
@@ -28,12 +28,12 @@ const categories = [
   },
   {
     num: '02',
-    name: 'Substation Transformers',
+    name: 'Substation & Power Transformers',
     sub: 'Liquid-Filled · Power Transformation',
-    desc: 'Oil-immersed power transformers for utility substations and industrial facilities. High-voltage primaries from 34.5 kV to 345 kV with ONAN, ONAF, and OFAF cooling options.',
+    desc: 'Unit substation transformers for close-coupled lineups, power transformers up to 100 MVA and 230 kV with ONAN/ONAF/ONAF2 cooling and on-load tap changers, and trailer- or skid-mounted portable substations.',
     href: '/products/transformers/substation',
-    specs: ['1 MVA – 100+ MVA', '34.5 kV – 345 kV Primary', 'IEEE C57.12 / CSA C88'],
-    types: ['Power Substation Transformer', 'Polemount Transformer'],
+    specs: ['300 kVA – 100 MVA', 'Up to 230 kV class', 'CSA C88 / IEEE C57.12'],
+    types: ['Unit Substation', 'Power Transformer', 'Portable Substation'],
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
         <rect x="2" y="6" width="20" height="14" rx="2"/>
@@ -79,8 +79,9 @@ const categories = [
 ]
 
 const transformerFamilies = [
+  { name: 'Liquid-Filled Range', detail: '8 products: padmount, substation, power, portable and polemount', href: '/products/transformers/liquid-filled' },
   { name: 'Padmount', detail: 'Single- and three-phase underground distribution', href: '/products/transformers/padmount' },
-  { name: 'Pole', detail: 'Overhead utility and rural distribution', href: '/products/transformers/substation/polemount' },
+  { name: 'Polemount', detail: 'Single- and three-phase overhead distribution', href: '/products/transformers/polemount' },
   { name: 'Station Class', detail: 'Industrial and utility substation applications', href: '/products/transformers/substation' },
   { name: 'EHV', detail: 'Extra-high-voltage project consultation', href: '/contact?product=ehv-transformer' },
   { name: 'Dry-Type', detail: '19 oil-free products: LV, MV, control, reactors & filters', href: '/products/transformers/dry-type' },
@@ -136,7 +137,7 @@ export default function TransformersPage() {
             {[
               { v: '4', l: 'Transformer Categories' },
               { v: 'CSA / ANSI', l: 'Certified Standards' },
-              { v: '100+ MVA', l: 'Max Substation Rating' },
+              { v: '100 MVA', l: 'Max Power Transformer' },
               { v: 'In-House', l: 'FAT & Testing' },
             ].map((k, i) => (
               <div key={k.l} className={`py-[1.1rem] px-4 text-center min-w-0 ${i < 3 ? 'border-r border-white/[.08]' : ''} max-sm:${i === 1 ? 'border-r-0' : ''}`}>

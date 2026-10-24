@@ -70,100 +70,51 @@ const productItems = [
   {
     href: '/products/switchgear',
     name: 'MV Switchgear',
-    sub: '2.4 kV to 38 kV • 2000 A',
-    desc: 'Custom metal-clad, pad-mounted and metal-enclosed switchgear from 2.4 kV to 38 kV, rated up to 2000 A, with VCBs, load break switches, and integrated protection relays.',
+    sub: '2.4 kV to 38 kV • 3,000 A',
+    desc: 'Metal-clad, arc-resistant, metal-enclosed and pad-mounted switchgear from 2.4 kV to 38 kV, plus MV service-entrance gear and utility metering cabinets.',
     image: '/images/switchgear.jpg',
     types: [
       { name: 'Metal-Clad', href: '/products/switchgear/metal-clad', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="2"/><line x1="2" y1="9" x2="22" y2="9"/><line x1="9" y1="9" x2="9" y2="22"/></svg> },
-      { name: 'Pad-Mounted', href: '/products/switchgear/load-interrupter', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M7 8V5a5 5 0 0 1 10 0v3"/></svg> },
-      { name: 'Metal-Enclosed', href: '/products/switchgear/load-interrupter', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg> },
+      { name: 'Arc-Resistant', href: '/products/switchgear/arc-resistant', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> },
+      { name: 'Metal-Enclosed', href: '/products/switchgear/load-interrupter', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="8" y="3" width="8" height="18" rx="2"/><path d="M12 1v2M12 21v2M12 8v8"/></svg> },
+      { name: 'Pad-Mounted', href: '/products/switchgear/pad-mounted', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="8" width="18" height="11" rx="2"/><path d="M2 21h20"/></svg> },
     ],
     icon: (
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" />
-      </svg>
-    ),
-  },
-  {
-    href: '/products/lv-switchgear',
-    name: 'LV Switchgear',
-    sub: 'Up to 1000 V',
-    desc: 'Low voltage switchgear up to 1,000 V — main breaker, main-tie-main, service entrance, and distribution configurations.',
-    image: '/images/switchboards.jpg',
-    types: [
-      { name: 'Main Breaker', href: '/products/switchgear/low-voltage', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="12" y1="4" x2="12" y2="20"/><circle cx="7" cy="12" r="2" fill="currentColor" stroke="none"/></svg> },
-      { name: 'Main-Tie-Main', href: '/products/switchgear/low-voltage', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 6h6v12H4zM14 6h6v12h-6z"/><line x1="10" y1="12" x2="14" y2="12"/></svg> },
-      { name: 'Service Entrance', href: '/products/switchgear/service-entrance', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 9h3M15 12h3M15 15h3"/></svg> },
-      { name: 'Distribution', href: '/products/switchgear/low-voltage', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 3v4M12 7l-6 4M12 7l6 4M6 11v6M18 11v6"/></svg> },
-    ],
-    icon: (
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <rect x="2" y="2" width="20" height="20" rx="2" />
-        <line x1="2" y1="9" x2="22" y2="9" />
-        <line x1="9" y1="9" x2="9" y2="22" />
-      </svg>
-    ),
-  },
-  {
-    href: '/products/junction-box-splitters',
-    name: 'Junction Box & Splitters',
-    sub: 'LV & MV Power Distribution',
-    desc: 'Industrial junction boxes and power splitters from LV up to 1,000 V and MV up to 35 kV — NEMA-rated, weatherproof, and explosion-proof.',
-    image: '/images/switchgear.jpg',
-    types: [
-      { name: 'LV Junction Box', href: '/products/junction-box-splitters', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg> },
-      { name: 'MV Junction Box', href: '/products/junction-box-splitters', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M7 8V5a5 5 0 0 1 10 0v3"/></svg> },
-      { name: 'LV Splitter', href: '/products/junction-box-splitters', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 3v4M12 7l-6 4M12 7l6 4M6 11v6M18 11v6"/></svg> },
-      { name: 'MV Splitter', href: '/products/junction-box-splitters', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg> },
-    ],
-    icon: (
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <rect x="3" y="3" width="18" height="18" rx="2" />
-        <path d="M3 9h18M9 21V9" />
-      </svg>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" /></svg>
     ),
   },
   {
     href: '/products/switchboards',
-    name: 'Switchboards',
-    sub: 'Low Voltage Distribution',
-    desc: 'Custom switchboards up to 4000 A at 600 V for commercial, industrial, and infrastructure applications.',
-    image: '/images/switchboards.jpg',
+    name: 'Switchboards & LV Gear',
+    sub: 'Up to 6,000 A • 600 V',
+    desc: 'Distribution and service-entrance switchboards, main-tie-main lineups, draw-out LV switchgear, automatic transfer switches and integrated switchboards.',
+    image: '/images/projects/2500a-switchboard-production/2500a-switchboard-production.jpg',
     types: [
-      { name: 'Main Breaker', href: '/products/switchboards/main-breaker', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="12" y1="4" x2="12" y2="20"/><circle cx="7" cy="12" r="2" fill="currentColor" stroke="none"/></svg> },
-      { name: 'Main-Tie-Main', href: '/products/switchboards/main-tie-main', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 6h6v12H4zM14 6h6v12h-6z"/><line x1="10" y1="12" x2="14" y2="12"/></svg> },
       { name: 'Distribution', href: '/products/switchboards/distribution', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 3v4M12 7l-6 4M12 7l6 4M6 11v6M18 11v6"/></svg> },
-      { name: 'Utility-Approved', href: '/products/switchboards/utility-approved', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg> },
+      { name: 'Service Entrance', href: '/products/switchboards/main-breaker', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="12" y1="4" x2="12" y2="20"/><circle cx="7" cy="12" r="2" fill="currentColor" stroke="none"/></svg> },
+      { name: 'Main-Tie-Main', href: '/products/switchboards/main-tie-main', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 6h6v12H4zM14 6h6v12h-6z"/><line x1="10" y1="12" x2="14" y2="12"/></svg> },
+      { name: 'LV Switchgear', href: '/products/lv-switchgear', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="2"/><line x1="2" y1="9" x2="22" y2="9"/><line x1="9" y1="9" x2="9" y2="22"/></svg> },
+      { name: 'Transfer Switch', href: '/products/switchboards/transfer-switch', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4v6l8 4M20 4v6M12 14v6"/></svg> },
+      { name: 'Integrated', href: '/products/switchboards/integrated', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="6" y="2" width="12" height="20" rx="1"/><path d="M9 6h6M9 10h6M9 14h6"/></svg> },
     ],
     icon: (
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <rect x="2" y="2" width="20" height="20" rx="2" />
-        <line x1="2" y1="12" x2="22" y2="12" />
-        <line x1="12" y1="2" x2="12" y2="22" />
-      </svg>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="2" y="2" width="20" height="20" rx="2" /><line x1="2" y1="12" x2="22" y2="12" /><line x1="12" y1="2" x2="12" y2="22" /></svg>
     ),
   },
   {
-    href: '/products/transformers',
-    name: 'Transformers',
-    sub: '1 VA – 100+ MVA',
-    desc: 'Liquid-filled and dry-type transformers from distribution to power class — padmount, substation, LV dry-type, and MV dry-type.',
-    image: '/images/products/transformers/padmount-three-phase.webp',
+    href: '/products/transformers/liquid-filled',
+    name: 'Liquid-Filled Transformers',
+    sub: '5 kVA – 100 MVA • up to 230 kV',
+    desc: 'Padmount, substation, power, portable and polemount transformers in mineral oil or FR3 — engineered, built and tested in Canada.',
+    image: '/images/projects/3mva-inverter-duty-padmount/3mva-padmount-three-quarter.jpg',
     types: [
-      { name: 'Padmount', href: '/products/transformers/padmount', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M8 8V5a4 4 0 0 1 8 0v3"/><line x1="12" y1="11" x2="12" y2="17"/></svg> },
-      { name: 'Substation', href: '/products/transformers/substation', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 3v18M16 3v18M2 12h20"/></svg> },
-      { name: 'LV Dry-Type', href: '/products/transformers/dry-type-lv', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="3" x2="12" y2="8"/><line x1="12" y1="16" x2="12" y2="21"/></svg> },
-      { name: 'MV Dry-Type', href: '/products/transformers/dry-type-mv', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg> },
+      { name: 'Padmount', href: '/products/transformers/padmount', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="8" width="18" height="11" rx="2"/><path d="M2 21h20"/></svg> },
+      { name: 'Substation & Power', href: '/products/transformers/substation', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="9" cy="12" r="5"/><circle cx="15" cy="12" r="5"/></svg> },
+      { name: 'Polemount', href: '/products/transformers/polemount', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2v20M5 5h14"/><rect x="13" y="9" width="6" height="7" rx="1"/></svg> },
+      { name: 'Inverter-Duty', href: '/products/transformers/padmount/inverter-duty', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg> },
     ],
     icon: (
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <circle cx="12" cy="12" r="9" />
-        <circle cx="12" cy="12" r="4" />
-        <line x1="12" y1="3" x2="12" y2="8" />
-        <line x1="12" y1="16" x2="12" y2="21" />
-        <line x1="3" y1="12" x2="8" y2="12" />
-        <line x1="16" y1="12" x2="21" y2="12" />
-      </svg>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="4" /><line x1="12" y1="3" x2="12" y2="8" /><line x1="12" y1="16" x2="12" y2="21" /><line x1="3" y1="12" x2="8" y2="12" /><line x1="16" y1="12" x2="21" y2="12" /></svg>
     ),
   },
   {
@@ -173,37 +124,47 @@ const productItems = [
     desc: 'Oil-free transformers built in Toronto: LV distribution, MV power, control & motor-starting, plus reactors, filters and RC snubbers — with a product finder and plain-English guide.',
     image: '/images/products/transformers/dry-type-lv-standard.webp',
     types: [
-      { name: 'LV Distribution', href: '/products/transformers/dry-type-lv', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 10h8M8 14h8M8 17h8"/></svg> },
-      { name: 'MV Power', href: '/products/transformers/dry-type-mv', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg> },
-      { name: 'Control & Motor', href: '/products/transformers/dry-type/control', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg> },
-      { name: 'Reactors & Filters', href: '/products/transformers/dry-type/reactors', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 12c2-6 4-6 6 0s4 6 6 0 4-6 6 0"/></svg> },
+      { name: 'LV Distribution', href: '/products/transformers/dry-type-lv', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="2"/><line x1="2" y1="9" x2="22" y2="9"/><line x1="9" y1="9" x2="9" y2="22"/></svg> },
+      { name: 'MV Power', href: '/products/transformers/dry-type-mv', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="9" cy="12" r="5"/><circle cx="15" cy="12" r="5"/></svg> },
+      { name: 'Control & Motor', href: '/products/transformers/dry-type/control', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/></svg> },
+      { name: 'Reactors & Filters', href: '/products/transformers/dry-type/reactors', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg> },
     ],
     icon: (
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <rect x="5" y="3" width="14" height="18" rx="2" />
-        <path d="M9 7h6M9 10h6M9 14h6M9 17h6" />
-      </svg>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="5" y="3" width="14" height="18" rx="2" /><path d="M9 7h6M9 10h6M9 14h6M9 17h6" /></svg>
     ),
   },
   {
-    href: '/products/power-distribution',
-    name: 'Critical Power',
-    sub: 'Load Testing & Distribution',
-    desc: 'Load banks, remote power panels, and transformer-based power distribution units for data centres, generators, UPS systems, and critical facilities.',
+    href: '/products/integrated-power',
+    name: 'Integrated Power',
+    sub: 'E-houses • PDUs • RPPs',
+    desc: 'Walk-in power houses with MV and LV gear inside, power distribution units and remote power panels — factory-built and tested as complete packages.',
     image: '/images/products/power-distribution/power-distribution-unit.webp',
     types: [
-      { name: 'Load Banks', href: '/products/load-banks', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg> },
-      { name: 'Remote Power Panels', href: '/products/remote-power-panels', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg> },
-      { name: 'Power Distribution Units', href: '/products/power-distribution-units', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="8" cy="12" r="4"/><circle cx="16" cy="12" r="4"/><path d="M2 12h2M20 12h2"/></svg> },
+      { name: 'Walk-In E-House', href: '/products/integrated-power/e-house', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="7" width="20" height="13" rx="1"/><path d="M6 20v-6h4v6"/></svg> },
+      { name: 'Power Distribution Units', href: '/products/power-distribution-units', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="6" y="2" width="12" height="20" rx="1"/><path d="M9 6h6M9 10h6M9 14h6"/></svg> },
+      { name: 'Remote Power Panels', href: '/products/remote-power-panels', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 3v4M12 7l-6 4M12 7l6 4M6 11v6M18 11v6"/></svg> },
     ],
     icon: (
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" />
-      </svg>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="2" y="7" width="20" height="13" rx="1" /><path d="M6 20v-6h4v6M14 11h4" /></svg>
+    ),
+  },
+  {
+    href: '/products/load-banks',
+    name: 'Load Banks',
+    sub: '3 kW – 6 MW • AC & DC',
+    desc: 'Portable, stationary, resistive-reactive, trailer and containerized load banks, plus DC battery and data-centre heat loads for testing backup power.',
+    image: '/images/products/power-distribution/load-bank.webp',
+    types: [
+      { name: 'Portable', href: '/products/load-banks/ac/portable', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/></svg> },
+      { name: 'Stationary', href: '/products/load-banks/ac/stationary', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="2"/><line x1="2" y1="9" x2="22" y2="9"/><line x1="9" y1="9" x2="9" y2="22"/></svg> },
+      { name: 'Resistive-Reactive', href: '/products/load-banks/ac/resistive-reactive', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg> },
+      { name: 'DC & Battery', href: '/products/load-banks/dc/battery', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="7" width="16" height="10" rx="2"/><path d="M21 10v4"/></svg> },
+    ],
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" /></svg>
     ),
   },
 ]
-
 
 // Phrases complete the sentence "We …" in the header tagline.
 const TAGLINES = [
