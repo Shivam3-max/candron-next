@@ -24,7 +24,7 @@ export default function Footer() {
               <img src="/images/logo.svg" alt="" className="logo-img" />
             </Link>
             <p className="text-[1.0625rem] text-white/[.68] leading-[1.85] mt-4 max-w-[300px] max-md:max-w-none">
-              Candron is a leading Toronto-based manufacturer of switchgear, switchboards, and dry-type transformers, delivering engineered power distribution solutions with a focus on quality, reliability, and shorter lead times.
+              CANDRON is a Toronto-based manufacturer of switchgear, switchboards, transformers, portable power skids and substations, and remote power and control panels — engineered, built and tested in-house for quality, reliability and shorter lead times.
             </p>
             <div className="mt-7">
               {subscribed ? (

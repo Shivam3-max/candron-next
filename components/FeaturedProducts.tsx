@@ -145,7 +145,7 @@ export default function FeaturedProducts() {
         <div className="fp-head">
           <div>
             <div className="label">Featured Products</div>
-            <h2 id="fp-title">Power Distribution, <em>Drawn to Spec.</em></h2>
+            <h2 id="fp-title">Power Distribution, <em>Built to Spec.</em></h2>
           </div>
           <Link href="/products" className="btn btn-outline-blue">All Products →</Link>
         </div>

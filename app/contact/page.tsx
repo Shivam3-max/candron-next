@@ -210,12 +210,13 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="mt-8 p-8 bg-navy rounded-[14px] border border-blue/[.2]">
-                <div className="font-mono text-[.8125rem] text-blue tracking-[.22em] uppercase mb-4">What to Include</div>
-                <ul className="list-none flex flex-col gap-[.65rem]">
+              <div className="mt-8 p-8 max-sm:p-6 bg-white rounded-[14px] border border-[#DCE3F0] border-l-4 border-l-blue shadow-[0_10px_30px_rgba(6,11,36,.06)]">
+                <h3 className="text-navy text-[1.25rem] m-0 mb-1">What to include in your inquiry</h3>
+                <p className="text-gray text-[1rem] leading-[1.6] m-0 mb-4">These details help us quote accurately the first time.</p>
+                <ul className="list-none flex flex-col gap-[.7rem] m-0 p-0">
                   {['Equipment specifications','Voltage and current requirements','Applicable standards (CSA, UL, ANSI)','Required delivery timeline','Witnessed FAT requirements'].map(item => (
-                    <li key={item} className="flex items-start gap-[.65rem] text-[1.0625rem] text-white/[.68] leading-[1.6]">
-                      <span className="w-[5px] h-[5px] min-w-[5px] bg-blue rounded-full mt-[.45rem]"></span>
+                    <li key={item} className="flex items-start gap-[.7rem] text-[1.0625rem] text-navy leading-[1.5]">
+                      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="mt-[.15rem] min-w-[18px]"><circle cx="9" cy="9" r="9" fill="#E8EEFF" /><path d="M5.2 9.2l2.5 2.5 5-5.4" stroke="var(--blue)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
                       {item}
                     </li>
                   ))}
@@ -229,7 +230,7 @@ export default function ContactPage() {
       {/* CTA */}
       <div className="cta-band">
         <div className="container"><div className="cta-band-inner">
-          <h2 className="rv">We're Easy to Reach. Always.</h2>
+          <h2 className="rv">We&rsquo;re Easy to Reach. Always.</h2>
           <p className="lead rv !text-white/[.6] !max-w-[680px]">Whether you&rsquo;re a contractor, consultant, utility, or project owner, you&rsquo;ll have direct access to our team — from initial inquiry through engineering and delivery.</p>
           <p className="lead rv !text-white/[.6] !max-w-[680px] !mt-0">No gatekeepers. No middlemen. Just direct access to the people who know your project.</p>
           <div className="flex gap-4 justify-center flex-wrap rv">

@@ -303,18 +303,37 @@ export default function ManufacturingPage() {
       {/* CANADIAN ADVANTAGE */}
       <div className="section bg-white">
         <div className="container">
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] items-center gap-12 max-w-[960px] mx-auto mb-14">
-            <div className="rv-l flex justify-center items-center">
-              <Image
-                src="/images/Flag_of_Canada.svg"
-                alt="Flag of Canada"
-                width={340}
-                height={170}
-                className="canada-flag w-full max-w-[340px] h-auto rounded-[10px] shadow-[0_16px_56px_rgba(0,0,0,0.22)] block"
-                priority
-              />
+          <div className="canada-made">
+            <div className="canada-made-photos rv-l">
+              <div className="canada-made-photo canada-made-photo--main">
+                <Image
+                  src="/images/switchgear-facility.jpg"
+                  alt="Switchgear line-up on the CANDRON production floor in Toronto"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width:900px) 100vw, 34vw"
+                />
+              </div>
+              <div className="canada-made-photo">
+                <Image
+                  src="/images/manufacturing.jpg"
+                  alt="Completed switchgear enclosures in the CANDRON facility"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width:900px) 50vw, 17vw"
+                />
+              </div>
+              <div className="canada-made-photo">
+                <Image
+                  src="/images/control-panels.jpg"
+                  alt="Control panel wiring and assembly in progress"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width:900px) 50vw, 17vw"
+                />
+              </div>
             </div>
-            <div className="rv-r">
+            <div className="canada-made-copy rv-r">
               <div className="label">Canadian Manufacturing</div>
               <h2 className="mt-3">
                 Built in Canada.
@@ -325,45 +344,20 @@ export default function ManufacturingPage() {
                 <CanadaFlag height={18} /> Proudly Made in Canada
               </div>
               <p className="lead m-0">
-                Proudly engineered and manufactured in Canada. CANDRON's
-                Toronto, Ontario facility serves utilities, contractors,
-                industrial facilities, and infrastructure projects across North
-                America.
+                We engineer and manufacture in Canada. CANDRON&rsquo;s Toronto,
+                Ontario facility serves utilities, contractors, industrial
+                facilities, and infrastructure projects across North America.
               </p>
               <p className="body mt-4 text-gray">
                 Our facility is equipped for 24/7 production when project
                 schedules require it, supported by controlled manufacturing
                 conditions, regularly audited machinery, and coordinated teams.
               </p>
-            </div>
-          </div>
-          <div className="facility-grid">
-            <div className="facility-img rv">
-              <Image
-                src="/images/manufacturing.jpg"
-                alt="Production Floor"
-                fill
-                className="object-cover"
-                sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
-              />
-            </div>
-            <div className="facility-img rv d2">
-              <Image
-                src="/images/switchgear-facility.jpg"
-                alt="Assembly Area"
-                fill
-                className="object-cover"
-                sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
-              />
-            </div>
-            <div className="facility-img rv d3">
-              <Image
-                src="/images/control-panels.jpg"
-                alt="Engineering Office"
-                fill
-                className="object-cover"
-                sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
-              />
+              <ul className="canada-made-points">
+                <li><strong>Toronto, Ontario</strong><span>Engineering and production under one roof</span></li>
+                <li><strong>24/7 capable</strong><span>Extra shifts when your schedule needs it</span></li>
+                <li><strong>North America</strong><span>Utilities, contractors and industry served</span></li>
+              </ul>
             </div>
           </div>
         </div>
