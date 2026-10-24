@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
-import DryProductPage, { dryMetadata } from '@/components/drytype/DryProductPage'
-import { DRY_HUB, FAMILIES, findProduct, productsIn } from '@/lib/dry-type'
+import ProductPage, { productMetadata } from '@/components/range/ProductPage'
+import { DRY, DRY_HUB, FAMILIES, findProduct, productsIn } from '@/lib/dry-type'
 
 type Props = { params: Promise<{ family: string; slug: string }> }
 
@@ -19,12 +19,12 @@ export const generateStaticParams = () =>
 export async function generateMetadata({ params }: Props) {
   const { family, slug } = await params
   const p = lookup(family, slug)
-  return p ? dryMetadata(p) : {}
+  return p ? productMetadata(DRY, p) : {}
 }
 
 export default async function Page({ params }: Props) {
   const { family, slug } = await params
   const p = lookup(family, slug)
   if (!p) notFound()
-  return <DryProductPage p={p} />
+  return <ProductPage r={DRY} p={p} />
 }

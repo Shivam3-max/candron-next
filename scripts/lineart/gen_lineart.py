@@ -107,8 +107,6 @@ def main():
                 "Ventilated Dry-Type Transformer", "CE-DTT-01"),
         "control": (lambda s, c: pa.draw_control_panel(s, call=c), lambda: draw2d.ga_box("control"), "control", None,
                     "Industrial Control Panel", "CE-CTP-01"),
-        "jbox": (lambda s, c: pa.draw_junction_box(s, call=c), lambda: draw2d.ga_box("jbox"), "jbox", None,
-                 "Power Junction Box", "CE-JBX-01"),
         "loadbank": (lambda s, c: pa.draw_load_bank(s, call=c), lambda: draw2d.ga_box("loadbank"), "loadbank", None,
                      "Resistive Load Bank", "CE-LDB-01"),
         "pdu": (lambda s, c: pa.draw_pdu(s, call=c), lambda: draw2d.ga_box("pdu"), "pdu", None,
@@ -150,7 +148,8 @@ def main():
     import capability_art
     import resources_art
     import drytype_art
-    for kind, (title, code, legend, views) in {**capability_art.SCENES, **resources_art.SCENES, **drytype_art.SCENES}.items():
+    import range_art
+    for kind, (title, code, legend, views) in {**capability_art.SCENES, **resources_art.SCENES, **drytype_art.SCENES, **range_art.SCENES}.items():
         mviews = []
         for key, label, fn, how in views:
             raw = capability_art.render(fn, how)

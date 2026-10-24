@@ -2,6 +2,13 @@
 const nextConfig = {
   distDir: process.env.NEXT_DIST_DIR || '.next',
   devIndicators: false,
+  async redirects() {
+    return [
+      { source: '/products/transformers/substation/polemount', destination: '/products/transformers/polemount/single-phase', permanent: true },
+      { source: '/products/switchgear/low-voltage', destination: '/products/lv-switchgear', permanent: true },
+      { source: '/products/junction-box-splitters', destination: '/products', permanent: true },
+    ]
+  },
   async headers() {
     return [
       {
