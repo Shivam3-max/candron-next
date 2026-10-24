@@ -71,13 +71,12 @@ const productItems = [
     href: '/products/switchgear',
     name: 'MV Switchgear',
     sub: '2.4 kV to 38 kV • 2000 A',
-    desc: 'Custom metal-clad and pad-mounted switchgear from 2.4 kV to 38 kV, rated up to 2000 A, with VCBs, load break switches, and integrated protection relays.',
+    desc: 'Custom metal-clad, pad-mounted and metal-enclosed switchgear from 2.4 kV to 38 kV, rated up to 2000 A, with VCBs, load break switches, and integrated protection relays.',
     image: '/images/switchgear.jpg',
     types: [
       { name: 'Metal-Clad', href: '/products/switchgear/metal-clad', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="2"/><line x1="2" y1="9" x2="22" y2="9"/><line x1="9" y1="9" x2="9" y2="22"/></svg> },
       { name: 'Pad-Mounted', href: '/products/switchgear/load-interrupter', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M7 8V5a5 5 0 0 1 10 0v3"/></svg> },
-      { name: 'Load-Interrupter', href: '/products/switchgear/load-interrupter', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg> },
-      { name: 'Service-Entrance', href: '/products/switchgear/service-entrance', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 9h3M15 12h3M15 15h3"/></svg> },
+      { name: 'Metal-Enclosed', href: '/products/switchgear/load-interrupter', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg> },
     ],
     icon: (
       <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
@@ -206,15 +205,15 @@ const productItems = [
 ]
 
 
-// Phrases complete the sentence "We are …" in the header tagline.
+// Phrases complete the sentence "We …" in the header tagline.
 const TAGLINES = [
-  'fast at our service.',
-  'engineered & manufactured in Canada.',
-  'on call 24/7 for emergency response.',
-  'ready with in-stock equipment in Toronto.',
-  'building to CSA, UL & IEEE standards.',
-  'testing every unit before it ships.',
-  'quoting the same day you ask.',
+  'engineer and manufacture in Canada.',
+  'are fast at our service.',
+  'are on call 24/7 for emergency response.',
+  'keep in-stock equipment ready in Toronto.',
+  'build to CSA, UL & IEEE standards.',
+  'test every unit before it ships.',
+  'quote the same day you ask.',
 ]
 
 function TaglineTicker() {
@@ -244,9 +243,9 @@ function TaglineTicker() {
 
   return (
     <p className="hdr-tagline">
-      <span className="sr-only">We are fast at our service, engineered and manufactured in Canada, and on call 24/7.</span>
+      <span className="sr-only">We engineer and manufacture in Canada, respond fast, and are on call 24/7.</span>
       <span aria-hidden="true">
-        <span className="hdr-tagline-lead">We are</span>{' '}
+        <span className="hdr-tagline-lead">We</span>{' '}
         <span className="hdr-tagline-word">{text}</span>
         <span className="hdr-tagline-caret" />
       </span>
@@ -257,6 +256,13 @@ function TaglineTicker() {
 const phoneIcon = (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z" />
+  </svg>
+)
+
+const shopIcon = (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M21 8 12 3 3 8v8l9 5 9-5V8Z" />
+    <path d="m3 8 9 5 9-5M12 13v8" />
   </svg>
 )
 
@@ -393,6 +399,7 @@ export default function Navbar() {
                   <span className="hdr-call-icon">{phoneIcon}</span>
                   <span className="hdr-call-text"><small>Call us now · 24/7</small><strong>{PHONE_LABEL}</strong></span>
                 </a>
+                <Link href="/inventory" className="hdr-shop">{shopIcon}Shop Inventory</Link>
                 <Link href="/contact" className="hdr-quote">Request a Quote</Link>
               </div>
             </div>
@@ -456,11 +463,13 @@ export default function Navbar() {
                   </Link>
                 )
               })}
+              <Link className="hdr-nav-shop" href="/inventory" aria-label="Shop in-stock inventory">{shopIcon}<span>Shop</span></Link>
               <a className="hdr-nav-call" href={PHONE_HREF} aria-label={`Call CANDRON at ${PHONE_LABEL}`}>{phoneIcon}</a>
             </nav>
           </div>
 
           <div className="hdr-mobile-actions">
+            <Link className="hdr-mobile-shop" href="/inventory" aria-label="Shop in-stock inventory">{shopIcon}<span className="hdr-shop-long">Shop Inventory</span><span className="hdr-shop-short">Shop</span></Link>
             <a className="hdr-mobile-call" href={PHONE_HREF} aria-label={`Call CANDRON at ${PHONE_LABEL}`}>{phoneIcon}<span>Call</span></a>
             <button
               className="hdr-ham"
@@ -574,7 +583,7 @@ export default function Navbar() {
         </div>
 
         <div className="mobile-nav-footer">
-          <Link href="/inventory" className="mobile-nav-contact" onClick={() => setMobileOpen(false)}>Shop 600V</Link>
+          <Link href="/inventory" className="mobile-nav-contact" onClick={() => setMobileOpen(false)}>Shop Inventory</Link>
           <a className="mobile-nav-emergency" href={PHONE_HREF}>
             <span className="mobile-nav-emergency-icon">{phoneIcon}</span>
             <span><small>24/7 Emergency Response</small><strong>{PHONE_LABEL}</strong></span>

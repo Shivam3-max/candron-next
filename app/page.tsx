@@ -29,13 +29,16 @@ export default function HomePage() {
               </h1>
               <p className="hero-delivery-line">Engineered. Manufactured. Tested. Delivered.</p>
               <p className="lead">
-                CANDRON provides high-quality switchgear, switchboards, and
-                dry-type transformers built for reliable power distribution
-                across commercial, industrial, transit, and EV charging applications.
+                CANDRON Energy designs, manufactures, assembles, and tests
+                electrical power distribution equipment in-house in Canada. By
+                bringing engineering and manufacturing together under one roof,
+                we deliver reliable, quality-driven solutions with shorter lead
+                times, greater control over quality, and direct access to the
+                people behind your project.
               </p>
               <div className="hero-btns">
                 <Link href="/inventory" className="btn btn-primary btn-lg mag">
-                  Shop 600V <span aria-hidden="true">→</span>
+                  Shop Inventory <span aria-hidden="true">→</span>
                 </Link>
                 <Link href="/products" className="btn btn-outline btn-lg mag">
                   View Products <span aria-hidden="true">→</span>

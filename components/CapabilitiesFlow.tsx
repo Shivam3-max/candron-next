@@ -11,7 +11,7 @@ const caps = [
   {
     n: "01",
     title: "Electrical Design Engineering",
-    desc: "Electrical engineers collaborate on single-line diagrams, schematics, and specification compliance through a multi-level review process.",
+    desc: "Our electrical engineers prepare single-line diagrams, schematics and protection schemes, and check every design against your specification through a multi-stage review.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -26,7 +26,7 @@ const caps = [
   {
     n: "02",
     title: "Mechanical Design",
-    desc: "Mechanical design, enclosure layout, and thermal management are coordinated by a project team of four to six electrical and mechanical engineers.",
+    desc: "Enclosure layout, mechanical design and thermal management are coordinated by a dedicated project team of four to six electrical and mechanical engineers.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -42,7 +42,7 @@ const caps = [
   {
     n: "03",
     title: "Fabrication",
-    desc: "High-quality German robotic machinery supports precise metal fabrication for enclosures, bus structures, and assemblies.",
+    desc: "Enclosures, bus structures and assemblies are fabricated on high-precision German robotic machinery for consistent fit and finish.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -57,7 +57,7 @@ const caps = [
   {
     n: "04",
     title: "Assembly",
-    desc: "Experienced technicians use high-end tools for component installation, bus assembly, and hardware mounting.",
+    desc: "Experienced technicians install components, assemble bus systems and mount hardware using professional-grade tooling.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -72,7 +72,7 @@ const caps = [
   {
     n: "05",
     title: "Wiring",
-    desc: "CEC and NFPA 79 wiring by experienced craftsmen. Color coding, labeling, and documentation included.",
+    desc: "Skilled wiring technicians wire every unit to CEC and NFPA 79 requirements, with colour-coded conductors, permanent labelling and complete wiring records.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -88,7 +88,7 @@ const caps = [
   {
     n: "06",
     title: "Quality Assurance",
-    desc: "Documented checkpoints, machine audits, controlled conditions, and full traceability support each production stage.",
+    desc: "Documented inspection checkpoints, routine machine audits and controlled production conditions give full traceability at every stage of manufacturing.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -104,7 +104,7 @@ const caps = [
   {
     n: "07",
     title: "Functional Testing",
-    desc: "Omicron and Phenix test systems and dedicated benches validate control logic, protection schemes, and equipment performance.",
+    desc: "Omicron and Phenix test systems on dedicated test benches verify control logic, protection schemes and overall equipment performance.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -119,7 +119,7 @@ const caps = [
   {
     n: "08",
     title: "Documentation",
-    desc: "As-built drawings, test reports, wiring schedules, and O&M manuals — delivered with every unit.",
+    desc: "Every unit ships with as-built drawings, test reports, wiring schedules and operation and maintenance (O&M) manuals.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -137,7 +137,7 @@ const caps = [
   {
     n: "09",
     title: "Factory Acceptance Testing",
-    desc: "Full FAT to ANSI, IEEE, NETA, CSA, and UL standards. Witnessed FAT available on request.",
+    desc: "Complete factory acceptance testing to ANSI, IEEE, NETA, CSA and UL standards. Customer-witnessed FAT is available on request.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -156,9 +156,9 @@ const caps = [
 const SNAKE = [0, 1, 2, 5, 4, 3, 6, 7, 8];
 
 const bullets = [
-  "9 in-house capabilities — no outsourcing",
-  "Full documentation traceability on every project",
-  "Witnessed FAT available for your team or inspector",
+  "Nine core disciplines, all performed in-house",
+  "Documented traceability on every project",
+  "Witnessed FAT available to your team or inspector",
 ];
 
 export default function CapabilitiesFlow() {
@@ -284,8 +284,9 @@ export default function CapabilitiesFlow() {
             </span>
           </h2>
           <p className="cap-sub">
-            End&#8209;to&#8209;end control — from engineering drawings to
-            witnessed FAT — all under one roof in Toronto.
+            Engineering, fabrication, assembly, wiring and testing are all
+            completed in our Toronto facility, so one team is accountable
+            from the first drawing to factory acceptance.
           </p>
           <ul className="cap-bullets">
             {bullets.map((b) => (
