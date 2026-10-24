@@ -2,6 +2,11 @@
 const nextConfig = {
   distDir: process.env.NEXT_DIST_DIR || '.next',
   devIndicators: false,
+  async redirects() {
+    return [
+      { source: '/products/transformers/substation/polemount', destination: '/products/transformers/polemount/single-phase', permanent: true },
+    ]
+  },
   async headers() {
     return [
       {

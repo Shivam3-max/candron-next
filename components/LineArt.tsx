@@ -15,13 +15,14 @@ interface Props {
   figure?: string
   title?: string
   className?: string
+  compact?: boolean
 }
 
 /**
  * Animated technical drawing for a product family, generated from the CANDRON brochure
  * drawing engine. The SVGs live in /public/lineart and load only when the sheet is on screen.
  */
-export default function LineArt({ kind, views, tone = 'dark', figure = 'FIG. 01', title, className }: Props) {
+export default function LineArt({ kind, views, tone = 'dark', figure = 'FIG. 01', title, className, compact }: Props) {
   const meta = LINEART_META[kind]
   // Capability scenes name their own views; product kinds use iso / ga / sld.
   const custom = 'views' in meta ? meta.views : undefined
@@ -40,6 +41,7 @@ export default function LineArt({ kind, views, tone = 'dark', figure = 'FIG. 01'
       views={stageViews}
       tone={tone}
       className={className}
+      compact={compact}
     />
   )
 }

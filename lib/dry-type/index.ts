@@ -1,5 +1,6 @@
 import type { LineArtKind } from '@/lib/lineart-meta'
 import type { FAQ, KPI, SpecRow, Standard } from '@/components/ProductTypePage'
+import type { RangeDef } from '@/lib/ranges/types'
 import { LV_PRODUCTS } from './products-lv'
 import { MV_PRODUCTS } from './products-mv'
 import { CONTROL_PRODUCTS } from './products-control'
@@ -175,4 +176,74 @@ export function resolve(key: string, from?: FamilyId) {
     return findProduct(f, s)
   }
   return (from && findProduct(from, key)) || bySlug(key)
+}
+
+/** The dry-type range on the shared range engine (components/range). */
+export const DRY: RangeDef = {
+  id: 'dry',
+  name: 'Dry-Type',
+  noun: 'transformers',
+  hubHref: DRY_HUB,
+  guide: { href: DRY_GUIDE, label: 'Dry-type basics' },
+  photoDir: 'dry-type',
+  compareCols: [
+    { key: 'rating', label: 'Rating' },
+    { key: 'voltage', label: 'Voltage' },
+    { key: 'insulation', label: 'Insulation' },
+    { key: 'enclosure', label: 'Enclosure' },
+  ],
+  cardCols: ['rating', 'voltage'],
+  families: FAMILIES,
+  products: PRODUCTS,
+  needs: NEEDS,
+  hub: {
+    crumbs: [{ label: 'Products', href: '/products' }, { label: 'Transformers', href: '/products/transformers' }],
+    label: 'Designed, Built & Tested in Toronto',
+    h1: ['Dry-Type', 'Transformers'],
+    lead: `Oil-free transformers for every job inside a building — from a 25 VA control transformer to a 15,000 kVA, 46 kV power transformer. ${PRODUCTS.length} products, explained in plain words.`,
+    art: { kind: 'dt-range' },
+    stats: [
+      { value: String(PRODUCTS.length), label: 'Dry-type products' },
+      { value: '25 VA → 15 MVA', label: 'Rating range' },
+      { value: '46 kV', label: 'Highest voltage class' },
+      { value: 'Toronto', label: 'Designed & tested' },
+    ],
+    why: { label: 'Why Dry-Type', title: 'Four reasons buildings choose dry-type', items: [
+      { t: 'No oil, no fire risk', d: 'Air and solid insulation do the cooling. Nothing to leak, spill or burn — so no containment pit or fire vault.' },
+      { t: 'Install it right where you need it', d: 'Safe indoors, near people and equipment. Shorter cable runs mean less voltage drop and lower cost.' },
+      { t: 'Very little upkeep', d: 'No oil tests, no gaskets, no pumps. A yearly look, a vacuum of the coils and a tightness check is usually enough.' },
+      { t: 'Built here, supported here', d: 'Designed, wound and tested in Toronto. Our own field team commissions and services what we build.' },
+    ] },
+    basics: {
+      label: 'Dry-Type Basics',
+      title: 'New to dry-type? Start here.',
+      intro: 'Short, plain-English explanations of the terms you’ll meet on drawings and spec sheets.',
+      items: [
+      { t: 'What is a dry-type transformer?', d: 'How it works and why there’s no oil.', href: `${DRY_GUIDE}#what-is` },
+      { t: 'Dip & bake, VPI, cast coil, encapsulated', d: 'Four ways to protect a coil, and when each makes sense.', href: `${DRY_GUIDE}#construction` },
+      { t: 'Insulation class & temperature rise', d: 'What “220 °C, 150 °C rise” actually means for you.', href: `${DRY_GUIDE}#temperature` },
+      { t: 'K-factor & harmonics', d: 'Why electronics make transformers run hot.', href: `${DRY_GUIDE}#harmonics` },
+      { t: 'Enclosure types', d: 'Type 1, 3R, 4, 4X and 12 in one table.', href: `${DRY_GUIDE}#enclosures` },
+      { t: 'Sizing in four steps', d: 'From your load list to the right kVA.', href: `${DRY_GUIDE}#sizing` },
+      ],
+    },
+    finderIntro: 'No jargon needed. Pick what you’re trying to do and we’ll point you to the right transformer.',
+    faqs: [
+      { q: 'Dry-type or oil-filled — which should I choose?', a: 'Choose dry-type when the transformer goes inside a building, near people, or anywhere fire and spill rules matter. Oil-filled (liquid) units cost less at very large ratings and suit outdoor utility pads. Our guide has a side-by-side table.' },
+      { q: 'What sizes do you build?', a: 'Control transformers from 25 VA, low-voltage distribution transformers up to 1,000 kVA, and medium-voltage power transformers up to 15,000 kVA three-phase at up to 46 kV class. Reactors run from 2 A to 1,250 A at low voltage and up to 10,000 kVAR at medium voltage.' },
+      { q: 'Are your transformers energy efficient?', a: 'Yes. Our distribution and power transformers meet the U.S. DOE 2016 efficiency levels and the Canadian NRCan 2019 regulations. Lower temperature-rise options cut losses further.' },
+      { q: 'Can a dry-type transformer go outdoors?', a: 'Yes — with a Type 3R or Type 4/4X enclosure. Encapsulated and cast-coil designs are the best fit for wet, dusty or salty sites.' },
+      { q: 'How fast can I get one?', a: 'It depends on the rating and options. Common low-voltage ratings can ship quickly; check our in-stock inventory or call us and we will give you a firm date the same day.' },
+      { q: 'Do you build special voltages?', a: 'Yes. Every unit is built to order in Toronto, so non-standard voltages, dual-voltage windings, special taps and custom enclosures are routine for us.' },
+    ],
+    cta: {
+      title: 'Not sure which one you need?',
+      text: 'Send us the load, the voltages and where it’s going. A CANDRON engineer will recommend the right transformer and quote it the same business day.',
+      product: 'Dry-Type Transformer',
+    },
+    meta: {
+      title: 'Dry-Type Transformers — Made in Canada',
+      description: 'The full CANDRON dry-type range: low-voltage distribution, medium-voltage power up to 15,000 kVA and 46 kV, control and motor-starting transformers, reactors, filters and RC snubbers. Designed, built and tested in Toronto.',
+    },
+  },
 }

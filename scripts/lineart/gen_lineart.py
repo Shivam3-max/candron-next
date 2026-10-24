@@ -150,7 +150,8 @@ def main():
     import capability_art
     import resources_art
     import drytype_art
-    for kind, (title, code, legend, views) in {**capability_art.SCENES, **resources_art.SCENES, **drytype_art.SCENES}.items():
+    import range_art
+    for kind, (title, code, legend, views) in {**capability_art.SCENES, **resources_art.SCENES, **drytype_art.SCENES, **range_art.SCENES}.items():
         mviews = []
         for key, label, fn, how in views:
             raw = capability_art.render(fn, how)

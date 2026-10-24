@@ -27,13 +27,15 @@ interface Props {
   tone: 'dark' | 'light'
   className?: string
   cycleMs?: number
+  /** Drawing only: no view tabs, legend or title block (product cards). */
+  compact?: boolean
 }
 
 /**
  * Drawing-sheet frame for the generated line art. Starts the pen-plot animation when the
  * sheet scrolls into view, then steps through the views (isometric → elevation → schematic).
  */
-export default function LineArtStage({ title, figure, legend, views, tone, className = '', cycleMs = 9000 }: Props) {
+export default function LineArtStage({ title, figure, legend, views, tone, className = '', cycleMs = 9000, compact = false }: Props) {
   const ref = useRef<HTMLElement>(null)
   const [inView, setInView] = useState(false)
   const [seen, setSeen] = useState(false)
@@ -73,13 +75,13 @@ export default function LineArtStage({ title, figure, legend, views, tone, class
   const view = views[active]
 
   return (
-    <figure ref={ref} className={`la-sheet la-${tone}${seen ? ' is-in' : ''} ${className}`} aria-label={`${title} — technical drawing`}>
+    <figure ref={ref} className={`la-sheet la-${tone}${compact ? ' la-compact' : ''}${seen ? ' is-in' : ''} ${className}`} aria-label={`${title} — technical drawing`}>
       <span className="la-corner la-tl" aria-hidden="true" />
       <span className="la-corner la-tr" aria-hidden="true" />
       <span className="la-corner la-bl" aria-hidden="true" />
       <span className="la-corner la-br" aria-hidden="true" />
 
-      <div className="la-head">
+      {!compact && <div className="la-head">
         <span className="la-fig">{figure}</span>
         {views.length > 1 && (
           <div className="la-tabs" role="tablist" aria-label={`${title} drawing views`}>
@@ -97,7 +99,7 @@ export default function LineArtStage({ title, figure, legend, views, tone, class
             ))}
           </div>
         )}
-      </div>
+      </div>}
 
       <div className="la-stage">
         {views.map((v, i) => (
@@ -108,7 +110,7 @@ export default function LineArtStage({ title, figure, legend, views, tone, class
             dangerouslySetInnerHTML={i === active && markup[v.src] ? { __html: markup[v.src] } : undefined}
           />
         ))}
-        {view.key === 'iso' && legend.length > 0 && (
+        {!compact && view.key === 'iso' && legend.length > 0 && (
           <ol className="la-legend">
             {legend.map((l, i) => (
               <li key={l} style={{ ['--d' as string]: `${2900 + i * 260}ms` }}>
@@ -119,13 +121,13 @@ export default function LineArtStage({ title, figure, legend, views, tone, class
         )}
       </div>
 
-      <figcaption className="la-titleblock">
+      {!compact && <figcaption className="la-titleblock">
         <span className="la-tb-title">{title}</span>
         <span><small>DWG</small>{view.code}</span>
         <span><small>VIEW</small>{view.label}</span>
         <span><small>SCALE</small>NTS</span>
         <span className="la-tb-brand"><small>REV A</small>CANDRON</span>
-      </figcaption>
+      </figcaption>}
     </figure>
   )
 }

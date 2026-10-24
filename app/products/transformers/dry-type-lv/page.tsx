@@ -1,8 +1,8 @@
-import DryFamilyPage, { familyMetadata } from '@/components/drytype/DryFamilyPage'
-import { familyOf } from '@/lib/dry-type'
+import FamilyPage, { familyMetadata } from '@/components/range/FamilyPage'
+import { DRY, familyOf } from '@/lib/dry-type'
 
 export const metadata = familyMetadata(familyOf('lv'))
 
 export default function Page() {
-  return <DryFamilyPage f={familyOf('lv')} />
+  return <FamilyPage r={DRY} f={familyOf('lv')} />
 }

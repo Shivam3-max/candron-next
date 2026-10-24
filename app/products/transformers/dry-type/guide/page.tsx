@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import LineArt, { HeroArt } from '@/components/LineArt'
-import RangeNav from '@/components/drytype/RangeNav'
-import { DRY_GUIDE, DRY_HUB, bySlug, findProduct, productHref } from '@/lib/dry-type'
+import RangeNav from '@/components/range/RangeNav'
+import { DRY, DRY_GUIDE, DRY_HUB, bySlug, findProduct, productHref } from '@/lib/dry-type'
 import { PHONE } from '@/lib/inventory'
 
 export const metadata: Metadata = {
@@ -201,7 +201,7 @@ export default function DryTypeGuide() {
         </div>
       </div>
 
-      <RangeNav />
+      <RangeNav r={DRY} />
 
       <div className="cta-band">
         <div className="container">

@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
-import DryFamilyPage, { familyMetadata } from '@/components/drytype/DryFamilyPage'
-import { DRY_HUB, FAMILIES } from '@/lib/dry-type'
+import FamilyPage, { familyMetadata } from '@/components/range/FamilyPage'
+import { DRY, DRY_HUB, FAMILIES } from '@/lib/dry-type'
 
 type Props = { params: Promise<{ family: string }> }
 
@@ -19,5 +19,5 @@ export async function generateMetadata({ params }: Props) {
 export default async function Page({ params }: Props) {
   const f = find((await params).family)
   if (!f) notFound()
-  return <DryFamilyPage f={f} />
+  return <FamilyPage r={DRY} f={f} />
 }

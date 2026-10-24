@@ -379,3 +379,17 @@
   .dt-table-plain.dt-table-stack td { flex-direction: column; justify-content: flex-start; gap: .15rem; text-align: left; font-size: .95rem; }
 }
 .dt-toc, .dt-article, .dt-finder > *, .dt-family, .dt-range-col { min-width: 0; }
+
+/* ── Animated drawing in place of a product photo (components/range/ArtSlot) ── */
+.dt-photo.is-art { background: #F7F9FD; }
+.dt-art { position: relative; aspect-ratio: 4 / 3; display: flex; }
+.dt-art > .la-sheet { flex: 1 1 auto; border: 0; border-radius: 0; box-shadow: none; }
+.dt-art-aside { aspect-ratio: auto; height: clamp(340px, 34vw, 440px); }
+.dt-card .dt-art { aspect-ratio: 16 / 10; }
+.la-sheet.la-compact { padding: .35rem .5rem .2rem; }
+.la-compact .la-stage { min-height: 0; }
+.la-compact .la-svg { padding: .35rem .25rem 0; }
+.la-compact .la-corner { width: 10px; height: 10px; }
+@media (max-width: 767px) {
+  .dt-art-aside { height: 340px; }
+}
