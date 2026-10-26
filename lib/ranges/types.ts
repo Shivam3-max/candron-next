@@ -76,6 +76,8 @@ export interface RangeHub {
   art: Art
   stats: { value: string; label: string }[]
   why: { label: string; title: string; items: { t: string; d: string }[] }
+  /** Optional deeper look at one benefit, shown right after the "why" cards */
+  spotlight?: { label: string; title: string; intro: string; points: { t: string; d: string }[]; outcome: string }
   basics?: { label: string; title: string; intro: string; items: { t: string; d: string; href: string }[] }
   finderIntro: string
   faqs: FAQ[]

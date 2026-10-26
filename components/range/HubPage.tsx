@@ -59,7 +59,30 @@ export default function HubPage({ r }: { r: RangeDef }) {
         </div>
       </section>
 
-      <section id="finder" className="section bg-off dt-anchor">
+      {h.spotlight && (
+        <section className="section bg-off dt-spot" aria-labelledby="dt-spot-title">
+          <div className="container">
+            <div className="dt-spot-grid">
+              <div className="dt-spot-head">
+                <div className="label">{h.spotlight.label}</div>
+                <h2 id="dt-spot-title">{h.spotlight.title}</h2>
+                <p>{h.spotlight.intro}</p>
+                <p className="dt-spot-outcome">{h.spotlight.outcome}</p>
+              </div>
+              <ul className="dt-spot-list">
+                {h.spotlight.points.map(pt => (
+                  <li key={pt.t}>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#E8EEFF" /><path d="M5.8 10.2l2.8 2.8 5.6-6" stroke="var(--blue)" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                    <div><strong>{pt.t}</strong><span>{pt.d}</span></div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section id="finder" className={`section ${h.spotlight ? 'bg-white' : 'bg-off'} dt-anchor`}>
         <div className="container">
           <div className="dt-finder-head">
             <div>

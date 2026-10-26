@@ -300,9 +300,23 @@ export const LOADBANKS: RangeDef = {
       items: [
         { t: 'Code says so', d: 'CSA C282 calls for periodic load testing of emergency generators in buildings; hospitals add CSA Z32. A load bank lets you comply even when the building load is small.' },
         { t: 'Find problems on your schedule', d: 'Overheating, fuel and governor faults show up under load. Better to find them during a test than during a blackout.' },
-        { t: 'Keep diesels healthy', d: 'Running at real load burns off wet-stacking and keeps engines, alternators and switchgear exercised.' },
+        { t: 'Keep generators and engines healthy', d: 'Regular runs at real load burn off wet-stacking, bring the engine up to full temperature and exercise the alternator and controls — so the set starts and carries the load when it counts.' },
         { t: 'Prove new systems', d: 'Commissioning with a load bank proves generators, UPS, batteries and cooling together before handover.' },
       ],
+    },
+    spotlight: {
+      label: 'Engine Health',
+      title: 'How load testing keeps your generator healthy',
+      intro: 'A standby generator spends most of its life switched off, or idling through a weekly exercise run with little or no load. That is hard on a diesel engine. Regular runs at real load undo the damage and keep the whole set ready for an outage.',
+      points: [
+        { t: 'Burns off wet-stacking', d: 'Light running leaves unburnt fuel and carbon in the exhaust and injectors. Real load raises combustion temperature and clears them out.' },
+        { t: 'Brings the engine up to temperature', d: 'Full operating temperature drives condensation out of the oil and exhaust, which slows corrosion and sludge.' },
+        { t: 'Prevents cylinder glazing', d: 'Running under load keeps piston rings sealing properly against the cylinder walls, protecting compression and oil consumption.' },
+        { t: 'Circulates oil at full pressure', d: 'Every bearing and moving part is lubricated the way it will be during a real outage.' },
+        { t: 'Exercises the alternator and controls', d: 'The voltage regulator, governor and alternator windings work through their full range, and moisture is driven out of the windings.' },
+        { t: 'Proves the cooling system', d: 'Radiator, fans and thermostat are tested at full heat load, not just at idle.' },
+      ],
+      outcome: 'The result: longer engine life, lower repair costs, and a generator that starts and carries full load when the power goes out.',
     },
     finderIntro: 'Tell us what you are testing and where — we’ll point you to the right load bank.',
     faqs: [
