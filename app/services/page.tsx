@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { HeroArt } from '@/components/LineArt'
+import DesignGallery, { type DesignShot } from '@/components/DesignGallery'
 
 export const metadata = {
   title: 'Electrical Engineering Services',
@@ -21,6 +22,21 @@ const process = [
   { n: '02', title: 'Analyze', text: 'Develop the system model, complete required studies, and establish the equipment and protection basis.' },
   { n: '03', title: 'Design', text: 'Prepare coordinated electrical and mechanical designs, drawings, specifications, and review packages.' },
   { n: '04', title: 'Deliver', text: 'Support manufacturing, testing, documentation, installation, and commissioning through one accountable team.' },
+]
+
+const VPI = '/images/engineering/mv-vpi'
+const vpiShots: DesignShot[] = [
+  { src: `${VPI}/01-core-coil.jpg`, w: 601, h: 757, chapter: 'Core & Coil', title: 'Core and VPI windings', text: 'Three vacuum-pressure-impregnated coils on a step-lap core, held by the top and bottom clamping frames and mounted on the base channels.' },
+  { src: `${VPI}/02-bus-connections.jpg`, w: 601, h: 671, chapter: 'Core & Coil', title: 'HV and LV bus connections', text: 'Copper links form the high-voltage delta across the coils, while the low-voltage bus is routed out to the side for the secondary terminations.' },
+  { src: `${VPI}/03-barriers-guard.jpg`, w: 808, h: 727, chapter: 'Core & Coil', title: 'Phase barriers and guard frame', text: 'Insulating barriers sit between the phases and a guard frame surrounds the live parts, keeping clearances consistent and the unit safe to service.' },
+  { src: `${VPI}/04-rear-view.jpg`, w: 674, h: 712, chapter: 'Core & Coil', title: 'Rear view of the active part', text: 'The same assembly from the other side: the LV bus take-off, tap connections and the full extent of the guard frame.' },
+  { src: `${VPI}/05-assembled-in-frame.jpg`, w: 777, h: 754, chapter: 'Assembly', title: 'Active part inside the enclosure frame', text: 'The core and coil set into the enclosure structure, with removable roof panels and the HV bushing plate positioned for cable entry.' },
+  { src: `${VPI}/06-lv-termination.jpg`, w: 681, h: 655, chapter: 'Assembly', title: 'Low-voltage termination plate', text: 'LV bus bars pass through an insulated termination plate, ready for cable or bus duct connection on site.' },
+  { src: `${VPI}/07-frame-layout.jpg`, w: 603, h: 696, chapter: 'Assembly', title: 'Frame and coil layout', text: 'Section framing is arranged around the coils so that airflow, lifting and service access are all resolved before fabrication.' },
+  { src: `${VPI}/08-termination-panel.jpg`, w: 604, h: 697, chapter: 'Assembly', title: 'Cable termination panel', text: 'High- and low-voltage terminations grouped on one side panel, with bracing across the coils for transport and short-circuit strength.' },
+  { src: `${VPI}/09-cable-compartment.jpg`, w: 563, h: 649, chapter: 'Assembly', title: 'Termination compartment', text: 'A dedicated compartment with separate HV bushings and LV bus bars, giving installers clear working space for the incoming and outgoing cables.' },
+  { src: `${VPI}/10-clearances.jpg`, w: 606, h: 636, chapter: 'Assembly', title: 'Clearances checked in the model', text: 'Electrical clearances between the coils, bus and enclosure are verified in 3D before any steel is cut.' },
+  { src: `${VPI}/11-finished-enclosure.jpg`, w: 762, h: 712, chapter: 'Enclosure', title: 'Finished ventilated enclosure', text: 'The completed unit: a three-section enclosure with louvred panels top and bottom for natural air cooling, ready for indoor installation.' },
 ]
 
 export default function ElectricalEngineeringServicesPage() {
@@ -108,6 +124,31 @@ export default function ElectricalEngineeringServicesPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent" />
                 <figcaption className="absolute left-4 bottom-4 rounded-full bg-navy/85 px-3 py-2 font-mono text-[.8125rem] font-bold uppercase tracking-[.08em] text-white">Manufacturing Execution</figcaption>
               </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section bg-off vpi-showcase" aria-labelledby="vpi-showcase-title">
+        <div className="container">
+          <div className="vpi-grid">
+            <div className="vpi-copy rv-l">
+              <div className="label">Engineering Showcase</div>
+              <h2 id="vpi-showcase-title">Medium-Voltage Dry-Type VPI Transformer<br /><em>Modelled Before It&rsquo;s Built.</em></h2>
+              <p className="body mt-5">Every CANDRON transformer is modelled in 3D before it reaches the shop floor. This medium-voltage dry-type VPI unit shows how our engineers resolve the core and coil, connections, barriers, terminations and enclosure as one coordinated design.</p>
+              <ul className="vpi-points">
+                <li><strong>Core &amp; coil</strong><span>Step-lap core, VPI windings and clamping structure</span></li>
+                <li><strong>Connections</strong><span>HV delta links and LV bus take-off in copper</span></li>
+                <li><strong>Safety</strong><span>Phase barriers, guard frame and verified clearances</span></li>
+                <li><strong>Enclosure</strong><span>Termination compartments and louvred natural cooling</span></li>
+              </ul>
+              <div className="vpi-cta">
+                <Link href="/products/transformers/dry-type-mv/standard" className="btn btn-primary mag">See the VPI Transformer →</Link>
+                <Link href="/contact?service=electrical-engineering" className="vpi-link">Discuss your design →</Link>
+              </div>
+            </div>
+            <div className="vpi-gallery rv-r">
+              <DesignGallery shots={vpiShots} label="Medium-voltage dry-type VPI transformer — 3D engineering model views" />
             </div>
           </div>
         </div>
