@@ -54,7 +54,7 @@ const PRODUCTS: RangeProduct[] = [
     compare: { rating: '45 – 10,000 kVA', voltage: '2.4 – 34.5 kV primary', cooling: 'ONAN (KNAN with FR3)', mounting: 'Concrete pad, outdoor' },
     meta: {
       title: 'Three-Phase Padmount Transformers — 45 to 10,000 kVA',
-      description: 'CANDRON three-phase pad-mounted transformers, 45 – 10,000 kVA up to 34.5 kV: loop or radial feed, dead-front or live-front, mineral oil or FR3, built to CSA C227.4 and IEEE C57.12.34 in Toronto.',
+      description: 'CANDRON three-phase pad-mounted transformers, 45 – 10,000 kVA up to 34.5 kV: loop or radial feed, dead-front or live-front, mineral oil or FR3, made to CSA C227.4 and IEEE C57.12.34 in Canada and provided by CANDRON.',
     },
     art: { kind: 'lq-pm3' },
     eyebrow: 'Padmount · Underground Distribution',
@@ -123,7 +123,7 @@ const PRODUCTS: RangeProduct[] = [
       { q: 'What is the difference between loop feed and radial feed?', a: 'Radial feed has one cable in: the transformer is the end of the line. Loop feed has a cable in and a cable out, so the medium-voltage loop carries on to the next transformer. If one cable section fails, the loop can be fed from the other end and customers stay on.' },
       { q: 'Dead-front or live-front?', a: 'Dead-front uses insulated elbow connectors, so nothing energized is exposed when the door is open — the norm for new underground systems. Live-front uses exposed porcelain bushings and is mainly used to match older installations.' },
       PADMOUNT_FAQ_FLUID,
-      { q: 'Can you match an existing pad and cable layout?', a: 'Yes. Send the existing nameplate, pad drawing and photos; we build the replacement to land on the same pad with the same cable positions, which keeps the outage short.' },
+      { q: 'Can you match an existing pad and cable layout?', a: 'Yes. Send the existing nameplate, pad drawing and photos; we supply the replacement to land on the same pad with the same cable positions, which keeps the outage short.' },
     ],
     quoteItems: ['kVA rating', 'Primary voltage, BIL and system grounding', 'Secondary voltage and connection', 'Loop or radial feed, dead-front or live-front', 'Fusing and switching wanted', 'Fluid (mineral oil or FR3)', 'Pad size limits and site location'],
     related: ['single-phase', 'inverter-duty', 'substation/unit'],
@@ -225,7 +225,7 @@ const PRODUCTS: RangeProduct[] = [
     compare: { rating: '500 – 7,500 kVA', voltage: 'LV 480 – 800 V · HV up to 34.5 kV', cooling: 'ONAN / KNAN', mounting: 'Pad or skid' },
     meta: {
       title: 'Inverter-Duty Step-Up Padmount Transformers for Solar & Storage',
-      description: 'Inverter-duty step-up padmount transformers, 500 – 7,500 kVA, LV 480 – 800 V up to 34.5 kV: electrostatic shield, dual LV windings, FR3 fluid, designed to IEEE C57.159 by CANDRON in Toronto.',
+      description: 'Inverter-duty step-up padmount transformers, 500 – 7,500 kVA, LV 480 – 800 V up to 34.5 kV: electrostatic shield, dual LV windings, FR3 fluid, designed to IEEE C57.159, made in Canada and provided by CANDRON.',
     },
     art: { kind: 'lq-inv' },
     eyebrow: 'Padmount · Solar, Storage & Charging',
@@ -308,7 +308,7 @@ const PRODUCTS: RangeProduct[] = [
     compare: { rating: '300 – 5,000 kVA', voltage: '2.4 – 34.5 kV primary', cooling: 'ONAN / ONAF', mounting: 'Pad, close-coupled' },
     meta: {
       title: 'Unit Substation Transformers — 300 to 5,000 kVA',
-      description: 'Liquid-filled unit (secondary) substation transformers, 300 – 5,000 kVA up to 34.5 kV, with flanged throats for close coupling to MV switchgear and LV switchboards. ONAN or ONAF. Built to IEEE C57.12.36 by CANDRON.',
+      description: 'Liquid-filled unit (secondary) substation transformers, 300 – 5,000 kVA up to 34.5 kV, with flanged throats for close coupling to MV switchgear and LV switchboards. ONAN or ONAF. Made to IEEE C57.12.36 in Canada, provided by CANDRON.',
     },
     art: { kind: 'lq-unitsub' },
     eyebrow: 'Substation · Close-Coupled',
@@ -321,7 +321,7 @@ const PRODUCTS: RangeProduct[] = [
       { value: '1', label: 'Lineup' },
     ],
     overviewTitle: 'Switch, Transformer and Switchboard as One Unit',
-    overviewText: 'A unit substation brings power in at medium voltage and hands it out at utilization voltage in one continuous lineup. The transformer sits in the middle, with a throat on one side that bolts to the primary load-break switch or breaker, and a throat on the other that bolts to the secondary switchboard or switchgear. No exposed cable runs, a smaller footprint and one coordinated design. We build the transformer and can supply the switchgear on either side.',
+    overviewText: 'A unit substation brings power in at medium voltage and hands it out at utilization voltage in one continuous lineup. The transformer sits in the middle, with a throat on one side that bolts to the primary load-break switch or breaker, and a throat on the other that bolts to the secondary switchboard or switchgear. No exposed cable runs, a smaller footprint and one coordinated design. We supply the transformer and can supply the switchgear on either side too.',
     overviewPoints: [
       'Flanged throats or air terminal chambers on either side',
       'Coordinated with CANDRON MV switchgear and LV switchboards',
@@ -404,7 +404,7 @@ const PRODUCTS: RangeProduct[] = [
       { value: 'FR3', label: 'Fluid option' },
     ],
     overviewTitle: 'Engineered One Unit at a Time',
-    overviewText: 'Every power transformer is a custom design: the voltages, impedance, cooling stages, tap changer, bushings and accessories are set by the system it joins. Our engineers design the core and windings around your specification and fault study, then build and test the unit with the full set of routine tests. The tank, radiators, conservator and control cabinet are laid out for your yard, and the unit ships dressed or partly dismantled to suit the route.',
+    overviewText: 'Every power transformer is a custom design: the voltages, impedance, cooling stages, tap changer, bushings and accessories are set by the system it joins. Our engineers set the design requirements around your specification and fault study, and the unit is made and put through the full set of routine tests at the factory. The tank, radiators, conservator and control cabinet are laid out for your yard, and the unit ships dressed or partly dismantled to suit the route.',
     overviewPoints: [
       'Two- or three-winding designs',
       'On-load tap changer (LTC) or de-energized taps',
@@ -452,7 +452,7 @@ const PRODUCTS: RangeProduct[] = [
       'Data centre campuses with transmission service',
     ],
     faqs: [
-      { q: 'Do you build to utility specifications?', a: 'Yes. We work from the utility or owner specification and fault study, and share design reviews and drawings for approval before manufacturing starts.' },
+      { q: 'Can you supply to utility specifications?', a: 'Yes. We work from the utility or owner specification and fault study, and share design reviews and drawings for approval before manufacturing starts.' },
       { q: 'What is an on-load tap changer for?', a: 'It adjusts the turns ratio while the transformer carries load, so the secondary voltage stays steady as the incoming voltage and load change through the day.' },
       { q: 'Can it run in extreme cold?', a: 'Yes. We have built 15/20 MVA transformers for Arctic mining service, with low-temperature fluid handling, heaters and materials chosen for −50 °C.' },
     ],
@@ -474,7 +474,7 @@ const PRODUCTS: RangeProduct[] = [
     compare: { rating: '1 – 12.5 MVA', voltage: 'Up to 72 kV primary', cooling: 'ONAN / ONAF', mounting: 'Trailer or skid' },
     meta: {
       title: 'Portable Substations & Transformer Power Skids',
-      description: 'Trailer- and skid-mounted portable substations up to 12.5 MVA and 72 kV: HV disconnect and breaker, transformer and LV switchgear in one tested package. Engineered and built in Canada by CANDRON.',
+      description: 'Trailer- and skid-mounted portable substations up to 12.5 MVA and 72 kV: HV disconnect and breaker, transformer and LV switchgear in one tested package. Made in Canada, provided by CANDRON.',
     },
     art: { kind: 'lq-portable' },
     eyebrow: 'Substation · Mobile',
@@ -633,7 +633,7 @@ const PRODUCTS: RangeProduct[] = [
     compare: { rating: '30 – 300 kVA', voltage: 'Up to 34.5 kV primary', cooling: 'ONAN', mounting: 'Pole or platform' },
     meta: {
       title: 'Three-Phase Polemount Transformers — 30 to 300 kVA',
-      description: 'Three-phase pole-mounted distribution transformers, 30 – 300 kVA up to 34.5 kV: one tank in place of a three-unit bank, for farms, shops and small plants on overhead lines. Built by CANDRON in Canada.',
+      description: 'Three-phase pole-mounted distribution transformers, 30 – 300 kVA up to 34.5 kV: one tank in place of a three-unit bank, for farms, shops and small plants on overhead lines. Made in Canada, provided by CANDRON.',
     },
     art: { kind: 'lq-pole3' },
     eyebrow: 'Polemount · Three-Phase Overhead',
@@ -678,7 +678,7 @@ const PRODUCTS: RangeProduct[] = [
     standards: [STD.csa21, STD.csa8021, STD.ieee20, STD.ieee00, STD.ieee90],
     applications: ['Farms, barns and grain dryers', 'Workshops and small manufacturing', 'Pumping and lift stations', 'Rural commercial services', 'Telecom and remote sites'],
     faqs: [
-      { q: 'Is one three-phase unit better than three single-phase units?', a: 'It is lighter on the pole, has fewer connections and arrives as one tested assembly. A three-unit bank lets the utility replace one phase at a time from common stock. Follow your utility’s preference — we build both.' },
+      { q: 'Is one three-phase unit better than three single-phase units?', a: 'It is lighter on the pole, has fewer connections and arrives as one tested assembly. A three-unit bank lets the utility replace one phase at a time from common stock. Follow your utility’s preference — we supply both.' },
     ],
     quoteItems: ['kVA rating', 'Primary voltage', 'Secondary voltage and connection', 'Pole or platform mounting', 'Utility specification'],
     related: ['single-phase', 'padmount/three-phase', 'substation/portable'],
@@ -710,7 +710,7 @@ export const LIQUID: RangeDef = {
       intro: 'Padmount transformers sit on a concrete pad and take underground medium-voltage cable in through locked, barriered compartments. Single-phase units feed homes at 120/240 V; three-phase units serve commercial and industrial sites up to 10 MVA; inverter-duty units step solar and battery power up to the collector system.',
       art: { kind: 'lq-pm3' },
       points: ['Three-phase 45 – 10,000 kVA', 'Single-phase 10 – 250 kVA', 'Inverter-duty step-up to 7.5 MVA', 'Loop or radial, dead-front or live-front'],
-      meta: { title: 'Padmount Transformers — Single- and Three-Phase', description: 'CANDRON pad-mounted transformers: three-phase 45 – 10,000 kVA, single-phase 10 – 250 kVA and inverter-duty step-up units up to 34.5 kV, built to CSA C227 and IEEE C57.12 in Toronto.' },
+      meta: { title: 'Padmount Transformers — Single- and Three-Phase', description: 'CANDRON pad-mounted transformers: three-phase 45 – 10,000 kVA, single-phase 10 – 250 kVA and inverter-duty step-up units up to 34.5 kV, made to CSA C227 and IEEE C57.12 in Canada, provided by CANDRON.' },
     },
     {
       id: 'substation',
@@ -755,7 +755,7 @@ export const LIQUID: RangeDef = {
   ],
   hub: {
     crumbs: [{ label: 'Products', href: '/products' }, { label: 'Transformers', href: '/products/transformers' }],
-    label: 'Engineered, Built & Tested in Canada',
+    label: 'Made in Canada · Provided by CANDRON',
     h1: ['Liquid-Filled', 'Transformers'],
     lead: `Oil- and ester-filled transformers for the grid and the outdoors — from a 5 kVA polemount to a 100 MVA power transformer. ${PRODUCTS.length} products in three families, explained in plain words.`,
     art: { kind: 'lq-pm3' },
@@ -792,10 +792,10 @@ export const LIQUID: RangeDef = {
     faqs: [
       { q: 'Liquid-filled or dry-type — which should I choose?', a: 'Outdoors, or above a few MVA, liquid-filled is usually the better value. Indoors, near people, or where fire and spill rules are strict, a dry-type transformer avoids containment and fire-separation costs. Many sites use both.' },
       PADMOUNT_FAQ_FLUID,
-      { q: 'Do you build to Canadian standards?', a: 'Yes. Distribution transformers are built to CSA C2.1 and the CSA C227 padmount standards, power transformers to CSA C88, alongside the matching IEEE C57.12 standards. Every unit is tested in our facility before it ships.' },
+      { q: 'Are they made to Canadian standards?', a: 'Yes. Distribution transformers are made to CSA C2.1 and the CSA C227 padmount standards, power transformers to CSA C88, alongside the matching IEEE C57.12 standards. Every unit is tested at the factory before it ships.' },
       { q: 'Can you match a utility’s specification?', a: 'Yes. Send the specification and we will confirm compliance item by item, including voltages, fusing, bushings, finish and nameplate requirements.' },
       { q: 'How fast can I get one?', a: 'It depends on the rating and options. Call or send your requirements and an engineer will give you a firm date the same day; check our in-stock inventory for units ready now.' },
-      { q: 'Do you offer field service?', a: 'Yes. Our field team handles delivery supervision, oil testing, commissioning and maintenance on what we build and on other makes.' },
+      { q: 'Do you offer field service?', a: 'Yes. Our field team handles delivery supervision, oil testing, commissioning and maintenance on what we supply and on other makes.' },
     ],
     cta: {
       title: 'Tell us about the load and the line',
@@ -804,7 +804,7 @@ export const LIQUID: RangeDef = {
     },
     meta: {
       title: 'Liquid-Filled Transformers — Padmount, Substation & Polemount',
-      description: 'CANDRON liquid-filled transformers built in Canada: three- and single-phase padmounts, inverter-duty step-up units, unit substation and power transformers to 100 MVA and 230 kV, portable substations and polemounts. Mineral oil or FR3.',
+      description: 'CANDRON liquid-filled transformers made in Canada: three- and single-phase padmounts, inverter-duty step-up units, unit substation and power transformers to 100 MVA and 230 kV, portable substations and polemounts. Mineral oil or FR3.',
     },
   },
 }

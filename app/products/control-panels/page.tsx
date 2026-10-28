@@ -142,7 +142,7 @@ export default function ControlPanelsPage() {
           <div className="label label-white">UL 508A • CSA C22.2 • Industrial Control &amp; Automation</div>
           <h1>Control Panels — Automation,<br />Monitoring &amp; Process Control</h1>
           <p className="lead mt-4">
-            Custom UL 508A industrial control panels with PLC, HMI, and SCADA integration — engineered, built, and tested in-house.
+            Canadian-made UL 508A industrial control panels with PLC, HMI, and SCADA integration — engineered by our team and factory-tested before they ship.
           </p>
           <div className="flex gap-[.75rem] flex-wrap mt-6">
             {['UL 508A', 'PLC Integration', 'SCADA Ready', 'CSA Compliant'].map(b => (
@@ -174,8 +174,8 @@ export default function ControlPanelsPage() {
           <div className="split items-start gap-14">
             <div className="rv-l">
               <div className="label">Overview</div>
-              <h2 className="mb-5">Built to Your Spec,<br />Tested Before It Ships</h2>
-              <p className="body mb-6">Every control panel is engineered to your process requirements and assembled in-house. Our team handles mechanical design, electrical schematics, PLC programming, HMI configuration, and full factory acceptance testing — so you receive a panel that is ready to connect.</p>
+              <h2 className="mb-5">Made to Your Spec,<br />Tested Before It Ships</h2>
+              <p className="body mb-6">Every control panel is engineered to your process requirements and made in Canada. Our team handles electrical schematics, PLC programming, HMI configuration and the factory acceptance test with the panel shop — so you receive a panel that is ready to connect.</p>
               <ul className="check-list mb-8">
                 <li>UL 508A listed — accepted across Canada and the U.S.</li>
                 <li>Allen-Bradley, Siemens, Schneider — any major platform</li>
@@ -339,7 +339,7 @@ export default function ControlPanelsPage() {
               <div className="font-mono text-[.8125rem] text-blue tracking-[.22em] uppercase mb-4">End-to-End Services</div>
               <h3 className="text-white mb-4 text-[1.1875rem]">Engineering to commissioning — one team.</h3>
               <p className="text-white/[.6] text-[1.125rem] leading-[1.75] mb-6">
-                We handle schematic design, PLC programming, panel build, factory testing, and site commissioning. One team, one scope, no handoffs.
+                We handle schematic design, PLC programming, Canadian-made panel supply, factory testing, and site commissioning. One team, one scope, no handoffs.
               </p>
               <Link href="/commissioning" className="btn btn-primary mag">View Commissioning Services →</Link>
             </div>
@@ -402,7 +402,7 @@ export default function ControlPanelsPage() {
       <div className="cta-band">
         <div className="container"><div className="cta-band-inner">
           <h2 className="rv">See What We Can Build For You</h2>
-          <p className="lead rv !text-white/[.6] !max-w-[500px]">Built in Canada — reach our engineering team directly for specs, quotes, and lead times.</p>
+          <p className="lead rv !text-white/[.6] !max-w-[500px]">Made in Canada — reach our engineering team directly for specs, quotes, and lead times.</p>
           <div className="flex gap-4 justify-center flex-wrap rv">
             <Link href="/contact" className="btn btn-primary btn-lg mag">Request a Quote</Link>
             <Link href="/products" className="btn btn-outline btn-lg mag">All Products →</Link>

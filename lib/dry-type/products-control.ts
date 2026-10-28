@@ -16,7 +16,7 @@ export const CONTROL_PRODUCTS: DryProduct[] = [
     compare: { rating: '25 – 7,500 VA', voltage: '600 V (750 V CSA designs)', insulation: '130 °C or 180 °C class', enclosure: 'Open or Type 1' },
     meta: {
       title: 'Industrial Control Transformer',
-      description: 'Industrial control transformers 25 – 7,500 VA for control panels and motor starters: high inrush capacity, copper windings, low noise, open or Type 1 enclosed. Made in Canada by CANDRON.',
+      description: 'Industrial control transformers 25 – 7,500 VA for control panels and motor starters: high inrush capacity, copper windings, low noise, open or Type 1 enclosed. Made in Canada, provided by CANDRON.',
     },
     art: { kind: 'dt-ctrl' },
     eyebrow: 'Control & Motor · Panel Power',
@@ -98,7 +98,7 @@ export const CONTROL_PRODUCTS: DryProduct[] = [
     compare: { rating: '500 – 3,000 VA', voltage: 'Up to 7.2 kV · 60 kV BIL', insulation: '180 °C · 115 °C rise', enclosure: 'Open, encapsulated coil' },
     meta: {
       title: 'Medium-Voltage Control Power Transformer',
-      description: 'Medium-voltage control power transformers 500 – 3,000 VA with primaries up to 7.2 kV (60 kV BIL) for switchgear control power. Encapsulated coil, copper windings. Built in Toronto by CANDRON.',
+      description: 'Medium-voltage control power transformers 500 – 3,000 VA with primaries up to 7.2 kV (60 kV BIL) for switchgear control power. Encapsulated coil, copper windings. Made in Canada, provided by CANDRON.',
     },
     art: { kind: 'dt-mvcpt' },
     eyebrow: 'Control & Motor · Switchgear Control Power',
@@ -175,7 +175,7 @@ export const CONTROL_PRODUCTS: DryProduct[] = [
     compare: { rating: '15 – 400 HP', voltage: '1.2 kV class', insulation: '220 °C · 150 °C rise', enclosure: 'Open core & coil' },
     meta: {
       title: 'Motor-Starting Autotransformer',
-      description: 'Reduced-voltage motor-starting autotransformers for 15 – 400 HP motors, 1.2 kV class, with 50%, 65% and 80% taps. Copper windings, 220 °C insulation. Made in Canada by CANDRON.',
+      description: 'Reduced-voltage motor-starting autotransformers for 15 – 400 HP motors, 1.2 kV class, with 50%, 65% and 80% taps. Copper windings, 220 °C insulation. Made in Canada, provided by CANDRON.',
     },
     art: { kind: 'dt-mstart' },
     eyebrow: 'Control & Motor · Reduced-Voltage Starting',

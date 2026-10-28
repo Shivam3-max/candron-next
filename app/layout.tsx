@@ -43,11 +43,11 @@ const fontVars = [archivo.variable, dmSans.variable, jetbrainsMono.variable].joi
 export const metadata: Metadata = {
   metadataBase: new URL('https://candron.com'),
   title: {
-    default: 'Toronto Power Equipment Manufacturer | CANDRON',
+    default: 'Providers of Canadian-Made Electrical Equipment | CANDRON',
     template: '%s | CANDRON Energy Inc.',
   },
-  description: 'CANDRON is a leading Toronto manufacturer of switchgear, switchboards, and dry-type transformers, delivering reliable power distribution equipment with shorter lead times.',
-  keywords: ['Toronto power equipment manufacturer', 'Toronto switchgear manufacturer', 'Toronto switchboard manufacturer', 'dry-type transformer manufacturer', 'power distribution equipment', 'Canadian electrical equipment manufacturer', 'switchgear', 'switchboards', 'Toronto Ontario'],
+  description: 'CANDRON Energy is a Toronto-based provider of Canadian-made electrical equipment: switchgear, switchboards, transformers and power distribution equipment, engineered to your project and delivered with shorter lead times.',
+  keywords: ['Canadian-made electrical equipment', 'Canadian-made switchgear', 'Canadian-made transformers', 'electrical equipment supplier Toronto', 'switchgear supplier Canada', 'dry-type transformer supplier', 'power distribution equipment', 'switchboards', 'Toronto Ontario'],
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
@@ -61,14 +61,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_CA',
     siteName: 'CANDRON Energy Inc.',
-    title: 'Toronto Power Equipment Manufacturer | CANDRON',
-    description: 'A leading Toronto manufacturer of switchgear, switchboards, and dry-type transformers for power distribution projects across North America.',
+    title: 'Providers of Canadian-Made Electrical Equipment | CANDRON',
+    description: 'Toronto-based providers of Canadian-made switchgear, switchboards and transformers for power distribution projects across North America.',
     images: [{ url: '/images/switchgear.jpg', width: 1200, height: 630, alt: 'CANDRON Energy Inc. — Power Distribution Equipment' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Toronto Power Equipment Manufacturer | CANDRON',
-    description: 'A leading Toronto manufacturer of switchgear, switchboards, and dry-type transformers for power distribution projects across North America.',
+    title: 'Providers of Canadian-Made Electrical Equipment | CANDRON',
+    description: 'Toronto-based providers of Canadian-made switchgear, switchboards and transformers for power distribution projects across North America.',
     images: ['/images/switchgear.jpg'],
   },
   robots: {
@@ -96,7 +96,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         url: 'https://candron.com',
         logo: 'https://candron.com/images/candronpng.png',
         image: 'https://candron.com/images/switchgear.jpg',
-        description: 'A leading Toronto-based manufacturer of switchgear, switchboards, dry-type transformers, and engineered power distribution equipment.',
+        description: 'A Toronto-based provider of Canadian-made electrical equipment: switchgear, switchboards, transformers and engineered power distribution equipment.',
         telephone: '+1-647-616-2595',
         email: 'sales@candron.com',
         address: {

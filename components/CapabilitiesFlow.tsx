@@ -10,8 +10,8 @@ gsap.registerPlugin(ScrollTrigger);
 const caps = [
   {
     n: "01",
-    title: "Electrical Design Engineering",
-    desc: "Our electrical engineers prepare single-line diagrams, schematics and protection schemes, and check every design against your specification through a multi-stage review.",
+    title: "Application Engineering",
+    desc: "Our electrical engineers read your single-line diagram, schematics and specification, and turn them into a clear equipment scope before anything is ordered.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -25,8 +25,8 @@ const caps = [
   },
   {
     n: "02",
-    title: "Mechanical Design",
-    desc: "Enclosure layout, mechanical design and thermal management are coordinated by a dedicated project team of four to six electrical and mechanical engineers.",
+    title: "Specification & Selection",
+    desc: "Ratings, enclosures, layout and options are checked against your room, site conditions, standards and budget, so the equipment fits the first time.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -41,8 +41,8 @@ const caps = [
   },
   {
     n: "03",
-    title: "Fabrication",
-    desc: "Enclosures, bus structures and assemblies are fabricated on high-precision German robotic machinery for consistent fit and finish.",
+    title: "Canadian Sourcing",
+    desc: "We place each order with the Canadian manufacturer best suited to the rating, standard and schedule, and hold them to it for you.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -56,8 +56,8 @@ const caps = [
   },
   {
     n: "04",
-    title: "Assembly",
-    desc: "Experienced technicians install components, assemble bus systems and mount hardware using professional-grade tooling.",
+    title: "Submittals & Drawings",
+    desc: "We manage submittal drawings, comments and resubmissions between the factory, your engineer and the utility, so approval does not stall.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -71,8 +71,8 @@ const caps = [
   },
   {
     n: "05",
-    title: "Wiring",
-    desc: "Skilled wiring technicians wire every unit to CEC and NFPA 79 requirements, with colour-coded conductors, permanent labelling and complete wiring records.",
+    title: "Production Follow-Up",
+    desc: "We track material, long-lead components and production milestones at the plant and tell you early if a date is at risk.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -87,8 +87,8 @@ const caps = [
   },
   {
     n: "06",
-    title: "Quality Assurance",
-    desc: "Documented inspection checkpoints, routine machine audits and controlled production conditions give full traceability at every stage of manufacturing.",
+    title: "Quality Inspection",
+    desc: "In-plant inspections and documented hold points check workmanship, wiring, labelling and nameplates against your approved drawings.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -103,8 +103,8 @@ const caps = [
   },
   {
     n: "07",
-    title: "Functional Testing",
-    desc: "Omicron and Phenix test systems on dedicated test benches verify control logic, protection schemes and overall equipment performance.",
+    title: "Witnessed Factory Testing",
+    desc: "Factory acceptance testing to CSA, IEEE, ANSI and UL requirements. We attend the test, and your team or inspector is welcome to witness it.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -119,7 +119,7 @@ const caps = [
   {
     n: "08",
     title: "Documentation",
-    desc: "Every unit ships with as-built drawings, test reports, wiring schedules and operation and maintenance (O&M) manuals.",
+    desc: "Every unit arrives with as-built drawings, test reports, wiring schedules and operation and maintenance (O&M) manuals, checked by us first.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -136,8 +136,8 @@ const caps = [
   },
   {
     n: "09",
-    title: "Factory Acceptance Testing",
-    desc: "Complete factory acceptance testing to ANSI, IEEE, NETA, CSA and UL standards. Customer-witnessed FAT is available on request.",
+    title: "Delivery & Commissioning",
+    desc: "We coordinate freight to site, then our field team supports installation, testing to NETA ATS and energization.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -156,8 +156,8 @@ const caps = [
 const SNAKE = [0, 1, 2, 5, 4, 3, 6, 7, 8];
 
 const bullets = [
-  "Nine core disciplines, all performed in-house",
-  "Documented traceability on every project",
+  "Nine steps managed by one accountable provider",
+  "Every unit made in Canada, with full traceability",
   "Witnessed FAT available to your team or inspector",
 ];
 
@@ -273,20 +273,18 @@ export default function CapabilitiesFlow() {
         <div className="cap-left rv-l">
           <div className="label label-white">Capabilities</div>
           <h2 className="cap-heading">
-            Everything
-            <br />
-            In&#8209;House.
+            Canadian&#8209;Made.
             <br />
             <span className="text-blue">
-              Nothing
+              One
               <br />
-              Outsourced.
+              Provider.
             </span>
           </h2>
           <p className="cap-sub">
-            Engineering, fabrication, assembly, wiring and testing are all
-            completed in our Toronto facility, so one team is accountable
-            from the first drawing to factory acceptance.
+            We are providers of Canadian-made electrical equipment. Our
+            team engineers the scope, sources it from Canadian manufacturers
+            and stays accountable from the first drawing to energization.
           </p>
           <ul className="cap-bullets">
             {bullets.map((b) => (
@@ -310,7 +308,6 @@ export default function CapabilitiesFlow() {
               </li>
             ))}
           </ul>
-          {/* <Link href="/manufacturing" className="btn btn-primary">See How We Build →</Link> */}
         </div>
 
         {/* ── RIGHT: 3×3 compact grid ── */}
@@ -353,11 +350,12 @@ export default function CapabilitiesFlow() {
           </div>
           <div className="cap-cta-text">
             <div className="cap-cta-title">
-              One Facility. One Team. Total Accountability.
+              Canadian-Made Equipment. One Point of Contact.
             </div>
             <div className="cap-cta-sub">
-              By keeping everything in-house, we deliver greater control over
-              quality, schedules, and performance — from start to finish.
+              One provider manages engineering, sourcing, testing and
+              delivery, so quality and schedule stay under control from start
+              to finish.
             </div>
           </div>
           <Link href="/contact" className="btn btn-primary cap-cta-btn">

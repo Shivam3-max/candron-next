@@ -95,7 +95,7 @@ const data: ProductTypePageProps = {
     },
     {
       q: 'Can you provide engineering coordination with the VFD vendor?',
-      a: 'Yes — we coordinate directly with the drive vendor for parameter settings, bypass contactors, and dynamic braking resistor sizing. We also perform load tests and speed range verification at our facility before shipment.',
+      a: 'Yes — we coordinate directly with the drive vendor for parameter settings, bypass contactors, and dynamic braking resistor sizing. Load tests and speed range verification are run at the factory before shipment.',
     },
   ],
   quoteItems: [
@@ -110,7 +110,7 @@ const data: ProductTypePageProps = {
 
 export const metadata = {
   title: 'Motor Control Centres (MCC) | CANDRON Energy',
-  description: 'UL 508A and NEMA ICS 18 motor control centres with VFD drives, soft starters, and intelligent motor protection. Built in Toronto, Ontario.',
+  description: 'UL 508A and NEMA ICS 18 motor control centres with VFD drives, soft starters, and intelligent motor protection. Made in Canada, provided by CANDRON.',
 }
 
 export default function MCCPage() {

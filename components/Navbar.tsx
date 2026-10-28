@@ -48,14 +48,14 @@ const capabilitiesItems = [
   },
   {
     href: '/manufacturing',
-    label: 'Manufacturing',
-    desc: 'Canadian production, assembly, and quality control',
+    label: 'Canadian-Made',
+    desc: 'How we source, inspect and deliver Canadian-made equipment',
     icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 21V9l6 4V9l6 4V3h6v18H3z"/></svg>,
   },
   {
     href: '/testing',
     label: 'Testing',
-    desc: 'Factory verification and documented test results',
+    desc: 'Witnessed factory tests and documented results',
     icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 2v6l-5 9a3 3 0 0 0 2.6 5h10.8a3 3 0 0 0 2.6-5l-5-9V2"/><path d="M7 14h10"/></svg>,
   },
   {
@@ -105,7 +105,7 @@ const productItems = [
     href: '/products/transformers/liquid-filled',
     name: 'Liquid-Filled Transformers',
     sub: '5 kVA – 100 MVA • up to 230 kV',
-    desc: 'Padmount, substation, power, portable and polemount transformers in mineral oil or FR3 — engineered, built and tested in Canada.',
+    desc: 'Padmount, substation, power, portable and polemount transformers in mineral oil or FR3 — made and tested in Canada, provided by CANDRON.',
     image: '/images/projects/3mva-inverter-duty-padmount/3mva-padmount-three-quarter.jpg',
     types: [
       { name: 'Padmount', href: '/products/transformers/padmount', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="8" width="18" height="11" rx="2"/><path d="M2 21h20"/></svg> },
@@ -121,7 +121,7 @@ const productItems = [
     href: '/products/transformers/dry-type',
     name: 'Dry-Type Range',
     sub: '25 VA – 15 MVA • up to 46 kV',
-    desc: 'Oil-free transformers built in Toronto: LV distribution, MV power, control & motor-starting, plus reactors, filters and RC snubbers — with a product finder and plain-English guide.',
+    desc: 'Canadian-made oil-free transformers: LV distribution, MV power, control & motor-starting, plus reactors, filters and RC snubbers — with a product finder and plain-English guide.',
     image: '/images/products/transformers/dry-type-lv-standard.webp',
     types: [
       { name: 'LV Distribution', href: '/products/transformers/dry-type-lv', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="2"/><line x1="2" y1="9" x2="22" y2="9"/><line x1="9" y1="9" x2="9" y2="22"/></svg> },
@@ -137,7 +137,7 @@ const productItems = [
     href: '/products/integrated-power',
     name: 'Integrated Power',
     sub: 'E-houses • PDUs • RPPs',
-    desc: 'Walk-in power houses with MV and LV gear inside, power distribution units and remote power panels — factory-built and tested as complete packages.',
+    desc: 'Walk-in power houses with MV and LV gear inside, power distribution units and remote power panels — made in Canada and tested as complete packages.',
     image: '/images/products/power-distribution/power-distribution-unit.webp',
     types: [
       { name: 'Walk-In E-House', href: '/products/integrated-power/e-house', icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="7" width="20" height="13" rx="1"/><path d="M6 20v-6h4v6"/></svg> },
@@ -168,12 +168,12 @@ const productItems = [
 
 // Phrases complete the sentence "We …" in the header tagline.
 const TAGLINES = [
-  'engineer and manufacture in Canada.',
+  'provide Canadian-made electrical equipment.',
   'are fast at our service.',
   'are on call 24/7 for emergency response.',
   'keep in-stock equipment ready in Toronto.',
-  'build to CSA, UL & IEEE standards.',
-  'test every unit before it ships.',
+  'supply to CSA, UL & IEEE standards.',
+  'check every factory test before it ships.',
   'quote the same day you ask.',
 ]
 
@@ -204,7 +204,7 @@ function TaglineTicker() {
 
   return (
     <p className="hdr-tagline">
-      <span className="sr-only">We engineer and manufacture in Canada, respond fast, and are on call 24/7.</span>
+      <span className="sr-only">We are providers of Canadian-made electrical equipment, respond fast, and are on call 24/7.</span>
       <span aria-hidden="true">
         <span className="hdr-tagline-lead">We</span>{' '}
         <span className="hdr-tagline-word">{text}</span>
@@ -551,7 +551,7 @@ export default function Navbar() {
           </a>
           <div className="mobile-nav-canada">
             <CanadaFlag height={24} />
-            <span>Engineered &amp; Manufactured<br />in Canada</span>
+            <span>Providers of Canadian-Made<br />Electrical Equipment</span>
           </div>
         </div>
       </aside>

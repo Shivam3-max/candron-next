@@ -76,7 +76,7 @@ export default function LeadTimePlannerPage() {
         <div className="container">
           <div className="cta-band-inner">
             <h2>Need a firm date, not a range?</h2>
-            <p className="lead !text-white/[.6] !max-w-[560px]">Send your equipment list and energization date. CANDRON builds switchgear, switchboards and transformers in Toronto and will reply with current build slots the same business day.</p>
+            <p className="lead !text-white/[.6] !max-w-[560px]">Send your equipment list and energization date. CANDRON provides Canadian-made switchgear, switchboards and transformers and will reply with current lead times the same business day.</p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link href="/contact?product=lead-time-planner" className="btn btn-primary btn-lg">Ask for build slots</Link>
               <Link href="/resources#toolkit" className="btn btn-outline btn-lg">More project tools →</Link>

@@ -98,8 +98,8 @@ export default function RfqScorecardPage() {
       <div className="cta-band">
         <div className="container">
           <div className="cta-band-inner">
-            <h2>Add a Canadian manufacturer to your bid list</h2>
-            <p className="lead !text-white/[.6] !max-w-[560px]">CANDRON quotes switchgear, switchboards and transformers on exactly the basis this RFQ asks for, built and tested in Toronto, with lead times counted from approved drawings.</p>
+            <h2>Add a Canadian-made option to your bid list</h2>
+            <p className="lead !text-white/[.6] !max-w-[560px]">CANDRON quotes Canadian-made switchgear, switchboards and transformers on exactly the basis this RFQ asks for, with lead times counted from approved drawings.</p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link href="/contact?product=rfq-scorecard" className="btn btn-primary btn-lg">Send us your RFQ</Link>
               <Link href="/resources#toolkit" className="btn btn-outline btn-lg">More project tools →</Link>

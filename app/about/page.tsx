@@ -4,7 +4,7 @@ import Image from 'next/image'
 import StatBar from '@/components/StatBar'
 import TimelineScroll from '@/components/TimelineScroll'
 
-export const metadata = { title: 'About Our Toronto Manufacturing Team', description: 'Meet CANDRON, a leading Toronto-based manufacturer of switchgear, switchboards, dry-type transformers, and engineered power distribution equipment.' }
+export const metadata = { title: 'About CANDRON — Providers of Canadian-Made Electrical Equipment', description: 'Meet CANDRON, a Toronto-based provider of Canadian-made switchgear, switchboards, transformers and engineered power distribution equipment.' }
 
 export default function AboutPage() {
   return (
@@ -18,13 +18,13 @@ export default function AboutPage() {
         <div className="la-hero-slot hero-panel-slot">
           <aside className="about-glance" aria-label="CANDRON at a glance">
             <div className="about-glance-kicker">Inside CANDRON</div>
-            <p className="about-glance-lede">Founded 2022 in Toronto. Engineering, fabrication, assembly, wiring and factory testing — all under one roof.</p>
+            <p className="about-glance-lede">Founded 2022 in Toronto. Providers of Canadian-made electrical equipment — engineered, sourced, tested and delivered by one team.</p>
             <div className="about-glance-nav" role="navigation" aria-label="About page sections">
               {[
                 { href: '#values', title: 'Our Values', sub: 'What drives every project' },
                 { href: '#our-story', title: 'Our Story', sub: 'A young company, decades of expertise' },
                 { href: '#team', title: 'The Team', sub: 'Engineers and field technicians' },
-                { href: '#facility', title: 'Our Facility', sub: 'Toronto, Ontario' },
+                { href: '#facility', title: 'Canadian-Made', sub: 'How we provide' },
               ].map((item, i) => (
                 <a key={item.href} href={item.href}>
                   <span className="about-glance-num">{String(i + 1).padStart(2, '0')}</span>
@@ -50,12 +50,12 @@ export default function AboutPage() {
           <div className="split rv">
             <div className="rv-l">
               <div className="label">Who We Are</div>
-              <h2>A Leading Toronto Power Equipment Manufacturer</h2>
+              <h2>Providers of Canadian-Made Electrical Equipment</h2>
             </div>
             <div className="rv-r">
-              <p className="body mb-5">CANDRON Energy Inc. is a local Toronto-based manufacturer of switchgear, switchboards, dry-type transformers, and engineered power distribution equipment. Our electrical and mechanical teams coordinate design, manufacturing, assembly, and testing under one roof.</p>
-              <p className="body mb-5">We built CANDRON differently. Every stage of production happens in our Toronto facility — electrical engineering, mechanical design, fabrication, assembly, wiring, quality inspection, and factory acceptance testing. When you work with CANDRON, there is one point of contact and one team accountable for the outcome.</p>
-              <p className="body">Today, CANDRON serves clients across mining, oil and gas, power generation, data centers, healthcare, transportation, and more — delivering engineered power distribution solutions with faster lead times and uncompromising quality built to ANSI, NETA, CSA, and IEEE standards.</p>
+              <p className="body mb-5">CANDRON Energy Inc. is a Toronto-based provider of Canadian-made electrical equipment: switchgear, switchboards, dry-type and liquid-filled transformers, and engineered power distribution equipment. We are not a manufacturer — we engineer each order, source it from Canadian manufacturers and see it through to energization.</p>
+              <p className="body mb-5">We set CANDRON up differently. Our team handles application engineering, specification, sourcing, submittals, production follow-up, quality inspection, witnessed factory testing, delivery and commissioning. When you work with CANDRON, there is one point of contact and one team accountable for the outcome.</p>
+              <p className="body">Today, CANDRON serves clients across mining, oil and gas, power generation, data centers, healthcare, transportation, and more — delivering engineered power distribution solutions with faster lead times and uncompromising quality to CSA, IEEE, ANSI and NETA standards.</p>
             </div>
           </div>
         </div>
@@ -168,7 +168,7 @@ export default function AboutPage() {
               { val: '2022', lbl: 'Year Founded' },
               { val: '50+', lbl: 'Years Combined Expertise' },
               { val: 'P.Eng', lbl: 'Licensed Engineers' },
-              { val: '100%', lbl: 'In-House Manufacturing' },
+              { val: '100%', lbl: 'Canadian-Made' },
             ].map((s) => (
               <div key={s.lbl} className="bg-[#080E2C] py-7 px-6 text-center">
                 <div className="font-display text-[1.76rem] font-black text-blue leading-none">{s.val}</div>
@@ -184,11 +184,11 @@ export default function AboutPage() {
             </div>
             <div className="rv-r flex flex-col gap-5 mt-4 max-md:hidden">
               <div className="rounded-[14px] overflow-hidden h-[260px] relative border border-blue/[.15]">
-                <Image src="/images/projects/mv-vpi-outdoor-transformer/mv-vpi-three-phase-coil-assembly.jpg" alt="Medium-voltage VPI transformer coil assembly in the manufacturing facility" fill className="object-cover object-center" sizes="(max-width:1024px) 100vw, 40vw"/>
+                <Image src="/images/projects/mv-vpi-outdoor-transformer/mv-vpi-three-phase-coil-assembly.jpg" alt="Medium-voltage VPI transformer coil assembly at the factory" fill className="object-cover object-center" sizes="(max-width:1024px) 100vw, 40vw"/>
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent"/>
               </div>
               <div className="rounded-[14px] overflow-hidden h-[260px] relative border border-blue/[.15]">
-                <Image src="/images/projects/custom-replacement-transformer/custom-transformer-side-view.jpg" alt="Custom replacement transformer assembled at the CANDRON facility" fill className="object-cover object-center" sizes="(max-width:1024px) 100vw, 40vw"/>
+                <Image src="/images/projects/custom-replacement-transformer/custom-transformer-side-view.jpg" alt="Custom replacement transformer supplied by CANDRON" fill className="object-cover object-center" sizes="(max-width:1024px) 100vw, 40vw"/>
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent"/>
               </div>
             </div>
@@ -301,19 +301,19 @@ export default function AboutPage() {
       <div id="facility" className="section bg-off">
         <div className="container">
           <div className="text-center max-w-[580px] mx-auto mb-14 rv">
-            <div className="label justify-center">Our Facility</div>
-            <h2>Toronto, Ontario</h2>
-            <p className="lead mt-4 mx-auto">Our Toronto facility houses our complete manufacturing operation — electrical engineering, fabrication, assembly, wiring, testing lab, and engineering offices, all under one roof.</p>
+            <div className="label justify-center">Canadian-Made</div>
+            <h2>Made in Canada. Provided by CANDRON.</h2>
+            <p className="lead mt-4 mx-auto">From our base in Toronto, Ontario, our engineers and field team manage Canadian-made equipment from the first drawing to energization — sourcing, inspection, witnessed factory testing, delivery and commissioning.</p>
           </div>
           <div className="facility-grid">
             <div className="facility-img rv"><Image src="/images/projects/mv-vpi-outdoor-transformer/mv-vpi-enclosure-assembly.jpg" alt="Medium-voltage VPI transformer being assembled inside its enclosure" fill className="object-cover object-center" sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
-            <div className="facility-img rv d2"><Image src="/images/projects/2500kva-autotransformer/2500kva-three-phase-coils.jpg" alt="Three copper-wound autotransformer coils in the CANDRON manufacturing facility" fill className="object-cover object-center" sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
+            <div className="facility-img rv d2"><Image src="/images/projects/2500kva-autotransformer/2500kva-three-phase-coils.jpg" alt="Three copper-wound autotransformer coils at the factory" fill className="object-cover object-center" sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
             <div className="facility-img rv d3"><Image src="/images/projects/custom-replacement-transformer/custom-transformer-front-view.jpg" alt="Custom transformer undergoing final factory preparation" fill className="object-cover object-center" sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"/></div>
           </div>
           <div className="metrics-4col rv">
             {[
-              { val: '100%', lbl: 'In-House Production' },
-              { val: 'In-House', lbl: 'Testing Lab' },
+              { val: '100%', lbl: 'Canadian-Made' },
+              { val: 'Witnessed', lbl: 'Factory Testing' },
               { val: '24/7', lbl: 'Engineer On Call' },
               { val: 'Full FAT', lbl: 'Before Shipment' },
             ].map((m) => (

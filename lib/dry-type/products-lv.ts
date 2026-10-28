@@ -25,7 +25,7 @@ export const LV_PRODUCTS: DryProduct[] = [
     compare: { rating: '1Ø 3 – 350 kVA · 3Ø 5 – 900 kVA', voltage: '1.2 kV class', insulation: '220 °C · 150 °C rise', enclosure: 'Type 1 / 3R' },
     meta: {
       title: 'General-Purpose Dry-Type Distribution Transformer',
-      description: 'Ventilated general-purpose dry-type transformers, single-phase 3 – 350 kVA and three-phase 5 – 900 kVA, 1.2 kV class. Copper or aluminum, 220 °C insulation, DOE 2016 and NRCan 2019 efficient. Built in Toronto.',
+      description: 'Ventilated general-purpose dry-type transformers, single-phase 3 – 350 kVA and three-phase 5 – 900 kVA, 1.2 kV class. Copper or aluminum, 220 °C insulation, DOE 2016 and NRCan 2019 efficient. Made in Canada.',
     },
     art: { kind: 'dt-gp' },
     eyebrow: 'LV Distribution · Ventilated · 1.2 kV Class',
@@ -183,7 +183,7 @@ export const LV_PRODUCTS: DryProduct[] = [
       { q: 'Isn’t every transformer already an “isolation” transformer?', a: 'Any two-winding transformer separates primary from secondary, so in that sense yes. What makes this one different is the grounded shield between the windings. It handles the high-frequency noise that a plain transformer lets through.' },
       { q: 'Single shield or double shield?', a: 'A single shield is enough for most rooms with noise problems. A double shield adds more layers between the windings and is used where very low noise matters, such as precision test or medical equipment. Tell us the equipment and we will recommend one.' },
       { q: 'Will it fix harmonics too?', a: 'No. A shield handles noise, not the heating caused by harmonic currents. If the load is mostly electronics, combine the shield with a K-factor rating, or choose a harmonic-mitigating transformer.' },
-      { q: 'Can it be used for health-care isolated power?', a: 'Isolated power panels in operating rooms have their own rules on leakage current and monitoring. We build low-leakage versions for those panels — share the panel make and the room type and we will match it.' },
+      { q: 'Can it be used for health-care isolated power?', a: 'Isolated power panels in operating rooms have their own rules on leakage current and monitoring. We supply low-leakage versions for those panels — share the panel make and the room type and we will match it.' },
     ],
     quoteItems: [...LV_QUOTE.slice(0, 3), 'Single or double shield', 'What equipment is being protected', ...LV_QUOTE.slice(3, 5)],
     related: ['standard', 'k-factor', 'harmonic-mitigating', 'drive-isolation'],
@@ -203,7 +203,7 @@ export const LV_PRODUCTS: DryProduct[] = [
     compare: { rating: '3Ø 5 – 900 kVA', voltage: '1.2 kV class', insulation: '220 °C · 150 °C rise', enclosure: 'Type 1 / 3R' },
     meta: {
       title: 'Drive Isolation Transformer',
-      description: 'Three-phase drive isolation transformers 5 – 900 kVA for VFDs and DC drives. K-4 rated as standard (K-9 to K-20 optional), braced for drive duty, 220 °C insulation. Built in Toronto by CANDRON.',
+      description: 'Three-phase drive isolation transformers 5 – 900 kVA for VFDs and DC drives. K-4 rated as standard (K-9 to K-20 optional), braced for drive duty, 220 °C insulation. Made in Canada, provided by CANDRON.',
     },
     art: { kind: 'dt-drive' },
     eyebrow: 'LV Distribution · Built for Drive Duty',
@@ -290,7 +290,7 @@ export const LV_PRODUCTS: DryProduct[] = [
     compare: { rating: '1Ø 3 – 333 kVA · 3Ø 5 – 1,000 kVA', voltage: '600 V class', insulation: '220 °C · 150 °C rise', enclosure: 'Type 1 / 3R' },
     meta: {
       title: 'K-Factor Rated Transformer',
-      description: 'K-factor rated dry-type transformers for non-linear loads: single-phase 3 – 333 kVA, three-phase 5 – 1,000 kVA, K-4 to K-20, rated per IEEE C57.110 with a 200% neutral. Built in Canada by CANDRON.',
+      description: 'K-factor rated dry-type transformers for non-linear loads: single-phase 3 – 333 kVA, three-phase 5 – 1,000 kVA, K-4 to K-20, rated per IEEE C57.110 with a 200% neutral. Made in Canada, provided by CANDRON.',
     },
     art: { kind: 'dt-kfactor' },
     eyebrow: 'LV Distribution · For Electronic Loads',
@@ -377,7 +377,7 @@ export const LV_PRODUCTS: DryProduct[] = [
     compare: { rating: '3Ø 15 – 1,000 kVA', voltage: '1.2 kV class', insulation: '220 °C · 150 °C rise', enclosure: 'Type 1 / 3R' },
     meta: {
       title: 'Harmonic-Mitigating Transformer',
-      description: 'Harmonic-mitigating dry-type transformers, three-phase 15 – 1,000 kVA, with zero-sequence flux cancellation and phase-shifted single, dual or triple outputs. Lower losses and cleaner voltage, built in Toronto.',
+      description: 'Harmonic-mitigating dry-type transformers, three-phase 15 – 1,000 kVA, with zero-sequence flux cancellation and phase-shifted single, dual or triple outputs. Lower losses and cleaner voltage, made in Canada.',
     },
     art: { kind: 'dt-hmt' },
     eyebrow: 'LV Distribution · Power Quality',
@@ -464,7 +464,7 @@ export const LV_PRODUCTS: DryProduct[] = [
     compare: { rating: '1Ø 3 – 333 kVA · 3Ø 5 – 1,000 kVA', voltage: '1.2 kV class', insulation: '220 °C · 150 °C rise', enclosure: 'Type 1 / 3R' },
     meta: {
       title: 'Dry-Type Autotransformer',
-      description: 'Dry-type autotransformers for voltage matching: single-phase 3 – 333 kVA, three-phase 5 – 1,000 kVA, 1.2 kV class. Common uses: 600 V to 480 V and 480 V to 400 V for imported machinery. Made in Canada by CANDRON.',
+      description: 'Dry-type autotransformers for voltage matching: single-phase 3 – 333 kVA, three-phase 5 – 1,000 kVA, 1.2 kV class. Common uses: 600 V to 480 V and 480 V to 400 V for imported machinery. Made in Canada, provided by CANDRON.',
     },
     art: { kind: 'dt-auto' },
     eyebrow: 'LV Distribution · Voltage Matching',
@@ -695,7 +695,7 @@ export const LV_PRODUCTS: DryProduct[] = [
       'Telecom huts and small equipment shelters',
     ],
     faqs: [
-      { q: 'What do I need to connect it?', a: 'Just the 480 V or 600 V feed to the primary breaker. Everything between the primary breaker and the branch breakers is already wired at our factory.' },
+      { q: 'What do I need to connect it?', a: 'Just the 480 V or 600 V feed to the primary breaker. Everything between the primary breaker and the branch breakers is already wired at the factory.' },
       { q: 'Are branch breakers included?', a: 'The loadcentre is ready for standard breakers. We can supply and install them for you — just send the circuit list.' },
       { q: 'Can I use it outdoors?', a: 'Yes. The transformer is sealed and the enclosure is Type 3R, so it can be mounted on an outside wall or a post.' },
     ],
@@ -717,7 +717,7 @@ export const LV_PRODUCTS: DryProduct[] = [
     compare: { rating: '1Ø 3 – 125 kVA · 3Ø 5 – 150 kVA', voltage: '1.2 kV class', insulation: '200 °C · T3 / T3C', enclosure: 'Type 3R (4 / IP66 opt.)' },
     meta: {
       title: 'Hazardous-Location Transformer',
-      description: 'Encapsulated dry-type transformers for Class I, Division 2 hazardous locations: single-phase 3 – 125 kVA, three-phase 5 – 150 kVA, temperature code T3 or T3C. Built in Toronto by CANDRON.',
+      description: 'Encapsulated dry-type transformers for Class I, Division 2 hazardous locations: single-phase 3 – 125 kVA, three-phase 5 – 150 kVA, temperature code T3 or T3C. Made in Canada, provided by CANDRON.',
     },
     art: { kind: 'dt-hazloc' },
     eyebrow: 'LV Distribution · Class I, Division 2',
@@ -781,7 +781,7 @@ export const LV_PRODUCTS: DryProduct[] = [
     faqs: [
       { q: 'What is Division 2, in plain words?', a: 'An area where flammable gas or vapour is not there in normal operation but could appear if something goes wrong, like a leak. Division 1 areas — where gas is expected during normal work — need explosion-proof equipment instead.' },
       { q: 'What do T3 and T3C mean?', a: 'They limit how hot the outside of the transformer can get. Each gas has an ignition temperature; the T-code must sit below it. T3C runs cooler than T3, so it suits more gases.' },
-      { q: 'Who confirms the classification?', a: 'The owner or their engineer classifies the area. Send us the class, division and gas group on your drawings and we will confirm the transformer matches before we build it.' },
+      { q: 'Who confirms the classification?', a: 'The owner or their engineer classifies the area. Send us the class, division and gas group on your drawings and we will confirm the transformer matches before it is ordered.' },
     ],
     quoteItems: [...LV_QUOTE.slice(0, 3), 'Area classification (class, division, gas group)', 'Temperature code needed (T3 or T3C)', 'Enclosure: Type 3R, 4 or IP66'],
     related: ['encapsulated', 'mini-power-centre', 'standard', 'industrial-control'],

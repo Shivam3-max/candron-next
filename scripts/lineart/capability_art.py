@@ -489,7 +489,7 @@ SCENES = {
                 [("sld", "Fault Study", eng_sld, "dwg"), ("tcc", "Coordination", eng_tcc, "dwg"), ("iso", "3D Layout", eng_iso, "iso")]),
     "cap-field": ("On-Site Commissioning", "CE-FLD-01", ["Portable test set", "Test leads to windings", "Safety barrier", "Transformer under test"],
                   [("iso", "On Site", field_iso, "iso"), ("hookup", "Test Hook-Up", field_hookup, "dwg"), ("flow", "Test Sequence", field_flow, "dwg")]),
-    "cap-mfg": ("Toronto Production Floor", "CE-MFG-01", ["Overhead gantry crane", "Core & coil assembly", "Switchboard assembly", "Sheet-steel stock"],
+    "cap-mfg": ("Canadian Factory Floor", "CE-MFG-01", ["Overhead gantry crane", "Core & coil assembly", "Switchboard assembly", "Sheet-steel stock"],
                 [("iso", "Factory Floor", mfg_iso, "iso"), ("flow", "Production Flow", mfg_flow, "dwg"), ("ga", "Core & Coil", mfg_ga, "dwg")]),
     "cap-test": ("HV Test Bay", "CE-TST-01", ["Unit under test", "HV test set", "Warning signage", "Test-in-progress beacon"],
                  [("iso", "Test Bay", test_iso, "iso"), ("circuit", "Test Circuit", test_circuit, "dwg"), ("chart", "Results", test_chart, "dwg")]),

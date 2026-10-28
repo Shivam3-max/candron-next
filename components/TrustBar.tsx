@@ -24,7 +24,7 @@ const items = [
   {
     icon: <CanadaFlag height={28} />,
     title: 'North America Made',
-    sub: <span className="inline-flex items-center gap-[.35rem]"><CanadaFlag height={13} /> Built in Toronto, Ontario</span>,
+    sub: <span className="inline-flex items-center gap-[.35rem]"><CanadaFlag height={13} /> Canadian-made, Toronto-based</span>,
   },
 ]
 

@@ -38,23 +38,23 @@ export const PROJECTS: Project[] = [
     summary: 'Seven identical power transformers engineered around the customer’s existing specifications and integration requirements.',
     body: [
       'When replacement equipment needs to match existing infrastructure, precision matters. CANDRON delivered seven identical custom-built power transformers engineered around the customer’s existing specifications and integration requirements.',
-      'Application-specific engineering and manufacturing expertise deliver consistent, space-efficient power solutions for demanding replacement and expansion projects.',
+      'Application-specific engineering and a trusted manufacturing partner deliver consistent, space-efficient power solutions for demanding replacement and expansion projects.',
     ],
     stats: [
       { value: '7', label: 'Identical Units' },
-      { value: '28 Weeks', label: 'Manufacturing Release to Shipment' },
+      { value: '28 Weeks', label: 'Order Release to Shipment' },
       { value: '55/65°C', label: 'Temperature Rise Design' },
     ],
     highlights: [
       'Custom engineered to match the existing transformer specifications',
-      'Seven identical units manufactured and shipped within 28 weeks of manufacturing release',
+      'Seven identical units made and shipped within 28 weeks of order release',
       'High-grade magnetic core engineered to optimize the overall transformer footprint',
       '55/65°C temperature-rise design',
     ],
     images: [
       { src: '/images/projects/custom-power-transformers/transformer-ready-to-ship.jpg', alt: 'Custom CANDRON power transformer prepared for shipment' },
       { src: '/images/projects/custom-power-transformers/transformer-radiator-bank.jpg', alt: 'Radiator bank and cooling assembly on a custom power transformer' },
-      { src: '/images/projects/custom-power-transformers/transformer-front-view.jpg', alt: 'Front view of a custom-built power transformer in the manufacturing facility' },
+      { src: '/images/projects/custom-power-transformers/transformer-front-view.jpg', alt: 'Front view of a custom-built power transformer at the factory' },
       { src: '/images/projects/custom-power-transformers/transformer-side-view.jpg', alt: 'Side view of a completed custom power transformer before shipment' },
       { src: '/images/projects/custom-power-transformers/transformer-final-inspection.jpg', alt: 'Custom power transformer undergoing final inspection before delivery' },
     ],
@@ -181,11 +181,11 @@ export const PROJECTS: Project[] = [
   {
     id: 'one-day-dry-type-transformer',
     categories: ['transformers', 'expedited'],
-    eyebrow: 'Expedited Manufacturing · Canadian-Made',
-    title: 'Transformer Built in 24 Hours and Personally Delivered',
-    summary: 'An urgent order manufactured within 24 hours of confirmation and delivered by our team to prevent system disruption.',
+    eyebrow: 'Expedited Supply · Canadian-Made',
+    title: 'Transformer Supplied in 24 Hours and Personally Delivered',
+    summary: 'An urgent order supplied within 24 hours of confirmation and delivered by our team to prevent system disruption.',
     body: [
-      'When a customer needed a transformer urgently, our team manufactured the unit within 24 hours of order confirmation and personally delivered it to help prevent system disruption.',
+      'When a customer needed a transformer urgently, our team had the Canadian-made unit ready within 24 hours of order confirmation and personally delivered it to help prevent system disruption.',
       'We go beyond standard production schedules to help keep critical projects moving and customer systems running. Need it fast? We make it happen.',
       'Expedited scheduling is subject to transformer configuration, engineering review, component availability, and production capacity at the time of order.',
     ],
@@ -196,7 +196,7 @@ export const PROJECTS: Project[] = [
     ],
     highlights: [
       'One-day expedited turnaround available',
-      'Manufactured in 24 hours',
+      'Supplied in 24 hours',
       'Personally delivered',
       'Canadian-made',
     ],
@@ -214,7 +214,7 @@ export const PROJECTS: Project[] = [
     summary: 'A 500 kVA transformer plus an in-stock 1200 A Eaton switchboard, delivered together from one supplier.',
     body: [
       'A 500 kVA transformer configured for 600 V Delta primary and 480/277 V Wye secondary was produced and delivered within two days of release. A 1200 A Eaton in-stock switchboard completed the distribution package, giving the customer a single expedited source for both pieces of equipment.',
-      'The customer received a complete, expedited solution from one supplier and was extremely satisfied with the production speed and delivery service. CANDRON products are CSA, cULus, and UL certified as applicable.',
+      'The customer received a complete, expedited solution from one supplier and was extremely satisfied with the speed of supply and delivery service. The equipment CANDRON provides is CSA, cULus, and UL certified as applicable.',
     ],
     stats: [
       { value: '500 kVA', label: 'Rated Capacity' },
@@ -240,7 +240,7 @@ export const PROJECTS: Project[] = [
   {
     id: '2500kva-autotransformer',
     categories: ['transformers', 'expedited'],
-    eyebrow: 'Expedited Manufacturing · Final Winding Stage',
+    eyebrow: 'Expedited Supply · Final Winding Stage',
     title: '2500 kVA Copper-Wound Autotransformer in Under a Week',
     summary: 'A 2500 kVA, 600 V to 480 V autotransformer committed on a two-week lead time and delivered within one week.',
     body: [
@@ -268,18 +268,18 @@ export const PROJECTS: Project[] = [
   {
     id: '2500a-switchboard-two-weeks',
     categories: ['switchgear', 'expedited'],
-    eyebrow: 'Canadian Manufacturing · Switchboards',
-    title: '2,500 A, 65 kA Switchboard Built in Two Weeks',
-    summary: 'A custom three-cell, 600 V switchboard manufactured in two weeks for a demanding power-distribution application.',
+    eyebrow: 'Canadian-Made · Switchboards',
+    title: '2,500 A, 65 kA Switchboard Supplied in Two Weeks',
+    summary: 'A custom three-cell, 600 V Canadian-made switchboard supplied in two weeks for a demanding power-distribution application.',
     body: [
-      'This custom 2,500 A, 600 V, 65 kA switchboard was manufactured by CANDRON in two weeks for a demanding power-distribution application, combining in-house manufacturing, practical engineering, and lean production.',
+      'This custom 2,500 A, 600 V, 65 kA switchboard was made in Canada and supplied by CANDRON in two weeks for a demanding power-distribution application, combining practical engineering, close production follow-up and lean scheduling.',
       'Expedited lead times of 2–3 weeks are available for switchboards up to 3,200 A, 600 V, 65 kA. Schedule is subject to approved drawings, component availability, and final project requirements.',
     ],
     stats: [
       { value: '2,500 A', label: 'Current Rating' },
       { value: '600 V', label: 'System Voltage' },
       { value: '65 kA', label: 'Fault Rating' },
-      { value: '2 Weeks', label: 'Manufacturing' },
+      { value: '2 Weeks', label: 'Supply Time' },
     ],
     highlights: [
       'Three-cell switchboard configuration',
@@ -288,7 +288,7 @@ export const PROJECTS: Project[] = [
       'Final section configured for four 1,600 A breakers',
     ],
     images: [
-      { src: '/images/projects/2500a-switchboard-production/2500a-switchboard-production.jpg', alt: 'Three-cell 2500 A CANDRON switchboard under production at the Canadian manufacturing facility' },
+      { src: '/images/projects/2500a-switchboard-production/2500a-switchboard-production.jpg', alt: 'Three-cell 2500 A switchboard in production in Canada for CANDRON' },
     ],
     cta: { label: 'Request an Expedited Quote', href: '/contact?product=expedited-switchboard' },
     product: { label: 'Main Breaker Switchboards', href: '/products/switchboards/main-breaker' },
@@ -361,7 +361,7 @@ export const PROJECTS: Project[] = [
     title: '3 MVA Inverter-Duty Padmount Transformer',
     summary: 'A 27.6 kV loop-feed padmount stepping down to 600Y/347 V for inverter-duty service.',
     body: [
-      'This 3 MVA, 27.6 kV loop-feed pad-mounted transformer steps 27.6 kV Delta down to 600Y/347 V for inverter-duty service. Manufactured at our partner facility in Texas, USA, it combines precision engineering with robust, efficiency-focused construction.',
+      'This 3 MVA, 27.6 kV loop-feed pad-mounted transformer steps 27.6 kV Delta down to 600Y/347 V for inverter-duty service. Made by a manufacturing partner in Texas, USA, it combines precision engineering with robust, efficiency-focused construction.',
     ],
     stats: [
       { value: '3 MVA', label: 'Rated Capacity' },
@@ -389,24 +389,24 @@ export const PROJECTS: Project[] = [
   {
     id: 'mv-vpi-outdoor-transformer',
     categories: ['transformers'],
-    eyebrow: 'Canadian Manufacturing · MV Dry-Type',
+    eyebrow: 'Canadian-Made · MV Dry-Type',
     title: 'Outdoor-Rated MV Dry-Type Transformer, VPI Insulated',
-    summary: 'A medium-voltage VPI dry-type transformer manufactured in Canada within 16 weeks of drawing approval.',
+    summary: 'A medium-voltage VPI dry-type transformer made in Canada and supplied within 16 weeks of drawing approval.',
     body: [
-      'This medium-voltage dry-type transformer was manufactured at CANDRON’s Canadian facility with VPI insulation technology and an outdoor-rated enclosure, combining robust construction with application-specific engineering.',
+      'This medium-voltage dry-type transformer was made in Canada for CANDRON with VPI insulation technology and an outdoor-rated enclosure, combining robust construction with application-specific engineering.',
     ],
     stats: [
-      { value: 'Made in Canada', label: 'Local Manufacturing' },
+      { value: 'Made in Canada', label: 'Canadian-Made' },
       { value: 'Medium Voltage', label: 'Dry-Type Transformer' },
       { value: 'VPI', label: 'Insulation Technology' },
       { value: '16 Weeks', label: 'From Drawing Approval' },
     ],
     highlights: [
-      'Manufactured at CANDRON’s Canadian facility',
+      'Made in Canada, provided by CANDRON',
       'Vacuum Pressure Impregnated insulation system',
       'Outdoor-rated enclosure for demanding installations',
       'Application-specific electrical and mechanical engineering',
-      'Manufactured within 16 weeks of drawing approval',
+      'Supplied within 16 weeks of drawing approval',
     ],
     images: [
       { src: '/images/projects/mv-vpi-outdoor-transformer/mv-vpi-outdoor-enclosure.jpg', alt: 'Medium-voltage VPI dry-type transformer installed inside its outdoor-rated enclosure' },
@@ -421,7 +421,7 @@ export const PROJECTS: Project[] = [
     id: 'custom-panelboard',
     categories: ['switchgear'],
     eyebrow: 'Completed Equipment · Panelboard',
-    title: 'Custom Panelboard Built Around the Application',
+    title: 'Custom Panelboard Engineered Around the Application',
     summary: 'A compact, floor-standing panelboard with front-access branch breakers in a serviceable footprint.',
     body: [
       'A completed CANDRON panelboard with a compact, floor-standing enclosure and front-access breaker arrangement. The assembly is engineered to organize branch distribution in a serviceable footprint while providing a clean, durable finished installation.',
@@ -430,7 +430,7 @@ export const PROJECTS: Project[] = [
       { value: 'Custom', label: 'Configuration' },
       { value: 'Front', label: 'Access' },
       { value: 'Multi', label: 'Breaker Layout' },
-      { value: 'CANDRON', label: 'Manufactured' },
+      { value: 'Canada', label: 'Made in' },
     ],
     highlights: [
       'Compact floor-standing enclosure designed for organized power distribution',
