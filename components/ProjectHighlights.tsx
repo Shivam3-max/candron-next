@@ -43,8 +43,8 @@ export default function ProjectHighlights() {
             <div className="label">Project Highlights</div>
             <h2 id="ph-title">Real Projects. <em>Delivered.</em></h2>
             <p className="ph-lead">
-              Custom transformers, Arctic-rated switchgear, overnight emergency dispatch and 24-hour builds —
-              a look at the work CANDRON has engineered, manufactured, tested and delivered.
+              Custom transformers, Arctic-rated switchgear, overnight emergency dispatch and 24-hour supply —
+              a look at the Canadian-made equipment CANDRON has engineered, provided, tested and delivered.
             </p>
           </div>
           <div className="ph-filters" role="group" aria-label="Filter projects">

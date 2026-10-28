@@ -26,7 +26,7 @@ const data: ProductTypePageProps = {
     'I/O list, control narrative, and functional description included',
     'UL 508A listed panel with UL labelled components',
     'NEMA 12 (standard indoor) or NEMA 4X (washdown / outdoor)',
-    'Full shop acceptance testing before shipment',
+    'Full factory acceptance testing before shipment',
   ],
   features: [
     'PLC rack with CPU, power supply, and I/O modules',
@@ -109,7 +109,7 @@ const data: ProductTypePageProps = {
 
 export const metadata = {
   title: 'Automation Control Panels | CANDRON Energy',
-  description: 'UL 508A custom PLC and HMI control panels for process automation and machine control. Allen-Bradley, Siemens, Schneider. Built in Toronto, Ontario.',
+  description: 'UL 508A custom PLC and HMI control panels for process automation and machine control. Allen-Bradley, Siemens, Schneider. Made in Canada, provided by CANDRON.',
 }
 
 export default function AutomationPanelPage() {

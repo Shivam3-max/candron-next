@@ -30,7 +30,7 @@ export const STATUSES = ['Available', 'Incoming', 'Reserved', 'Sold'] as const
 export const RATING_UNITS = ['kVA', 'MVA', 'A', 'kW'] as const
 
 export const CONDITION_NOTE: Record<string, string> = {
-  New: 'Factory-new equipment, built and tested by CANDRON.',
+  New: 'Factory-new equipment, tested and supplied by CANDRON.',
   Surplus: 'New, never-energized equipment from surplus stock.',
   Remanufactured: 'Rebuilt to as-new condition and fully re-tested before shipment.',
   Used: 'Inspected and tested pre-owned equipment, ready for service.',

@@ -91,8 +91,8 @@ const data: ProductTypePageProps = {
       a: 'We support all major industrial communication protocols including Modbus RTU/TCP, DNP3, OPC-UA, Profinet, EtherNet/IP, and BACnet. We select the protocol based on your SCADA host software and existing infrastructure.',
     },
     {
-      q: 'Can you build panels for installation in hazardous (classified) areas?',
-      a: 'Yes — we build Class I, Division 2 (Zone 2) panels per CSA C22.2 No. 213. For Zone 1 or Division 1 applications, we can supply panels with Ex-rated enclosures and intrinsically safe barriers for all field connections.',
+      q: 'Can you supply panels for installation in hazardous (classified) areas?',
+      a: 'Yes — we supply Class I, Division 2 (Zone 2) panels per CSA C22.2 No. 213. For Zone 1 or Division 1 applications, we can supply panels with Ex-rated enclosures and intrinsically safe barriers for all field connections.',
     },
     {
       q: 'How do you handle power outages at remote monitoring stations?',
@@ -111,7 +111,7 @@ const data: ProductTypePageProps = {
 
 export const metadata = {
   title: 'Process Control Panels | CANDRON Energy',
-  description: 'UL 508A SCADA-integrated process control panels with field I/O and telemetry for water, oil & gas, and industrial process applications. Toronto, Ontario.',
+  description: 'UL 508A SCADA-integrated process control panels with field I/O and telemetry for water, oil & gas, and industrial process applications. Made in Canada, provided by CANDRON.',
 }
 
 export default function ProcessControlPanelPage() {

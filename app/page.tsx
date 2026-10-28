@@ -9,8 +9,8 @@ import ProjectHighlights from "@/components/ProjectHighlights";
 import FeaturedProducts from "@/components/FeaturedProducts";
 
 export const metadata = {
-  title: 'Toronto Power Equipment Manufacturer | CANDRON',
-  description: 'CANDRON is a leading Toronto manufacturer of switchgear, switchboards, and dry-type transformers, delivering reliable power distribution equipment with shorter lead times.',
+  title: 'Providers of Canadian-Made Electrical Equipment | CANDRON',
+  description: 'CANDRON Energy is a Toronto-based provider of Canadian-made electrical equipment: switchgear, switchboards, transformers and power distribution equipment, engineered to your project and delivered with shorter lead times.',
   alternates: { canonical: '/' },
 };
 
@@ -27,14 +27,13 @@ export default function HomePage() {
                 Made in Canada —<br />
                 <em>Power Distribution</em><br className="home-hero-title-break" /> Equipment.
               </h1>
-              <p className="hero-delivery-line">Engineered. Manufactured. Tested. Delivered.</p>
+              <p className="hero-delivery-line">Providers of Canadian-Made Electrical Equipment.</p>
               <p className="lead">
-                CANDRON Energy designs, manufactures, assembles, and tests
-                electrical power distribution equipment in-house in Canada. By
-                bringing engineering and manufacturing together under one roof,
-                we deliver reliable, quality-driven solutions with shorter lead
-                times, greater control over quality, and direct access to the
-                people behind your project.
+                CANDRON Energy provides Canadian-made electrical power
+                distribution equipment. We engineer each order to your project,
+                source it from Canadian manufacturers, witness the factory test
+                and deliver it — with shorter lead times, tight control over
+                quality, and direct access to the people behind your project.
               </p>
               <div className="hero-btns">
                 <Link href="/inventory" className="btn btn-primary btn-lg mag">
@@ -50,7 +49,7 @@ export default function HomePage() {
               <div className="hero-visual-img">
                 <Image
                   src="/images/hero-switchgear-render.webp"
-                  alt="Three CANDRON 13.8 kV outdoor switchgear enclosures, manufactured in Canada"
+                  alt="Three 13.8 kV outdoor switchgear enclosures, made in Canada and supplied by CANDRON"
                   width={1434}
                   height={1078}
                   priority
@@ -109,7 +108,7 @@ export default function HomePage() {
                 <CanadaFlag height={40} />
               </div>
               <div className="home-stat-title">Made in Canada</div>
-              <div className="home-stat-caption">Toronto, Ontario</div>
+              <div className="home-stat-caption">Provided by CANDRON</div>
             </div>
 
             {/* Factory Testing */}
@@ -195,34 +194,34 @@ export default function HomePage() {
             <div className="rv-l pr-12 max-md:pr-0">
               <div className="label">Why CANDRON</div>
               <h2 className="leading-[1.08] mb-6">
-                Power Distribution.
+                Canadian-Made.
                 <br />
-                Built Different.
+                Engineered to Fit.
                 <br />
-                <span className="text-blue">Built Better.</span>
+                <span className="text-blue">Provided by CANDRON.</span>
               </h2>
               <div className="w-12 h-[3px] bg-blue rounded-[2px] mb-7" />
               <div className="flex flex-col gap-4 text-gray text-[1.125rem] leading-[1.85]">
                 <p className="m-0">
-                  At CANDRON Energy, engineering, manufacturing, assembly, and
-                  testing come together under one roof. This integrated approach
-                  gives us greater control over quality, consistency, and lead
-                  times—from initial design through final testing.
+                  CANDRON Energy is a provider of Canadian-made electrical
+                  equipment. We engineer the scope, source it from Canadian
+                  manufacturers and manage it through testing and delivery, so
+                  you get control over quality, consistency and lead times
+                  without managing the factory yourself.
                 </p>
                 <p className="m-0">
-                  Our products are backed by advanced engineering, decades of
-                  industrial experience, detailed simulations, multi-stage
-                  design reviews, and modern manufacturing processes.
+                  Every order is backed by application engineering, decades of
+                  industrial experience, detailed design reviews and Canadian
+                  manufacturers we know and trust.
                 </p>
                 <p className="m-0">
                   We don&rsquo;t compromise on the details. From premium-grade
-                  materials and components to precision fabrication, high-build
-                  coating systems, and rigorous inspection and testing, every
-                  element is selected and built for reliable performance,
-                  durability, and long-term value.
+                  materials and components to coating systems, inspection and
+                  witnessed testing, every element is specified and checked for
+                  reliable performance, durability and long-term value.
                 </p>
                 <p className="m-0 font-bold text-navy">
-                  Engineered in Canada. Built for Power. Built to Perform.
+                  Made in Canada. Engineered to Fit. Provided by CANDRON.
                 </p>
               </div>
             </div>
@@ -244,7 +243,7 @@ export default function HomePage() {
                   [
                     {
                       l1: "Engineered",
-                      l2: "In-House",
+                      l2: "To Your Project",
                       icon: (
                         <svg
                           width="18"
@@ -261,7 +260,7 @@ export default function HomePage() {
                       ),
                     },
                     {
-                      l1: "Manufactured",
+                      l1: "Made",
                       l2: "In Canada",
                       icon: <CanadaFlag key="b" height={24} />,
                     },
@@ -335,8 +334,8 @@ export default function HomePage() {
                       <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
                     </svg>
                   ),
-                  title: "Complete In-House Control",
-                  desc: "Engineering, manufacturing, assembly, and testing performed under one roof. No outsourced production, no third-party delays, no accountability gaps.",
+                  title: "One Accountable Provider",
+                  desc: "Engineering, sourcing, inspection, testing and delivery managed by one team. No hand-offs between suppliers, no accountability gaps.",
                   d: "",
                 },
                 {
@@ -352,7 +351,7 @@ export default function HomePage() {
                     </svg>
                   ),
                   title: "Expedited Lead Times",
-                  desc: "Direct project management and in-house manufacturing control means faster delivery. Expedited work in 1–2 weeks — vs. the 12+ week industry average.",
+                  desc: "Direct project management and close links with Canadian manufacturers mean faster delivery. Expedited supply in 1–2 weeks where stock and ratings allow.",
                   d: "d2",
                 },
                 {
@@ -367,7 +366,7 @@ export default function HomePage() {
                     </svg>
                   ),
                   title: "Always Accessible",
-                  desc: "Whether you're a contractor, consultant, utility, or project owner — you can reach our team directly. No gatekeepers. Just the engineers who build your equipment.",
+                  desc: "Whether you're a contractor, consultant, utility, or project owner — you can reach our team directly. No gatekeepers. Just the engineers who handle your equipment.",
                   d: "d3",
                 },
                 {
@@ -382,9 +381,9 @@ export default function HomePage() {
                     </svg>
                   ),
                   rawIcon: <CanadaFlag height={30} />,
-                  title: "Canadian Manufacturing",
+                  title: "Canadian-Made Equipment",
                   flag: "🇨🇦",
-                  desc: "Proudly engineered and manufactured in Canada for Canadian utilities, contractors, industrial facilities, and infrastructure projects.",
+                  desc: "Proudly made in Canada and provided by CANDRON for Canadian utilities, contractors, industrial facilities, and infrastructure projects.",
                   d: "d4",
                 },
                 {
@@ -399,7 +398,7 @@ export default function HomePage() {
                     </svg>
                   ),
                   title: "Proven Quality",
-                  desc: "Every system undergoes comprehensive factory acceptance testing against ANSI, IEEE, NETA, CSA, and UL requirements before shipment.",
+                  desc: "Every system goes through factory acceptance testing to CSA, IEEE, ANSI and UL requirements before shipment, with reports we check first.",
                   d: "d5",
                 },
                 {
@@ -530,14 +529,14 @@ export default function HomePage() {
               Get In Touch
             </div>
             <h2 className="rv">
-              Need a Reliable Electrical
+              Need a Reliable Provider of
               <br />
-              Manufacturing Partner?
+              Canadian-Made Equipment?
             </h2>
             <p className="lead rv !text-white/[.6] !max-w-[560px] mx-auto mb-10">
-              Work directly with the engineers building your equipment. Get
-              factory-direct pricing, faster turnaround times, and tested
-              solutions you can trust.
+              Work directly with the engineers handling your equipment. Get
+              Canadian-made products, competitive pricing, faster turnaround
+              and tested solutions you can trust.
             </p>
             <div className="flex gap-4 justify-center flex-wrap rv">
               <Link href="/contact" className="btn btn-primary btn-lg mag">

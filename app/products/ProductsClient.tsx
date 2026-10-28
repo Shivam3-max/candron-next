@@ -12,8 +12,8 @@ const products = [
     image: '/images/switchgear.jpg',
     eyebrow: 'Medium Voltage — 2.4 kV to 38 kV',
     standards: ['CSA C22.2 No. 31', 'IEEE C37.20.2', 'IEEE C37.20.3', 'IEEE C37.20.7'],
-    desc1: "Custom medium voltage switchgear from 2.4 kV to 38 kV and up to 3,000 A — designed, manufactured, and tested in-house at our Toronto facility. Metal-clad, metal-enclosed, and pad-mounted configurations built to your project's exact single-line diagram.",
-    desc2: "Every MV switchgear lineup is engineered by our team, assembled with copper busbars and vacuum circuit breakers rated to your fault current, and fully factory-tested before delivery — no outsourced fabrication, no third-party unknowns.",
+    desc1: "Custom medium voltage switchgear from 2.4 kV to 38 kV and up to 3,000 A — engineered to your project, made and factory-tested in Canada, and provided by CANDRON. Metal-clad, metal-enclosed, and pad-mounted configurations built to your project's exact single-line diagram.",
+    desc2: "Every MV switchgear lineup is engineered by our team, specified with copper busbars and vacuum circuit breakers rated to your fault current, and fully factory-tested before delivery — Canadian-made, with one provider accountable from start to finish.",
     kpis: [
       { value: '2.4–38 kV', label: 'Voltage Range' },
       { value: '3,000 A', label: 'Current Rating' },
@@ -34,7 +34,7 @@ const products = [
       ['Voltage Range', '2.4 kV to 38 kV'],
       ['Current Rating', 'Up to 3,000 A'],
       ['Short Circuit', 'Up to 40 kA symmetrical'],
-      ['Testing', 'Full FAT In-House'],
+      ['Testing', 'Full FAT, Witnessed on Request'],
       ['Origin', 'Made in Canada'],
     ],
     applications: ['Industrial Plants', 'Oil & Gas Facilities', 'Utility Substations', 'Mining Sites', 'Renewable Energy'],
@@ -49,7 +49,7 @@ const products = [
     eyebrow: 'Low Voltage — Up to 1000 V',
     standards: ['CSA C22.2', 'UL 508A', 'ANSI/IEEE C37', 'ESA'],
     desc1: "Custom low voltage switchgear up to 1,000 V — main breaker, main-tie-main, service entrance, and distribution configurations built to your cable schedule and site requirements.",
-    desc2: "CANDRON LV switchgear integrates air circuit breakers, copper busbars, CT/PT metering, and digital power monitoring in free-standing or wall-mount lineups. Every unit is manufactured and tested in-house in Toronto.",
+    desc2: "CANDRON LV switchgear integrates air circuit breakers, copper busbars, CT/PT metering, and digital power monitoring in free-standing or wall-mount lineups. Every unit is made and factory-tested in Canada.",
     kpis: [
       { value: 'Up to 1000 V', label: 'Voltage' },
       { value: 'Up to 3200 A', label: 'Max Current' },
@@ -84,8 +84,8 @@ const products = [
     image: '/images/switchboards.jpg',
     eyebrow: 'Low Voltage Power Distribution',
     standards: ['UL 891', 'CSA C22.2', 'ESA-Ready'],
-    desc1: "Custom-engineered switchboards designed to provide safe and efficient power distribution for commercial, industrial, and infrastructure applications. Built to your exact requirements, assembled and tested in-house at our Toronto facility.",
-    desc2: "With full in-house engineering and manufacturing, CANDRON delivers switchboards that fit your project's specific electrical requirements — not off-the-shelf compromises. Main-tie-main, utility metering, and distribution configurations available.",
+    desc1: "Custom-engineered switchboards designed to provide safe and efficient power distribution for commercial, industrial, and infrastructure applications. Engineered to your exact requirements, then made and factory-tested in Canada.",
+    desc2: "With in-house application engineering and trusted Canadian manufacturers, CANDRON provides switchboards that fit your project's specific electrical requirements — not off-the-shelf compromises. Main-tie-main, utility metering, and distribution configurations available.",
     kpis: [
       { value: 'Up to 4000 A', label: 'Max Current' },
       { value: '600 V', label: 'Rated Voltage' },
@@ -98,7 +98,7 @@ const products = [
       'Utility-approved CT/PT metering compartments (ESA/AHJ layout)',
       'Flexible configurations for distribution, feeder, and branch circuit applications',
       'Factory tested to UL 891 and CSA C22.2 requirements',
-      'Fast lead times enabled by complete in-house manufacturing control',
+      'Fast lead times through close links with Canadian manufacturers',
     ],
     quickSpecs: [
       ['Type', 'Switchboards'],

@@ -11,7 +11,7 @@ const sectors = [
     headline: 'The Equipment, Engineering, and Technical Support You Need to Deliver.',
     description: 'We help electrical contractors execute projects efficiently with reliable equipment, practical engineering support, and responsive technical service.',
     capabilities: [
-      { title: 'Equipment Manufacturing & Supply', text: 'Low- and medium-voltage switchboards, switchgear, transformers, and other power distribution equipment.' },
+      { title: 'Canadian-Made Equipment Supply', text: 'Canadian-made low- and medium-voltage switchboards, switchgear, transformers, and other power distribution equipment.' },
       { title: 'Testing & Verification', text: 'Certified test reports, factory acceptance testing (FAT), site acceptance testing (SAT), and equipment testing support.' },
       { title: 'On-Site Commissioning', text: 'Field technical support for equipment installation, commissioning, troubleshooting, and verification.' },
       { title: 'Electrical Engineering Studies', text: 'Ground potential rise (GPR), arc flash, short-circuit, harmonic analysis, and other project-specific studies for your application.', href: '/contact?service=electrical-engineering' },
@@ -24,7 +24,7 @@ const sectors = [
     number: '02',
     title: 'Engineering Consultants',
     headline: 'Practical Engineering. Realistic Specifications. Buildable Solutions.',
-    description: 'We collaborate with consulting engineers to develop equipment specifications and designs that align with project requirements, applicable standards, manufacturing capabilities, and actual supply-chain conditions.',
+    description: 'We collaborate with consulting engineers to develop equipment specifications and designs that align with project requirements, applicable standards, Canadian manufacturing capabilities, and actual supply-chain conditions.',
     capabilities: [
       { title: 'Equipment Specification & Selection', text: 'Assistance with equipment ratings, configurations, technical requirements, and manufacturer-specific considerations.' },
       { title: 'Design Coordination', text: 'Practical input during design development to align electrical requirements with available equipment solutions.' },
@@ -32,7 +32,7 @@ const sectors = [
       { title: 'Lead-Time & Procurement Planning', text: 'Recommendations that consider project schedules, manufacturing capacity, production loading, component availability, and supply-chain constraints.' },
       { title: 'Technical Submittal Review', text: 'Coordination of equipment drawings, technical data, deviations, and documentation to support consultant reviews and project approvals.' },
     ],
-    detail: 'We bridge the gap between engineering intent and manufacturing reality — helping consultants specify equipment that is technically appropriate, commercially practical, and achievable within project timelines.',
+    detail: 'We bridge the gap between engineering intent and what Canadian manufacturers can deliver — helping consultants specify equipment that is technically appropriate, commercially practical, and achievable within project timelines.',
     closing: 'Better specifications. Fewer surprises. More predictable project delivery.',
   },
 ]
@@ -178,7 +178,7 @@ export default function IndustriesPage() {
             <div>
               <div className="label">Industry 03</div>
               <h2>Power &amp; Renewables</h2>
-              <p className="body mt-3">The energy transition is accelerating, and electrical infrastructure is the foundation. CANDRON designs, manufactures, and delivers grid-scale switchgear, control systems, and power distribution equipment for wind, solar, and battery storage projects — with expedited lead times built for construction schedules.</p>
+              <p className="body mt-3">The energy transition is accelerating, and electrical infrastructure is the foundation. CANDRON engineers and provides Canadian-made grid-scale switchgear, control systems, and power distribution equipment for wind, solar, and battery storage projects — with expedited lead times built for construction schedules.</p>
               <div className="ind-kpi-row">
                 <div className="ind-kpi"><strong>345kV</strong><span>Max Transmission Voltage</span></div>
                 <div className="ind-kpi"><strong>300MVA</strong><span>Max Transformer Rating</span></div>
@@ -283,7 +283,7 @@ export default function IndustriesPage() {
             <div>
               <div className="label">Industry 07</div>
               <h2>Traction Power</h2>
-              <p className="body mt-3">Railway electrification operates at specialized voltages and frequencies — 25 Hz, 50 Hz, and 60 Hz AC traction systems — that demand purpose-engineered transformers and substations. CANDRON designs and manufactures traction power equipment built to IEEE, CSA, and railway authority standards for mainline and commuter rail applications.</p>
+              <p className="body mt-3">Railway electrification operates at specialized voltages and frequencies — 25 Hz, 50 Hz, and 60 Hz AC traction systems — that demand purpose-engineered transformers and substations. CANDRON engineers and provides Canadian-made traction power equipment built to IEEE, CSA, and railway authority standards for mainline and commuter rail applications.</p>
               <div className="ind-kpi-row">
                 <div className="ind-kpi"><strong>25 Hz / 50 Hz</strong><span>AC Traction Frequency</span></div>
                 <div className="ind-kpi"><strong>25 kV AC</strong><span>Rail Traction Voltage</span></div>
@@ -310,7 +310,7 @@ export default function IndustriesPage() {
             <div>
               <div className="label">Industry 08</div>
               <h2>Transit Substations</h2>
-              <p className="body mt-3">Urban rail, LRT, and metro systems rely on a network of traction substations to convert and distribute power along the route. CANDRON builds compact, reliable traction substations for both new-build transit projects and substation upgrades — designed for ESA compliance and transit authority acceptance.</p>
+              <p className="body mt-3">Urban rail, LRT, and metro systems rely on a network of traction substations to convert and distribute power along the route. CANDRON provides compact, reliable Canadian-made traction substations for both new-build transit projects and substation upgrades — designed for ESA compliance and transit authority acceptance.</p>
               <div className="ind-kpi-row">
                 <div className="ind-kpi"><strong>1500V DC</strong><span>Metro Traction</span></div>
                 <div className="ind-kpi"><strong>750V DC</strong><span>LRT Systems</span></div>

@@ -87,7 +87,7 @@ export default function ProjectsRadarPage() {
         <div className="container">
           <div className="cta-band-inner">
             <h2>Bidding one of these projects?</h2>
-            <p className="lead !text-white/[.6] !max-w-[560px]">CANDRON designs, builds and tests switchgear, switchboards and transformers in Toronto. Send us the electrical package and we’ll price it with a lead time you can schedule around.</p>
+            <p className="lead !text-white/[.6] !max-w-[560px]">CANDRON provides Canadian-made switchgear, switchboards and transformers, engineered to your package. Send us the electrical package and we’ll price it with a lead time you can schedule around.</p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link href="/contact?product=projects-radar" className="btn btn-primary btn-lg">Price an electrical package</Link>
               <Link href="/resources/lead-time-planner" className="btn btn-outline btn-lg">Plan your order dates →</Link>

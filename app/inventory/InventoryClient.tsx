@@ -83,7 +83,7 @@ export default function InventoryClient() {
           <div className="inv-hero-copy">
             <div className="label label-white">CANDRON Inventory</div>
             <h1>Equipment ready <em>to ship.</em></h1>
-            <p>Transformers, switchgear and power distribution equipment in stock in Toronto. Every unit is inspected and tested before it leaves our floor.</p>
+            <p>Transformers, switchgear and power distribution equipment in stock in Toronto. Every unit is inspected and tested before it ships.</p>
             <label className="inv-search">
               <span className="sr-only">Search inventory</span>
               <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4 4" /></svg>
@@ -163,7 +163,7 @@ export default function InventoryClient() {
               ) : products.length === 0 ? (
                 <div className="inv-empty">
                   <h2>Nothing matches yet</h2>
-                  <p>We build to order too. Tell us the rating and voltages you need and we’ll quote stock or a factory build the same day.</p>
+                  <p>We supply to order too. Tell us the rating and voltages you need and we’ll quote stock or a Canadian-made unit the same day.</p>
                   <div className="inv-empty-actions">
                     {activeCount > 0 && <button type="button" className="btn btn-outline-blue" onClick={clearAll}>Clear filters</button>}
                     <Link href="/contact" className="btn btn-primary">Request a quote</Link>

@@ -30,7 +30,7 @@ const PRODUCTS: Featured[] = [
   },
   {
     name: 'Switchboards',
-    line: 'Custom LV distribution, built in weeks.',
+    line: 'Custom LV distribution, delivered in weeks.',
     stats: [{ v: '4,000 A', l: 'Max current' }, { v: '600 V', l: 'System voltage' }],
     reel: [{ key: 'switchboard', label: 'Distribution Switchboard' }],
     href: '/products/switchboards',

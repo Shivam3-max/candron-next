@@ -4,7 +4,7 @@ import { HeroArt } from '@/components/LineArt'
 
 export const metadata = {
   title: 'Products',
-  description: 'Factory-direct switchgear, switchboards & panelboards, and control panels — engineered, assembled, and tested in-house at our Toronto, Ontario facility.',
+  description: 'Canadian-made switchgear, switchboards & panelboards, transformers and control panels, engineered to your project and provided by CANDRON of Toronto, Ontario.',
 }
 
 export default function ProductsPage() {
@@ -17,7 +17,7 @@ export default function ProductsPage() {
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>Products</span></div>
           <div className="label label-white">Our Product Range</div>
           <h1>Power Distribution Solutions<br /><em>Built For Critical Infrastructure</em></h1>
-          <p className="lead mt-4">Every product is engineered, manufactured, assembled, and tested in-house to ensure the highest standards of quality and performance.</p>
+          <p className="lead mt-4">Every product is made in Canada, engineered to your project and factory-tested, with CANDRON accountable for quality and performance from order to energization.</p>
         </div>
       </div>
 

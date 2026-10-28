@@ -12,3 +12,5 @@ pdf() {
   echo "$OUT/$2 ($(du -h "$OUT/$2" | cut -f1))"
 }
 pdf /resources/fat-commissioning-pack/print candron-fat-commissioning-pack.pdf
+pdf /resources/generator-test-planner/print candron-generator-test-logbook.pdf
+pdf /resources/cold-climate-checklist/print candron-cold-climate-checklist.pdf

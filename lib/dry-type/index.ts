@@ -89,7 +89,7 @@ export const FAMILIES: DryFamily[] = [
     points: ['Single-phase 3 – 350 kVA, three-phase 5 – 1,000 kVA', 'Copper or aluminum windings', '220 °C insulation with 150, 115 or 80 °C rise', 'Meets DOE 2016 and NRCan 2019 efficiency rules'],
     meta: {
       title: 'Low-Voltage Dry-Type Transformers',
-      description: 'CANDRON low-voltage dry-type transformers built in Toronto: general-purpose, shielded isolation, drive isolation, K-factor, harmonic-mitigating, autotransformers, encapsulated, mini power centres and hazardous-location units.',
+      description: 'CANDRON low-voltage dry-type transformers made in Canada: general-purpose, shielded isolation, drive isolation, K-factor, harmonic-mitigating, autotransformers, encapsulated, mini power centres and hazardous-location units.',
     },
   },
   {
@@ -105,7 +105,7 @@ export const FAMILIES: DryFamily[] = [
     points: ['Three-phase 300 – 15,000 kVA, single-phase 100 – 5,000 kVA', 'Up to 46 kV class, 250 kV BIL', 'VPI, VPE or cast-coil construction', 'Optional fans for extra capacity'],
     meta: {
       title: 'Medium-Voltage Dry-Type Transformers',
-      description: 'CANDRON medium-voltage dry-type power transformers up to 15,000 kVA and 46 kV class: VPI/VPE, cast coil and neutral grounding transformers, built and tested in Toronto.',
+      description: 'CANDRON medium-voltage dry-type power transformers up to 15,000 kVA and 46 kV class: VPI/VPE, cast coil and neutral grounding transformers, made and tested in Canada.',
     },
   },
   {
@@ -121,7 +121,7 @@ export const FAMILIES: DryFamily[] = [
     points: ['Industrial control: 25 – 7,500 VA', 'MV control power: 500 – 3,000 VA, up to 7.2 kV', 'Motor-starting autotransformers: 15 – 400 HP', 'Copper windings throughout'],
     meta: {
       title: 'Control & Motor-Starting Transformers',
-      description: 'Industrial control transformers (25 – 7,500 VA), medium-voltage control power transformers up to 7.2 kV and motor-starting autotransformers for 15 – 400 HP motors, made in Canada by CANDRON.',
+      description: 'Industrial control transformers (25 – 7,500 VA), medium-voltage control power transformers up to 7.2 kV and motor-starting autotransformers for 15 – 400 HP motors, made in Canada and provided by CANDRON.',
     },
   },
   {
@@ -137,7 +137,7 @@ export const FAMILIES: DryFamily[] = [
     points: ['Line & load reactors: 2 – 1,250 A', 'dV/dt motor filters: 2 – 320 A', 'Air-core reactors: up to 10,000 kVAR, 25 kV', 'RC snubbers: 2.4 – 34.5 kV'],
     meta: {
       title: 'Reactors, Filters & RC Snubbers',
-      description: 'AC line and load reactors, dV/dt motor protection filters, air-core reactors and RC surge snubbers from CANDRON — power-quality magnetics designed and built in Toronto.',
+      description: 'AC line and load reactors, dV/dt motor protection filters, air-core reactors and RC surge snubbers from CANDRON — power-quality magnetics made in Canada.',
     },
   },
 ]
@@ -198,7 +198,7 @@ export const DRY: RangeDef = {
   needs: NEEDS,
   hub: {
     crumbs: [{ label: 'Products', href: '/products' }, { label: 'Transformers', href: '/products/transformers' }],
-    label: 'Designed, Built & Tested in Toronto',
+    label: 'Made in Canada · Provided by CANDRON',
     h1: ['Dry-Type', 'Transformers'],
     lead: `Oil-free transformers for every job inside a building — from a 25 VA control transformer to a 15,000 kVA, 46 kV power transformer. ${PRODUCTS.length} products, explained in plain words.`,
     art: { kind: 'dt-range' },
@@ -206,13 +206,13 @@ export const DRY: RangeDef = {
       { value: String(PRODUCTS.length), label: 'Dry-type products' },
       { value: '25 VA → 15 MVA', label: 'Rating range' },
       { value: '46 kV', label: 'Highest voltage class' },
-      { value: 'Toronto', label: 'Designed & tested' },
+      { value: 'Canada', label: 'Made & tested' },
     ],
     why: { label: 'Why Dry-Type', title: 'Four reasons buildings choose dry-type', items: [
       { t: 'No oil, no fire risk', d: 'Air and solid insulation do the cooling. Nothing to leak, spill or burn — so no containment pit or fire vault.' },
       { t: 'Install it right where you need it', d: 'Safe indoors, near people and equipment. Shorter cable runs mean less voltage drop and lower cost.' },
       { t: 'Very little upkeep', d: 'No oil tests, no gaskets, no pumps. A yearly look, a vacuum of the coils and a tightness check is usually enough.' },
-      { t: 'Built here, supported here', d: 'Designed, wound and tested in Toronto. Our own field team commissions and services what we build.' },
+      { t: 'Made here, supported here', d: 'Made and tested in Canada, provided by CANDRON. Our own field team commissions and services what we supply.' },
     ] },
     basics: {
       label: 'Dry-Type Basics',
@@ -234,7 +234,7 @@ export const DRY: RangeDef = {
       { q: 'Are your transformers energy efficient?', a: 'Yes. Our distribution and power transformers meet the U.S. DOE 2016 efficiency levels and the Canadian NRCan 2019 regulations. Lower temperature-rise options cut losses further.' },
       { q: 'Can a dry-type transformer go outdoors?', a: 'Yes — with a Type 3R or Type 4/4X enclosure. Encapsulated and cast-coil designs are the best fit for wet, dusty or salty sites.' },
       { q: 'How fast can I get one?', a: 'It depends on the rating and options. Common low-voltage ratings can ship quickly; check our in-stock inventory or call us and we will give you a firm date the same day.' },
-      { q: 'Do you build special voltages?', a: 'Yes. Every unit is built to order in Toronto, so non-standard voltages, dual-voltage windings, special taps and custom enclosures are routine for us.' },
+      { q: 'Can you supply special voltages?', a: 'Yes. Every unit is made to order in Canada, so non-standard voltages, dual-voltage windings, special taps and custom enclosures are routine for us.' },
     ],
     cta: {
       title: 'Not sure which one you need?',
@@ -243,7 +243,7 @@ export const DRY: RangeDef = {
     },
     meta: {
       title: 'Dry-Type Transformers — Made in Canada',
-      description: 'The full CANDRON dry-type range: low-voltage distribution, medium-voltage power up to 15,000 kVA and 46 kV, control and motor-starting transformers, reactors, filters and RC snubbers. Designed, built and tested in Toronto.',
+      description: 'The full CANDRON dry-type range: low-voltage distribution, medium-voltage power up to 15,000 kVA and 46 kV, control and motor-starting transformers, reactors, filters and RC snubbers. Designed, made and tested in Canada.',
     },
   },
 }

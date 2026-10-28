@@ -1,6 +1,6 @@
 /**
- * FAT & Commissioning Pack: four checklists and a punch list, written from CANDRON's own
- * factory test and field commissioning practice. Rendered on /resources/fat-commissioning-pack
+ * FAT & Commissioning Pack: four checklists and a punch list, written from the factory tests CANDRON
+ * witnesses and its field commissioning practice. Rendered on /resources/fat-commissioning-pack
  * and as a print/PDF version.
  */
 

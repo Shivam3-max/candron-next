@@ -4,7 +4,7 @@ import { HeroArt } from '@/components/LineArt'
 
 export const metadata = {
   title: 'CANDRON Processes | From Inception to Commissioning',
-  description: 'See how CANDRON guides power distribution projects through consultation, engineering, simulation, manufacturing, testing, delivery, and commissioning.',
+  description: 'See how CANDRON guides power distribution projects through consultation, engineering, simulation, Canadian-made supply, testing, delivery, and commissioning.',
 }
 
 const steps = [
@@ -25,8 +25,8 @@ const steps = [
   },
   {
     number: '04',
-    title: 'Manufacturing & Assembly',
-    description: 'Fabricate, assemble, and integrate equipment using controlled manufacturing processes.',
+    title: 'Canadian-Made Supply',
+    description: 'Place the order with a qualified Canadian manufacturer and follow production through to completion.',
   },
   {
     number: '05',
@@ -55,7 +55,7 @@ export default function ProjectProcessPage() {
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>CANDRON Processes</span></div>
           <div className="label label-white">The Full Project Cycle</div>
           <h1>From Inception to<br /><em>Commissioning.</em></h1>
-          <p className="lead mt-4">One connected process for discussions, design, simulation, manufacturing, testing, shipping, and commissioning—from the first conversation through delivery and support.</p>
+          <p className="lead mt-4">One connected process for discussions, design, simulation, Canadian-made supply, testing, shipping, and commissioning—from the first conversation through delivery and support.</p>
         </div>
       </section>
 
@@ -65,7 +65,7 @@ export default function ProjectProcessPage() {
             <div className="lg:sticky lg:top-[140px] rv-l">
               <div className="label">How We Work</div>
               <h2 className="mb-5">A Clear Path Through Every Project Stage</h2>
-              <p className="body">Our process keeps project teams connected to the people responsible for the work. Each phase builds on the last, creating continuity from requirements and engineering through manufacturing, delivery, and field support.</p>
+              <p className="body">Our process keeps project teams connected to the people responsible for the work. Each phase builds on the last, creating continuity from requirements and engineering through supply, delivery, and field support.</p>
               <Link href="/contact" className="btn btn-primary mt-8">Discuss Your Project →</Link>
             </div>
 
@@ -96,7 +96,7 @@ export default function ProjectProcessPage() {
                 <em>Design Stage.</em>
               </h2>
               <p className="text-white/[.68] text-[1.125rem] leading-[1.8] mt-6 max-w-[620px]">
-                Detailed equipment models allow the engineering team to review the panelboard&apos;s internal arrangement before drawings are approved and the assembly is released for manufacturing.
+                Detailed equipment models allow the engineering team to review the panelboard&apos;s internal arrangement before drawings are approved and the assembly is released to the manufacturer.
               </p>
 
               <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-3 mt-8">
@@ -104,7 +104,7 @@ export default function ProjectProcessPage() {
                   { number: '01', title: 'Equipment Layout', text: 'Position major devices and structural members within the available footprint.' },
                   { number: '02', title: 'Breaker Arrangement', text: 'Coordinate main and branch devices around project distribution requirements.' },
                   { number: '03', title: 'Bus & Cable Routing', text: 'Review connection paths, entry points, and internal working clearances.' },
-                  { number: '04', title: 'Design Review', text: 'Verify the model and drawings before the manufacturing release.' },
+                  { number: '04', title: 'Design Review', text: 'Verify the model and drawings before the order is released.' },
                 ].map((item) => (
                   <article key={item.number} className="rounded-[12px] border border-white/[.1] bg-white/[.045] p-5">
                     <div className="font-mono text-[.8125rem] font-bold tracking-[.14em] text-blue mb-3">{item.number}</div>
@@ -129,7 +129,7 @@ export default function ProjectProcessPage() {
                 sizes="(max-width:1024px) 100vw, 57vw"
               />
               <figcaption className="absolute left-4 bottom-4 rounded-full border border-white/35 bg-navy/80 px-3 py-2 font-mono text-[.8125rem] font-bold uppercase tracking-[.08em] text-white backdrop-blur-sm">
-                Engineering Visualization · Pre-Manufacturing
+                Engineering Visualization · Before Order Release
               </figcaption>
             </figure>
           </div>

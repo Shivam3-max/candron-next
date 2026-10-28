@@ -5,12 +5,12 @@ import CapabilitiesFlow from "@/components/CapabilitiesFlow";
 import { HeroArt } from '@/components/LineArt'
 
 export const metadata = {
-  title: "Manufacturing",
+  title: "Canadian-Made Equipment",
   description:
-    "CANDRON's Toronto manufacturing facility combines multi-level engineering review, precision fabrication, skilled assembly, quality assurance, and final testing under one roof.",
+    "CANDRON is a provider of Canadian-made electrical equipment. We engineer the scope, source switchgear, switchboards and transformers from Canadian manufacturers, inspect, witness factory tests and deliver.",
 };
 
-export default function ManufacturingPage() {
+export default function CanadianMadePage() {
   return (
     <>
       <div className="page-hero">
@@ -21,18 +21,19 @@ export default function ManufacturingPage() {
         <HeroArt kind="cap-mfg" />
         <div className="container page-hero-content">
           <div className="breadcrumb">
-            <Link href="/">Home</Link> / <span>Manufacturing</span>
+            <Link href="/">Home</Link> / <span>Canadian-Made</span>
           </div>
-          <div className="label label-white">Our Facility</div>
+          <div className="label label-white">Providers of Canadian-Made Equipment</div>
           <h1>
-            Designed, Built &amp;
+            Made in Canada.
             <br />
-            <em>Tested Under One Roof</em>
+            <em>Provided by CANDRON.</em>
           </h1>
           <p className="lead mt-4">
-            World-class facilities, precision machinery, experienced people,
-            and structured quality controls support every stage — from the
-            first engineering drawing to final factory testing.
+            We are providers of Canadian-made electrical equipment. We engineer
+            the scope, source it from Canadian manufacturers, inspect it, witness
+            the factory test and deliver it — one accountable team from drawing
+            to energization.
           </p>
         </div>
       </div>
@@ -43,28 +44,25 @@ export default function ManufacturingPage() {
           <div className="intro-split rv">
             <div>
               <div className="label">The CANDRON Difference</div>
-              <h2>Complete Manufacturing Control</h2>
+              <h2>Canadian-Made, Managed for You</h2>
             </div>
             <div>
               <p className="body mb-5">
-                CANDRON brings electrical and mechanical engineering,
-                fabrication, assembly, wiring, quality assurance, and final
-                testing together in one coordinated manufacturing environment.
-                This gives every project a clear path from approved drawings to
-                finished equipment.
+                CANDRON is not a manufacturer. We are a provider: we supply
+                switchgear, switchboards, transformers, control panels and
+                integrated power equipment made in Canada, and we manage
+                everything between your specification and a working installation.
               </p>
               <p className="body mb-5">
-                Four to six electrical and mechanical engineers can collaborate
-                on a single project. Drawings and specifications move through a
-                multi-level review process before release, helping the team
-                identify conflicts early and manufacture with confidence.
+                Our engineers review drawings and specifications before an order
+                is placed, match each item to the Canadian manufacturer best
+                suited to it, and follow production through to the factory
+                test — so conflicts are found on paper, not on site.
               </p>
               <p className="body">
-                High-quality German robotic fabrication machinery, advanced
-                assembly tools, experienced technicians, and dedicated Omicron
-                and Phenix test equipment allow us to deliver precise,
-                dependable power distribution equipment with efficient lead
-                times.
+                You get Canadian-made equipment to CSA standards, local support,
+                realistic lead times and one point of contact who answers for
+                quality, schedule and paperwork.
               </p>
             </div>
           </div>
@@ -74,55 +72,55 @@ export default function ManufacturingPage() {
       {/* CAPABILITIES — animated flow */}
       <CapabilitiesFlow />
 
-      {/* MANUFACTURING ENVIRONMENT */}
+      {/* WHY CANADIAN-MADE */}
       <div className="mq-section">
         <div className="container">
           <div className="mq-header rv">
             <div>
-              <div className="label label-white">World-Class Manufacturing</div>
+              <div className="label label-white">Why Canadian-Made</div>
               <h2 className="mq-heading">
-                Facilities, People &amp;
+                Made Closer to Your Site,
                 <br />
-                <em>Precision in Every Stage</em>
+                <em>Supported Closer to Home</em>
               </h2>
             </div>
             <p className="mq-lead">
-              Stable production conditions, regularly audited equipment,
-              advanced machinery, and a skilled team working behind the scenes
-              give CANDRON the control required for precision manufacturing.
+              Equipment made in Canada is built to the codes, climates and
+              utility rules it will live under — and CANDRON stays involved
+              from the order to the day it is energized.
             </p>
           </div>
           <div className="capability-grid">
             <div className="capability-card rv">
-              <div className="capability-num">24/7</div>
-              <div className="capability-title">Around-the-Clock Capability</div>
+              <div className="capability-num">CSA</div>
+              <div className="capability-title">Canadian Standards</div>
               <div className="capability-text">
-                Our production facility can run around the clock when project
-                requirements and delivery schedules demand it.
+                Equipment is made to CSA standards and the Canadian Electrical
+                Code, with cUL or field evaluation where your project needs it.
               </div>
             </div>
             <div className="capability-card rv d2">
-              <div className="capability-num">ISO</div>
-              <div className="capability-title">Certified Operations</div>
+              <div className="capability-num">QA</div>
+              <div className="capability-title">Qualified Manufacturers</div>
               <div className="capability-text">
-                ISO-certified factory processes support consistent production,
-                documented controls, and disciplined quality management.
+                We work with Canadian manufacturers whose quality systems,
+                test capability and track record we know.
               </div>
             </div>
             <div className="capability-card rv d3">
-              <div className="capability-num">6 MO</div>
-              <div className="capability-title">Machine Auditing</div>
+              <div className="capability-num">FAT</div>
+              <div className="capability-title">Witnessed Testing</div>
               <div className="capability-text">
-                Fabrication and production machines undergo six-month auditing
-                and quality-assurance reviews to maintain reliable performance.
+                We attend factory acceptance tests and check the reports, and
+                your team or inspector is welcome to witness them too.
               </div>
             </div>
             <div className="capability-card rv d4">
               <div className="capability-num">°C</div>
-              <div className="capability-title">Temperature Control</div>
+              <div className="capability-title">Made for Canadian Climates</div>
               <div className="capability-text">
-                Controlled manufacturing conditions help protect dimensional
-                consistency, material handling, assembly, and testing accuracy.
+                Enclosures, heaters, coatings and ratings chosen for cold,
+                snow, salt and northern sites, not adapted after the fact.
               </div>
             </div>
             <div className="capability-card rv d5">
@@ -142,20 +140,19 @@ export default function ManufacturingPage() {
                 </svg>
               </div>
               <div className="capability-title">
-                German Robotic Fabrication
+                Shorter Supply Chains
               </div>
               <div className="capability-text">
-                High-quality German robotic machinery supports precise metal
-                cutting, forming, and fabrication with repeatable results.
+                Domestic production and freight mean fewer border delays,
+                easier factory visits and faster answers when things change.
               </div>
             </div>
             <div className="capability-card rv d6">
               <div className="capability-num">TEAM</div>
-              <div className="capability-title">People Behind Production</div>
+              <div className="capability-title">One Accountable Provider</div>
               <div className="capability-text">
-                Engineers, fabricators, assemblers, wire technicians, quality
-                specialists, and test personnel work together behind the scenes
-                to move every project forward.
+                Engineers, project coordinators and field technicians at CANDRON
+                own the order from quote to commissioning, whoever made it.
               </div>
             </div>
           </div>
@@ -168,7 +165,7 @@ export default function ManufacturingPage() {
           {/* Header */}
           <div className="proc-header-row rv">
             <div>
-              <div className="label label-white">Manufacturing Process</div>
+              <div className="label label-white">How We Provide</div>
               <h2 className="proc-h2">
                 A Structured Process
                 <br />
@@ -176,9 +173,9 @@ export default function ManufacturingPage() {
               </h2>
             </div>
             <p className="proc-intro">
-              Every CANDRON project follows a documented manufacturing process
-              with defined milestones, multi-level reviews, and quality gates —
-              supporting accurate execution and predictable project delivery.
+              Every CANDRON order follows a documented supply process with
+              defined milestones, reviews and quality gates — from the first
+              conversation to equipment energized on site.
             </p>
           </div>
 
@@ -187,7 +184,7 @@ export default function ManufacturingPage() {
             <div className="proc-img-wrap rv-l">
               <Image
                 src="/images/switchgear-facility.jpg"
-                alt="Manufacturing Facility"
+                alt="Canadian-made switchgear supplied by CANDRON"
                 fill
                 className="object-cover"
                 sizes="(max-width:1024px) 100vw, 45vw"
@@ -210,8 +207,8 @@ export default function ManufacturingPage() {
                     Your Project, Your Visibility
                   </div>
                   <div className="text-[1rem] text-white/[.58] leading-[1.55]">
-                    Visit at any stage — including mid-build. Full transparency,
-                    no surprises.
+                    Ask for an update at any stage, or visit the factory with
+                    us. Full transparency, no surprises.
                   </div>
                 </div>
               </div>
@@ -220,17 +217,17 @@ export default function ManufacturingPage() {
             <div className="proc-steps rv-r">
               {[
                 "Project kickoff and requirements review",
-                "Electrical and mechanical design collaboration",
-                "Multi-level drawing and specification review",
-                "Material procurement",
-                "Incoming inspection",
-                "Precision robotic metal fabrication",
-                "Assembly with high-end production tools",
-                "Wiring",
-                "In-process quality inspection",
-                "Final testing on Omicron and Phenix systems",
-                "Document compilation",
-                "Delivery",
+                "Application engineering and equipment scope",
+                "Specification and drawing review",
+                "Selection of the right Canadian manufacturer",
+                "Quotation with lead time from approved drawings",
+                "Submittal drawings and approval",
+                "Production follow-up and expediting",
+                "In-plant quality inspection",
+                "Witnessed factory acceptance testing",
+                "Document review and compilation",
+                "Delivery to site",
+                "Commissioning support",
               ].map((step, i) => (
                 <div className="proc-step" key={i}>
                   <div className="proc-step-num">
@@ -253,8 +250,8 @@ export default function ManufacturingPage() {
                   </svg>
                 ),
                 val: "100%",
-                lbl: "In-House Production",
-                sub: "Everything built inside our Toronto facility.",
+                lbl: "Canadian-Made",
+                sub: "Equipment made by manufacturers in Canada.",
               },
               {
                 icon: (
@@ -275,7 +272,7 @@ export default function ManufacturingPage() {
                 ),
                 val: "Expedited",
                 lbl: "Lead Times",
-                sub: "Streamlined in-house process, on-time delivery.",
+                sub: "Production tracked by us, so dates hold.",
               },
               {
                 icon: (
@@ -286,7 +283,7 @@ export default function ManufacturingPage() {
                 ),
                 val: "Full FAT",
                 lbl: "Before Shipment",
-                sub: "Factory Acceptance Testing on every unit.",
+                sub: "Factory acceptance testing on every unit.",
               },
             ].map((m, i) => (
               <div className="proc-metric" key={i}>
@@ -308,7 +305,7 @@ export default function ManufacturingPage() {
               <div className="canada-made-photo canada-made-photo--main">
                 <Image
                   src="/images/switchgear-facility.jpg"
-                  alt="Switchgear line-up on the CANDRON production floor in Toronto"
+                  alt="Canadian-made switchgear line-up supplied by CANDRON"
                   fill
                   className="object-cover"
                   sizes="(max-width:900px) 100vw, 34vw"
@@ -317,7 +314,7 @@ export default function ManufacturingPage() {
               <div className="canada-made-photo">
                 <Image
                   src="/images/manufacturing.jpg"
-                  alt="Completed switchgear enclosures in the CANDRON facility"
+                  alt="Completed Canadian-made switchgear enclosures"
                   fill
                   className="object-cover"
                   sizes="(max-width:900px) 50vw, 17vw"
@@ -326,7 +323,7 @@ export default function ManufacturingPage() {
               <div className="canada-made-photo">
                 <Image
                   src="/images/control-panels.jpg"
-                  alt="Control panel wiring and assembly in progress"
+                  alt="Canadian-made control panel wiring"
                   fill
                   className="object-cover"
                   sizes="(max-width:900px) 50vw, 17vw"
@@ -334,9 +331,9 @@ export default function ManufacturingPage() {
               </div>
             </div>
             <div className="canada-made-copy rv-r">
-              <div className="label">Canadian Manufacturing</div>
+              <div className="label">Canadian-Made Electrical Equipment</div>
               <h2 className="mt-3">
-                Built in Canada.
+                Made in Canada.
                 <br />
                 For Canadian Projects.
               </h2>
@@ -344,18 +341,19 @@ export default function ManufacturingPage() {
                 <CanadaFlag height={18} /> Proudly Made in Canada
               </div>
               <p className="lead m-0">
-                We engineer and manufacture in Canada. CANDRON&rsquo;s Toronto,
-                Ontario facility serves utilities, contractors, industrial
-                facilities, and infrastructure projects across North America.
+                We are providers of Canadian-made electrical equipment. From our
+                base in Toronto, Ontario, CANDRON supplies utilities, contractors,
+                industrial facilities and infrastructure projects across North
+                America.
               </p>
               <p className="body mt-4 text-gray">
-                Our facility is equipped for 24/7 production when project
-                schedules require it, supported by controlled manufacturing
-                conditions, regularly audited machinery, and coordinated teams.
+                Buying Canadian-made keeps your supply chain short, your
+                equipment on Canadian standards and your support local — with
+                CANDRON answering for the order from start to finish.
               </p>
               <ul className="canada-made-points">
-                <li><strong>Toronto, Ontario</strong><span>Engineering and production under one roof</span></li>
-                <li><strong>24/7 capable</strong><span>Extra shifts when your schedule needs it</span></li>
+                <li><strong>Toronto, Ontario</strong><span>Engineering, sales and field support</span></li>
+                <li><strong>Made in Canada</strong><span>Sourced from Canadian manufacturers</span></li>
                 <li><strong>North America</strong><span>Utilities, contractors and industry served</span></li>
               </ul>
             </div>
@@ -367,7 +365,7 @@ export default function ManufacturingPage() {
       <div className="cta-band">
         <div className="container">
           <div className="cta-band-inner">
-            <h2 className="rv">See What We Can Build For You</h2>
+            <h2 className="rv">See What We Can Provide For You</h2>
             <p className="lead rv !text-white/[.6] !max-w-[500px]">
               Talk to our engineering team about your project requirements.
               Every customer — contractor, consultant, or project owner — can

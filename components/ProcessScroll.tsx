@@ -10,9 +10,9 @@ type Step = { n: string; t: string; d: string }
 
 const defaultSteps: Step[] = [
   { n: "01", t: "Design & Engineering", d: "Our engineering team develops customized power distribution solutions tailored to project requirements, utility standards, and site conditions." },
-  { n: "02", t: "Manufacturing", d: "All products are manufactured in our Canadian facility using proven processes and strict quality controls at every stage." },
-  { n: "03", t: "Assembly", d: "Equipment is assembled by experienced technicians ensuring precision and consistency throughout production." },
-  { n: "04", t: "Testing", d: "Every system undergoes comprehensive factory acceptance testing before shipment to verify safety, reliability, and compliance." },
+  { n: "02", t: "Canadian Sourcing", d: "Each order is placed with a qualified Canadian manufacturer, and our team tracks production against agreed milestones." },
+  { n: "03", t: "Inspection", d: "Our team inspects the equipment against the approved drawings for precision and consistency before it is tested." },
+  { n: "04", t: "Testing", d: "Every system goes through factory acceptance testing before shipment to verify safety, reliability, and compliance." },
   { n: "05", t: "Commissioning Support", d: "Our team supports installation, startup, and commissioning to ensure reliable operation from day one." },
 ]
 

@@ -52,7 +52,7 @@ export default function FamilyPage({ r, f }: { r: RangeDef; f: RangeFamily }) {
             <div>
               <p className="body">{f.intro}</p>
               <p className="body mt-4">
-                Every unit is engineered, built and tested to order at our Toronto facility.
+                Every unit is engineered to order, made and tested in Canada, and provided by CANDRON.
                 {r.guide ? <> Not sure which one fits? Read our <Link href={r.guide.href}>{r.guide.label.toLowerCase()}</Link> or call our engineers.</> : <> Not sure which one fits? Use the <Link href={`${r.hubHref}#finder`}>product finder</Link> or call our engineers.</>}
               </p>
             </div>

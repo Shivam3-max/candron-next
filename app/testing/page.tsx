@@ -56,12 +56,11 @@ export default function TestingPage() {
                 site.
               </p>
               <p className="body mb-5">
-                At CANDRON Energy, every system undergoes structured factory
-                testing before shipment. Our in-house testing capability means
-                we control the process, maintain the documentation, and can
-                accommodate witnessed FAT for your project team or third-party
-                inspector — without scheduling delays from an external test
-                facility.
+                At CANDRON Energy, every system we provide goes through
+                structured factory testing at the Canadian manufacturer before
+                shipment. We agree the test plan, attend the test, review the
+                documentation, and arrange witnessed FAT for your project team
+                or third-party inspector.
               </p>
               <p className="body">
                 Testing is not an add-on at CANDRON. It is a fundamental part of
@@ -84,7 +83,7 @@ export default function TestingPage() {
               <h2 className="wt-h2">What We <em>Test</em></h2>
             </div>
             <div className="wt-header-right">
-              <p className="wt-intro max-w-[460px] text-left">Every system undergoes structured testing before it leaves our facility. We control the process, maintain full documentation, and can accommodate witnessed FAT for your team or third-party inspector.</p>
+              <p className="wt-intro max-w-[460px] text-left">Every system goes through structured testing before it leaves the factory. We set the test plan, review the full documentation, and arrange witnessed FAT for your team or third-party inspector.</p>
               <Link href="/contact" className="btn btn-primary mag shrink-0">Request a Witnessed FAT →</Link>
             </div>
           </div>
@@ -209,13 +208,13 @@ export default function TestingPage() {
         </div>
       </div>
 
-      {/* WHY IN-HOUSE */}
+      {/* WHY WITNESSED TESTING */}
       <div className="bg-navy-section">
         <div className="container">
           <div className="text-center max-w-[600px] mx-auto mb-16 rv">
             <div className="label label-white justify-center">The Advantage</div>
             <h2 className="text-white">
-              Why In-House Testing
+              Why Witnessed Testing
               <br />
               Makes a Difference
             </h2>
@@ -227,11 +226,10 @@ export default function TestingPage() {
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                 </svg>
               </div>
-              <div className="why-card-title text-white">No Scheduling Delays</div>
+              <div className="why-card-title text-white">Scheduled Around You</div>
               <div className="why-card-text text-white/[.68]">
-                In-house testing means no waiting for an external test lab. Your
-                FAT is scheduled to align with your project timeline — not an
-                external facility's availability.
+                We book the factory test early and align it with your project
+                timeline, so your team or inspector can plan to attend.
               </div>
             </div>
             <div className="why-card-v2 rv d2 bg-white/[.04] border border-white/[.07]">
@@ -242,9 +240,9 @@ export default function TestingPage() {
               </div>
               <div className="why-card-title text-white">Issues Resolved Immediately</div>
               <div className="why-card-text text-white/[.68]">
-                When testing identifies an issue, our engineering and assembly
-                team is on-site to resolve it immediately. No shipping equipment
-                back and forth between facilities.
+                When testing finds an issue, our engineers are at the test and
+                agree the fix with the manufacturer on the spot — before the
+                equipment ships, not after it reaches site.
               </div>
             </div>
             <div className="why-card-v2 rv d3 bg-white/[.04] border border-white/[.07]">
@@ -256,8 +254,8 @@ export default function TestingPage() {
               </div>
               <div className="why-card-title text-white">Complete Documentation</div>
               <div className="why-card-text text-white/[.68]">
-                Detailed test reports generated and reviewed internally before
-                delivery. Full traceability from test results to as-built
+                Detailed test reports from the factory, reviewed by our engineers
+                before delivery. Full traceability from test results to as-built
                 drawings and equipment data sheets.
               </div>
             </div>

@@ -78,7 +78,7 @@ def cell(ws, row, col, value=None, bold=False, fill=None, fmt=None, align=WRAP, 
 
 def footer(ws, row, cols):
     ws.merge_cells(start_row=row, start_column=1, end_row=row, end_column=cols)
-    c = ws.cell(row=row, column=1, value="Free resource from CANDRON Energy Inc. · switchgear, switchboards and transformers designed, built and tested in Toronto · candron.com · +1 (647) 616-2595")
+    c = ws.cell(row=row, column=1, value="Free resource from CANDRON Energy Inc. · providers of Canadian-made switchgear, switchboards and transformers · candron.com · +1 (647) 616-2595")
     c.font = Font(name=F, size=8, italic=True, color=GREY)
 
 

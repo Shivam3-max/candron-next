@@ -197,7 +197,7 @@ export default async function InventoryProductPage({ params }: Props) {
             <section id="shipping" className="pd-section">
               <h2>Shipping & warranty</h2>
               <div className="pd-info-cards">
-                <div><h3>Shipping</h3><p>Ships from {p.location || 'our Toronto facility'}{p.lead_time ? ` — ${p.lead_time.toLowerCase()}` : ''}. We crate, load and arrange flatbed freight anywhere in Canada and the United States.</p></div>
+                <div><h3>Shipping</h3><p>Ships from {p.location || 'Toronto, Ontario'}{p.lead_time ? ` — ${p.lead_time.toLowerCase()}` : ''}. We crate, load and arrange flatbed freight anywhere in Canada and the United States.</p></div>
                 <div><h3>Warranty</h3><p>{p.warranty ? `${p.warranty} CANDRON warranty` : 'Covered by the CANDRON equipment warranty'}, backed by our own field service team.</p></div>
                 <div><h3>Testing</h3><p>Routine factory tests are completed before shipment, and the test report travels with the unit.</p></div>
               </div>

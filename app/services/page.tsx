@@ -21,7 +21,7 @@ const process = [
   { n: '01', title: 'Define', text: 'Review objectives, existing conditions, electrical data, site constraints, schedule, and applicable standards.' },
   { n: '02', title: 'Analyze', text: 'Develop the system model, complete required studies, and establish the equipment and protection basis.' },
   { n: '03', title: 'Design', text: 'Prepare coordinated electrical and mechanical designs, drawings, specifications, and review packages.' },
-  { n: '04', title: 'Deliver', text: 'Support manufacturing, testing, documentation, installation, and commissioning through one accountable team.' },
+  { n: '04', title: 'Deliver', text: 'Manage Canadian-made supply, factory testing, documentation, installation, and commissioning through one accountable team.' },
 ]
 
 const VPI = '/images/engineering/mv-vpi'
@@ -32,7 +32,7 @@ const vpiShots: DesignShot[] = [
   { src: `${VPI}/04-rear-view.jpg`, w: 674, h: 712, chapter: 'Core & Coil', title: 'Rear view of the active part', text: 'The same assembly from the other side: the LV bus take-off, tap connections and the full extent of the guard frame.' },
   { src: `${VPI}/05-assembled-in-frame.jpg`, w: 777, h: 754, chapter: 'Assembly', title: 'Active part inside the enclosure frame', text: 'The core and coil set into the enclosure structure, with removable roof panels and the HV bushing plate positioned for cable entry.' },
   { src: `${VPI}/06-lv-termination.jpg`, w: 681, h: 655, chapter: 'Assembly', title: 'Low-voltage termination plate', text: 'LV bus bars pass through an insulated termination plate, ready for cable or bus duct connection on site.' },
-  { src: `${VPI}/07-frame-layout.jpg`, w: 603, h: 696, chapter: 'Assembly', title: 'Frame and coil layout', text: 'Section framing is arranged around the coils so that airflow, lifting and service access are all resolved before fabrication.' },
+  { src: `${VPI}/07-frame-layout.jpg`, w: 603, h: 696, chapter: 'Assembly', title: 'Frame and coil layout', text: 'Section framing is arranged around the coils so that airflow, lifting and service access are all resolved before the order is released.' },
   { src: `${VPI}/08-termination-panel.jpg`, w: 604, h: 697, chapter: 'Assembly', title: 'Cable termination panel', text: 'High- and low-voltage terminations grouped on one side panel, with bracing across the coils for transport and short-circuit strength.' },
   { src: `${VPI}/09-cable-compartment.jpg`, w: 563, h: 649, chapter: 'Assembly', title: 'Termination compartment', text: 'A dedicated compartment with separate HV bushings and LV bus bars, giving installers clear working space for the incoming and outgoing cables.' },
   { src: `${VPI}/10-clearances.jpg`, w: 606, h: 636, chapter: 'Assembly', title: 'Clearances checked in the model', text: 'Electrical clearances between the coils, bus and enclosure are verified in 3D before any steel is cut.' },
@@ -49,7 +49,7 @@ export default function ElectricalEngineeringServicesPage() {
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>Electrical Engineering Services</span></div>
           <div className="label label-white">Power Systems · Equipment · Field Support</div>
           <h1>Electrical Engineering<br /><em>Built Around Your Project.</em></h1>
-          <p className="lead mt-4">From system studies and protection coordination to equipment design, documentation, and commissioning support—CANDRON connects engineering decisions directly to real manufacturing and field execution.</p>
+          <p className="lead mt-4">From system studies and protection coordination to equipment design, documentation, and commissioning support—CANDRON connects engineering decisions directly to the Canadian-made equipment we provide and to field execution.</p>
           <div className="flex flex-wrap gap-4 mt-8">
             <Link href="/contact?service=electrical-engineering" className="btn btn-primary btn-lg mag">Discuss Your Requirements →</Link>
             <Link href="/project-process" className="btn btn-outline btn-lg mag">View Our Process</Link>
@@ -63,12 +63,12 @@ export default function ElectricalEngineeringServicesPage() {
             <div className="rv-l lg:sticky lg:top-[140px]">
               <div className="label">Engineering With Accountability</div>
               <h2>One Team From Analysis to Energization</h2>
-              <p className="body mt-5">CANDRON&apos;s electrical and mechanical teams work together across system analysis, equipment design, manufacturing, factory testing, and field commissioning. That continuity reduces handoffs and keeps technical decisions connected to the equipment that will ultimately be installed.</p>
+              <p className="body mt-5">CANDRON&apos;s engineers work together across system analysis, equipment design, Canadian-made supply, factory testing, and field commissioning. That continuity reduces handoffs and keeps technical decisions connected to the equipment that will ultimately be installed.</p>
               <p className="body mt-5">Whether the requirement is a new distribution system, a custom replacement transformer, a protection review, or support for an urgent field condition, our work begins with the application—not a standard catalogue configuration.</p>
               <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-3 mt-8">
                 {[
                   { value: 'P.Eng', label: 'Engineering Oversight' },
-                  { value: 'In-House', label: 'Design to Testing' },
+                  { value: 'One Team', label: 'Design to Testing' },
                   { value: '24/7', label: 'Emergency Response' },
                   { value: 'North America', label: 'Project Support' },
                 ].map((item) => (
@@ -96,14 +96,14 @@ export default function ElectricalEngineeringServicesPage() {
         <div className="container">
           <div className="grid grid-cols-[.88fr_1.12fr] max-lg:grid-cols-1 gap-12 items-center">
             <div className="rv-l">
-              <div className="label label-white">From Model to Manufactured Equipment</div>
+              <div className="label label-white">From Model to Canadian-Made Equipment</div>
               <h2 id="engineering-design-title" className="text-white mt-4 !leading-[1.08]">Designed to Fit.<br /><em>Engineered to Perform.</em></h2>
-              <p className="text-white/[.68] text-[1.125rem] leading-[1.8] mt-6">Detailed engineering models coordinate equipment layout, device arrangement, bus and cable routing, working clearances, and connection points before a design is released to manufacturing.</p>
+              <p className="text-white/[.68] text-[1.125rem] leading-[1.8] mt-6">Detailed engineering models coordinate equipment layout, device arrangement, bus and cable routing, working clearances, and connection points before a design is released to the manufacturer.</p>
               <ul className="mt-8 p-0 list-none grid gap-3">
                 {[
                   'Electrical and mechanical design developed together',
                   'Existing footprints and site interfaces incorporated early',
-                  'Design reviews completed before manufacturing release',
+                  'Design reviews completed before the order is released',
                   'Factory testing tied back to approved project requirements',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-white/[.68] text-[1.0625rem] leading-[1.6]">
@@ -116,13 +116,13 @@ export default function ElectricalEngineeringServicesPage() {
             </div>
             <div className="grid grid-cols-2 gap-4 rv-r max-sm:grid-cols-1">
               <figure className="relative min-h-[510px] max-sm:min-h-[340px] overflow-hidden rounded-[16px] border border-white/15 bg-[#CBECEF]">
-                <Image src="/images/projects/panelboard-design-stage/panelboard-design-stage.png" alt="Detailed engineering model of a custom panelboard before manufacturing release" fill className="object-contain p-4" sizes="(max-width:640px) 100vw, 28vw" />
+                <Image src="/images/projects/panelboard-design-stage/panelboard-design-stage.png" alt="Detailed engineering model of a custom panelboard before order release" fill className="object-contain p-4" sizes="(max-width:640px) 100vw, 28vw" />
                 <figcaption className="absolute left-4 bottom-4 rounded-full bg-navy/85 px-3 py-2 font-mono text-[.8125rem] font-bold uppercase tracking-[.08em] text-white">Engineering Model</figcaption>
               </figure>
               <figure className="relative min-h-[510px] max-sm:min-h-[340px] overflow-hidden rounded-[16px] border border-white/15 bg-white/[.04]">
-                <Image src="/images/projects/2500a-switchboard-production/2500a-switchboard-production.jpg" alt="Custom 2500 amp switchboard progressing through the CANDRON manufacturing facility" fill className="object-cover object-center" sizes="(max-width:640px) 100vw, 28vw" />
+                <Image src="/images/projects/2500a-switchboard-production/2500a-switchboard-production.jpg" alt="Custom 2500 amp Canadian-made switchboard in production for CANDRON" fill className="object-cover object-center" sizes="(max-width:640px) 100vw, 28vw" />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent" />
-                <figcaption className="absolute left-4 bottom-4 rounded-full bg-navy/85 px-3 py-2 font-mono text-[.8125rem] font-bold uppercase tracking-[.08em] text-white">Manufacturing Execution</figcaption>
+                <figcaption className="absolute left-4 bottom-4 rounded-full bg-navy/85 px-3 py-2 font-mono text-[.8125rem] font-bold uppercase tracking-[.08em] text-white">Canadian-Made Supply</figcaption>
               </figure>
             </div>
           </div>
@@ -135,7 +135,7 @@ export default function ElectricalEngineeringServicesPage() {
             <div className="vpi-copy rv-l">
               <div className="label">Engineering Showcase</div>
               <h2 id="vpi-showcase-title">Medium-Voltage Dry-Type VPI Transformer<br /><em>Modelled Before It&rsquo;s Built.</em></h2>
-              <p className="body mt-5">Every CANDRON transformer is modelled in 3D before it reaches the shop floor. This medium-voltage dry-type VPI unit shows how our engineers resolve the core and coil, connections, barriers, terminations and enclosure as one coordinated design.</p>
+              <p className="body mt-5">Every transformer CANDRON provides can be modelled in 3D before it is released to the factory. This medium-voltage dry-type VPI unit shows how our engineers resolve the core and coil, connections, barriers, terminations and enclosure as one coordinated design.</p>
               <ul className="vpi-points">
                 <li><strong>Core &amp; coil</strong><span>Step-lap core, VPI windings and clamping structure</span></li>
                 <li><strong>Connections</strong><span>HV delta links and LV bus take-off in copper</span></li>
@@ -159,7 +159,7 @@ export default function ElectricalEngineeringServicesPage() {
           <div className="text-center max-w-[720px] mx-auto mb-12 rv">
             <div className="label justify-center">A Connected Engineering Process</div>
             <h2 id="engineering-process-title">Define. Analyze. Design. Deliver.</h2>
-            <p className="lead mt-4 mx-auto">A structured path that keeps the project requirements, engineering decisions, manufactured equipment, and field results connected.</p>
+            <p className="lead mt-4 mx-auto">A structured path that keeps the project requirements, engineering decisions, supplied equipment, and field results connected.</p>
           </div>
           <div className="grid grid-cols-4 max-lg:grid-cols-2 max-sm:grid-cols-1 gap-4">
             {process.map((step, index) => (

@@ -14,7 +14,7 @@ export default function CommissioningPage() {
         <div className="container page-hero-content">
           <div className="breadcrumb"><Link href="/">Home</Link> / <span>Commissioning</span></div>
           <div className="label label-white">Field Support</div>
-          <h1>Support Beyond<br/>Manufacturing</h1>
+          <h1>Support Beyond<br/>Delivery</h1>
           <p className="lead mt-4">CANDRON provides commissioning support to ensure systems perform as designed once installed. Our engagement with your project doesn't end at the shipping dock.</p>
         </div>
       </div>
@@ -29,7 +29,7 @@ export default function CommissioningPage() {
             </div>
             <div>
               <p className="body mb-5">The transition from factory-tested equipment to an operational installation introduces variables that can only be resolved in the field — site conditions, installation practices, integration with existing systems, and startup sequencing all require engineering knowledge and hands-on experience.</p>
-              <p className="body mb-5">CANDRON's commissioning support extends our project engagement beyond manufacturing. Our engineering team provides startup assistance, site testing, and performance validation to ensure your equipment operates reliably from day one.</p>
+              <p className="body mb-5">CANDRON's commissioning support extends our project engagement beyond supply and delivery. Our engineering team provides startup assistance, site testing, and performance validation to ensure your equipment operates reliably from day one.</p>
               <p className="body">Because we designed and built your equipment, no one is better positioned to support its commissioning. Our engineers understand every circuit, every protection setting, and every aspect of the system we delivered — and we bring that knowledge directly to your site.</p>
             </div>
           </div>

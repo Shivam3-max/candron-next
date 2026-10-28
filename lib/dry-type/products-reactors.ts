@@ -16,7 +16,7 @@ export const REACTOR_PRODUCTS: DryProduct[] = [
     compare: { rating: '2 – 1,250 A, three-phase', voltage: '600 V max', insulation: '220 °C · 150 °C rise', enclosure: 'Open or Type 1' },
     meta: {
       title: 'AC Line & Load Reactor',
-      description: 'Three-phase AC line and load reactors 2 – 1,250 A, 600 V, for VFDs and drives: lower harmonics, fewer nuisance trips and better motor protection. 3% or 5% impedance, copper windings. Made in Canada by CANDRON.',
+      description: 'Three-phase AC line and load reactors 2 – 1,250 A, 600 V, for VFDs and drives: lower harmonics, fewer nuisance trips and better motor protection. 3% or 5% impedance, copper windings. Made in Canada, provided by CANDRON.',
     },
     art: { kind: 'dt-reactor' },
     eyebrow: 'Reactors & Filters · Drive Protection',
@@ -100,7 +100,7 @@ export const REACTOR_PRODUCTS: DryProduct[] = [
     compare: { rating: '2 – 320 A, three-phase', voltage: '600 V max', insulation: '180 – 220 °C class', enclosure: 'Type 1' },
     meta: {
       title: 'dV/dt Motor Protection Filter',
-      description: 'dV/dt motor protection filters 2 – 320 A, 600 V, for drives feeding motors over long cables. Limit peak voltage and rise time at the motor to protect insulation. Built in Toronto by CANDRON.',
+      description: 'dV/dt motor protection filters 2 – 320 A, 600 V, for drives feeding motors over long cables. Limit peak voltage and rise time at the motor to protect insulation. Made in Canada, provided by CANDRON.',
     },
     art: { kind: 'dt-dvdt' },
     eyebrow: 'Reactors & Filters · Motor Insulation Protection',
@@ -181,7 +181,7 @@ export const REACTOR_PRODUCTS: DryProduct[] = [
     compare: { rating: 'Up to 10,000 kVAR', voltage: 'Up to 25 kV', insulation: '220 °C · 150 °C rise', enclosure: 'Open (enclosure opt.)' },
     meta: {
       title: 'Air-Core Reactor',
-      description: 'Dry-type air-core reactors up to 10,000 kVAR and 25 kV for current limiting, harmonic filters, capacitor inrush damping and neutral grounding. Tested per IEEE C57.16. Made in Canada by CANDRON.',
+      description: 'Dry-type air-core reactors up to 10,000 kVAR and 25 kV for current limiting, harmonic filters, capacitor inrush damping and neutral grounding. Tested per IEEE C57.16. Made in Canada, provided by CANDRON.',
     },
     art: { kind: 'dt-aircore' },
     eyebrow: 'Reactors & Filters · Medium Voltage',
@@ -264,7 +264,7 @@ export const REACTOR_PRODUCTS: DryProduct[] = [
     compare: { rating: '0.13 / 0.25 / 0.5 µF', voltage: '2.4 – 34.5 kV', insulation: '—', enclosure: 'Type 1 (3R, 4, 4X opt.)' },
     meta: {
       title: 'RC Surge Snubber',
-      description: 'RC surge snubbers 2.4 – 34.5 kV for dry-type transformers switched by vacuum breakers: current-limiting fuse, non-inductive resistor and surge capacitor per phase. Floor-mounted, made in Canada by CANDRON.',
+      description: 'RC surge snubbers 2.4 – 34.5 kV for dry-type transformers switched by vacuum breakers: current-limiting fuse, non-inductive resistor and surge capacitor per phase. Floor-mounted, made in Canada and provided by CANDRON.',
     },
     art: { kind: 'dt-snubber' },
     eyebrow: 'Reactors & Filters · Switching Surge Protection',

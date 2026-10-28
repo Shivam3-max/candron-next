@@ -172,7 +172,7 @@ export const LINEART_META: Record<LineArtKind, LineArtMeta> = {
     ]
   },
   "cap-mfg": {
-    "title": "Toronto Production Floor",
+    "title": "Canadian Factory Floor",
     "code": "CE-MFG-01",
     "legend": [
       "Overhead gantry crane",

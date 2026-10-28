@@ -120,7 +120,7 @@ export default function TransformersPage() {
             <em>for Critical Infrastructure</em>
           </h1>
           <p className="lead mt-4">
-            Padmount, substation, and dry-type transformers specified, manufactured, and tested in-house. Every unit built to the voltage, kVA, and environmental requirements of your project.
+            Canadian-made padmount, substation and dry-type transformers, specified by our engineers and factory-tested before delivery. Every unit made to the voltage, kVA and environmental requirements of your project.
           </p>
           <div className="flex gap-[.65rem] flex-wrap mt-6">
             {['Padmount', 'Substation', 'LV Dry-Type', 'MV Dry-Type', 'Cast Coil', 'Custom Configurations'].map(b => (
@@ -138,7 +138,7 @@ export default function TransformersPage() {
               { v: '4', l: 'Transformer Categories' },
               { v: 'CSA / ANSI', l: 'Certified Standards' },
               { v: '100 MVA', l: 'Max Power Transformer' },
-              { v: 'In-House', l: 'FAT & Testing' },
+              { v: 'Made in Canada', l: 'Factory-Tested' },
             ].map((k, i) => (
               <div key={k.l} className={`py-[1.1rem] px-4 text-center min-w-0 ${i < 3 ? 'border-r border-white/[.08]' : ''} max-sm:${i === 1 ? 'border-r-0' : ''}`}>
                 <div className="font-display font-black text-[1.1875rem] text-white tracking-[.03em] mb-[.2rem] break-words [overflow-wrap:anywhere]">{k.v}</div>
@@ -154,8 +154,8 @@ export default function TransformersPage() {
         <div className="container">
           <div className="text-center max-w-[580px] mx-auto mb-14 rv">
             <div className="label justify-center">Product Range</div>
-            <h2>Four Transformer Categories.<br />One Manufacturing Source.</h2>
-            <p className="lead mt-4">Every category is engineered and built in-house at our Toronto, Ontario facility — no third-party fabricators, no communication gaps.</p>
+            <h2>Four Transformer Categories.<br />One Canadian Provider.</h2>
+            <p className="lead mt-4">Every category is made in Canada and provided by CANDRON — one team for engineering, supply and support, with no communication gaps.</p>
           </div>
 
           <div className="grid grid-cols-2 max-md:grid-cols-1 gap-6">
@@ -263,7 +263,7 @@ export default function TransformersPage() {
               <h2 className="wt-h2">Why Specify <em>CANDRON</em></h2>
             </div>
             <div className="wt-header-right">
-              <p className="wt-intro max-w-[440px] text-left">Every transformer we build is specified, engineered, manufactured, and tested under one roof — giving you faster delivery, better documentation, and a single point of accountability.</p>
+              <p className="wt-intro max-w-[440px] text-left">Every transformer we provide is specified and engineered by our team, made in Canada and factory-tested — giving you faster delivery, better documentation, and a single point of accountability.</p>
               <Link href="/contact" className="btn btn-primary mag shrink-0">Request a Quote →</Link>
             </div>
           </div>
@@ -275,13 +275,13 @@ export default function TransformersPage() {
                 icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>,
               },
               {
-                n: '02', title: 'In-House Factory Testing',
+                n: '02', title: 'Witnessed Factory Testing',
                 desc: 'Every unit undergoes applied potential, induced voltage, resistance, ratio, and impedance tests before shipment. Witnessed FAT is available for your team or third-party inspector.',
                 icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" strokeLinecap="round" strokeLinejoin="round"/></svg>,
               },
               {
                 n: '03', title: 'ANSI, IEEE & CSA Compliance',
-                desc: 'Our transformers are built and tested to the applicable standards for your project — including ANSI C57, IEEE C57.12, CSA C88, and UL 1561 for listed dry-type units.',
+                desc: 'Our transformers are made and tested to the applicable standards for your project — including ANSI C57, IEEE C57.12, CSA C88, and UL 1561 for listed dry-type units.',
                 icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>,
               },
               {
@@ -291,12 +291,12 @@ export default function TransformersPage() {
               },
               {
                 n: '05', title: 'Direct Engineering Access',
-                desc: 'Reach our engineering team directly — no distributors, no sales layers. Technical questions, specification review, and project coordination are handled by the people who build your equipment.',
+                desc: 'Reach our engineering team directly — no distributors, no sales layers. Technical questions, specification review, and project coordination are handled by the people responsible for your equipment.',
                 icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>,
               },
               {
-                n: '06', title: 'Canadian Manufacturing',
-                desc: 'Built at our Toronto, Ontario facility with full in-house capability — electrical design, fabrication, assembly, and testing. No subcontracting, no overseas sourcing of critical components.',
+                n: '06', title: 'Canadian-Made',
+                desc: 'Made by Canadian manufacturers and provided by CANDRON from Toronto, Ontario — engineering, sourcing, inspection and testing managed by one team, with no overseas sourcing of the transformer itself.',
                 icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>,
               },
             ].map((item, i) => (
@@ -345,7 +345,7 @@ export default function TransformersPage() {
       <div className="cta-band">
         <div className="container">
           <div className="cta-band-inner">
-            <h2 className="rv">Built for Your Specification</h2>
+            <h2 className="rv">Made to Your Specification</h2>
             <p className="lead rv !text-white/[.6] !max-w-[500px]">
               Tell us your voltage, kVA, and site requirements. Our engineering team will respond with a specification, lead time, and price — typically the same day.
             </p>

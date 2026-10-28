@@ -27,7 +27,7 @@ export const MV_PRODUCTS: DryProduct[] = [
     compare: { rating: '1Ø 100 – 5,000 kVA · 3Ø 300 – 15,000 kVA', voltage: 'Up to 46 kV · 250 kV BIL', insulation: '220 °C · 150 °C rise', enclosure: 'Type 1 (2, 3R, 4, 4X, 12 opt.)' },
     meta: {
       title: 'VPI / VPE Medium-Voltage Dry-Type Power Transformer',
-      description: 'VPI and VPE dry-type power transformers: three-phase 300 – 15,000 kVA and single-phase 100 – 5,000 kVA, up to 46 kV class and 250 kV BIL, with optional fan cooling. Designed and tested in Toronto.',
+      description: 'VPI and VPE dry-type power transformers: three-phase 300 – 15,000 kVA and single-phase 100 – 5,000 kVA, up to 46 kV class and 250 kV BIL, with optional fan cooling. Made and tested in Canada.',
     },
     art: { kind: 'dt-vpi' },
     eyebrow: 'MV Power · Vacuum Pressure Impregnated',
@@ -119,7 +119,7 @@ export const MV_PRODUCTS: DryProduct[] = [
     compare: { rating: '1Ø up to 5,000 kVA · 3Ø up to 15,000 kVA', voltage: 'Up to 46 kV · 250 kV BIL', insulation: '180 °C · 115 °C rise', enclosure: 'Type 1 (2, 3R, 4, 4X, 12 opt.)' },
     meta: {
       title: 'Cast-Coil Dry-Type Power Transformer',
-      description: 'Epoxy cast-coil dry-type power transformers up to 15,000 kVA three-phase and 5,000 kVA single-phase, up to 46 kV class and 250 kV BIL. For humid, dusty and corrosive sites. Built in Toronto by CANDRON.',
+      description: 'Epoxy cast-coil dry-type power transformers up to 15,000 kVA three-phase and 5,000 kVA single-phase, up to 46 kV class and 250 kV BIL. For humid, dusty and corrosive sites. Made in Canada, provided by CANDRON.',
     },
     art: { kind: 'castcoil' },
     eyebrow: 'MV Power · Epoxy Cast Coil',
@@ -207,7 +207,7 @@ export const MV_PRODUCTS: DryProduct[] = [
     compare: { rating: 'Continuous + 2/5/10/30 s neutral current', voltage: 'Up to 46 kV · 250 kV BIL', insulation: '220 °C (VPI) / 180 °C (cast)', enclosure: 'Type 1, 2, 3R, 4, 4X, 12' },
     meta: {
       title: 'Neutral Grounding Transformer',
-      description: 'Zig-zag and wye-delta neutral grounding transformers up to 46 kV class (250 kV BIL), solid or resistance grounded, with continuous and 2, 5, 10 or 30-second neutral current ratings. Built in Toronto by CANDRON.',
+      description: 'Zig-zag and wye-delta neutral grounding transformers up to 46 kV class (250 kV BIL), solid or resistance grounded, with continuous and 2, 5, 10 or 30-second neutral current ratings. Made in Canada, provided by CANDRON.',
     },
     art: { kind: 'dt-ground' },
     eyebrow: 'MV Power · System Grounding',

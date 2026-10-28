@@ -18,7 +18,7 @@ export default function NotFound() {
           <Link href="/contact" className="btn btn-outline">Contact Us</Link>
         </div>
         <div className="mt-12 pt-8 border-t border-white/[.08] flex justify-center gap-10 flex-wrap">
-          {[['Products','/products'],['Manufacturing','/manufacturing'],['Testing','/testing'],['About','/about']].map(([label,href])=>(
+          {[['Products','/products'],['Canadian-Made','/manufacturing'],['Testing','/testing'],['About','/about']].map(([label,href])=>(
             <Link key={href} href={href} className="nf-nav-link">{label}</Link>
           ))}
         </div>

@@ -16,7 +16,7 @@ const pillars: { lbl: string; sub: string; icon: React.ReactNode }[] = [
   },
   {
     lbl: 'Quality at Every Stage',
-    sub: 'Inspected and tested in-house',
+    sub: 'Inspected and factory-tested',
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>,
   },
   {
@@ -38,18 +38,18 @@ const steps: { n: string; title: string; desc: string; icon: React.ReactNode }[]
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M2 20h20"/><path d="M4 20V10l4-4 4 4V4l4-4v20"/></svg>,
   },
   {
-    n: '02', title: 'Manufacturing',
-    desc: 'All products are manufactured in our Canadian facility using proven processes and strict quality controls at every stage.',
+    n: '02', title: 'Canadian Sourcing',
+    desc: 'Each order is placed with a qualified Canadian manufacturer, and our team tracks production against agreed milestones.',
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/></svg>,
   },
   {
-    n: '03', title: 'Assembly',
-    desc: 'Equipment is assembled by experienced technicians ensuring precision and consistency throughout production.',
+    n: '03', title: 'Inspection',
+    desc: 'Our team inspects the equipment against the approved drawings for precision and consistency before it is tested.',
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>,
   },
   {
     n: '04', title: 'Testing',
-    desc: 'Every system undergoes comprehensive factory acceptance testing before shipment to verify safety, reliability, and compliance.',
+    desc: 'Every system goes through factory acceptance testing before shipment to verify safety, reliability, and compliance.',
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>,
   },
   {
@@ -111,13 +111,13 @@ export default function ProcessSection() {
 
           {/* ── LEFT ── */}
           <div>
-            <div className="label label-white mb-7">Toronto Power Equipment Manufacturer</div>
+            <div className="label label-white mb-7">Providers of Canadian-Made Electrical Equipment</div>
             <h2 className="text-white text-[clamp(1.9rem,3.5vw,3.2rem)] leading-[1.05] font-black mb-[1.1rem]">
               One Connected Process.<br />From Concept to Commissioning.
             </h2>
             <div className="w-9 h-[3px] bg-blue rounded-[2px] mb-6" />
             <p className="text-white/[.68] text-[1.125rem] leading-[1.9] mb-5">
-              CANDRON engineers and manufactures switchgear, switchboards, and dry-type transformers in Toronto. Design, precision manufacturing, assembly, testing, delivery, and commissioning support are coordinated through one accountable team for consistent quality and shorter lead times.
+              CANDRON provides Canadian-made switchgear, switchboards and transformers from its base in Toronto. Engineering, sourcing, inspection, testing, delivery and commissioning support are coordinated through one accountable team for consistent quality and shorter lead times.
             </p>
 
             <div className="mb-9 flex flex-wrap gap-2.5">
@@ -125,7 +125,7 @@ export default function ProcessSection() {
                 <CanadaFlag height={15} /> Toronto, Ontario, Canada
               </span>
               <span className="rounded-full border border-white/[.12] bg-white/[.04] px-3.5 py-2 font-mono text-[.8125rem] font-bold uppercase tracking-[.1em] text-white/75">
-                Local Engineering &amp; Manufacturing
+                Local Engineering &amp; Support
               </span>
             </div>
 
@@ -144,7 +144,7 @@ export default function ProcessSection() {
 
             <div className="flex flex-wrap gap-3">
               <Link href="/manufacturing" className="btn btn-primary btn-lg mag flex-[1_1_260px] justify-center whitespace-nowrap tracking-[.06em] uppercase">
-                Explore Manufacturing →
+                Why Canadian-Made →
               </Link>
               <Link href="/contact" className="btn btn-outline btn-lg mag flex-[1_1_260px] justify-center whitespace-nowrap tracking-[.06em] uppercase">
                 Discuss Your Project →

@@ -37,7 +37,7 @@ export default function FatPackPage() {
           <div className="breadcrumb"><Link href="/">Home</Link> / <Link href="/resources">Resources</Link> / <span>FAT & Commissioning Pack</span></div>
           <div className="label label-white">Free Download</div>
           <h1>FAT & Commissioning<br /><em>Checklist Pack</em></h1>
-          <p className="lead mt-4">The checks our own test bay runs, turned into five sheets you can take to a factory test or a first energization: witness agendas, pre-energization checklists and a punch list with sign-off.</p>
+          <p className="lead mt-4">The checks we look for when we witness factory tests and commission equipment, turned into five sheets you can take to a factory test or a first energization: witness agendas, pre-energization checklists and a punch list with sign-off.</p>
           <ul className="dt-hero-points">
             <li>{SHEETS.length} checklists, {ITEM_COUNT} checks, plus a punch list</li>
             <li>MV switchgear and transformers, dry-type and liquid-filled</li>
@@ -78,8 +78,8 @@ export default function FatPackPage() {
       <div className="cta-band">
         <div className="container">
           <div className="cta-band-inner">
-            <h2>Witness a test at our Toronto shop</h2>
-            <p className="lead !text-white/[.6] !max-w-[560px]">CANDRON builds and tests switchgear, switchboards and transformers in-house. You’re welcome to witness the factory acceptance test on your equipment, or ask our field team to commission it on site.</p>
+            <h2>Witness a factory test with us</h2>
+            <p className="lead !text-white/[.6] !max-w-[560px]">CANDRON provides Canadian-made switchgear, switchboards and transformers and attends the factory acceptance test on every order. You’re welcome to witness it with us, or ask our field team to commission it on site.</p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link href="/contact?product=fat-commissioning-pack" className="btn btn-primary btn-lg">Talk to our test team</Link>
               <Link href="/resources#toolkit" className="btn btn-outline btn-lg">More project tools →</Link>

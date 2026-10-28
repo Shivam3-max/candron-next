@@ -24,7 +24,7 @@ export default function Footer() {
               <img src="/images/logo.svg" alt="" className="logo-img" />
             </Link>
             <p className="text-[1.0625rem] text-white/[.68] leading-[1.85] mt-4 max-w-[300px] max-md:max-w-none">
-              CANDRON is a Toronto-based manufacturer of switchgear, switchboards, transformers, portable power skids and substations, and remote power and control panels — engineered, built and tested in-house for quality, reliability and shorter lead times.
+              CANDRON is a Toronto-based provider of Canadian-made electrical equipment: switchgear, switchboards, transformers, portable power skids and substations, and remote power and control panels — engineered to your project, factory-tested and delivered with shorter lead times.
             </p>
             <div className="mt-7">
               {subscribed ? (
@@ -84,7 +84,7 @@ export default function Footer() {
               <ul className="list-none flex flex-col gap-[.65rem] max-md:gap-2">
                 <li><Link href="/services" className="text-white/[.48] no-underline text-[1.0625rem] max-md:text-[1rem] transition-colors duration-300 hover:text-blue-l">Electrical Engineering Services</Link></li>
                 <li><Link href="/commissioning" className="text-white/[.48] no-underline text-[1.0625rem] max-md:text-[1rem] transition-colors duration-300 hover:text-blue-l">Field Service &amp; Commissioning</Link></li>
-                <li><Link href="/manufacturing"className="text-white/[.48] no-underline text-[1.0625rem] max-md:text-[1rem] transition-colors duration-300 hover:text-blue-l">Manufacturing</Link></li>
+                <li><Link href="/manufacturing"className="text-white/[.48] no-underline text-[1.0625rem] max-md:text-[1rem] transition-colors duration-300 hover:text-blue-l">Canadian-Made</Link></li>
                 <li><Link href="/testing" className="text-white/[.48] no-underline text-[1.0625rem] max-md:text-[1rem] transition-colors duration-300 hover:text-blue-l">Testing</Link></li>
                 <li><Link href="/project-process" className="text-white/[.48] no-underline text-[1.0625rem] max-md:text-[1rem] transition-colors duration-300 hover:text-blue-l">CANDRON Processes</Link></li>
               </ul>

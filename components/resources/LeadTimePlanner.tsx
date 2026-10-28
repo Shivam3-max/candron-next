@@ -232,7 +232,7 @@ export default function LeadTimePlanner() {
 
         {worst !== 'ok' && (
           <div className="rt-callout">
-            <strong>A date showing red or amber?</strong> CANDRON builds switchgear, switchboards and transformers in Toronto. <Link href="/contact?product=lead-time-planner">Ask for a current build slot</Link> and we&rsquo;ll reply the same business day.
+            <strong>A date showing red or amber?</strong> CANDRON provides Canadian-made switchgear, switchboards and transformers. <Link href="/contact?product=lead-time-planner">Ask for a current lead time</Link> and we&rsquo;ll reply the same business day.
           </div>
         )}
         <p className="rt-disclaimer">Lead times are indicative Canadian market ranges and change month to month. Replace them with your own quotes. Your entries stay in this browser only.</p>

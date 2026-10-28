@@ -10,7 +10,7 @@ const topics = [
   { number: '01', title: 'Technical Guidance', text: 'Practical information for specifying and applying power distribution equipment.' },
   { number: '02', title: 'Industry Insights', text: 'Developments affecting electrical infrastructure, project teams, and equipment decisions.' },
   { number: '03', title: 'Inventory Updates', text: 'Product availability and equipment updates for time-sensitive project requirements.' },
-  { number: '04', title: 'Company News', text: 'Updates from our engineering, manufacturing, testing, and field service teams.' },
+  { number: '04', title: 'Company News', text: 'Updates from our engineering, supply, testing, and field service teams.' },
 ]
 
 export default function BlogPage() {
