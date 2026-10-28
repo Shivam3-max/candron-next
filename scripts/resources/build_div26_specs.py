@@ -1,7 +1,7 @@
 """Build the Division 26 guide specification sections as editable Word files.
 
 Usage:  python3 scripts/resources/build_div26_specs.py
-Writes public/downloads/specs/*.docx. Section list and summaries for the web page live in
+Writes downloads/specs/*.docx (served by app/downloads/[...path]/route.ts). Section list and summaries for the web page live in
 lib/resources/div26.ts; keep the file names in step.
 """
 from pathlib import Path
@@ -12,7 +12,7 @@ from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from docx.shared import Pt, RGBColor, Cm
 
-OUT = Path(__file__).resolve().parents[2] / "public" / "downloads" / "specs"
+OUT = Path(__file__).resolve().parents[2] / "downloads" / "specs"
 NAVY = RGBColor(0x05, 0x09, 0x1F)
 BLUE = RGBColor(0x00, 0x47, 0xFF)
 GREY = RGBColor(0x5B, 0x66, 0x80)
