@@ -1,4 +1,4 @@
-"""Build public/downloads/candron-rfq-bid-scorecard.xlsx.
+"""Build downloads/candron-rfq-bid-scorecard.xlsx (served by app/downloads/[...path]/route.ts).
 
 Usage (from the candron-next root):  python3 scripts/resources/build_rfq_scorecard.py
 
@@ -12,7 +12,7 @@ from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.datavalidation import DataValidation
 
-OUT = "public/downloads/candron-rfq-bid-scorecard.xlsx"
+OUT = "downloads/candron-rfq-bid-scorecard.xlsx"
 
 NAVY, BLUE, PALE, LINE, GREY, INPUT = "05091F", "0047FF", "EEF2FA", "D5DEEE", "4F5D7A", "FFF8E1"
 F = "Arial"
