@@ -3,7 +3,7 @@ import { HeroArt } from '@/components/LineArt'
 
 export const metadata = {
   title: 'Resources',
-  description: 'Free tools from CANDRON for electrical project teams: a long-lead equipment planner, FAT and commissioning checklists, an RFQ bid scorecard, a monthly Canadian projects digest, and nine engineering calculators.',
+  description: 'Free tools from CANDRON for electrical project teams: a long-lead equipment planner, quarterly lead-time index, CSA C282 generator test planner, DGA oil-test read-out, FAT, commissioning and cold-climate checklists, Division 26 specifications, an RFQ scorecard, a projects digest and nine calculators.',
 }
 
 const toolkit = [
@@ -35,14 +35,49 @@ const toolkit = [
     kind: 'Monthly digest',
     tags: ['Project pipeline', 'Business development', 'Free email'],
   },
+  {
+    href: '/resources/lead-time-index',
+    title: 'Lead-Time Index',
+    desc: 'Quarterly lead-time ranges for transformers, switchgear and standby power equipment in Canada.',
+    kind: 'Quarterly report',
+    tags: ['Q4 2026', 'Market lead times', 'Free email'],
+  },
+  {
+    href: '/resources/generator-test-planner',
+    title: 'CSA C282 Generator Test Planner',
+    desc: 'A 12-month inspection and load-test calendar for an emergency generator, with a printable logbook.',
+    kind: 'Interactive tool',
+    tags: ['CSA C282', 'Calendar file', 'PDF logbook'],
+  },
+  {
+    href: '/resources/oil-test-readout',
+    title: 'Free Oil-Test (DGA) Read-Out',
+    desc: 'Send your transformer oil test and an engineer emails a plain-English read-out. Duval Triangle check included.',
+    kind: 'Free engineering review',
+    tags: ['Dissolved gas analysis', 'Any make', 'Duval Triangle'],
+  },
+  {
+    href: '/resources/cold-climate-checklist',
+    title: 'Cold-Climate & Arctic Checklist',
+    desc: 'What to specify, test, ship, install and maintain so electrical gear works at −45 °C.',
+    kind: 'PDF checklists',
+    tags: ['Northern sites', 'Specification', 'Winter O&M'],
+  },
+  {
+    href: '/resources/division-26-specs',
+    title: 'Division 26 Guide Specifications',
+    desc: 'Editable Word sections for padmounts, metal-clad switchgear, dry-type transformers and switchboards.',
+    kind: 'Word documents',
+    tags: ['Consulting engineers', 'CSA references', '.docx'],
+  },
 ]
 
 const resourceLinks = [
   {
     href: '#toolkit',
     title: 'Project Toolkit',
-    desc: 'Planners, checklists, templates and a monthly projects digest for electrical teams.',
-    action: 'Explore 4 tools',
+    desc: 'Planners, checklists, specifications, templates and market reports for electrical teams.',
+    action: `Explore ${toolkit.length} tools`,
     icon: <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2M3 13h18"/></svg>,
   },
   {
@@ -206,12 +241,12 @@ export default function ResourcesPage() {
           <div className="max-w-[720px] mb-12">
             <div className="label">Project Toolkit</div>
             <h2 className="mb-4">Free Tools for Electrical Project Teams</h2>
-            <p className="body">Practical resources for planning, buying, testing and commissioning electrical equipment, from the people who build it. No sign-up needed.</p>
+            <p className="body">Practical resources for planning, buying, testing and commissioning electrical equipment, from the people who supply it. No sign-up needed.</p>
           </div>
-          <div className="grid grid-cols-2 max-md:grid-cols-1 gap-5">
+          <div className="grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-5">
             {toolkit.map(t => (
               <Link key={t.href} href={t.href} className="group no-underline">
-                <div className="h-full rounded-[20px] border border-[#E8ECF5] bg-off p-8 flex flex-col gap-5 transition-all duration-200 group-hover:border-blue group-hover:shadow-[0_8px_32px_rgba(0,71,255,.10)]">
+                <div className="h-full rounded-[20px] border border-[#E8ECF5] bg-off p-7 flex flex-col gap-5 transition-all duration-200 group-hover:border-blue group-hover:shadow-[0_8px_32px_rgba(0,71,255,.10)]">
                   <span className="font-mono text-[.8125rem] font-bold tracking-[.14em] uppercase text-blue">{t.kind}</span>
                   <div className="flex flex-col gap-3 flex-1">
                     <h3 className="font-title font-bold text-navy text-[1.3rem] leading-[1.25] m-0">{t.title}</h3>

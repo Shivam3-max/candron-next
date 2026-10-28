@@ -168,7 +168,7 @@ const productItems = [
 
 // Phrases complete the sentence "We …" in the header tagline.
 const TAGLINES = [
-  'provide Canadian-made electrical equipment.',
+  'provide Canadian-made electrical gear.',
   'are fast at our service.',
   'are on call 24/7 for emergency response.',
   'keep in-stock equipment ready in Toronto.',

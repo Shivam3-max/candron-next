@@ -24,7 +24,7 @@ export default function FatPackPrint() {
         </ol>
         <div className="rp-cover-foot">
           <p>General guidance only. Follow the manufacturer’s instructions, the project specification and the authority having jurisdiction. References: {PACK_REFS}.</p>
-          <p>CANDRON Energy Inc. · Toronto, Ontario · candron.com · +1 (647) 616-2595</p>
+          <p>CANDRON Energy Inc. · Providers of Canadian-made electrical equipment · candron.com · +1 (647) 616-2595</p>
         </div>
       </section>
       {SHEETS.map(s => <ChecklistSheet key={s.id} s={s} print />)}
