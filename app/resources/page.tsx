@@ -2,11 +2,49 @@ import Link from 'next/link'
 import { HeroArt } from '@/components/LineArt'
 
 export const metadata = {
-  title: 'Resources | CANDRON Energy Inc.',
-  description: 'Explore CANDRON engineering calculators, terms and conditions, warranty support, and industry insights for power distribution projects.',
+  title: 'Resources',
+  description: 'Free tools from CANDRON for electrical project teams: a long-lead equipment planner, FAT and commissioning checklists, an RFQ bid scorecard, a monthly Canadian projects digest, and nine engineering calculators.',
 }
 
+const toolkit = [
+  {
+    href: '/resources/lead-time-planner',
+    title: 'Long-Lead Equipment Planner',
+    desc: 'Work back from your energization date to an order-by date for every piece of long-lead gear.',
+    kind: 'Interactive tool',
+    tags: ['Order-by dates', 'Schedule risk', 'CSV / PDF'],
+  },
+  {
+    href: '/resources/fat-commissioning-pack',
+    title: 'FAT & Commissioning Pack',
+    desc: 'Witness agendas, pre-energization checklists and a punch list for MV switchgear and transformers.',
+    kind: 'PDF checklists',
+    tags: ['Factory testing', 'Energization', 'Punch list'],
+  },
+  {
+    href: '/resources/rfq-scorecard',
+    title: 'RFQ & Bid Scorecard',
+    desc: 'An RFQ template that makes quotes comparable, plus a weighted scorecard for up to five bidders.',
+    kind: 'Excel workbook',
+    tags: ['Procurement', 'Bid comparison', 'Weighted scoring'],
+  },
+  {
+    href: '/resources/projects-radar',
+    title: 'Canada Power Projects Radar',
+    desc: 'Newly announced Canadian data centre, storage, renewable, transmission and mining projects, every month.',
+    kind: 'Monthly digest',
+    tags: ['Project pipeline', 'Business development', 'Free email'],
+  },
+]
+
 const resourceLinks = [
+  {
+    href: '#toolkit',
+    title: 'Project Toolkit',
+    desc: 'Planners, checklists, templates and a monthly projects digest for electrical teams.',
+    action: 'Explore 4 tools',
+    icon: <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2M3 13h18"/></svg>,
+  },
   {
     href: '#calculators',
     title: 'Calculators',
@@ -147,7 +185,7 @@ export default function ResourcesPage() {
 
       <section className="bg-white border-b border-[#E8ECF5] py-10 max-md:py-7">
         <div className="container">
-          <div className="grid grid-cols-4 max-lg:grid-cols-2 max-sm:grid-cols-1 gap-4">
+          <div className="grid grid-cols-5 max-xl:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-4">
             {resourceLinks.map(resource => (
               <Link key={resource.href} href={resource.href} className="group no-underline rounded-[16px] border border-[#E3E8F2] bg-white p-5 flex flex-col gap-4 transition-all duration-200 hover:border-blue hover:shadow-[0_8px_28px_rgba(0,71,255,.09)]">
                 <div className="w-11 h-11 rounded-[11px] bg-blue/[.07] text-blue flex items-center justify-center transition-colors duration-200 group-hover:bg-blue group-hover:text-white">{resource.icon}</div>
@@ -156,6 +194,34 @@ export default function ResourcesPage() {
                   <p className="font-mono text-[.9375rem] text-gray leading-[1.65] m-0">{resource.desc}</p>
                 </div>
                 <span className="font-mono text-[.875rem] uppercase tracking-[.08em] font-bold text-blue mt-auto">{resource.action} →</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PROJECT TOOLKIT */}
+      <section id="toolkit" className="section bg-white scroll-mt-[100px]" style={{ paddingTop: '5rem', paddingBottom: '5rem' }}>
+        <div className="container">
+          <div className="max-w-[720px] mb-12">
+            <div className="label">Project Toolkit</div>
+            <h2 className="mb-4">Free Tools for Electrical Project Teams</h2>
+            <p className="body">Practical resources for planning, buying, testing and commissioning electrical equipment, from the people who build it. No sign-up needed.</p>
+          </div>
+          <div className="grid grid-cols-2 max-md:grid-cols-1 gap-5">
+            {toolkit.map(t => (
+              <Link key={t.href} href={t.href} className="group no-underline">
+                <div className="h-full rounded-[20px] border border-[#E8ECF5] bg-off p-8 flex flex-col gap-5 transition-all duration-200 group-hover:border-blue group-hover:shadow-[0_8px_32px_rgba(0,71,255,.10)]">
+                  <span className="font-mono text-[.8125rem] font-bold tracking-[.14em] uppercase text-blue">{t.kind}</span>
+                  <div className="flex flex-col gap-3 flex-1">
+                    <h3 className="font-title font-bold text-navy text-[1.3rem] leading-[1.25] m-0">{t.title}</h3>
+                    <p className="text-[1.0625rem] text-gray leading-[1.65] m-0">{t.desc}</p>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {t.tags.map(tag => <span key={tag} className="font-mono text-[.8125rem] font-bold tracking-[.1em] uppercase text-blue/80 bg-blue/[.07] px-3 py-[.3rem] rounded-full">{tag}</span>)}
+                  </div>
+                  <span className="font-mono text-[1rem] font-semibold text-blue">Open →</span>
+                </div>
               </Link>
             ))}
           </div>
