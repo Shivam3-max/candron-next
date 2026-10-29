@@ -4,14 +4,13 @@ import ArtSlot from '@/components/range/ArtSlot'
 import RangeNav from '@/components/range/RangeNav'
 import CompareTable from '@/components/range/CompareTable'
 import MobileCollapse from '@/components/range/MobileCollapse'
+import JsonLd from '@/components/JsonLd'
+import RelatedArticles from '@/components/blog/RelatedArticles'
 import { productHref, productsIn, type RangeDef, type RangeFamily } from '@/lib/ranges/core'
+import { SITE, breadcrumbLd, pageMeta } from '@/lib/seo'
 
 export function familyMetadata(f: RangeFamily) {
-  return {
-    title: f.meta.title,
-    description: f.meta.description,
-    alternates: { canonical: f.href },
-  }
+  return pageMeta({ title: f.meta.title, description: f.meta.description, path: f.href })
 }
 
 export default function FamilyPage({ r, f }: { r: RangeDef; f: RangeFamily }) {
@@ -20,6 +19,10 @@ export default function FamilyPage({ r, f }: { r: RangeDef; f: RangeFamily }) {
   const [c1, c2] = r.cardCols.map(k => r.compareCols.find(c => c.key === k)!)
   return (
     <>
+      <JsonLd data={[
+        breadcrumbLd([...r.hub.crumbs.map(c => ({ name: c.label, href: c.href })), { name: r.name, href: r.hubHref }, { name: f.short, href: f.href }]),
+        { '@context': 'https://schema.org', '@type': 'ItemList', name: f.meta.title, itemListElement: items.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.name, url: `${SITE}${productHref(r, p)}` })) },
+      ]} />
       <div className="page-hero dt-hero">
         <div className="page-hero-bg dt-hero-bg" />
         <HeroArt kind={f.art.kind} views={f.art.views} figure="FIG. 01 · 3D" />
@@ -110,6 +113,7 @@ export default function FamilyPage({ r, f }: { r: RangeDef; f: RangeFamily }) {
         </section>
       )}
 
+      <RelatedArticles path={f.href} title="Related guides" />
       <RangeNav r={r} />
 
       <div className="cta-band">

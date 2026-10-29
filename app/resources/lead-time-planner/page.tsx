@@ -5,8 +5,8 @@ import LeadTimePlanner from '@/components/resources/LeadTimePlannerLoader'
 import ResourceFaq from '@/components/resources/ResourceFaq'
 
 export const metadata: Metadata = {
-  title: 'Long-Lead Equipment Planner — Order-By Dates for Electrical Gear',
-  description: 'Free planner for electrical project managers: enter your energization date and equipment list to get order-by dates for switchgear, switchboards and transformers, with submittal, approval, delivery and commissioning time built in.',
+  title: 'Long-Lead Electrical Equipment Planner',
+  description: 'Free planner: enter your energization date and equipment list to get order-by dates for transformers, switchgear and switchboards. No sign-up.',
   alternates: { canonical: '/resources/lead-time-planner' },
 }
 

@@ -1,8 +1,10 @@
 import Link from 'next/link'
 import ProductsClient from './ProductsClient'
 import { HeroArt } from '@/components/LineArt'
+import JsonLd from '@/components/JsonLd'
+import { breadcrumbLd } from '@/lib/seo'
 
-export const metadata = {
+export const metadata = { alternates: { canonical: '/products' },
   title: 'Products',
   description: 'Canadian-made switchgear, switchboards & panelboards, transformers and control panels, engineered to your project and provided by CANDRON of Toronto, Ontario.',
 }
@@ -10,6 +12,7 @@ export const metadata = {
 export default function ProductsPage() {
   return (
     <>
+      <JsonLd data={breadcrumbLd([{ name: 'Products', href: '/products' }])} />
       <div className="page-hero">
         <div className="page-hero-bg" style={{ background: "url('/images/switchgear.jpg') center/cover" }}></div>
         <HeroArt kind="plant" />

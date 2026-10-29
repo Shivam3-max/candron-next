@@ -108,7 +108,7 @@ const data: ProductTypePageProps = {
   ],
 }
 
-export const metadata = {
+export const metadata = { alternates: { canonical: '/products/control-panels/scada' },
   title: 'SCADA Integration Panels | CANDRON Energy',
   description: 'UL 508A SCADA integration panels with NERC CIP-aligned cybersecurity hardening, OPC-UA, and remote monitoring. Made in Canada, provided by CANDRON.',
 }

@@ -1,12 +1,19 @@
 import type { Metadata } from 'next'
+import JsonLd from '@/components/JsonLd'
+import { breadcrumbLd } from '@/lib/seo'
 import InventoryClient from './InventoryClient'
 
 export const metadata: Metadata = {
   title: 'In-Stock Inventory',
-  description: 'CANDRON transformers, switchgear and power distribution equipment in stock in Toronto — new, surplus and remanufactured, factory-tested and ready to ship from CANDRON, providers of Canadian-made electrical equipment.',
+  description: 'CANDRON transformers, switchgear and power distribution equipment in stock in Toronto — new, surplus and remanufactured.',
   alternates: { canonical: '/inventory' },
 }
 
 export default function InventoryPage() {
-  return <InventoryClient />
+  return (
+    <>
+      <JsonLd data={breadcrumbLd([{ name: 'Inventory', href: '/inventory' }])} />
+      <InventoryClient />
+    </>
+  )
 }

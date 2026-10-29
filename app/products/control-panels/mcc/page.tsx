@@ -108,7 +108,7 @@ const data: ProductTypePageProps = {
   ],
 }
 
-export const metadata = {
+export const metadata = { alternates: { canonical: '/products/control-panels/mcc' },
   title: 'Motor Control Centres (MCC) | CANDRON Energy',
   description: 'UL 508A and NEMA ICS 18 motor control centres with VFD drives, soft starters, and intelligent motor protection. Made in Canada, provided by CANDRON.',
 }

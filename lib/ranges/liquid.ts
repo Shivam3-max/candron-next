@@ -224,7 +224,7 @@ const PRODUCTS: RangeProduct[] = [
     needs: ['renewable', 'underground'],
     compare: { rating: '500 – 7,500 kVA', voltage: 'LV 480 – 800 V · HV up to 34.5 kV', cooling: 'ONAN / KNAN', mounting: 'Pad or skid' },
     meta: {
-      title: 'Inverter-Duty Step-Up Padmount Transformers for Solar & Storage',
+      title: 'Inverter-Duty Padmount Transformers for Solar',
       description: 'Inverter-duty step-up padmount transformers, 500 – 7,500 kVA, LV 480 – 800 V up to 34.5 kV: electrostatic shield, dual LV windings, FR3 fluid, designed to IEEE C57.159, made in Canada and provided by CANDRON.',
     },
     art: { kind: 'lq-inv' },
@@ -803,7 +803,7 @@ export const LIQUID: RangeDef = {
       product: 'Liquid-Filled Transformer',
     },
     meta: {
-      title: 'Liquid-Filled Transformers — Padmount, Substation & Polemount',
+      title: 'Liquid-Filled Transformers: Padmount & Substation',
       description: 'CANDRON liquid-filled transformers made in Canada: three- and single-phase padmounts, inverter-duty step-up units, unit substation and power transformers to 100 MVA and 230 kV, portable substations and polemounts. Mineral oil or FR3.',
     },
   },

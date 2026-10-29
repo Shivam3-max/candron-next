@@ -2,16 +2,19 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { HeroArt } from '@/components/LineArt'
+import JsonLd from '@/components/JsonLd'
+import { breadcrumbLd } from '@/lib/seo'
 
-export const metadata = {
+export const metadata = { alternates: { canonical: '/testing' },
   title: "Transformer Field & Factory Testing",
   description:
-    "CANDRON provides transformer field testing and factory acceptance testing, including oil sampling, DGA, SFRA, tan delta, winding resistance, insulation resistance, and TTR.",
+    "Transformer field testing and witnessed factory acceptance testing in Canada: oil sampling, DGA, SFRA, tan delta, winding resistance, IR and TTR.",
 };
 
 export default function TestingPage() {
   return (
     <>
+      <JsonLd data={breadcrumbLd([{ name: 'Testing', href: '/testing' }])} />
       <div className="page-hero">
         <div
           className="page-hero-bg"

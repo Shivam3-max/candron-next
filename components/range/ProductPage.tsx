@@ -3,15 +3,13 @@ import ProductTypePage from '@/components/ProductTypePage'
 import { HeroArt } from '@/components/LineArt'
 import ArtSlot from '@/components/range/ArtSlot'
 import RangeNav from '@/components/range/RangeNav'
+import JsonLd from '@/components/JsonLd'
+import RelatedArticles from '@/components/blog/RelatedArticles'
 import { familyOf, productHref, resolve, type RangeDef, type RangeProduct } from '@/lib/ranges/core'
+import { breadcrumbLd, faqLd, pageMeta, productLd } from '@/lib/seo'
 
 export function productMetadata(r: RangeDef, p: RangeProduct) {
-  return {
-    title: p.meta.title,
-    description: p.meta.description,
-    alternates: { canonical: productHref(r, p) },
-    openGraph: { title: `${p.name} | CANDRON`, description: p.meta.description },
-  }
+  return pageMeta({ title: p.meta.title, description: p.meta.description, path: productHref(r, p) })
 }
 
 /** "In plain words" strip: what it does, when to pick it, and when something else fits better. */
@@ -48,8 +46,14 @@ export default function ProductPage({ r, p }: { r: RangeDef; p: RangeProduct }) 
   const fam = familyOf(r, p.family)
   const related = p.related.map(k => resolve(r, k, p.family)).filter((x): x is RangeProduct => !!x)
   const href = productHref(r, p)
+  const crumbs = [...r.hub.crumbs.map(c => ({ name: c.label, href: c.href })), { name: r.name, href: r.hubHref }, { name: fam.short, href: fam.href }, { name: p.name, href }]
   return (
     <>
+      <JsonLd data={[
+        breadcrumbLd(crumbs),
+        productLd({ name: p.name, description: p.meta.description, path: href, category: `${r.name} · ${fam.short}` }),
+        ...(p.faqs.length ? [faqLd(p.faqs)] : []),
+      ]} />
       <ProductTypePage
         parentName={r.name}
         parentHref={r.hubHref}
@@ -76,6 +80,7 @@ export default function ProductPage({ r, p }: { r: RangeDef; p: RangeProduct }) 
         faqs={p.faqs}
         quoteItems={p.quoteItems}
       />
+      <RelatedArticles path={href} title="Related guides" />
       <RangeNav r={r} current={href} />
     </>
   )

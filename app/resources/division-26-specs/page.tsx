@@ -5,8 +5,8 @@ import ResourceFaq from '@/components/resources/ResourceFaq'
 import { SPEC_SECTIONS } from '@/lib/resources/div26'
 
 export const metadata: Metadata = {
-  title: 'Division 26 Guide Specifications for Consulting Engineers',
-  description: 'Free, editable Word guide specifications in three-part format for Canadian projects: pad-mounted transformers (26 12 19), metal-clad switchgear (26 13 13), dry-type transformers (26 22 13) and switchboards (26 24 13).',
+  title: 'Division 26 Guide Specifications (Word)',
+  description: 'Free, editable Word guide specifications in three-part format for Canadian projects: pad-mounted transformers (26 12 19), metal-clad switchgear (26 13 13).',
   alternates: { canonical: '/resources/division-26-specs' },
 }
 

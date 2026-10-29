@@ -1,8 +1,10 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { HeroArt } from '@/components/LineArt'
+import JsonLd from '@/components/JsonLd'
+import { breadcrumbLd } from '@/lib/seo'
 
-export const metadata = {
+export const metadata = { alternates: { canonical: '/project-process' },
   title: 'CANDRON Processes | From Inception to Commissioning',
   description: 'See how CANDRON guides power distribution projects through consultation, engineering, simulation, Canadian-made supply, testing, delivery, and commissioning.',
 }
@@ -48,6 +50,7 @@ const steps = [
 export default function ProjectProcessPage() {
   return (
     <>
+      <JsonLd data={breadcrumbLd([{ name: 'Our Process', href: '/project-process' }])} />
       <section className="page-hero">
         <div className="page-hero-bg" style={{ background: "url('/images/manufacturing.jpg') center/cover" }} />
         <HeroArt kind="cap-proc" />

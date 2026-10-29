@@ -8,7 +8,7 @@ import { DGA_REFS } from '@/lib/resources/dga'
 
 export const metadata: Metadata = {
   title: 'Free Transformer Oil Test (DGA) Read-Out',
-  description: 'Send your transformer oil test or dissolved gas analysis (DGA) report and a CANDRON engineer will email a plain-English read-out. Includes a free Duval Triangle quick check for mineral oil.',
+  description: 'Send your transformer oil test or dissolved gas analysis (DGA) report and a CANDRON engineer will email a plain-English read-out.',
   alternates: { canonical: '/resources/oil-test-readout' },
 }
 

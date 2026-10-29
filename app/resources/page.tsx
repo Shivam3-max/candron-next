@@ -1,9 +1,11 @@
 import Link from 'next/link'
 import { HeroArt } from '@/components/LineArt'
+import JsonLd from '@/components/JsonLd'
+import { breadcrumbLd } from '@/lib/seo'
 
-export const metadata = {
+export const metadata = { alternates: { canonical: '/resources' },
   title: 'Resources',
-  description: 'Free tools from CANDRON for electrical project teams: a long-lead equipment planner, quarterly lead-time index, CSA C282 generator test planner, DGA oil-test read-out, FAT, commissioning and cold-climate checklists, Division 26 specifications, an RFQ scorecard, a projects digest and nine calculators.',
+  description: 'Free tools for electrical teams: transformer and fault-current calculators, a lead-time planner, CSA C282 test planner, checklists and Division 26 specs.',
 }
 
 const toolkit = [
@@ -197,6 +199,7 @@ const groups = [
 export default function ResourcesPage() {
   return (
     <>
+      <JsonLd data={breadcrumbLd([{ name: 'Resources', href: '/resources' }])} />
       {/* HERO */}
       <div className="page-hero" style={{ minHeight: 'auto', paddingBottom: '5rem' }}>
         <div className="page-hero-bg" style={{ background: 'linear-gradient(135deg,#05091F 0%,#060d35 60%,#040818 100%)' }}>

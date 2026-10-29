@@ -3,18 +3,21 @@ import Link from 'next/link'
 import { HeroArt } from '@/components/LineArt'
 import RadarSubscribe from '@/components/resources/RadarSubscribe'
 import { itemCount, latestIssue } from '@/lib/resources/radar'
+import JsonLd from '@/components/JsonLd'
+import { breadcrumbLd } from '@/lib/seo'
 
 const issue = latestIssue()
 
 export const metadata: Metadata = {
   title: `Canada Power Projects Radar — ${issue.month}`,
-  description: 'A free monthly digest of newly announced Canadian data centre, battery storage, renewable, transmission, mining and transit electrification projects with major electrical scope, with links to every source.',
+  description: 'A free monthly digest of newly announced Canadian data centre, battery storage, renewable, transmission and mining projects, with sources.',
   alternates: { canonical: '/resources/projects-radar' },
 }
 
 export default function ProjectsRadarPage() {
   return (
     <>
+      <JsonLd data={breadcrumbLd([{ name: 'Resources', href: '/resources' }, { name: 'Projects Radar', href: '/resources/projects-radar' }])} />
       <div className="page-hero dt-hero">
         <div className="page-hero-bg dt-hero-bg" />
         <HeroArt kind="plant" figure="FIG. 01 · GRID" />

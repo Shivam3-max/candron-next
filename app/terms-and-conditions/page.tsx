@@ -1,14 +1,17 @@
 import Link from 'next/link'
 import { HeroArt } from '@/components/LineArt'
+import JsonLd from '@/components/JsonLd'
+import { breadcrumbLd } from '@/lib/seo'
 
-export const metadata = {
-  title: 'Terms & Conditions | CANDRON Energy Inc.',
+export const metadata = { alternates: { canonical: '/terms-and-conditions' },
+  title: 'Terms & Conditions',
   description: 'Information about obtaining the current CANDRON terms and conditions applicable to quotations, orders, and projects.',
 }
 
 export default function TermsAndConditionsPage() {
   return (
     <>
+      <JsonLd data={breadcrumbLd([{ name: 'Terms & Conditions', href: '/terms-and-conditions' }])} />
       <section className="page-hero">
         <div className="page-hero-bg" style={{ background: 'linear-gradient(135deg,#05091F,#071342)' }} />
         <HeroArt kind="swbd" views={['sld', 'ga']} />

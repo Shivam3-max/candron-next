@@ -2,12 +2,15 @@ import React from 'react'
 import Link from 'next/link'
 import ProcessScroll from '@/components/ProcessScroll'
 import { HeroArt } from '@/components/LineArt'
+import JsonLd from '@/components/JsonLd'
+import { breadcrumbLd } from '@/lib/seo'
 
-export const metadata = { title: 'Electrical Commissioning & Field Testing', description: 'CANDRON provides responsive on-site commissioning and transformer field testing, including oil sampling, DGA, SFRA, tan delta, WR, IR, and TTR.' }
+export const metadata = { alternates: { canonical: '/commissioning' }, title: 'Electrical Commissioning & Field Testing', description: 'CANDRON provides responsive on-site commissioning and transformer field testing, including oil sampling, DGA, SFRA, tan delta, WR, IR, and TTR.' }
 
 export default function CommissioningPage() {
   return (
     <>
+      <JsonLd data={breadcrumbLd([{ name: 'Commissioning', href: '/commissioning' }])} />
       <div className="page-hero">
         <div className="page-hero-bg" style={{background:"url('/images/field-services/client-work/transformer-field-installation.webp') center 48%/cover"}}></div>
         <HeroArt kind="cap-field" />

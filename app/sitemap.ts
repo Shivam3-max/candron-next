@@ -1,4 +1,7 @@
 import type { MetadataRoute } from 'next'
+import type { RowDataPacket } from 'mysql2/promise'
+import { CATEGORIES, getAllPosts, postsIn } from '@/lib/blog'
+import { getDb, isDatabaseConfigured } from '@/lib/db'
 import { DRY } from '@/lib/dry-type'
 import { LIQUID } from '@/lib/ranges/liquid'
 import { DIST } from '@/lib/ranges/dist'
@@ -8,7 +11,29 @@ import { productHref, type RangeDef } from '@/lib/ranges/core'
 /** Hub, family and product URLs of a range. */
 const rangeUrls = (r: RangeDef) => [r.hubHref, ...r.families.map(f => f.href), ...r.products.map(p => productHref(r, p))]
 
-export default function sitemap(): MetadataRoute.Sitemap {
+/** Date the static pages last changed meaningfully. Bump it when site-wide content changes. */
+const SITE_UPDATED = new Date('2026-10-29')
+
+/** Active inventory items, when the database is reachable at build or request time. */
+async function inventoryUrls(): Promise<{ slug: string; updated_at: Date }[]> {
+  if (!isDatabaseConfigured()) return []
+  try {
+    const [rows] = await getDb().execute<(RowDataPacket & { slug: string; updated_at: Date })[]>('SELECT slug, updated_at FROM products WHERE is_active=1')
+    return rows
+  } catch {
+    return []
+  }
+}
+
+const priorityOf = (route: string) =>
+  route === '' ? 1
+    : ['/products', '/products/transformers', '/products/power-distribution', '/products/load-banks', '/inventory', '/contact'].includes(route) ? 0.9
+      : route.startsWith('/products') ? 0.8
+        : route.startsWith('/resources/') || route === '/blog' ? 0.7
+          : ['/terms-and-conditions', '/warranty'].includes(route) ? 0.3
+            : 0.6
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://candron.com'
 
   const routes = [
@@ -59,10 +84,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/contact',
   ]
 
-  return [...new Set(routes)].map((route) => ({
+  const posts = getAllPosts()
+  const pages: MetadataRoute.Sitemap = [...new Set(routes)].map(route => ({
     url: `${baseUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: route === '' ? 'weekly' : 'monthly',
-    priority: route === '' ? 1 : route === '/products' ? 0.9 : 0.7,
+    lastModified: route === '/blog' && posts[0] ? new Date(posts[0].updated ?? posts[0].date) : SITE_UPDATED,
+    changeFrequency: route === '' || route === '/inventory' || route === '/blog' ? 'weekly' : 'monthly',
+    priority: priorityOf(route),
   }))
+  const articles: MetadataRoute.Sitemap = posts.map(p => ({
+    url: `${baseUrl}/blog/${p.slug}`,
+    lastModified: new Date(p.updated ?? p.date),
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }))
+  const categories: MetadataRoute.Sitemap = CATEGORIES.filter(c => postsIn(c.slug).length).map(c => ({
+    url: `${baseUrl}/blog/category/${c.slug}`,
+    lastModified: new Date(postsIn(c.slug)[0].updated ?? postsIn(c.slug)[0].date),
+    changeFrequency: 'weekly',
+    priority: 0.5,
+  }))
+  const stock: MetadataRoute.Sitemap = (await inventoryUrls()).map(i => ({
+    url: `${baseUrl}/inventory/${i.slug}`,
+    lastModified: new Date(i.updated_at),
+    changeFrequency: 'weekly',
+    priority: 0.6,
+  }))
+  return [...pages, ...articles, ...categories, ...stock]
 }

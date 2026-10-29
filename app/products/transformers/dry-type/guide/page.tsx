@@ -4,9 +4,11 @@ import LineArt, { HeroArt } from '@/components/LineArt'
 import RangeNav from '@/components/range/RangeNav'
 import { DRY, DRY_GUIDE, DRY_HUB, bySlug, findProduct, productHref } from '@/lib/dry-type'
 import { PHONE } from '@/lib/inventory'
+import JsonLd from '@/components/JsonLd'
+import { breadcrumbLd } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'Dry-Type Transformers Explained — A Plain-English Guide',
+  title: 'Dry-Type Transformers Explained: A Guide',
   description: 'A plain-English guide to dry-type transformers: how they work, dry vs oil-filled, VPI vs cast coil vs encapsulated, insulation class and temperature rise, K-factor, enclosure types, efficiency rules, taps and sizing.',
   alternates: { canonical: DRY_GUIDE },
 }
@@ -48,6 +50,7 @@ const GLOSSARY: [string, string][] = [
 export default function DryTypeGuide() {
   return (
     <>
+      <JsonLd data={breadcrumbLd([{ name: 'Products', href: '/products' }, { name: 'Transformers', href: '/products/transformers' }, { name: 'Dry-Type', href: '/products/transformers/dry-type' }, { name: 'Guide', href: '/products/transformers/dry-type/guide' }])} />
       <div className="page-hero dt-hero">
         <div className="page-hero-bg dt-hero-bg" />
         <HeroArt kind="dt-encap" figure="FIG. 01 · 3D" />

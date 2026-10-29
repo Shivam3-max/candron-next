@@ -21,7 +21,7 @@ export default function Footer() {
           <div>
             <Link href="/" className="logo footer-logo" aria-label="CANDRON Energy Inc. — Home">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/logo.svg" alt="" className="logo-img" />
+              <img src="/images/logo.svg" alt="CANDRON Energy logo" className="logo-img" />
             </Link>
             <p className="text-[1.0625rem] text-white/[.68] leading-[1.85] mt-4 max-w-[300px] max-md:max-w-none">
               CANDRON is a Toronto-based provider of Canadian-made electrical equipment: switchgear, switchboards, transformers, portable power skids and substations, and remote power and control panels — engineered to your project, factory-tested and delivered with shorter lead times.
@@ -87,6 +87,8 @@ export default function Footer() {
                 <li><Link href="/manufacturing"className="text-white/[.48] no-underline text-[1.0625rem] max-md:text-[1rem] transition-colors duration-300 hover:text-blue-l">Canadian-Made</Link></li>
                 <li><Link href="/testing" className="text-white/[.48] no-underline text-[1.0625rem] max-md:text-[1rem] transition-colors duration-300 hover:text-blue-l">Testing</Link></li>
                 <li><Link href="/project-process" className="text-white/[.48] no-underline text-[1.0625rem] max-md:text-[1rem] transition-colors duration-300 hover:text-blue-l">CANDRON Processes</Link></li>
+                <li><Link href="/resources" className="text-white/[.48] no-underline text-[1.0625rem] max-md:text-[1rem] transition-colors duration-300 hover:text-blue-l">Tools & Calculators</Link></li>
+                <li><Link href="/blog" className="text-white/[.48] no-underline text-[1.0625rem] max-md:text-[1rem] transition-colors duration-300 hover:text-blue-l">Engineering Blog</Link></li>
               </ul>
             </div>
 

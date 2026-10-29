@@ -5,8 +5,8 @@ import ResourceFaq from '@/components/resources/ResourceFaq'
 import { CRITERIA, MUST_STATE, SCORECARD_XLSX, SHEETS } from '@/lib/resources/rfq-scorecard'
 
 export const metadata: Metadata = {
-  title: 'Electrical Equipment RFQ Template & Bid Scorecard (Excel)',
-  description: 'Free Excel workbook for procurement and project teams: an RFQ template that makes switchgear and transformer quotes comparable, plus a weighted bid scorecard for up to five bidders.',
+  title: 'Electrical RFQ Template & Bid Scorecard',
+  description: 'Free Excel workbook for procurement and project teams: an RFQ template that makes switchgear and transformer quotes comparable.',
   alternates: { canonical: '/resources/rfq-scorecard' },
 }
 
