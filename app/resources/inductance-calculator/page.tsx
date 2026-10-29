@@ -2,6 +2,8 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { HeroArt } from '@/components/LineArt'
+import JsonLd from '@/components/JsonLd'
+import { faqLd } from '@/lib/seo'
 
 const SQRT3 = Math.sqrt(3)
 const TWO_PI = 2 * Math.PI
@@ -142,6 +144,7 @@ export default function InductanceCalculatorPage() {
               <div className="mt-8">
                 <div className="font-mono text-[.8125rem] text-blue tracking-[.22em] uppercase mb-5">FAQ</div>
                 <div className="flex flex-col gap-2">
+                  <JsonLd data={faqLd(faqs)} />
                   {faqs.map((f, i) => (
                     <div key={i} className={`bg-white rounded-[12px] border border-[#E8ECF5] overflow-hidden ${openFaq === i ? 'shadow-[0_4px_20px_rgba(5,9,31,.08)]' : ''}`}>
                       <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full text-left bg-transparent border-0 py-[1rem] px-5 flex items-center justify-between gap-3 cursor-pointer">

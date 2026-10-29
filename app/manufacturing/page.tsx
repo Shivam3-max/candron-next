@@ -3,16 +3,19 @@ import Image from "next/image";
 import CanadaFlag from "@/components/CanadaFlag";
 import CapabilitiesFlow from "@/components/CapabilitiesFlow";
 import { HeroArt } from '@/components/LineArt'
+import JsonLd from '@/components/JsonLd'
+import { breadcrumbLd } from '@/lib/seo'
 
-export const metadata = {
+export const metadata = { alternates: { canonical: '/manufacturing' },
   title: "Canadian-Made Equipment",
   description:
-    "CANDRON is a provider of Canadian-made electrical equipment. We engineer the scope, source switchgear, switchboards and transformers from Canadian manufacturers, inspect, witness factory tests and deliver.",
+    "How CANDRON provides Canadian-made switchgear, switchboards and transformers: engineered scope, Canadian manufacturers, witnessed tests and delivery.",
 };
 
 export default function CanadianMadePage() {
   return (
     <>
+      <JsonLd data={breadcrumbLd([{ name: 'Canadian-Made', href: '/manufacturing' }])} />
       <div className="page-hero">
         <div
           className="page-hero-bg"

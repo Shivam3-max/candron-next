@@ -2,6 +2,8 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { HeroArt } from '@/components/LineArt'
+import JsonLd from '@/components/JsonLd'
+import { faqLd } from '@/lib/seo'
 
 const SQRT3 = 1.7320508
 
@@ -122,6 +124,7 @@ export default function KvaCalculatorPage() {
                 </div>
               </div>
 
+              <JsonLd data={faqLd(faqs)} />
               {/* FAQ */}
               <div className="mt-8">
                 <div className="font-mono text-[.8125rem] text-blue tracking-[.22em] uppercase mb-5">FAQ</div>

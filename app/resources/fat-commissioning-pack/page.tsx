@@ -6,8 +6,8 @@ import { ChecklistSheet, PunchList } from '@/components/resources/Checklist'
 import { PACK_PDF, PACK_REFS, SHEETS } from '@/lib/resources/fat-pack'
 
 export const metadata: Metadata = {
-  title: 'FAT & Commissioning Checklist Pack for Switchgear and Transformers',
-  description: 'Free checklists for electrical contractors and commissioning leads: factory acceptance test agendas for MV switchgear and transformers, pre-energization checklists, and a punch list with sign-off. Download the PDF.',
+  title: 'FAT & Commissioning Checklists (PDF)',
+  description: 'Free checklists for electrical contractors and commissioning leads: factory acceptance test agendas for MV switchgear and transformers.',
   alternates: { canonical: '/resources/fat-commissioning-pack' },
 }
 

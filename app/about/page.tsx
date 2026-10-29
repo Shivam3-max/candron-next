@@ -3,12 +3,15 @@ import Link from 'next/link'
 import Image from 'next/image'
 import StatBar from '@/components/StatBar'
 import TimelineScroll from '@/components/TimelineScroll'
+import JsonLd from '@/components/JsonLd'
+import { breadcrumbLd } from '@/lib/seo'
 
-export const metadata = { title: 'About CANDRON — Providers of Canadian-Made Electrical Equipment', description: 'Meet CANDRON, a Toronto-based provider of Canadian-made switchgear, switchboards, transformers and engineered power distribution equipment.' }
+export const metadata = { alternates: { canonical: '/about' }, title: 'About CANDRON — Canadian-Made Electrical Equipment', description: 'Meet CANDRON, a Toronto-based provider of Canadian-made switchgear, switchboards, transformers and engineered power distribution equipment.' }
 
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={breadcrumbLd([{ name: 'About', href: '/about' }])} />
       <div className="page-hero">
 
 

@@ -6,8 +6,8 @@ import { ChecklistSheet } from '@/components/resources/Checklist'
 import { COLD_PDF, COLD_REFS, COLD_SHEETS } from '@/lib/resources/cold-climate'
 
 export const metadata: Metadata = {
-  title: 'Cold-Climate & Arctic Readiness Checklist for Electrical Equipment',
-  description: 'Free checklist for northern, remote and Arctic projects: how to specify, factory-test, ship, install, energize and maintain switchgear, transformers and e-houses down to −50 °C. Download the PDF.',
+  title: 'Cold-Climate & Arctic Electrical Checklist',
+  description: 'Free checklist for northern and Arctic projects: how to specify, test, ship, install, energize and maintain switchgear and transformers at −45 °C.',
   alternates: { canonical: '/resources/cold-climate-checklist' },
 }
 

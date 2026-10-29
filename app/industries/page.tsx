@@ -1,7 +1,9 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import JsonLd from '@/components/JsonLd'
+import { breadcrumbLd } from '@/lib/seo'
 
-export const metadata = { title: 'Sectors We Serve', description: 'CANDRON supports electrical contractors, engineering consultants, utilities, and project owners with power distribution equipment, engineering, testing, commissioning, and technical support.' }
+export const metadata = { alternates: { canonical: '/industries' }, title: 'Sectors We Serve', description: 'Canadian-made power equipment and engineering support for mining, oil and gas, data centres, health care, renewables, transportation and utilities.' }
 
 const sectors = [
   {
@@ -40,6 +42,7 @@ const sectors = [
 export default function IndustriesPage() {
   return (
     <>
+      <JsonLd data={breadcrumbLd([{ name: 'Industries', href: '/industries' }])} />
       <div className="page-hero">
         <div className="page-hero-bg ind-hero-bg"></div>
         <div className="container page-hero-content">

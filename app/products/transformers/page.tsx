@@ -1,9 +1,11 @@
 import Link from 'next/link'
 import { HeroArt } from '@/components/LineArt'
+import JsonLd from '@/components/JsonLd'
+import { breadcrumbLd } from '@/lib/seo'
 
-export const metadata = {
+export const metadata = { alternates: { canonical: '/products/transformers' },
   title: 'Custom Power Transformers',
-  description: 'Explore CANDRON custom power transformer projects, including matched replacement units, Arctic mining transformers, and a 6 MVA FR3-filled medium-voltage transformer.',
+  description: 'Canadian-made padmount, substation, polemount and dry-type transformers from CANDRON, engineered to your voltage, kVA and site, with factory testing.',
 }
 
 
@@ -103,6 +105,7 @@ const transformerApplications = [
 export default function TransformersPage() {
   return (
     <>
+      <JsonLd data={breadcrumbLd([{ name: 'Products', href: '/products' }, { name: 'Transformers', href: '/products/transformers' }])} />
       {/* HERO */}
       <div className="page-hero">
         <div className="page-hero-bg" style={{ background: "url('/images/projects/custom-power-transformers/transformer-ready-to-ship.jpg') center/cover" }}>

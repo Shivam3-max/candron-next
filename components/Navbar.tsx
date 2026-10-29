@@ -10,7 +10,7 @@ const links = [
   { href: '/capabilities', label: 'Capabilities', caption: 'What we do', menu: 'capabilities' },
   { href: '/industries', label: 'Industries', caption: 'Sectors we serve' },
   { href: '/about', label: 'About', caption: 'Company & team' },
-  { href: '/resources', label: 'Resources', caption: 'Calculators & tools' },
+  { href: '/resources', label: 'Resources', caption: 'Tools, guides & blog' },
   { href: '/contact', label: 'Contact', caption: 'Talk to our team' },
 ] as const
 
@@ -349,7 +349,7 @@ export default function Navbar() {
         <div className="hdr-shell">
           <Link href="/" className="hdr-logo" aria-label="CANDRON Energy Inc. — Home">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/logo.svg" alt="" />
+            <img src="/images/logo.svg" alt="CANDRON Energy logo" />
           </Link>
 
           <div className="hdr-main">

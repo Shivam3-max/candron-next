@@ -109,9 +109,9 @@ const data: ProductTypePageProps = {
   ],
 }
 
-export const metadata = {
+export const metadata = { alternates: { canonical: '/products/control-panels/process' },
   title: 'Process Control Panels | CANDRON Energy',
-  description: 'UL 508A SCADA-integrated process control panels with field I/O and telemetry for water, oil & gas, and industrial process applications. Made in Canada, provided by CANDRON.',
+  description: 'UL 508A SCADA-integrated process control panels with field I/O and telemetry for water, oil & gas, and industrial process applications.',
 }
 
 export default function ProcessControlPanelPage() {

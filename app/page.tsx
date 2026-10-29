@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import RelatedArticles from '@/components/blog/RelatedArticles'
 import Image from "next/image";
 import HeroCanvas from "@/components/HeroCanvas";
 import CanadaFlag from "@/components/CanadaFlag";
@@ -9,8 +10,8 @@ import ProjectHighlights from "@/components/ProjectHighlights";
 import FeaturedProducts from "@/components/FeaturedProducts";
 
 export const metadata = {
-  title: 'Providers of Canadian-Made Electrical Equipment | CANDRON',
-  description: 'CANDRON Energy is a Toronto-based provider of Canadian-made electrical equipment: switchgear, switchboards, transformers and power distribution equipment, engineered to your project and delivered with shorter lead times.',
+  title: { absolute: 'Canadian-Made Transformers & Switchgear Provider | CANDRON' },
+  description: 'CANDRON Energy is a Toronto-based provider of Canadian-made electrical equipment: switchgear, switchboards, transformers and power distribution equipment.',
   alternates: { canonical: '/' },
 };
 
@@ -520,6 +521,8 @@ export default function HomePage() {
         </div>
       </div>
       */}
+
+      <RelatedArticles fallback title="Latest guides from our engineers" />
 
       {/* CTA */}
       <div className="cta-band">

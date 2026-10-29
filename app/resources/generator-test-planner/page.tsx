@@ -7,7 +7,7 @@ import { GEN_REFS, LOGBOOK_PDF } from '@/lib/resources/generator-tests'
 
 export const metadata: Metadata = {
   title: 'CSA C282 Generator Test Planner & Logbook',
-  description: 'Free planner for facility managers: build a 12-month CSA C282 inspection and load-test calendar for an emergency generator, check whether building load meets 30% of nameplate, and print the weekly and monthly logbook.',
+  description: 'Free planner for facility managers: build a 12-month CSA C282 inspection and load-test calendar for an emergency generator.',
   alternates: { canonical: '/resources/generator-test-planner' },
 }
 

@@ -6,7 +6,7 @@ import ResourceFaq from '@/components/resources/ResourceFaq'
 import { LATEST, PRESSURE_TEXT, groupOf, nameOf } from '@/lib/resources/lead-time-index'
 
 export const metadata: Metadata = {
-  title: `Canadian Electrical Equipment Lead-Time Index — ${LATEST.quarter}`,
+  title: `Electrical Equipment Lead-Time Index ${LATEST.quarter}`,
   description: `Quarterly lead-time ranges for transformers, switchgear, switchboards and standby power equipment in Canada, ${LATEST.quarter}: weeks from approved drawings to shipment, what is driving them and how to plan around them.`,
   alternates: { canonical: '/resources/lead-time-index' },
 }

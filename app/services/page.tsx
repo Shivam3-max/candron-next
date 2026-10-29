@@ -2,10 +2,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { HeroArt } from '@/components/LineArt'
 import DesignGallery, { type DesignShot } from '@/components/DesignGallery'
+import JsonLd from '@/components/JsonLd'
+import { breadcrumbLd } from '@/lib/seo'
 
-export const metadata = {
+export const metadata = { alternates: { canonical: '/services' },
   title: 'Electrical Engineering Services',
-  description: 'CANDRON provides electrical engineering, power-system studies, protection coordination, equipment design, documentation, and field support for industrial and commercial power distribution projects.',
+  description: 'Electrical engineering from CANDRON: power-system studies, protection coordination, equipment design, documentation and field support for your project.',
 }
 
 const services = [
@@ -42,6 +44,7 @@ const vpiShots: DesignShot[] = [
 export default function ElectricalEngineeringServicesPage() {
   return (
     <>
+      <JsonLd data={breadcrumbLd([{ name: 'Engineering Services', href: '/services' }])} />
       <section className="page-hero">
         <div className="page-hero-bg" style={{ background: "linear-gradient(90deg,rgba(5,9,31,.9),rgba(5,9,31,.48)),url('/images/projects/2500a-switchboard-production/2500a-switchboard-production.jpg') center 48%/cover" }} />
         <HeroArt kind="cap-eng" />

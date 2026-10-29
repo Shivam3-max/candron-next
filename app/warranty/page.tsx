@@ -1,8 +1,10 @@
 import Link from 'next/link'
 import { HeroArt } from '@/components/LineArt'
+import JsonLd from '@/components/JsonLd'
+import { breadcrumbLd } from '@/lib/seo'
 
-export const metadata = {
-  title: 'Warranty Support | CANDRON Energy Inc.',
+export const metadata = { alternates: { canonical: '/warranty' },
+  title: 'Warranty Support',
   description: 'Get warranty document guidance and support for CANDRON power distribution equipment.',
 }
 
@@ -11,6 +13,7 @@ const details = ['Equipment nameplate or serial number', 'Purchase order or proj
 export default function WarrantyPage() {
   return (
     <>
+      <JsonLd data={breadcrumbLd([{ name: 'Warranty', href: '/warranty' }])} />
       <section className="page-hero">
         <div className="page-hero-bg" style={{ background: "linear-gradient(90deg,rgba(5,9,31,.92),rgba(5,9,31,.72)),url('/images/testing.jpg') center/cover" }} />
         <HeroArt kind="padmount" />

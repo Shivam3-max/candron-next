@@ -107,7 +107,7 @@ const data: ProductTypePageProps = {
   ],
 }
 
-export const metadata = {
+export const metadata = { alternates: { canonical: '/products/control-panels/automation' },
   title: 'Automation Control Panels | CANDRON Energy',
   description: 'UL 508A custom PLC and HMI control panels for process automation and machine control. Allen-Bradley, Siemens, Schneider. Made in Canada, provided by CANDRON.',
 }

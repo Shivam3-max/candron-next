@@ -3,11 +3,14 @@ import { HeroArt } from '@/components/LineArt'
 import Finder from '@/components/range/Finder'
 import CompareTable from '@/components/range/CompareTable'
 import MobileCollapse from '@/components/range/MobileCollapse'
+import JsonLd from '@/components/JsonLd'
+import RelatedArticles from '@/components/blog/RelatedArticles'
 import { productHref, productsIn, type RangeDef } from '@/lib/ranges/core'
+import { SITE, breadcrumbLd, faqLd, pageMeta } from '@/lib/seo'
 import { PHONE } from '@/lib/inventory'
 
 export function hubMetadata(r: RangeDef) {
-  return { title: r.hub.meta.title, description: r.hub.meta.description, alternates: { canonical: r.hubHref } }
+  return pageMeta({ title: r.hub.meta.title, description: r.hub.meta.description, path: r.hubHref })
 }
 
 const NUMBER = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six']
@@ -18,6 +21,11 @@ export default function HubPage({ r }: { r: RangeDef }) {
   const finderItems = r.products.map(p => ({ href: productHref(r, p), short: p.short, range: p.range, does: p.does, needs: p.needs, family: p.family }))
   return (
     <>
+      <JsonLd data={[
+        breadcrumbLd([...h.crumbs.map(c => ({ name: c.label, href: c.href })), { name: r.name, href: r.hubHref }]),
+        { '@context': 'https://schema.org', '@type': 'ItemList', name: h.meta.title, itemListElement: r.products.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.name, url: `${SITE}${productHref(r, p)}` })) },
+        ...(h.faqs.length ? [faqLd(h.faqs)] : []),
+      ]} />
       <div className="page-hero dt-hero">
         <div className="page-hero-bg dt-hero-bg" />
         <HeroArt kind={h.art.kind} views={h.art.views} figure="FIG. 01 · 3D" />
@@ -187,6 +195,7 @@ export default function HubPage({ r }: { r: RangeDef }) {
           </div>
         </div>
       </div>
+      <RelatedArticles path={r.hubHref} title={`${r.name} guides`} />
     </>
   )
 }
