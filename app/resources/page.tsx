@@ -218,17 +218,17 @@ export default function ResourcesPage() {
         </div>
       </div>
 
-      <section className="bg-white border-b border-[#E8ECF5] py-10 max-md:py-7">
+      <section className="res-links-section bg-white border-b border-[#E8ECF5]">
         <div className="container">
-          <div className="grid grid-cols-5 max-xl:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-4">
+          <div className="res-links">
             {resourceLinks.map(resource => (
-              <Link key={resource.href} href={resource.href} className="group no-underline rounded-[16px] border border-[#E3E8F2] bg-white p-5 flex flex-col gap-4 transition-all duration-200 hover:border-blue hover:shadow-[0_8px_28px_rgba(0,71,255,.09)]">
-                <div className="w-11 h-11 rounded-[11px] bg-blue/[.07] text-blue flex items-center justify-center transition-colors duration-200 group-hover:bg-blue group-hover:text-white">{resource.icon}</div>
-                <div>
-                  <h2 className="font-title font-bold text-navy text-[1.125rem] m-0 mb-2">{resource.title}</h2>
-                  <p className="font-mono text-[.9375rem] text-gray leading-[1.65] m-0">{resource.desc}</p>
+              <Link key={resource.href} href={resource.href} className="res-link group no-underline rounded-[16px] border border-[#E3E8F2] bg-white flex flex-col transition-all duration-200 hover:border-blue hover:shadow-[0_8px_28px_rgba(0,71,255,.09)]">
+                <div className="res-link-icon rounded-[11px] bg-blue/[.07] text-blue flex items-center justify-center transition-colors duration-200 group-hover:bg-blue group-hover:text-white">{resource.icon}</div>
+                <div className="res-link-text">
+                  <h2 className="font-title font-bold text-navy m-0">{resource.title}</h2>
+                  <p className="font-mono text-gray m-0">{resource.desc}</p>
                 </div>
-                <span className="font-mono text-[.875rem] uppercase tracking-[.08em] font-bold text-blue mt-auto">{resource.action} →</span>
+                <span className="res-link-action font-mono uppercase font-bold text-blue mt-auto">{resource.action} →</span>
               </Link>
             ))}
           </div>
@@ -236,26 +236,26 @@ export default function ResourcesPage() {
       </section>
 
       {/* PROJECT TOOLKIT */}
-      <section id="toolkit" className="section bg-white scroll-mt-[100px]" style={{ paddingTop: '5rem', paddingBottom: '5rem' }}>
+      <section id="toolkit" className="res-section bg-white scroll-mt-[100px]">
         <div className="container">
-          <div className="max-w-[720px] mb-12">
+          <div className="res-intro">
             <div className="label">Project Toolkit</div>
             <h2 className="mb-4">Free Tools for Electrical Project Teams</h2>
             <p className="body">Practical resources for planning, buying, testing and commissioning electrical equipment, from the people who supply it. No sign-up needed.</p>
           </div>
-          <div className="grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-5">
+          <div className="res-tools">
             {toolkit.map(t => (
               <Link key={t.href} href={t.href} className="group no-underline">
-                <div className="h-full rounded-[20px] border border-[#E8ECF5] bg-off p-7 flex flex-col gap-5 transition-all duration-200 group-hover:border-blue group-hover:shadow-[0_8px_32px_rgba(0,71,255,.10)]">
+                <div className="res-tool h-full rounded-[20px] border border-[#E8ECF5] bg-off flex flex-col transition-all duration-200 group-hover:border-blue group-hover:shadow-[0_8px_32px_rgba(0,71,255,.10)]">
                   <span className="font-mono text-[.8125rem] font-bold tracking-[.14em] uppercase text-blue">{t.kind}</span>
-                  <div className="flex flex-col gap-3 flex-1">
-                    <h3 className="font-title font-bold text-navy text-[1.3rem] leading-[1.25] m-0">{t.title}</h3>
-                    <p className="text-[1.0625rem] text-gray leading-[1.65] m-0">{t.desc}</p>
+                  <div className="res-tool-text flex flex-col flex-1">
+                    <h3 className="font-title font-bold text-navy m-0">{t.title}</h3>
+                    <p className="text-gray m-0">{t.desc}</p>
                   </div>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="res-tags flex flex-wrap gap-2">
                     {t.tags.map(tag => <span key={tag} className="font-mono text-[.8125rem] font-bold tracking-[.1em] uppercase text-blue/80 bg-blue/[.07] px-3 py-[.3rem] rounded-full">{tag}</span>)}
                   </div>
-                  <span className="font-mono text-[1rem] font-semibold text-blue">Open →</span>
+                  <span className="res-open font-mono font-semibold text-blue">Open →</span>
                 </div>
               </Link>
             ))}
@@ -264,37 +264,37 @@ export default function ResourcesPage() {
       </section>
 
       {/* CALCULATORS */}
-      <div id="calculators" className="section bg-off scroll-mt-[100px]" style={{ paddingTop: '5rem', paddingBottom: '6rem' }}>
+      <div id="calculators" className="res-section res-section-calc bg-off scroll-mt-[100px]">
         <div className="container">
-          <div className="max-w-[720px] mb-14">
+          <div className="res-intro">
             <div className="label">Engineering Calculators</div>
             <h2 className="mb-4">Nine Practical Tools for Faster Decisions</h2>
             <p className="body">Free sizing, conversion, and analysis tools for transformer specification, protection coordination, harmonic mitigation, and energy economics.</p>
           </div>
-          <div className="flex flex-col gap-16">
+          <div className="res-groups">
             {groups.map(g => (
               <div key={g.heading}>
-                <div className="mb-8">
+                <div className="res-group-head">
                   <div className="label mb-2">{g.heading}</div>
-                  <p className="font-mono text-[1.0625rem] text-gray m-0">{g.desc}</p>
+                  <p className="font-mono text-gray m-0">{g.desc}</p>
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: '1.5rem' }}>
+                <div className="res-calcs">
                   {g.items.map(c => (
                     <Link key={c.href} href={c.href} className="group no-underline">
-                      <div className="bg-white rounded-[20px] border border-[#E8ECF5] p-8 h-full flex flex-col gap-6 transition-all duration-200 group-hover:border-blue group-hover:shadow-[0_8px_32px_rgba(0,71,255,.10)]">
-                        <div className="w-14 h-14 rounded-[14px] bg-blue/[.07] flex items-center justify-center text-blue transition-colors duration-200 group-hover:bg-blue group-hover:text-white">
+                      <div className="res-calc bg-white rounded-[20px] border border-[#E8ECF5] h-full flex flex-col transition-all duration-200 group-hover:border-blue group-hover:shadow-[0_8px_32px_rgba(0,71,255,.10)]">
+                        <div className="res-calc-icon rounded-[14px] bg-blue/[.07] flex items-center justify-center text-blue transition-colors duration-200 group-hover:bg-blue group-hover:text-white">
                           {c.icon}
                         </div>
-                        <div className="flex flex-col gap-3 flex-1">
-                          <h2 className="font-title font-bold text-navy text-[1.1875rem] leading-[1.3] m-0">{c.title}</h2>
-                          <p className="font-mono text-[1.0625rem] text-gray leading-[1.7] m-0">{c.desc}</p>
+                        <div className="res-calc-text flex flex-col flex-1">
+                          <h2 className="font-title font-bold text-navy m-0">{c.title}</h2>
+                          <p className="font-mono text-gray m-0">{c.desc}</p>
                         </div>
-                        <div className="flex flex-wrap gap-2">
+                        <div className="res-tags flex flex-wrap gap-2">
                           {c.tags.map(t => (
                             <span key={t} className="font-mono text-[.8125rem] font-bold tracking-[.1em] uppercase text-blue/80 bg-blue/[.07] px-3 py-[.3rem] rounded-full">{t}</span>
                           ))}
                         </div>
-                        <div className="flex items-center gap-2 font-mono text-[1rem] font-semibold text-blue">
+                        <div className="res-open flex items-center gap-2 font-mono font-semibold text-blue">
                           Open Calculator
                           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="transition-transform duration-150 group-hover:translate-x-[3px]"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                         </div>
@@ -307,7 +307,7 @@ export default function ResourcesPage() {
           </div>
 
           {/* INFO STRIP */}
-          <div className="resources-help-card mt-20 bg-navy rounded-[20px] p-10 flex flex-col md:flex-row gap-8 items-start md:items-center justify-between">
+          <div className="resources-help-card bg-navy rounded-[20px] flex flex-col md:flex-row gap-8 items-start md:items-center justify-between">
             <div className="min-w-0">
               <div className="font-mono text-[.8125rem] text-blue tracking-[.22em] uppercase mb-3">Need More Help?</div>
               <h3 className="font-display font-black text-white text-[1.54rem] leading-[1.3] m-0">Talk to a CANDRON Engineer</h3>
