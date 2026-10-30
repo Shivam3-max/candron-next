@@ -4,20 +4,21 @@ import Link from 'next/link'
 import { HeroArt } from '@/components/LineArt'
 import JsonLd from '@/components/JsonLd'
 import { faqLd } from '@/lib/seo'
+import { parseRatio, nextStandardKva, fmt } from '@/lib/calc'
 
 export default function KwKvaCalculatorPage() {
   const [kw, setKw] = useState('')
   const [pf, setPf] = useState('')
   const [kva, setKva] = useState('')
-  const [result, setResult] = useState<{ field: string; value: string; unit: string } | null>(null)
+  const [result, setResult] = useState<{ field: string; value: string; unit: string; num: number } | null>(null)
   const [error, setError] = useState('')
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
   function calculate() {
     setError(''); setResult(null)
-    const w = parseFloat(kw), p = parseFloat(pf), v = parseFloat(kva)
+    const w = parseFloat(kw), pfDec = parseRatio(pf), v = parseFloat(kva)
     const hasW = !isNaN(w) && kw.trim() !== ''
-    const hasP = !isNaN(p) && pf.trim() !== ''
+    const hasP = pf.trim() !== ''
     const hasV = !isNaN(v) && kva.trim() !== ''
     const count = [hasW, hasP, hasV].filter(Boolean).length
     if (count < 2) { setError('Enter any two values to calculate the third.'); return }
@@ -25,23 +26,23 @@ export default function KwKvaCalculatorPage() {
 
     if (!hasV) {
       // kVA = kW / PF
-      const pfDec = hasP ? p / 100 : null
-      if (!pfDec || pfDec <= 0 || pfDec > 1) { setError('Power Factor must be between 1 and 100.'); return }
+      if (isNaN(pfDec)) { setError('Enter power factor as a decimal (0.85) or a percentage (85).'); return }
       if (w <= 0) { setError('kW must be a positive value.'); return }
-      setResult({ field: 'kVA', value: (w / pfDec).toFixed(3), unit: 'kVA' })
+      setResult({ field: 'kVA', value: fmt(w / pfDec), unit: 'kVA', num: w / pfDec })
     } else if (!hasW) {
       // kW = kVA × PF
-      const pfDec = hasP ? p / 100 : null
-      if (!pfDec || pfDec <= 0 || pfDec > 1) { setError('Power Factor must be between 1 and 100.'); return }
+      if (isNaN(pfDec)) { setError('Enter power factor as a decimal (0.85) or a percentage (85).'); return }
       if (v <= 0) { setError('kVA must be a positive value.'); return }
-      setResult({ field: 'kW', value: (v * pfDec).toFixed(3), unit: 'kW' })
+      setResult({ field: 'kW', value: fmt(v * pfDec), unit: 'kW', num: v * pfDec })
     } else {
       // PF = kW / kVA
       if (w <= 0 || v <= 0) { setError('kW and kVA must be positive values.'); return }
       if (w > v) { setError('kW cannot exceed kVA (Power Factor cannot exceed 1.0).'); return }
-      setResult({ field: 'Power Factor', value: ((w / v) * 100).toFixed(1), unit: '%' })
+      setResult({ field: 'Power Factor', value: (w / v).toFixed(3), unit: `${fmt((w / v) * 100, 1)}%`, num: w / v })
     }
   }
+
+  const sizeLabel = (k: number) => { const s = nextStandardKva(k); return s ? `${fmt(s)} kVA` : 'Custom (above 10,000 kVA)' }
 
   function reset() { setKw(''); setPf(''); setKva(''); setResult(null); setError('') }
 
@@ -97,9 +98,9 @@ export default function KwKvaCalculatorPage() {
               <div className="flex flex-col gap-5">
                 {[
                   { n: '01', t: 'Know Your Load kW', b: 'Find the real power (kW) from your equipment nameplate, load schedule, or energy study. This is the actual energy your load consumes and converts to work or heat.' },
-                  { n: '02', t: 'Determine Power Factor', b: "Use the load's nameplate power factor, or consult the typical values table below. If unknown, use 0.80 (80%) for a conservative sizing estimate. Enter power factor as a percentage (e.g., 85 for 0.85)." },
+                  { n: '02', t: 'Determine Power Factor', b: "Use the load's nameplate power factor, or consult the typical values table below. If unknown, use 0.80 for a conservative sizing estimate. Type it either way: 0.85 or 85 both mean 85%." },
                   { n: '03', t: 'Calculate kVA', b: 'kVA = kW ÷ Power Factor. The result is the apparent power that your transformer must supply. Select the next standard transformer size above this value.' },
-                  { n: '04', t: 'Apply a Safety Margin', b: 'Size your transformer at 125% of the calculated kVA minimum (divide by 0.8) to allow for load growth, starting currents, and to preserve transformer life.' },
+                  { n: '04', t: 'Apply a Safety Margin', b: 'Pick the next standard size at or above your kVA. If you expect the load to grow, add about 25% first. The calculator shows both.' },
                 ].map(s => (
                   <div key={s.n} className="flex gap-5 bg-white p-5 rounded-[14px] border border-[#E8ECF5]">
                     <div className="w-10 h-10 min-w-[2.5rem] rounded-[10px] bg-blue/[.08] flex items-center justify-center font-mono text-[.8125rem] font-bold text-blue tracking-[.1em]">{s.n}</div>
@@ -184,7 +185,7 @@ export default function KwKvaCalculatorPage() {
                 <div className="flex flex-col gap-4 mb-5">
                   {[
                     { label: 'Kilowatts (kW)', hint: 'Real power, e.g., 400', val: kw, set: setKw },
-                    { label: 'Power Factor (%)', hint: 'e.g., 85 for 0.85 PF', val: pf, set: setPf },
+                    { label: 'Power Factor', hint: '0.85 or 85 (%)', val: pf, set: setPf },
                     { label: 'kVA', hint: 'Apparent power, e.g., 500', val: kva, set: setKva },
                   ].map(f => (
                     <div key={f.label}>
@@ -217,10 +218,16 @@ export default function KwKvaCalculatorPage() {
                     <div className="font-display font-black text-[2.52rem] text-white tracking-[.02em] leading-none">{result.value}</div>
                     <div className="font-mono text-[1.0625rem] text-blue/80 mt-[.4rem]">{result.unit}</div>
                     {result.field === 'kVA' && (
-                      <div className="mt-4 pt-4 border-t border-white/[.1]">
-                        <div className="font-mono text-[.875rem] text-white/[.68] uppercase tracking-[.1em] mb-1">Recommended Transformer Size</div>
-                        <div className="font-display font-bold text-[1.43rem] text-blue/90">{(parseFloat(result.value) / 0.8).toFixed(2)} kVA</div>
-                        <div className="font-mono text-[.875rem] text-white/[.68] mt-1">(minimum kVA ÷ 0.8 = 125% factor)</div>
+                      <div className="mt-4 pt-4 border-t border-white/[.1] flex flex-col gap-3">
+                        <div>
+                          <div className="font-mono text-[.875rem] text-white/[.68] uppercase tracking-[.1em] mb-1">Smallest Standard Size</div>
+                          <div className="font-display font-bold text-[1.43rem] text-blue/90">{sizeLabel(result.num)}</div>
+                        </div>
+                        <div>
+                          <div className="font-mono text-[.875rem] text-white/[.68] uppercase tracking-[.1em] mb-1">With 25% Growth Margin</div>
+                          <div className="font-display font-bold text-[1.43rem] text-blue/90">{sizeLabel(result.num * 1.25)}</div>
+                          <div className="font-mono text-[.875rem] text-white/[.68] mt-1">({fmt(result.num * 1.25, 1)} kVA needed)</div>
+                        </div>
                       </div>
                     )}
                   </div>

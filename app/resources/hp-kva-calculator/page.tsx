@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { parseRatio, fmt } from '@/lib/calc'
 import Link from 'next/link'
 import { HeroArt } from '@/components/LineArt'
 import JsonLd from '@/components/JsonLd'
@@ -12,7 +13,7 @@ export default function HpKvaCalculatorPage() {
   const [kva, setKva] = useState('')
   const [efficiency, setEfficiency] = useState('90')
   const [pf, setPf] = useState('0.85')
-  const [result, setResult] = useState<{ kw: string; kva: string; amps480: string; amps208: string } | null>(null)
+  const [result, setResult] = useState<{ kw: string; kva: string; amps600: string; amps480: string; amps208: string } | null>(null)
   const [error, setError] = useState('')
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
@@ -20,10 +21,10 @@ export default function HpKvaCalculatorPage() {
     setError(''); setResult(null)
     const hpVal = parseFloat(hp)
     const kvaVal = parseFloat(kva)
-    const eta = parseFloat(efficiency) / 100
-    const pfVal = parseFloat(pf)
-    if (isNaN(eta) || eta <= 0 || eta > 1) { setError('Enter a valid motor efficiency (1–100%).'); return }
-    if (isNaN(pfVal) || pfVal <= 0 || pfVal > 1) { setError('Enter a valid power factor (0.01–1.00).'); return }
+    const eta = parseRatio(efficiency)
+    const pfVal = parseRatio(pf)
+    if (isNaN(eta)) { setError('Enter motor efficiency as a percentage (90) or a decimal (0.90).'); return }
+    if (isNaN(pfVal)) { setError('Enter power factor as a decimal (0.85) or a percentage (85).'); return }
     const hasHp = !isNaN(hpVal) && hp.trim() !== '' && hpVal > 0
     const hasKva = !isNaN(kvaVal) && kva.trim() !== '' && kvaVal > 0
     if (!hasHp && !hasKva) { setError('Enter Horsepower or kVA to calculate.'); return }
@@ -38,10 +39,11 @@ export default function HpKvaCalculatorPage() {
       kwResult = kvaResult * pfVal
     }
     setResult({
-      kw: kwResult.toFixed(2),
-      kva: kvaResult.toFixed(2),
-      amps480: ((kvaResult * 1000) / (Math.sqrt(3) * 480)).toFixed(1),
-      amps208: ((kvaResult * 1000) / (Math.sqrt(3) * 208)).toFixed(1),
+      kw: fmt(kwResult),
+      kva: fmt(kvaResult),
+      amps600: fmt((kvaResult * 1000) / (Math.sqrt(3) * 600), 1),
+      amps480: fmt((kvaResult * 1000) / (Math.sqrt(3) * 480), 1),
+      amps208: fmt((kvaResult * 1000) / (Math.sqrt(3) * 208), 1),
     })
   }
 
@@ -166,11 +168,11 @@ export default function HpKvaCalculatorPage() {
                   </div>
                   <div className="h-px bg-[#E8ECF5]" />
                   <div>
-                    <label className="block font-mono text-[.875rem] font-bold tracking-[.12em] uppercase text-gray mb-[.45rem]">Motor Efficiency (%)</label>
+                    <label className="block font-mono text-[.875rem] font-bold tracking-[.12em] uppercase text-gray mb-[.45rem]">Motor Efficiency (90 or 0.90)</label>
                     <input type="number" min="1" max="100" value={efficiency} onChange={e => { setEfficiency(e.target.value); setResult(null) }} placeholder="90" className="w-full px-4 py-[.85rem] border-[1.5px] border-[#E8ECF5] rounded-[10px] font-title text-[1.125rem] font-semibold text-navy bg-white outline-none transition-[border-color] duration-200 focus:border-blue box-border placeholder:text-[#C8CDD9] placeholder:font-normal" />
                   </div>
                   <div>
-                    <label className="block font-mono text-[.875rem] font-bold tracking-[.12em] uppercase text-gray mb-[.45rem]">Power Factor (0.01 – 1.00)</label>
+                    <label className="block font-mono text-[.875rem] font-bold tracking-[.12em] uppercase text-gray mb-[.45rem]">Power Factor (0.85 or 85)</label>
                     <input type="number" min="0.01" max="1" step="0.01" value={pf} onChange={e => { setPf(e.target.value); setResult(null) }} placeholder="0.85" className="w-full px-4 py-[.85rem] border-[1.5px] border-[#E8ECF5] rounded-[10px] font-title text-[1.125rem] font-semibold text-navy bg-white outline-none transition-[border-color] duration-200 focus:border-blue box-border placeholder:text-[#C8CDD9] placeholder:font-normal" />
                   </div>
                 </div>
@@ -198,7 +200,11 @@ export default function HpKvaCalculatorPage() {
                     </div>
                     <div className="border-t border-white/[.1] pt-4 mt-2">
                       <div className="font-mono text-[.8125rem] text-white/[.68] uppercase tracking-[.1em] mb-3">Full-Load Current (3-Phase)</div>
-                      <div className="grid grid-cols-2 gap-3">
+                      <div className="grid grid-cols-3 gap-3">
+                        <div className="bg-white/[.06] rounded-[8px] p-3 text-center">
+                          <div className="font-mono text-[.875rem] text-white/[.68] mb-1">@ 600 V</div>
+                          <div className="font-display font-bold text-white text-[1.25rem]">{result.amps600} A</div>
+                        </div>
                         <div className="bg-white/[.06] rounded-[8px] p-3 text-center">
                           <div className="font-mono text-[.875rem] text-white/[.68] mb-1">@ 480 V</div>
                           <div className="font-display font-bold text-white text-[1.25rem]">{result.amps480} A</div>

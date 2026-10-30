@@ -27,6 +27,7 @@ export default function FaultCurrentCalculatorPage() {
     if (isNaN(k) || k <= 0) { setError('Enter a valid kVA rating.'); return }
     if (isNaN(v) || v <= 0) { setError('Enter a valid secondary voltage.'); return }
     if (isNaN(z) || z <= 0 || z >= 100) { setError('% Impedance must be between 0 and 100.'); return }
+    if (z < 0.5) { setError('Enter % impedance as a percentage from the nameplate, e.g. 5.75 (not 0.0575).'); return }
     setResult(calcAFC(phase, k, v, z).toFixed(0))
   }
 

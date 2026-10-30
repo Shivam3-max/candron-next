@@ -8,12 +8,11 @@ import { faqLd } from '@/lib/seo'
 const SQRT3 = Math.sqrt(3)
 const TWO_PI = 2 * Math.PI
 
-// Approximate THD reduction % for a 6-pulse drive with reactor
-function estimateThdReduction(zPct: number): string {
-  if (zPct < 2) return '15–20'
-  if (zPct < 3.5) return '30–38'
-  if (zPct < 4.5) return '36–44'
-  return '40–48'
+// Approximate input-current THD of a 6-pulse drive with this line reactor (80–100% with none)
+function estimateThd(zPct: number): string {
+  if (zPct < 2) return '45–55'
+  if (zPct < 4) return '35–45'
+  return '30–38'
 }
 
 export default function HarmonicReactorCalculatorPage() {
@@ -38,10 +37,12 @@ export default function HarmonicReactorCalculatorPage() {
     const hpVal = parseFloat(hp)
     if (isNaN(V) || V <= 0) { setError('Enter a valid voltage.'); return }
     if (isNaN(Z) || Z <= 0 || Z > 20) { setError('Reactor impedance must be 0.1–20%.'); return }
-    if (isNaN(kvaVal) && isNaN(hpVal)) { setError('Enter load in kVA or HP.'); return }
+    const hasKva = !isNaN(kvaVal) && kvaVal > 0
+    const hasHp = !isNaN(hpVal) && hpVal > 0
+    if (!hasKva && !hasHp) { setError('Enter the load in kVA or HP.'); return }
 
     // Determine kVA
-    const loadKva = !isNaN(kvaVal) && kvaVal > 0 ? kvaVal
+    const loadKva = hasKva ? kvaVal
       : (hpVal * 0.7457) / (0.90 * 0.85) // typical motor defaults
 
     // Rated current
@@ -58,14 +59,14 @@ export default function HarmonicReactorCalculatorPage() {
     // Inductance in mH
     const lMh = (xReactor / (TWO_PI * f)) * 1000
 
-    // Voltage drop across reactor at rated current (for display, useful for engineers)
-    const voltDrop = xReactor * iRated
+    // Voltage drop across the reactor at rated current, as line-to-line volts (Z% of system voltage)
+    const voltDrop = (Z / 100) * V
 
     setResult({
       iRated: iRated.toFixed(1),
       xReactor: xReactor.toFixed(4),
       lMh: lMh.toFixed(3),
-      thdReduction: estimateThdReduction(Z),
+      thdReduction: estimateThd(Z),
       voltDrop: voltDrop.toFixed(1),
     })
   }
@@ -111,7 +112,7 @@ export default function HarmonicReactorCalculatorPage() {
               <div className="flex flex-col gap-5">
                 {[
                   { n: '01', t: 'Know Your Drive Rating', b: 'Enter the drive\'s input kVA rating (from the drive spec sheet) or the motor horsepower. The rated current is the basis for reactor sizing — the reactor must carry the drive\'s rated input current continuously without overheating or saturating.' },
-                  { n: '02', t: 'Choose Reactor Impedance %', b: '3% is standard for most VFD installations and is the minimum recommended by IEEE 519. It provides a good balance between harmonic reduction and voltage drop. Use 5% where utility harmonic limits are strict or the system has high background THD.' },
+                  { n: '02', t: 'Choose Reactor Impedance %', b: '3% is the usual choice for most VFD installations (IEEE 519 sets distortion limits, not a reactor size). It provides a good balance between harmonic reduction and voltage drop. Use 5% where utility harmonic limits are strict or the system has high background THD.' },
                   { n: '03', t: 'Verify Inductance Value', b: 'The calculated inductance in mH is the value to specify on the reactor nameplate. At 60 Hz, a 3% reactor on a 100 kVA, 480 V load is approximately 0.44 mH. Reactor manufacturers rate their products in mH at a specific frequency and rated current.' },
                   { n: '04', t: 'Check Voltage Drop', b: 'The reactor causes a voltage drop at rated load. For a 3% reactor, the drop is 3% of line voltage (≈ 14.4 V on a 480 V system). Ensure the voltage reaching the drive input is within its specified input voltage tolerance, typically ±10%.' },
                 ].map(s => (
@@ -141,7 +142,7 @@ export default function HarmonicReactorCalculatorPage() {
                   ))}
                 </div>
                 <div className="mt-5 pt-5 border-t border-white/[.08]">
-                  <div className="font-mono text-[.8125rem] text-white/[.68] tracking-[.12em] uppercase mb-3">Typical THD Reduction (6-Pulse Drive)</div>
+                  <div className="font-mono text-[.8125rem] text-white/[.68] tracking-[.12em] uppercase mb-3">Typical Current THD (6-Pulse Drive)</div>
                   <div className="flex flex-col gap-2">
                     {[
                       ['No Reactor', '80 – 100%', 'Not recommended'],
@@ -254,8 +255,8 @@ export default function HarmonicReactorCalculatorPage() {
                     <div className="border-t border-white/[.1] pt-4 flex flex-col gap-2">
                       {[
                         { label: 'Reactor Reactance', val: result.xReactor + ' Ω' },
-                        { label: 'Voltage Drop @ Full Load', val: result.voltDrop + ' V' },
-                        { label: 'Est. THD Reduction (6-pulse)', val: result.thdReduction + '%' },
+                        { label: 'Voltage Drop @ Full Load', val: result.voltDrop + ' V (L-L)' },
+                        { label: 'Est. Drive Current THD', val: '≈ ' + result.thdReduction + '%' },
                       ].map(r => (
                         <div key={r.label} className="flex items-center justify-between">
                           <span className="font-mono text-[.875rem] text-white/[.68] tracking-[.06em] uppercase">{r.label}</span>

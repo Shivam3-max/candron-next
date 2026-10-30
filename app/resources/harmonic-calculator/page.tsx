@@ -27,13 +27,16 @@ const PRESETS: Record<string, Record<number, string>> = {
   'lighting': { 3: '55', 5: '20', 7: '8', 9: '4' },
 }
 
+// Standard UL 1561 K-ratings
+const K_RATINGS = [1, 4, 9, 13, 20, 30, 40, 50]
 function kRating(k: number): string {
-  if (k <= 1.1) return 'K-1'
-  if (k <= 4) return 'K-4'
-  if (k <= 7) return 'K-7'
-  if (k <= 13) return 'K-13'
-  return 'K-20'
+  const r = K_RATINGS.find(x => k <= x + 0.005)
+  return r ? `K-${r}` : 'Above K-50 (special)'
 }
+
+// Winding eddy-current loss as a fraction of I²R loss at rated current (IEEE C57.110 P_EC-R).
+// Typical for dry-type distribution transformers; use the manufacturer's figure where known.
+const PEC_R = 0.1
 
 export default function HarmonicCalculatorPage() {
   const [values, setValues] = useState<Record<number, string>>({})
@@ -64,24 +67,24 @@ export default function HarmonicCalculatorPage() {
     const denominator = 1 + sumSq
     const kFactor = numerator / denominator
 
-    // Derating for K-1 transformer: approximate factor
-    const derating = Math.max(0, (1 - (kFactor - 1) * 0.025) * 100)
+    // IEEE C57.110: I_max = √(P_LL-R / (1 + F_HL × P_EC-R)), with F_HL equal to the K-factor
+    const derating = Math.sqrt((1 + PEC_R) / (1 + kFactor * PEC_R)) * 100
 
     setResult({
       thd: thd.toFixed(1),
       kFactor: kFactor.toFixed(2),
       kRating: kRating(kFactor),
-      derating: derating > 100 ? '100.0' : derating.toFixed(1),
+      derating: Math.min(100, derating).toFixed(1),
     })
   }
 
   function reset() { setValues({}); setResult(null); setError('') }
 
   const faqs = [
-    { q: 'What is THD and why does it matter?', a: 'Total Harmonic Distortion (THD) is the ratio of all harmonic currents to the fundamental (60 Hz) current, expressed as a percentage. High THD causes transformer overheating, nuisance tripping of breakers, neutral conductor overloading (especially with triplen harmonics), and reduced equipment life. IEEE 519-2022 recommends THD below 5% at the point of common coupling.' },
+    { q: 'What is THD and why does it matter?', a: 'Total Harmonic Distortion (THD) is the ratio of all harmonic currents to the fundamental (60 Hz) current, expressed as a percentage. High THD causes transformer overheating, nuisance tripping of breakers, neutral conductor overloading (especially with triplen harmonics), and reduced equipment life. At the point of common coupling, IEEE 519-2022 limits voltage THD to 8% at 1 kV and below (5% from 1 to 69 kV), and current distortion to between 5% and 20% depending on supply strength.' },
     { q: 'What is K-factor and how is it used?', a: 'K-factor quantifies how much harmonic content a transformer must handle. K-1 transformers are designed for purely linear loads. K-4 through K-20 are specifically designed with oversized neutral conductors, electrostatic shielding, and special core materials. Specifying the correct K-rating prevents premature transformer failure from eddy-current losses and hot spots caused by harmonics.' },
     { q: 'Which harmonics does a VFD (variable frequency drive) produce?', a: '6-pulse VFDs (most common) produce predominantly 5th and 7th harmonics, with smaller amounts of 11th, 13th, 17th, and 19th. The 5th harmonic is typically 20–40% of fundamental. 12-pulse VFDs cancel the 5th and 7th through phase-shifting, leaving 11th, 13th, 23rd, and 25th as dominant harmonics — resulting in much lower THD.' },
-    { q: 'What K-factor should I specify for a VFD installation?', a: 'For a single 6-pulse VFD serving less than 30% of a transformer\'s load, K-4 or K-7 is typically adequate. When VFD loads dominate (>50% of transformer capacity), specify K-13. For heavy VFD or UPS installations exceeding 75% of capacity, use K-20. In practice, K-13 is the most commonly specified rating for industrial facilities with multiple drives.' },
+    { q: 'What K-factor should I specify for a VFD installation?', a: 'For a single 6-pulse VFD serving less than 30% of a transformer\'s load, K-4 or K-9 is typically adequate. When VFD loads dominate (>50% of transformer capacity), specify K-13. For heavy VFD or UPS installations exceeding 75% of capacity, use K-20. In practice, K-13 is the most commonly specified rating for industrial facilities with multiple drives.' },
   ]
 
   return (
@@ -118,7 +121,7 @@ export default function HarmonicCalculatorPage() {
                   { n: '01', t: 'Identify Your Non-Linear Loads', b: 'VFDs, UPS systems, switch-mode power supplies, and electronic ballasts all draw non-sinusoidal current. These loads inject harmonic currents back onto the electrical system, distorting the voltage waveform.' },
                   { n: '02', t: 'Enter or Measure Harmonic Spectrum', b: 'Use a power quality analyser to measure individual harmonic currents as a percentage of fundamental. Alternatively, use the presets below for typical load types — or ask your drive manufacturer for a harmonic spectrum datasheet.' },
                   { n: '03', t: 'Calculate THD and K-Factor', b: 'THD summarises total distortion as a percentage. K-factor weighs each harmonic by its order squared, reflecting the extra heat it causes in transformer windings — higher-order harmonics are disproportionately damaging.' },
-                  { n: '04', t: 'Select the Correct K-Rated Transformer', b: 'Match or exceed the calculated K-factor with a standard K-rated transformer (K-1, K-4, K-7, K-13, K-20). K-rated transformers include oversized neutral conductors, electrostatic shielding, and special core designs to handle harmonic loads without overheating.' },
+                  { n: '04', t: 'Select the Correct K-Rated Transformer', b: 'Match or exceed the calculated K-factor with a standard K-rated transformer (K-1, K-4, K-9, K-13, K-20, K-30). K-rated transformers include oversized neutral conductors, electrostatic shielding, and special core designs to handle harmonic loads without overheating.' },
                 ].map(s => (
                   <div key={s.n} className="flex gap-5 bg-white p-5 rounded-[14px] border border-[#E8ECF5]">
                     <div className="w-10 h-10 min-w-[2.5rem] rounded-[10px] bg-blue/[.08] flex items-center justify-center font-mono text-[.8125rem] font-bold text-blue tracking-[.1em]">{s.n}</div>
@@ -149,7 +152,7 @@ export default function HarmonicCalculatorPage() {
                     {[
                       ['K-1', 'Linear loads — resistive heating, motors with no VFD'],
                       ['K-4', 'Discharge lighting, UPS (<25% non-linear load)'],
-                      ['K-7', 'Telecom equipment, welders, UPS (<50% non-linear)'],
+                      ['K-9', 'Telecom equipment, welders, UPS (<50% non-linear)'],
                       ['K-13', 'VFDs, computer room PDUs (6-pulse)'],
                       ['K-20', 'Mainframes, SCR drives, data centers (heavy non-linear)'],
                     ].map(([k, desc]) => (
@@ -252,7 +255,7 @@ export default function HarmonicCalculatorPage() {
                         <span className="font-mono font-bold text-white/80 text-[1.125rem]">{result.derating}%</span>
                       </div>
                       <p className="font-mono text-[.9375rem] text-white/[.68] mt-3 leading-[1.55] m-0">
-                        {parseFloat(result.thd) > 5 ? 'THD exceeds IEEE 519 5% limit — mitigation recommended.' : 'THD within IEEE 519 guidelines.'}
+                        {parseFloat(result.thd) > 20 ? 'Above every IEEE 519 current-distortion limit (5–20%, set by the supply strength at the point of connection). Mitigation recommended.' : parseFloat(result.thd) > 5 ? 'IEEE 519 current limits are 5–20% depending on supply strength at the point of connection. Check your site\'s limit.' : 'Within the strictest IEEE 519 current-distortion limit (5%).'}
                       </p>
                     </div>
                   </div>
