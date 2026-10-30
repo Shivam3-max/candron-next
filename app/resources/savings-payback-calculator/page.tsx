@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { parseRatio } from '@/lib/calc'
 import Link from 'next/link'
 import { HeroArt } from '@/components/LineArt'
 import JsonLd from '@/components/JsonLd'
@@ -10,7 +11,7 @@ export default function SavingsPaybackCalculatorPage() {
   const [loadFactor, setLoadFactor] = useState('75')
   const [hoursYear, setHoursYear] = useState('8760')
   const [costKwh, setCostKwh] = useState('0.12')
-  const [co2Factor, setCo2Factor] = useState('0.4')
+  const [co2Factor, setCo2Factor] = useState('0.1')
 
   // Transformer A
   const [aCoreW, setACoreW] = useState('')
@@ -24,7 +25,7 @@ export default function SavingsPaybackCalculatorPage() {
 
   const [result, setResult] = useState<{
     annualLossA: string; annualLossB: string;
-    energySaving: string; costSaving: string;
+    energySaving: string; costSaving: string; better: 'A' | 'B' | null;
     co2Saving: string; payback: string
   } | null>(null)
   const [error, setError] = useState('')
@@ -32,7 +33,7 @@ export default function SavingsPaybackCalculatorPage() {
 
   function calculate() {
     setError(''); setResult(null)
-    const L = parseFloat(loadFactor) / 100
+    const L = parseRatio(loadFactor)
     const H = parseFloat(hoursYear)
     const C = parseFloat(costKwh)
     const co2 = parseFloat(co2Factor)
@@ -42,24 +43,28 @@ export default function SavingsPaybackCalculatorPage() {
     const bc = parseFloat(bCoreW)
     const bcu = parseFloat(bCopperW)
     const bp = parseFloat(bPrice)
-    if ([L, H, C, ac, acu, bc, bcu].some(isNaN)) { setError('Fill in all loss fields and operating parameters.'); return }
-    if (L <= 0 || H <= 0 || C <= 0) { setError('Load factor, hours/year, and cost/kWh must be positive.'); return }
+    if ([H, C, ac, acu, bc, bcu].some(isNaN)) { setError('Fill in all loss fields and operating parameters.'); return }
+    if (isNaN(L)) { setError('Enter load factor as a percentage (75) or a decimal (0.75), up to 100%.'); return }
+    if (H <= 0 || H > 8760 || C <= 0) { setError('Hours/year must be 1–8,760 and cost/kWh must be positive.'); return }
+    if (isNaN(co2) || co2 < 0) { setError('Enter a CO₂ factor of 0 or more.'); return }
     // Annual losses in kWh: no-load losses run all year (8760 h), copper losses run during loaded hours
     const annualLossA = (ac / 1000) * 8760 + L * L * (acu / 1000) * H
     const annualLossB = (bc / 1000) * 8760 + L * L * (bcu / 1000) * H
     const energySaving = annualLossA - annualLossB
     const costSaving = energySaving * C
     const co2Saving = energySaving * co2
-    const priceDiff = !isNaN(ap) && !isNaN(bp) ? bp - ap : NaN
-    const payback = !isNaN(priceDiff) && costSaving > 0 ? priceDiff / costSaving : NaN
+    // Premium paid for the lower-loss unit, recovered by its annual saving
+    const premium = !isNaN(ap) && !isNaN(bp) ? (energySaving >= 0 ? bp - ap : ap - bp) : NaN
+    const payback = !isNaN(premium) && costSaving !== 0 ? premium / Math.abs(costSaving) : NaN
 
     setResult({
       annualLossA: annualLossA.toFixed(0),
       annualLossB: annualLossB.toFixed(0),
+      better: energySaving > 0 ? 'B' : energySaving < 0 ? 'A' : null,
       energySaving: Math.abs(energySaving).toFixed(0),
       costSaving: Math.abs(costSaving).toFixed(0),
       co2Saving: Math.abs(co2Saving).toFixed(0),
-      payback: !isNaN(payback) && isFinite(payback) && payback > 0 ? payback.toFixed(1) : '—',
+      payback: isNaN(payback) || !isFinite(payback) ? '—' : payback <= 0 ? 'none' : payback.toFixed(1),
     })
   }
 
@@ -72,8 +77,8 @@ export default function SavingsPaybackCalculatorPage() {
   const faqs = [
     { q: 'What data do I need for each transformer?', a: 'You need the no-load (core/iron) losses in watts and the full-load copper losses in watts. These are available on the transformer nameplate, in the test report, or in the manufacturer\'s data sheet. For DOE 2016-compliant units, typical values are published in NEMA TP-1 and DOE efficiency tables.' },
     { q: 'Why does load factor matter so much?', a: 'Copper losses scale with the square of the load current. A transformer running at 50% load has only 25% of the copper losses it would have at full load. No-load losses, however, run 24/7 at constant levels. So for lightly loaded transformers, the no-load loss difference between two units dominates the annual energy savings calculation.' },
-    { q: 'How is the payback period calculated?', a: 'Simple payback = (Price of B − Price of A) / Annual cost savings. It tells you how many years of energy savings it takes to recover the premium paid for a more efficient transformer. This is a pre-tax, undiscounted figure — consult a financial model for a more rigorous lifecycle cost analysis.' },
-    { q: 'What CO₂ factor should I use?', a: 'The default 0.4 kg CO₂/kWh is a rough average for a mixed North American grid. Actual values vary significantly: Ontario\'s nuclear-heavy grid is around 0.04–0.10 kg/kWh, while Alberta\'s gas-heavy grid is 0.55–0.65 kg/kWh. Use the actual grid emissions factor for your region for an accurate carbon calculation.' },
+    { q: 'How is the payback period calculated?', a: 'Simple payback = price premium of the lower-loss transformer ÷ its annual cost savings. It tells you how many years of energy savings it takes to recover the premium paid for a more efficient transformer. This is a pre-tax, undiscounted figure — consult a financial model for a more rigorous lifecycle cost analysis.' },
+    { q: 'What CO₂ factor should I use?', a: 'The default 0.1 kg CO₂/kWh is a rough Canadian national average. Actual values vary significantly: Ontario\'s nuclear-heavy grid is around 0.04–0.10 kg/kWh, while Alberta\'s gas-heavy grid is 0.55–0.65 kg/kWh. Use the actual grid emissions factor for your region for an accurate carbon calculation.' },
   ]
 
   return (
@@ -128,7 +133,7 @@ export default function SavingsPaybackCalculatorPage() {
                   {[
                     { label: 'Annual Losses (kWh)', formula: 'Pcore(W)/1000 × 8760 + L² × Pcu(W)/1000 × H_year' },
                     { label: 'Annual Cost Savings ($/yr)', formula: '(Losses_A − Losses_B) kWh × $/kWh' },
-                    { label: 'Simple Payback (years)', formula: '(Price_B − Price_A) / Annual Cost Savings' },
+                    { label: 'Simple Payback (years)', formula: 'Price premium of lower-loss unit / Annual Cost Savings' },
                     { label: 'CO₂ Reduction (kg/yr)', formula: '(Losses_A − Losses_B) kWh × CO₂ factor (kg/kWh)' },
                   ].map(row => (
                     <div key={row.label}>
@@ -169,7 +174,7 @@ export default function SavingsPaybackCalculatorPage() {
                     { label: 'Load Factor (%)', val: loadFactor, set: setLoadFactor, ph: '75' },
                     { label: 'Hours in Service / Year', val: hoursYear, set: setHoursYear, ph: '8760' },
                     { label: 'Electricity Cost ($/kWh)', val: costKwh, set: setCostKwh, ph: '0.12' },
-                    { label: 'CO₂ Factor (kg/kWh)', val: co2Factor, set: setCo2Factor, ph: '0.40' },
+                    { label: 'CO₂ Factor (kg/kWh)', val: co2Factor, set: setCo2Factor, ph: 'Canada ≈ 0.1' },
                   ].map(f => (
                     <div key={f.label}>
                       <label className="block font-mono text-[.875rem] font-bold tracking-[.12em] uppercase text-gray mb-[.45rem]">{f.label}</label>
@@ -222,10 +227,10 @@ export default function SavingsPaybackCalculatorPage() {
                       </div>
                       <div className="border-t border-white/[.1] pt-3 flex flex-col gap-2">
                         {[
-                          { label: 'Annual Energy Saved', val: Number(result.energySaving).toLocaleString() + ' kWh' },
+                          { label: result.better ? `Energy Saved by ${result.better}` : 'Energy Saved', val: Number(result.energySaving).toLocaleString() + ' kWh / yr' },
                           { label: 'Annual Cost Savings', val: '$' + Number(result.costSaving).toLocaleString() + ' / yr' },
                           { label: 'CO₂ Reduction', val: Number(result.co2Saving).toLocaleString() + ' kg / yr' },
-                          { label: 'Simple Payback', val: result.payback !== '—' ? result.payback + ' years' : '— (enter prices)' },
+                          { label: 'Simple Payback', val: result.payback === 'none' ? 'Immediate (also cheaper)' : result.payback !== '—' ? result.payback + ' years' : '— (enter prices)' },
                         ].map(r => (
                           <div key={r.label} className="flex items-center justify-between">
                             <span className="font-mono text-[.875rem] text-white/[.68] uppercase tracking-[.08em]">{r.label}</span>

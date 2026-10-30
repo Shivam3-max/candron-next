@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { nextStandardKva, fmt } from '@/lib/calc'
 import Link from 'next/link'
 import { HeroArt } from '@/components/LineArt'
 import JsonLd from '@/components/JsonLd'
@@ -22,7 +23,7 @@ export default function KvaCalculatorPage() {
   const [volts, setVolts] = useState('')
   const [amps, setAmps] = useState('')
   const [kva, setKva] = useState('')
-  const [result, setResult] = useState<{ field: string; value: string; unit: string } | null>(null)
+  const [result, setResult] = useState<{ field: string; value: string; unit: string; num: number } | null>(null)
   const [error, setError] = useState('')
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
@@ -37,15 +38,17 @@ export default function KvaCalculatorPage() {
     if (count === 3) { setError('Enter only two values — leave the one you want to calculate blank.'); return }
     if (!hasK) {
       if (v <= 0 || a <= 0) { setError('Volts and Amps must be positive values.'); return }
-      setResult({ field: 'kVA', value: calcKva(phase, v, a).toFixed(2), unit: 'kVA' })
+      setResult({ field: 'kVA', value: fmt(calcKva(phase, v, a)), unit: 'kVA', num: calcKva(phase, v, a) })
     } else if (!hasV) {
       if (k <= 0 || a <= 0) { setError('kVA and Amps must be positive values.'); return }
-      setResult({ field: 'Volts', value: calcVolts(phase, k, a).toFixed(1), unit: 'V' })
+      setResult({ field: 'Volts', value: fmt(calcVolts(phase, k, a), 1), unit: 'V', num: calcVolts(phase, k, a) })
     } else {
       if (v <= 0 || k <= 0) { setError('Volts and kVA must be positive values.'); return }
-      setResult({ field: 'Amps', value: calcAmps(phase, k, v).toFixed(2), unit: 'A' })
+      setResult({ field: 'Amps', value: fmt(calcAmps(phase, k, v)), unit: 'A', num: calcAmps(phase, k, v) })
     }
   }
+
+  const sizeLabel = (k: number) => { const s = nextStandardKva(k, phase); return s ? `${fmt(s)} kVA` : 'Custom size' }
 
   function reset() { setVolts(''); setAmps(''); setKva(''); setResult(null); setError('') }
 
@@ -199,9 +202,16 @@ export default function KvaCalculatorPage() {
                     <div className="font-display font-black text-[2.52rem] text-white tracking-[.02em] leading-none">{result.value}</div>
                     <div className="font-mono text-[1.0625rem] text-blue/80 mt-[.4rem]">{result.unit}</div>
                     {result.field === 'kVA' && (
-                      <div className="mt-4 pt-4 border-t border-white/[.1]">
-                        <div className="font-mono text-[.875rem] text-white/[.68] uppercase tracking-[.1em] mb-1">Recommended Size (125%)</div>
-                        <div className="font-display font-bold text-[1.43rem] text-blue/90">{(parseFloat(result.value) / 0.8).toFixed(2)} kVA</div>
+                      <div className="mt-4 pt-4 border-t border-white/[.1] flex flex-col gap-3">
+                        <div>
+                          <div className="font-mono text-[.875rem] text-white/[.68] uppercase tracking-[.1em] mb-1">Smallest Standard Size</div>
+                          <div className="font-display font-bold text-[1.43rem] text-blue/90">{sizeLabel(result.num)}</div>
+                        </div>
+                        <div>
+                          <div className="font-mono text-[.875rem] text-white/[.68] uppercase tracking-[.1em] mb-1">With 25% Growth Margin</div>
+                          <div className="font-display font-bold text-[1.43rem] text-blue/90">{sizeLabel(result.num * 1.25)}</div>
+                          <div className="font-mono text-[.875rem] text-white/[.68] mt-1">({fmt(result.num * 1.25, 1)} kVA needed)</div>
+                        </div>
                       </div>
                     )}
                   </div>

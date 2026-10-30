@@ -29,6 +29,7 @@ export default function InductanceCalculatorPage() {
     if ([S, V, Z, f].some(isNaN) || S <= 0 || V <= 0 || Z <= 0) {
       setError('Enter positive values for all fields.'); return
     }
+    if (Z < 0.5 || Z >= 100) { setError('Enter % impedance as a percentage from the nameplate, e.g. 5.75 (not 0.0575).'); return }
     // Base impedance: for 3-phase Zbase = V_LL² / (S × 1000)
     // For 1-phase: Zbase = V² / (S × 1000)
     const zBase = (V * V) / (S * 1000)

@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { parseRatio } from '@/lib/calc'
 import Link from 'next/link'
 import { HeroArt } from '@/components/LineArt'
 import JsonLd from '@/components/JsonLd'
@@ -49,13 +50,13 @@ export default function EfficiencyCalculatorPage() {
     const S = parseFloat(kva)
     const Pcore = parseFloat(coreLoss)
     const Pcu = parseFloat(copperLoss)
-    const L = parseFloat(loadPct) / 100
-    const pfVal = parseFloat(pf)
+    const L = parseRatio(loadPct)
+    const pfVal = parseRatio(pf)
     const H = parseFloat(hoursDay)
-    if ([S, Pcore, Pcu, L, pfVal, H].some(isNaN)) { setError('Fill in all fields to calculate.'); return }
+    if ([S, Pcore, Pcu, H].some(isNaN)) { setError('Fill in all fields to calculate.'); return }
     if (S <= 0 || Pcore < 0 || Pcu < 0) { setError('kVA and losses must be positive.'); return }
-    if (L <= 0 || L > 1) { setError('Load factor must be 1–100%.'); return }
-    if (pfVal <= 0 || pfVal > 1) { setError('Power factor must be 0.01–1.00.'); return }
+    if (isNaN(L)) { setError('Enter load as a percentage (75) or a decimal (0.75), up to 100%.'); return }
+    if (isNaN(pfVal)) { setError('Enter power factor as a decimal (0.90) or a percentage (90).'); return }
     if (H < 0 || H > 24) { setError('Hours at load must be 0–24.'); return }
 
     // Output kW
@@ -188,7 +189,7 @@ export default function EfficiencyCalculatorPage() {
                     { label: 'No-Load (Core) Losses (W)', val: coreLoss, set: setCoreLoss, placeholder: 'e.g. 1200' },
                     { label: 'Full-Load Copper Losses (W)', val: copperLoss, set: setCopperLoss, placeholder: 'e.g. 6720' },
                     { label: 'Load Factor (%)', val: loadPct, set: setLoadPct, placeholder: '75' },
-                    { label: 'Power Factor (0.01–1.00)', val: pf, set: setPf, placeholder: '0.90' },
+                    { label: 'Power Factor (0.90 or 90)', val: pf, set: setPf, placeholder: '0.90' },
                     { label: 'Hours at Load per Day', val: hoursDay, set: setHoursDay, placeholder: '24' },
                   ].map(f => (
                     <div key={f.label}>
