@@ -16,6 +16,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import ClientEffects from '@/components/ClientEffects'
 import BackToTop from '@/components/BackToTop'
+import Script from 'next/script'
 
 // Headings and UI titles: Archivo (variable width) reads far better than the
 // previous Orbitron/Chakra Petch pairing at every size.
@@ -138,6 +139,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <BackToTop />
         <ClientEffects />
+        {/* Apollo website visitor tracking (company-level identification for outreach) */}
+        <Script id="apollo-tracker" strategy="afterInteractive">
+          {`function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");
+o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,
+o.onload=function(){window.trackingFunctions.onLoad({appId:"6ae059ee1559bb000c0bf4d8"})},
+document.head.appendChild(o)}initApollo();`}
+        </Script>
       </body>
     </html>
   )
