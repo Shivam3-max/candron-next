@@ -49,7 +49,9 @@ const textOf = (html: string) => html.replace(/<[^>]+>/g, '').replace(/&(amp|lt|
 const slugify = (s: string) => textOf(s).toLowerCase().replace(/['’]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 const plain = (s: string) => s.replace(/\*\*|__|`/g, '').replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
 
-function parseFrontMatter(src: string) {
+function parseFrontMatter(raw: string) {
+  // Windows checkouts (core.autocrlf) turn the posts' LF line endings into CRLF
+  const src = raw.replace(/\r\n/g, '\n')
   const m = /^---\n([\s\S]*?)\n---\n?/.exec(src)
   if (!m) throw new Error('Blog post is missing its front matter')
   const data: Record<string, string> = {}
