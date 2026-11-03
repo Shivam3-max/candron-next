@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { isMailConfigured, sendMail, teamAddress } from '@/lib/mailer'
 
 // Simple in-memory rate limiter (resets on deploy/restart — sufficient for basic protection)
 const rateLimit = new Map<string, { count: number; resetAt: number }>()
@@ -29,6 +30,23 @@ function escapeHtml(str: string): string {
     .replace(/'/g, '&#039;')
 }
 
+function confirmationHtml(safeName: string) {
+  return `
+    <div style="font-family:sans-serif;max-width:600px;margin:0 auto;color:#111">
+      <div style="background:#05091F;padding:24px 32px;border-radius:8px 8px 0 0">
+        <p style="margin:0;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5)">CANDRON Energy Inc.</p>
+        <h1 style="margin:8px 0 0;font-size:20px;color:#fff">We received your request</h1>
+      </div>
+      <div style="padding:32px;background:#fff;border:1px solid #e8ecf5;border-top:none;border-radius:0 0 8px 8px;font-size:14px;line-height:1.7;color:#05091F">
+        <p style="margin:0 0 16px">Hi ${safeName},</p>
+        <p style="margin:0 0 16px">Thank you for contacting CANDRON Energy Inc. We have received your request and a member of our team will get back to you shortly.</p>
+        <p style="margin:0 0 24px">For urgent needs, call us 24/7 at <a href="tel:+16476162595" style="color:#0047FF">+1 (647) 616-2595</a> or simply reply to this email.</p>
+        <p style="margin:0;font-size:12px;color:#6b7a99">CANDRON Energy Inc. · Toronto, Ontario, Canada · <a href="https://candron.com" style="color:#6b7a99">candron.com</a></p>
+      </div>
+    </div>
+  `
+}
+
 // Basic email format validation
 function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && email.length <= 254
@@ -36,9 +54,9 @@ function isValidEmail(email: string): boolean {
 
 export async function POST(req: Request) {
   try {
-    // Rate limiting by IP
-    const forwarded = req.headers.get('x-forwarded-for')
-    const ip = forwarded?.split(',')[0]?.trim() || 'unknown'
+    // Rate limiting by IP (the right-most X-Forwarded-For entry is the one our proxy added)
+    const forwarded = req.headers.get('x-forwarded-for')?.split(',').map(part => part.trim()).filter(Boolean)
+    const ip = forwarded?.at(-1) || req.headers.get('x-real-ip') || 'unknown'
     if (isRateLimited(ip)) {
       return NextResponse.json(
         { error: 'Too many requests. Please try again later or call us directly.' },
@@ -92,21 +110,18 @@ export async function POST(req: Request) {
       }
     }
 
-    const apiKey = process.env.RESEND_API_KEY
-    if (!apiKey) {
-      console.error('[Contact Form] RESEND_API_KEY is not configured — email was not sent.')
+    if (!isMailConfigured()) {
+      console.error('[Contact Form] SMTP_USER / SMTP_PASSWORD are not configured — email was not sent.')
       return NextResponse.json(
         { error: 'Email service is unavailable. Please call us directly at +1 (647) 616-2595.' },
         { status: 503 }
       )
     }
 
-    const toEmail = 'sales@candron.com'
-    const fromEmail = process.env.CONTACT_FROM_EMAIL ?? 'onboarding@resend.dev'
     const submittedAt = new Date().toISOString()
     const emailAttachments = await Promise.all(attachments.map(async (file) => ({
       filename: file.name.replace(/[^a-zA-Z0-9._ -]/g, '_').slice(0, 180) || 'attachment',
-      content: Buffer.from(await file.arrayBuffer()).toString('base64'),
+      content: Buffer.from(await file.arrayBuffer()),
     })))
 
     // Sanitize all user inputs before inserting into HTML
@@ -144,26 +159,46 @@ export async function POST(req: Request) {
       </div>
     `
 
-    const res = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        from: `CANDRON Website <${fromEmail}>`,
-        to: [toEmail],
-        reply_to: email,
-        subject: `New Inquiry from ${s.name}${s.company ? ` — ${s.company}` : ''}`,
+    try {
+      await sendMail({
+        to: teamAddress(),
+        replyTo: { name, address: email },
+        subject: `New Inquiry from ${name}${company ? ` — ${company}` : ''}`,
         html,
-        attachments: emailAttachments,
-      }),
-    })
+        text: `New inquiry from ${name}${company ? ` (${company})` : ''}
+Email: ${email}${phone ? `
+Phone: ${phone}` : ''}
+Submitted: ${submittedAt}
 
-    if (!res.ok) {
-      const err = await res.text()
-      console.error('[Contact Form] Resend error:', err)
+${message}`,
+        attachments: emailAttachments,
+      })
+    } catch (err) {
+      console.error('[Contact Form] SMTP error while sending inquiry:', err instanceof Error ? err.message : err)
       return NextResponse.json({ error: 'Failed to send email. Please try again or call us directly.' }, { status: 500 })
+    }
+
+    // Confirmation to the visitor. Fixed text only: echoing their message would let
+    // anyone use the form to send arbitrary content from candron.com.
+    try {
+      await sendMail({
+        to: { name, address: email },
+        replyTo: teamAddress(),
+        subject: 'We received your request — CANDRON Energy Inc.',
+        html: confirmationHtml(s.name),
+        text: `Hi ${name},
+
+Thank you for contacting CANDRON Energy Inc. We have received your request and a member of our team will get back to you shortly.
+
+For urgent needs, call us 24/7 at +1 (647) 616-2595 or reply to this email.
+
+CANDRON Energy Inc.
+Toronto, Ontario, Canada
+https://candron.com`,
+      })
+    } catch (err) {
+      // The team already has the inquiry, so don't fail the request
+      console.warn('[Contact Form] Confirmation email failed:', err instanceof Error ? err.message : err)
     }
 
     return NextResponse.json({ success: true })

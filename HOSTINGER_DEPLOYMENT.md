@@ -30,9 +30,14 @@ DB_CONNECTION_LIMIT=8
 ADMIN_SESSION_SECRET=<at least 32 random characters>
 ADMIN_EMAIL=<initial administrator email>
 ADMIN_PASSWORD=<initial administrator password, at least 12 characters>
-RESEND_API_KEY=<Resend API key — without it the contact form returns "Email service is unavailable">
-CONTACT_FROM_EMAIL=<sender on a domain verified in Resend, e.g. website@candron.com>
+SMTP_USER=<Google Workspace mailbox that sends website email, e.g. website@candron.com>
+SMTP_PASSWORD=<16-character Google app password for that mailbox — without it forms return "Email service is unavailable">
+# Optional:
+CONTACT_TO_EMAIL=<inbox that receives inquiries; default sales@candron.com>
+SMTP_FROM=<a verified "Send mail as" alias of SMTP_USER; default SMTP_USER>
 ```
+
+Website forms (contact, inventory quote, oil read-out, newsletter) send through Google Workspace SMTP (`smtp.gmail.com:465`). Each submission emails the inquiry to `CONTACT_TO_EMAIL` (reply goes straight to the visitor) and sends the visitor a short confirmation. To create the app password: sign in as `SMTP_USER` → Google Account → Security → turn on 2-Step Verification → **App passwords** → create one named "candron website". If App passwords is missing, a Workspace admin must allow it (Admin console → Security → Authentication → Less secure apps / app passwords).
 
 `ADMIN_EMAIL` is the only administrator account: on every start, any other admin row is deleted. Changing `ADMIN_PASSWORD` (or `ADMIN_EMAIL`) and restarting signs out every existing admin session; restarting with the same values does not.
 
