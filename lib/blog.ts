@@ -19,6 +19,7 @@ export const CATEGORIES = [
   { slug: 'testing-maintenance', name: 'Testing & Maintenance', blurb: 'Oil tests, load bank tests, commissioning and keeping equipment healthy.' },
   { slug: 'codes-standards', name: 'Codes & Standards', blurb: 'CSA standards, Canadian regulations and what they mean on a project.' },
   { slug: 'project-planning', name: 'Project Planning', blurb: 'Lead times, procurement and getting equipment on site when it is needed.' },
+  { slug: 'market-updates', name: 'Market Updates', blurb: 'Supply, prices, policy and demand in the Canadian power-equipment market, with sources.' },
 ] as const
 
 export type CategorySlug = (typeof CATEGORIES)[number]['slug']

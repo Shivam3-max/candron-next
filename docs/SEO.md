@@ -32,6 +32,8 @@ How the site is set up for search, the keywords each page targets, and who ranks
 | CSA C802 / transformer efficiency Canada | `/blog/transformer-efficiency-regulations-canada` |
 | how to read a transformer nameplate | `/blog/how-to-read-a-transformer-nameplate` |
 
+Batch 2 (November 2026) adds 10 evergreen guides and a **Market Updates** category with 5 sourced updates. The topics, target searches and refresh schedule are in `docs/blog-plan-batch-2.md`.
+
 ## Who ranks today (web search, October 2026)
 
 - **Dry-type transformers, Canada:** Hammond Power Solutions (Guelph), Rex Power Magnetics and MacKinnon Magnetics (Concord), Electric Power Inc. (Mississauga), WR Transformers and Delta Transformers (Quebec), Siemens Canada; directories (GlobalSpec).
