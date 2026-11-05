@@ -17,6 +17,8 @@ import Footer from '@/components/Footer'
 import ClientEffects from '@/components/ClientEffects'
 import BackToTop from '@/components/BackToTop'
 import Script from 'next/script'
+import { GoogleAnalytics } from '@next/third-parties/google'
+import { GA_MEASUREMENT_ID, analyticsEnabled } from '@/lib/analytics'
 
 // Headings and UI titles: Archivo (variable width) reads far better than the
 // previous Orbitron/Chakra Petch pairing at every size.
@@ -147,6 +149,8 @@ o.onload=function(){window.trackingFunctions.onLoad({appId:"6ae059ee1559bb000c0b
 document.head.appendChild(o)}initApollo();`}
         </Script>
       </body>
+      {/* Google Analytics 4: loads gtag.js after hydration; GA4 enhanced measurement records client-side page changes */}
+      {analyticsEnabled && <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />}
     </html>
   )
 }

@@ -1,5 +1,6 @@
 'use client'
 import { FormEvent, useState } from 'react'
+import { trackLead } from '@/lib/analytics'
 
 /** Product quote request — posts to the site's contact endpoint with the item code attached. */
 export default function QuoteForm({ sku, name }: { sku: string; name: string }) {
@@ -21,6 +22,7 @@ export default function QuoteForm({ sku, name }: { sku: string; name: string }) 
       const d = await r.json().catch(() => ({}))
       if (!r.ok) throw new Error(d.error || 'Could not send your request.')
       setState('sent')
+      trackLead('inventory_quote')
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Could not send your request.')
       setState('error')

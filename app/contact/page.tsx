@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { HeroArt } from '@/components/LineArt'
+import { trackLead } from '@/lib/analytics'
 
 export default function ContactPage() {
   const [form, setForm] = useState({name:'',company:'',email:'',phone:'',message:''})
@@ -58,6 +59,7 @@ export default function ContactPage() {
       const data = await res.json()
       if (!res.ok) throw new Error(data.error || 'Failed to send.')
       setSent(true)
+      trackLead('contact')
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Something went wrong. Please try again or call us directly.')
     } finally {

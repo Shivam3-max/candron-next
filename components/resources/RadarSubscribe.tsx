@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { trackNewsletterSignup } from '@/lib/analytics'
 
 interface Props { request?: string; button?: string; done?: string; note?: string }
 
@@ -26,6 +27,7 @@ export default function RadarSubscribe({
         throw new Error(body.error || 'Something went wrong. Please try again or call us.')
       }
       setState('ok')
+      trackNewsletterSignup()
       form.reset()
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong.')

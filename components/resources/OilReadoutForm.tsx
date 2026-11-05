@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { trackLead } from '@/lib/analytics'
 
 const FLUIDS = ['Mineral oil', 'Natural ester (FR3)', 'Silicone', 'Not sure']
 
@@ -28,6 +29,7 @@ export default function OilReadoutForm() {
         throw new Error(body.error || 'Something went wrong. Please try again or call us.')
       }
       setState('ok')
+      trackLead('oil_readout')
       form.reset()
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong.')
