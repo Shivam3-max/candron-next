@@ -27,7 +27,8 @@ export const ratingText = (kva: number | null, unit: string) =>
 
 export function voltageText(primary: string, secondary: string) {
   if (primary && secondary) return `${primary} → ${secondary} V`
-  return primary ? `${primary} V primary` : secondary ? `${secondary} V secondary` : ''
+  // Switchgear and panelboards have a single rated voltage (stored as primary)
+  return primary ? `${primary} V` : secondary ? `${secondary} V secondary` : ''
 }
 
 export function availability(p: { status: string; stock_quantity: number; location: string }) {

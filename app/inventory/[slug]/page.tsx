@@ -37,13 +37,13 @@ export default async function InventoryProductPage({ params }: Props) {
   const avail = availability(p)
   const keySpecs = [
     { label: 'Rating', value: ratingText(p.kva, p.rating_unit) },
-    { label: 'Primary', value: p.input_voltage ? `${p.input_voltage} V` : '' },
+    { label: p.output_voltage ? 'Primary' : 'Voltage', value: p.input_voltage ? `${p.input_voltage} V` : '' },
     { label: 'Secondary', value: p.output_voltage ? `${p.output_voltage} V` : '' },
     { label: 'Phase', value: p.phase },
   ].filter(s => s.value)
 
   const ratingRows: SpecRow[] = [
-    ['Rating', ratingText(p.kva, p.rating_unit)], ['Primary voltage (HV)', p.input_voltage && `${p.input_voltage} V`],
+    ['Rating', ratingText(p.kva, p.rating_unit)], [p.output_voltage ? 'Primary voltage (HV)' : 'Rated voltage', p.input_voltage && `${p.input_voltage} V`],
     ['Secondary voltage (LV)', p.output_voltage && `${p.output_voltage} V`], ['Phase', p.phase], ['Frequency', p.frequency],
     ['Winding', p.winding], ['Cooling class', p.cooling], ['Application', p.special_type],
   ].filter(([, v]) => v).map(([label, value]) => ({ group: 'Ratings', label, value }))
@@ -72,7 +72,7 @@ export default async function InventoryProductPage({ params }: Props) {
     sku: p.sku,
     category: p.category,
     description: p.short_description,
-    brand: { '@type': 'Brand', name: p.manufacturer || 'CANDRON' },
+    ...(p.manufacturer ? { brand: { '@type': 'Brand', name: p.manufacturer } } : {}),
     itemCondition: `https://schema.org/${p.condition_name === 'Used' ? 'UsedCondition' : p.condition_name === 'Remanufactured' ? 'RefurbishedCondition' : 'NewCondition'}`,
     ...(p.show_price && p.price_min !== null ? {
       offers: { '@type': 'Offer', priceCurrency: p.currency, price: p.price_min, availability: `https://schema.org/${p.stock_quantity > 0 && p.status === 'Available' ? 'InStock' : 'PreOrder'}` },

@@ -1,0 +1,5304 @@
+{
+  "batch": "2026-11-10",
+  "source": "CANDRON stock lists dated Nov 10 2026",
+  "products": [
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 1973.89,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "10-kva-dry-type-transformer-600d-208y-120",
+      "sku": "CE-DTL-0010-001",
+      "name": "10 kVA Dry-Type Transformer, 600 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 10 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 10.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 2670.56,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "15-kva-dry-type-transformer-600d-208y-120",
+      "sku": "CE-DTL-0015-001",
+      "name": "15 kVA Dry-Type Transformer, 600 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 15 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 15.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 3831.67,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "30-kva-dry-type-transformer-600d-208y-120",
+      "sku": "CE-DTL-0030-001",
+      "name": "30 kVA Dry-Type Transformer, 600 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 30 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 30.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 4881.94,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "45-kva-dry-type-transformer-600d-208y-120",
+      "sku": "CE-DTL-0045-001",
+      "name": "45 kVA Dry-Type Transformer, 600 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 45 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 45.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 6280.56,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "75-kva-dry-type-transformer-600d-208y-120",
+      "sku": "CE-DTL-0075-001",
+      "name": "75 kVA Dry-Type Transformer, 600 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 75 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 75.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 8718.89,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "90-kva-dry-type-transformer-600d-208y-120",
+      "sku": "CE-DTL-0090-001",
+      "name": "90 kVA Dry-Type Transformer, 600 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 90 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 90.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 8718.89,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "112-5-kva-dry-type-transformer-600d-208y-120",
+      "sku": "CE-DTL-0112-001",
+      "name": "112.5 kVA Dry-Type Transformer, 600 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 112.5 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 112.5,
+      "input_voltage": "600 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 12793.33,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "150-kva-dry-type-transformer-600d-208y-120",
+      "sku": "CE-DTL-0150-001",
+      "name": "150 kVA Dry-Type Transformer, 600 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 150 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 150.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 18609.44,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "225-kva-dry-type-transformer-600d-208y-120",
+      "sku": "CE-DTL-0225-001",
+      "name": "225 kVA Dry-Type Transformer, 600 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 225 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 225.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 20952.78,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "250-kva-dry-type-transformer-600d-208y-120",
+      "sku": "CE-DTL-0250-001",
+      "name": "250 kVA Dry-Type Transformer, 600 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 250 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 250.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 26990.56,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "300-kva-dry-type-transformer-600d-208y-120",
+      "sku": "CE-DTL-0300-001",
+      "name": "300 kVA Dry-Type Transformer, 600 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 300 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 300.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 33037.83,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "450-kva-dry-type-transformer-600d-208y-120",
+      "sku": "CE-DTL-0450-001",
+      "name": "450 kVA Dry-Type Transformer, 600 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 450 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 450.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 39050.28,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "500-kva-dry-type-transformer-600d-208y-120",
+      "sku": "CE-DTL-0500-001",
+      "name": "500 kVA Dry-Type Transformer, 600 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 500 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 500.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 48290.61,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "600-kva-dry-type-transformer-600d-208y-120",
+      "sku": "CE-DTL-0600-001",
+      "name": "600 kVA Dry-Type Transformer, 600 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 600 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 600.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 49821.17,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "650-kva-dry-type-transformer-600d-208y-120",
+      "sku": "CE-DTL-0650-001",
+      "name": "650 kVA Dry-Type Transformer, 600 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 650 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 650.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 51458.33,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "750-kva-dry-type-transformer-600d-208y-120",
+      "sku": "CE-DTL-0750-001",
+      "name": "750 kVA Dry-Type Transformer, 600 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 750 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 750.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 1973.89,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "10-kva-dry-type-transformer-480d-208y-120",
+      "sku": "CE-DTL-0010-002",
+      "name": "10 kVA Dry-Type Transformer, 480 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 480 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 10 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 480 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 10.0,
+      "input_voltage": "480 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 2670.56,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "15-kva-dry-type-transformer-480d-208y-120",
+      "sku": "CE-DTL-0015-002",
+      "name": "15 kVA Dry-Type Transformer, 480 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 480 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 15 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 480 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 15.0,
+      "input_voltage": "480 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 3831.67,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "30-kva-dry-type-transformer-480d-208y-120",
+      "sku": "CE-DTL-0030-002",
+      "name": "30 kVA Dry-Type Transformer, 480 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 480 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 30 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 480 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 30.0,
+      "input_voltage": "480 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 4881.94,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "45-kva-dry-type-transformer-480d-208y-120",
+      "sku": "CE-DTL-0045-002",
+      "name": "45 kVA Dry-Type Transformer, 480 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 480 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 45 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 480 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 45.0,
+      "input_voltage": "480 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 6280.56,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "75-kva-dry-type-transformer-480d-208y-120",
+      "sku": "CE-DTL-0075-002",
+      "name": "75 kVA Dry-Type Transformer, 480 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 480 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 75 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 480 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 75.0,
+      "input_voltage": "480 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 8718.89,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "90-kva-dry-type-transformer-480d-208y-120",
+      "sku": "CE-DTL-0090-002",
+      "name": "90 kVA Dry-Type Transformer, 480 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 480 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 90 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 480 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 90.0,
+      "input_voltage": "480 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 8718.89,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "112-5-kva-dry-type-transformer-480d-208y-120",
+      "sku": "CE-DTL-0112-002",
+      "name": "112.5 kVA Dry-Type Transformer, 480 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 480 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 112.5 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 480 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 112.5,
+      "input_voltage": "480 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 12793.33,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "150-kva-dry-type-transformer-480d-208y-120",
+      "sku": "CE-DTL-0150-002",
+      "name": "150 kVA Dry-Type Transformer, 480 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 480 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 150 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 480 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 150.0,
+      "input_voltage": "480 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 18609.44,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "225-kva-dry-type-transformer-480d-208y-120",
+      "sku": "CE-DTL-0225-002",
+      "name": "225 kVA Dry-Type Transformer, 480 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 480 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 225 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 480 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 225.0,
+      "input_voltage": "480 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 20952.78,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "250-kva-dry-type-transformer-480d-208y-120",
+      "sku": "CE-DTL-0250-002",
+      "name": "250 kVA Dry-Type Transformer, 480 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 480 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 250 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 480 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 250.0,
+      "input_voltage": "480 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 26990.56,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "300-kva-dry-type-transformer-480d-208y-120",
+      "sku": "CE-DTL-0300-002",
+      "name": "300 kVA Dry-Type Transformer, 480 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 480 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 300 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 480 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 300.0,
+      "input_voltage": "480 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 33037.83,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "450-kva-dry-type-transformer-480d-208y-120",
+      "sku": "CE-DTL-0450-002",
+      "name": "450 kVA Dry-Type Transformer, 480 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 480 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 450 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 480 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 450.0,
+      "input_voltage": "480 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 39050.28,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "500-kva-dry-type-transformer-480d-208y-120",
+      "sku": "CE-DTL-0500-002",
+      "name": "500 kVA Dry-Type Transformer, 480 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 480 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 500 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 480 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 500.0,
+      "input_voltage": "480 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 48290.61,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "600-kva-dry-type-transformer-480d-208y-120",
+      "sku": "CE-DTL-0600-002",
+      "name": "600 kVA Dry-Type Transformer, 480 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 480 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 600 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 480 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 600.0,
+      "input_voltage": "480 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 49821.17,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "650-kva-dry-type-transformer-480d-208y-120",
+      "sku": "CE-DTL-0650-002",
+      "name": "650 kVA Dry-Type Transformer, 480 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 480 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 650 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 480 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 650.0,
+      "input_voltage": "480 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 51458.33,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "750-kva-dry-type-transformer-480d-208y-120",
+      "sku": "CE-DTL-0750-002",
+      "name": "750 kVA Dry-Type Transformer, 480 V Δ to 208Y/120 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 480 V delta primary to 208Y/120 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 750 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 480 V delta down to 208Y/120 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 750.0,
+      "input_voltage": "480 Δ",
+      "output_voltage": "208Y/120"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 1973.89,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "10-kva-dry-type-transformer-600d-480y-277",
+      "sku": "CE-DTL-0010-003",
+      "name": "10 kVA Dry-Type Transformer, 600 V Δ to 480Y/277 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 480Y/277 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 10 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 480Y/277 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 10.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "480Y/277"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 2670.56,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "15-kva-dry-type-transformer-600d-480y-277",
+      "sku": "CE-DTL-0015-003",
+      "name": "15 kVA Dry-Type Transformer, 600 V Δ to 480Y/277 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 480Y/277 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 15 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 480Y/277 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 15.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "480Y/277"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 3831.67,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "30-kva-dry-type-transformer-600d-480y-277",
+      "sku": "CE-DTL-0030-003",
+      "name": "30 kVA Dry-Type Transformer, 600 V Δ to 480Y/277 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 480Y/277 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 30 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 480Y/277 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 30.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "480Y/277"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 4881.94,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "45-kva-dry-type-transformer-600d-480y-277",
+      "sku": "CE-DTL-0045-003",
+      "name": "45 kVA Dry-Type Transformer, 600 V Δ to 480Y/277 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 480Y/277 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 45 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 480Y/277 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 45.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "480Y/277"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 6280.56,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "75-kva-dry-type-transformer-600d-480y-277",
+      "sku": "CE-DTL-0075-003",
+      "name": "75 kVA Dry-Type Transformer, 600 V Δ to 480Y/277 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 480Y/277 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 75 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 480Y/277 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 75.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "480Y/277"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 8718.89,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "90-kva-dry-type-transformer-600d-480y-277",
+      "sku": "CE-DTL-0090-003",
+      "name": "90 kVA Dry-Type Transformer, 600 V Δ to 480Y/277 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 480Y/277 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 90 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 480Y/277 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 90.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "480Y/277"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 8718.89,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "112-5-kva-dry-type-transformer-600d-480y-277",
+      "sku": "CE-DTL-0112-003",
+      "name": "112.5 kVA Dry-Type Transformer, 600 V Δ to 480Y/277 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 480Y/277 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 112.5 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 480Y/277 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 112.5,
+      "input_voltage": "600 Δ",
+      "output_voltage": "480Y/277"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 12793.33,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "150-kva-dry-type-transformer-600d-480y-277",
+      "sku": "CE-DTL-0150-003",
+      "name": "150 kVA Dry-Type Transformer, 600 V Δ to 480Y/277 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 480Y/277 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 150 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 480Y/277 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 150.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "480Y/277"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 18609.44,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "225-kva-dry-type-transformer-600d-480y-277",
+      "sku": "CE-DTL-0225-003",
+      "name": "225 kVA Dry-Type Transformer, 600 V Δ to 480Y/277 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 480Y/277 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 225 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 480Y/277 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 225.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "480Y/277"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 20952.78,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "250-kva-dry-type-transformer-600d-480y-277",
+      "sku": "CE-DTL-0250-003",
+      "name": "250 kVA Dry-Type Transformer, 600 V Δ to 480Y/277 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 480Y/277 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 250 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 480Y/277 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 250.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "480Y/277"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 26990.56,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "300-kva-dry-type-transformer-600d-480y-277",
+      "sku": "CE-DTL-0300-003",
+      "name": "300 kVA Dry-Type Transformer, 600 V Δ to 480Y/277 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 480Y/277 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 300 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 480Y/277 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 300.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "480Y/277"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 33037.83,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "450-kva-dry-type-transformer-600d-480y-277",
+      "sku": "CE-DTL-0450-003",
+      "name": "450 kVA Dry-Type Transformer, 600 V Δ to 480Y/277 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 480Y/277 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 450 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 480Y/277 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 450.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "480Y/277"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 39050.28,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "500-kva-dry-type-transformer-600d-480y-277",
+      "sku": "CE-DTL-0500-003",
+      "name": "500 kVA Dry-Type Transformer, 600 V Δ to 480Y/277 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 480Y/277 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 500 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 480Y/277 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 500.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "480Y/277"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 48290.61,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "600-kva-dry-type-transformer-600d-480y-277",
+      "sku": "CE-DTL-0600-003",
+      "name": "600 kVA Dry-Type Transformer, 600 V Δ to 480Y/277 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 480Y/277 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 600 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 480Y/277 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 600.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "480Y/277"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 49821.17,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "650-kva-dry-type-transformer-600d-480y-277",
+      "sku": "CE-DTL-0650-003",
+      "name": "650 kVA Dry-Type Transformer, 600 V Δ to 480Y/277 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 480Y/277 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 650 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 480Y/277 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 650.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "480Y/277"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 51458.33,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "750-kva-dry-type-transformer-600d-480y-277",
+      "sku": "CE-DTL-0750-003",
+      "name": "750 kVA Dry-Type Transformer, 600 V Δ to 480Y/277 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 480Y/277 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 750 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 480Y/277 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 750.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "480Y/277"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 1973.89,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "10-kva-dry-type-transformer-600d-400y-231",
+      "sku": "CE-DTL-0010-004",
+      "name": "10 kVA Dry-Type Transformer, 600 V Δ to 400Y/231 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 400Y/231 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 10 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 400Y/231 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 10.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "400Y/231"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 2670.56,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "15-kva-dry-type-transformer-600d-400y-231",
+      "sku": "CE-DTL-0015-004",
+      "name": "15 kVA Dry-Type Transformer, 600 V Δ to 400Y/231 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 400Y/231 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 15 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 400Y/231 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 15.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "400Y/231"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 3831.67,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "30-kva-dry-type-transformer-600d-400y-231",
+      "sku": "CE-DTL-0030-004",
+      "name": "30 kVA Dry-Type Transformer, 600 V Δ to 400Y/231 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 400Y/231 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 30 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 400Y/231 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 30.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "400Y/231"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 4881.94,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "45-kva-dry-type-transformer-600d-400y-231",
+      "sku": "CE-DTL-0045-004",
+      "name": "45 kVA Dry-Type Transformer, 600 V Δ to 400Y/231 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 400Y/231 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 45 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 400Y/231 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 45.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "400Y/231"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 6280.56,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "75-kva-dry-type-transformer-600d-400y-231",
+      "sku": "CE-DTL-0075-004",
+      "name": "75 kVA Dry-Type Transformer, 600 V Δ to 400Y/231 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 400Y/231 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 75 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 400Y/231 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 75.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "400Y/231"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 8718.89,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "90-kva-dry-type-transformer-600d-400y-231",
+      "sku": "CE-DTL-0090-004",
+      "name": "90 kVA Dry-Type Transformer, 600 V Δ to 400Y/231 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 400Y/231 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 90 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 400Y/231 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 90.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "400Y/231"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 8718.89,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "112-5-kva-dry-type-transformer-600d-400y-231",
+      "sku": "CE-DTL-0112-004",
+      "name": "112.5 kVA Dry-Type Transformer, 600 V Δ to 400Y/231 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 400Y/231 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 112.5 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 400Y/231 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 112.5,
+      "input_voltage": "600 Δ",
+      "output_voltage": "400Y/231"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 12793.33,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "150-kva-dry-type-transformer-600d-400y-231",
+      "sku": "CE-DTL-0150-004",
+      "name": "150 kVA Dry-Type Transformer, 600 V Δ to 400Y/231 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 400Y/231 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 150 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 400Y/231 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 150.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "400Y/231"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 18609.44,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "225-kva-dry-type-transformer-600d-400y-231",
+      "sku": "CE-DTL-0225-004",
+      "name": "225 kVA Dry-Type Transformer, 600 V Δ to 400Y/231 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 400Y/231 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 225 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 400Y/231 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 225.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "400Y/231"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 20952.78,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "250-kva-dry-type-transformer-600d-400y-231",
+      "sku": "CE-DTL-0250-004",
+      "name": "250 kVA Dry-Type Transformer, 600 V Δ to 400Y/231 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 400Y/231 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 250 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 400Y/231 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 250.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "400Y/231"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 26990.56,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "300-kva-dry-type-transformer-600d-400y-231",
+      "sku": "CE-DTL-0300-004",
+      "name": "300 kVA Dry-Type Transformer, 600 V Δ to 400Y/231 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 400Y/231 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 300 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 400Y/231 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 300.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "400Y/231"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 33037.83,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "450-kva-dry-type-transformer-600d-400y-231",
+      "sku": "CE-DTL-0450-004",
+      "name": "450 kVA Dry-Type Transformer, 600 V Δ to 400Y/231 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 400Y/231 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 450 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 400Y/231 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 450.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "400Y/231"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 39050.28,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "500-kva-dry-type-transformer-600d-400y-231",
+      "sku": "CE-DTL-0500-004",
+      "name": "500 kVA Dry-Type Transformer, 600 V Δ to 400Y/231 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 400Y/231 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 500 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 400Y/231 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 500.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "400Y/231"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 48290.61,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "600-kva-dry-type-transformer-600d-400y-231",
+      "sku": "CE-DTL-0600-004",
+      "name": "600 kVA Dry-Type Transformer, 600 V Δ to 400Y/231 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 400Y/231 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 600 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 400Y/231 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 600.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "400Y/231"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 49821.17,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "650-kva-dry-type-transformer-600d-400y-231",
+      "sku": "CE-DTL-0650-004",
+      "name": "650 kVA Dry-Type Transformer, 600 V Δ to 400Y/231 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 400Y/231 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 650 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 400Y/231 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 650.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "400Y/231"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "CANDRON",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "General-purpose isolation",
+      "price_min": 51458.33,
+      "price_max": null,
+      "show_price": true,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings",
+        "cULus certified",
+        "Type 3R enclosure (rain shield shipped loose)",
+        "2 × 2.5 % FCAN / FCBN primary taps",
+        "Volume discounts available on request"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R (outdoor rain shield shipped loose)"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "cULus"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "750-kva-dry-type-transformer-600d-400y-231",
+      "sku": "CE-DTL-0750-004",
+      "name": "750 kVA Dry-Type Transformer, 600 V Δ to 400Y/231 V",
+      "category": "Dry-Type Transformer (LV)",
+      "short_description": "New three-phase general-purpose isolation transformer, 600 V delta primary to 400Y/231 V secondary. Copper windings, cULus, Type 3R.",
+      "description": "A new 750 kVA three-phase low-voltage dry-type transformer for general-purpose isolation, stepping 600 V delta down to 400Y/231 V.\n\nCopper windings, 10 kV BIL and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Supplied in a Type 3R enclosure with the outdoor rain shield shipped loose, and cULus certified.\n\nPrice is per unit in Canadian dollars. Buying several units? Request a quote for volume pricing.",
+      "kva": 750.0,
+      "input_voltage": "600 Δ",
+      "output_voltage": "400Y/231"
+    },
+    {
+      "condition_name": "New",
+      "status": "Available",
+      "manufacturer": "",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Aluminum",
+      "cooling": "AN",
+      "special_type": "",
+      "price_min": null,
+      "price_max": null,
+      "show_price": false,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Aluminum windings, VPI insulation",
+        "Dyn1 vector group",
+        "Type 3R enclosure",
+        "Winding temperature indicator"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL (HV / LV)",
+          "value": "95 kV / 10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Electrical",
+          "label": "Vector group / connection",
+          "value": "Dyn1"
+        },
+        {
+          "group": "Electrical",
+          "label": "Temperature rise",
+          "value": "150 °C"
+        },
+        {
+          "group": "Electrical",
+          "label": "Insulation class",
+          "value": "220 °C (VPI)"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "2000-kva-mv-dry-type-transformer-13800v-600",
+      "sku": "CE-DTM-2000-001",
+      "name": "2,000 kVA MV Dry-Type Transformer, 13,800 V to 600 V",
+      "category": "Dry-Type Transformer (MV)",
+      "short_description": "New three-phase VPI dry-type transformer, 13,800 V delta primary to 600 V. Aluminum windings, Dyn1, Type 3R.",
+      "description": "A new 2,000 kVA three-phase medium-voltage dry-type transformer, 13,800 V delta primary to 600 V, vector group Dyn1.\n\nVacuum-pressure-impregnated (VPI) aluminum windings with 220 °C insulation and a 150 °C temperature rise, BIL 95 kV / 10 kV, and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. ANN cooling with a winding temperature indicator. Type 3R enclosure.",
+      "kva": 2000,
+      "input_voltage": "13,800 Δ",
+      "output_voltage": "600"
+    },
+    {
+      "condition_name": "Used",
+      "status": "Available",
+      "manufacturer": "",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "AN/AF",
+      "special_type": "",
+      "price_min": null,
+      "price_max": null,
+      "show_price": false,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings, VPI insulation",
+        "Dyn1 vector group",
+        "Type 3R enclosure",
+        "Winding temperature indicator"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL (HV / LV)",
+          "value": "95 kV / 10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Electrical",
+          "label": "Vector group / connection",
+          "value": "Dyn1"
+        },
+        {
+          "group": "Electrical",
+          "label": "Temperature rise",
+          "value": "80 °C"
+        },
+        {
+          "group": "Electrical",
+          "label": "Insulation class",
+          "value": "220 °C (VPI)"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "2500-kva-mv-dry-type-transformer-13800v-600",
+      "sku": "CE-DTM-2500-001",
+      "name": "2,500 kVA MV Dry-Type Transformer, 13,800 V to 600 V",
+      "category": "Dry-Type Transformer (MV)",
+      "short_description": "Used three-phase VPI dry-type transformer, 13,800 V delta primary to 600 V. Copper windings, Dyn1, Type 3R.",
+      "description": "A used 2,500 kVA three-phase medium-voltage dry-type transformer, 13,800 V delta primary to 600 V, vector group Dyn1.\n\nVacuum-pressure-impregnated (VPI) copper windings with 220 °C insulation and a 80 °C temperature rise, BIL 95 kV / 10 kV, and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. ANN/AFN cooling (fan-assisted rating) with a winding temperature indicator. Type 3R enclosure.",
+      "kva": 2500,
+      "input_voltage": "13,800 Δ",
+      "output_voltage": "600"
+    },
+    {
+      "condition_name": "Used",
+      "status": "Available",
+      "manufacturer": "",
+      "year_built": null,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "Copper",
+      "cooling": "",
+      "special_type": "",
+      "price_min": null,
+      "price_max": null,
+      "show_price": false,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Copper windings, VPI insulation",
+        "Dyn1 vector group",
+        "Type 1 enclosure",
+        "Dual low-voltage secondary"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "BIL (HV / LV)",
+          "value": "25 kV / 10 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "2 × 2.5 % FCAN and FCBN"
+        },
+        {
+          "group": "Electrical",
+          "label": "Vector group / connection",
+          "value": "Dyn1"
+        },
+        {
+          "group": "Electrical",
+          "label": "Temperature rise",
+          "value": "150 °C"
+        },
+        {
+          "group": "Electrical",
+          "label": "Insulation class",
+          "value": "220 °C (VPI)"
+        },
+        {
+          "group": "Electrical",
+          "label": "Secondary ratings",
+          "value": "600Y/347 V: 750/1,000 kVA · 208Y/120 V: 270/360 kVA"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 1"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "1020-1360-kva-mv-dry-type-transformer-4160v-600y-347-and-208y-120",
+      "sku": "CE-DTM-1020-001",
+      "name": "1,020/1,360 kVA MV Dry-Type Transformer, 4,160 V to 600Y/347 V and 208Y/120 V",
+      "category": "Dry-Type Transformer (MV)",
+      "short_description": "Used three-phase VPI dry-type transformer, 4,160 V delta primary to 600Y/347 V and 208Y/120 V (dual secondary). Copper windings, Dyn1, Type 1.",
+      "description": "A used 1,020/1,360 kVA three-phase medium-voltage dry-type transformer, 4,160 V delta primary to 600Y/347 V and 208Y/120 V (dual secondary), vector group Dyn1.\n\nVacuum-pressure-impregnated (VPI) copper windings with 220 °C insulation and a 150 °C temperature rise, BIL 25 kV / 10 kV, and two 2.5 % taps above and below nominal (FCAN and FCBN) on the primary. Dual low-voltage secondary: 600Y/347 V rated 750/1,000 kVA and 208Y/120 V rated 270/360 kVA (1,020/1,360 kVA combined). Type 1 enclosure.",
+      "kva": 1020,
+      "input_voltage": "4,160 Δ",
+      "output_voltage": "600Y/347 + 208Y/120"
+    },
+    {
+      "condition_name": "Used",
+      "status": "Available",
+      "manufacturer": "",
+      "year_built": null,
+      "rating_unit": "A",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "",
+      "cooling": "",
+      "special_type": "",
+      "price_min": null,
+      "price_max": null,
+      "show_price": false,
+      "currency": "CAD",
+      "stock_quantity": 2,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": 91.5,
+      "dim_width": 35,
+      "dim_depth": 15,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "50 kA short-circuit rating",
+        "Type 1 enclosure",
+        "1 section"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "Short-circuit rating",
+          "value": "50 kA"
+        },
+        {
+          "group": "Electrical",
+          "label": "System",
+          "value": "3-phase 4-wire"
+        },
+        {
+          "group": "Construction",
+          "label": "Sections",
+          "value": "1"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 1"
+        },
+        {
+          "group": "Construction",
+          "label": "Configuration",
+          "value": "MLO (main lugs only) with feeder breakers as required"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "1200-a-600-v-panelboard-1-section-type-1-35w",
+      "sku": "CE-PNB-1200-001",
+      "name": "1,200 A 600 V Panelboard, 35\" W",
+      "category": "Panelboard",
+      "kva": 1200,
+      "input_voltage": "600",
+      "output_voltage": "",
+      "short_description": "Used 600 V, 1,200 A, 50 kA 3-phase 4-wire panelboard, Type 1 enclosure. MLO (main lugs only) with feeder breakers as required.",
+      "description": "Used panelboard rated 600 V, 1,200 A with a 50 kA short-circuit rating, 3-phase 4-wire, 1 section in a Type 1 enclosure.\n\nMLO (main lugs only) with feeder breakers as required.\n\nOverall dimensions: 35\" W × 15\" D × 91.5\" H.\n\n2 identical units available."
+    },
+    {
+      "condition_name": "Used",
+      "status": "Available",
+      "manufacturer": "",
+      "year_built": null,
+      "rating_unit": "A",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "",
+      "cooling": "",
+      "special_type": "",
+      "price_min": null,
+      "price_max": null,
+      "show_price": false,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": 91.5,
+      "dim_width": 45,
+      "dim_depth": 38,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "50 kA short-circuit rating",
+        "Type 1 enclosure",
+        "1 section"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "Short-circuit rating",
+          "value": "50 kA"
+        },
+        {
+          "group": "Electrical",
+          "label": "System",
+          "value": "3-phase 4-wire"
+        },
+        {
+          "group": "Construction",
+          "label": "Sections",
+          "value": "1"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 1"
+        },
+        {
+          "group": "Construction",
+          "label": "Configuration",
+          "value": "MLO (main lugs only) with feeder breakers as required"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "1200-a-600-v-panelboard-1-section-type-1-45w",
+      "sku": "CE-PNB-1200-002",
+      "name": "1,200 A 600 V Panelboard, 45\" W",
+      "category": "Panelboard",
+      "kva": 1200,
+      "input_voltage": "600",
+      "output_voltage": "",
+      "short_description": "Used 600 V, 1,200 A, 50 kA 3-phase 4-wire panelboard, Type 1 enclosure. MLO (main lugs only) with feeder breakers as required.",
+      "description": "Used panelboard rated 600 V, 1,200 A with a 50 kA short-circuit rating, 3-phase 4-wire, 1 section in a Type 1 enclosure.\n\nMLO (main lugs only) with feeder breakers as required.\n\nOverall dimensions: 45\" W × 38\" D × 91.5\" H."
+    },
+    {
+      "condition_name": "Used",
+      "status": "Available",
+      "manufacturer": "",
+      "year_built": null,
+      "rating_unit": "A",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "",
+      "cooling": "",
+      "special_type": "",
+      "price_min": null,
+      "price_max": null,
+      "show_price": false,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": 72,
+      "dim_width": 22,
+      "dim_depth": 15,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "65 kA short-circuit rating",
+        "Type 1 enclosure",
+        "1 section"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "Short-circuit rating",
+          "value": "65 kA"
+        },
+        {
+          "group": "Electrical",
+          "label": "System",
+          "value": "3-phase 4-wire"
+        },
+        {
+          "group": "Construction",
+          "label": "Sections",
+          "value": "1"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 1"
+        },
+        {
+          "group": "Construction",
+          "label": "Configuration",
+          "value": "MLO (main lugs only) with feeder breakers as required"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "800-a-600-v-panelboard-1-section-type-1-22w",
+      "sku": "CE-PNB-0800-001",
+      "name": "800 A 600 V Panelboard",
+      "category": "Panelboard",
+      "kva": 800,
+      "input_voltage": "600",
+      "output_voltage": "",
+      "short_description": "Used 600 V, 800 A, 65 kA 3-phase 4-wire panelboard, Type 1 enclosure. MLO (main lugs only) with feeder breakers as required.",
+      "description": "Used panelboard rated 600 V, 800 A with a 65 kA short-circuit rating, 3-phase 4-wire, 1 section in a Type 1 enclosure.\n\nMLO (main lugs only) with feeder breakers as required.\n\nOverall dimensions: 22\" W × 15\" D × 72\" H."
+    },
+    {
+      "condition_name": "Used",
+      "status": "Available",
+      "manufacturer": "",
+      "year_built": null,
+      "rating_unit": "A",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "",
+      "cooling": "",
+      "special_type": "",
+      "price_min": null,
+      "price_max": null,
+      "show_price": false,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": 91.5,
+      "dim_width": 35,
+      "dim_depth": 15,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "50 kA short-circuit rating",
+        "Type 1 enclosure",
+        "1 section"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "Short-circuit rating",
+          "value": "50 kA"
+        },
+        {
+          "group": "Electrical",
+          "label": "System",
+          "value": "3-phase 4-wire"
+        },
+        {
+          "group": "Construction",
+          "label": "Sections",
+          "value": "1"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 1"
+        },
+        {
+          "group": "Construction",
+          "label": "Configuration",
+          "value": "MLO (main lugs only) with feeder breakers as required"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "800-a-208-v-panelboard-1-section-type-1-35w",
+      "sku": "CE-PNB-0800-002",
+      "name": "800 A 208 V Panelboard",
+      "category": "Panelboard",
+      "kva": 800,
+      "input_voltage": "208",
+      "output_voltage": "",
+      "short_description": "Used 208 V, 800 A, 50 kA 3-phase 4-wire panelboard, Type 1 enclosure. MLO (main lugs only) with feeder breakers as required.",
+      "description": "Used panelboard rated 208 V, 800 A with a 50 kA short-circuit rating, 3-phase 4-wire, 1 section in a Type 1 enclosure.\n\nMLO (main lugs only) with feeder breakers as required.\n\nOverall dimensions: 35\" W × 15\" D × 91.5\" H."
+    },
+    {
+      "condition_name": "Used",
+      "status": "Available",
+      "manufacturer": "",
+      "year_built": null,
+      "rating_unit": "A",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "",
+      "cooling": "",
+      "special_type": "",
+      "price_min": null,
+      "price_max": null,
+      "show_price": false,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": 91.5,
+      "dim_width": 78,
+      "dim_depth": 36,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "65 kA short-circuit rating",
+        "Type 1 enclosure",
+        "2 sections"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "Short-circuit rating",
+          "value": "65 kA"
+        },
+        {
+          "group": "Electrical",
+          "label": "System",
+          "value": "3-phase 4-wire"
+        },
+        {
+          "group": "Construction",
+          "label": "Sections",
+          "value": "2"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 1"
+        },
+        {
+          "group": "Construction",
+          "label": "Configuration",
+          "value": "Main breaker NW32H with Micrologic 6.0 (LSIG). I-Line distribution with 2 × 800 A, 2 × 400 A and 4 × 200 A breakers"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "3200-a-600-v-lv-switchgear-2-section-type-1-78w",
+      "sku": "CE-LVS-3200-001",
+      "name": "3,200 A 600 V LV Switchgear, 2 sections with I-Line Distribution",
+      "category": "LV Switchgear",
+      "kva": 3200,
+      "input_voltage": "600",
+      "output_voltage": "",
+      "short_description": "Used 600 V, 3,200 A, 65 kA 3-phase 4-wire LV Switchgear, Type 1 enclosure. Main breaker NW32H with Micrologic 6.0 (LSIG).",
+      "description": "Used LV Switchgear rated 600 V, 3,200 A with a 65 kA short-circuit rating, 3-phase 4-wire, 2 sections in a Type 1 enclosure.\n\nMain breaker NW32H with Micrologic 6.0 (LSIG). I-Line distribution with 2 × 800 A, 2 × 400 A and 4 × 200 A breakers.\n\nOverall dimensions: 78\" W × 36\" D × 91.5\" H."
+    },
+    {
+      "condition_name": "Used",
+      "status": "Available",
+      "manufacturer": "",
+      "year_built": null,
+      "rating_unit": "A",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "",
+      "cooling": "",
+      "special_type": "",
+      "price_min": null,
+      "price_max": null,
+      "show_price": false,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": 91.5,
+      "dim_width": 102,
+      "dim_depth": 36,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "65 kA short-circuit rating",
+        "Type 1 enclosure",
+        "2 sections"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "Short-circuit rating",
+          "value": "65 kA"
+        },
+        {
+          "group": "Electrical",
+          "label": "System",
+          "value": "3-phase 4-wire"
+        },
+        {
+          "group": "Construction",
+          "label": "Sections",
+          "value": "2"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 1"
+        },
+        {
+          "group": "Construction",
+          "label": "Configuration",
+          "value": "Main breaker NW20H with Micrologic 6.0 (LSIG). I-Line distribution with 2 × 800 A, 2 × 600 A, 4 × 200 A, 2 × 100 A and 1 × 60 A breakers"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "2000-a-600-v-lv-switchgear-2-section-type-1-102w-001",
+      "sku": "CE-LVS-2000-001",
+      "name": "2,000 A 600 V LV Switchgear, 2 sections with I-Line Distribution",
+      "category": "LV Switchgear",
+      "kva": 2000,
+      "input_voltage": "600",
+      "output_voltage": "",
+      "short_description": "Used 600 V, 2,000 A, 65 kA 3-phase 4-wire LV Switchgear, Type 1 enclosure. Main breaker NW20H with Micrologic 6.0 (LSIG).",
+      "description": "Used LV Switchgear rated 600 V, 2,000 A with a 65 kA short-circuit rating, 3-phase 4-wire, 2 sections in a Type 1 enclosure.\n\nMain breaker NW20H with Micrologic 6.0 (LSIG). I-Line distribution with 2 × 800 A, 2 × 600 A, 4 × 200 A, 2 × 100 A and 1 × 60 A breakers.\n\nOverall dimensions: 102\" W × 36\" D × 91.5\" H."
+    },
+    {
+      "condition_name": "Used",
+      "status": "Available",
+      "manufacturer": "",
+      "year_built": null,
+      "rating_unit": "A",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "",
+      "cooling": "",
+      "special_type": "",
+      "price_min": null,
+      "price_max": null,
+      "show_price": false,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": 91.5,
+      "dim_width": 102,
+      "dim_depth": 36,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "65 kA short-circuit rating",
+        "Type 1 enclosure",
+        "2 sections"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "Short-circuit rating",
+          "value": "65 kA"
+        },
+        {
+          "group": "Electrical",
+          "label": "System",
+          "value": "3-phase 4-wire"
+        },
+        {
+          "group": "Construction",
+          "label": "Sections",
+          "value": "2"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 1"
+        },
+        {
+          "group": "Construction",
+          "label": "Configuration",
+          "value": "Main breaker 2000 AF/AT (LSIG) with 2 × 1200 A LSIG feeder breakers"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "2000-a-600-v-lv-switchgear-2-section-type-1-102w-002",
+      "sku": "CE-LVS-2000-002",
+      "name": "2,000 A 600 V LV Switchgear, 2 sections with 2 × 1,200 A Feeders",
+      "category": "LV Switchgear",
+      "kva": 2000,
+      "input_voltage": "600",
+      "output_voltage": "",
+      "short_description": "Used 600 V, 2,000 A, 65 kA 3-phase 4-wire LV Switchgear, Type 1 enclosure. Main breaker 2000 AF/AT (LSIG) with 2 × 1200 A LSIG feeder breakers.",
+      "description": "Used LV Switchgear rated 600 V, 2,000 A with a 65 kA short-circuit rating, 3-phase 4-wire, 2 sections in a Type 1 enclosure.\n\nMain breaker 2000 AF/AT (LSIG) with 2 × 1200 A LSIG feeder breakers.\n\nOverall dimensions: 102\" W × 36\" D × 91.5\" H."
+    },
+    {
+      "condition_name": "Used",
+      "status": "Available",
+      "manufacturer": "",
+      "year_built": null,
+      "rating_unit": "A",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "",
+      "cooling": "",
+      "special_type": "",
+      "price_min": null,
+      "price_max": null,
+      "show_price": false,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": 91.5,
+      "dim_width": 36,
+      "dim_depth": 30,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "25 kA short-circuit rating",
+        "Type 3R enclosure",
+        "1 section"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "Short-circuit rating",
+          "value": "25 kA"
+        },
+        {
+          "group": "Electrical",
+          "label": "System",
+          "value": "3-phase"
+        },
+        {
+          "group": "Construction",
+          "label": "Sections",
+          "value": "1"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R"
+        },
+        {
+          "group": "Construction",
+          "label": "Configuration",
+          "value": "Metal-enclosed fused load-interrupter switch with lightning arresters and viewing windows"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "600-a-4160-v-mv-switchgear-1-section-type-3r-36w",
+      "sku": "CE-MVS-0600-001",
+      "name": "600 A 4,160 V Metal-Enclosed Load-Interrupter Switch",
+      "category": "MV Switchgear",
+      "kva": 600,
+      "input_voltage": "4,160",
+      "output_voltage": "",
+      "short_description": "Used 4,160 V, 600 A, 25 kA 3-phase MV Switchgear, Type 3R enclosure. Metal-enclosed fused load-interrupter switch with lightning arresters and viewing windows.",
+      "description": "Used MV Switchgear rated 4,160 V, 600 A with a 25 kA short-circuit rating, 3-phase, 1 section in a Type 3R enclosure.\n\nMetal-enclosed fused load-interrupter switch with lightning arresters and viewing windows.\n\nOverall dimensions: 36\" W × 30\" D × 91.5\" H."
+    },
+    {
+      "condition_name": "Used",
+      "status": "Available",
+      "manufacturer": "",
+      "year_built": null,
+      "rating_unit": "A",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "",
+      "cooling": "",
+      "special_type": "",
+      "price_min": null,
+      "price_max": null,
+      "show_price": false,
+      "currency": "CAD",
+      "stock_quantity": 4,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": 91.5,
+      "dim_width": 36,
+      "dim_depth": 30,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "25 kA short-circuit rating",
+        "Type 3R enclosure",
+        "1 section"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "Short-circuit rating",
+          "value": "25 kA"
+        },
+        {
+          "group": "Electrical",
+          "label": "System",
+          "value": "3-phase"
+        },
+        {
+          "group": "Construction",
+          "label": "Sections",
+          "value": "1"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R"
+        },
+        {
+          "group": "Construction",
+          "label": "Configuration",
+          "value": "Metal-enclosed fused load-interrupter switch with lightning arresters and viewing windows"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "600-a-15000-v-mv-switchgear-1-section-type-3r-36w",
+      "sku": "CE-MVS-0600-002",
+      "name": "600 A 15,000 V Metal-Enclosed Load-Interrupter Switch",
+      "category": "MV Switchgear",
+      "kva": 600,
+      "input_voltage": "15,000",
+      "output_voltage": "",
+      "short_description": "Used 15,000 V, 600 A, 25 kA 3-phase MV Switchgear, Type 3R enclosure. Metal-enclosed fused load-interrupter switch with lightning arresters and viewing windows.",
+      "description": "Used MV Switchgear rated 15,000 V, 600 A with a 25 kA short-circuit rating, 3-phase, 1 section in a Type 3R enclosure.\n\nMetal-enclosed fused load-interrupter switch with lightning arresters and viewing windows.\n\nOverall dimensions: 36\" W × 30\" D × 91.5\" H.\n\n4 identical units available."
+    },
+    {
+      "condition_name": "Used",
+      "status": "Available",
+      "manufacturer": "",
+      "year_built": null,
+      "rating_unit": "A",
+      "phase": "Three-phase",
+      "frequency": "",
+      "winding": "",
+      "cooling": "",
+      "special_type": "",
+      "price_min": null,
+      "price_max": null,
+      "show_price": false,
+      "currency": "CAD",
+      "stock_quantity": 2,
+      "location": "",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": 91.5,
+      "dim_width": 42,
+      "dim_depth": 30,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "25 kA short-circuit rating",
+        "Type 3R enclosure",
+        "6 sections"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "Short-circuit rating",
+          "value": "25 kA"
+        },
+        {
+          "group": "Electrical",
+          "label": "System",
+          "value": "3-phase"
+        },
+        {
+          "group": "Construction",
+          "label": "Sections",
+          "value": "6"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 3R"
+        },
+        {
+          "group": "Construction",
+          "label": "Configuration",
+          "value": "Metal-enclosed/metal-clad lineup: a mix of fused load-interrupter switches and draw-out circuit breakers, with CTs, draw-out fusible PTs and a wireway"
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "600-a-25000-v-mv-switchgear-6-section-type-3r-42w",
+      "sku": "CE-MVS-0600-003",
+      "name": "600 A 25,000 V MV Switchgear, 6 sections",
+      "category": "MV Switchgear",
+      "kva": 600,
+      "input_voltage": "25,000",
+      "output_voltage": "",
+      "short_description": "Used 25,000 V, 600 A, 25 kA 3-phase MV Switchgear, Type 3R enclosure. Metal-enclosed/metal-clad lineup: a mix of fused load-interrupter switches and draw-out circuit breakers, with CTs, draw-out fusible PTs and a wireway.",
+      "description": "Used MV Switchgear rated 25,000 V, 600 A with a 25 kA short-circuit rating, 3-phase, 6 sections in a Type 3R enclosure.\n\nMetal-enclosed/metal-clad lineup: a mix of fused load-interrupter switches and draw-out circuit breakers, with CTs, draw-out fusible PTs and a wireway.\n\nOverall dimensions: 42\" W × 30\" D × 91.5\" H.\n\n2 identical units available."
+    }
+  ]
+}

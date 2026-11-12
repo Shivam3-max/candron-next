@@ -1,5 +1,5 @@
 import mysql from 'mysql2/promise'
-import { readFile } from 'node:fs/promises'
+import { readdir, readFile } from 'node:fs/promises'
 import { pathToFileURL } from 'node:url'
 import { ensureInventorySchema } from './migrate-inventory.mjs'
 
@@ -50,6 +50,18 @@ export async function ensureCatalogImageSchema(connection) {
   if (dataColumn[0]?.IS_NULLABLE !== 'YES') await connection.query('ALTER TABLE product_images MODIFY image_data MEDIUMBLOB NULL')
 }
 
+// Stock lists in database/stock/*.json are added once each (task candron-stock-<batch>), so a
+// listing an admin later deletes doesn't come back on the next deploy.
+async function loadStockBatches() {
+  const dir = new URL('../database/stock/', import.meta.url)
+  const files = (await readdir(dir).catch(() => [])).filter(f => f.endsWith('.json')).sort()
+  return Promise.all(files.map(async file => {
+    const payload = JSON.parse(await readFile(new URL(file, dir), 'utf8'))
+    if (!payload.batch || !Array.isArray(payload.products)) throw new Error(`database/stock/${file} needs "batch" and "products"`)
+    return { batch: payload.batch, products: payload.products }
+  }))
+}
+
 async function loadSeed() {
   const raw = await readFile(new URL('../database/catalog-seed.json', import.meta.url), 'utf8')
   const payload = JSON.parse(raw)
@@ -59,7 +71,7 @@ async function loadSeed() {
 
 const rowValues = (p) => [
   p.slug, p.sku, p.name, p.short_description || '', p.description || '', p.category, p.condition_name || 'New',
-  p.status || 'Available', p.manufacturer || 'CANDRON', p.year_built ?? null, p.kva ?? null, p.rating_unit || 'kVA',
+  p.status || 'Available', p.manufacturer ?? 'CANDRON', p.year_built ?? null, p.kva ?? null, p.rating_unit || 'kVA',
   p.input_voltage || '', p.output_voltage || '', p.phase || '', p.frequency || '', p.winding || '', p.cooling || '',
   p.special_type || '', p.price_min ?? null, p.price_max ?? null, p.show_price === false ? 0 : 1, p.currency || 'CAD',
   Number(p.stock_quantity || 0), p.location || '', p.lead_time || '', p.warranty || '', p.dim_height ?? null,
@@ -76,10 +88,10 @@ export async function removeLegacyListings(connection) {
 }
 
 /** Insert seed products that are not already present (matched by slug). Never overwrites admin edits. */
-export async function seedCatalog(connection) {
+export async function seedCatalog(connection, products) {
   await ensureCatalogImageSchema(connection)
   await ensureInventorySchema(connection)
-  const products = await loadSeed()
+  products ??= await loadSeed()
   let added = 0
   for (const product of products) {
     const [existing] = await connection.execute('SELECT id FROM products WHERE slug=? OR sku=? LIMIT 1', [product.slug, product.sku])
@@ -103,6 +115,23 @@ export async function seedCatalog(connection) {
   return { seedProducts: products.length, added }
 }
 
+// Runs a deploy task at most once per database; the lock stops two deploys racing.
+async function runOnce(connection, taskKey, task) {
+  const [lockRows] = await connection.execute('SELECT GET_LOCK(?, 60) acquired', [taskKey])
+  if (Number(lockRows[0]?.acquired) !== 1) throw new Error(`Could not acquire the ${taskKey} lock.`)
+  try {
+    const [done] = await connection.execute('SELECT completed_at FROM deployment_tasks WHERE task_key=? LIMIT 1', [taskKey])
+    if (done.length) {
+      console.log(`${taskKey} skipped: already completed at ${done[0].completed_at}.`)
+      return
+    }
+    const result = await task()
+    await connection.execute('INSERT INTO deployment_tasks (task_key,result_json) VALUES (?,?)', [taskKey, JSON.stringify(result)])
+  } finally {
+    await connection.execute('SELECT RELEASE_LOCK(?)', [taskKey])
+  }
+}
+
 async function run() {
   const connection = await mysql.createConnection({
     host: required('DB_HOST'),
@@ -117,6 +146,10 @@ async function run() {
       const removed = await removeLegacyListings(connection)
       const result = await seedCatalog(connection)
       console.log(`Catalog: ${removed} legacy listing(s) removed, ${result.added} of ${result.seedProducts} seed product(s) added.`)
+      for (const { batch, products } of await loadStockBatches()) {
+        const stock = await seedCatalog(connection, products)
+        console.log(`Stock ${batch}: ${stock.added} of ${stock.seedProducts} product(s) added.`)
+      }
       return
     }
     await connection.query(`CREATE TABLE IF NOT EXISTS deployment_tasks (
@@ -125,20 +158,18 @@ async function run() {
       completed_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
       PRIMARY KEY (task_key)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`)
-    const [lockRows] = await connection.execute('SELECT GET_LOCK(?, 60) acquired', [DEPLOYMENT_TASK_KEY])
-    if (Number(lockRows[0]?.acquired) !== 1) throw new Error('Could not acquire the catalog reset lock.')
-    try {
-      const [done] = await connection.execute('SELECT completed_at FROM deployment_tasks WHERE task_key=? LIMIT 1', [DEPLOYMENT_TASK_KEY])
-      if (done.length) {
-        console.log(`Catalog reset skipped: ${DEPLOYMENT_TASK_KEY} already completed at ${done[0].completed_at}.`)
-        return
-      }
+    await runOnce(connection, DEPLOYMENT_TASK_KEY, async () => {
       const removed = await removeLegacyListings(connection)
       const result = await seedCatalog(connection)
-      await connection.execute('INSERT INTO deployment_tasks (task_key,result_json) VALUES (?,?)', [DEPLOYMENT_TASK_KEY, JSON.stringify({ removed, ...result })])
       console.log(`Catalog reset complete: ${removed} legacy listing(s) removed, ${result.added} demo product(s) added.`)
-    } finally {
-      await connection.execute('SELECT RELEASE_LOCK(?)', [DEPLOYMENT_TASK_KEY])
+      return { removed, ...result }
+    })
+    for (const { batch, products } of await loadStockBatches()) {
+      await runOnce(connection, `candron-stock-${batch}`, async () => {
+        const result = await seedCatalog(connection, products)
+        console.log(`Stock ${batch}: ${result.added} of ${result.seedProducts} product(s) added.`)
+        return result
+      })
     }
   } finally {
     await connection.end()

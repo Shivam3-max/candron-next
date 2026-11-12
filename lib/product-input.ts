@@ -83,7 +83,7 @@ export function parseProductInput(body: Record<string, unknown>): ProductInput {
     description: text(body.description, 10000),
     condition_name: oneOf(text(body.condition_name || 'New', 30), CONDITIONS, 'condition'),
     status: oneOf(text(body.status || 'Available', 30), STATUSES, 'status'),
-    manufacturer: text(body.manufacturer || 'CANDRON', 120),
+    manufacturer: text(body.manufacturer ?? 'CANDRON', 120),
     year_built: numbers.year_built === null ? null : Math.round(numbers.year_built),
     kva: numbers.kva,
     rating_unit: oneOf(text(body.rating_unit || 'kVA', 12), RATING_UNITS, 'rating unit'),

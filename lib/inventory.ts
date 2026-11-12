@@ -19,6 +19,7 @@ export const CATEGORIES: InventoryCategory[] = [
   { name: 'MV Switchgear', code: 'MVS', art: 'mv' },
   { name: 'LV Switchgear', code: 'LVS', art: 'lv' },
   { name: 'Switchboard', code: 'SWB', art: 'swbd' },
+  { name: 'Panelboard', code: 'PNB', art: 'swbd' },
   { name: 'Control Panel', code: 'CTP', art: 'control' },
   { name: 'Load Bank', code: 'LDB', art: 'loadbank' },
   { name: 'Power Distribution Unit', code: 'PDU', art: 'pdu' },
