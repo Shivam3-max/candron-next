@@ -5,6 +5,8 @@ import { getShopSettings } from '@/lib/shop/settings'
 import { formatMoney, ORDER_STATUSES } from '@/lib/shop/order-status'
 import { regionName } from '@/lib/shop/regions'
 import { loadOrder } from '@/lib/shop/orders'
+import type { RowDataPacket } from 'mysql2/promise'
+import { getDb } from '@/lib/db'
 
 export type OrderEmailKind = 'paid' | 'processing' | 'failed' | 'shipped' | 'cancelled' | 'refunded' | 'deposit' | 'invoiced'
 
@@ -17,7 +19,8 @@ function layout(title: string, body: string) {
       <h1 style="margin:8px 0 0;font-size:20px;color:#fff">${title}</h1>
     </div>
     <div style="padding:28px 32px;background:#fff;border:1px solid #e8ecf5;border-top:none;border-radius:0 0 8px 8px;font-size:14px;line-height:1.65">${body}
-      <p style="margin:24px 0 0;font-size:12px;color:#6b7a99">Questions? Call <a href="tel:+16476162595" style="color:#0047FF">+1 (647) 616-2595</a> or reply to this email.<br>CANDRON Energy Inc. · Toronto, Ontario, Canada · <a href="${SITE}" style="color:#6b7a99">candron.com</a></p>
+      <p style="margin:24px 0 0;font-size:12px;color:#6b7a99">All your orders, quotes and invoices: <a href="${SITE}/account" style="color:#0047FF">candron.com/account</a> (sign in with this email).</p>
+      <p style="margin:8px 0 0;font-size:12px;color:#6b7a99">Questions? Call <a href="tel:+16476162595" style="color:#0047FF">+1 (647) 616-2595</a> or reply to this email.<br>CANDRON Energy Inc. · Toronto, Ontario, Canada · <a href="${SITE}" style="color:#6b7a99">candron.com</a></p>
     </div></div>`
 }
 
@@ -77,6 +80,40 @@ export async function sendOrderEmails(orderId: number, kind: OrderEmailKind, ref
   } catch (error) {
     // Email problems must never fail the webhook (Stripe would retry and double-process)
     console.error(`[shop] ${kind} email for order ${orderId} failed`, error instanceof Error ? error.message : error)
+    return false
+  }
+}
+
+/**
+ * One reminder for a buyer who left the Stripe page, sent only because they ticked
+ * "email me a link to finish" at checkout (express consent). Returns true when sent.
+ */
+export async function sendCheckoutReminder(orderId: number): Promise<boolean> {
+  if (!isMailConfigured()) return false
+  try {
+    const found = await loadOrder({ id: orderId })
+    if (!found) return false
+    const { order, items } = found
+    let resume = `${SITE}/cart`
+    if (order.quote_id) {
+      const [q] = await getDb().execute<(RowDataPacket & { quote_number: string; access_token: string; status: string })[]>('SELECT quote_number, access_token, status FROM quotes WHERE id=?', [order.quote_id])
+      if (q[0]?.status === 'sent') resume = `${SITE}/quote/${q[0].quote_number}?t=${q[0].access_token}`
+    } else if (order.payment_terms === 'deposit' && items[0]?.slug) {
+      resume = `${SITE}/inventory/${items[0].slug}`
+    }
+    const list = items.map(i => `<li style="margin:0 0 6px">${i.slug ? `<a href="${SITE}/inventory/${esc(i.slug)}" style="color:#0047FF">${esc(i.name)}</a>` : esc(i.name)} × ${i.quantity}</li>`).join('')
+    await sendMail({
+      to: order.email,
+      subject: 'Finish your CANDRON order',
+      html: layout('Your order is waiting', `<p style="margin:0 0 12px">Hi ${esc(order.customer_name)},</p>
+        <p style="margin:0 0 12px">You asked us to send a link if your payment wasn’t completed. Nothing was charged, and the units are no longer held, so availability may change.</p>
+        <ul style="margin:0 0 16px;padding-left:18px">${list}</ul>
+        <p style="margin:0 0 12px"><a href="${resume}" style="display:inline-block;background:#0047FF;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:700">Pick up where you left off</a></p>
+        <p style="margin:0;font-size:12px;color:#6b7a99">This is the only reminder we’ll send about this checkout.</p>`),
+    })
+    return true
+  } catch (error) {
+    console.error(`[shop] checkout reminder for order ${orderId} failed`, error instanceof Error ? error.message : error)
     return false
   }
 }

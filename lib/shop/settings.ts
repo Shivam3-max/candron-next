@@ -24,6 +24,8 @@ export interface ShopSettings {
   }
   /** Default deposit for "Reserve" listings and quotes, and days to pay invoices */
   deposit: { percent: number; balanceDays: number }
+  /** Return policy for product markup (Google merchant listings); days null = not published */
+  returns: { days: number | null; restockingPercent: number | null; usedFinalSale: boolean }
   notifyEmail: string
 }
 
@@ -53,6 +55,7 @@ export const DEFAULT_SETTINGS: ShopSettings = {
     ],
   },
   deposit: { percent: 25, balanceDays: 14 },
+  returns: { days: null, restockingPercent: null, usedFinalSale: true },
   notifyEmail: '',
 }
 
@@ -100,6 +103,11 @@ export function parseSettings(input: unknown): ShopSettings {
       percent: Math.min(100, Math.max(1, money((b.deposit as Record<string, unknown> | undefined)?.percent, 100) ?? 25)),
       balanceDays: Math.min(120, Math.max(1, Math.round(Number((b.deposit as Record<string, unknown> | undefined)?.balanceDays) || 14))),
     },
+    returns: {
+      days: money((b.returns as Record<string, unknown> | undefined)?.days, 365),
+      restockingPercent: money((b.returns as Record<string, unknown> | undefined)?.restockingPercent, 100),
+      usedFinalSale: (b.returns as Record<string, unknown> | undefined)?.usedFinalSale !== false,
+    },
     notifyEmail: text(b.notifyEmail, 500),
   }
   if (settings.pickup.enabled && (!settings.pickup.line1 || !settings.pickup.city || !settings.pickup.region || !settings.pickup.postal)) {
@@ -121,6 +129,7 @@ export async function getShopSettings(): Promise<ShopSettings> {
       pickup: { ...DEFAULT_SETTINGS.pickup, ...raw?.pickup },
       freight: { ...DEFAULT_SETTINGS.freight, ...raw?.freight },
       deposit: { ...DEFAULT_SETTINGS.deposit, ...raw?.deposit },
+      returns: { ...DEFAULT_SETTINGS.returns, ...raw?.returns },
     }
   } catch (error) {
     console.warn('[shop] Could not read settings.', error instanceof Error ? error.message : error)

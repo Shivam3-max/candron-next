@@ -216,3 +216,19 @@ Ships switched **off**. Nothing changes publicly until the steps below are done.
 - Refunds: the admin button refunds the checkout payment (full order or deposit). Invoice payments are refunded from the invoice in the Stripe dashboard.
 
 **Not in phase 2:** bank-transfer virtual accounts. Stripe's customer-balance transfers don't support CAD, so CAD buyers use pre-authorized debit or wire (mark paid offline).
+
+## Phase 3: built (Nov 20 2026)
+
+**Customer accounts (`/account`)**
+- Passwordless sign-in: a one-time link is emailed (single use, valid 20 minutes), then a 30-day session. Signing out ends every session. Requests are rate-limited, and the response never reveals whether an email has an account.
+- Orders (including earlier guest orders with the same email), with status, invoice and order-page links and **Order again** (re-priced today, then added to the cart). Quotes, with links to review and accept. Saved delivery addresses. Name, company and phone.
+- **Tax exemption:** customers upload a certificate (PDF/JPG/PNG, 5 MB). Admin → **Customers** reviews it (download, approve or reject, note) and the customer is emailed. Approved customers are created in Stripe as tax-exempt for new checkouts, quote acceptances and invoices.
+- Checkout prefills signed-in buyers' details and default address, offers their saved addresses and can save a new one. Orders are linked to the account. Guests can still check out.
+
+**Other**
+- Optional checkbox at checkout: "Email me a link to finish this order if I don’t complete payment". When the Stripe page expires, one reminder is sent (express consent, CASL-friendly).
+- Return policy in Shop settings (window, restocking fee, used/surplus final sale) is published as `MerchantReturnPolicy` on listings sold online. It stays unpublished until a window is entered.
+- Order and quote emails link to the account page.
+
+**Needs SMTP** (the existing Google Workspace settings) for sign-in links, reminders and exemption emails.
+

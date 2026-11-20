@@ -10,7 +10,8 @@ import { calculateFreight, type FreightResult } from '@/lib/shop/freight'
 import { formatPostal, isCountry, isPostalCode, isRegion } from '@/lib/shop/regions'
 import { getShopSettings, shopIsOpen, stripeLiveMode, type ShopSettings } from '@/lib/shop/settings'
 import { fromCents, stripe, toCents } from '@/lib/shop/stripe'
-import { sendOrderEmails } from '@/lib/shop/email'
+import { sendCheckoutReminder, sendOrderEmails } from '@/lib/shop/email'
+import { isTaxExempt } from '@/lib/shop/customers'
 import type { OrderStatus, PaymentTerms } from '@/lib/shop/order-status'
 
 export class ShopError extends Error {}
@@ -33,6 +34,10 @@ export interface CheckoutInput {
   fulfilment: 'delivery' | 'pickup'
   address: Address
   acceptTerms: boolean
+  /** Email me a link to finish if I leave the payment page (explicit opt-in) */
+  reminder: boolean
+  /** Signed-in buyers: keep this delivery address in the account */
+  saveAddress: boolean
 }
 
 export function validateAddress(address: Address) {
@@ -57,6 +62,8 @@ export function parseCheckoutInput(body: Record<string, unknown>): CheckoutInput
       region: text(a.region, 4).toUpperCase(), postal: text(a.postal, 20), country: text(a.country, 2).toUpperCase(),
     },
     acceptTerms: body.acceptTerms === true,
+    reminder: body.reminder === true,
+    saveAddress: body.saveAddress === true,
   }
   if (!input.name) throw new ShopError('Please enter your name.')
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.email)) throw new ShopError('Please enter a valid email address.')
@@ -139,6 +146,8 @@ export interface OrderDraft {
   quoteId: number | null
   /** Hold stock for the Stripe page (true) or take it now (false, e.g. net-terms invoices) */
   hold: boolean
+  customerId?: number | null
+  reminderOptIn?: boolean
 }
 
 /** Inserts the order, its lines and stock holds inside the caller's transaction. */
@@ -149,11 +158,11 @@ export async function insertOrder(conn: PoolConnection, d: OrderDraft, actor: st
   const [res] = await conn.execute<ResultSetHeader>(
     `INSERT INTO orders (access_token, status, currency, subtotal, freight, freight_note, total, customer_name, company, email, phone, po_number,
        customer_notes, fulfilment, ship_line1, ship_line2, ship_city, ship_region, ship_postal, ship_country, live_mode,
-       quote_id, payment_terms, deposit_amount, created_at)
-     VALUES (?, 'pending_payment', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, UTC_TIMESTAMP())`,
+       quote_id, payment_terms, deposit_amount, customer_id, reminder_opt_in, created_at)
+     VALUES (?, 'pending_payment', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, UTC_TIMESTAMP())`,
     [token, d.currency, subtotal, d.freight, d.freightNote, round2(subtotal + d.freight), d.contact.name, d.contact.company, d.contact.email,
       d.contact.phone, d.contact.poNumber, d.contact.notes || null, d.fulfilment, d.ship.line1, d.ship.line2, d.ship.city, d.ship.region,
-      d.ship.postal, d.ship.country, stripeLiveMode() ? 1 : 0, d.quoteId, d.paymentTerms, d.depositAmount],
+      d.ship.postal, d.ship.country, stripeLiveMode() ? 1 : 0, d.quoteId, d.paymentTerms, d.depositAmount, d.customerId ?? null, d.reminderOptIn ? 1 : 0],
   )
   const orderId = res.insertId
   const orderNumber = `CE-${new Date().getUTCFullYear()}-${String(orderId).padStart(5, '0')}`
@@ -187,8 +196,10 @@ function taxAddress(d: { fulfilment: string; ship: Address }, settings: ShopSett
 async function createStripeCustomer(d: { contact: OrderDraft['contact']; fulfilment: string; ship: Address }, settings: ShopSettings, orderNumber: string) {
   const address = taxAddress(d, settings)
   const name = d.contact.company || d.contact.name
+  // Buyers whose exemption certificate an admin approved are not charged sales tax by Stripe Tax
+  const exempt = await isTaxExempt(d.contact.email).catch(() => false)
   return stripe().customers.create({
-    email: d.contact.email, name, phone: d.contact.phone, address,
+    email: d.contact.email, name, phone: d.contact.phone, address, tax_exempt: exempt ? 'exempt' : 'none',
     shipping: { name, phone: d.contact.phone, address },
     metadata: { order_number: orderNumber, contact_name: d.contact.name },
   })
@@ -273,7 +284,7 @@ export async function abandonOrder(orderId: number, error: unknown) {
 }
 
 /** Cart checkout ("buy") or a single-listing reservation ("reserve", deposit only). */
-export async function createCheckout(input: CheckoutInput, origin: string) {
+export async function createCheckout(input: CheckoutInput, origin: string, customerId: number | null = null) {
   if (!(await shopIsOpen())) throw new ShopError('Online ordering is not available right now. Please request a quote.')
   const settings = await getShopSettings()
   const created = await inTransaction(async conn => {
@@ -304,6 +315,8 @@ export async function createCheckout(input: CheckoutInput, origin: string) {
       depositAmount,
       quoteId: null,
       hold: true,
+      customerId,
+      reminderOptIn: input.reminder,
     }
     if (!paymentMethodsFor(settings, draft.currency, input.mode === 'reserve' ? depositAmount : priced.subtotal + draft.freight).length) {
       throw new ShopError('This order is above our online payment limit. Please request a quote and we’ll invoice you.')
@@ -505,13 +518,17 @@ async function onAsyncPayment(session: Stripe.Checkout.Session, succeeded: boole
 }
 
 async function onSessionExpired(session: Stripe.Checkout.Session) {
-  await inTransaction(async conn => {
+  const remind = await inTransaction(async conn => {
     const order = await lockOrder(conn, session)
-    if (!order || order.status !== 'pending_payment') return
+    if (!order || order.status !== 'pending_payment') return null
     await conn.execute('DELETE FROM stock_holds WHERE order_id=?', [order.id])
     await conn.execute("UPDATE orders SET status='expired' WHERE id=?", [order.id])
     await addEvent(conn, order.id, 'expired', 'Payment page expired; held stock released')
+    // Only buyers who ticked "email me a link" get a reminder, and only once
+    const [r] = await conn.execute<ResultSetHeader>('UPDATE orders SET reminder_sent=1 WHERE id=? AND reminder_opt_in=1 AND reminder_sent=0', [order.id])
+    return r.affectedRows ? order.id : null
   })
+  if (remind && (await sendCheckoutReminder(remind))) await addEvent(getDb(), remind, 'reminder_sent', 'Checkout reminder emailed (buyer opted in)')
 }
 
 /** Records a paid invoice (from the webhook, or straight away when an admin marks it paid offline). */

@@ -52,6 +52,9 @@ const ORDER_COLUMNS = [
   ['stripe_invoice_id', 'VARCHAR(255) NULL AFTER amount_paid'],
   ['invoice_url', "VARCHAR(500) NOT NULL DEFAULT '' AFTER stripe_invoice_id"],
   ['invoice_due', 'DATE NULL AFTER invoice_url'],
+  ['customer_id', 'BIGINT UNSIGNED NULL AFTER invoice_due'],
+  ['reminder_opt_in', 'TINYINT(1) NOT NULL DEFAULT 0 AFTER customer_id'],
+  ['reminder_sent', 'TINYINT(1) NOT NULL DEFAULT 0 AFTER reminder_opt_in'],
 ]
 
 export async function ensureShopSchema(connection) {

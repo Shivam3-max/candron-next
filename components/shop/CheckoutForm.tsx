@@ -18,6 +18,7 @@ interface Quote {
   deposit: { percent: number; amount: number } | null
 }
 
+interface SavedAddress { id: number; label: string; line1: string; line2: string; city: string; region: string; postal: string; country: string; is_default: number }
 const blankAddress = { line1: '', line2: '', city: '', region: '', postal: '', country: 'CA' as CountryCode }
 
 export default function CheckoutForm() {
@@ -33,6 +34,22 @@ export default function CheckoutForm() {
   const [fulfilment, setFulfilment] = useState<'delivery' | 'pickup'>('delivery')
   const [address, setAddress] = useState(blankAddress)
   const [acceptTerms, setAcceptTerms] = useState(false)
+  const [reminder, setReminder] = useState(false)
+  const [account, setAccount] = useState<{ email: string; addresses: SavedAddress[] } | null>(null)
+  const [saveToAccount, setSaveToAccount] = useState(true)
+
+  // Signed-in buyers: prefill their details and offer their saved delivery addresses
+  useEffect(() => {
+    let live = true
+    fetch('/api/account/me').then(r => (r.ok ? r.json() : null)).then(d => {
+      if (!live || !d?.customer) return
+      setAccount({ email: d.customer.email, addresses: d.addresses ?? [] })
+      setContact(c => ({ ...c, name: c.name || d.customer.name, company: c.company || d.customer.company, email: c.email || d.customer.email, phone: c.phone || d.customer.phone }))
+      const def = (d.addresses as SavedAddress[] | undefined)?.find(a => a.is_default) ?? d.addresses?.[0]
+      if (def) setAddress(a => (a.line1 ? a : { line1: def.line1, line2: def.line2, city: def.city, region: def.region, postal: def.postal, country: def.country as CountryCode }))
+    }).catch(() => {})
+    return () => { live = false }
+  }, [])
   const [quote, setQuote] = useState<Quote | null>(null)
   const [state, setState] = useState<'idle' | 'sending'>('idle')
   const [error, setError] = useState('')
@@ -84,7 +101,7 @@ export default function CheckoutForm() {
     try {
       const r = await fetch('/api/shop/checkout', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...contact, mode, fulfilment, address, acceptTerms, items: items.map(i => ({ id: i.id, quantity: i.quantity })), website: (e.currentTarget as HTMLFormElement).website?.value }),
+        body: JSON.stringify({ ...contact, mode, fulfilment, address, acceptTerms, reminder, saveAddress: Boolean(account) && saveToAccount, items: items.map(i => ({ id: i.id, quantity: i.quantity })), website: (e.currentTarget as HTMLFormElement).website?.value }),
       })
       const d = await r.json().catch(() => ({}))
       if (!r.ok || !d.url) throw new Error(d.error || 'Could not start checkout.')
@@ -100,6 +117,9 @@ export default function CheckoutForm() {
       <div className="shop-checkout-main">
         <fieldset className="shop-card">
           <legend>1 · Contact</legend>
+          {account
+            ? <p className="shop-signin-hint">Signed in as {account.email}. This order will appear in <Link href="/account">your account</Link>.</p>
+            : <p className="shop-signin-hint">Ordered before? <Link href={`/account/login?next=${encodeURIComponent(mode === 'reserve' ? `/checkout?reserve=${reserveId}` : '/checkout')}`}>Sign in</Link> to use your saved details and addresses, or continue as a guest.</p>}
           <div className="shop-grid">
             <label><span>Full name *</span><input required autoComplete="name" value={contact.name} onChange={e => setC('name', e.target.value)} /></label>
             <label><span>Company</span><input autoComplete="organization" value={contact.company} onChange={e => setC('company', e.target.value)} /></label>
@@ -116,6 +136,17 @@ export default function CheckoutForm() {
               <label className={fulfilment === 'delivery' ? 'on' : ''}><input type="radio" name="fulfilment" checked={fulfilment === 'delivery'} onChange={() => setFulfilment('delivery')} /> Ship to my site</label>
               <label className={fulfilment === 'pickup' ? 'on' : ''}><input type="radio" name="fulfilment" checked={fulfilment === 'pickup'} onChange={() => setFulfilment('pickup')} /> {quote.pickup.label} ({quote.pickup.city}, {quote.pickup.region}) · free</label>
             </div>
+          )}
+          {fulfilment === 'delivery' && account && account.addresses.length > 0 && (
+            <label className="shop-saved-address"><span>Saved address</span>
+              <select defaultValue="" onChange={e => {
+                const a = account.addresses.find(x => x.id === Number(e.target.value))
+                if (a) setAddress({ line1: a.line1, line2: a.line2, city: a.city, region: a.region, postal: a.postal, country: a.country as CountryCode })
+              }}>
+                <option value="">Choose a saved address…</option>
+                {account.addresses.map(a => <option key={a.id} value={a.id}>{a.label ? `${a.label} · ` : ''}{a.line1}, {a.city}</option>)}
+              </select>
+            </label>
           )}
           {fulfilment === 'delivery' ? (
             <div className="shop-grid">
@@ -137,6 +168,9 @@ export default function CheckoutForm() {
             </div>
           ) : (
             <p className="shop-fine">We’ll call you to book a pickup time once your order is ready. Please bring suitable lifting equipment or ask us about loading.</p>
+          )}
+          {fulfilment === 'delivery' && account && (
+            <label className="shop-check shop-mt"><input type="checkbox" checked={saveToAccount} onChange={e => setSaveToAccount(e.target.checked)} /> Save this address to my account</label>
           )}
           <label className="shop-wide shop-notes"><span>Notes for our team (site access, offloading, timing)</span>
             <textarea rows={3} value={contact.notes} onChange={e => setC('notes', e.target.value)} />
@@ -179,6 +213,10 @@ export default function CheckoutForm() {
         )}
         {quote && !quote.open && <p className="shop-error">Online checkout is paused right now. Please request a quote or call us.</p>}
         {quote?.errors.map(e => <p key={e} className="shop-error">{e}</p>)}
+        <label className="shop-terms">
+          <input type="checkbox" checked={reminder} onChange={e => setReminder(e.target.checked)} />
+          <span>Email me a link to finish this order if I don’t complete payment (one reminder only).</span>
+        </label>
         <label className="shop-terms">
           <input type="checkbox" checked={acceptTerms} onChange={e => setAcceptTerms(e.target.checked)} required />
           <span>I agree to the <Link href="/terms-and-conditions" target="_blank">terms and conditions</Link> and <Link href="/warranty" target="_blank">warranty</Link>.</span>

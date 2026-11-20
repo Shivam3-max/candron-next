@@ -229,7 +229,8 @@ async function emailQuote(id: number) {
             <tr><td style="padding:4px 0;font-weight:700">Total before tax (${cur})</td><td style="text-align:right;font-weight:700">${formatMoney(total, cur)}</td></tr></table>
           <p style="margin:0 0 12px"><strong>Payment:</strong> ${terms}. Applicable taxes are added at payment.</p>
           <p style="margin:20px 0 0"><a href="${link}" style="display:inline-block;background:#0047FF;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:700">View and accept quote</a></p>
-          <p style="margin:24px 0 0;font-size:12px;color:#6b7a99">Questions? Call <a href="tel:+16476162595" style="color:#0047FF">+1 (647) 616-2595</a> or reply to this email.<br>CANDRON Energy Inc. · Toronto, Ontario, Canada</p>
+          <p style="margin:24px 0 0;font-size:12px;color:#6b7a99">You can also find this quote in your account: <a href="${SITE}/account" style="color:#0047FF">candron.com/account</a> (sign in with this email).</p>
+          <p style="margin:8px 0 0;font-size:12px;color:#6b7a99">Questions? Call <a href="tel:+16476162595" style="color:#0047FF">+1 (647) 616-2595</a> or reply to this email.<br>CANDRON Energy Inc. · Toronto, Ontario, Canada</p>
         </div></div>`,
     })
     return true

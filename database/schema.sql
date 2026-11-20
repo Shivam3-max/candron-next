@@ -133,6 +133,9 @@ CREATE TABLE IF NOT EXISTS orders (
   stripe_invoice_id VARCHAR(255) NULL,
   invoice_url VARCHAR(500) NOT NULL DEFAULT '',
   invoice_due DATE NULL,
+  customer_id BIGINT UNSIGNED NULL,
+  reminder_opt_in TINYINT(1) NOT NULL DEFAULT 0 COMMENT 'Buyer asked for a link if they leave the payment page',
+  reminder_sent TINYINT(1) NOT NULL DEFAULT 0,
   paid_at DATETIME NULL,
   shipped_at DATETIME NULL,
   created_at DATETIME NOT NULL,
@@ -268,4 +271,65 @@ CREATE TABLE IF NOT EXISTS quote_items (
   KEY idx_quote_items_quote (quote_id, sort_order),
   CONSTRAINT fk_quote_items_quote FOREIGN KEY (quote_id) REFERENCES quotes(id) ON DELETE CASCADE,
   CONSTRAINT fk_quote_items_product FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ── Customer accounts (phase 3) ──────────────────────────────────────────
+-- Passwordless: customers sign in with a one-time link emailed to them.
+
+CREATE TABLE IF NOT EXISTS customers (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  email VARCHAR(254) NOT NULL,
+  name VARCHAR(160) NOT NULL DEFAULT '',
+  company VARCHAR(160) NOT NULL DEFAULT '',
+  phone VARCHAR(40) NOT NULL DEFAULT '',
+  session_nonce CHAR(32) NOT NULL DEFAULT '',
+  tax_exempt_status VARCHAR(12) NOT NULL DEFAULT 'none' COMMENT 'none | pending | approved | rejected',
+  tax_exempt_note VARCHAR(255) NOT NULL DEFAULT '',
+  admin_notes TEXT NULL,
+  created_at DATETIME NOT NULL,
+  last_login_at DATETIME NULL,
+  PRIMARY KEY (id),
+  UNIQUE KEY uq_customer_email (email)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS customer_login_tokens (
+  token_hash CHAR(64) NOT NULL COMMENT 'SHA-256 of the emailed token',
+  customer_id BIGINT UNSIGNED NOT NULL,
+  expires_at DATETIME NOT NULL,
+  used_at DATETIME NULL,
+  PRIMARY KEY (token_hash),
+  KEY idx_login_tokens_customer (customer_id),
+  CONSTRAINT fk_login_tokens_customer FOREIGN KEY (customer_id) REFERENCES customers(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS customer_addresses (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  customer_id BIGINT UNSIGNED NOT NULL,
+  label VARCHAR(80) NOT NULL DEFAULT '',
+  line1 VARCHAR(200) NOT NULL,
+  line2 VARCHAR(200) NOT NULL DEFAULT '',
+  city VARCHAR(120) NOT NULL,
+  region VARCHAR(10) NOT NULL,
+  postal VARCHAR(20) NOT NULL,
+  country CHAR(2) NOT NULL DEFAULT 'CA',
+  is_default TINYINT(1) NOT NULL DEFAULT 0,
+  created_at DATETIME NOT NULL,
+  PRIMARY KEY (id),
+  KEY idx_customer_addresses (customer_id),
+  CONSTRAINT fk_customer_addresses FOREIGN KEY (customer_id) REFERENCES customers(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Tax-exemption certificates uploaded by customers, reviewed in /admin/customers
+CREATE TABLE IF NOT EXISTS customer_documents (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  customer_id BIGINT UNSIGNED NOT NULL,
+  kind VARCHAR(30) NOT NULL DEFAULT 'tax_exempt',
+  file_name VARCHAR(255) NOT NULL,
+  mime_type VARCHAR(80) NOT NULL,
+  data MEDIUMBLOB NOT NULL,
+  note VARCHAR(500) NOT NULL DEFAULT '',
+  created_at DATETIME NOT NULL,
+  PRIMARY KEY (id),
+  KEY idx_customer_documents (customer_id),
+  CONSTRAINT fk_customer_documents FOREIGN KEY (customer_id) REFERENCES customers(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

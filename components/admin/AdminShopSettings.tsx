@@ -155,6 +155,16 @@ export default function AdminShopSettings({ initial, adminEmail, stripe }: { ini
         </section>
 
         <section className="ia-card">
+          <h3>Return policy (for Google listings)</h3>
+          <p className="ia-note">Published in the product data search engines read, for listings you sell online. Leave the window blank until the policy is final.</p>
+          <div className="ia-grid">
+            <label className="ia-field"><span className="ia-label">Return window (days)</span><input inputMode="numeric" value={numOrEmpty(s.returns.days)} placeholder="Not published" onChange={e => set('returns', { ...s.returns, days: toNum(e.target.value) })} /></label>
+            <label className="ia-field"><span className="ia-label">Restocking fee (%)</span><input inputMode="decimal" value={numOrEmpty(s.returns.restockingPercent)} placeholder="None" onChange={e => set('returns', { ...s.returns, restockingPercent: toNum(e.target.value) })} /></label>
+            <div className="ia-toggles ia-wide"><label><input type="checkbox" checked={s.returns.usedFinalSale} onChange={e => set('returns', { ...s.returns, usedFinalSale: e.target.checked })} /> Used and surplus equipment is final sale (no returns)</label></div>
+          </div>
+        </section>
+
+        <section className="ia-card">
           <h3>Notifications</h3>
           <label className="ia-field ia-wide"><span className="ia-label">Send new-order emails to</span>
             <input value={s.notifyEmail} placeholder="Default: the contact form recipients" onChange={e => set('notifyEmail', e.target.value)} />

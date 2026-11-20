@@ -43,7 +43,22 @@ export default async function InventoryProductPage({ params }: Props) {
   const open = await shopIsOpen()
   const buyable = open && purchaseBlock(p, p.available, 'buy') === null
   const reservable = open && purchaseBlock(p, p.available, 'reserve') === null
-  const depositPercent = reservable ? Number(p.deposit_percent ?? (await getShopSettings()).deposit.percent) : 0
+  const shop = buyable || reservable ? await getShopSettings() : null
+  const depositPercent = reservable ? Number(p.deposit_percent ?? shop!.deposit.percent) : 0
+  // Return policy markup only for listings sold online, once the policy is set in Shop settings
+  const finalSale = shop?.returns.usedFinalSale && p.condition_name !== 'New'
+  const returnPolicy = shop && (shop.returns.days || finalSale) ? {
+    '@type': 'MerchantReturnPolicy',
+    applicableCountry: shop.shipCountries,
+    ...(finalSale
+      ? { returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted' }
+      : {
+          returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+          merchantReturnDays: shop.returns.days,
+          returnMethod: 'https://schema.org/ReturnByMail',
+          returnFees: shop.returns.restockingPercent ? 'https://schema.org/RestockingFees' : 'https://schema.org/ReturnShippingFees',
+        }),
+  } : null
   const keySpecs = [
     { label: 'Rating', value: ratingText(p.kva, p.rating_unit) },
     { label: p.output_voltage ? 'Primary' : 'Voltage', value: p.input_voltage ? `${p.input_voltage} V` : '' },
@@ -84,7 +99,11 @@ export default async function InventoryProductPage({ params }: Props) {
     ...(p.manufacturer ? { brand: { '@type': 'Brand', name: p.manufacturer } } : {}),
     itemCondition: `https://schema.org/${p.condition_name === 'Used' ? 'UsedCondition' : p.condition_name === 'Remanufactured' ? 'RefurbishedCondition' : 'NewCondition'}`,
     ...(p.show_price && p.price_min !== null ? {
-      offers: { '@type': 'Offer', priceCurrency: p.currency, price: p.price_min, availability: `https://schema.org/${p.stock_quantity > 0 && p.status === 'Available' ? 'InStock' : 'PreOrder'}` },
+      offers: {
+        '@type': 'Offer', priceCurrency: p.currency, price: p.price_min, url: `https://candron.com/inventory/${p.slug}`,
+        availability: `https://schema.org/${p.stock_quantity > 0 && p.status === 'Available' ? 'InStock' : 'PreOrder'}`,
+        ...(returnPolicy && { hasMerchantReturnPolicy: returnPolicy }),
+      },
     } : {}),
   }
 

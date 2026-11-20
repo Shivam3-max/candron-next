@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { clientIp, rateLimited, siteOrigin } from '@/lib/rate-limit'
 import { createCheckout, isShopError, parseCheckoutInput } from '@/lib/shop/orders'
+import { getCurrentCustomer, parseAddress, saveAddress } from '@/lib/shop/customers'
 
 export const dynamic = 'force-dynamic'
 
@@ -13,7 +14,11 @@ export async function POST(req: Request) {
     const body = await req.json().catch(() => ({})) as Record<string, unknown>
     if (body.website) return NextResponse.json({ error: 'Invalid request.' }, { status: 400 }) // honeypot
     const input = parseCheckoutInput(body)
-    const { url, orderNumber } = await createCheckout(input, siteOrigin(req))
+    const customer = await getCurrentCustomer()
+    if (customer && input.saveAddress && input.fulfilment === 'delivery') {
+      await saveAddress(customer.id, parseAddress({ ...input.address, label: input.company || '' })).catch(() => {})
+    }
+    const { url, orderNumber } = await createCheckout(input, siteOrigin(req), customer?.id ?? null)
     return NextResponse.json({ url, orderNumber })
   } catch (error) {
     if (isShopError(error)) return NextResponse.json({ error: error.message }, { status: 400 })
