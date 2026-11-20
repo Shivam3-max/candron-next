@@ -17,3 +17,13 @@ function track(name: string, params: Record<string, string>) {
 // GA4 recommended event names. Never pass names, emails, phones or messages (no PII in GA).
 export const trackLead = (form: LeadForm) => track('generate_lead', { form_name: form })
 export const trackNewsletterSignup = () => track('sign_up', { method: 'newsletter' })
+
+// GA4 e-commerce events (recommended names). Items carry only catalogue data, never buyer details.
+export interface GaItem { item_id: string; item_name: string; price: number; quantity: number }
+function trackCommerce(name: string, params: { currency: string; value: number; items: GaItem[]; transaction_id?: string; tax?: number; shipping?: number }) {
+  if (typeof window === 'undefined' || !('dataLayer' in window)) return
+  sendGAEvent('event', name, params)
+}
+export const trackAddToCart = (currency: string, item: GaItem) => trackCommerce('add_to_cart', { currency, value: item.price * item.quantity, items: [item] })
+export const trackBeginCheckout = (currency: string, value: number, items: GaItem[]) => trackCommerce('begin_checkout', { currency, value, items })
+export const trackPurchase = (p: { transaction_id: string; currency: string; value: number; tax: number; shipping: number; items: GaItem[] }) => trackCommerce('purchase', p)

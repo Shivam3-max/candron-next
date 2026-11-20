@@ -6,6 +6,7 @@ import {
   suggestItemCode, type SpecRow,
 } from '@/lib/inventory'
 import type { InventoryProduct } from '@/lib/db'
+import AdminNav from '@/components/admin/AdminNav'
 
 type Product = InventoryProduct
 type Img = { id: number; name: string; url: string }
@@ -13,7 +14,7 @@ type Img = { id: number; name: string; url: string }
 const blank = {
   name: '', sku: '', slug: '', category: CATEGORIES[0].name, condition_name: 'New', status: 'Available', manufacturer: 'CANDRON',
   year_built: '', special_type: '', short_description: '', kva: '', rating_unit: 'kVA', input_voltage: '', output_voltage: '',
-  phase: 'Three-phase', frequency: '60 Hz', winding: '', cooling: '', show_price: true, price_min: '', price_max: '',
+  phase: 'Three-phase', frequency: '60 Hz', winding: '', cooling: '', show_price: true, purchase_mode: 'quote', price_min: '', price_max: '',
   currency: 'CAD', stock_quantity: '1', location: 'Toronto, ON', lead_time: '', warranty: '', dim_height: '', dim_width: '',
   dim_depth: '', dim_unit: 'in', weight: '', weight_unit: 'lb', description: '', is_featured: false, is_active: true,
 }
@@ -25,7 +26,8 @@ const toForm = (p: Product): Form => ({
   manufacturer: p.manufacturer || '', year_built: str(p.year_built), special_type: p.special_type || '',
   short_description: p.short_description || '', kva: str(p.kva), rating_unit: p.rating_unit || 'kVA',
   input_voltage: p.input_voltage || '', output_voltage: p.output_voltage || '', phase: p.phase || '', frequency: p.frequency || '',
-  winding: p.winding || '', cooling: p.cooling || '', show_price: p.show_price, price_min: str(p.price_min), price_max: str(p.price_max),
+  winding: p.winding || '', cooling: p.cooling || '', show_price: p.show_price, purchase_mode: p.purchase_mode === 'buy' ? 'buy' : 'quote',
+  price_min: str(p.price_min), price_max: str(p.price_max),
   currency: p.currency || 'CAD', stock_quantity: String(p.stock_quantity ?? 0), location: p.location || '', lead_time: p.lead_time || '',
   warranty: p.warranty || '', dim_height: str(p.dim_height), dim_width: str(p.dim_width), dim_depth: str(p.dim_depth),
   dim_unit: p.dim_unit || 'in', weight: str(p.weight), weight_unit: p.weight_unit || 'lb', description: p.description || '',
@@ -189,6 +191,7 @@ export default function AdminProducts({ initialProducts, adminEmail }: { initial
         </div>
         <div className="ia-top-actions">
           <span className="ia-who">{adminEmail}</span>
+          <AdminNav current="inventory" />
           <a href="/inventory" target="_blank" rel="noreferrer" className="ia-btn ia-ghost">View inventory ↗</a>
           <button type="button" onClick={logout} className="ia-btn ia-ghost">Sign out</button>
         </div>
@@ -213,7 +216,7 @@ export default function AdminProducts({ initialProducts, adminEmail }: { initial
                     <strong>{p.name}</strong>
                     <small>{p.sku} · {p.category}</small>
                   </span>
-                  <span className={`ia-pill ia-${(p.is_active ? p.status : 'Hidden').toLowerCase()}`}>{p.is_active ? p.status : 'Hidden'}</span>
+                  <span className={`ia-pill ia-${(p.is_active ? p.status : 'Hidden').toLowerCase()}`}>{p.is_active ? p.status : 'Hidden'}{p.purchase_mode === 'buy' ? ' · Buy' : ''}</span>
                 </button>
               </li>
             ))}
@@ -335,6 +338,12 @@ export default function AdminProducts({ initialProducts, adminEmail }: { initial
               <Field label="Starting price"><input inputMode="decimal" value={form.price_min} onChange={e => set('price_min', e.target.value)} /></Field>
               <Field label="Up to (optional)"><input inputMode="decimal" value={form.price_max} onChange={e => set('price_max', e.target.value)} /></Field>
               <Field label="Currency"><select value={form.currency} onChange={e => set('currency', e.target.value)}><option>CAD</option><option>USD</option></select></Field>
+              <Field label="Online purchase" hint={form.purchase_mode === 'buy' ? 'Shows Add to cart when online ordering is on. Add a shipping weight for freight.' : 'Shows Request a quote only.'}>
+                <select value={form.purchase_mode} onChange={e => set('purchase_mode', e.target.value)}>
+                  <option value="quote">Quote only</option>
+                  <option value="buy">Buy online (cart + Stripe)</option>
+                </select>
+              </Field>
               <Field label="Quantity in stock"><input inputMode="numeric" value={form.stock_quantity} onChange={e => set('stock_quantity', e.target.value.replace(/\D/g, ''))} /></Field>
               <Field label="Stock location"><input value={form.location} onChange={e => set('location', e.target.value)} placeholder="Toronto, ON" /></Field>
               <Field label="Lead time / ships in"><input value={form.lead_time} onChange={e => set('lead_time', e.target.value)} placeholder="Ready to ship" /></Field>

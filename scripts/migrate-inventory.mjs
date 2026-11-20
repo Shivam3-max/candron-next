@@ -10,6 +10,7 @@ const COLUMNS = [
   ['winding', "VARCHAR(40) NOT NULL DEFAULT '' AFTER frequency"],
   ['cooling', "VARCHAR(40) NOT NULL DEFAULT '' AFTER winding"],
   ['show_price', 'TINYINT(1) NOT NULL DEFAULT 1 AFTER price_max'],
+  ['purchase_mode', "VARCHAR(12) NOT NULL DEFAULT 'quote' AFTER show_price"],
   ['location', "VARCHAR(120) NOT NULL DEFAULT '' AFTER stock_quantity"],
   ['warranty', "VARCHAR(120) NOT NULL DEFAULT '' AFTER lead_time"],
   ['dim_height', 'DECIMAL(10,2) NULL AFTER warranty'],

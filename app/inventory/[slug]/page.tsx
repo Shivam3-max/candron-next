@@ -9,6 +9,9 @@ import QuoteForm from '@/components/inventory/QuoteForm'
 import CopyCode from '@/components/inventory/CopyCode'
 import DimensionDrawing from '@/components/inventory/DimensionDrawing'
 import ProductCard from '@/components/inventory/ProductCard'
+import AddToCart from '@/components/shop/AddToCart'
+import { purchaseBlock } from '@/lib/shop/catalog'
+import { shopIsOpen } from '@/lib/shop/settings'
 
 export const dynamic = 'force-dynamic'
 
@@ -35,6 +38,8 @@ export default async function InventoryProductPage({ params }: Props) {
 
   const price = priceLabel(p)
   const avail = availability(p)
+  // "Buy online" only when the shop is switched on and this listing is priced, in stock and set to Buy
+  const buyable = (await shopIsOpen()) && purchaseBlock(p, p.available) === null
   const keySpecs = [
     { label: 'Rating', value: ratingText(p.kva, p.rating_unit) },
     { label: p.output_voltage ? 'Primary' : 'Voltage', value: p.input_voltage ? `${p.input_voltage} V` : '' },
@@ -128,10 +133,17 @@ export default async function InventoryProductPage({ params }: Props) {
               {p.warranty && <li><span>Warranty</span>{p.warranty}</li>}
             </ul>
 
-            <div className="pd-actions">
-              <a href="#quote" className="btn btn-primary">Request a quote</a>
-              <a href={PHONE.href} className="btn btn-outline-blue">Call {PHONE.label}</a>
-            </div>
+            {buyable ? (
+              <div id="buy">
+                <AddToCart id={p.id} slug={p.slug} sku={p.sku} name={p.name} price={p.price_min as number} currency={p.currency} image={p.images[0] ?? null} available={p.available} />
+                <p className="shop-alt">Buying several units or need site changes? <a href="#quote">Request a quote for volume pricing</a> or call <a href={PHONE.href}>{PHONE.label}</a>.</p>
+              </div>
+            ) : (
+              <div className="pd-actions">
+                <a href="#quote" className="btn btn-primary">Request a quote</a>
+                <a href={PHONE.href} className="btn btn-outline-blue">Call {PHONE.label}</a>
+              </div>
+            )}
             {p.documents[0] && (
               <a href={p.documents[0].url} className="pd-doc-link" target="_blank" rel="noreferrer">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="M6 3h9l4 4v14H6z" /><path d="M14 3v5h5M12 11v6M9 14l3 3 3-3" /></svg>
@@ -238,7 +250,7 @@ export default async function InventoryProductPage({ params }: Props) {
 
       <div className="pd-mobilebar">
         <div><small>{price.kicker}</small><strong>{price.value}</strong></div>
-        <a href="#quote" className="btn btn-primary">Request a quote</a>
+        {buyable ? <a href="#buy" className="btn btn-primary">Buy online</a> : <a href="#quote" className="btn btn-primary">Request a quote</a>}
       </div>
     </>
   )

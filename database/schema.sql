@@ -41,6 +41,7 @@ CREATE TABLE IF NOT EXISTS products (
   price_min DECIMAL(14,2) NULL,
   price_max DECIMAL(14,2) NULL,
   show_price TINYINT(1) NOT NULL DEFAULT 1,
+  purchase_mode VARCHAR(12) NOT NULL DEFAULT 'quote' COMMENT 'quote | buy (online checkout)',
   currency CHAR(3) NOT NULL DEFAULT 'CAD',
   stock_quantity INT UNSIGNED NOT NULL DEFAULT 0,
   location VARCHAR(120) NOT NULL DEFAULT '',
@@ -78,4 +79,109 @@ CREATE TABLE IF NOT EXISTS product_images (
   PRIMARY KEY (id),
   KEY idx_product_images_product (product_id, sort_order),
   CONSTRAINT fk_product_images_product FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ── Online ordering (Stripe) ─────────────────────────────────────────────
+-- All times are UTC (DATETIME written with UTC_TIMESTAMP()).
+
+CREATE TABLE IF NOT EXISTS shop_settings (
+  setting_key VARCHAR(64) NOT NULL,
+  value_json JSON NOT NULL,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (setting_key)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS orders (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  order_number VARCHAR(20) NULL,
+  access_token CHAR(43) NOT NULL COMMENT 'Lets the buyer open /order/<number> without an account',
+  status VARCHAR(30) NOT NULL DEFAULT 'pending_payment',
+  currency CHAR(3) NOT NULL DEFAULT 'CAD',
+  subtotal DECIMAL(14,2) NOT NULL DEFAULT 0,
+  freight DECIMAL(14,2) NOT NULL DEFAULT 0,
+  freight_note VARCHAR(255) NOT NULL DEFAULT '',
+  tax DECIMAL(14,2) NOT NULL DEFAULT 0,
+  total DECIMAL(14,2) NOT NULL DEFAULT 0,
+  amount_refunded DECIMAL(14,2) NOT NULL DEFAULT 0,
+  customer_name VARCHAR(160) NOT NULL,
+  company VARCHAR(160) NOT NULL DEFAULT '',
+  email VARCHAR(254) NOT NULL,
+  phone VARCHAR(40) NOT NULL DEFAULT '',
+  po_number VARCHAR(60) NOT NULL DEFAULT '',
+  customer_notes TEXT NULL,
+  fulfilment VARCHAR(12) NOT NULL DEFAULT 'delivery' COMMENT 'delivery | pickup',
+  ship_line1 VARCHAR(200) NOT NULL DEFAULT '',
+  ship_line2 VARCHAR(200) NOT NULL DEFAULT '',
+  ship_city VARCHAR(120) NOT NULL DEFAULT '',
+  ship_region VARCHAR(10) NOT NULL DEFAULT '',
+  ship_postal VARCHAR(20) NOT NULL DEFAULT '',
+  ship_country CHAR(2) NOT NULL DEFAULT 'CA',
+  tracking_carrier VARCHAR(80) NOT NULL DEFAULT '',
+  tracking_number VARCHAR(120) NOT NULL DEFAULT '',
+  admin_notes TEXT NULL,
+  payment_method VARCHAR(40) NOT NULL DEFAULT '',
+  stripe_session_id VARCHAR(255) NULL,
+  stripe_payment_intent VARCHAR(255) NULL,
+  stripe_customer_id VARCHAR(255) NULL,
+  live_mode TINYINT(1) NOT NULL DEFAULT 0,
+  stock_released TINYINT(1) NOT NULL DEFAULT 0 COMMENT 'Stock returned after a failed payment or cancellation',
+  paid_at DATETIME NULL,
+  shipped_at DATETIME NULL,
+  created_at DATETIME NOT NULL,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  UNIQUE KEY uq_order_number (order_number),
+  UNIQUE KEY uq_order_session (stripe_session_id),
+  KEY idx_orders_status (status, created_at),
+  KEY idx_orders_email (email)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS order_items (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  order_id BIGINT UNSIGNED NOT NULL,
+  product_id BIGINT UNSIGNED NULL,
+  sku VARCHAR(100) NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  slug VARCHAR(190) NOT NULL DEFAULT '',
+  unit_price DECIMAL(14,2) NOT NULL,
+  quantity INT UNSIGNED NOT NULL,
+  line_total DECIMAL(14,2) NOT NULL,
+  PRIMARY KEY (id),
+  KEY idx_order_items_order (order_id),
+  CONSTRAINT fk_order_items_order FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE,
+  CONSTRAINT fk_order_items_product FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS order_events (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  order_id BIGINT UNSIGNED NOT NULL,
+  event VARCHAR(40) NOT NULL,
+  note VARCHAR(500) NOT NULL DEFAULT '',
+  actor VARCHAR(190) NOT NULL DEFAULT 'system',
+  created_at DATETIME NOT NULL,
+  PRIMARY KEY (id),
+  KEY idx_order_events_order (order_id, id),
+  CONSTRAINT fk_order_events_order FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Units held while a buyer is on the Stripe payment page; ignored once expires_at passes
+CREATE TABLE IF NOT EXISTS stock_holds (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  order_id BIGINT UNSIGNED NOT NULL,
+  product_id BIGINT UNSIGNED NOT NULL,
+  quantity INT UNSIGNED NOT NULL,
+  expires_at DATETIME NOT NULL,
+  PRIMARY KEY (id),
+  KEY idx_stock_holds_product (product_id, expires_at),
+  KEY idx_stock_holds_order (order_id),
+  CONSTRAINT fk_stock_holds_order FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE,
+  CONSTRAINT fk_stock_holds_product FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Stripe webhook events already handled (Stripe retries deliveries)
+CREATE TABLE IF NOT EXISTS stripe_events (
+  event_id VARCHAR(255) NOT NULL,
+  event_type VARCHAR(80) NOT NULL,
+  received_at DATETIME NOT NULL,
+  PRIMARY KEY (event_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

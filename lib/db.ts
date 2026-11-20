@@ -78,6 +78,7 @@ export type CatalogProduct = RowDataPacket & {
   specs_json: Json
   is_featured: number
   is_active: number
+  purchase_mode: string
   primary_image_id: number | null
   created_at: Date
   updated_at: Date
@@ -128,6 +129,9 @@ export function normalizeProduct(row: CatalogProduct) {
 
 export type InventoryProduct = ReturnType<typeof normalizeProduct>
 
+/** Units held by buyers who are on the Stripe payment page right now (see lib/shop/orders.ts). */
+export const ACTIVE_HOLDS = '(SELECT COALESCE(SUM(h.quantity),0) FROM stock_holds h WHERE h.product_id=p.id AND h.expires_at > UTC_TIMESTAMP())'
+
 // Only uploaded photos (image_data) are ever shown; see app/api/media/[id]/route.ts
 const PRIMARY_IMAGE = '(SELECT pi.id FROM product_images pi WHERE pi.product_id=p.id AND pi.image_data IS NOT NULL ORDER BY pi.sort_order,pi.id LIMIT 1) primary_image_id'
 
@@ -136,9 +140,15 @@ export async function getPublicProduct(slug: string) {
   if (!isDatabaseConfigured()) return null
   try {
     const db = getDb()
-    const [rows] = await db.execute<CatalogProduct[]>(`SELECT p.*, ${PRIMARY_IMAGE} FROM products p WHERE p.slug=? AND p.is_active=1 LIMIT 1`, [slug])
+    const [rows] = await db.execute<(CatalogProduct & { available: number | string })[]>(
+      `SELECT p.*, ${PRIMARY_IMAGE}, GREATEST(p.stock_quantity - ${ACTIVE_HOLDS}, 0) available FROM products p WHERE p.slug=? AND p.is_active=1 LIMIT 1`, [slug],
+    ).catch(async error => {
+      // Before the shop tables exist (first start after deploy), fall back to plain stock
+      if ((error as { code?: string }).code !== 'ER_NO_SUCH_TABLE') throw error
+      return db.execute<(CatalogProduct & { available: number | string })[]>(`SELECT p.*, ${PRIMARY_IMAGE}, p.stock_quantity available FROM products p WHERE p.slug=? AND p.is_active=1 LIMIT 1`, [slug])
+    })
     if (!rows[0]) return null
-    const product = normalizeProduct(rows[0])
+    const product = { ...normalizeProduct(rows[0]), available: Number(rows[0].available) }
     const [images] = await db.execute<(RowDataPacket & { id: number })[]>('SELECT id FROM product_images WHERE product_id=? AND image_data IS NOT NULL ORDER BY sort_order,id', [product.id])
     const [related] = await db.execute<CatalogProduct[]>(
       `SELECT p.*, ${PRIMARY_IMAGE} FROM products p WHERE p.is_active=1 AND p.id<>? ORDER BY (p.category=?) DESC, p.is_featured DESC, p.updated_at DESC LIMIT 3`,

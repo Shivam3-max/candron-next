@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import CartLink from '@/components/shop/CartLink'
 import { usePathname } from 'next/navigation'
 import CanadaFlag from '@/components/CanadaFlag'
 
@@ -361,6 +362,7 @@ export default function Navbar() {
                   <span className="hdr-call-text"><small>Call us now · 24/7</small><strong>{PHONE_LABEL}</strong></span>
                 </a>
                 <Link href="/inventory" className="hdr-shop">{shopIcon}Shop Inventory</Link>
+                <CartLink />
                 <Link href="/contact" className="hdr-quote">Request a Quote</Link>
               </div>
             </div>
@@ -425,6 +427,7 @@ export default function Navbar() {
                 )
               })}
               <Link className="hdr-nav-shop" href="/inventory" aria-label="Shop in-stock inventory">{shopIcon}<span>Shop</span></Link>
+              <CartLink className="shop-cart-compact" />
               <a className="hdr-nav-call" href={PHONE_HREF} aria-label={`Call CANDRON at ${PHONE_LABEL}`}>{phoneIcon}</a>
             </nav>
           </div>
@@ -432,6 +435,7 @@ export default function Navbar() {
           <div className="hdr-mobile-actions">
             <Link className="hdr-mobile-shop" href="/inventory" aria-label="Shop in-stock inventory">{shopIcon}<span className="hdr-shop-long">Shop Inventory</span><span className="hdr-shop-short">Shop</span></Link>
             <a className="hdr-mobile-call" href={PHONE_HREF} aria-label={`Call CANDRON at ${PHONE_LABEL}`}>{phoneIcon}<span>Call</span></a>
+            <CartLink className="shop-cart-mobile" />
             <button
               className="hdr-ham"
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
