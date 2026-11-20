@@ -182,6 +182,8 @@ Ships switched **off**. Nothing changes publicly until the steps below are done.
    - `checkout.session.async_payment_failed`
    - `checkout.session.expired`
    - `charge.refunded`
+   - `invoice.paid` (added in phase 2)
+   - `invoice.payment_failed` (added in phase 2)
 3. In Hostinger, set the environment variables:
    - `STRIPE_SECRET_KEY` (`sk_test_…` first; a restricted key is fine)
    - `STRIPE_WEBHOOK_SECRET` (`whsec_…`)
@@ -192,3 +194,25 @@ Ships switched **off**. Nothing changes publicly until the steps below are done.
    - Admin → Shop settings: pickup address, freight rates, card limit, notification email. Switch "Take orders online" on.
    - Admin → each listing to sell: set Online purchase = Buy online, add a shipping weight, and make sure a single price is shown.
 5. Place test orders with Stripe test cards and a test bank debit. Check the emails, the admin order and the stock. Then swap in the live keys and webhook secret.
+
+## Phase 2: built (Nov 20 2026)
+
+**Quotes**
+- Product "Request a quote" submissions are stored as requests (Admin → Quotes → Requests).
+- One click turns a request into a quote. The admin can add inventory units and custom lines, plus freight, delivery address, message, internal notes and an expiry date.
+- Payment terms per quote: pay in full online, deposit % online with the balance invoiced, or net-terms invoice.
+- "Save and send" emails the buyer a private link to `/quote/Q-…`. Quotes expire automatically after their date.
+- The buyer accepts with an optional PO number:
+  - pay in full or deposit → Stripe Checkout, with inventory units held during payment;
+  - net terms → stock is reserved and a Stripe invoice is issued and emailed.
+- If Stripe fails, acceptance is rolled back and the quote stays open.
+
+**Deposits and invoices**
+- New listing mode, "Reserve with deposit". It has its own deposit % (or the shop default) and a Reserve box on the product page that leads to a deposit checkout. Freight is quoted later.
+- When the deposit is paid, the order becomes "Deposit paid" and the unit "Reserved".
+- From the order, admin sends a **balance invoice** (order value − deposit + freight, editable). It uses Stripe Invoicing with Stripe Tax, card under the limit or bank debit, and Stripe emails it.
+- `invoice.paid` → the order becomes Paid and the unit Sold. Invoices paid by wire or cheque can be **marked paid offline** (they're also marked paid in Stripe).
+- Cancelling an invoiced order voids the Stripe invoice and returns the stock.
+- Refunds: the admin button refunds the checkout payment (full order or deposit). Invoice payments are refunded from the invoice in the Stripe dashboard.
+
+**Not in phase 2:** bank-transfer virtual accounts. Stripe's customer-balance transfers don't support CAD, so CAD buyers use pre-authorized debit or wire (mark paid offline).

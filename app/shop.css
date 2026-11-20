@@ -180,3 +180,31 @@
 .ia-freight td:nth-child(2) input { min-width: 180px; }
 .ia-freight .ia-x { width: 34px; height: 34px; }
 @media (max-width: 760px) { .ia-two { grid-template-columns: 1fr; } }
+.ia-mt-btn { margin-top: .9rem; }
+
+/* quotes (public page) */
+.shop-quote-message { white-space: pre-wrap; line-height: 1.6; color: #33415F; }
+.shop-line-desc { display: block; font-style: normal; font-size: .82rem; color: var(--gray); margin-top: .15rem; }
+.shop-accept { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0, 71, 255, .08); }
+.shop-invoice { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; border-color: #22B566; }
+.shop-invoice p { color: #33415F; margin: 0; }
+
+/* admin quotes */
+.ia-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; padding: 3px; border: 1px solid #D5DCEA; border-radius: 10px; background: #F4F6FA; }
+.ia-tabs button { padding: .45rem; border: 0; border-radius: 7px; background: none; font: inherit; font-weight: 700; font-size: .85rem; color: var(--navy); cursor: pointer; }
+.ia-tabs button.on { background: #fff; box-shadow: 0 1px 3px rgba(5, 9, 31, .1); }
+.ia-request { display: grid; gap: .45rem; padding: .6rem; border: 1px solid #E3E8F1; border-radius: 10px; }
+.ia-request-msg { white-space: normal !important; }
+.ia-request-actions { display: flex; gap: .4rem; }
+.ia-small { min-height: 34px; padding: 0 .7rem; font-size: .82rem; }
+.ia-fieldset { border: 0; margin: 0; padding: 0; min-width: 0; display: grid; gap: 1rem; }
+.ia-fieldset:disabled { opacity: .75; }
+.ia-lines td:first-child input { min-width: 220px; }
+.ia-lines td:nth-child(3) input { min-width: 180px; }
+.ia-lines td:nth-child(4) input { min-width: 60px; width: 70px; }
+.ia-lines .ia-hint { display: block; margin-top: .2rem; }
+.ia-inline select { min-height: 40px; max-width: 100%; }
+.ia-editor .ia-banner { margin: 0; }
+.ia-editor .ia-banner a { color: inherit; font-weight: 800; }
+/* keep checkboxes and radios at their normal size inside admin cards */
+.ia input[type='radio'], .ia input[type='checkbox'] { width: 18px; height: 18px; min-height: 0; min-width: 0; padding: 0; flex: 0 0 auto; accent-color: var(--blue); }

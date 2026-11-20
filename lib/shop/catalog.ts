@@ -10,19 +10,25 @@ type Row = RowDataPacket & {
   id: number; slug: string; sku: string; name: string; status: string; is_active: number; purchase_mode: string
   show_price: number; price_min: string | null; price_max: string | null; currency: string; stock_quantity: number
   weight: string | null; weight_unit: string; held: string | null; image_id: number | null; lead_time: string
+  deposit_percent: string | null
 }
 
 export interface PricedLine {
   id: number; slug: string; sku: string; name: string; image: string | null; currency: string; leadTime: string
   unitPrice: number; quantity: number; available: number; lineTotal: number; weightLb: number | null
+  /** Listing's own deposit % for reserve mode (null = shop default) */
+  depositPercent: number | null
   error: string | null
 }
 
+/** "buy" = cart checkout; "reserve" = pay a deposit online, balance invoiced later. */
+export type PurchaseMode = 'buy' | 'reserve'
+
 const toNum = (v: string | null) => (v === null ? null : Number(v))
 
-/** Why a product can't be bought online right now, or null if it can. */
-export function purchaseBlock(p: { is_active: number | boolean; status: string; purchase_mode: string; show_price: number | boolean; price_min: number | null; price_max: number | null }, available: number) {
-  if (!p.is_active || p.purchase_mode !== 'buy') return 'This item is quote-only.'
+/** Why a product can't be bought (or reserved) online right now, or null if it can. */
+export function purchaseBlock(p: { is_active: number | boolean; status: string; purchase_mode: string; show_price: number | boolean; price_min: number | null; price_max: number | null }, available: number, mode: PurchaseMode = 'buy') {
+  if (!p.is_active || p.purchase_mode !== mode) return mode === 'buy' && p.purchase_mode === 'reserve' ? 'This item is reserved with a deposit, not added to the cart.' : 'This item is quote-only.'
   if (!p.show_price || p.price_min === null || (p.price_max !== null && p.price_max !== p.price_min)) return 'Price on request.'
   if (p.status === 'Sold' || p.status === 'Reserved') return `This item is ${p.status.toLowerCase()}.`
   if (available <= 0) return 'Out of stock.'
@@ -30,7 +36,7 @@ export function purchaseBlock(p: { is_active: number | boolean; status: string; 
 }
 
 /** Prices the cart. Pass a transaction connection + lock=true when creating an order. */
-export async function priceCart(items: CartRequestItem[], opts: { conn?: PoolConnection; lock?: boolean } = {}) {
+export async function priceCart(items: CartRequestItem[], opts: { conn?: PoolConnection; lock?: boolean; mode?: PurchaseMode } = {}) {
   const wanted = new Map<number, number>()
   for (const it of items.slice(0, 50)) {
     const id = Math.floor(Number(it.id)), qty = Math.floor(Number(it.quantity))
@@ -43,7 +49,7 @@ export async function priceCart(items: CartRequestItem[], opts: { conn?: PoolCon
   if (opts.lock) await db.query(`SELECT id FROM products WHERE id IN (${ids.map(() => '?').join(',')}) FOR UPDATE`, ids)
   const [rows] = await db.query<Row[]>(
     `SELECT p.id, p.slug, p.sku, p.name, p.status, p.is_active, p.purchase_mode, p.show_price, p.price_min, p.price_max, p.currency,
-            p.stock_quantity, p.weight, p.weight_unit, p.lead_time, ${ACTIVE_HOLDS} held,
+            p.stock_quantity, p.weight, p.weight_unit, p.lead_time, p.deposit_percent, ${ACTIVE_HOLDS} held,
             (SELECT pi.id FROM product_images pi WHERE pi.product_id=p.id AND pi.image_data IS NOT NULL ORDER BY pi.sort_order,pi.id LIMIT 1) image_id
      FROM products p WHERE p.id IN (${ids.map(() => '?').join(',')})`,
     ids,
@@ -55,13 +61,13 @@ export async function priceCart(items: CartRequestItem[], opts: { conn?: PoolCon
     if (!r) { errors.push('An item in your cart is no longer available and was removed.'); continue }
     const available = Math.max(0, r.stock_quantity - Number(r.held ?? 0))
     const price = toNum(r.price_min)
-    const block = purchaseBlock({ ...r, price_min: price, price_max: toNum(r.price_max) }, available)
+    const block = purchaseBlock({ ...r, price_min: price, price_max: toNum(r.price_max) }, available, opts.mode ?? 'buy')
     const quantity = wanted.get(id)!
     const error = block ?? (quantity > available ? `Only ${available} available.` : null)
     lines.push({
       id, slug: r.slug, sku: r.sku, name: r.name, image: r.image_id ? `/api/media/${r.image_id}` : null, currency: r.currency,
       leadTime: r.lead_time, unitPrice: price ?? 0, quantity, available, lineTotal: Math.round((price ?? 0) * quantity * 100) / 100,
-      weightLb: lineWeightLb(toNum(r.weight), r.weight_unit, quantity), error,
+      weightLb: lineWeightLb(toNum(r.weight), r.weight_unit, quantity), depositPercent: toNum(r.deposit_percent), error,
     })
   }
   const currencies = new Set(lines.map(l => l.currency))

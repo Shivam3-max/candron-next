@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import AdminNav from '@/components/admin/AdminNav'
-import { ADMIN_STATUSES, ORDER_STATUSES, formatMoney, statusLabel, statusTone } from '@/lib/shop/order-status'
+import { ADMIN_STATUSES, ORDER_STATUSES, PAYMENT_TERMS, formatMoney, statusLabel, statusTone, type PaymentTerms } from '@/lib/shop/order-status'
 import { regionName } from '@/lib/shop/regions'
 
 interface ListRow { id: number; order_number: string; status: string; currency: string; total: string; amount_refunded: string; customer_name: string; company: string; email: string; fulfilment: string; live_mode: number; created_at: string; items: number }
@@ -25,6 +25,7 @@ export default function AdminOrders({ initialOrders, initialId, adminEmail, stri
   const [busy, setBusy] = useState(false)
   const [edit, setEdit] = useState({ status: '', note: '', trackingCarrier: '', trackingNumber: '', adminNotes: '' })
   const [refund, setRefund] = useState({ amount: '', reason: '' })
+  const [invoice, setInvoice] = useState({ freight: '', days: '14', note: '' })
 
   const loadList = useCallback(async () => {
     const q = new URLSearchParams({ ...(filter.status && { status: filter.status }), ...(filter.q && { q: filter.q }), ...(filter.all && { all: '1' }) })
@@ -62,6 +63,25 @@ export default function AdminOrders({ initialOrders, initialId, adminEmail, stri
     await Promise.all([loadDetail(detail.order.id), loadList()])
   }
 
+  async function invoiceAction(action: 'balance' | 'mark_paid') {
+    if (!detail) return
+    const question = action === 'balance'
+      ? 'Send the balance invoice to the buyer through Stripe? Stripe emails it and the buyer pays by bank debit or card.'
+      : 'Mark this invoice as paid outside Stripe (wire transfer or cheque received)?'
+    if (!window.confirm(question)) return
+    setBusy(true); setMsg(null)
+    const r = await fetch(`/api/admin/orders/${detail.order.id}/invoice`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(action === 'balance' ? { action, freight: invoice.freight, days: Number(invoice.days) } : { action, note: invoice.note }),
+    })
+    const d = await r.json().catch(() => ({}))
+    setBusy(false)
+    if (!r.ok) { setMsg({ tone: 'err', text: d.error || 'Could not complete that.' }); return }
+    setMsg({ tone: 'ok', text: action === 'balance' ? 'Balance invoice sent through Stripe.' : 'Invoice marked paid.' })
+    setInvoice({ freight: '', days: '14', note: '' })
+    await Promise.all([loadDetail(detail.order.id), loadList()])
+  }
+
   async function doRefund() {
     if (!detail) return
     const cur = detail.order.currency
@@ -84,7 +104,7 @@ export default function AdminOrders({ initialOrders, initialId, adminEmail, stri
 
   const o = detail?.order
   const cur = o?.currency ?? 'CAD'
-  const refundable = o && o.stripe_payment_intent && Number(o.total) - Number(o.amount_refunded) > 0 && !['pending_payment', 'expired', 'payment_failed', 'payment_processing'].includes(o.status)
+  const refundable = o && o.stripe_payment_intent && Number(o.amount_paid) - Number(o.amount_refunded) > 0 && !['pending_payment', 'expired', 'payment_failed', 'payment_processing'].includes(o.status)
 
   return (
     <div className="ia">
@@ -152,7 +172,14 @@ export default function AdminOrders({ initialOrders, initialId, adminEmail, stri
                     {Number(o.amount_refunded) > 0 && <tr><td colSpan={2}>Refunded</td><td className="ia-num">−{formatMoney(Number(o.amount_refunded), cur)}</td></tr>}
                   </tbody>
                 </table>
-                <p className="ia-note">Payment: {String(o.payment_method || '—')}{o.paid_at ? ` · paid ${when(String(o.paid_at))}` : ''}</p>
+                <p className="ia-note">
+                  Terms: <strong>{PAYMENT_TERMS[(o.payment_terms as PaymentTerms) ?? 'pay_now']}</strong>
+                  {Number(o.deposit_amount) > 0 && <> · deposit {formatMoney(Number(o.deposit_amount), cur)} before tax</>}
+                  {' · '}paid so far {formatMoney(Number(o.amount_paid), cur)}
+                  {' · '}payment: {String(o.payment_method || '—')}{o.paid_at ? ` · ${when(String(o.paid_at))}` : ''}
+                  {o.invoice_url ? <> · <a href={String(o.invoice_url)} target="_blank" rel="noreferrer">Stripe invoice ↗</a>{o.invoice_due ? ` due ${String(o.invoice_due).slice(0, 10)}` : ''}</> : null}
+                  {o.quote_id ? ` · from quote #${o.quote_id}` : ''}
+                </p>
               </section>
 
               <section className="ia-card ia-two">
@@ -189,11 +216,34 @@ export default function AdminOrders({ initialOrders, initialId, adminEmail, stri
                 </div>
               </section>
 
+              {o.status === 'deposit_paid' && (
+                <section className="ia-card">
+                  <h3>Balance invoice</h3>
+                  <p className="ia-note">Invoices the order value minus the {formatMoney(Number(o.deposit_amount), cur)} deposit, plus freight. Stripe adds tax and emails the invoice; the order moves to Paid when it’s paid.</p>
+                  <div className="ia-grid">
+                    <label className="ia-field"><span className="ia-label">Freight ({cur}, before tax)</span><input inputMode="decimal" placeholder={`Current: ${Number(o.freight).toFixed(2)}`} value={invoice.freight} onChange={e => setInvoice(v => ({ ...v, freight: e.target.value }))} /></label>
+                    <label className="ia-field"><span className="ia-label">Days to pay</span><input inputMode="numeric" value={invoice.days} onChange={e => setInvoice(v => ({ ...v, days: e.target.value.replace(/\D/g, '') }))} /></label>
+                  </div>
+                  <button type="button" className="ia-btn ia-primary ia-mt-btn" onClick={() => invoiceAction('balance')} disabled={busy}>Send balance invoice</button>
+                </section>
+              )}
+
+              {o.status === 'invoiced' && (
+                <section className="ia-card">
+                  <h3>Invoice payment</h3>
+                  <p className="ia-note">Paid online, the order updates automatically. If the buyer paid by wire transfer or cheque, record it here (it’s also marked paid in Stripe).</p>
+                  <div className="ia-grid">
+                    <label className="ia-field ia-wide"><span className="ia-label">Payment reference (wire / cheque no.)</span><input value={invoice.note} onChange={e => setInvoice(v => ({ ...v, note: e.target.value }))} /></label>
+                  </div>
+                  <button type="button" className="ia-btn ia-ghost ia-mt-btn" onClick={() => invoiceAction('mark_paid')} disabled={busy}>Mark invoice paid (offline)</button>
+                </section>
+              )}
+
               {refundable && (
                 <section className="ia-card">
                   <h3>Refund</h3>
                   <div className="ia-grid">
-                    <label className="ia-field"><span className="ia-label">Amount ({cur})</span><input inputMode="decimal" placeholder={`Full: ${(Number(o.total) - Number(o.amount_refunded)).toFixed(2)}`} value={refund.amount} onChange={e => setRefund(r => ({ ...r, amount: e.target.value }))} /></label>
+                    <label className="ia-field"><span className="ia-label">Amount ({cur})</span><input inputMode="decimal" placeholder="Blank = full checkout payment" value={refund.amount} onChange={e => setRefund(r => ({ ...r, amount: e.target.value }))} /></label>
                     <label className="ia-field ia-wide"><span className="ia-label">Reason (internal)</span><input value={refund.reason} onChange={e => setRefund(r => ({ ...r, reason: e.target.value }))} /></label>
                   </div>
                   <button type="button" className="ia-btn ia-danger" onClick={doRefund} disabled={busy}>Refund through Stripe</button>

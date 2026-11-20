@@ -16,7 +16,8 @@ export async function POST(req: Request) {
   const a = body.address && typeof body.address === 'object' ? body.address as Record<string, unknown> : null
   const address = a && a.country && a.region ? { country: String(a.country).toUpperCase(), region: String(a.region).toUpperCase(), postal: String(a.postal ?? '') } : null
   try {
-    const [open, quote] = await Promise.all([shopIsOpen(), quoteCheckout(items, fulfilment, address)])
+    const mode = body.mode === 'reserve' ? 'reserve' : 'buy'
+    const [open, quote] = await Promise.all([shopIsOpen(), quoteCheckout(items, fulfilment, address, mode)])
     return NextResponse.json({ open, ...quote })
   } catch (error) {
     console.error('[shop] cart pricing failed', error instanceof Error ? error.message : error)

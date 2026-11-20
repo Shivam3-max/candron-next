@@ -21,7 +21,10 @@ export default async function OrderPage({ params, searchParams }: Props) {
   const { order, items } = found
   const cur = order.currency
   const status = order.status
-  const step = STEPS.indexOf(status === 'payment_processing' ? 'paid' : status)
+  const step = STEPS.indexOf(['payment_processing', 'deposit_paid', 'invoiced'].includes(status) ? 'paid' : status)
+  const firstStep = status === 'payment_processing' ? 'Payment processing' : status === 'deposit_paid' ? 'Deposit paid' : status === 'invoiced' ? 'Invoice sent' : null
+  const staged = order.payment_terms !== 'pay_now'
+  const due = order.invoice_due ? String(order.invoice_due instanceof Date ? order.invoice_due.toISOString() : order.invoice_due).slice(0, 10) : null
   const freightText = order.freight_note === 'Freight quoted separately' ? 'Quoted separately' : formatMoney(Number(order.freight), cur)
 
   return (
@@ -47,7 +50,7 @@ export default async function OrderPage({ params, searchParams }: Props) {
 
         {step >= 0 && (
           <ol className="shop-steps" aria-label="Order progress">
-            {STEPS.map((s, i) => <li key={s} className={i <= step ? 'done' : ''}>{s === 'paid' && status === 'payment_processing' ? 'Payment processing' : statusLabel(s)}</li>)}
+            {STEPS.map((s, i) => <li key={s} className={i <= step ? 'done' : ''}>{s === 'paid' && firstStep ? firstStep : statusLabel(s)}</li>)}
           </ol>
         )}
 
@@ -63,10 +66,30 @@ export default async function OrderPage({ params, searchParams }: Props) {
           </ul>
           <div className="shop-summary-row"><span>Subtotal</span><strong>{formatMoney(Number(order.subtotal), cur)}</strong></div>
           <div className="shop-summary-row"><span>{order.freight_note || 'Freight'}</span><strong>{freightText}</strong></div>
-          <div className="shop-summary-row"><span>Tax</span><strong>{formatMoney(Number(order.tax), cur)}</strong></div>
-          <div className="shop-summary-row shop-total"><span>Total ({cur})</span><strong>{formatMoney(Number(order.total), cur)}</strong></div>
+          {staged && order.status !== 'paid' ? (
+            <>
+              {order.payment_terms === 'deposit' && <div className="shop-summary-row"><span>Deposit (before tax)</span><strong>{formatMoney(Number(order.deposit_amount), cur)}</strong></div>}
+              <div className="shop-summary-row"><span>Paid so far (incl. tax)</span><strong>{formatMoney(Number(order.amount_paid), cur)}</strong></div>
+              <p className="shop-fine">Tax on the {order.payment_terms === 'deposit' ? 'balance' : 'order'} is added to the invoice.</p>
+            </>
+          ) : (
+            <>
+              <div className="shop-summary-row"><span>Tax</span><strong>{formatMoney(Number(order.tax), cur)}</strong></div>
+              <div className="shop-summary-row shop-total"><span>Total ({cur})</span><strong>{formatMoney(Number(order.total), cur)}</strong></div>
+            </>
+          )}
           {Number(order.amount_refunded) > 0 && <div className="shop-summary-row"><span>Refunded</span><strong>−{formatMoney(Number(order.amount_refunded), cur)}</strong></div>}
         </div>
+
+        {status === 'invoiced' && order.invoice_url && (
+          <div className="shop-card shop-invoice">
+            <div>
+              <h2>Invoice ready</h2>
+              <p>Pay online by bank debit or card{due ? ` by ${due}` : ''}. Stripe has also emailed you the invoice.</p>
+            </div>
+            <a href={order.invoice_url} className="btn btn-primary" target="_blank" rel="noreferrer">View and pay invoice</a>
+          </div>
+        )}
 
         <div className="shop-card shop-two">
           <div>

@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import { FormEvent, useEffect, useState } from 'react'
 import { useCart } from '@/lib/shop/cart-store'
 import { formatMoney } from '@/lib/shop/order-status'
@@ -14,12 +15,20 @@ interface Quote {
   methods: string[]; cardLimit: number | null; automaticTax: boolean
   pickup: { label: string; city: string; region: string } | null
   shipCountries: CountryCode[]
+  deposit: { percent: number; amount: number } | null
 }
 
 const blankAddress = { line1: '', line2: '', city: '', region: '', postal: '', country: 'CA' as CountryCode }
 
 export default function CheckoutForm() {
-  const items = useCart()
+  const cart = useCart()
+  // /checkout?reserve=<id>&qty=<n> pays a deposit on one listing instead of checking out the cart
+  const params = useSearchParams()
+  const reserveId = Number(params.get('reserve')) || 0
+  const mode: 'buy' | 'reserve' = reserveId ? 'reserve' : 'buy'
+  const items = reserveId
+    ? [{ id: reserveId, quantity: Math.max(1, Number(params.get('qty')) || 1), currency: 'CAD', sku: '', name: '', price: 0 }]
+    : cart
   const [contact, setContact] = useState({ name: '', company: '', email: '', phone: '', poNumber: '', notes: '' })
   const [fulfilment, setFulfilment] = useState<'delivery' | 'pickup'>('delivery')
   const [address, setAddress] = useState(blankAddress)
@@ -40,15 +49,16 @@ export default function CheckoutForm() {
         method: 'POST', headers: { 'Content-Type': 'application/json' }, signal: ctrl.signal,
         body: JSON.stringify({
           items: itemKey.split(',').map(p => ({ id: Number(p.split(':')[0]), quantity: Number(p.split(':')[1]) })),
+          mode,
           fulfilment,
           address: fulfilment === 'delivery' && address.region ? { country: address.country, region: address.region, postal: postalKey } : null,
         }),
       }).then(r => r.json()).then((d: Quote) => setQuote(d)).catch(() => {})
     }, 300)
     return () => { clearTimeout(t); ctrl.abort() }
-  }, [itemKey, fulfilment, address.country, address.region, postalKey])
+  }, [itemKey, mode, fulfilment, address.country, address.region, postalKey])
 
-  if (!items.length) {
+  if (!items.length && mode === 'buy') {
     return (
       <div className="shop-empty">
         <p>Your cart is empty.</p>
@@ -74,7 +84,7 @@ export default function CheckoutForm() {
     try {
       const r = await fetch('/api/shop/checkout', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...contact, fulfilment, address, acceptTerms, items: items.map(i => ({ id: i.id, quantity: i.quantity })), website: (e.currentTarget as HTMLFormElement).website?.value }),
+        body: JSON.stringify({ ...contact, mode, fulfilment, address, acceptTerms, items: items.map(i => ({ id: i.id, quantity: i.quantity })), website: (e.currentTarget as HTMLFormElement).website?.value }),
       })
       const d = await r.json().catch(() => ({}))
       if (!r.ok || !d.url) throw new Error(d.error || 'Could not start checkout.')
@@ -152,7 +162,15 @@ export default function CheckoutForm() {
         </div>
         {quote?.freight && !quote.freight.ok && <p className="shop-error">{quote.freight.error} <Link href="/contact">Request a quote</Link></p>}
         <div className="shop-summary-row"><span>Tax</span><strong>{quote?.automaticTax === false ? 'Not charged online' : 'Calculated on next step'}</strong></div>
-        <div className="shop-summary-row shop-total"><span>Total before tax</span><strong>{quote ? formatMoney(quote.subtotal + freightAmount, currency) : '…'}</strong></div>
+        {quote?.deposit ? (
+          <>
+            <div className="shop-summary-row"><span>Order value before tax</span><strong>{formatMoney(quote.subtotal, currency)}</strong></div>
+            <div className="shop-summary-row shop-total"><span>Deposit due now ({quote.deposit.percent}%)</span><strong>{formatMoney(quote.deposit.amount, currency)}</strong></div>
+            <p className="shop-fine">Tax on the deposit is added on the payment page. The balance and freight are invoiced before shipping.</p>
+          </>
+        ) : (
+          <div className="shop-summary-row shop-total"><span>Total before tax</span><strong>{quote ? formatMoney(quote.subtotal + freightAmount, currency) : '…'}</strong></div>
+        )}
         {quote && (
           <p className="shop-fine">
             Pay by {quote.methods.includes('card') ? 'card (Visa, Mastercard, Amex, Apple Pay, Google Pay)' : ''}{quote.methods.includes('card') && quote.methods.length > 2 ? ' or ' : ''}{quote.methods.some(m => m === 'acss_debit' || m === 'us_bank_account') ? 'bank debit from a business account' : ''}.
@@ -167,10 +185,10 @@ export default function CheckoutForm() {
         </label>
         {error && <p className="shop-error" role="alert">{error}</p>}
         <button className="btn btn-primary shop-wide" disabled={blocked || state === 'sending' || !acceptTerms}>
-          {state === 'sending' ? 'Opening secure payment…' : 'Continue to secure payment'}
+          {state === 'sending' ? 'Opening secure payment…' : mode === 'reserve' ? 'Continue to pay the deposit' : 'Continue to secure payment'}
         </button>
         <p className="shop-fine shop-secure">Payments are processed securely by Stripe. CANDRON never sees your card or bank details.</p>
-        <Link href="/cart" className="shop-continue">← Back to cart</Link>
+        {mode === 'buy' && <Link href="/cart" className="shop-continue">← Back to cart</Link>}
       </aside>
     </form>
   )

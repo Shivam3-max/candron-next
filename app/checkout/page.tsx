@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
 import CheckoutForm from '@/components/shop/CheckoutForm'
 
 export const metadata: Metadata = {
@@ -16,7 +17,7 @@ export default function CheckoutPage() {
           <h1>Checkout</h1>
           <p>Enter your details and delivery address. You’ll pay on Stripe’s secure page in the next step.</p>
         </div>
-        <CheckoutForm />
+        <Suspense><CheckoutForm /></Suspense>
       </div>
     </section>
   )

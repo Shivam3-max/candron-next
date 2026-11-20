@@ -2,7 +2,7 @@ import mysql from 'mysql2/promise'
 import { readFile } from 'node:fs/promises'
 import { randomBytes, scryptSync, timingSafeEqual } from 'node:crypto'
 import { ensureCatalogImageSchema } from './seed-catalog.mjs'
-import { ensureInventorySchema } from './migrate-inventory.mjs'
+import { ensureInventorySchema, ensureShopSchema } from './migrate-inventory.mjs'
 
 
 const required = (name) => {
@@ -26,6 +26,7 @@ try {
   await connection.query(schema)
   await ensureCatalogImageSchema(connection)
   await ensureInventorySchema(connection)
+  await ensureShopSchema(connection)
   // Seeded catalog photos showed another manufacturer's nameplate; only admin uploads (image_data) are kept
   const [seedImages] = await connection.execute('DELETE FROM product_images WHERE image_data IS NULL')
   if (seedImages.affectedRows) console.log(`Removed ${seedImages.affectedRows} seeded catalog image link(s); upload product photos in Admin.`)

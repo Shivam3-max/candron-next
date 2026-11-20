@@ -22,6 +22,8 @@ export interface ShopSettings {
     minimum: number
     zones: FreightZone[]
   }
+  /** Default deposit for "Reserve" listings and quotes, and days to pay invoices */
+  deposit: { percent: number; balanceDays: number }
   notifyEmail: string
 }
 
@@ -50,6 +52,7 @@ export const DEFAULT_SETTINGS: ShopSettings = {
       { name: 'United States', match: ['US'], bands: BANDS([]) },
     ],
   },
+  deposit: { percent: 25, balanceDays: 14 },
   notifyEmail: '',
 }
 
@@ -93,6 +96,10 @@ export function parseSettings(input: unknown): ShopSettings {
       country: isCountry(String(p.country)) ? (p.country as CountryCode) : 'CA',
     },
     freight: { mode, percent: money(f.percent, 100) ?? 0, minimum: money(f.minimum) ?? 0, zones },
+    deposit: {
+      percent: Math.min(100, Math.max(1, money((b.deposit as Record<string, unknown> | undefined)?.percent, 100) ?? 25)),
+      balanceDays: Math.min(120, Math.max(1, Math.round(Number((b.deposit as Record<string, unknown> | undefined)?.balanceDays) || 14))),
+    },
     notifyEmail: text(b.notifyEmail, 500),
   }
   if (settings.pickup.enabled && (!settings.pickup.line1 || !settings.pickup.city || !settings.pickup.region || !settings.pickup.postal)) {
@@ -109,7 +116,12 @@ export async function getShopSettings(): Promise<ShopSettings> {
     const [rows] = await getDb().execute<(RowDataPacket & { value_json: unknown })[]>('SELECT value_json FROM shop_settings WHERE setting_key=?', [KEY])
     if (!rows[0]) return DEFAULT_SETTINGS
     const raw = typeof rows[0].value_json === 'string' ? JSON.parse(rows[0].value_json) : rows[0].value_json
-    return { ...DEFAULT_SETTINGS, ...raw, pickup: { ...DEFAULT_SETTINGS.pickup, ...raw?.pickup }, freight: { ...DEFAULT_SETTINGS.freight, ...raw?.freight } }
+    return {
+      ...DEFAULT_SETTINGS, ...raw,
+      pickup: { ...DEFAULT_SETTINGS.pickup, ...raw?.pickup },
+      freight: { ...DEFAULT_SETTINGS.freight, ...raw?.freight },
+      deposit: { ...DEFAULT_SETTINGS.deposit, ...raw?.deposit },
+    }
   } catch (error) {
     console.warn('[shop] Could not read settings.', error instanceof Error ? error.message : error)
     return DEFAULT_SETTINGS

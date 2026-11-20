@@ -142,6 +142,19 @@ export default function AdminShopSettings({ initial, adminEmail, stripe }: { ini
         </section>
 
         <section className="ia-card">
+          <h3>Deposits and invoices</h3>
+          <div className="ia-grid">
+            <label className="ia-field"><span className="ia-label">Default deposit (%)</span>
+              <input inputMode="decimal" value={s.deposit.percent} onChange={e => set('deposit', { ...s.deposit, percent: Number(e.target.value) || 0 })} />
+              <span className="ia-hint">Used by “Reserve with deposit” listings without their own %.</span>
+            </label>
+            <label className="ia-field"><span className="ia-label">Days to pay a balance invoice</span>
+              <input inputMode="numeric" value={s.deposit.balanceDays} onChange={e => set('deposit', { ...s.deposit, balanceDays: Number(e.target.value.replace(/\D/g, '')) || 0 })} />
+            </label>
+          </div>
+        </section>
+
+        <section className="ia-card">
           <h3>Notifications</h3>
           <label className="ia-field ia-wide"><span className="ia-label">Send new-order emails to</span>
             <input value={s.notifyEmail} placeholder="Default: the contact form recipients" onChange={e => set('notifyEmail', e.target.value)} />

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { isMailConfigured, sendMail, teamAddress } from '@/lib/mailer'
+import { recordQuoteRequest } from '@/lib/shop/quotes'
 
 // Simple in-memory rate limiter (resets on deploy/restart — sufficient for basic protection)
 const rateLimit = new Map<string, { count: number; resetAt: number }>()
@@ -71,6 +72,11 @@ export async function POST(req: Request) {
     const phone = String(formData.get('phone') ?? '').trim()
     const message = String(formData.get('message') ?? '').trim()
     const website = String(formData.get('website') ?? formData.get('url') ?? '')
+    // Product-page quote requests carry the item code; they're also stored for /admin/quotes
+    const sku = String(formData.get('sku') ?? '').trim()
+    const quantity = Number(formData.get('quantity') ?? 1)
+    const productName = String(formData.get('product_name') ?? '').trim()
+    const requestNotes = String(formData.get('notes') ?? '').trim()
     const attachments = formData.getAll('attachments').filter((item): item is File => item instanceof File && item.size > 0)
 
     // Validate required fields
@@ -109,6 +115,8 @@ export async function POST(req: Request) {
         return NextResponse.json({ error: `File type not allowed: ${file.name}` }, { status: 400 })
       }
     }
+
+    if (sku) await recordQuoteRequest({ sku, productName, quantity, name, company, email, phone, message: requestNotes })
 
     if (!isMailConfigured()) {
       console.error('[Contact Form] SMTP_USER / SMTP_PASSWORD are not configured — email was not sent.')

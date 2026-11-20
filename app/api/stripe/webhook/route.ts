@@ -8,7 +8,8 @@ export const dynamic = 'force-dynamic'
 /**
  * Stripe webhook. Add this endpoint in Stripe → Developers → Webhooks with the events:
  * checkout.session.completed, checkout.session.async_payment_succeeded,
- * checkout.session.async_payment_failed, checkout.session.expired, charge.refunded.
+ * checkout.session.async_payment_failed, checkout.session.expired, charge.refunded,
+ * invoice.paid, invoice.payment_failed (deposit balances and net-terms quotes).
  */
 export async function POST(req: Request) {
   const secret = process.env.STRIPE_WEBHOOK_SECRET

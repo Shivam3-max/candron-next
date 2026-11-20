@@ -10,8 +10,9 @@ import CopyCode from '@/components/inventory/CopyCode'
 import DimensionDrawing from '@/components/inventory/DimensionDrawing'
 import ProductCard from '@/components/inventory/ProductCard'
 import AddToCart from '@/components/shop/AddToCart'
+import ReserveBox from '@/components/shop/ReserveBox'
 import { purchaseBlock } from '@/lib/shop/catalog'
-import { shopIsOpen } from '@/lib/shop/settings'
+import { getShopSettings, shopIsOpen } from '@/lib/shop/settings'
 
 export const dynamic = 'force-dynamic'
 
@@ -38,8 +39,11 @@ export default async function InventoryProductPage({ params }: Props) {
 
   const price = priceLabel(p)
   const avail = availability(p)
-  // "Buy online" only when the shop is switched on and this listing is priced, in stock and set to Buy
-  const buyable = (await shopIsOpen()) && purchaseBlock(p, p.available) === null
+  // "Buy online" / "Reserve" only when the shop is switched on and this listing is priced, in stock and set to that mode
+  const open = await shopIsOpen()
+  const buyable = open && purchaseBlock(p, p.available, 'buy') === null
+  const reservable = open && purchaseBlock(p, p.available, 'reserve') === null
+  const depositPercent = reservable ? Number(p.deposit_percent ?? (await getShopSettings()).deposit.percent) : 0
   const keySpecs = [
     { label: 'Rating', value: ratingText(p.kva, p.rating_unit) },
     { label: p.output_voltage ? 'Primary' : 'Voltage', value: p.input_voltage ? `${p.input_voltage} V` : '' },
@@ -133,7 +137,12 @@ export default async function InventoryProductPage({ params }: Props) {
               {p.warranty && <li><span>Warranty</span>{p.warranty}</li>}
             </ul>
 
-            {buyable ? (
+            {reservable ? (
+              <div id="buy">
+                <ReserveBox id={p.id} price={p.price_min as number} currency={p.currency} available={p.available} depositPercent={depositPercent} />
+                <p className="shop-alt">Prefer a formal quote or invoice terms? <a href="#quote">Request a quote</a> or call <a href={PHONE.href}>{PHONE.label}</a>.</p>
+              </div>
+            ) : buyable ? (
               <div id="buy">
                 <AddToCart id={p.id} slug={p.slug} sku={p.sku} name={p.name} price={p.price_min as number} currency={p.currency} image={p.images[0] ?? null} available={p.available} />
                 <p className="shop-alt">Buying several units or need site changes? <a href="#quote">Request a quote for volume pricing</a> or call <a href={PHONE.href}>{PHONE.label}</a>.</p>
@@ -250,7 +259,7 @@ export default async function InventoryProductPage({ params }: Props) {
 
       <div className="pd-mobilebar">
         <div><small>{price.kicker}</small><strong>{price.value}</strong></div>
-        {buyable ? <a href="#buy" className="btn btn-primary">Buy online</a> : <a href="#quote" className="btn btn-primary">Request a quote</a>}
+        {buyable || reservable ? <a href="#buy" className="btn btn-primary">{reservable ? 'Reserve online' : 'Buy online'}</a> : <a href="#quote" className="btn btn-primary">Request a quote</a>}
       </div>
     </>
   )

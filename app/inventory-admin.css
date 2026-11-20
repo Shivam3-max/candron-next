@@ -81,7 +81,7 @@ body:has(.ia) .mobile-nav-backdrop { display: none; }
   background: #fff;
 }
 .ia-new { width: 100%; }
-.ia-search, .ia input:not([type='checkbox']):not([type='file']), .ia select, .ia textarea {
+.ia-search, .ia input:not([type='checkbox']):not([type='radio']):not([type='file']), .ia select, .ia textarea {
   width: 100%;
   min-height: 42px;
   padding: .55rem .75rem;

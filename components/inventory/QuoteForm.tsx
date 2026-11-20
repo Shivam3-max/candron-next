@@ -15,8 +15,9 @@ export default function QuoteForm({ sku, name }: { sku: string; name: string }) 
     const qty = String(data.get('quantity') || '1')
     const notes = String(data.get('notes') || '').trim()
     data.set('message', `Quote request — ${name} (item ${sku}), quantity ${qty}.${notes ? `\n\n${notes}` : ''}`)
-    data.delete('quantity')
-    data.delete('notes')
+    // Item details (with quantity and notes) let the team turn this into a quote in /admin/quotes
+    data.set('sku', sku)
+    data.set('product_name', name)
     try {
       const r = await fetch('/api/contact', { method: 'POST', body: data })
       const d = await r.json().catch(() => ({}))
