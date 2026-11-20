@@ -58,7 +58,8 @@ async function loadStockBatches() {
   return Promise.all(files.map(async file => {
     const payload = JSON.parse(await readFile(new URL(file, dir), 'utf8'))
     if (!payload.batch || !Array.isArray(payload.products)) throw new Error(`database/stock/${file} needs "batch" and "products"`)
-    return { batch: payload.batch, products: payload.products }
+    if (payload.updates !== undefined && !Array.isArray(payload.updates)) throw new Error(`database/stock/${file} "updates" must be an array`)
+    return { batch: payload.batch, products: payload.products, updates: payload.updates || [] }
   }))
 }
 
@@ -100,19 +101,54 @@ export async function seedCatalog(connection, products) {
       `INSERT INTO products (${COLUMNS.join(',')}) VALUES (${COLUMNS.map(() => '?').join(',')})`,
       rowValues(product),
     )
-    // Seed photos are stored like admin uploads (image_data): the media route serves uploads only.
-    const images = product.images || []
-    for (const [i, url] of images.entries()) {
-      const data = await readFile(new URL(`../public${url}`, import.meta.url))
-      const mime = url.endsWith('.png') ? 'image/png' : url.endsWith('.webp') ? 'image/webp' : 'image/jpeg'
-      await connection.execute(
-        'INSERT INTO product_images (product_id,file_name,mime_type,image_data,external_url,sort_order) VALUES (?,?,?,?,NULL,?)',
-        [result.insertId, url.split('/').pop(), mime, data, i],
-      )
-    }
+    await insertImages(connection, result.insertId, product.images || [])
     added += 1
   }
   return { seedProducts: products.length, added }
+}
+
+// Seed photos are stored like admin uploads (image_data): the media route serves uploads only.
+// "/path" is under public/; anything else is relative to database/stock/ (stock batch photos).
+async function insertImages(connection, productId, images) {
+  for (const [i, path] of images.entries()) {
+    const file = path.startsWith('/') ? new URL(`../public${path}`, import.meta.url) : new URL(`../database/stock/${path}`, import.meta.url)
+    const data = await readFile(file)
+    const mime = path.endsWith('.png') ? 'image/png' : path.endsWith('.webp') ? 'image/webp' : 'image/jpeg'
+    await connection.execute(
+      'INSERT INTO product_images (product_id,file_name,mime_type,image_data,external_url,sort_order) VALUES (?,?,?,?,NULL,?)',
+      [productId, path.split('/').pop(), mime, data, i],
+    )
+  }
+}
+
+const UPDATABLE = new Set(COLUMNS.filter(c => !['slug', 'sku'].includes(c)).map(c => c.replace(/_json$/, '')))
+
+/**
+ * Corrections to listings added by an earlier stock batch, matched by item code. Runs once with its batch;
+ * photos are only added to a listing that has none, so photos managed in /admin are never duplicated.
+ */
+export async function applyStockUpdates(connection, updates) {
+  let updated = 0, photos = 0
+  for (const { sku, set = {}, images = [] } of updates) {
+    const [rows] = await connection.execute('SELECT id FROM products WHERE sku=? LIMIT 1', [sku])
+    if (!rows.length) continue // deleted in /admin: leave it gone
+    const id = rows[0].id
+    const keys = Object.keys(set)
+    const bad = keys.filter(k => !UPDATABLE.has(k))
+    if (bad.length) throw new Error(`Stock update for ${sku} has unknown field(s): ${bad.join(', ')}`)
+    if (keys.length) {
+      const cols = keys.map(k => (['highlights', 'documents', 'specs'].includes(k) ? `${k}_json` : k))
+      const values = keys.map(k => (['highlights', 'documents', 'specs'].includes(k) ? JSON.stringify(set[k]) : set[k]))
+      await connection.execute(`UPDATE products SET ${cols.map(c => `${c}=?`).join(',')} WHERE id=?`, [...values, id])
+    }
+    const [[{ n }]] = await connection.execute('SELECT COUNT(*) n FROM product_images WHERE product_id=? AND image_data IS NOT NULL', [id])
+    if (images.length && Number(n) === 0) {
+      await insertImages(connection, id, images)
+      photos += images.length
+    }
+    updated += 1
+  }
+  return { updated, photos }
 }
 
 // Runs a deploy task at most once per database; the lock stops two deploys racing.
@@ -146,9 +182,10 @@ async function run() {
       const removed = await removeLegacyListings(connection)
       const result = await seedCatalog(connection)
       console.log(`Catalog: ${removed} legacy listing(s) removed, ${result.added} of ${result.seedProducts} seed product(s) added.`)
-      for (const { batch, products } of await loadStockBatches()) {
+      for (const { batch, products, updates } of await loadStockBatches()) {
         const stock = await seedCatalog(connection, products)
-        console.log(`Stock ${batch}: ${stock.added} of ${stock.seedProducts} product(s) added.`)
+        const upd = await applyStockUpdates(connection, updates)
+        console.log(`Stock ${batch}: ${stock.added} of ${stock.seedProducts} product(s) added, ${upd.updated} updated.`)
       }
       return
     }
@@ -164,11 +201,12 @@ async function run() {
       console.log(`Catalog reset complete: ${removed} legacy listing(s) removed, ${result.added} demo product(s) added.`)
       return { removed, ...result }
     })
-    for (const { batch, products } of await loadStockBatches()) {
+    for (const { batch, products, updates } of await loadStockBatches()) {
       await runOnce(connection, `candron-stock-${batch}`, async () => {
         const result = await seedCatalog(connection, products)
-        console.log(`Stock ${batch}: ${result.added} of ${result.seedProducts} product(s) added.`)
-        return result
+        const upd = await applyStockUpdates(connection, updates)
+        console.log(`Stock ${batch}: ${result.added} of ${result.seedProducts} product(s) added, ${upd.updated} listing(s) updated (${upd.photos} photos).`)
+        return { ...result, ...upd }
       })
     }
   } finally {

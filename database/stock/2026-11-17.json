@@ -1,0 +1,818 @@
+{
+  "batch": "2026-11-17",
+  "source": "CANDRON 'Stock' folder shared Nov 17 2026",
+  "products": [
+    {
+      "condition_name": "Used",
+      "status": "Available",
+      "manufacturer": "Square D",
+      "year_built": 2004,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "60 Hz",
+      "winding": "Copper",
+      "cooling": "AA/FA",
+      "special_type": "",
+      "price_min": null,
+      "price_max": null,
+      "show_price": false,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "Ontario",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": 124,
+      "dim_width": 154,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": 50000,
+      "weight_unit": "lb",
+      "highlights": [
+        "Cast-coil (Power-Cast II) windings",
+        "AA/FA: 7,500/8,625 kVA, 11,500 kVA fan-cooled",
+        "NEMA 3R outdoor lineup with primary and secondary sections",
+        "UL listed"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "kVA (AA/AA/FA)",
+          "value": "7,500/8,625/11,500"
+        },
+        {
+          "group": "Electrical",
+          "label": "Impedance (%Z)",
+          "value": "4.73 %"
+        },
+        {
+          "group": "Electrical",
+          "label": "BIL (HV / LV)",
+          "value": "95 kV / 60 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "13,094 / 12,782 / 12,470 / 12,158 / 11,847 V"
+        },
+        {
+          "group": "Electrical",
+          "label": "Temperature rise",
+          "value": "80/115/115 °C"
+        },
+        {
+          "group": "Electrical",
+          "label": "Vector group / connection",
+          "value": "Delta – wye"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "NEMA 3R"
+        },
+        {
+          "group": "Construction",
+          "label": "Lineup",
+          "value": "Primary main (38\") + transformer (154\") + 2 transition (22\") + 2 feeder (38\") sections, 334\" overall"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "UL listed"
+        }
+      ],
+      "documents": [],
+      "images": [
+        "images/2026-11-17/7500-kva-cast-coil-unit-substation-12470v-4160y-2400v-1.webp",
+        "images/2026-11-17/7500-kva-cast-coil-unit-substation-12470v-4160y-2400v-2.webp",
+        "images/2026-11-17/7500-kva-cast-coil-unit-substation-12470v-4160y-2400v-3.webp",
+        "images/2026-11-17/7500-kva-cast-coil-unit-substation-12470v-4160y-2400v-4.webp",
+        "images/2026-11-17/7500-kva-cast-coil-unit-substation-12470v-4160y-2400v-5.webp"
+      ],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "7500-kva-cast-coil-unit-substation-12470v-4160y-2400v",
+      "sku": "CE-DTM-7500-001",
+      "category": "Dry-Type Transformer (MV)",
+      "name": "7,500 kVA Cast-Coil Unit Substation, 12,470 V to 4,160Y/2,400 V",
+      "short_description": "Used Square D Power-Cast II cast-coil unit substation, 7,500/8,625 kVA AA and 11,500 kVA fan-cooled. 12,470 V delta to 4,160Y/2,400 V, NEMA 3R, with primary and secondary sections.",
+      "description": "Used Square D Power-Cast II cast-coil dry-type unit substation, 12,470 V delta primary to 4,160Y/2,400 V wye secondary, rated 7,500/8,625 kVA self-cooled (AA) and 11,500 kVA forced-air (FA).\n\nCopper windings, 80 °C rise at the base rating, BIL 95 kV HV / 60 kV LV, 4.73 % impedance and five primary taps (13,094 V to 11,847 V). Outdoor NEMA 3R construction, UL listed, with a temperature monitor.\n\nThe lineup includes a 38\" primary main section, the 154\" transformer section and a four-section secondary (two 22\" transition sections and two 38\" feeder sections), about 334\" (27'-10\") long overall. Built in 2004; the transformer weighs about 50,000 lb.",
+      "kva": 7500,
+      "input_voltage": "12,470 Δ",
+      "output_voltage": "4,160Y/2,400"
+    },
+    {
+      "condition_name": "Used",
+      "status": "Available",
+      "manufacturer": "Cutler-Hammer",
+      "year_built": 1999,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "60 Hz",
+      "winding": "",
+      "cooling": "AN/AF",
+      "special_type": "",
+      "price_min": null,
+      "price_max": null,
+      "show_price": false,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "Ontario",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": 39635,
+      "weight_unit": "lb",
+      "highlights": [
+        "10,000 kVA with fans (AFN)",
+        "80 °C rise, 220 °C insulation",
+        "Dyn1 vector group",
+        "CSA certified"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "kVA (ANN/AFN)",
+          "value": "7,500/10,000"
+        },
+        {
+          "group": "Electrical",
+          "label": "Impedance (%Z)",
+          "value": "6.12 % at 7,500 kVA"
+        },
+        {
+          "group": "Electrical",
+          "label": "BIL (HV / LV)",
+          "value": "95 kV / 60 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "14,490 / 14,145 / 13,800 / 13,455 / 13,110 V"
+        },
+        {
+          "group": "Electrical",
+          "label": "Vector group / connection",
+          "value": "Dyn1"
+        },
+        {
+          "group": "Electrical",
+          "label": "Temperature rise",
+          "value": "80 °C"
+        },
+        {
+          "group": "Electrical",
+          "label": "Insulation class",
+          "value": "220 °C"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Type 1"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "CSA"
+        }
+      ],
+      "documents": [],
+      "images": [
+        "images/2026-11-17/7500-kva-dry-type-transformer-13800v-4160y-2400v-cutler-hammer-1.webp",
+        "images/2026-11-17/7500-kva-dry-type-transformer-13800v-4160y-2400v-cutler-hammer-2.webp"
+      ],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "7500-kva-dry-type-transformer-13800v-4160y-2400v-cutler-hammer",
+      "sku": "CE-DTM-7500-002",
+      "category": "Dry-Type Transformer (MV)",
+      "name": "7,500/10,000 kVA Dry-Type Transformer, 13,800 V to 4,160Y/2,400 V",
+      "short_description": "Used Cutler-Hammer ventilated dry-type transformer, 7,500 kVA AN / 10,000 kVA AF, 13,800 V delta to 4,160Y/2,402 V. 220 °C insulation, 80 °C rise.",
+      "description": "Used Cutler-Hammer ventilated dry-type power transformer rated 7,500 kVA self-cooled (ANN) and 10,000 kVA fan-cooled (AFN), 13,800 V delta primary to 4,160Y/2,402 V wye secondary, vector group Dyn1.\n\n220 °C insulation system with an 80 °C rise at both ratings, BIL 95 kV HV / 60 kV LV, 6.12 % impedance and five primary taps (14,490 V to 13,110 V). Built in 1999, CSA certified, total weight about 17,978 kg (39,635 lb).",
+      "kva": 7500,
+      "input_voltage": "13,800 Δ",
+      "output_voltage": "4,160Y/2,400"
+    },
+    {
+      "condition_name": "Used",
+      "status": "Available",
+      "manufacturer": "ABB",
+      "year_built": 1999,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "60 Hz",
+      "winding": "Copper",
+      "cooling": "AN/AF",
+      "special_type": "",
+      "price_min": null,
+      "price_max": null,
+      "show_price": false,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "Ontario",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": 31700,
+      "weight_unit": "lb",
+      "highlights": [
+        "9,000 kVA with fans (AFN)",
+        "Copper windings, 220 °C insulation",
+        "Winding temperature controller",
+        "CSA certified"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "kVA (ANN/ANN/AFN)",
+          "value": "5,000/6,750/9,000"
+        },
+        {
+          "group": "Electrical",
+          "label": "Impedance (%Z)",
+          "value": "5.49 %"
+        },
+        {
+          "group": "Electrical",
+          "label": "BIL (HV / LV)",
+          "value": "95 kV / 60 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "14,490 / 14,145 / 13,800 / 13,455 / 13,110 V"
+        },
+        {
+          "group": "Electrical",
+          "label": "Vector group / connection",
+          "value": "Delta – wye"
+        },
+        {
+          "group": "Electrical",
+          "label": "Temperature rise",
+          "value": "80/150/150 °C"
+        },
+        {
+          "group": "Electrical",
+          "label": "Insulation class",
+          "value": "220 °C"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Ventilated, indoor"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "CSA"
+        }
+      ],
+      "documents": [],
+      "images": [
+        "images/2026-11-17/5000-kva-dry-type-transformer-13800v-4160y-2400v-abb-1.webp",
+        "images/2026-11-17/5000-kva-dry-type-transformer-13800v-4160y-2400v-abb-2.webp"
+      ],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "5000-kva-dry-type-transformer-13800v-4160y-2400v-abb",
+      "sku": "CE-DTM-5000-001",
+      "category": "Dry-Type Transformer (MV)",
+      "name": "5,000/9,000 kVA Dry-Type Transformer, 13,800 V to 4,160Y/2,400 V",
+      "short_description": "Used ABB ventilated dry-type transformer, 5,000/6,750/9,000 kVA (ANN/ANN/AFN), 13,800 V delta to 4,160Y/2,402 V. Copper windings, 220 °C insulation.",
+      "description": "Used ABB ventilated dry-type power transformer rated 5,000/6,750 kVA self-cooled and 9,000 kVA fan-cooled, 13,800 V delta primary to 4,160Y/2,402 V wye secondary.\n\nCopper windings, 220 °C insulation with an 80/150/150 °C rise, BIL 95 kV HV / 60 kV LV, 5.49 % impedance and five primary taps (14,490 V to 13,110 V). Built in 1999, CSA certified, with a winding temperature controller. Total weight about 31,700 lb. Currently in indoor storage.",
+      "kva": 5000,
+      "input_voltage": "13,800 Δ",
+      "output_voltage": "4,160Y/2,400"
+    },
+    {
+      "condition_name": "Surplus",
+      "status": "Available",
+      "manufacturer": "EL Power Tech",
+      "year_built": 2022,
+      "rating_unit": "kVA",
+      "phase": "Three-phase",
+      "frequency": "60 Hz",
+      "winding": "Copper",
+      "cooling": "KNAN",
+      "special_type": "",
+      "price_min": null,
+      "price_max": null,
+      "show_price": false,
+      "currency": "CAD",
+      "stock_quantity": 2,
+      "location": "Ontario",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": 146,
+      "dim_width": 134,
+      "dim_depth": 122,
+      "dim_unit": "in",
+      "weight": 41005,
+      "weight_unit": "lb",
+      "highlights": [
+        "New, never energized (built 2022)",
+        "Envirotemp natural-ester fluid (KNAN)",
+        "De-energized tap changer, 69.3 kV to 62.7 kV",
+        "HV surge arresters and N₂-sealed tank",
+        "Two units available"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "Impedance (%Z)",
+          "value": "8.24 % at 75 °C"
+        },
+        {
+          "group": "Electrical",
+          "label": "BIL (HV / LV)",
+          "value": "350 kV / 30 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Taps",
+          "value": "DETC, 69,300 / 67,650 / 66,000 / 64,350 / 62,700 V"
+        },
+        {
+          "group": "Electrical",
+          "label": "Vector group / connection",
+          "value": "Dyn1"
+        },
+        {
+          "group": "Electrical",
+          "label": "Temperature rise",
+          "value": "55 °C winding / 55 °C top oil"
+        },
+        {
+          "group": "Electrical",
+          "label": "Efficiency standard",
+          "value": "99.0 % at full load"
+        },
+        {
+          "group": "Construction",
+          "label": "Insulating fluid",
+          "value": "Envirotemp natural-ester (less-flammable)"
+        },
+        {
+          "group": "Construction",
+          "label": "HV configuration",
+          "value": "Cover-mounted bushings with surge arresters"
+        },
+        {
+          "group": "Construction",
+          "label": "Accessories",
+          "value": "N₂ gas sealing, rapid pressure rise relay, pressure relief device, oil level and temperature indicators"
+        },
+        {
+          "group": "Construction",
+          "label": "Fluid volume",
+          "value": "10,320 lb of fluid"
+        },
+        {
+          "group": "Compliance",
+          "label": "Standards",
+          "value": "IEEE C57.12.00 / C57.12.34"
+        }
+      ],
+      "documents": [],
+      "images": [
+        "images/2026-11-17/5000-kva-substation-transformer-66kv-480y-277v-1.webp",
+        "images/2026-11-17/5000-kva-substation-transformer-66kv-480y-277v-2.webp",
+        "images/2026-11-17/5000-kva-substation-transformer-66kv-480y-277v-3.webp",
+        "images/2026-11-17/5000-kva-substation-transformer-66kv-480y-277v-4.webp",
+        "images/2026-11-17/5000-kva-substation-transformer-66kv-480y-277v-5.webp"
+      ],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "5000-kva-substation-transformer-66kv-480y-277v",
+      "sku": "CE-SUB-5000-001",
+      "category": "Substation Transformer",
+      "name": "5,000 kVA Substation Transformer, 66,000 V to 480Y/277 V",
+      "short_description": "Unused 5,000 kVA KNAN substation transformer, 66,000 V delta to 480Y/277 V, Dyn1. Envirotemp natural-ester fluid, copper windings, built 2022.",
+      "description": "New, never-energized 5,000 kVA three-phase substation transformer built in December 2022 to IEEE C57.12 standards, 66,000 V delta primary to 480Y/277 V wye secondary, vector group Dyn1.\n\nFilled with less-flammable Envirotemp natural-ester fluid (KNAN cooling), copper HV and LV windings on a three-legged core, BIL 350 kV HV / 30 kV LV and 8.24 % impedance. A de-energized tap changer gives five HV taps from 69,300 V to 62,700 V.\n\nCover-mounted HV and LV bushings, HV surge arresters, nitrogen-sealed tank, rapid pressure rise relay, pressure relief device, oil temperature and level indicators. 55 °C average winding and top-oil rise, about 99 % efficient at full load.\n\nTwo identical units available.",
+      "kva": 5000,
+      "input_voltage": "66,000 Δ",
+      "output_voltage": "480Y/277"
+    },
+    {
+      "condition_name": "Used",
+      "status": "Available",
+      "manufacturer": "Federal Pioneer",
+      "year_built": null,
+      "rating_unit": "A",
+      "phase": "Three-phase",
+      "frequency": "60 Hz",
+      "winding": "",
+      "cooling": "",
+      "special_type": "",
+      "price_min": null,
+      "price_max": null,
+      "show_price": false,
+      "currency": "CAD",
+      "stock_quantity": 1,
+      "location": "Ontario",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": null,
+      "dim_width": null,
+      "dim_depth": null,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "Fused load-interrupter switches, NAL 25",
+        "125 kV BIL, 40 kA momentary",
+        "Two relayed incoming sections",
+        "CSA certified"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "Continuous current",
+          "value": "600 A"
+        },
+        {
+          "group": "Electrical",
+          "label": "Momentary rating",
+          "value": "40 kA"
+        },
+        {
+          "group": "Electrical",
+          "label": "Fault-close rating",
+          "value": "28 kA asymmetrical"
+        },
+        {
+          "group": "Electrical",
+          "label": "BIL",
+          "value": "125 kV"
+        },
+        {
+          "group": "Electrical",
+          "label": "Maximum fuse",
+          "value": "300 A"
+        },
+        {
+          "group": "Construction",
+          "label": "Configuration",
+          "value": "Metal-enclosed lineup: fused LBS sections with viewing windows and key interlocks, two incoming sections with relays and metering"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "Indoor"
+        },
+        {
+          "group": "Compliance",
+          "label": "Certification",
+          "value": "CSA"
+        }
+      ],
+      "documents": [],
+      "images": [
+        "images/2026-11-17/600-a-29800-v-metal-enclosed-switchgear-lineup-federal-pioneer-1.webp",
+        "images/2026-11-17/600-a-29800-v-metal-enclosed-switchgear-lineup-federal-pioneer-2.webp",
+        "images/2026-11-17/600-a-29800-v-metal-enclosed-switchgear-lineup-federal-pioneer-3.webp"
+      ],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "600-a-29800-v-metal-enclosed-switchgear-lineup-federal-pioneer",
+      "sku": "CE-MVS-0600-004",
+      "category": "MV Switchgear",
+      "kva": 600,
+      "name": "600 A 29.8 kV Metal-Enclosed Switchgear Lineup",
+      "short_description": "Used Federal Pioneer NAL 25 metal-enclosed lineup, 29.8 kV, 600 A, 125 kV BIL. Fused load-interrupter switches with two relayed incoming sections.",
+      "description": "Used indoor Federal Pioneer metal-enclosed switchgear lineup rated 29.8 kV, 600 A continuous, 125 kV BIL.\n\nType NAL 25 fused load-interrupter switches (600 A load break, 40 kA momentary, 28 kA asymmetrical fault-close, fuses up to 300 A) with viewing windows and key interlocks, plus two incoming sections with protective relays, metering and control switches. CSA certified. Inspected in October 2023.",
+      "input_voltage": "29,800",
+      "output_voltage": ""
+    },
+    {
+      "condition_name": "Surplus",
+      "status": "Available",
+      "manufacturer": "",
+      "year_built": null,
+      "rating_unit": "A",
+      "phase": "Three-phase, 3-wire",
+      "frequency": "60 Hz",
+      "winding": "",
+      "cooling": "",
+      "special_type": "",
+      "price_min": null,
+      "price_max": null,
+      "show_price": false,
+      "currency": "CAD",
+      "stock_quantity": 48,
+      "location": "Ontario",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": 91.5,
+      "dim_width": 66,
+      "dim_depth": 36,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "3 × MasterPact MTZ2 1,600 A, LSI with ERMS",
+        "1,600 A tinned copper bus",
+        "PM8244 metering",
+        "48 units available, new and never installed"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "Short-circuit rating",
+          "value": "65 kA"
+        },
+        {
+          "group": "Electrical",
+          "label": "System",
+          "value": "480 V, 3-phase 3-wire, 60 Hz"
+        },
+        {
+          "group": "Electrical",
+          "label": "Breakers",
+          "value": "3 × MasterPact MTZ2 1,600 A, LSI with ERMS"
+        },
+        {
+          "group": "Construction",
+          "label": "Sections",
+          "value": "3"
+        },
+        {
+          "group": "Construction",
+          "label": "Bus",
+          "value": "Barriered tinned copper, 1,600 A bus stabs, bottom horizontal bus"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "NEMA 1 indoor, RAL 7035"
+        },
+        {
+          "group": "Compliance",
+          "label": "Standards",
+          "value": "UL 891; breakers UL 1066"
+        }
+      ],
+      "documents": [],
+      "images": [
+        "images/2026-11-17/1600-a-480-v-distribution-switchboard-ul-891-3-section-1.webp"
+      ],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "1600-a-480-v-distribution-switchboard-ul-891-3-section",
+      "sku": "CE-SWB-1600-001",
+      "kva": 1600,
+      "name": "1,600 A 480 V Distribution Switchboard, UL 891, 3 Sections",
+      "short_description": "New, never-installed 1,600 A 480 V 65 kA UL 891 distribution switchboards with three MasterPact MTZ2 1,600 A breakers (LSI, ERMS). 48 available.",
+      "description": "New, never-installed 480 V, 3-phase 3-wire, 65 kA UL 891 distribution switchboards built for a hyperscale data-centre deployment, stocked in Ontario.\n\nEach 3-section lineup (66\" W × 91.5\" H × 36\" D) has a 1,600 A bus and three Square D MasterPact MTZ2 1,600 A breakers with LSI trip and ERMS, PM8244 metering and test points. Barriered tinned copper bus with 1,600 A bus stabs, bottom horizontal bus and top cable entry and exit. NEMA 1 indoor, RAL 7035.\n\n48 units available. Full package or selected units.",
+      "category": "Switchboard",
+      "input_voltage": "480",
+      "output_voltage": ""
+    },
+    {
+      "condition_name": "Surplus",
+      "status": "Available",
+      "manufacturer": "",
+      "year_built": null,
+      "rating_unit": "A",
+      "phase": "Three-phase, 3-wire",
+      "frequency": "60 Hz",
+      "winding": "",
+      "cooling": "",
+      "special_type": "",
+      "price_min": null,
+      "price_max": null,
+      "show_price": false,
+      "currency": "CAD",
+      "stock_quantity": 4,
+      "location": "Ontario",
+      "lead_time": "",
+      "warranty": "",
+      "dim_height": 91.5,
+      "dim_width": 88,
+      "dim_depth": 36,
+      "dim_unit": "in",
+      "weight": null,
+      "weight_unit": "lb",
+      "highlights": [
+        "3,200 A tinned copper bus",
+        "2 × MasterPact MTZ16 1,600 A, LSI",
+        "PM8244 metering",
+        "4 units available, new and never installed"
+      ],
+      "specs": [
+        {
+          "group": "Electrical",
+          "label": "Short-circuit rating",
+          "value": "65 kA"
+        },
+        {
+          "group": "Electrical",
+          "label": "System",
+          "value": "480 V, 3-phase 3-wire, 60 Hz"
+        },
+        {
+          "group": "Electrical",
+          "label": "Breakers",
+          "value": "2 × MasterPact MTZ16 1,600 A, LSI"
+        },
+        {
+          "group": "Construction",
+          "label": "Sections",
+          "value": "4"
+        },
+        {
+          "group": "Construction",
+          "label": "Bus",
+          "value": "Barriered tinned copper, 3,200 A, 1,600 A bus stabs"
+        },
+        {
+          "group": "Construction",
+          "label": "Enclosure rating",
+          "value": "NEMA 1 indoor, RAL 7035"
+        },
+        {
+          "group": "Compliance",
+          "label": "Standards",
+          "value": "UL 891; breakers UL 1066"
+        }
+      ],
+      "documents": [],
+      "images": [
+        "images/2026-11-17/3200-a-480-v-distribution-switchboard-ul-891-4-section-1.webp"
+      ],
+      "is_featured": false,
+      "is_active": true,
+      "slug": "3200-a-480-v-distribution-switchboard-ul-891-4-section",
+      "sku": "CE-SWB-3200-001",
+      "kva": 3200,
+      "name": "3,200 A 480 V Distribution Switchboard, UL 891, 4 Sections",
+      "short_description": "New, never-installed 3,200 A bus 480 V 65 kA UL 891 distribution switchboards with two MasterPact MTZ16 1,600 A breakers. 4 available.",
+      "description": "New, never-installed 480 V, 3-phase 3-wire, 65 kA UL 891 distribution switchboards built for a hyperscale data-centre deployment, stocked in Ontario.\n\nEach 4-section lineup (88\" W × 91.5\" H × 36\" D) has a 3,200 A bus with two Square D MasterPact MTZ16 1,600 A breakers (LSI), 1,600 A bus stabs, PM8244 metering and test points. Barriered tinned copper bus, NEMA 1 indoor, RAL 7035.\n\n4 units available.",
+      "category": "Switchboard",
+      "input_voltage": "480",
+      "output_voltage": ""
+    }
+  ],
+  "updates": [
+    {
+      "sku": "CE-DTM-2000-001",
+      "set": {
+        "manufacturer": "CANDRON",
+        "year_built": 2025,
+        "location": "Ontario",
+        "output_voltage": "600Y/347",
+        "name": "2,000 kVA MV Dry-Type Transformer, 13,800 V to 600Y/347 V",
+        "short_description": "New CANDRON VPI dry-type transformer, 2,000 kVA ANN, 13,800 V delta to 600Y/347 V. Aluminum windings, Dyn1, Type 3R, NRCan 2019.",
+        "description": "A new 2,000 kVA three-phase medium-voltage VPI dry-type transformer built by CANDRON in 2025, 13,800 V delta primary to 600Y/347 V wye secondary, vector group Dyn1.\n\nVacuum-pressure-impregnated aluminum windings with 220 °C insulation and a 150 °C rise, BIL 95 kV / 10 kV, 6.5–7.5 % impedance and two 2.5 % taps above and below nominal on the primary. NRCan 2019 efficiency, natural (ANN) cooling.\n\nType 3R ventilated enclosure for indoor or outdoor use (129.5\" W × 60\" D × 118.5\" H, about 15,200 lb), powder-coated ANSI 61 grey with a C5M corrosion-resistant finish. Supplied with a remote-mount winding thermometer (alarm and trip contacts), space heaters with thermostats and an illumination lamp.",
+        "dim_width": 129.5,
+        "dim_depth": 60,
+        "dim_height": 118.5,
+        "weight": 15200,
+        "specs": [
+          {
+            "group": "Electrical",
+            "label": "BIL (HV / LV)",
+            "value": "95 kV / 10 kV"
+          },
+          {
+            "group": "Electrical",
+            "label": "Taps",
+            "value": "2 × 2.5 % FCAN and FCBN"
+          },
+          {
+            "group": "Electrical",
+            "label": "Vector group / connection",
+            "value": "Dyn1"
+          },
+          {
+            "group": "Electrical",
+            "label": "Temperature rise",
+            "value": "150 °C"
+          },
+          {
+            "group": "Electrical",
+            "label": "Insulation class",
+            "value": "220 °C (VPI)"
+          },
+          {
+            "group": "Electrical",
+            "label": "Impedance (%Z)",
+            "value": "6.5–7.5 %"
+          },
+          {
+            "group": "Electrical",
+            "label": "Efficiency standard",
+            "value": "NRCan 2019"
+          },
+          {
+            "group": "Construction",
+            "label": "Enclosure rating",
+            "value": "Type 3R (indoor/outdoor, ventilated)"
+          },
+          {
+            "group": "Construction",
+            "label": "Tank / enclosure finish",
+            "value": "Powder-coated ANSI 61 grey, C5M corrosion-resistant"
+          },
+          {
+            "group": "Construction",
+            "label": "Accessories",
+            "value": "Remote-mount thermometer (alarm 180 °C, trip 190 °C), space heaters with thermostats, illumination lamp"
+          },
+          {
+            "group": "Construction",
+            "label": "Sound level",
+            "value": "68–70 dB"
+          }
+        ]
+      },
+      "images": [
+        "images/2026-11-17/2000-kva-mv-dry-type-transformer-13800v-600-1.webp",
+        "images/2026-11-17/2000-kva-mv-dry-type-transformer-13800v-600-2.webp",
+        "images/2026-11-17/2000-kva-mv-dry-type-transformer-13800v-600-3.webp"
+      ]
+    },
+    {
+      "sku": "CE-DTM-2500-001",
+      "set": {
+        "manufacturer": "ABB",
+        "year_built": 1996,
+        "output_voltage": "600Y/347",
+        "weight": 15700,
+        "name": "2,500/4,500 kVA Unit Substation Lineup, 13,800 V to 600Y/347 V",
+        "location": "Ontario",
+        "short_description": "Used indoor unit-substation lineup: ABB 2,500/4,500 kVA dry-type transformer (13,800 V to 600Y/347 V), Cutler-Hammer 15 kV primary switch and GE 4,000 A 65 kA 600 V low-voltage switchgear.",
+        "description": "Used ABB ventilated dry-type transformer rated 2,500/3,375 kVA self-cooled and 4,500 kVA fan-cooled, 13,800 V delta primary to 600Y/347 V wye secondary, vector group Dyn1.\n\nCopper windings, 220 °C insulation with an 80/150/150 °C rise, BIL 95 kV HV / 10 kV LV, 7.23 % impedance and five primary taps (14,490 V to 13,110 V). Built in 1996, CSA certified, with a winding temperature controller. Total weight about 15,700 lb.\n\nThe complete indoor unit-substation lineup is available: the transformer with its Cutler-Hammer type WLI 15 kV, 600 A, 95 kV BIL metal-enclosed primary switch and GE 600 V, 4,000 A, 65 kA low-voltage switchgear.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "label": "kVA (ANN/ANN/AFN)",
+            "value": "2,500/3,375/4,500"
+          },
+          {
+            "group": "Electrical",
+            "label": "Impedance (%Z)",
+            "value": "7.23 %"
+          },
+          {
+            "group": "Electrical",
+            "label": "BIL (HV / LV)",
+            "value": "95 kV / 10 kV"
+          },
+          {
+            "group": "Electrical",
+            "label": "Taps",
+            "value": "14,490 / 14,145 / 13,800 / 13,455 / 13,110 V"
+          },
+          {
+            "group": "Electrical",
+            "label": "Vector group / connection",
+            "value": "Dyn1"
+          },
+          {
+            "group": "Electrical",
+            "label": "Temperature rise",
+            "value": "80/150/150 °C"
+          },
+          {
+            "group": "Electrical",
+            "label": "Insulation class",
+            "value": "220 °C"
+          },
+          {
+            "group": "Construction",
+            "label": "Enclosure rating",
+            "value": "Ventilated, indoor"
+          },
+          {
+            "group": "Construction",
+            "label": "Primary switch",
+            "value": "Cutler-Hammer WLI metal-enclosed, 15 kV, 600 A, 95 kV BIL"
+          },
+          {
+            "group": "Construction",
+            "label": "Low-voltage switchgear",
+            "value": "GE, 600 V, 4,000 A, 65 kA"
+          },
+          {
+            "group": "Compliance",
+            "label": "Certification",
+            "value": "CSA"
+          }
+        ]
+      },
+      "images": [
+        "images/2026-11-17/2500-kva-mv-dry-type-transformer-13800v-600-1.webp",
+        "images/2026-11-17/2500-kva-mv-dry-type-transformer-13800v-600-2.webp",
+        "images/2026-11-17/2500-kva-mv-dry-type-transformer-13800v-600-3.webp",
+        "images/2026-11-17/2500-kva-mv-dry-type-transformer-13800v-600-4.webp"
+      ]
+    }
+  ]
+}
