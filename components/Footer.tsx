@@ -84,7 +84,6 @@ export default function Footer() {
               <ul className="list-none flex flex-col gap-[.65rem] max-md:gap-2">
                 <li><Link href="/services" className="text-white/[.48] no-underline text-[1.0625rem] max-md:text-[1rem] transition-colors duration-300 hover:text-blue-l">Electrical Engineering Services</Link></li>
                 <li><Link href="/commissioning" className="text-white/[.48] no-underline text-[1.0625rem] max-md:text-[1rem] transition-colors duration-300 hover:text-blue-l">Field Service &amp; Commissioning</Link></li>
-                <li><Link href="/manufacturing"className="text-white/[.48] no-underline text-[1.0625rem] max-md:text-[1rem] transition-colors duration-300 hover:text-blue-l">Canadian-Made</Link></li>
                 <li><Link href="/testing" className="text-white/[.48] no-underline text-[1.0625rem] max-md:text-[1rem] transition-colors duration-300 hover:text-blue-l">Testing</Link></li>
                 <li><Link href="/project-process" className="text-white/[.48] no-underline text-[1.0625rem] max-md:text-[1rem] transition-colors duration-300 hover:text-blue-l">CANDRON Processes</Link></li>
                 <li><Link href="/resources" className="text-white/[.48] no-underline text-[1.0625rem] max-md:text-[1rem] transition-colors duration-300 hover:text-blue-l">Tools & Calculators</Link></li>

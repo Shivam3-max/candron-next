@@ -5,7 +5,7 @@ description: How the 2026 changes to US Section 232 tariffs on steel, aluminum a
 date: 2026-11-05
 category: market-updates
 keywords: US tariffs electrical equipment Canada, Section 232 tariffs 2026, steel aluminum copper tariffs Canada, Canada counter tariffs 2026, tariffs on transformers, tariffs switchgear Canada, buy Canadian electrical equipment
-related: RFQ & bid scorecard | /resources/rfq-scorecard; Canadian-made equipment | /manufacturing; Lead-Time Index | /resources/lead-time-index; Copper prices and transformer costs | /blog/copper-prices-transformer-costs-2026
+related: RFQ & bid scorecard | /resources/rfq-scorecard; Canadian-made equipment | /about#facility; Lead-Time Index | /resources/lead-time-index; Copper prices and transformer costs | /blog/copper-prices-transformer-costs-2026
 cta: Make quotes comparable with the RFQ scorecard | /resources/rfq-scorecard
 ---
 
@@ -52,7 +52,7 @@ Our free [RFQ and bid scorecard](/resources/rfq-scorecard) already asks every bi
 
 ## Where Canadian-made equipment fits
 
-For a Canadian project, equipment built in Canada from domestically sourced or tariff-free materials avoids the cross-border question entirely. There is no US export, no Canadian surtax on a US import, and no border delay. That is not automatically cheaper, because materials are priced globally. But it removes a source of cost and schedule uncertainty. That is one reason CANDRON focuses on [Canadian-made equipment](/manufacturing).
+For a Canadian project, equipment built in Canada from domestically sourced or tariff-free materials avoids the cross-border question entirely. There is no US export, no Canadian surtax on a US import, and no border delay. That is not automatically cheaper, because materials are priced globally. But it removes a source of cost and schedule uncertainty. That is one reason CANDRON focuses on [Canadian-made equipment](/about#facility).
 
 If you export equipment to US projects, the reverse applies: Section 232 and stacked US tariffs may now apply to Canadian-made goods with significant metal content, and rules of origin matter more than before.
 

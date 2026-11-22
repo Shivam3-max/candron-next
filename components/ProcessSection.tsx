@@ -143,7 +143,7 @@ export default function ProcessSection() {
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <Link href="/manufacturing" className="btn btn-primary btn-lg mag flex-[1_1_260px] justify-center whitespace-nowrap tracking-[.06em] uppercase">
+              <Link href="/about#facility" className="btn btn-primary btn-lg mag flex-[1_1_260px] justify-center whitespace-nowrap tracking-[.06em] uppercase">
                 Why Canadian-Made →
               </Link>
               <Link href="/contact" className="btn btn-outline btn-lg mag flex-[1_1_260px] justify-center whitespace-nowrap tracking-[.06em] uppercase">

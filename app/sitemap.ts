@@ -76,7 +76,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/resources/harmonic-reactor-calculator',
     '/resources/efficiency-calculator',
     '/resources/savings-payback-calculator',
-    '/manufacturing',
     '/services',
     '/testing',
     '/commissioning',
