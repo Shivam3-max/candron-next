@@ -7,6 +7,7 @@ const nextConfig = {
       { source: '/products/transformers/substation/polemount', destination: '/products/transformers/polemount/single-phase', permanent: true },
       { source: '/products/switchgear/low-voltage', destination: '/products/lv-switchgear', permanent: true },
       { source: '/products/junction-box-splitters', destination: '/products', permanent: true },
+      { source: '/manufacturing', destination: '/about#facility', permanent: true },
     ]
   },
   async headers() {

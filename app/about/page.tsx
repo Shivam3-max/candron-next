@@ -2,7 +2,6 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import StatBar from '@/components/StatBar'
-import TimelineScroll from '@/components/TimelineScroll'
 import JsonLd from '@/components/JsonLd'
 import { breadcrumbLd } from '@/lib/seo'
 
@@ -25,7 +24,6 @@ export default function AboutPage() {
             <div className="about-glance-nav" role="navigation" aria-label="About page sections">
               {[
                 { href: '#values', title: 'Our Values', sub: 'What drives every project' },
-                { href: '#our-story', title: 'Our Story', sub: 'A young company, decades of expertise' },
                 { href: '#team', title: 'The Team', sub: 'Engineers and field technicians' },
                 { href: '#facility', title: 'Canadian-Made', sub: 'How we provide' },
               ].map((item, i) => (
@@ -147,56 +145,6 @@ export default function AboutPage() {
             </div>
 
           </div>
-        </div>
-      </div>
-
-      {/* TIMELINE */}
-      <div id="our-story" className="wt-section">
-        <div className="container">
-
-          {/* Header */}
-          <div className="wt-header rv">
-            <div>
-              <div className="label label-white">Founded 2022 · Toronto, Ontario</div>
-              <h2 className="wt-h2">A Young Company.<br/><em>Decades of Expertise.</em></h2>
-            </div>
-            <div className="wt-header-right">
-              <p className="wt-intro max-w-[460px] text-left">CANDRON was founded in 2022 — but the engineers and technicians behind it bring over 50 years of combined power systems experience. Every project benefits from that depth, on day one.</p>
-            </div>
-          </div>
-
-          {/* Credential strip */}
-          <div className="cred-strip-grid grid grid-cols-4 max-md:grid-cols-2 gap-px bg-blue/[.15] rounded-[14px] overflow-hidden mb-12 max-md:mb-6 rv">
-            {[
-              { val: '2022', lbl: 'Year Founded' },
-              { val: '50+', lbl: 'Years Combined Expertise' },
-              { val: 'P.Eng', lbl: 'Licensed Engineers' },
-              { val: '100%', lbl: 'Canadian-Made' },
-            ].map((s) => (
-              <div key={s.lbl} className="bg-[#080E2C] py-7 px-6 text-center">
-                <div className="font-display text-[1.76rem] font-black text-blue leading-none">{s.val}</div>
-                <div className="font-title text-[.875rem] text-white/[.68] tracking-[.1em] uppercase mt-2">{s.lbl}</div>
-              </div>
-            ))}
-          </div>
-
-          {/* Timeline + images */}
-          <div className="split items-start">
-            <div className="rv-l">
-              <TimelineScroll />
-            </div>
-            <div className="rv-r flex flex-col gap-5 mt-4 max-md:hidden">
-              <div className="rounded-[14px] overflow-hidden h-[260px] relative border border-blue/[.15]">
-                <Image src="/images/projects/mv-vpi-outdoor-transformer/mv-vpi-three-phase-coil-assembly.jpg" alt="Medium-voltage VPI transformer coil assembly at the factory" fill className="object-cover object-center" sizes="(max-width:1024px) 100vw, 40vw"/>
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent"/>
-              </div>
-              <div className="rounded-[14px] overflow-hidden h-[260px] relative border border-blue/[.15]">
-                <Image src="/images/projects/custom-replacement-transformer/custom-transformer-side-view.jpg" alt="Custom replacement transformer supplied by CANDRON" fill className="object-cover object-center" sizes="(max-width:1024px) 100vw, 40vw"/>
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent"/>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
 
