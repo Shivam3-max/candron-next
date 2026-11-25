@@ -15,8 +15,8 @@ Run everything with **test keys** first. No real money moves in test mode.
    - Run `stripe listen --forward-to localhost:3000/api/stripe/webhook`.
    - Put the `whsec_…` it prints into `.env.local` as `STRIPE_WEBHOOK_SECRET`.
 4. **Admin**
-   - Shop settings: pickup address, freight rates, card limit; turn on "Take orders online".
-   - Set two LV listings to Buy online (with weights) and one MV listing to Reserve with deposit.
+   - Shop settings: check the yards, online limit ($10,000), notification emails and tax numbers; turn on "Take orders online".
+   - Set three LV listings to Buy online: two at the Mississauga yard, one at Buffalo. Make one of them over $10,000.
 
 ## 2. Scenarios
 
@@ -28,17 +28,19 @@ Run everything with **test keys** first. No real money moves in test mode.
 | 4 | Pre-authorized debit (success) | Pay by bank debit with Stripe's test account | **Payment processing**, then **Paid** when the test debit clears |
 | 5 | Pre-authorized debit (failure) | Use Stripe's failing test account number | **Payment failed**; stock returned; emails |
 | 6 | Abandoned checkout + reminder | Tick the reminder box, leave the Stripe page; then `stripe trigger checkout.session.expired` or wait | **Checkout expired**; holds released; one reminder email |
-| 7 | Card limit | Cart over the card limit | Only bank debit is offered |
+| 7 | Over $10,000 | Cart over $10k before tax | **Submit order** (no Stripe); **Awaiting payment (accounting)**; stock held 5 business days; admin **Mark paid** → **Paid** |
 | 8 | Stripe Tax | Ship to ON, QC, AB and BC | 13% HST; 5% GST + 9.975% QST if registered; 5% GST; GST + PST if registered |
-| 9 | Pickup | Choose pickup | No freight; tax by the pickup address |
-| 10 | Reserve with deposit | Reserve the MV listing | **Deposit paid**; unit **Reserved** |
-| 11 | Balance invoice | Admin → order → Send balance invoice (edit freight) | Stripe emails the invoice; pay it with a test card → **Paid**; unit **Sold** |
+| 9 | Pickup | Pickup at Mississauga; then Buffalo with an Ontario billing address | No freight; 13% HST in both cases |
+| 10 | US buyer | Ship to New York | Prices in USD (Bank of Canada rate + 5%); no tax; ACH offered |
+| 11 | Freight invoice | Paid delivery order → Admin → Send freight invoice (freight + offloading); try Shipped first | Shipped is blocked; pay the invoice → freight **paid**; then Shipped works |
+| 11b | Deposit quote | Quote with a 10% deposit; accept; Admin → Send balance invoice | **Deposit paid**, then **Paid** when the invoice is paid |
 | 12 | Mark paid offline | Send an invoice, then "Mark invoice paid (offline)" | **Paid**; invoice is paid in Stripe |
 | 13 | Quote, pay in full | Admin → Quotes → create → send; accept from the email link | Order **Paid**; quote **Accepted** |
 | 14 | Quote, net terms | Quote with Net 30; accept | Order **Invoice sent**; stock **Reserved**; Stripe invoice emailed |
 | 15 | Cancel an invoiced order | Admin → cancel | Invoice **voided** in Stripe; stock returned |
 | 16 | Refunds | Refund part, then the rest, from admin | Stripe refunds; amount refunded; **Refunded** when complete |
-| 17 | Tax-exempt buyer | Account → upload certificate; admin approves; order again | Stripe customer is tax-exempt; no tax charged |
+| 17 | Tax-exempt buyer | Account → upload certificate; admin approves; order again | Accounting emailed; Stripe customer is tax-exempt; no tax charged |
+| 17b | Invoice PDF | Any card order | Receipt email links a PDF invoice with GST/HST number, PO and terms |
 | 18 | Accounts | Sign in by email link; addresses; Order again; sign out | As built in phase 3 |
 | 19 | Duplicate webhooks | Stripe dashboard → resend an event | Nothing double-counted |
 | 20 | Mobile | Phone checkout, including Apple Pay / Google Pay | Works end to end |
@@ -55,6 +57,7 @@ Run everything with **test keys** first. No real money moves in test mode.
    - `invoice.payment_failed`
 
    Put the live `whsec_…` in `STRIPE_WEBHOOK_SECRET`.
+   Also set `CRON_SECRET` and a daily Hostinger cron job calling `/api/cron/daily` (see [client-answers-plan.md](client-answers-plan.md)).
 2. Re-enter the payment methods, tax registrations and invoice branding in **live** mode (Stripe keeps test and live settings separate).
 3. Place one small real order with a company card, then refund it.
 4. Merge `feature/online-ordering` to `main` only after the client signs off on the questionnaire answers: freight, card limit, deposits, returns and tax.

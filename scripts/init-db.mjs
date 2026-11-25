@@ -35,6 +35,14 @@ try {
      WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'admins' AND COLUMN_NAME = 'session_nonce'`,
   )
   if (!nonceColumn.length) await connection.query("ALTER TABLE admins ADD COLUMN session_nonce CHAR(32) NOT NULL DEFAULT '' AFTER password_salt")
+  // Admin users invited by the main administrator (Admin → Admins)
+  const [adminCols] = await connection.execute(
+    `SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'admins'`,
+  )
+  const have = new Set(adminCols.map(c => c.COLUMN_NAME))
+  if (!have.has('added_by')) await connection.query('ALTER TABLE admins ADD COLUMN added_by VARCHAR(190) NULL AFTER session_nonce')
+  if (!have.has('setup_token_hash')) await connection.query('ALTER TABLE admins ADD COLUMN setup_token_hash CHAR(64) NULL AFTER added_by')
+  if (!have.has('setup_expires')) await connection.query('ALTER TABLE admins ADD COLUMN setup_expires DATETIME NULL AFTER setup_token_hash')
 
   const email = required('ADMIN_EMAIL').toLowerCase().trim()
   const password = required('ADMIN_PASSWORD')
@@ -59,9 +67,10 @@ try {
     await connection.execute('UPDATE admins SET session_nonce = ? WHERE email = ?', [randomBytes(16).toString('hex'), email])
   }
 
-  // ADMIN_EMAIL is the single source of truth; a previous administrator must not keep access
-  const [removed] = await connection.execute('DELETE FROM admins WHERE email <> ?', [email])
-  if (removed.affectedRows) console.log(`Removed ${removed.affectedRows} administrator account(s) that no longer match ADMIN_EMAIL.`)
+  // ADMIN_EMAIL is the main administrator; a previous main administrator must not keep access.
+  // Admins the current main administrator invited (Admin → Admins) are kept.
+  const [removed] = await connection.execute('DELETE FROM admins WHERE email <> ? AND (added_by IS NULL OR added_by <> ?)', [email, email])
+  if (removed.affectedRows) console.log(`Removed ${removed.affectedRows} administrator account(s) not set up by the current ADMIN_EMAIL.`)
   console.log(`Database initialized. Administrator ready: ${email}`)
 } finally {
   await connection.end()

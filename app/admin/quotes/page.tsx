@@ -27,7 +27,7 @@ export default async function AdminQuotesPage({ searchParams }: { searchParams: 
       products={products.map(p => ({ id: p.id, sku: p.sku, name: p.name, price: p.price_min === null ? null : Number(p.price_min), currency: p.currency, stock: p.stock_quantity }))}
       initialId={id ? Number(id) : null}
       adminEmail={admin.email}
-      defaults={{ depositPercent: settings.deposit.percent, pickup: settings.pickup.enabled }}
+      defaults={{ depositPercent: settings.deposit.percent, yards: settings.pickup.enabled ? settings.pickup.yards.filter(y => y.enabled).map(y => ({ id: y.id, name: y.name })) : [], onlineLimit: settings.onlineLimit }}
       stripeReady={stripeConfigured() && settings.enabled}
     />
   )

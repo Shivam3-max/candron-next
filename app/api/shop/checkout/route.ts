@@ -5,7 +5,7 @@ import { getCurrentCustomer, parseAddress, saveAddress } from '@/lib/shop/custom
 
 export const dynamic = 'force-dynamic'
 
-/** Creates the order + Stripe Checkout Session and returns the hosted payment page URL. */
+/** Creates the order and returns the Stripe payment page URL (or, over the online limit, the order page). */
 export async function POST(req: Request) {
   if (rateLimited(`checkout:${clientIp(req)}`, 10, 10 * 60_000)) {
     return NextResponse.json({ error: 'Too many checkout attempts. Please wait a few minutes or call us.' }, { status: 429 })
@@ -15,11 +15,11 @@ export async function POST(req: Request) {
     if (body.website) return NextResponse.json({ error: 'Invalid request.' }, { status: 400 }) // honeypot
     const input = parseCheckoutInput(body)
     const customer = await getCurrentCustomer()
-    if (customer && input.saveAddress && input.fulfilment === 'delivery') {
+    if (customer && input.saveAddress) {
       await saveAddress(customer.id, parseAddress({ ...input.address, label: input.company || '' })).catch(() => {})
     }
-    const { url, orderNumber } = await createCheckout(input, siteOrigin(req), customer?.id ?? null)
-    return NextResponse.json({ url, orderNumber })
+    const { url, orderNumber, offline } = await createCheckout(input, siteOrigin(req), customer?.id ?? null)
+    return NextResponse.json({ url, orderNumber, offline })
   } catch (error) {
     if (isShopError(error)) return NextResponse.json({ error: error.message }, { status: 400 })
     console.error('[shop] checkout failed', error instanceof Error ? error.message : error)

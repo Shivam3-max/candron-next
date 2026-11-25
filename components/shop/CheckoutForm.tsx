@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import { FormEvent, useEffect, useState } from 'react'
 import { useCart } from '@/lib/shop/cart-store'
 import { formatMoney } from '@/lib/shop/order-status'
@@ -12,24 +12,20 @@ interface Quote {
   lines: { id: number; sku: string; name: string; quantity: number; unitPrice: number; lineTotal: number; error: string | null }[]
   currency: string; subtotal: number; errors: string[]
   freight: { ok: true; amount: number; label: string; billedLater: boolean } | { ok: false; error: string } | null
-  methods: string[]; cardLimit: number | null; automaticTax: boolean
-  pickup: { label: string; city: string; region: string } | null
+  offline: boolean; onlineLimit: number | null; holdDays: number; accountingEmail: string
+  methods: string[]; automaticTax: boolean
+  pickup: { id: string; name: string; region: string; country: CountryCode; hours: string } | null
+  fx: { cadPerUsd: number; date: string; margin: number } | null
+  maxQuantity: number
   shipCountries: CountryCode[]
-  deposit: { percent: number; amount: number } | null
 }
 
 interface SavedAddress { id: number; label: string; line1: string; line2: string; city: string; region: string; postal: string; country: string; is_default: number }
 const blankAddress = { line1: '', line2: '', city: '', region: '', postal: '', country: 'CA' as CountryCode }
 
 export default function CheckoutForm() {
-  const cart = useCart()
-  // /checkout?reserve=<id>&qty=<n> pays a deposit on one listing instead of checking out the cart
-  const params = useSearchParams()
-  const reserveId = Number(params.get('reserve')) || 0
-  const mode: 'buy' | 'reserve' = reserveId ? 'reserve' : 'buy'
-  const items = reserveId
-    ? [{ id: reserveId, quantity: Math.max(1, Number(params.get('qty')) || 1), currency: 'CAD', sku: '', name: '', price: 0 }]
-    : cart
+  const router = useRouter()
+  const items = useCart()
   const [contact, setContact] = useState({ name: '', company: '', email: '', phone: '', poNumber: '', notes: '' })
   const [fulfilment, setFulfilment] = useState<'delivery' | 'pickup'>('delivery')
   const [address, setAddress] = useState(blankAddress)
@@ -38,7 +34,7 @@ export default function CheckoutForm() {
   const [account, setAccount] = useState<{ email: string; addresses: SavedAddress[] } | null>(null)
   const [saveToAccount, setSaveToAccount] = useState(true)
 
-  // Signed-in buyers: prefill their details and offer their saved delivery addresses
+  // Signed-in buyers: prefill their details and offer their saved addresses
   useEffect(() => {
     let live = true
     fetch('/api/account/me').then(r => (r.ok ? r.json() : null)).then(d => {
@@ -56,8 +52,9 @@ export default function CheckoutForm() {
 
   const itemKey = items.map(i => `${i.id}:${i.quantity}`).join(',')
   const postalKey = address.postal.replace(/\s+/g, '').toUpperCase()
+  const yard = fulfilment === 'pickup' ? quote?.pickup?.id ?? '' : ''
 
-  // Re-price (and recalculate freight) when the cart or delivery details change
+  // Re-price (freight, currency, online limit) when the cart or address changes
   useEffect(() => {
     if (!itemKey) return
     const ctrl = new AbortController()
@@ -66,16 +63,16 @@ export default function CheckoutForm() {
         method: 'POST', headers: { 'Content-Type': 'application/json' }, signal: ctrl.signal,
         body: JSON.stringify({
           items: itemKey.split(',').map(p => ({ id: Number(p.split(':')[0]), quantity: Number(p.split(':')[1]) })),
-          mode,
           fulfilment,
-          address: fulfilment === 'delivery' && address.region ? { country: address.country, region: address.region, postal: postalKey } : null,
+          yard,
+          address: address.region ? { country: address.country, region: address.region, postal: postalKey } : null,
         }),
       }).then(r => r.json()).then((d: Quote) => setQuote(d)).catch(() => {})
     }, 300)
     return () => { clearTimeout(t); ctrl.abort() }
-  }, [itemKey, mode, fulfilment, address.country, address.region, postalKey])
+  }, [itemKey, fulfilment, yard, address.country, address.region, postalKey])
 
-  if (!items.length && mode === 'buy') {
+  if (!items.length) {
     return (
       <div className="shop-empty">
         <p>Your cart is empty.</p>
@@ -84,10 +81,12 @@ export default function CheckoutForm() {
     )
   }
 
-  const countries = COUNTRIES.filter(c => !quote || quote.shipCountries.includes(c.code))
+  const pickup = fulfilment === 'pickup'
+  const countries = COUNTRIES.filter(c => pickup || !quote || quote.shipCountries.includes(c.code))
   const country = COUNTRIES.find(c => c.code === address.country) ?? COUNTRIES[0]
   const currency = quote?.currency ?? items[0].currency
   const freightAmount = quote?.freight?.ok ? quote.freight.amount : 0
+  const offline = Boolean(quote?.offline)
   const blocked = !quote || !quote.open || quote.errors.length > 0 || quote.lines.some(l => l.error) || (quote.freight !== null && !quote.freight.ok)
   const setC = (k: keyof typeof contact, v: string) => setContact(c => ({ ...c, [k]: v }))
   const setA = (k: keyof typeof address, v: string) => setAddress(a => ({ ...a, [k]: v }))
@@ -101,13 +100,14 @@ export default function CheckoutForm() {
     try {
       const r = await fetch('/api/shop/checkout', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...contact, mode, fulfilment, address, acceptTerms, reminder, saveAddress: Boolean(account) && saveToAccount, items: items.map(i => ({ id: i.id, quantity: i.quantity })), website: (e.currentTarget as HTMLFormElement).website?.value }),
+        body: JSON.stringify({ ...contact, fulfilment, yard, address, acceptTerms, reminder: reminder && !offline, saveAddress: Boolean(account) && saveToAccount, items: items.map(i => ({ id: i.id, quantity: i.quantity })), website: (e.currentTarget as HTMLFormElement).website?.value }),
       })
       const d = await r.json().catch(() => ({}))
-      if (!r.ok || !d.url) throw new Error(d.error || 'Could not start checkout.')
-      window.location.assign(d.url)
+      if (!r.ok || !d.url) throw new Error(d.error || 'Could not place the order.')
+      if (d.offline) router.push(d.url)
+      else window.location.assign(d.url)
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Could not start checkout.')
+      setError(err instanceof Error ? err.message : 'Could not place the order.')
       setState('idle')
     }
   }
@@ -119,7 +119,7 @@ export default function CheckoutForm() {
           <legend>1 · Contact</legend>
           {account
             ? <p className="shop-signin-hint">Signed in as {account.email}. This order will appear in <Link href="/account">your account</Link>.</p>
-            : <p className="shop-signin-hint">Ordered before? <Link href={`/account/login?next=${encodeURIComponent(mode === 'reserve' ? `/checkout?reserve=${reserveId}` : '/checkout')}`}>Sign in</Link> to use your saved details and addresses, or continue as a guest.</p>}
+            : <p className="shop-signin-hint">Ordered before? <Link href="/account/login?next=%2Fcheckout">Sign in</Link> to use your saved details and addresses, or continue as a guest.</p>}
           <div className="shop-grid">
             <label><span>Full name *</span><input required autoComplete="name" value={contact.name} onChange={e => setC('name', e.target.value)} /></label>
             <label><span>Company</span><input autoComplete="organization" value={contact.company} onChange={e => setC('company', e.target.value)} /></label>
@@ -131,13 +131,20 @@ export default function CheckoutForm() {
 
         <fieldset className="shop-card">
           <legend>2 · Delivery</legend>
-          {quote?.pickup && (
-            <div className="shop-choice" role="radiogroup" aria-label="Delivery or pickup">
-              <label className={fulfilment === 'delivery' ? 'on' : ''}><input type="radio" name="fulfilment" checked={fulfilment === 'delivery'} onChange={() => setFulfilment('delivery')} /> Ship to my site</label>
-              <label className={fulfilment === 'pickup' ? 'on' : ''}><input type="radio" name="fulfilment" checked={fulfilment === 'pickup'} onChange={() => setFulfilment('pickup')} /> {quote.pickup.label} ({quote.pickup.city}, {quote.pickup.region}) · free</label>
-            </div>
-          )}
-          {fulfilment === 'delivery' && account && account.addresses.length > 0 && (
+          <div className="shop-choice" role="radiogroup" aria-label="Delivery or pickup">
+            <label className={!pickup ? 'on' : ''}>
+              <input type="radio" name="fulfilment" checked={!pickup} onChange={() => setFulfilment('delivery')} /> CANDRON freight to my site
+              <small>Quoted after your order (plus offloading, if needed) and invoiced before shipping</small>
+            </label>
+            {quote?.pickup && (
+              <label className={pickup ? 'on' : ''}>
+                <input type="radio" name="fulfilment" checked={pickup} onChange={() => setFulfilment('pickup')} /> Pickup or my own carrier · {quote.pickup.name} yard
+                <small>No freight charge. {quote.pickup.hours}</small>
+              </label>
+            )}
+          </div>
+          {pickup && <p className="shop-fine">We’ll send the exact yard location and book a time once your order is confirmed. Please bring suitable lifting equipment or ask us about loading.</p>}
+          {account && account.addresses.length > 0 && (
             <label className="shop-saved-address"><span>Saved address</span>
               <select defaultValue="" onChange={e => {
                 const a = account.addresses.find(x => x.id === Number(e.target.value))
@@ -148,28 +155,28 @@ export default function CheckoutForm() {
               </select>
             </label>
           )}
-          {fulfilment === 'delivery' ? (
-            <div className="shop-grid">
-              <label className="shop-wide"><span>Street address *</span><input required autoComplete="address-line1" value={address.line1} onChange={e => setA('line1', e.target.value)} /></label>
-              <label className="shop-wide"><span>Unit, building, site notes</span><input autoComplete="address-line2" value={address.line2} onChange={e => setA('line2', e.target.value)} /></label>
-              <label><span>City *</span><input required autoComplete="address-level2" value={address.city} onChange={e => setA('city', e.target.value)} /></label>
-              <label><span>Country *</span>
-                <select value={address.country} autoComplete="country" onChange={e => setAddress(a => ({ ...a, country: e.target.value as CountryCode, region: '' }))}>
-                  {countries.map(c => <option key={c.code} value={c.code}>{c.name}</option>)}
-                </select>
-              </label>
-              <label><span>{country.regionLabel} *</span>
-                <select required value={address.region} autoComplete="address-level1" onChange={e => setA('region', e.target.value)}>
-                  <option value="">Choose…</option>
-                  {REGIONS[address.country].map(r => <option key={r.code} value={r.code}>{r.name}</option>)}
-                </select>
-              </label>
-              <label><span>{country.postalLabel} *</span><input required autoComplete="postal-code" value={address.postal} onChange={e => setA('postal', e.target.value)} /></label>
-            </div>
-          ) : (
-            <p className="shop-fine">We’ll call you to book a pickup time once your order is ready. Please bring suitable lifting equipment or ask us about loading.</p>
+          <p className="shop-subhead">{pickup ? 'Billing address' : 'Delivery address'}</p>
+          <div className="shop-grid">
+            <label className="shop-wide"><span>Street address *</span><input required autoComplete={pickup ? 'billing address-line1' : 'address-line1'} value={address.line1} onChange={e => setA('line1', e.target.value)} /></label>
+            <label className="shop-wide"><span>{pickup ? 'Unit, suite' : 'Unit, building, site notes'}</span><input autoComplete={pickup ? 'billing address-line2' : 'address-line2'} value={address.line2} onChange={e => setA('line2', e.target.value)} /></label>
+            <label><span>City *</span><input required autoComplete="address-level2" value={address.city} onChange={e => setA('city', e.target.value)} /></label>
+            <label><span>Country *</span>
+              <select value={address.country} autoComplete="country" onChange={e => setAddress(a => ({ ...a, country: e.target.value as CountryCode, region: '' }))}>
+                {countries.map(c => <option key={c.code} value={c.code}>{c.name}</option>)}
+              </select>
+            </label>
+            <label><span>{country.regionLabel} *</span>
+              <select required value={address.region} autoComplete="address-level1" onChange={e => setA('region', e.target.value)}>
+                <option value="">Choose…</option>
+                {REGIONS[address.country].map(r => <option key={r.code} value={r.code}>{r.name}</option>)}
+              </select>
+            </label>
+            <label><span>{country.postalLabel} *</span><input required autoComplete="postal-code" value={address.postal} onChange={e => setA('postal', e.target.value)} /></label>
+          </div>
+          {address.country === 'US' && !pickup && (
+            <p className="shop-fine">US deliveries are exported from Canada. When we ship, our customs broker handles clearance; brokerage is added to the freight invoice.</p>
           )}
-          {fulfilment === 'delivery' && account && (
+          {account && (
             <label className="shop-check shop-mt"><input type="checkbox" checked={saveToAccount} onChange={e => setSaveToAccount(e.target.checked)} /> Save this address to my account</label>
           )}
           <label className="shop-wide shop-notes"><span>Notes for our team (site access, offloading, timing)</span>
@@ -184,49 +191,50 @@ export default function CheckoutForm() {
         <ul className="shop-mini-lines">
           {(quote?.lines ?? items.map(i => ({ id: i.id, sku: i.sku, name: i.name, quantity: i.quantity, unitPrice: i.price, lineTotal: i.price * i.quantity, error: null }))).map(l => (
             <li key={l.id}>
-              <span>{l.name} <small>× {l.quantity}</small>{l.error && <em className="shop-line-error">{l.error}</em>}</span>
+              <span>{l.name} <small>× {l.quantity}</small>{l.error && <em className="shop-line-error">{l.error} {l.error.includes('volume') && <Link href="/contact">Request a quote</Link>}</em>}</span>
               <strong>{formatMoney(l.lineTotal, currency)}</strong>
             </li>
           ))}
         </ul>
+        {quote?.fx && (
+          <p className="shop-fine">Prices in USD for delivery to the United States: Bank of Canada rate of {quote.fx.date} (1 USD = {quote.fx.cadPerUsd.toFixed(4)} CAD) plus {quote.fx.margin}%.</p>
+        )}
         <div className="shop-summary-row"><span>Subtotal</span><strong>{quote ? formatMoney(quote.subtotal, currency) : '…'}</strong></div>
         <div className="shop-summary-row">
-          <span>{quote?.freight?.ok ? quote.freight.label : 'Freight'}</span>
-          <strong>{!quote?.freight ? (fulfilment === 'delivery' ? 'Enter address' : '…') : quote.freight.ok ? (quote.freight.billedLater ? 'Quoted separately' : formatMoney(quote.freight.amount, currency)) : '—'}</strong>
+          <span>{pickup ? 'Pickup / own carrier' : 'Freight'}</span>
+          <strong>{pickup ? 'No charge' : !quote?.freight ? 'Enter address' : quote.freight.ok ? (quote.freight.billedLater ? 'Quoted after order' : formatMoney(quote.freight.amount, currency)) : '—'}</strong>
         </div>
         {quote?.freight && !quote.freight.ok && <p className="shop-error">{quote.freight.error} <Link href="/contact">Request a quote</Link></p>}
-        <div className="shop-summary-row"><span>Tax</span><strong>{quote?.automaticTax === false ? 'Not charged online' : 'Calculated on next step'}</strong></div>
-        {quote?.deposit ? (
-          <>
-            <div className="shop-summary-row"><span>Order value before tax</span><strong>{formatMoney(quote.subtotal, currency)}</strong></div>
-            <div className="shop-summary-row shop-total"><span>Deposit due now ({quote.deposit.percent}%)</span><strong>{formatMoney(quote.deposit.amount, currency)}</strong></div>
-            <p className="shop-fine">Tax on the deposit is added on the payment page. The balance and freight are invoiced before shipping.</p>
-          </>
-        ) : (
-          <div className="shop-summary-row shop-total"><span>Total before tax</span><strong>{quote ? formatMoney(quote.subtotal + freightAmount, currency) : '…'}</strong></div>
-        )}
-        {quote && (
+        <div className="shop-summary-row"><span>Tax</span><strong>{offline ? 'On your invoice' : quote?.automaticTax === false ? 'Not charged online' : 'Calculated on next step'}</strong></div>
+        <div className="shop-summary-row shop-total"><span>Total before tax</span><strong>{quote ? formatMoney(quote.subtotal + freightAmount, currency) : '…'}</strong></div>
+        {offline && quote ? (
+          <div className="shop-offline">
+            <strong>Pay by EFT, bank draft or cheque</strong>
+            <p>Orders over {formatMoney(quote.onlineLimit ?? 0, 'CAD')} before tax aren’t paid online. Submit your order and our accounting team will send an invoice with payment details{quote.accountingEmail ? <> (or email <a href={`mailto:${quote.accountingEmail}`}>{quote.accountingEmail}</a>)</> : null}. We hold the equipment for {quote.holdDays} business days.</p>
+          </div>
+        ) : quote && (
           <p className="shop-fine">
-            Pay by {quote.methods.includes('card') ? 'card (Visa, Mastercard, Amex, Apple Pay, Google Pay)' : ''}{quote.methods.includes('card') && quote.methods.length > 2 ? ' or ' : ''}{quote.methods.some(m => m === 'acss_debit' || m === 'us_bank_account') ? 'bank debit from a business account' : ''}.
-            {quote.cardLimit !== null && !quote.methods.includes('card') ? ` Card payments are available on orders up to ${formatMoney(quote.cardLimit, currency)}.` : ''}
+            Pay by card (Visa, Mastercard, Amex, Apple Pay, Google Pay){quote.methods.some(m => m === 'acss_debit' || m === 'us_bank_account') ? ' or bank debit from a business account' : ''}. You’ll get a PDF invoice with your receipt.
           </p>
         )}
-        {quote && !quote.open && <p className="shop-error">Online checkout is paused right now. Please request a quote or call us.</p>}
+        {quote && !quote.open && <p className="shop-error">Online ordering is paused right now. Please request a quote or call us.</p>}
         {quote?.errors.map(e => <p key={e} className="shop-error">{e}</p>)}
-        <label className="shop-terms">
-          <input type="checkbox" checked={reminder} onChange={e => setReminder(e.target.checked)} />
-          <span>Email me a link to finish this order if I don’t complete payment (one reminder only).</span>
-        </label>
+        {!offline && (
+          <label className="shop-terms">
+            <input type="checkbox" checked={reminder} onChange={e => setReminder(e.target.checked)} />
+            <span>Email me a link to finish this order if I don’t complete payment (one reminder only).</span>
+          </label>
+        )}
         <label className="shop-terms">
           <input type="checkbox" checked={acceptTerms} onChange={e => setAcceptTerms(e.target.checked)} required />
-          <span>I agree to the <Link href="/terms-and-conditions" target="_blank">terms and conditions</Link> and <Link href="/warranty" target="_blank">warranty</Link>.</span>
+          <span>I agree to the <Link href="/terms-and-conditions" target="_blank">terms of sale</Link>, <Link href="/returns" target="_blank">returns policy</Link> and <Link href="/warranty" target="_blank">warranty</Link>.</span>
         </label>
         {error && <p className="shop-error" role="alert">{error}</p>}
         <button className="btn btn-primary shop-wide" disabled={blocked || state === 'sending' || !acceptTerms}>
-          {state === 'sending' ? 'Opening secure payment…' : mode === 'reserve' ? 'Continue to pay the deposit' : 'Continue to secure payment'}
+          {state === 'sending' ? (offline ? 'Submitting…' : 'Opening secure payment…') : offline ? 'Submit order' : 'Continue to secure payment'}
         </button>
-        <p className="shop-fine shop-secure">Payments are processed securely by Stripe. CANDRON never sees your card or bank details.</p>
-        {mode === 'buy' && <Link href="/cart" className="shop-continue">← Back to cart</Link>}
+        {!offline && <p className="shop-fine shop-secure">Payments are processed securely by Stripe. CANDRON never sees your card or bank details.</p>}
+        <Link href="/cart" className="shop-continue">← Back to cart</Link>
       </aside>
     </form>
   )

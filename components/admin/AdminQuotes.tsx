@@ -13,7 +13,7 @@ interface Line { product_id: number | null; sku: string; name: string; descripti
 const addDays = (n: number) => new Date(Date.now() + n * 86400000).toISOString().slice(0, 10)
 const blank = (depositPercent: number) => ({
   currency: 'CAD', customer_name: '', company: '', email: '', phone: '',
-  fulfilment: 'delivery' as 'delivery' | 'pickup',
+  fulfilment: 'delivery' as 'delivery' | 'pickup', pickup_yard: '',
   ship: { line1: '', line2: '', city: '', region: '', postal: '', country: 'CA' as CountryCode },
   items: [] as Line[],
   freight: '0', freight_note: 'Freight',
@@ -27,7 +27,7 @@ const when = (d: string) => new Date(d).toLocaleDateString('en-CA', { dateStyle:
 
 export default function AdminQuotes(props: {
   initialQuotes: QuoteRow[]; initialRequests: RequestRow[]; products: Product[]; initialId: number | null; adminEmail: string
-  defaults: { depositPercent: number; pickup: boolean }; stripeReady: boolean
+  defaults: { depositPercent: number; yards: { id: string; name: string }[]; onlineLimit: number | null }; stripeReady: boolean
 }) {
   const router = useRouter()
   const [tab, setTab] = useState<'quotes' | 'requests'>(props.initialRequests.length && !props.initialId ? 'requests' : 'quotes')
@@ -61,7 +61,7 @@ export default function AdminQuotes(props: {
     const q = d.quote
     setForm({
       currency: String(q.currency), customer_name: String(q.customer_name), company: String(q.company), email: String(q.email), phone: String(q.phone),
-      fulfilment: q.fulfilment === 'pickup' ? 'pickup' : 'delivery',
+      fulfilment: q.fulfilment === 'pickup' ? 'pickup' : 'delivery', pickup_yard: String(q.pickup_yard ?? ''),
       ship: { line1: String(q.ship_line1), line2: String(q.ship_line2), city: String(q.ship_city), region: String(q.ship_region), postal: String(q.ship_postal), country: (q.ship_country === 'US' ? 'US' : 'CA') },
       items: d.items.map(i => ({ product_id: (i.product_id as number | null) ?? null, sku: String(i.sku), name: String(i.name), description: String(i.description), unit_price: String(Number(i.unit_price)), quantity: String(i.quantity) })),
       freight: String(Number(q.freight)), freight_note: String(q.freight_note),
@@ -253,11 +253,19 @@ export default function AdminQuotes(props: {
               <h3>Delivery and freight</h3>
               <div className="ia-toggles">
                 <label><input type="radio" checked={form.fulfilment === 'delivery'} onChange={() => set('fulfilment', 'delivery')} /> Deliver to site</label>
-                <label><input type="radio" checked={form.fulfilment === 'pickup'} onChange={() => set('fulfilment', 'pickup')} /> Customer picks up</label>
+                {props.defaults.yards.length > 0 && <label><input type="radio" checked={form.fulfilment === 'pickup'} onChange={() => set('fulfilment', 'pickup')} /> Customer picks up / own carrier</label>}
               </div>
-              {form.fulfilment === 'delivery' && (
+              {form.fulfilment === 'pickup' && (
                 <div className="ia-grid ia-mt">
-                  <label className="ia-field ia-wide"><span className="ia-label">Street address</span><input value={form.ship.line1} onChange={e => setShip('line1', e.target.value)} /></label>
+                  <label className="ia-field"><span className="ia-label">Pickup yard</span>
+                    <select value={form.pickup_yard} onChange={e => set('pickup_yard', e.target.value)}><option value="">Choose…</option>{props.defaults.yards.map(y => <option key={y.id} value={y.id}>{y.name}</option>)}</select>
+                  </label>
+                  <p className="ia-hint ia-wide">Enter the customer’s billing address below (it goes on the invoice; for Buffalo pickups, tax follows it).</p>
+                </div>
+              )}
+              {(
+                <div className="ia-grid ia-mt">
+                  <label className="ia-field ia-wide"><span className="ia-label">{form.fulfilment === 'pickup' ? 'Billing street address' : 'Street address'}</span><input value={form.ship.line1} onChange={e => setShip('line1', e.target.value)} /></label>
                   <label className="ia-field"><span className="ia-label">Unit / site notes</span><input value={form.ship.line2} onChange={e => setShip('line2', e.target.value)} /></label>
                   <label className="ia-field"><span className="ia-label">City</span><input value={form.ship.city} onChange={e => setShip('city', e.target.value)} /></label>
                   <label className="ia-field"><span className="ia-label">Country</span><select value={form.ship.country} onChange={e => setForm(f => ({ ...f, ship: { ...f.ship, country: e.target.value as CountryCode, region: '' } }))}>{COUNTRIES.map(c => <option key={c.code} value={c.code}>{c.name}</option>)}</select></label>
@@ -276,12 +284,15 @@ export default function AdminQuotes(props: {
               <div className="ia-grid">
                 <label className="ia-field"><span className="ia-label">Payment</span>
                   <select value={form.payment_terms} onChange={e => set('payment_terms', e.target.value as PaymentTerms)}>
-                    {(Object.keys(PAYMENT_TERMS) as PaymentTerms[]).map(t => <option key={t} value={t}>{t === 'pay_now' ? 'Pay in full online' : t === 'deposit' ? 'Deposit online, balance invoiced' : 'Invoice on acceptance (net terms)'}</option>)}
+                    {(Object.keys(PAYMENT_TERMS) as PaymentTerms[]).filter(t => t !== 'offline').map(t => <option key={t} value={t}>{t === 'pay_now' ? 'Pay in full online' : t === 'deposit' ? 'Deposit online, balance invoiced' : 'Invoice on acceptance (net terms)'}</option>)}
                   </select>
                 </label>
                 {form.payment_terms === 'deposit' && <label className="ia-field"><span className="ia-label">Deposit %</span><input inputMode="decimal" value={form.deposit_percent} onChange={e => set('deposit_percent', e.target.value)} /><span className="ia-hint">{formatMoney(deposit, cur)} before tax</span></label>}
                 {form.payment_terms === 'net' && <label className="ia-field"><span className="ia-label">Net days</span><input inputMode="numeric" value={form.net_days} onChange={e => set('net_days', e.target.value.replace(/\D/g, ''))} /></label>}
                 <label className="ia-field"><span className="ia-label">Valid until</span><input type="date" value={form.valid_until} onChange={e => set('valid_until', e.target.value)} /></label>
+                {props.defaults.onlineLimit !== null && form.currency === 'CAD' && total > props.defaults.onlineLimit && (
+                  <p className="ia-hint ia-wide">Over the {formatMoney(props.defaults.onlineLimit, 'CAD')} online limit: when the buyer accepts, nothing is paid online. Accounting is emailed to arrange payment and the stock is held.</p>
+                )}
                 <label className="ia-field ia-wide"><span className="ia-label">Message to the customer (scope, lead time, conditions)</span><textarea rows={4} value={form.message} onChange={e => set('message', e.target.value)} /></label>
                 <label className="ia-field ia-wide"><span className="ia-label">Internal notes (not shown to the customer)</span><textarea rows={2} value={form.internal_notes} onChange={e => set('internal_notes', e.target.value)} /></label>
               </div>

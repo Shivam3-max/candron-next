@@ -6,6 +6,7 @@ const LINKS = [
   { key: 'quotes', href: '/admin/quotes', label: 'Quotes' },
   { key: 'customers', href: '/admin/customers', label: 'Customers' },
   { key: 'shop', href: '/admin/shop', label: 'Shop settings' },
+  { key: 'users', href: '/admin/users', label: 'Admins' },
 ] as const
 
 export default function AdminNav({ current }: { current: (typeof LINKS)[number]['key'] }) {

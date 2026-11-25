@@ -14,7 +14,7 @@ type Img = { id: number; name: string; url: string }
 const blank = {
   name: '', sku: '', slug: '', category: CATEGORIES[0].name, condition_name: 'New', status: 'Available', manufacturer: 'CANDRON',
   year_built: '', special_type: '', short_description: '', kva: '', rating_unit: 'kVA', input_voltage: '', output_voltage: '',
-  phase: 'Three-phase', frequency: '60 Hz', winding: '', cooling: '', show_price: true, purchase_mode: 'quote', deposit_percent: '', price_min: '', price_max: '',
+  phase: 'Three-phase', frequency: '60 Hz', winding: '', cooling: '', show_price: true, purchase_mode: 'quote', custom_build: false, pickup_yard: '', price_min: '', price_max: '',
   currency: 'CAD', stock_quantity: '1', location: 'Toronto, ON', lead_time: '', warranty: '', dim_height: '', dim_width: '',
   dim_depth: '', dim_unit: 'in', weight: '', weight_unit: 'lb', description: '', is_featured: false, is_active: true,
 }
@@ -26,8 +26,8 @@ const toForm = (p: Product): Form => ({
   manufacturer: p.manufacturer || '', year_built: str(p.year_built), special_type: p.special_type || '',
   short_description: p.short_description || '', kva: str(p.kva), rating_unit: p.rating_unit || 'kVA',
   input_voltage: p.input_voltage || '', output_voltage: p.output_voltage || '', phase: p.phase || '', frequency: p.frequency || '',
-  winding: p.winding || '', cooling: p.cooling || '', show_price: p.show_price, purchase_mode: ['buy', 'reserve'].includes(p.purchase_mode) ? p.purchase_mode : 'quote',
-  deposit_percent: p.deposit_percent === null || p.deposit_percent === undefined ? '' : String(Number(p.deposit_percent)),
+  winding: p.winding || '', cooling: p.cooling || '', show_price: p.show_price, purchase_mode: p.purchase_mode === 'buy' ? 'buy' : 'quote',
+  custom_build: Boolean(p.custom_build), pickup_yard: p.pickup_yard || '',
   price_min: str(p.price_min), price_max: str(p.price_max),
   currency: p.currency || 'CAD', stock_quantity: String(p.stock_quantity ?? 0), location: p.location || '', lead_time: p.lead_time || '',
   warranty: p.warranty || '', dim_height: str(p.dim_height), dim_width: str(p.dim_width), dim_depth: str(p.dim_depth),
@@ -55,7 +55,7 @@ function Field({ label, hint, children, wide }: { label: string; hint?: string; 
   )
 }
 
-export default function AdminProducts({ initialProducts, adminEmail }: { initialProducts: Product[]; adminEmail: string }) {
+export default function AdminProducts({ initialProducts, adminEmail, yards }: { initialProducts: Product[]; adminEmail: string; yards: { id: string; name: string }[] }) {
   const router = useRouter()
   const [products, setProducts] = useState(initialProducts)
   const [editing, setEditing] = useState<Product | null>(initialProducts[0] ?? null)
@@ -121,7 +121,6 @@ export default function AdminProducts({ initialProducts, adminEmail }: { initial
       price_min: form.price_min === '' ? null : Number(form.price_min),
       price_max: form.price_max === '' ? null : Number(form.price_max),
       year_built: form.year_built === '' ? null : Number(form.year_built),
-      deposit_percent: form.deposit_percent === '' ? null : Number(form.deposit_percent),
       dim_height: form.dim_height === '' ? null : Number(form.dim_height),
       dim_width: form.dim_width === '' ? null : Number(form.dim_width),
       dim_depth: form.dim_depth === '' ? null : Number(form.dim_depth),
@@ -218,7 +217,7 @@ export default function AdminProducts({ initialProducts, adminEmail }: { initial
                     <strong>{p.name}</strong>
                     <small>{p.sku} · {p.category}</small>
                   </span>
-                  <span className={`ia-pill ia-${(p.is_active ? p.status : 'Hidden').toLowerCase()}`}>{p.is_active ? p.status : 'Hidden'}{p.purchase_mode === 'buy' ? ' · Buy' : p.purchase_mode === 'reserve' ? ' · Reserve' : ''}</span>
+                  <span className={`ia-pill ia-${(p.is_active ? p.status : 'Hidden').toLowerCase()}`}>{p.is_active ? p.status : 'Hidden'}{p.purchase_mode === 'buy' && !p.custom_build ? ' · Buy' : ''}</span>
                 </button>
               </li>
             ))}
@@ -340,21 +339,24 @@ export default function AdminProducts({ initialProducts, adminEmail }: { initial
               <Field label="Starting price"><input inputMode="decimal" value={form.price_min} onChange={e => set('price_min', e.target.value)} /></Field>
               <Field label="Up to (optional)"><input inputMode="decimal" value={form.price_max} onChange={e => set('price_max', e.target.value)} /></Field>
               <Field label="Currency"><select value={form.currency} onChange={e => set('currency', e.target.value)}><option>CAD</option><option>USD</option></select></Field>
-              <Field label="Online purchase" hint={form.purchase_mode === 'buy' ? 'Shows Add to cart when online ordering is on. Add a shipping weight for freight.' : form.purchase_mode === 'reserve' ? 'Buyer pays a deposit online; you invoice the balance and freight before shipping.' : 'Shows Request a quote only.'}>
-                <select value={form.purchase_mode} onChange={e => set('purchase_mode', e.target.value)}>
-                  <option value="quote">Quote only</option>
+              <Field label="Online purchase" hint={form.custom_build ? 'Custom builds are always quote-only.' : form.purchase_mode === 'buy' ? 'Shows Add to cart when online ordering is on (priced low-voltage stock). Freight is quoted after the order.' : 'Shows Request a quote only (medium/high voltage, switchgear, custom).'}>
+                <select value={form.custom_build ? 'quote' : form.purchase_mode} disabled={form.custom_build} onChange={e => set('purchase_mode', e.target.value)}>
+                  <option value="quote">Quote only (sales team)</option>
                   <option value="buy">Buy online (cart + Stripe)</option>
-                  <option value="reserve">Reserve with deposit</option>
                 </select>
               </Field>
-              {form.purchase_mode === 'reserve' && (
-                <Field label="Deposit %" hint="Blank = the shop default (Shop settings).">
-                  <input inputMode="decimal" value={form.deposit_percent} onChange={e => set('deposit_percent', e.target.value)} placeholder="25" />
-                </Field>
-              )}
+              <Field label="Pickup yard" hint="Where buyers collect it. Blank = no pickup option for this item.">
+                <select value={form.pickup_yard} onChange={e => set('pickup_yard', e.target.value)}>
+                  <option value="">No pickup</option>
+                  {yards.map(y => <option key={y.id} value={y.id}>{y.name}</option>)}
+                </select>
+              </Field>
+              <div className="ia-toggles ia-wide">
+                <label><input type="checkbox" checked={form.custom_build} onChange={e => set('custom_build', e.target.checked)} /> Custom build (quote only, no returns)</label>
+              </div>
               <Field label="Quantity in stock"><input inputMode="numeric" value={form.stock_quantity} onChange={e => set('stock_quantity', e.target.value.replace(/\D/g, ''))} /></Field>
               <Field label="Stock location"><input value={form.location} onChange={e => set('location', e.target.value)} placeholder="Toronto, ON" /></Field>
-              <Field label="Lead time / ships in"><input value={form.lead_time} onChange={e => set('lead_time', e.target.value)} placeholder="Ready to ship" /></Field>
+              <Field label="Lead time / ships in"><input value={form.lead_time} onChange={e => set('lead_time', e.target.value)} placeholder="Blank = shop default (Ships in 2–3 business days)" /></Field>
               <Field label="Warranty"><input value={form.warranty} onChange={e => set('warranty', e.target.value)} placeholder="2 years" /></Field>
             </div>
           </section>

@@ -98,7 +98,13 @@
 }
 .shop-grid input:focus, .shop-grid select:focus, .shop-notes textarea:focus { outline: 2px solid rgba(0, 71, 255, .25); border-color: var(--blue); }
 .shop-choice { display: grid; gap: .5rem; margin-bottom: 1rem; }
-.shop-choice label { display: flex; align-items: center; gap: .6rem; padding: .75rem .9rem; border: 1px solid #D5DCEA; border-radius: 10px; cursor: pointer; font-weight: 600; color: var(--navy); }
+.shop-choice label { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; padding: .75rem .9rem; border: 1px solid #D5DCEA; border-radius: 10px; cursor: pointer; font-weight: 600; color: var(--navy); }
+.shop-choice label small { flex: 1 0 100%; padding-left: calc(18px + .6rem); font-weight: 400; color: var(--gray); font-size: .85rem; }
+.shop-subhead { margin: 1rem 0 .5rem; font-weight: 700; color: var(--navy); }
+.shop-offline { margin: 1rem 0; padding: .9rem 1rem; border-radius: 10px; background: #FFF7E6; border: 1px solid #F3D9A4; color: #4A3A12; font-size: .9rem; }
+.shop-offline strong { display: block; margin-bottom: .3rem; color: #3A2C08; }
+.shop-offline p { margin: 0; }
+.shop-offline a { color: var(--blue); font-weight: 700; }
 .shop-choice label.on { border-color: var(--blue); background: #EEF3FF; }
 .shop-choice input, .shop-terms input { width: 18px; height: 18px; accent-color: var(--blue); flex: 0 0 auto; }
 .shop-checkout-summary { position: sticky; top: calc(var(--hdr-h) + 1rem); margin: 0; }
@@ -251,3 +257,8 @@
 .ia-docs a { color: var(--blue); font-weight: 700; }
 .ia-row-btns { display: flex; gap: .5rem; flex-wrap: wrap; }
 .ia-card textarea { width: 100%; }
+
+/* returns / policy page */
+.shop-policy h2 { margin-bottom: .6rem; }
+.shop-policy ul { margin: 0; padding-left: 1.2rem; display: grid; gap: .5rem; color: #33415F; line-height: 1.6; }
+.shop-policy a { color: var(--blue); font-weight: 700; }

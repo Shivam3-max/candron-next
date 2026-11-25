@@ -10,7 +10,6 @@ import CopyCode from '@/components/inventory/CopyCode'
 import DimensionDrawing from '@/components/inventory/DimensionDrawing'
 import ProductCard from '@/components/inventory/ProductCard'
 import AddToCart from '@/components/shop/AddToCart'
-import ReserveBox from '@/components/shop/ReserveBox'
 import { purchaseBlock } from '@/lib/shop/catalog'
 import { getShopSettings, shopIsOpen } from '@/lib/shop/settings'
 
@@ -39,14 +38,18 @@ export default async function InventoryProductPage({ params }: Props) {
 
   const price = priceLabel(p)
   const avail = availability(p)
-  // "Buy online" / "Reserve" only when the shop is switched on and this listing is priced, in stock and set to that mode
+  // "Buy online" only when the shop is switched on and this listing is priced, in stock and set to Buy online.
+  // Medium/high voltage, custom builds and everything else go through the sales team (Request a quote).
   const open = await shopIsOpen()
-  const buyable = open && purchaseBlock(p, p.available, 'buy') === null
-  const reservable = open && purchaseBlock(p, p.available, 'reserve') === null
-  const shop = buyable || reservable ? await getShopSettings() : null
-  const depositPercent = reservable ? Number(p.deposit_percent ?? shop!.deposit.percent) : 0
+  const buyable = open && purchaseBlock(p, p.available) === null
+  const settings = await getShopSettings()
+  const shop = buyable ? settings : null
+  const leadTime = p.lead_time || (buyable ? settings.defaultShipsIn : '')
+  const used = p.condition_name !== 'New'
+  // Client: used equipment is sold as-is with no warranty; custom builds are final sale
+  const asIs = used && settings.returns.usedFinalSale
   // Return policy markup only for listings sold online, once the policy is set in Shop settings
-  const finalSale = shop?.returns.usedFinalSale && p.condition_name !== 'New'
+  const finalSale = (shop?.returns.usedFinalSale && used) || (shop?.returns.customFinalSale && Boolean(p.custom_build))
   const returnPolicy = shop && (shop.returns.days || finalSale) ? {
     '@type': 'MerchantReturnPolicy',
     applicableCountry: shop.shipCountries,
@@ -56,7 +59,8 @@ export default async function InventoryProductPage({ params }: Props) {
           returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
           merchantReturnDays: shop.returns.days,
           returnMethod: 'https://schema.org/ReturnByMail',
-          returnFees: shop.returns.restockingPercent ? 'https://schema.org/RestockingFees' : 'https://schema.org/ReturnShippingFees',
+          // The buyer pays return freight (restocking fees vary and are stated in the policy)
+          returnFees: 'https://schema.org/ReturnShippingFees',
         }),
   } : null
   const keySpecs = [
@@ -152,19 +156,14 @@ export default async function InventoryProductPage({ params }: Props) {
 
             <ul className="pd-facts">
               {p.location && <li><span>Stocked at</span>{p.location}</li>}
-              {p.lead_time && <li><span>Ships</span>{p.lead_time}</li>}
-              {p.warranty && <li><span>Warranty</span>{p.warranty}</li>}
+              {leadTime && <li><span>Ships</span>{leadTime}</li>}
+              {asIs ? <li><span>Warranty</span>Sold as-is, no warranty</li> : p.warranty && <li><span>Warranty</span>{p.warranty}</li>}
             </ul>
 
-            {reservable ? (
+            {buyable ? (
               <div id="buy">
-                <ReserveBox id={p.id} price={p.price_min as number} currency={p.currency} available={p.available} depositPercent={depositPercent} />
-                <p className="shop-alt">Prefer a formal quote or invoice terms? <a href="#quote">Request a quote</a> or call <a href={PHONE.href}>{PHONE.label}</a>.</p>
-              </div>
-            ) : buyable ? (
-              <div id="buy">
-                <AddToCart id={p.id} slug={p.slug} sku={p.sku} name={p.name} price={p.price_min as number} currency={p.currency} image={p.images[0] ?? null} available={p.available} />
-                <p className="shop-alt">Buying several units or need site changes? <a href="#quote">Request a quote for volume pricing</a> or call <a href={PHONE.href}>{PHONE.label}</a>.</p>
+                <AddToCart id={p.id} slug={p.slug} sku={p.sku} name={p.name} price={p.price_min as number} currency={p.currency} image={p.images[0] ?? null} available={p.available} maxQuantity={settings.maxQuantity} />
+                <p className="shop-alt">Need {settings.maxQuantity + 1} or more, or site changes? <a href="#quote">Request a quote for volume pricing</a> or call <a href={PHONE.href}>{PHONE.label}</a>.</p>
               </div>
             ) : (
               <div className="pd-actions">
@@ -237,8 +236,8 @@ export default async function InventoryProductPage({ params }: Props) {
             <section id="shipping" className="pd-section">
               <h2>Shipping & warranty</h2>
               <div className="pd-info-cards">
-                <div><h3>Shipping</h3><p>Ships from {p.location || 'Toronto, Ontario'}{p.lead_time ? ` — ${p.lead_time.toLowerCase()}` : ''}. We crate, load and arrange flatbed freight anywhere in Canada and the United States.</p></div>
-                <div><h3>Warranty</h3><p>{p.warranty ? `${p.warranty} CANDRON warranty` : 'Covered by the CANDRON equipment warranty'}, backed by our own field service team.</p></div>
+                <div><h3>Shipping</h3><p>Ships from {p.location || 'Ontario'}{leadTime ? ` — ${leadTime.toLowerCase()}` : ''}. We arrange freight anywhere in Canada and the United States (quoted after your order, offloading extra), or you can collect it or send your own carrier.</p></div>
+                <div><h3>Warranty</h3><p>{asIs ? 'Used equipment is sold as-is, with no warranty. Inspect the unit or ask us for its test records before you buy.' : `${p.warranty ? `${p.warranty} CANDRON warranty` : 'Covered by the CANDRON equipment warranty'}, backed by our own field service team.`}</p></div>
                 <div><h3>Testing</h3><p>Routine factory tests are completed before shipment, and the test report travels with the unit.</p></div>
               </div>
             </section>
@@ -278,7 +277,7 @@ export default async function InventoryProductPage({ params }: Props) {
 
       <div className="pd-mobilebar">
         <div><small>{price.kicker}</small><strong>{price.value}</strong></div>
-        {buyable || reservable ? <a href="#buy" className="btn btn-primary">{reservable ? 'Reserve online' : 'Buy online'}</a> : <a href="#quote" className="btn btn-primary">Request a quote</a>}
+        {buyable ? <a href="#buy" className="btn btn-primary">Buy online</a> : <a href="#quote" className="btn btn-primary">Request a quote</a>}
       </div>
     </>
   )

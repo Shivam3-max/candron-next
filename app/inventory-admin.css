@@ -130,6 +130,7 @@ body:has(.ia) .mobile-nav-backdrop { display: none; }
 .ia-editor-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 .ia-editor-head h2 { font-size: 1.6rem; margin-top: .2rem; }
 .ia-card { padding: 1.3rem 1.4rem 1.4rem; border: 1px solid #DDE3EF; border-radius: 14px; background: #fff; }
+.ia-card.ia-attention { border-color: #F3C76B; background: #FFFCF3; }
 .ia-card h3 { font-size: 1.1rem; margin-bottom: 1rem; }
 .ia-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .9rem 1rem; }
 .ia-field { display: flex; flex-direction: column; gap: .35rem; min-width: 0; }

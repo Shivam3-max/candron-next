@@ -1,9 +1,11 @@
 // Order statuses (client-safe). The flow: pending_payment → paid (or payment_processing → paid)
 // → processing → ready_to_ship → shipped → delivered; plus cancelled / expired / payment_failed / refunded.
 // Deposits: pending_payment → deposit_paid → invoiced (balance) → paid. Net terms: invoiced → paid.
+// Above the online limit: awaiting_offline (accounting arranges payment) → paid.
 
 export const ORDER_STATUSES = {
   pending_payment: { label: 'Awaiting payment', tone: 'wait', customer: 'Waiting for payment to be completed.' },
+  awaiting_offline: { label: 'Awaiting payment (accounting)', tone: 'wait', customer: 'We’ve received your order and are holding the equipment. Our accounting team will contact you to arrange payment by EFT, bank draft or cheque.' },
   payment_processing: { label: 'Payment processing', tone: 'wait', customer: 'Your bank payment is processing. This usually takes 3–5 business days; we’ll email you when it clears.' },
   deposit_paid: { label: 'Deposit paid', tone: 'ok', customer: 'Deposit received and the equipment is reserved for you. We’ll send an invoice for the balance (and freight) before it ships.' },
   invoiced: { label: 'Invoice sent', tone: 'wait', customer: 'Your invoice has been issued. You can pay it online from the link below, by bank debit or card, before the due date.' },
@@ -30,8 +32,16 @@ export const PAYMENT_TERMS = {
   pay_now: 'Paid in full online',
   deposit: 'Deposit, balance invoiced',
   net: 'Invoice (net terms)',
+  offline: 'Paid through accounting (over the online limit)',
 } as const
 export type PaymentTerms = keyof typeof PAYMENT_TERMS
 
 export const formatMoney = (amount: number, currency = 'CAD') =>
   new Intl.NumberFormat('en-CA', { style: 'currency', currency, minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(amount)
+
+/** CEI-26-000123: two-digit year and a six-digit running number. Quotes: CEI-Q-26-000123. */
+export const orderNumberFor = (id: number, date = new Date()) => `CEI-${String(date.getUTCFullYear()).slice(-2)}-${String(id).padStart(6, '0')}`
+export const quoteNumberFor = (id: number, date = new Date()) => `CEI-Q-${String(date.getUTCFullYear()).slice(-2)}-${String(id).padStart(6, '0')}`
+/** Accepts the current format and the earlier CE-2026-00001 / Q-2026-00001 numbers. */
+export const isOrderNumber = (v: string) => /^(CEI-\d{2}-\d{6,}|CE-\d{4}-\d{5,})$/.test(v)
+export const isQuoteNumber = (v: string) => /^(CEI-Q-\d{2}-\d{6,}|Q-\d{4}-\d{5,})$/.test(v)

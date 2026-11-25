@@ -5,7 +5,7 @@ import AdminNav from '@/components/admin/AdminNav'
 import { ADMIN_STATUSES, ORDER_STATUSES, PAYMENT_TERMS, formatMoney, statusLabel, statusTone, type PaymentTerms } from '@/lib/shop/order-status'
 import { regionName } from '@/lib/shop/regions'
 
-interface ListRow { id: number; order_number: string; status: string; currency: string; total: string; amount_refunded: string; customer_name: string; company: string; email: string; fulfilment: string; live_mode: number; created_at: string; items: number }
+interface ListRow { id: number; order_number: string; status: string; currency: string; total: string; amount_refunded: string; customer_name: string; company: string; email: string; fulfilment: string; live_mode: number; created_at: string; items: number; freight_status: string; forfeit_flagged_at: string | null }
 interface Detail {
   order: Record<string, string | number | null> & { id: number; order_number: string; status: string; currency: string }
   items: { id: number; sku: string; name: string; slug: string; unit_price: string; quantity: number; line_total: string }[]
@@ -15,7 +15,7 @@ interface Detail {
 
 const when = (d: string | null | undefined) => (d ? new Date(`${String(d).replace(' ', 'T')}${String(d).endsWith('Z') ? '' : 'Z'}`).toLocaleString('en-CA', { dateStyle: 'medium', timeStyle: 'short' }) : '—')
 
-export default function AdminOrders({ initialOrders, initialId, adminEmail, stripe }: { initialOrders: ListRow[]; initialId: number | null; adminEmail: string; stripe: { configured: boolean; live: boolean } }) {
+export default function AdminOrders({ initialOrders, initialId, adminEmail, stripe, yards }: { initialOrders: ListRow[]; initialId: number | null; adminEmail: string; stripe: { configured: boolean; live: boolean }; yards: Record<string, string> }) {
   const router = useRouter()
   const [orders, setOrders] = useState(initialOrders)
   const [filter, setFilter] = useState({ status: '', q: '', all: false })
@@ -25,7 +25,9 @@ export default function AdminOrders({ initialOrders, initialId, adminEmail, stri
   const [busy, setBusy] = useState(false)
   const [edit, setEdit] = useState({ status: '', note: '', trackingCarrier: '', trackingNumber: '', adminNotes: '' })
   const [refund, setRefund] = useState({ amount: '', reason: '' })
-  const [invoice, setInvoice] = useState({ freight: '', days: '14', note: '' })
+  const [invoice, setInvoice] = useState({ freight: '', days: '30', note: '' })
+  const [freightForm, setFreightForm] = useState({ freight: '', offloading: '', brokerage: '', days: '7', note: '' })
+  const [offline, setOffline] = useState({ amount: '', reference: '', days: '5', note: '' })
 
   const loadList = useCallback(async () => {
     const q = new URLSearchParams({ ...(filter.status && { status: filter.status }), ...(filter.q && { q: filter.q }), ...(filter.all && { all: '1' }) })
@@ -63,24 +65,24 @@ export default function AdminOrders({ initialOrders, initialId, adminEmail, stri
     await Promise.all([loadDetail(detail.order.id), loadList()])
   }
 
-  async function invoiceAction(action: 'balance' | 'mark_paid') {
-    if (!detail) return
-    const question = action === 'balance'
-      ? 'Send the balance invoice to the buyer through Stripe? Stripe emails it and the buyer pays by bank debit or card.'
-      : 'Mark this invoice as paid outside Stripe (wire transfer or cheque received)?'
-    if (!window.confirm(question)) return
+  /** Order actions (invoices, offline payments, holds, forfeit): confirm, POST, show the result, reload. */
+  async function orderAction(body: Record<string, unknown>, question: string, done: (d: Record<string, unknown>) => string) {
+    if (!detail || !window.confirm(question)) return
     setBusy(true); setMsg(null)
-    const r = await fetch(`/api/admin/orders/${detail.order.id}/invoice`, {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(action === 'balance' ? { action, freight: invoice.freight, days: Number(invoice.days) } : { action, note: invoice.note }),
-    })
+    const r = await fetch(`/api/admin/orders/${detail.order.id}/invoice`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
     const d = await r.json().catch(() => ({}))
     setBusy(false)
     if (!r.ok) { setMsg({ tone: 'err', text: d.error || 'Could not complete that.' }); return }
-    setMsg({ tone: 'ok', text: action === 'balance' ? 'Balance invoice sent through Stripe.' : 'Invoice marked paid.' })
-    setInvoice({ freight: '', days: '14', note: '' })
+    setMsg({ tone: 'ok', text: done(d) })
+    setInvoice({ freight: '', days: '30', note: '' })
+    setFreightForm({ freight: '', offloading: '', brokerage: '', days: '7', note: '' })
+    setOffline({ amount: '', reference: '', days: '5', note: '' })
     await Promise.all([loadDetail(detail.order.id), loadList()])
   }
+  const mailed = (d: Record<string, unknown>) => (d.emailed ? ' The buyer was emailed.' : ' Email not sent (check SMTP settings).')
+  const invoiceAction = (action: 'balance' | 'mark_paid') => action === 'balance'
+    ? orderAction({ action, freight: invoice.freight, days: Number(invoice.days) }, 'Send the balance invoice to the buyer through Stripe? Stripe emails it and the buyer pays by bank debit or card.', () => 'Balance invoice sent through Stripe.')
+    : orderAction({ action, note: invoice.note }, 'Mark this invoice as paid outside Stripe (EFT or cheque received)?', () => 'Invoice marked paid.')
 
   async function doRefund() {
     if (!detail) return
@@ -126,6 +128,8 @@ export default function AdminOrders({ initialOrders, initialId, adminEmail, stri
         <aside className="ia-list">
           <select className="ia-search" value={filter.status} onChange={e => setFilter(f => ({ ...f, status: e.target.value }))} aria-label="Filter by status">
             <option value="">All active orders</option>
+            <option value="needs_freight">Needs a freight invoice</option>
+            <option value="forfeit">Deposit forfeit due</option>
             {Object.entries(ORDER_STATUSES).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
           </select>
           <input className="ia-search" placeholder="Order #, email, name, company, PO" value={filter.q} onChange={e => setFilter(f => ({ ...f, q: e.target.value }))} />
@@ -136,7 +140,7 @@ export default function AdminOrders({ initialOrders, initialId, adminEmail, stri
               <li key={row.id}>
                 <button type="button" className={`ia-order-row${selected === row.id ? ' on' : ''}`} onClick={() => setSelected(row.id)}>
                   <span className="ia-row-text">
-                    <strong>{row.order_number} · {formatMoney(Number(row.total), row.currency)}{row.live_mode ? '' : ' · test'}</strong>
+                    <strong>{row.order_number} · {formatMoney(Number(row.total), row.currency)}{row.live_mode ? '' : ' · test'}{row.freight_status === 'pending' ? ' · freight to quote' : ''}{row.forfeit_flagged_at && ['deposit_paid', 'invoiced'].includes(row.status) ? ' · forfeit due' : ''}</strong>
                     <small>{row.company || row.customer_name} · {row.items} item{row.items === 1 ? '' : 's'} · {when(row.created_at)}</small>
                   </span>
                   <span className={`ia-pill ia-tone-${statusTone(row.status)}`}>{statusLabel(row.status)}</span>
@@ -179,6 +183,7 @@ export default function AdminOrders({ initialOrders, initialId, adminEmail, stri
                   {' · '}payment: {String(o.payment_method || '—')}{o.paid_at ? ` · ${when(String(o.paid_at))}` : ''}
                   {o.invoice_url ? <> · <a href={String(o.invoice_url)} target="_blank" rel="noreferrer">Stripe invoice ↗</a>{o.invoice_due ? ` due ${String(o.invoice_due).slice(0, 10)}` : ''}</> : null}
                   {o.quote_id ? ` · from quote #${o.quote_id}` : ''}
+                  {o.fx_rate ? ` · USD at ${Number(o.fx_rate).toFixed(4)} USD per CAD (incl. margin)` : ''}
                 </p>
               </section>
 
@@ -189,9 +194,9 @@ export default function AdminOrders({ initialOrders, initialId, adminEmail, stri
                   {o.customer_notes && <p className="ia-quote">{String(o.customer_notes)}</p>}
                 </div>
                 <div>
-                  <h3>{o.fulfilment === 'pickup' ? 'Pickup' : 'Ship to'}</h3>
-                  {o.fulfilment === 'pickup' ? <p>Customer will pick up. Call to book a time.</p>
-                    : <p>{String(o.ship_line1)}{o.ship_line2 ? <><br />{String(o.ship_line2)}</> : null}<br />{String(o.ship_city)}, {regionName(String(o.ship_country), String(o.ship_region))} {String(o.ship_postal)}<br />{String(o.ship_country)}</p>}
+                  <h3>{o.fulfilment === 'pickup' ? `Pickup · ${yards[String(o.pickup_yard)] ?? 'yard not set'}` : 'Ship to'}</h3>
+                  {o.fulfilment === 'pickup' && <p className="ia-note">Customer collects or sends their own carrier. Call to book a time. Billing address:</p>}
+                  <p>{String(o.ship_line1)}{o.ship_line2 ? <><br />{String(o.ship_line2)}</> : null}<br />{String(o.ship_city)}, {regionName(String(o.ship_country), String(o.ship_region))} {String(o.ship_postal)}<br />{String(o.ship_country)}</p>
                 </div>
               </section>
 
@@ -209,12 +214,64 @@ export default function AdminOrders({ initialOrders, initialId, adminEmail, stri
                   <label className="ia-field ia-wide"><span className="ia-label">Note for the timeline (internal)</span><input value={edit.note} onChange={e => setEdit(s => ({ ...s, note: e.target.value }))} /></label>
                   <label className="ia-field ia-wide"><span className="ia-label">Internal notes</span><textarea rows={3} value={edit.adminNotes} onChange={e => setEdit(s => ({ ...s, adminNotes: e.target.value }))} /></label>
                 </div>
-                <p className="ia-note">Marking an order Shipped emails the buyer with the carrier and tracking number. Cancelling returns the stock and emails the buyer; refund the payment separately below.</p>
+                <p className="ia-note">Marking an order Shipped emails the buyer with the carrier and tracking number (CANDRON freight must be paid first). Cancelling returns the stock and emails the buyer; refund the payment separately below.</p>
                 <div className="ia-savebar ia-inline-bar">
                   {msg && <span className={`ia-msg ia-${msg.tone}`} role="status">{msg.text}</span>}
                   <button type="button" className="ia-btn ia-primary" onClick={save} disabled={busy}>{busy ? 'Saving…' : 'Save'}</button>
                 </div>
               </section>
+
+              {o.status === 'awaiting_offline' && (
+                <section className="ia-card ia-attention">
+                  <h3>Payment through accounting</h3>
+                  <p className="ia-note">Over the online limit: nothing was paid online. Accounting sends the invoice (with tax) and collects EFT, bank draft or cheque. Stock is held until <strong>{o.hold_until ? when(String(o.hold_until)) : '—'}</strong>{o.hold_until && new Date(`${String(o.hold_until).replace(' ', 'T')}${String(o.hold_until).endsWith('Z') ? '' : 'Z'}`) < new Date() ? ' (expired: extend it, or the units may sell to someone else)' : ''}.</p>
+                  <div className="ia-grid">
+                    <label className="ia-field"><span className="ia-label">Amount received ({cur}, incl. tax{o.freight_status ? '; freight is paid separately' : ''})</span><input inputMode="decimal" value={offline.amount} onChange={e => setOffline(v => ({ ...v, amount: e.target.value }))} /></label>
+                    <label className="ia-field"><span className="ia-label">Reference (EFT / cheque no.)</span><input value={offline.reference} onChange={e => setOffline(v => ({ ...v, reference: e.target.value }))} /></label>
+                  </div>
+                  <button type="button" className="ia-btn ia-primary ia-mt-btn" disabled={busy || !offline.amount} onClick={() => orderAction({ action: 'offline_paid', amount: Number(offline.amount), reference: offline.reference }, `Record ${formatMoney(Number(offline.amount) || 0, cur)} received and mark the order paid?`, d => `Payment recorded.${mailed(d)}`)}>Mark paid</button>
+                  <div className="ia-grid ia-mt">
+                    <label className="ia-field"><span className="ia-label">Extend hold by (business days)</span><input inputMode="numeric" value={offline.days} onChange={e => setOffline(v => ({ ...v, days: e.target.value.replace(/\D/g, '') }))} /></label>
+                  </div>
+                  <button type="button" className="ia-btn ia-ghost ia-mt-btn" disabled={busy} onClick={() => orderAction({ action: 'extend_hold', days: Number(offline.days) }, `Hold the stock for ${offline.days} more business days?`, d => `Stock held until ${String(d.until).slice(0, 10)}.`)}>Extend hold</button>
+                </section>
+              )}
+
+              {o.freight_status === 'pending' && !['cancelled', 'refunded', 'awaiting_offline'].includes(o.status) && (
+                <section className="ia-card ia-attention">
+                  <h3>Freight invoice</h3>
+                  <p className="ia-note">The buyer chose CANDRON freight. Quote it and send the invoice; the order can’t be marked Shipped until freight is paid.{o.payment_terms === 'offline' ? ' This order is paid through accounting, so the charge is recorded for accounting to invoice.' : ' Stripe adds tax and emails the invoice.'}</p>
+                  <div className="ia-grid">
+                    <label className="ia-field"><span className="ia-label">Freight ({cur}, before tax)</span><input inputMode="decimal" value={freightForm.freight} onChange={e => setFreightForm(v => ({ ...v, freight: e.target.value }))} /></label>
+                    <label className="ia-field"><span className="ia-label">Offloading</span><input inputMode="decimal" placeholder="0" value={freightForm.offloading} onChange={e => setFreightForm(v => ({ ...v, offloading: e.target.value }))} /></label>
+                    <label className="ia-field"><span className="ia-label">Customs brokerage (US)</span><input inputMode="decimal" placeholder="0" value={freightForm.brokerage} onChange={e => setFreightForm(v => ({ ...v, brokerage: e.target.value }))} /></label>
+                    <label className="ia-field"><span className="ia-label">Days to pay</span><input inputMode="numeric" value={freightForm.days} onChange={e => setFreightForm(v => ({ ...v, days: e.target.value.replace(/\D/g, '') }))} /></label>
+                  </div>
+                  <button type="button" className="ia-btn ia-primary ia-mt-btn" disabled={busy} onClick={() => orderAction({ action: 'freight', ...freightForm, days: Number(freightForm.days) }, o.payment_terms === 'offline' ? 'Record this freight charge for accounting to invoice?' : 'Send the freight invoice to the buyer through Stripe?', d => (d.offline ? 'Freight recorded for accounting.' : `Freight invoice sent.${mailed(d)}`))}>{o.payment_terms === 'offline' ? 'Record freight charge' : 'Send freight invoice'}</button>
+                </section>
+              )}
+
+              {o.freight_status === 'invoiced' && (
+                <section className="ia-card">
+                  <h3>Freight payment</h3>
+                  <p className="ia-note">{o.freight_invoice_url ? <>Freight invoice sent (<a href={String(o.freight_invoice_url)} target="_blank" rel="noreferrer">open ↗</a>). Paid online, it updates automatically.</> : 'Freight recorded for accounting to invoice.'} If the buyer paid by EFT or cheque, record it here.</p>
+                  <div className="ia-grid">
+                    <label className="ia-field ia-wide"><span className="ia-label">Payment reference</span><input value={freightForm.note} onChange={e => setFreightForm(v => ({ ...v, note: e.target.value }))} /></label>
+                  </div>
+                  <button type="button" className="ia-btn ia-ghost ia-mt-btn" disabled={busy} onClick={() => orderAction({ action: 'freight_paid', note: freightForm.note }, 'Mark freight as paid?', () => 'Freight marked paid.')}>Mark freight paid (offline)</button>
+                </section>
+              )}
+
+              {o.forfeit_flagged_at && o.payment_terms === 'deposit' && ['deposit_paid', 'invoiced'].includes(o.status) && (
+                <section className="ia-card ia-attention">
+                  <h3>Deposit forfeit</h3>
+                  <p className="ia-note">The balance is still unpaid {when(String(o.forfeit_flagged_at))}. Confirm the forfeit to cancel the order, keep the {formatMoney(Number(o.deposit_amount), cur)} deposit, release the stock and email the buyer. Or agree new dates with the buyer and leave it.</p>
+                  <div className="ia-grid">
+                    <label className="ia-field ia-wide"><span className="ia-label">Note (internal)</span><input value={offline.note} onChange={e => setOffline(v => ({ ...v, note: e.target.value }))} /></label>
+                  </div>
+                  <button type="button" className="ia-btn ia-danger ia-mt-btn" disabled={busy} onClick={() => orderAction({ action: 'forfeit', note: offline.note }, 'Forfeit the deposit and cancel this order? This can’t be undone.', d => `Order cancelled; deposit kept.${mailed(d)}`)}>Confirm forfeit</button>
+                </section>
+              )}
 
               {o.status === 'deposit_paid' && (
                 <section className="ia-card">
@@ -231,7 +288,7 @@ export default function AdminOrders({ initialOrders, initialId, adminEmail, stri
               {o.status === 'invoiced' && (
                 <section className="ia-card">
                   <h3>Invoice payment</h3>
-                  <p className="ia-note">Paid online, the order updates automatically. If the buyer paid by wire transfer or cheque, record it here (it’s also marked paid in Stripe).</p>
+                  <p className="ia-note">Paid online, the order updates automatically. If the buyer paid by EFT or cheque, record it here (it’s also marked paid in Stripe).</p>
                   <div className="ia-grid">
                     <label className="ia-field ia-wide"><span className="ia-label">Payment reference (wire / cheque no.)</span><input value={invoice.note} onChange={e => setInvoice(v => ({ ...v, note: e.target.value }))} /></label>
                   </div>

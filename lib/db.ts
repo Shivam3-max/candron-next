@@ -80,6 +80,8 @@ export type CatalogProduct = RowDataPacket & {
   is_active: number
   purchase_mode: string
   deposit_percent: string | null
+  custom_build: number
+  pickup_yard: string
   primary_image_id: number | null
   created_at: Date
   updated_at: Date

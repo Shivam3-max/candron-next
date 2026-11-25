@@ -5,21 +5,23 @@ import { useState } from 'react'
 import { addToCart, useCart } from '@/lib/shop/cart-store'
 import { trackAddToCart } from '@/lib/analytics'
 
-interface Props { id: number; slug: string; sku: string; name: string; price: number; currency: string; image: string | null; available: number }
+interface Props { id: number; slug: string; sku: string; name: string; price: number; currency: string; image: string | null; available: number; maxQuantity: number }
 
 /** Buy box for "Buy online" listings: quantity, Add to cart and Buy now. */
 export default function AddToCart(p: Props) {
   const router = useRouter()
   const cart = useCart()
   const inCart = cart.find(i => i.id === p.id)?.quantity ?? 0
-  const max = Math.max(0, p.available - inCart)
+  // Online orders are capped per item; larger quantities get volume pricing by quote
+  const limit = Math.min(p.available, p.maxQuantity)
+  const max = Math.max(0, limit - inCart)
   const [qty, setQty] = useState(1)
   const [added, setAdded] = useState(false)
   const quantity = Math.min(Math.max(1, qty), Math.max(1, max))
 
   function add(goToCart: boolean) {
     if (max <= 0) { if (goToCart) router.push('/cart'); return }
-    addToCart({ id: p.id, slug: p.slug, sku: p.sku, name: p.name, price: p.price, currency: p.currency, image: p.image, max: p.available }, quantity)
+    addToCart({ id: p.id, slug: p.slug, sku: p.sku, name: p.name, price: p.price, currency: p.currency, image: p.image, max: limit }, quantity)
     trackAddToCart(p.currency, { item_id: p.sku, item_name: p.name, price: p.price, quantity })
     if (goToCart) router.push('/cart')
     else { setAdded(true); setQty(1) }
@@ -40,7 +42,7 @@ export default function AddToCart(p: Props) {
       </div>
       <div className="shop-buy-actions">
         <button type="button" className="btn btn-primary" onClick={() => add(false)} disabled={max <= 0}>
-          {max <= 0 ? 'All available units are in your cart' : 'Add to cart'}
+          {max <= 0 ? (inCart >= p.maxQuantity ? `Online limit (${p.maxQuantity}) is in your cart` : 'All available units are in your cart') : 'Add to cart'}
         </button>
         <button type="button" className="btn btn-outline-blue" onClick={() => add(true)}>Buy now</button>
       </div>
@@ -49,7 +51,7 @@ export default function AddToCart(p: Props) {
           Added to your cart. <Link href="/cart">View cart and check out →</Link>
         </p>
       )}
-      <p className="shop-buy-note">Secure checkout by Stripe · card or bank debit · tax and freight calculated at checkout</p>
+      <p className="shop-buy-note">Secure checkout by Stripe · card or bank debit · tax at checkout · freight quoted after your order, or pick up</p>
     </div>
   )
 }

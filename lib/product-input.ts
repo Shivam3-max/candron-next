@@ -5,7 +5,7 @@ export type ProductInput = {
   condition_name: string; status: string; manufacturer: string; year_built: number | null
   kva: number | null; rating_unit: string; input_voltage: string; output_voltage: string; phase: string
   frequency: string; winding: string; cooling: string; special_type: string
-  price_min: number | null; price_max: number | null; show_price: boolean; purchase_mode: 'quote' | 'buy' | 'reserve'; deposit_percent: number | null; currency: string
+  price_min: number | null; price_max: number | null; show_price: boolean; purchase_mode: 'quote' | 'buy'; custom_build: boolean; pickup_yard: string; currency: string
   stock_quantity: number; location: string; lead_time: string; warranty: string
   dim_height: number | null; dim_width: number | null; dim_depth: number | null; dim_unit: string
   weight: number | null; weight_unit: string
@@ -61,13 +61,13 @@ export function parseProductInput(body: Record<string, unknown>): ProductInput {
   const currency = text(body.currency || 'CAD', 10).toUpperCase()
   if (!['CAD', 'USD'].includes(currency) || !isValidCurrency(currency)) throw new Error('Currency must be CAD or USD.')
 
-  if (body.purchase_mode === 'buy' || body.purchase_mode === 'reserve') {
-    const label = body.purchase_mode === 'buy' ? '“Buy online”' : '“Reserve with deposit”'
-    if (body.show_price === false || numbers.price_min === null) throw new Error(`${label} needs a price shown on the website.`)
-    if (numbers.price_max !== null && numbers.price_max !== numbers.price_min) throw new Error(`${label} needs one fixed price (clear “Up to”).`)
+  // Custom builds are always quote-only (client, Nov 2026)
+  const customBuild = Boolean(body.custom_build)
+  const buy = body.purchase_mode === 'buy' && !customBuild
+  if (buy) {
+    if (body.show_price === false || numbers.price_min === null) throw new Error('“Buy online” needs a price shown on the website.')
+    if (numbers.price_max !== null && numbers.price_max !== numbers.price_min) throw new Error('“Buy online” needs one fixed price (clear “Up to”).')
   }
-  const depositPercent = nullableNumber(body.deposit_percent)
-  if (depositPercent !== null && !(depositPercent >= 1 && depositPercent <= 100)) throw new Error('Deposit must be between 1% and 100%.')
 
   const highlights = Array.isArray(body.highlights) ? body.highlights.map(h => text(h, 200)).filter(Boolean).slice(0, 12) : []
   const documents = Array.isArray(body.documents)
@@ -99,8 +99,9 @@ export function parseProductInput(body: Record<string, unknown>): ProductInput {
     phase: text(body.phase, 40), frequency: text(body.frequency, 20), winding: text(body.winding, 40),
     cooling: text(body.cooling, 40), special_type: text(body.special_type, 120),
     price_min: numbers.price_min, price_max: numbers.price_max, show_price: body.show_price !== false,
-    purchase_mode: body.purchase_mode === 'buy' || body.purchase_mode === 'reserve' ? body.purchase_mode : 'quote',
-    deposit_percent: depositPercent,
+    purchase_mode: buy ? 'buy' : 'quote',
+    custom_build: customBuild,
+    pickup_yard: text(body.pickup_yard, 40).toLowerCase().replace(/[^a-z0-9-]/g, ''),
     currency,
     stock_quantity: Math.max(0, Math.floor(Number(body.stock_quantity) || 0)),
     location: text(body.location, 120), lead_time: text(body.lead_time, 120), warranty: text(body.warranty, 120),
@@ -115,7 +116,7 @@ export function parseProductInput(body: Record<string, unknown>): ProductInput {
 export const productColumns = [
   'slug', 'sku', 'name', 'short_description', 'description', 'category', 'condition_name', 'status', 'manufacturer',
   'year_built', 'kva', 'rating_unit', 'input_voltage', 'output_voltage', 'phase', 'frequency', 'winding', 'cooling',
-  'special_type', 'price_min', 'price_max', 'show_price', 'purchase_mode', 'deposit_percent', 'currency', 'stock_quantity', 'location', 'lead_time',
+  'special_type', 'price_min', 'price_max', 'show_price', 'purchase_mode', 'custom_build', 'pickup_yard', 'currency', 'stock_quantity', 'location', 'lead_time',
   'warranty', 'dim_height', 'dim_width', 'dim_depth', 'dim_unit', 'weight', 'weight_unit', 'highlights_json',
   'documents_json', 'specs_json', 'is_featured', 'is_active',
 ] as const
@@ -124,7 +125,7 @@ export function productValues(i: ProductInput) {
   return [
     i.slug, i.sku, i.name, i.short_description, i.description, i.category, i.condition_name, i.status, i.manufacturer,
     i.year_built, i.kva, i.rating_unit, i.input_voltage, i.output_voltage, i.phase, i.frequency, i.winding, i.cooling,
-    i.special_type, i.price_min, i.price_max, Number(i.show_price), i.purchase_mode, i.deposit_percent, i.currency, i.stock_quantity, i.location, i.lead_time,
+    i.special_type, i.price_min, i.price_max, Number(i.show_price), i.purchase_mode, Number(i.custom_build), i.pickup_yard, i.currency, i.stock_quantity, i.location, i.lead_time,
     i.warranty, i.dim_height, i.dim_width, i.dim_depth, i.dim_unit, i.weight, i.weight_unit, JSON.stringify(i.highlights),
     JSON.stringify(i.documents), JSON.stringify(i.specs), Number(i.is_featured), Number(i.is_active),
   ]

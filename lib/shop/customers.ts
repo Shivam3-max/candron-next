@@ -6,6 +6,8 @@ import type { ResultSetHeader, RowDataPacket } from 'mysql2/promise'
 import { getDb, isDatabaseConfigured } from '@/lib/db'
 import { isMailConfigured, sendMail } from '@/lib/mailer'
 import { formatPostal, isCountry, isPostalCode, isRegion } from '@/lib/shop/regions'
+import { getShopSettings } from '@/lib/shop/settings'
+import { SITE } from '@/lib/seo'
 
 const COOKIE = 'candron_customer'
 const SESSION_SECONDS = 60 * 60 * 24 * 30
@@ -181,6 +183,27 @@ export async function addTaxDocument(customerId: number, file: File, note: strin
     [customerId, 'tax_exempt', name, file.type, Buffer.from(await file.arrayBuffer()), text(note, 500)],
   )
   await getDb().execute("UPDATE customers SET tax_exempt_status='pending' WHERE id=? AND tax_exempt_status<>'approved'", [customerId])
+  await notifyAccountingOfCertificate(customerId, name)
+}
+
+/** Lets accounting know a certificate is waiting for review (Admin → Customers). Never throws. */
+async function notifyAccountingOfCertificate(customerId: number, fileName: string) {
+  if (!isMailConfigured()) return
+  try {
+    const settings = await getShopSettings()
+    const to = (settings.accountingEmail || settings.notifyEmail).split(',').map(s => s.trim()).filter(Boolean)
+    if (!to.length) return
+    const [rows] = await getDb().execute<CustomerRow[]>('SELECT * FROM customers WHERE id=?', [customerId])
+    const c = rows[0]
+    if (!c) return
+    await sendMail({
+      to, replyTo: c.email,
+      subject: `Tax exemption certificate to review: ${c.company || c.name || c.email}`,
+      text: `${c.name || c.email}${c.company ? ` (${c.company})` : ''} uploaded a tax exemption certificate (${fileName}).\n\nReview and approve or reject it: ${SITE}/admin/customers\n\nApproved customers aren't charged the exempt tax on new orders and invoices.`,
+    })
+  } catch (error) {
+    console.warn('[account] certificate notification failed', error instanceof Error ? error.message : error)
+  }
 }
 
 export async function listDocuments(customerId: number) {

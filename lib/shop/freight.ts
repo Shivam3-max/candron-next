@@ -6,6 +6,10 @@ export type FreightResult =
   | { ok: true; amount: number; label: string; billedLater: boolean }
   | { ok: false; error: string }
 
+/** Freight label for "CANDRON freight, invoiced after the order" (also used to recognise such orders). */
+export const FREIGHT_LATER = 'Freight quoted separately'
+export const PICKUP_LABEL = 'Pickup / own carrier'
+
 const toLb = (weight: number | null, unit: string) => (weight === null ? null : unit === 'kg' ? weight * 2.20462 : weight)
 export const lineWeightLb = (weight: number | null, unit: string, quantity: number) => {
   const w = toLb(weight, unit)
@@ -34,15 +38,14 @@ export function calculateFreight(
   address: { country: string; region: string; postal: string },
   lines: FreightLine[],
 ): FreightResult {
-  if (fulfilment === 'pickup') {
-    return settings.pickup.enabled ? { ok: true, amount: 0, label: settings.pickup.label || 'Pick up', billedLater: false } : { ok: false, error: 'Pickup is not available.' }
-  }
+  // Yard checks (one yard for the whole cart) happen in the order code
+  if (fulfilment === 'pickup') return { ok: true, amount: 0, label: PICKUP_LABEL, billedLater: false }
   if (!settings.shipCountries.includes(address.country as ShopSettings['shipCountries'][number])) {
     return { ok: false, error: 'We can’t ship online orders to that country yet. Please request a quote.' }
   }
   const { mode, percent, minimum } = settings.freight
   if (mode === 'quote') {
-    return { ok: true, amount: 0, label: 'Freight quoted separately', billedLater: true }
+    return { ok: true, amount: 0, label: FREIGHT_LATER, billedLater: true }
   }
   if (mode === 'percent') {
     const goods = lines.reduce((s, l) => s + l.lineTotal, 0)

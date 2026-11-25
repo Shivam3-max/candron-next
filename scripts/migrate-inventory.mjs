@@ -12,6 +12,8 @@ const COLUMNS = [
   ['show_price', 'TINYINT(1) NOT NULL DEFAULT 1 AFTER price_max'],
   ['purchase_mode', "VARCHAR(12) NOT NULL DEFAULT 'quote' AFTER show_price"],
   ['deposit_percent', 'DECIMAL(5,2) NULL AFTER purchase_mode'],
+  ['custom_build', 'TINYINT(1) NOT NULL DEFAULT 0 AFTER deposit_percent'],
+  ['pickup_yard', "VARCHAR(40) NOT NULL DEFAULT '' AFTER custom_build"],
   ['location', "VARCHAR(120) NOT NULL DEFAULT '' AFTER stock_quantity"],
   ['warranty', "VARCHAR(120) NOT NULL DEFAULT '' AFTER lead_time"],
   ['dim_height', 'DECIMAL(10,2) NULL AFTER warranty'],
@@ -40,6 +42,9 @@ export async function ensureInventorySchema(connection) {
   if (existing.get('condition_name') === 'enum') {
     await connection.query("ALTER TABLE products MODIFY condition_name VARCHAR(30) NOT NULL DEFAULT 'New'")
   }
+  // Online deposits were dropped (client, Nov 2026): MV/HV go through the sales team
+  const [reserve] = await connection.query("UPDATE products SET purchase_mode='quote' WHERE purchase_mode='reserve'")
+  if (reserve.affectedRows) console.log(`Inventory: ${reserve.affectedRows} "Reserve with deposit" listing(s) changed to quote-only.`)
   if (added) console.log(`Inventory schema: added ${added} column(s).`)
 }
 
@@ -55,6 +60,14 @@ const ORDER_COLUMNS = [
   ['customer_id', 'BIGINT UNSIGNED NULL AFTER invoice_due'],
   ['reminder_opt_in', 'TINYINT(1) NOT NULL DEFAULT 0 AFTER customer_id'],
   ['reminder_sent', 'TINYINT(1) NOT NULL DEFAULT 0 AFTER reminder_opt_in'],
+  ['pickup_yard', "VARCHAR(40) NOT NULL DEFAULT '' AFTER reminder_sent"],
+  ['fx_rate', 'DECIMAL(12,6) NULL AFTER pickup_yard'],
+  ['hold_until', 'DATETIME NULL AFTER fx_rate'],
+  ['freight_status', "VARCHAR(12) NOT NULL DEFAULT '' AFTER hold_until"],
+  ['freight_invoice_id', 'VARCHAR(255) NULL AFTER freight_status'],
+  ['freight_invoice_url', "VARCHAR(500) NOT NULL DEFAULT '' AFTER freight_invoice_id"],
+  ['balance_reminders', 'TINYINT UNSIGNED NOT NULL DEFAULT 0 AFTER freight_invoice_url'],
+  ['forfeit_flagged_at', 'DATETIME NULL AFTER balance_reminders'],
 ]
 
 export async function ensureShopSchema(connection) {
@@ -70,4 +83,15 @@ export async function ensureShopSchema(connection) {
     added += 1
   }
   if (added) console.log(`Shop schema: added ${added} order column(s).`)
+  const [quoteCols] = await connection.execute(
+    `SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'quotes' AND COLUMN_NAME = 'pickup_yard'`,
+  )
+  if (!quoteCols.length) await connection.query("ALTER TABLE quotes ADD COLUMN pickup_yard VARCHAR(40) NOT NULL DEFAULT '' AFTER fulfilment")
+  // CEI-Q-26-000123 is 15 characters; widen in case an install has narrower columns
+  const [narrow] = await connection.execute(
+    `SELECT TABLE_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = DATABASE()
+     AND ((TABLE_NAME = 'orders' AND COLUMN_NAME = 'order_number') OR (TABLE_NAME = 'quotes' AND COLUMN_NAME = 'quote_number'))
+     AND CHARACTER_MAXIMUM_LENGTH < 24`,
+  )
+  for (const c of narrow) await connection.query(`ALTER TABLE ${c.TABLE_NAME} MODIFY ${c.COLUMN_NAME} VARCHAR(24) NULL`)
 }

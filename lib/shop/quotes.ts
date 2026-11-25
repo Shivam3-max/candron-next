@@ -5,10 +5,12 @@ import type { ResultSetHeader, RowDataPacket } from 'mysql2/promise'
 import { ACTIVE_HOLDS, getDb, isDatabaseConfigured } from '@/lib/db'
 import { isMailConfigured, sendMail } from '@/lib/mailer'
 import { SITE } from '@/lib/seo'
-import { formatMoney, type PaymentTerms } from '@/lib/shop/order-status'
-import { getShopSettings, shopIsOpen } from '@/lib/shop/settings'
+import { formatMoney, isQuoteNumber, quoteNumberFor, type PaymentTerms } from '@/lib/shop/order-status'
+import { findYard, getShopSettings, overOnlineLimit, shopIsOpen } from '@/lib/shop/settings'
+import { usdCadRate } from '@/lib/shop/fx'
+import { sendOrderEmails } from '@/lib/shop/email'
 import {
-  abandonOrder, addEvent, depositOf, inTransaction, insertOrder, issueInvoice, openCheckout, ShopError, takeStock,
+  abandonOrder, addBusinessDays, addEvent, depositOf, inTransaction, insertOrder, issueInvoice, openCheckout, ShopError, takeStock,
   tokenMatches, validateAddress, type OrderDraft,
 } from '@/lib/shop/orders'
 
@@ -16,7 +18,7 @@ export type QuoteStatus = 'draft' | 'sent' | 'accepted' | 'expired' | 'cancelled
 
 export type QuoteRecord = RowDataPacket & {
   id: number; quote_number: string; access_token: string; status: QuoteStatus; currency: string
-  customer_name: string; company: string; email: string; phone: string; fulfilment: 'delivery' | 'pickup'
+  customer_name: string; company: string; email: string; phone: string; fulfilment: 'delivery' | 'pickup'; pickup_yard: string
   ship_line1: string; ship_line2: string; ship_city: string; ship_region: string; ship_postal: string; ship_country: string
   freight: string; freight_note: string; payment_terms: PaymentTerms; deposit_percent: string; net_days: number
   valid_until: Date | string | null; message: string | null; internal_notes: string | null; request_id: number | null; order_id: number | null
@@ -28,6 +30,7 @@ export interface QuoteInput {
   currency: 'CAD' | 'USD'
   customer_name: string; company: string; email: string; phone: string
   fulfilment: 'delivery' | 'pickup'
+  pickup_yard: string
   ship: { line1: string; line2: string; city: string; region: string; postal: string; country: string }
   items: { product_id: number | null; sku: string; name: string; description: string; unit_price: number; quantity: number }[]
   freight: number; freight_note: string
@@ -59,6 +62,7 @@ export function parseQuoteInput(b: Record<string, unknown>): QuoteInput {
     currency: b.currency === 'USD' ? 'USD' : 'CAD',
     customer_name: text(b.customer_name, 160), company: text(b.company, 160), email: text(b.email, 254).toLowerCase(), phone: text(b.phone, 40),
     fulfilment: b.fulfilment === 'pickup' ? 'pickup' : 'delivery',
+    pickup_yard: b.fulfilment === 'pickup' ? text(b.pickup_yard, 40) : '',
     ship: {
       line1: text(ship.line1, 200), line2: text(ship.line2, 200), city: text(ship.city, 120), region: text(ship.region, 4).toUpperCase(),
       postal: text(ship.postal, 20), country: text(ship.country, 2).toUpperCase() || 'CA',
@@ -66,7 +70,7 @@ export function parseQuoteInput(b: Record<string, unknown>): QuoteInput {
     items,
     freight: Math.max(0, round2(Number(b.freight) || 0)), freight_note: text(b.freight_note, 255) || 'Freight',
     payment_terms: terms,
-    deposit_percent: Math.min(100, Math.max(1, round2(Number(b.deposit_percent) || 25))),
+    deposit_percent: Math.min(100, Math.max(1, round2(Number(b.deposit_percent) || 10))),
     net_days: Math.min(120, Math.max(1, Math.round(Number(b.net_days) || 30))),
     valid_until: /^\d{4}-\d{2}-\d{2}$/.test(valid) ? valid : null,
     message: text(b.message, 5000), internal_notes: text(b.internal_notes, 5000),
@@ -76,25 +80,26 @@ export function parseQuoteInput(b: Record<string, unknown>): QuoteInput {
 }
 
 /** Extra checks before a quote can be sent to a buyer. */
-function assertSendable(q: QuoteInput) {
+function assertSendable(q: QuoteInput, settings: Awaited<ReturnType<typeof getShopSettings>>) {
   if (!q.customer_name) throw new ShopError('Add the customer’s name.')
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(q.email)) throw new ShopError('Add a valid customer email.')
   if (!q.items.length) throw new ShopError('Add at least one line.')
-  if (q.fulfilment === 'delivery') {
-    try { q.ship = validateAddress(q.ship) } catch (e) { throw new ShopError(`Delivery address: ${(e as Error).message}`) }
-  }
+  if (q.fulfilment === 'pickup' && !findYard(settings, q.pickup_yard)) throw new ShopError('Choose the pickup yard.')
+  // Pickups need the buyer's billing address (invoice, and tax for pickups at the US yard)
+  const what = q.fulfilment === 'pickup' ? 'Billing address' : 'Delivery address'
+  try { q.ship = validateAddress(q.ship, q.fulfilment === 'pickup' ? 'billing' : 'delivery') } catch (e) { throw new ShopError(`${what}: ${(e as Error).message}`) }
   if (q.valid_until && q.valid_until < today()) throw new ShopError('“Valid until” is in the past.')
 }
 
-const COLS = ['currency', 'customer_name', 'company', 'email', 'phone', 'fulfilment', 'ship_line1', 'ship_line2', 'ship_city', 'ship_region',
+const COLS = ['currency', 'customer_name', 'company', 'email', 'phone', 'fulfilment', 'pickup_yard', 'ship_line1', 'ship_line2', 'ship_city', 'ship_region',
   'ship_postal', 'ship_country', 'freight', 'freight_note', 'payment_terms', 'deposit_percent', 'net_days', 'valid_until', 'message', 'internal_notes', 'request_id'] as const
-const colValues = (q: QuoteInput) => [q.currency, q.customer_name, q.company, q.email, q.phone, q.fulfilment, q.ship.line1, q.ship.line2, q.ship.city,
+const colValues = (q: QuoteInput) => [q.currency, q.customer_name, q.company, q.email, q.phone, q.fulfilment, q.pickup_yard, q.ship.line1, q.ship.line2, q.ship.city,
   q.ship.region, q.ship.postal, q.ship.country, q.freight, q.freight_note, q.payment_terms, q.deposit_percent, q.net_days, q.valid_until,
   q.message || null, q.internal_notes || null, q.request_id]
 
 /** Creates or updates a draft/sent quote (accepted, expired and cancelled quotes are read-only). */
 export async function saveQuote(id: number | null, q: QuoteInput, admin: string, opts: { send?: boolean } = {}) {
-  if (opts.send) assertSendable(q)
+  if (opts.send) assertSendable(q, await getShopSettings())
   const quoteId = await inTransaction(async conn => {
     let qid = id
     if (qid) {
@@ -109,7 +114,7 @@ export async function saveQuote(id: number | null, q: QuoteInput, admin: string,
         [randomBytes(32).toString('base64url'), admin, ...colValues(q)],
       )
       qid = res.insertId
-      await conn.execute('UPDATE quotes SET quote_number=? WHERE id=?', [`Q-${new Date().getUTCFullYear()}-${String(qid).padStart(5, '0')}`, qid])
+      await conn.execute('UPDATE quotes SET quote_number=? WHERE id=?', [quoteNumberFor(qid!), qid])
     }
     for (const [i, it] of q.items.entries()) {
       await conn.execute(
@@ -150,7 +155,7 @@ export async function loadQuote(where: { id?: number; number?: string }) {
 }
 
 export async function loadQuoteForCustomer(number: string, token: string) {
-  if (!/^Q-\d{4}-\d{5,}$/.test(number) || !/^[A-Za-z0-9_-]{43}$/.test(token)) return null
+  if (!isQuoteNumber(number) || !/^[A-Za-z0-9_-]{43}$/.test(token)) return null
   const found = await loadQuote({ number })
   if (!found || found.quote.status === 'draft' || !tokenMatches(found.quote.access_token, token)) return null
   return found
@@ -253,6 +258,9 @@ export async function acceptQuote(number: string, token: string, opts: { poNumbe
   if (!found) throw new ShopError('Quote not found.')
   if (found.quote.status !== 'sent') throw new ShopError(found.quote.status === 'expired' ? 'This quote has expired. Please contact us for an updated quote.' : `This quote is ${found.quote.status}.`)
   const settings = await getShopSettings()
+  // The online limit is in CAD; USD quotes are compared at the Bank of Canada rate
+  const amountCad = found.quote.currency === 'USD' ? found.total * (await usdCadRate().catch(() => { throw new ShopError('We couldn’t confirm the exchange rate. Please try again shortly.') })).cadPerUsd : found.total
+  const offline = overOnlineLimit(settings, amountCad)
   const created = await inTransaction(async conn => {
     const [locked] = await conn.execute<QuoteRecord[]>('SELECT * FROM quotes WHERE id=? FOR UPDATE', [found.quote.id])
     const q = locked[0]
@@ -279,6 +287,8 @@ export async function acceptQuote(number: string, token: string, opts: { poNumbe
     const [slugs] = await conn.execute<(RowDataPacket & { id: number; slug: string })[]>(
       `SELECT id, slug FROM products WHERE id IN (${found.items.map(i => i.product_id ?? 0).join(',') || 0})`,
     )
+    // Over the online limit (whole order, CAD before tax): nothing is paid online; accounting arranges payment
+    const terms: PaymentTerms = offline ? 'offline' : q.payment_terms
     const draft: OrderDraft = {
       currency: q.currency,
       lines: found.items.map(i => ({ productId: i.product_id, sku: i.sku, name: i.name, slug: slugs.find(s => s.id === i.product_id)?.slug ?? '', unitPrice: Number(i.unit_price), quantity: i.quantity })),
@@ -286,20 +296,26 @@ export async function acceptQuote(number: string, token: string, opts: { poNumbe
       contact: { name: q.customer_name, company: q.company, email: q.email, phone: q.phone, poNumber: opts.poNumber.slice(0, 60), notes: '' },
       fulfilment: q.fulfilment,
       ship: { line1: q.ship_line1, line2: q.ship_line2, city: q.ship_city, region: q.ship_region, postal: q.ship_postal, country: q.ship_country },
-      paymentTerms: q.payment_terms,
-      depositAmount: q.payment_terms === 'deposit' ? depositOf(found.total, Number(q.deposit_percent)) : 0,
+      yard: q.pickup_yard || '',
+      paymentTerms: terms,
+      depositAmount: terms === 'deposit' ? depositOf(found.total, Number(q.deposit_percent)) : 0,
       quoteId: q.id,
-      hold: q.payment_terms !== 'net',
+      hold: terms === 'net' ? 'none' : terms === 'offline' ? addBusinessDays(new Date(), settings.offlineHoldDays) : 'checkout',
     }
     const order = await insertOrder(conn, draft, q.email)
-    if (q.payment_terms === 'net') {
-      await takeStock(conn, order.orderId, true)
+    if (terms === 'net') await takeStock(conn, order.orderId, true)
+    if (terms === 'net' || terms === 'offline') {
       await conn.execute("UPDATE quotes SET status='accepted', accepted_at=UTC_TIMESTAMP(), order_id=? WHERE id=?", [order.orderId, q.id])
     } else {
       await conn.execute('UPDATE quotes SET order_id=? WHERE id=?', [order.orderId, q.id])
     }
-    return { ...order, draft, terms: q.payment_terms, netDays: q.net_days }
+    return { ...order, draft, terms, netDays: q.net_days }
   })
+
+  if (created.terms === 'offline') {
+    await sendOrderEmails(created.orderId, 'offline')
+    return { url: `/order/${created.orderNumber}?t=${created.token}` }
+  }
 
   if (created.terms === 'net') {
     try {
@@ -318,7 +334,7 @@ export async function acceptQuote(number: string, token: string, opts: { poNumbe
     return { url: `/order/${created.orderNumber}?t=${created.token}` }
   }
   try {
-    const url = await openCheckout({ ...created, settings, origin, cancelPath: `/quote/${number}?t=${token}` })
+    const url = await openCheckout({ ...created, settings, origin, amountCad, cancelPath: `/quote/${number}?t=${token}` })
     return { url }
   } catch (error) {
     await abandonOrder(created.orderId, error)

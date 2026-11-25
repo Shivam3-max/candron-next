@@ -6,6 +6,8 @@ import { loadOrderForCustomer } from '@/lib/shop/orders'
 import { formatMoney, ORDER_STATUSES, statusLabel, statusTone, type OrderStatus } from '@/lib/shop/order-status'
 import { regionName } from '@/lib/shop/regions'
 import OrderPaidTracker from '@/components/shop/OrderPaidTracker'
+import { FREIGHT_LATER } from '@/lib/shop/freight'
+import { getShopSettings } from '@/lib/shop/settings'
 
 export const dynamic = 'force-dynamic'
 export const metadata: Metadata = { title: 'Your order', robots: { index: false, follow: false } }
@@ -21,11 +23,16 @@ export default async function OrderPage({ params, searchParams }: Props) {
   const { order, items } = found
   const cur = order.currency
   const status = order.status
-  const step = STEPS.indexOf(['payment_processing', 'deposit_paid', 'invoiced'].includes(status) ? 'paid' : status)
-  const firstStep = status === 'payment_processing' ? 'Payment processing' : status === 'deposit_paid' ? 'Deposit paid' : status === 'invoiced' ? 'Invoice sent' : null
+  const settings = await getShopSettings()
+  const step = STEPS.indexOf(['payment_processing', 'deposit_paid', 'invoiced', 'awaiting_offline'].includes(status) ? 'paid' : status)
+  const firstStep = status === 'payment_processing' ? 'Payment processing' : status === 'deposit_paid' ? 'Deposit paid' : status === 'invoiced' ? 'Invoice sent' : status === 'awaiting_offline' ? 'Awaiting payment' : null
   const staged = order.payment_terms !== 'pay_now'
-  const due = order.invoice_due ? String(order.invoice_due instanceof Date ? order.invoice_due.toISOString() : order.invoice_due).slice(0, 10) : null
-  const freightText = order.freight_note === 'Freight quoted separately' ? 'Quoted separately' : formatMoney(Number(order.freight), cur)
+  const day = (d: Date | string | null) => (d ? String(d instanceof Date ? d.toISOString() : d).slice(0, 10) : null)
+  const due = day(order.invoice_due)
+  const freightLater = order.freight_note === FREIGHT_LATER
+  const freightText = order.fulfilment === 'pickup' ? 'No charge' : freightLater ? (order.freight_status === 'paid' ? 'Paid' : 'Invoiced separately') : formatMoney(Number(order.freight), cur)
+  const yard = order.fulfilment === 'pickup' ? settings.pickup.yards.find(y => y.id === order.pickup_yard) : null
+  const accounting = settings.accountingEmail.split(',')[0]?.trim()
 
   return (
     <section className="shop-page">
@@ -65,8 +72,13 @@ export default async function OrderPage({ params, searchParams }: Props) {
             ))}
           </ul>
           <div className="shop-summary-row"><span>Subtotal</span><strong>{formatMoney(Number(order.subtotal), cur)}</strong></div>
-          <div className="shop-summary-row"><span>{order.freight_note || 'Freight'}</span><strong>{freightText}</strong></div>
-          {staged && order.status !== 'paid' ? (
+          <div className="shop-summary-row"><span>{order.fulfilment === 'pickup' ? 'Pickup / own carrier' : freightLater ? 'Freight' : order.freight_note || 'Freight'}</span><strong>{freightText}</strong></div>
+          {order.payment_terms === 'offline' && order.status !== 'paid' ? (
+            <>
+              <div className="shop-summary-row shop-total"><span>Total before tax ({cur})</span><strong>{formatMoney(Number(order.subtotal) + Number(order.freight), cur)}</strong></div>
+              <p className="shop-fine">Tax is added on the invoice from our accounting team.</p>
+            </>
+          ) : staged && order.status !== 'paid' ? (
             <>
               {order.payment_terms === 'deposit' && <div className="shop-summary-row"><span>Deposit (before tax)</span><strong>{formatMoney(Number(order.deposit_amount), cur)}</strong></div>}
               <div className="shop-summary-row"><span>Paid so far (incl. tax)</span><strong>{formatMoney(Number(order.amount_paid), cur)}</strong></div>
@@ -81,6 +93,27 @@ export default async function OrderPage({ params, searchParams }: Props) {
           {Number(order.amount_refunded) > 0 && <div className="shop-summary-row"><span>Refunded</span><strong>−{formatMoney(Number(order.amount_refunded), cur)}</strong></div>}
         </div>
 
+        {status === 'awaiting_offline' && (
+          <div className="shop-card shop-offline">
+            <strong>Payment by EFT, bank draft or cheque</strong>
+            <p>Orders over {formatMoney(settings.onlineLimit ?? 0, 'CAD')} before tax are paid through our accounting team. They’ll send your invoice (with tax) and payment details{accounting ? <>; you can also email <a href={`mailto:${accounting}`}>{accounting}</a></> : null}.{order.hold_until ? ` We’re holding the equipment for you until ${day(order.hold_until)}.` : ''}</p>
+          </div>
+        )}
+
+        {order.freight_status === 'invoiced' && order.freight_invoice_url && (
+          <div className="shop-card shop-invoice">
+            <div>
+              <h2>Freight invoice ready</h2>
+              <p>Your order ships as soon as freight is paid. Pay online by bank debit or card.</p>
+            </div>
+            <a href={order.freight_invoice_url} className="btn btn-primary" target="_blank" rel="noreferrer">View and pay freight invoice</a>
+          </div>
+        )}
+
+        {order.payment_terms === 'pay_now' && order.invoice_url && ['paid', 'processing', 'ready_to_ship', 'shipped', 'delivered'].includes(status) && (
+          <p className="shop-fine"><a href={order.invoice_url} target="_blank" rel="noreferrer">View your invoice ↗</a></p>
+        )}
+
         {status === 'invoiced' && order.invoice_url && (
           <div className="shop-card shop-invoice">
             <div>
@@ -93,9 +126,9 @@ export default async function OrderPage({ params, searchParams }: Props) {
 
         <div className="shop-card shop-two">
           <div>
-            <h2>{order.fulfilment === 'pickup' ? 'Pickup' : 'Delivery address'}</h2>
+            <h2>{order.fulfilment === 'pickup' ? `Pickup${yard ? ` · ${yard.name} yard` : ''}` : 'Delivery address'}</h2>
             {order.fulfilment === 'pickup'
-              ? <p>We’ll call you to book a pickup time once the order is ready.</p>
+              ? <p>Collect it yourself or send your own carrier. We’ll call you with the exact location and to book a time once the order is ready.{settings.pickup.hours ? <><br /><small>{settings.pickup.hours}</small></> : null}</p>
               : <p>{order.ship_line1}{order.ship_line2 && <><br />{order.ship_line2}</>}<br />{order.ship_city}, {regionName(order.ship_country, order.ship_region)} {order.ship_postal}<br />{order.ship_country === 'CA' ? 'Canada' : 'United States'}</p>}
           </div>
           <div>
