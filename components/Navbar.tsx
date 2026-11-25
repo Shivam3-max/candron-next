@@ -48,12 +48,6 @@ const capabilitiesItems = [
     icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M14.7 6.3a4 4 0 0 0-5-5l2.1 2.1-8.4 8.4-2.1-2.1a4 4 0 0 0 5 5l8.4-8.4z"/><path d="M13 11l8 8-2 2-8-8"/></svg>,
   },
   {
-    href: '/manufacturing',
-    label: 'Canadian-Made',
-    desc: 'How we source, inspect and deliver Canadian-made equipment',
-    icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 21V9l6 4V9l6 4V3h6v18H3z"/></svg>,
-  },
-  {
     href: '/testing',
     label: 'Testing',
     desc: 'Witnessed factory tests and documented results',
